@@ -8,7 +8,7 @@
   },
   "scope": "Union of both tracked engine trees excluding Addons/, docs/ and upstream/",
   "normalisation": "CRLF to LF for text; binary bytes unchanged",
-  "unchanged_files": 3972,
+  "unchanged_files": 3973,
   "groups": {
     "build": {
       "removal_path": "Replace external native CMake policy with equivalent upstream targets; preserve source selection and matching-data preflight.",
@@ -221,13 +221,6 @@
       "status": "added",
       "upstream_lf_sha256": null,
       "native_lf_sha256": "319cff6e7a31f0f2a41c475dca42890aa5d19fe16017e2290f8c1d4e14f76481"
-    },
-    {
-      "path": "Extern/imgui/architext.regular.ttf",
-      "group": "upstream-omissions",
-      "status": "deleted",
-      "upstream_lf_sha256": "a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a",
-      "native_lf_sha256": null
     },
     {
       "path": "OVP/D3D9Client/doc/images/Guide to D3D9Client.docx",

@@ -7,5 +7,6 @@
   "renderer_Cargo_metadata_change": "license = MIT for independent original crate",
   "runtime_equation_scenario_ROM_or_tolerance_changes": false,
   "notice_patch": "orbiter/upstream/nassp-v9/09-publication-notices.patch",
-  "CI_build_policy_delta": "orbiter/nix/flake.nix adds Linux zlib for hosted headless CI; simulation/runtime source unchanged"
+  "CI_build_policy_delta": "orbiter/nix/flake.nix adds Linux zlib for hosted headless CI; simulation/runtime source unchanged",
+  "Architext": "Exact pinned upstream 30568-byte TTF restored with existing FFC notice and unchanged font CMake rule; raw-file publication permission unverified"
 }

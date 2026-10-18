@@ -45,34 +45,26 @@ upstream project grant and records their origin. Packaging is held pending the
 selected resource/source/notice review; separating external planetary data does
 not mean embedded panels disappear from a binary or need no review.
 
-## Architext: preserve preference, resolve publication
+## Architext: unchanged upstream treatment, permission caveat
 
-The private POC retains the unmodified upstream Architext TTF, SHA256
-`a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a`.
-The upstream [FFC notice](../orbiter/Extern/imgui/architext.regular%20-%20FFC%20License.txt)
-is preserved. Its distribution clause requires written permission to publish;
-its separate embedding clause does not conclusively resolve installing a loose
-TTF in a downloadable application's `Fonts` directory.
+The user chose to follow OpenOrbiter's font treatment and change as little as
+possible. This candidate therefore retains the **unchanged** pinned Architext
+TTF at `orbiter/Extern/imgui/architext.regular.ttf`, SHA256
+`a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a`,
+and its original [FFC notice](../orbiter/Extern/imgui/architext.regular%20-%20FFC%20License.txt).
+The stock CMake font-install rule and the native renderer's pre-existing
+Roboto/JetBrains Mono mapping are unchanged. This does not assert that the
+native app was previously drawing Architext or adopt a new font replacement.
 
-**Proposed source-publication treatment, awaiting review:** keep the TTF out of
-the public Git history and retain its license, pin, hash and setup instructions.
-A user who lawfully obtains the unchanged upstream copy can supply it locally at
-`orbiter/Extern/imgui/architext.regular.ttf`. That path is ignored in this candidate
-so it cannot be accidentally committed. The stock CMake font-install rule is
-unchanged and will install that copy into `Fonts`, following upstream. Without
-the separate copy, the stock font installation cannot complete; the native build
-does not use that install rule. No automatic download or author contact occurs.
-
-No font has been replaced or permanently removed from the private baseline.
-The working native renderer already used embedded Roboto/JetBrains Mono before
-this publication work; this candidate does not change that mapping or assert
-that the native app was previously rendering with Architext. Selecting Architext
-as a new native font would be a separate implementation decision.
-
-Publicly bundling the raw TTF, or an app installing it as a loose file, remains
-blocked until the grant is clarified. Do not infer that matching upstream bytes
-or keeping it inside an app automatically clears that distribution. The user
-preference to retain Architext is preserved while that question is resolved.
+The FFC notice says publication of the raw font requires written permission;
+its embedding clause does not conclusively address a loose font copied into an
+application's `Fonts` directory. Matching OpenOrbiter's pinned bytes and
+upstream practice is provenance, **not** independent proof of publication
+permission. We have not verified a written grant. The raw-file question is
+plainly flagged for final source review; any binary package containing a loose
+font remains blocked pending its own grant and installation review. This source
+choice records the user's direction without presenting the legal uncertainty
+as cleared.
 
 ## Provenance and honest validation
 
@@ -89,8 +81,9 @@ screenshots, VM images, installers and backup archives are not imported.
 
 The candidate completed a fresh 819-step macOS native build. Portable helper
 and link checks passed; the corrected CPU subset outcome is recorded in the
-local validation checkpoint. The integrated CI overlay still requires independent
-review of its report upload path before publication. CI reports must state each
+local validation checkpoint. The integrated CI overlay includes the corrected report-upload guard; policy,
+eight report regressions and actionlint passed locally. Final source scope
+review and hosted execution remain outstanding. CI reports must state each
 platform's actual coverage. Binary uploads remain held by packaging,
 corresponding-source, resource-rights, dependency-notice, relocation and platform
 validation gates. Do not run hosted jobs in the private archive.

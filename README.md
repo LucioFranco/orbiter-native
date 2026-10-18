@@ -37,4 +37,5 @@ v9 addon. The private POC archive retains the historical top-level `NASSP/`; thi
 clean source candidate omits that inactive duplicate. Matching original NASSP data and planetary archives are explicit
 external inputs. Independent original work uses MIT; inherited grants remain authoritative.
 See [component licenses](LICENSE.md) and the [current publication treatment](docs/publication-treatment.md).
-Binary previews and the proposed Architext source treatment remain gated.
+Binary previews remain gated. The pinned Architext font is retained unchanged;
+its raw-file publication permission is an explicit final review caveat.

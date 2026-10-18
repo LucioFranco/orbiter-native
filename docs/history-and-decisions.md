@@ -4,7 +4,7 @@ On 2026-10-18 the user chose a fresh public `orbiter-native` development
 repository, retaining `nassp-universal` as a private POC archive. Original
 independent code uses MIT; inherited grants remain. Three-OS CI and gated previews
 are approved in principle. See [current publication treatment](publication-treatment.md)
-for exact source scope and the proposed, unresolved Architext publication handling.
+for exact source scope and the explicit Architext publication-permission caveat.
 The private feature-branch publication plan below records the earlier phase.
 
 The goal is to run real original NASSP missions on a native host, preserve

@@ -3,15 +3,14 @@
   "prepared_date": "2026-10-18",
   "POC_source_commit": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
   "fresh_history": true,
-  "included_count": 6262,
-  "excluded_count": 2015,
+  "included_count": 6263,
+  "excluded_count": 2014,
   "exclusion_groups": {
     "Inactive duplicate legacy NASSP tree; preserved in private POC": 1927,
     "ROM/program binary; separately acquired exact upstream data, no blanket program-rights claim": 20,
     "Binary office document; separately acquired upstream data and retained editable project source": 40,
     "Skylab grant refers to absent scope-defining manual; separately acquired upstream data": 6,
     "Prebuilt tool/SDK/runtime/archive; external prerequisite, not selected public source": 19,
-    "Architext retained as separately supplied upstream input; publication grant unresolved": 1,
     "Third-party track/artwork licensed to upstream; downstream publication scope unverified": 2
   },
   "excluded": [
@@ -11950,12 +11949,6 @@
       "reason": "Prebuilt tool/SDK/runtime/archive; external prerequisite, not selected public source"
     },
     {
-      "path": "orbiter/Extern/imgui/architext.regular.ttf",
-      "bytes": 30568,
-      "sha256": "a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a",
-      "reason": "Architext retained as separately supplied upstream input; publication grant unresolved"
-    },
-    {
       "path": "orbiter/OVP/D3D9Client/doc/images/Guide to D3D9Client.docx",
       "bytes": 1055083,
       "sha256": "6b2074e54989d34d3144e3365c633c77321008cccefa512738bf6771dd9ca602",
@@ -12351,11 +12344,19 @@
   "source_implementation_changed_by_export": false,
   "asset_policy": "Retain upstream project-granted resources and their notices; flag scoped exceptions explicitly; no blanket MIT or binary packaging clearance",
   "source_legal_scope_review_complete": false,
-  "Architext": "PROPOSED, awaiting review: standalone TTF absent from local public-source candidate; private baseline and stock install rule unchanged; native pre-existing font mapping unchanged; separately supplied upstream copy or clarified publication grant needed",
+  "Architext": "Retained unchanged at pinned OpenOrbiter path per user direction, with original FFC notice and stock install rule; raw-file publication permission remains uncertain and requires final source review",
   "editable_project_artwork_retained": 28,
   "retained_original_source_archives": [
     "orbiter/Doc/Orbiter Developer Manual/Images/OrbiterGraphicsSchematics.zip",
     "orbiter/Doc/Orbiter Developer Manual/Images/PBR2.zip",
     "orbiter/Src/Celbody/Moon/ELP82.zip"
-  ]
+  ],
+  "retained_upstream_font": {
+    "path": "orbiter/Extern/imgui/architext.regular.ttf",
+    "sha256": "a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a",
+    "openorbiter_pin": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "upstream_git_blob": "47791099b9e86b6e9b8d5d216f9a5c27aed39b98",
+    "license_notice": "orbiter/Extern/imgui/architext.regular - FFC License.txt",
+    "publication_permission_verified": false
+  }
 }

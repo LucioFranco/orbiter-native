@@ -6,7 +6,7 @@
     "verified_no_branch_refs": true,
     "user_creates_repository": true,
     "scope_review_complete": false,
-    "Architext_source_treatment": "proposed, awaiting review; no replacement or build-rule change",
+    "Architext_source_treatment": "Retained unchanged at pinned upstream path per user direction; raw-file publication permission unverified and final source review pending",
     "private_archive_changed_remotely": false
   },
   "binary_previews": {
@@ -24,7 +24,7 @@
     "full_mission_accepted": false
   },
   "media": {
-    "selected_provenance_rows": 2768,
+    "selected_provenance_rows": 2769,
     "all_media_classified_unlicensed": false,
     "provenance_is_not_new_permission": true
   }

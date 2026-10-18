@@ -23,6 +23,6 @@ distribution requires complete matching corresponding source and build/install
 inputs, notices and reviewed resources. No binary preview is cleared here.
 
 See [publication treatment and unresolved gates](docs/publication-treatment.md)
-and [the dated audit](docs/licensing/PUBLICATION-LICENSE-AUDIT.md). Architext is
-retained in the private POC; its standalone public-source treatment remains
-proposed and its application-packaging grant unresolved. It has not been replaced.
+and [the dated audit](docs/licensing/PUBLICATION-LICENSE-AUDIT.md). Architext is retained unchanged in this source candidate with its original FFC
+notice. A raw-font publication grant has not been verified, and loose-file app
+packaging remains gated. It has not been replaced or relicensed.

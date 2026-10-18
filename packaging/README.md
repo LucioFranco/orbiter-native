@@ -57,9 +57,10 @@ JetBrains Mono OFL-1.1 bytes and notices; no fonts are replaced.
 
 The audit has not cleared embedded NASSP panel artwork/preferred-source scope,
 all selected engine datasets, the complete public history or proprietary/prebuilt
-files. Restricted Architext is outside the native font selection but must be
-resolved in the publication tree/history by the main worker. A deletion at the
-tip does not remove historical bytes. Do not infer grants from upstream hashes.
+files. Architext is retained unchanged in the source tree under the user's
+upstream-treatment choice, with its FFC notice. Raw-font publication permission
+has not been verified; any loose-file app package remains blocked by grant and
+installation review. Do not infer grants from upstream hashes.
 
 Original NASSP Config/ROM/scenarios/checklists/meshes/textures/sounds remain
 separately lawfully acquired pinned inputs, using the existing v9 manifest and

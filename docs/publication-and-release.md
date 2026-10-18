@@ -9,7 +9,7 @@ The local candidate preserves the working native implementation and upstream
 build structure. It carries a mixed-license overview, explicit original-work MIT
 grant, preserved inherited terms, exact source/data pins and justified exclusions.
 See [publication treatment](publication-treatment.md) for the actual boundary,
-proposed Architext handling and unresolved packaging questions.
+the user-selected unchanged Architext treatment and unresolved permission and packaging questions.
 
 ## Source and notices
 
@@ -56,9 +56,9 @@ See the [GNU source-distribution guidance](https://www.gnu.org/licenses/gpl-faq.
 
 Do not bundle VM images, installers, proprietary SDKs, undocumented runtime files,
 credentials or private raw evidence. Users acquire separately licensed original
-data/prerequisites through lawful upstream routes. The Architext preference is
-preserved; its standalone/source and loose-file app-packaging grant remains the
-specific open publication question described in the treatment document.
+data/prerequisites through lawful upstream routes. Architext is retained unchanged with its upstream notice at the user's direction;
+raw-font publication permission is unverified and loose-file app packaging
+remains gated as described in the treatment document.
 
 Review current [Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions),
 runner architecture and artifact retention before activation. An approved
