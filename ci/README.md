@@ -32,7 +32,13 @@ GPU/desktop capabilities and exact external-data requirements documented in
 `test-capabilities.json`. It follows both fixtures and dependencies transitively;
 automatic fixture insertion cannot reintroduce unavailable tests. Every selected
 and excluded name/reason is reported. New test failures propagate.
-`simulation` alone is not an exclusion. No CMake test/verifier is modified.
+`simulation` alone is not an exclusion. No CMake test registration or strict
+AGC assertion is modified.
+
+`native_data_preflight` runs in the hosted macOS subset. Its pinned NASSP-only
+staging check requires at least 1048 distinct mesh/texture links; the original
+1054-link floor remains when an external Orbiter texture package is supplied.
+Both modes retain the source/data hash, collision and reused-output checks.
 
 The dated complete macOS result remains **103 passed / 1 failed / 104 total**.
 `native_pdi_pilot` strictly fails processor resume: saved cycle counter

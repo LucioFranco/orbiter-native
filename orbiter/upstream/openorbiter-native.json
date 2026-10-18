@@ -1767,7 +1767,7 @@
       "group": "regression-tools",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "1907f48196e1133668202edcd30ad708d3334a98c1ed49080f593f1f077ed807"
+      "native_lf_sha256": "c1079c97e2a23c796cf11aed68c3516769906d2376fd0bd6cfd8287f9fca9561"
     },
     {
       "path": "Tests/NativeDemoLaunch.py",

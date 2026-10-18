@@ -26,6 +26,8 @@ override a newer strict failure.
   [component licenses](../LICENSE.md) and the dated [license audit](licensing/PUBLICATION-LICENSE-AUDIT.md).
 - [Architecture research brief](research-baseline.md): proposed work, with
   evidence gates before changing implementation.
+- [Post-POC architecture assessment](post-poc-architecture-brief.md): source-checked
+  recommendations and proposed experiments, not an adopted redesign.
 
 ## Source and evidence ledgers
 

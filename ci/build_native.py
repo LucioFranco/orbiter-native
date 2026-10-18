@@ -37,7 +37,7 @@ def main():
         command += ["-DNASSP_DATA_DIR=" + str(cache / "nassp-v9"),
                     "-DNASSP_DATA_PROFILE=v9", "-DCMAKE_OSX_DEPLOYMENT_TARGET=15.0"]
     else:
-        command += ["-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF"]
+        command += ["-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF", "-DSDL_UNIX_CONSOLE_BUILD=ON"]
     subprocess.run(command, env=environment, check=True)
     subprocess.run(["cmake", "--build", str(build), "--parallel", str(args.jobs)],
                    env=environment, check=True)

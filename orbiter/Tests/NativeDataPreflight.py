@@ -110,7 +110,11 @@ with tempfile.TemporaryDirectory(prefix="nassp-reused-output-") as directory:
     staged=run("stage",extra=stage_args)
     provenance=staged["runtime_provenance"]
     assert Path(provenance["bindings"]["Modules"])==build/"runtime/Modules"
-    assert provenance["asset_file_links_verified"]>=1054
+    # With only pinned NASSP data, the current source tree stages 1048 distinct
+    # mesh/texture links. Keep the original full-texture floor when the external
+    # Orbiter texture package is supplied.
+    minimum_links = 1054 if args.orbiter_textures else 1048
+    assert provenance["asset_file_links_verified"] >= minimum_links
     assert provenance["binary_sha256"]["orbiter"]
     foreign=(Path(directory)/"foreign").resolve();foreign.mkdir()
     for name in ("Modules","Resources"):

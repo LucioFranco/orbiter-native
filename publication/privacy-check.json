@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "tracked_files": 6302,
+  "tracked_files": 6303,
   "blobs_above_50_MiB": [],
-  "high_signal_secret_scan_text_files": 3980,
+  "high_signal_secret_scan_text_files": 3981,
   "binary_or_over_8_MiB_skipped": 2322,
   "secret_pattern_candidate_paths": [],
   "private_metadata_locator_paths": [],
