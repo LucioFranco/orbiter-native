@@ -1,0 +1,1709 @@
+{
+  "platform": "macOS arm64",
+  "recorded_at_utc": "2026-10-07T23:13:06.022103+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "bd010cd95c9f90a6ef949ba6cddb9912f20ab044",
+  "scope": "Final full Mac regression suites plus separately verified target variant after requested/logged-scope guard and causal-wording corrections",
+  "synthetic_contract_checks": 44,
+  "previous_contract_checks_preserved": 42,
+  "new_variant_scope_regressions": 2,
+  "real_exact_input_logs_checked_for_wrong_target_request": 2,
+  "profiles": {
+    "baseline": {
+      "build": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol",
+      "full_suite": {
+        "passed": 91,
+        "total": 91,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 490.26,
+        "junit_sha256": "b9ecd47234ba13c082be0a29e68c017c7ec6b97497a0544316215999a4bdd08c",
+        "console_log_sha256": "7ef8e1371ea849d08b1d8b7ce7feb98183a651b4040e4918965ed27fe8b004f9",
+        "test_names": [
+          "native_world",
+          "native_cockpit",
+          "mesh_normals",
+          "tile_archive",
+          "elevation_tile",
+          "native_data_preflight",
+          "native_audio",
+          "portable_sdk",
+          "native_core",
+          "module_lifecycle",
+          "nassp_bitmap_resources",
+          "nassp_bmp_normalize",
+          "native_lua",
+          "nassp_mesh",
+          "nassp_stage_original_insertion",
+          "native_original_insertion",
+          "nassp_assets",
+          "nassp_scenario_state",
+          "panelsdk_math",
+          "native_sdl",
+          "native_cli",
+          "realtime_steps",
+          "native_joystick",
+          "native_vesim",
+          "native_wgpu",
+          "wgpu_text",
+          "wgpu_client",
+          "wgpu_world",
+          "wgpu_present",
+          "wgpu_mesh",
+          "wgpu_dds",
+          "nassp_stage_cockpit",
+          "wgpu_live_cockpit",
+          "nassp_stage_solar",
+          "native_solar",
+          "nassp_stage_csm",
+          "wgpu_csm_cockpit",
+          "native_rcs",
+          "native_pause",
+          "native_nassp_resume",
+          "wgpu_solar_cockpit",
+          "nassp_stage_insertion",
+          "wgpu_insertion_cockpit",
+          "animation_pose",
+          "nassp_poc_launch",
+          "star_catalog",
+          "wgpu_stars",
+          "local_lights",
+          "exhaust_geometry",
+          "terrain_texture_border",
+          "native_views",
+          "nassp_stage_lm",
+          "native_lm",
+          "native_lm_resume",
+          "nassp_stage_pair",
+          "native_pair",
+          "native_exterior",
+          "native_pair_resume",
+          "nassp_stage_liftoff",
+          "native_liftoff",
+          "native_liftoff_resume",
+          "wgpu_imgui",
+          "native_ui",
+          "native_mfd",
+          "native_mfd_resume",
+          "nassp_mfd",
+          "nassp_mfd_resume",
+          "native_fdai",
+          "nassp_stage_joystick",
+          "nassp_joystick",
+          "nassp_stage_joystick_flight",
+          "nassp_joystick_flight",
+          "nassp_stage_joystick_throttle",
+          "nassp_joystick_throttle",
+          "native_sound",
+          "terrain_textures",
+          "terrain_contact",
+          "particle_simulation",
+          "landing_sounds",
+          "landing_sound_playback",
+          "pdi_protocol_contract",
+          "nassp_stage_original_liftoff",
+          "native_original_liftoff",
+          "native_mcc",
+          "native_mcc_resume",
+          "nassp_stage_original_descent",
+          "native_original_descent",
+          "native_descent_visual",
+          "nassp_stage_pdi_protocol",
+          "native_pdi_protocol",
+          "fdai_rasterizer"
+        ],
+        "ctest_pdi_scope": "Default no-yaw bounded protocol only; target driver separately exercised below."
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "e6720fbc86422876ed8bf9abe7455d22a0a1513aa5fb83970a485b8d081ecd40",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "296a61388c32102c0c317a9f24dc31979e02979c5fe318db4363eb64342ab82d",
+          "wall_seconds": 55.377664208,
+          "yaw_target_driver_enabled": false,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.46584793248939826,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427030637704491,
+              0.008936612573968291,
+              -0.6695612712976243
+            ],
+            "altitude_above_radar_origin_m": 9793.369366773964,
+            "predicted_slant_range_ft": -68972.02860472641,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-protocol",
+          "verifier_sha256": "2470b49742ca88787387f8f0630c7098e77b5366fd83875525864eb0f32d74e4",
+          "verification_report_sha256": "784e7f3722172b2496562a2328932b737f93e3991ce6e4eb3a2332cfc9544025",
+          "event_records": 1323,
+          "original_radar_at_n68": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2474.991834326292 24.212157244441 458.678443133487"
+          }
+        },
+        "explicit_yaw_target": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "e6720fbc86422876ed8bf9abe7455d22a0a1513aa5fb83970a485b8d081ecd40",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0333333333333,
+          "observed_dh_ft": -1832.0,
+          "radar_valid": true,
+          "radar_measurement_available": true,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "4f373d6e4fbbe0d8b5fc490ebc28a9d1700aa4ad0a5d2fa18ebfa8153072efff",
+          "wall_seconds": 66.59568412499999,
+          "yaw_target_driver_enabled": true,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.8617411206527485,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427017474321201,
+              0.008933813740945436,
+              -0.6695627687777429
+            ],
+            "altitude_above_radar_origin_m": 9786.761195789908,
+            "predicted_slant_range_ft": 37260.3741478557,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-target-final",
+          "verifier_sha256": "2470b49742ca88787387f8f0630c7098e77b5366fd83875525864eb0f32d74e4",
+          "verification_report_sha256": "c409fd098fa9cd7af80fcda5360960dff330b7f877cadcc60863e347a34d1767",
+          "event_records": 4963,
+          "original_radar_at_n68": {
+            "RANGE": "37263.365610540772",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-1996.224836440814 -32.831530523272 1529.804229774741"
+          },
+          "diagnostic_relative_yaw_targets": {
+            "target_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "original_right_yaw_pulses": 2,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 19.85,
+                "relative_quaternion_wxyz": [
+                  0.9966186349145398,
+                  -0.0008976895329548063,
+                  0.08215866176776067,
+                  -0.0006670765417635582
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.425318946624344,
+                "yaw_target_error_deg": -0.5746810533756559,
+                "yaw_rate_deg_s": -0.03745243871440808,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.5887981087356761,
+                "rotation_body_to_global": [
+                  [
+                    0.086854365227339,
+                    -0.8225339503008162,
+                    -0.5620446778001649
+                  ],
+                  [
+                    -0.9836847268484914,
+                    0.018411576253888645,
+                    -0.17895634111385023
+                  ],
+                  [
+                    0.15754579463116572,
+                    0.568417904769354,
+                    -0.8075149584569027
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09079505328719178,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2358781919560565,
+                    0.0068858782444521606,
+                    -0.9717582329161634
+                  ],
+                  "altitude_above_radar_origin_m": 32833.66622279059,
+                  "predicted_slant_range_ft": 1186430.2970619246,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 27.849999999999998,
+                "relative_quaternion_wxyz": [
+                  0.9968271709171892,
+                  -0.0024816572812926363,
+                  0.07955369909185135,
+                  -0.0008010363126739563
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.125856724638737,
+                "yaw_target_error_deg": -0.8741432753612628,
+                "yaw_rate_deg_s": -0.037451904666038545,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.9238078655048576,
+                "rotation_body_to_global": [
+                  [
+                    0.084344684672628,
+                    -0.8207237355933468,
+                    -0.5650650617417228
+                  ],
+                  [
+                    -0.9846165893190078,
+                    0.018440547972724194,
+                    -0.1737530380404037
+                  ],
+                  [
+                    0.15302335182997157,
+                    0.5710275790398986,
+                    -0.8065428431091264
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.08570664716635845,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.22847429204958355,
+                    0.0069530318914469355,
+                    -0.973525116892193
+                  ],
+                  "altitude_above_radar_origin_m": 32560.885275152934,
+                  "predicted_slant_range_ft": 1246426.677038404,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 903
+            },
+            "target_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "original_right_yaw_pulses": 11,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 1118.1333333333332,
+                "relative_quaternion_wxyz": [
+                  0.0561300337973291,
+                  0.007456820116372418,
+                  0.9979839319806536,
+                  -0.028668565504693017
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.56176134202653,
+                "yaw_target_error_deg": -0.4382386579734714,
+                "yaw_rate_deg_s": 0.02239533361422195,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.423141609555016,
+                "rotation_body_to_global": [
+                  [
+                    -0.031928431166747484,
+                    -0.5328572239495741,
+                    0.8456025982504922
+                  ],
+                  [
+                    0.9989929799247637,
+                    0.009668307417139421,
+                    0.04381266817631646
+                  ],
+                  [
+                    -0.03152144261087331,
+                    0.8461499292184812,
+                    0.5320119321399555
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "50237.830305083451",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-2923.957479154461 -8.918539448454 2093.987535681908"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8296230460765814,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7094884020773322,
+                    0.01001070444316632,
+                    -0.7046460055334915
+                  ],
+                  "altitude_above_radar_origin_m": 12703.381314229393,
+                  "predicted_slant_range_ft": 50236.9846334293,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1126.1333333333332,
+                "relative_quaternion_wxyz": [
+                  0.05453078092344091,
+                  0.00819895261699705,
+                  0.9978723287933379,
+                  -0.034784860736027184
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.74413147791796,
+                "yaw_target_error_deg": -0.25586852208203936,
+                "yaw_rate_deg_s": 0.022401873461468384,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 4.104133263020475,
+                "rotation_body_to_global": [
+                  [
+                    -0.03495774407378949,
+                    -0.5223749556816176,
+                    0.8519990386179435
+                  ],
+                  [
+                    0.9988578560372555,
+                    0.009522813976643785,
+                    0.046821997465124554
+                  ],
+                  [
+                    -0.03257206720380745,
+                    0.8526627244641312,
+                    0.5214454321858388
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "49343.309604274349",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2838.212546964183 -11.437706506209 2057.619761116042"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8333270852615269,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7129535953738778,
+                    0.00992163851727442,
+                    -0.7011410214304918
+                  ],
+                  "altitude_above_radar_origin_m": 12532.530108198454,
+                  "predicted_slant_range_ft": 49341.03966094732,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 2693
+            }
+          },
+          "prior_target_policy_reproduction": {
+            "commit": "bd010cd95c9f90a6ef949ba6cddb9912f20ab044",
+            "prior_event_log_sha256": "731e87cc4877e576299a138417e579719b36cb598619ac5b5d058471831e4a57",
+            "matched_event_records": 4963,
+            "exact_matched_fields": [
+              "seq",
+              "event",
+              "action",
+              "sim_elapsed_s",
+              "dsky",
+              "controls",
+              "guidance_channel_031",
+              "angular_velocity_body_rad_s",
+              "rotation_body_to_global",
+              "aca_proportional_roll_pitch_yaw",
+              "lgc_output_channel_005",
+              "lgc_output_channel_006",
+              "pgns_jet_requests",
+              "jet_requests",
+              "rcs_jet_levels"
+            ],
+            "whole_record_byte_identity_claimed": false
+          },
+          "real_exact_input_log_rejected_for_target_request": true,
+          "non_yaw_input_policy_comparison": {
+            "events": 48,
+            "semantic_fields": [
+              "event",
+              "action",
+              "area_id",
+              "checklist_row",
+              "mouse_event",
+              "requested_field",
+              "requested_state"
+            ],
+            "semantics_identical": true,
+            "all_times_identical": false,
+            "timestamp_shifts": [
+              {
+                "action": "PGNS_LDG_RDR_CB",
+                "event": "input_down",
+                "target_policy_elapsed_s": 601.15,
+                "exact_input_policy_elapsed_s": 601.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "PGNS_LDG_RDR_CB",
+                "event": "input_up",
+                "target_policy_elapsed_s": 601.35,
+                "exact_input_policy_elapsed_s": 601.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ORDEALFDAI2Switch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 601.55,
+                "exact_input_policy_elapsed_s": 601.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "ORDEALFDAI2Switch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 601.75,
+                "exact_input_policy_elapsed_s": 601.7833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_pro",
+                "event": "input_down",
+                "target_policy_elapsed_s": 661.15,
+                "exact_input_policy_elapsed_s": 661.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_pro",
+                "event": "input_up",
+                "target_policy_elapsed_s": 663.15,
+                "exact_input_policy_elapsed_s": 663.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_enter",
+                "event": "input_down",
+                "target_policy_elapsed_s": 663.65,
+                "exact_input_policy_elapsed_s": 663.4833333333333,
+                "shift_seconds": 0.16666666666662877
+              },
+              {
+                "action": "final_trim_enter",
+                "event": "input_up",
+                "target_policy_elapsed_s": 663.85,
+                "exact_input_policy_elapsed_s": 663.6833333333333,
+                "shift_seconds": 0.16666666666674246
+              },
+              {
+                "action": "RateScaleSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 698.65,
+                "exact_input_policy_elapsed_s": 698.6833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "RateScaleSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 698.85,
+                "exact_input_policy_elapsed_s": 698.8833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ModeControlAGSSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 699.05,
+                "exact_input_policy_elapsed_s": 699.0833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "ModeControlAGSSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 699.25,
+                "exact_input_policy_elapsed_s": 699.2833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.15,
+                "exact_input_policy_elapsed_s": 721.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 721.35,
+                "exact_input_policy_elapsed_s": 721.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.55,
+                "exact_input_policy_elapsed_s": 721.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 721.75,
+                "exact_input_policy_elapsed_s": 721.7833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.95,
+                "exact_input_policy_elapsed_s": 721.9833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 722.15,
+                "exact_input_policy_elapsed_s": 722.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 722.35,
+                "exact_input_policy_elapsed_s": 722.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 722.55,
+                "exact_input_policy_elapsed_s": 722.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "EngineArmSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 866.15,
+                "exact_input_policy_elapsed_s": 866.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "EngineArmSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 866.35,
+                "exact_input_policy_elapsed_s": 866.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ignition_pro",
+                "event": "input_down",
+                "target_policy_elapsed_s": 896.4499999999999,
+                "exact_input_policy_elapsed_s": 896.3833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "ignition_pro",
+                "event": "input_up",
+                "target_policy_elapsed_s": 898.4499999999999,
+                "exact_input_policy_elapsed_s": 898.3833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "EngineDescentCommandOverrideSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 901.75,
+                "exact_input_policy_elapsed_s": 901.6833333333333,
+                "shift_seconds": 0.06666666666671972
+              },
+              {
+                "action": "EngineDescentCommandOverrideSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 901.9499999999999,
+                "exact_input_policy_elapsed_s": 901.8833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "AltRngMonSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1051.25,
+                "exact_input_policy_elapsed_s": 1051.1833333333334,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "AltRngMonSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1051.45,
+                "exact_input_policy_elapsed_s": 1051.3833333333332,
+                "shift_seconds": 0.06666666666683341
+              },
+              {
+                "action": "RendezvousRadarRotary",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1051.65,
+                "exact_input_policy_elapsed_s": 1051.5833333333333,
+                "shift_seconds": 0.06666666666683341
+              },
+              {
+                "action": "RendezvousRadarRotary",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1051.85,
+                "exact_input_policy_elapsed_s": 1051.7833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1201.2333333333333,
+                "exact_input_policy_elapsed_s": 1201.25,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1201.4333333333334,
+                "exact_input_policy_elapsed_s": 1201.45,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1201.6333333333332,
+                "exact_input_policy_elapsed_s": 1201.65,
+                "shift_seconds": -0.016666666666878882
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1201.8333333333333,
+                "exact_input_policy_elapsed_s": 1201.85,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.0333333333333,
+                "exact_input_policy_elapsed_s": 1202.05,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1202.2333333333333,
+                "exact_input_policy_elapsed_s": 1202.25,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.4333333333334,
+                "exact_input_policy_elapsed_s": 1202.45,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1202.6333333333332,
+                "exact_input_policy_elapsed_s": 1202.65,
+                "shift_seconds": -0.016666666666878882
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.8333333333333,
+                "exact_input_policy_elapsed_s": 1202.85,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.0333333333333,
+                "exact_input_policy_elapsed_s": 1203.05,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1203.2333333333333,
+                "exact_input_policy_elapsed_s": 1203.25,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.4333333333334,
+                "exact_input_policy_elapsed_s": 1203.45,
+                "shift_seconds": -0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1203.6333333333332,
+                "exact_input_policy_elapsed_s": 1203.65,
+                "shift_seconds": -0.016666666666878882
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.8333333333333,
+                "exact_input_policy_elapsed_s": 1203.85,
+                "shift_seconds": -0.01666666666665151
+              }
+            ],
+            "single_factor_release_timing_control": false,
+            "exact_input_log_sha256": "37fb2cc02f69aaf4047db14d96b94ab7fbf5868574fe84ded4bee28827332626"
+          }
+        }
+      },
+      "existing_demo_regression_scope": "Original insertion/liftoff/descent/MCC and visual tests are unchanged. Existing descent regression retains its previously documented 2000-ft diagnostic and V57/approach actions; it is not the new target protocol or an operational flight approval."
+    },
+    "candidate": {
+      "build": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol",
+      "full_suite": {
+        "passed": 91,
+        "total": 91,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 491.3,
+        "junit_sha256": "8c39779d5a5f3eecc78d3e2c138d8b5d2fbfda9fa177ebcafc3c1bafc307d53e",
+        "console_log_sha256": "7b35447c4b4aed293f6f3218050e096240e47b99e1d68e1e7103f7798fa6feee",
+        "test_names": [
+          "native_world",
+          "native_cockpit",
+          "mesh_normals",
+          "tile_archive",
+          "elevation_tile",
+          "native_data_preflight",
+          "native_audio",
+          "portable_sdk",
+          "native_core",
+          "module_lifecycle",
+          "nassp_bitmap_resources",
+          "nassp_bmp_normalize",
+          "native_lua",
+          "nassp_mesh",
+          "nassp_stage_original_insertion",
+          "native_original_insertion",
+          "nassp_assets",
+          "nassp_scenario_state",
+          "panelsdk_math",
+          "native_sdl",
+          "native_cli",
+          "realtime_steps",
+          "native_joystick",
+          "native_vesim",
+          "native_wgpu",
+          "wgpu_text",
+          "wgpu_client",
+          "wgpu_world",
+          "wgpu_present",
+          "wgpu_mesh",
+          "wgpu_dds",
+          "nassp_stage_cockpit",
+          "wgpu_live_cockpit",
+          "nassp_stage_solar",
+          "native_solar",
+          "nassp_stage_csm",
+          "wgpu_csm_cockpit",
+          "native_rcs",
+          "native_pause",
+          "native_nassp_resume",
+          "wgpu_solar_cockpit",
+          "nassp_stage_insertion",
+          "wgpu_insertion_cockpit",
+          "animation_pose",
+          "nassp_poc_launch",
+          "star_catalog",
+          "wgpu_stars",
+          "local_lights",
+          "exhaust_geometry",
+          "terrain_texture_border",
+          "native_views",
+          "nassp_stage_lm",
+          "native_lm",
+          "native_lm_resume",
+          "nassp_stage_pair",
+          "native_pair",
+          "native_exterior",
+          "native_pair_resume",
+          "nassp_stage_liftoff",
+          "native_liftoff",
+          "native_liftoff_resume",
+          "wgpu_imgui",
+          "native_ui",
+          "native_mfd",
+          "native_mfd_resume",
+          "nassp_mfd",
+          "nassp_mfd_resume",
+          "native_fdai",
+          "nassp_stage_joystick",
+          "nassp_joystick",
+          "nassp_stage_joystick_flight",
+          "nassp_joystick_flight",
+          "nassp_stage_joystick_throttle",
+          "nassp_joystick_throttle",
+          "native_sound",
+          "terrain_textures",
+          "terrain_contact",
+          "particle_simulation",
+          "landing_sounds",
+          "landing_sound_playback",
+          "pdi_protocol_contract",
+          "nassp_stage_original_liftoff",
+          "native_original_liftoff",
+          "native_mcc",
+          "native_mcc_resume",
+          "nassp_stage_original_descent",
+          "native_original_descent",
+          "native_descent_visual",
+          "nassp_stage_pdi_protocol",
+          "native_pdi_protocol",
+          "fdai_rasterizer"
+        ],
+        "ctest_pdi_scope": "Default no-yaw bounded protocol only; target driver separately exercised below."
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "56bf9e8e37406e7404eef9985f8af34e9d305c9c35d352cb3fd94fcfab326659",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "215d75ea1bdb8608d05737138f9b6920114c7b08df03c9f76c7502f5fa28e529",
+          "wall_seconds": 55.599329000000004,
+          "yaw_target_driver_enabled": false,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.46528709266893753,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7426973437285006,
+              0.00893873605857888,
+              -0.6695675877880475
+            ],
+            "altitude_above_radar_origin_m": 9935.273926796537,
+            "predicted_slant_range_ft": -70055.76466766639,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-protocol",
+          "verifier_sha256": "2470b49742ca88787387f8f0630c7098e77b5366fd83875525864eb0f32d74e4",
+          "verification_report_sha256": "1f350aff5eb161d0b8f93bc599356b09334853840dd9953af1325578944b7619",
+          "event_records": 1323,
+          "original_radar_at_n68": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2475.633480649382 17.421814450889 453.966654234270"
+          }
+        },
+        "explicit_yaw_target": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "56bf9e8e37406e7404eef9985f8af34e9d305c9c35d352cb3fd94fcfab326659",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0333333333333,
+          "observed_dh_ft": -1171.0,
+          "radar_valid": true,
+          "radar_measurement_available": true,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "fa32c3cc47fd0d029fdd9c30a4a9281bf9fde33d9c3bdd7486a684bd6f6d1192",
+          "wall_seconds": 66.435537666,
+          "yaw_target_driver_enabled": true,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.8620341095670911,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7426971464774326,
+              0.00893443561150375,
+              -0.6695678639798829
+            ],
+            "altitude_above_radar_origin_m": 9927.209404465162,
+            "predicted_slant_range_ft": 37782.245851820226,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-target-final",
+          "verifier_sha256": "2470b49742ca88787387f8f0630c7098e77b5366fd83875525864eb0f32d74e4",
+          "verification_report_sha256": "284694c057b8b2a67e167d526dcc196b329d150bd5fd55c295340bb094f2c564",
+          "event_records": 4852,
+          "original_radar_at_n68": {
+            "RANGE": "37784.640116743540",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-1991.746492385357 -32.678869486075 1535.375671602515"
+          },
+          "diagnostic_relative_yaw_targets": {
+            "target_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "original_right_yaw_pulses": 2,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 19.85,
+                "relative_quaternion_wxyz": [
+                  0.9966186349145398,
+                  -0.0008976895329548063,
+                  0.08215866176776067,
+                  -0.0006670765417635582
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.425318946624344,
+                "yaw_target_error_deg": -0.5746810533756559,
+                "yaw_rate_deg_s": -0.03745243871440808,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.5887981087356761,
+                "rotation_body_to_global": [
+                  [
+                    0.086854365227339,
+                    -0.8225339503008162,
+                    -0.5620446778001649
+                  ],
+                  [
+                    -0.9836847268484914,
+                    0.018411576253888645,
+                    -0.17895634111385023
+                  ],
+                  [
+                    0.15754579463116572,
+                    0.568417904769354,
+                    -0.8075149584569027
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09079505328719178,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2358781919560565,
+                    0.0068858782444521606,
+                    -0.9717582329161634
+                  ],
+                  "altitude_above_radar_origin_m": 32833.66622279059,
+                  "predicted_slant_range_ft": 1186430.2970619246,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 27.849999999999998,
+                "relative_quaternion_wxyz": [
+                  0.9968271709171892,
+                  -0.0024816572812926363,
+                  0.07955369909185135,
+                  -0.0008010363126739563
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.125856724638737,
+                "yaw_target_error_deg": -0.8741432753612628,
+                "yaw_rate_deg_s": -0.037451904666038545,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.9238078655048576,
+                "rotation_body_to_global": [
+                  [
+                    0.084344684672628,
+                    -0.8207237355933468,
+                    -0.5650650617417228
+                  ],
+                  [
+                    -0.9846165893190078,
+                    0.018440547972724194,
+                    -0.1737530380404037
+                  ],
+                  [
+                    0.15302335182997157,
+                    0.5710275790398986,
+                    -0.8065428431091264
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.08570664716635845,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.22847429204958355,
+                    0.0069530318914469355,
+                    -0.973525116892193
+                  ],
+                  "altitude_above_radar_origin_m": 32560.885275152934,
+                  "predicted_slant_range_ft": 1246426.677038404,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 903
+            },
+            "target_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "original_right_yaw_pulses": 10,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 1116.3333333333333,
+                "relative_quaternion_wxyz": [
+                  0.05853986550659278,
+                  0.005920291254271118,
+                  0.9979017934162199,
+                  -0.027019344822306265
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.28541615339628,
+                "yaw_target_error_deg": -0.7145838466037162,
+                "yaw_rate_deg_s": 0.033345234111793125,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.2495685713333056,
+                "rotation_body_to_global": [
+                  [
+                    -0.027402106000562254,
+                    -0.5348593753748907,
+                    0.844496638927779
+                  ],
+                  [
+                    0.999141341541995,
+                    0.011608421111088285,
+                    0.03977215333584694
+                  ],
+                  [
+                    -0.031075781702097904,
+                    0.8448613455075864,
+                    0.5340820186625965
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "50678.816789014585",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-2940.621055812691 0.750934398316 2105.512941208418"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8293146882336837,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7086918096288229,
+                    0.010031995085052014,
+                    -0.7054468640795264
+                  ],
+                  "altitude_above_radar_origin_m": 12809.613447591217,
+                  "predicted_slant_range_ft": 50675.92728649673,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1124.3333333333333,
+                "relative_quaternion_wxyz": [
+                  0.056230878721231344,
+                  0.007942141377450161,
+                  0.9978855713160363,
+                  -0.03161324450047525
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.5495841923551,
+                "yaw_target_error_deg": -0.45041580764490163,
+                "yaw_rate_deg_s": 0.033378674036219774,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.7628902412767,
+                "rotation_body_to_global": [
+                  [
+                    -0.03314026156860983,
+                    -0.5267676789783385,
+                    0.8493630174707033
+                  ],
+                  [
+                    0.9989794592455729,
+                    0.008635468126633405,
+                    0.04433360684240478
+                  ],
+                  [
+                    -0.03068815844242123,
+                    0.8499654352231083,
+                    0.5259439094213421
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "49965.396803340162",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2861.348825065200 -11.445379624612 2060.468701956928"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8314343766030586,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7121807076299436,
+                    0.009942707913891236,
+                    -0.7019257669006403
+                  ],
+                  "altitude_above_radar_origin_m": 12661.746222829068,
+                  "predicted_slant_range_ft": 49963.2482338673,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 2585
+            }
+          },
+          "prior_target_policy_reproduction": {
+            "commit": "bd010cd95c9f90a6ef949ba6cddb9912f20ab044",
+            "prior_event_log_sha256": "ad6fdc417d85de56773f7a5b641615e5d0b30d8c793907ce4cbd7e3d85d56ffa",
+            "matched_event_records": 4852,
+            "exact_matched_fields": [
+              "seq",
+              "event",
+              "action",
+              "sim_elapsed_s",
+              "dsky",
+              "controls",
+              "guidance_channel_031",
+              "angular_velocity_body_rad_s",
+              "rotation_body_to_global",
+              "aca_proportional_roll_pitch_yaw",
+              "lgc_output_channel_005",
+              "lgc_output_channel_006",
+              "pgns_jet_requests",
+              "jet_requests",
+              "rcs_jet_levels"
+            ],
+            "whole_record_byte_identity_claimed": false
+          },
+          "real_exact_input_log_rejected_for_target_request": true,
+          "non_yaw_input_policy_comparison": {
+            "events": 48,
+            "semantic_fields": [
+              "event",
+              "action",
+              "area_id",
+              "checklist_row",
+              "mouse_event",
+              "requested_field",
+              "requested_state"
+            ],
+            "semantics_identical": true,
+            "all_times_identical": false,
+            "timestamp_shifts": [
+              {
+                "action": "PGNS_LDG_RDR_CB",
+                "event": "input_down",
+                "target_policy_elapsed_s": 601.15,
+                "exact_input_policy_elapsed_s": 601.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "PGNS_LDG_RDR_CB",
+                "event": "input_up",
+                "target_policy_elapsed_s": 601.35,
+                "exact_input_policy_elapsed_s": 601.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ORDEALFDAI2Switch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 601.55,
+                "exact_input_policy_elapsed_s": 601.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "ORDEALFDAI2Switch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 601.75,
+                "exact_input_policy_elapsed_s": 601.7833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_pro",
+                "event": "input_down",
+                "target_policy_elapsed_s": 661.15,
+                "exact_input_policy_elapsed_s": 661.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_pro",
+                "event": "input_up",
+                "target_policy_elapsed_s": 663.15,
+                "exact_input_policy_elapsed_s": 663.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "final_trim_enter",
+                "event": "input_down",
+                "target_policy_elapsed_s": 663.65,
+                "exact_input_policy_elapsed_s": 663.4833333333333,
+                "shift_seconds": 0.16666666666662877
+              },
+              {
+                "action": "final_trim_enter",
+                "event": "input_up",
+                "target_policy_elapsed_s": 663.85,
+                "exact_input_policy_elapsed_s": 663.6833333333333,
+                "shift_seconds": 0.16666666666674246
+              },
+              {
+                "action": "RateScaleSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 698.65,
+                "exact_input_policy_elapsed_s": 698.6833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "RateScaleSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 698.85,
+                "exact_input_policy_elapsed_s": 698.8833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ModeControlAGSSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 699.05,
+                "exact_input_policy_elapsed_s": 699.0833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "ModeControlAGSSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 699.25,
+                "exact_input_policy_elapsed_s": 699.2833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.15,
+                "exact_input_policy_elapsed_s": 721.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 721.35,
+                "exact_input_policy_elapsed_s": 721.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.55,
+                "exact_input_policy_elapsed_s": 721.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 721.75,
+                "exact_input_policy_elapsed_s": 721.7833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 721.95,
+                "exact_input_policy_elapsed_s": 721.9833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 722.15,
+                "exact_input_policy_elapsed_s": 722.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_down",
+                "target_policy_elapsed_s": 722.35,
+                "exact_input_policy_elapsed_s": 722.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "v77",
+                "event": "input_up",
+                "target_policy_elapsed_s": 722.55,
+                "exact_input_policy_elapsed_s": 722.5833333333334,
+                "shift_seconds": -0.033333333333416704
+              },
+              {
+                "action": "EngineArmSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 866.15,
+                "exact_input_policy_elapsed_s": 866.1833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "EngineArmSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 866.35,
+                "exact_input_policy_elapsed_s": 866.3833333333333,
+                "shift_seconds": -0.03333333333330302
+              },
+              {
+                "action": "ignition_pro",
+                "event": "input_down",
+                "target_policy_elapsed_s": 896.4499999999999,
+                "exact_input_policy_elapsed_s": 896.3833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "ignition_pro",
+                "event": "input_up",
+                "target_policy_elapsed_s": 898.4499999999999,
+                "exact_input_policy_elapsed_s": 898.3833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "EngineDescentCommandOverrideSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 901.75,
+                "exact_input_policy_elapsed_s": 901.6833333333333,
+                "shift_seconds": 0.06666666666671972
+              },
+              {
+                "action": "EngineDescentCommandOverrideSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 901.9499999999999,
+                "exact_input_policy_elapsed_s": 901.8833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "AltRngMonSwitch",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1051.25,
+                "exact_input_policy_elapsed_s": 1051.1833333333334,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "AltRngMonSwitch",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1051.45,
+                "exact_input_policy_elapsed_s": 1051.3833333333332,
+                "shift_seconds": 0.06666666666683341
+              },
+              {
+                "action": "RendezvousRadarRotary",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1051.65,
+                "exact_input_policy_elapsed_s": 1051.5833333333333,
+                "shift_seconds": 0.06666666666683341
+              },
+              {
+                "action": "RendezvousRadarRotary",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1051.85,
+                "exact_input_policy_elapsed_s": 1051.7833333333333,
+                "shift_seconds": 0.06666666666660603
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1201.2333333333333,
+                "exact_input_policy_elapsed_s": 1201.2166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1201.4333333333334,
+                "exact_input_policy_elapsed_s": 1201.4166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1201.6333333333332,
+                "exact_input_policy_elapsed_s": 1201.6166666666666,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1201.8333333333333,
+                "exact_input_policy_elapsed_s": 1201.8166666666666,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.0333333333333,
+                "exact_input_policy_elapsed_s": 1202.0166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1202.2333333333333,
+                "exact_input_policy_elapsed_s": 1202.2166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.4333333333334,
+                "exact_input_policy_elapsed_s": 1202.4166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1202.6333333333332,
+                "exact_input_policy_elapsed_s": 1202.6166666666666,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1202.8333333333333,
+                "exact_input_policy_elapsed_s": 1202.8166666666666,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.0333333333333,
+                "exact_input_policy_elapsed_s": 1203.0166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1203.2333333333333,
+                "exact_input_policy_elapsed_s": 1203.2166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.4333333333334,
+                "exact_input_policy_elapsed_s": 1203.4166666666667,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_down",
+                "target_policy_elapsed_s": 1203.6333333333332,
+                "exact_input_policy_elapsed_s": 1203.6166666666666,
+                "shift_seconds": 0.01666666666665151
+              },
+              {
+                "action": "request_n68",
+                "event": "input_up",
+                "target_policy_elapsed_s": 1203.8333333333333,
+                "exact_input_policy_elapsed_s": 1203.8166666666666,
+                "shift_seconds": 0.01666666666665151
+              }
+            ],
+            "single_factor_release_timing_control": false,
+            "exact_input_log_sha256": "0875fb1ce5c9b3aa7fc51ba86144f4e29bf8bb33b2023f27e894e4d8c1f3f2d4"
+          }
+        }
+      },
+      "existing_demo_regression_scope": "Original insertion/liftoff/descent/MCC and visual tests are unchanged. Existing descent regression retains its previously documented 2000-ft diagnostic and V57/approach actions; it is not the new target protocol or an operational flight approval."
+    }
+  },
+  "source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.py": "2470b49742ca88787387f8f0630c7098e77b5366fd83875525864eb0f32d74e4",
+    "orbiter/Tests/NativePDIProtocolContract.py": "dadc0c420baadc0260caf208c560de51af1960df32814bde28953e3e8001893a",
+    "orbiter/docs/macos-pdi-protocol.md": "1a7c9e5831addb0143de26d231b6812064814ece49a1249dbdf51ef16145cdd6"
+  },
+  "unchanged_source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "cbf471b512aed77904d05aa62c9d1ed1a9ef28d81cad82bc9f0eb9d63ae743ec",
+    "orbiter/Tests/NativeDescent.cpp": "7b46a60997684401973a95aa6ff3772f0f6c165b7f0b57866a4575b7944e4218",
+    "orbiter/Tests/NativeOriginalDescent.py": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6",
+    "orbiter/cmake/NativeWgpu.cmake": "4a0ba057b83b5ca30757f979ee140b699e231196b0413d3553f821df0993d95d"
+  },
+  "nassp_source_edited": false,
+  "physics_rom_scenario_changes": false,
+  "target_protocol_pose_or_rate_writes": false,
+  "target_protocol_left_yaw_or_counter_thrust_commands": false,
+  "target_protocol_v57_sent": false,
+  "target_protocol_operational_dh_envelope": null,
+  "target_frame": "Relative thrust-axis yaw actions supported by pinned checklist/original control code; quaternion twist convention and 1-degree/0.1-degree-per-second/dwell thresholds remain explicit diagnostic definitions, not flight specs.",
+  "causal_conclusion": "The separate diagnostic yaw-input policy (earlier original ACA release, bounded right-only trim pulses and added neutral dwells) obtains both relative-yaw targets and original range/velocity data-good with nonsentinel dH at first N68 in both profiles. The previous exact-input policy reproduces its original overshoot and invalid-radar result. The policy intervention is sufficient to change the observed outcome with unchanged models/data; release timing alone is not isolated. Non-yaw input semantics are preserved but some timestamps differ. This does not certify full pilot attitude, historical flight parity or an operational V57 decision.",
+  "release_timing_alone_isolated": false,
+  "controller_reads_radar_or_dh_for_input_policy": false,
+  "ctest_target_variant_registered": false,
+  "target_variant_explicit_runs": 2,
+  "ci_run": false,
+  "windows_comparison": false,
+  "push_performed": false,
+  "usage_metrics_tool_available": false,
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-yaw-final-20261007",
+  "prior_focused_report": "orbiter/upstream/validation-pdi-yaw-target-macos-2026-10-07.json",
+  "limits": [
+    "Full pilot/attitude/checklist or historical flight parity not certified",
+    "Target protocol stops at first N68 without operational dH envelope/V57 decision",
+    "Normal user window-close interaction and physical-controller/manual-flight QA remain unverified because no CUA/controller tools are available",
+    "Full CTest suites retain the pre-existing independent descent diagnostic; its acceptance/approach actions are not new target-protocol actions"
+  ]
+}

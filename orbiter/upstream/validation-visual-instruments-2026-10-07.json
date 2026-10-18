@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-07T16:38:30.938610+00:00",
+  "host": "Lucios-Air",
+  "platform": "macOS arm64",
+  "checkout": "<LOCAL_PATH>",
+  "branch": "macos-clean-demos",
+  "base_commit": "d621bd43e393fb2f51c5fc5bde4c7267a67dd894",
+  "implementation_committed": false,
+  "pushed": false,
+  "diagnosis": "Original white dial remains; WGPU zero-power specular reflections made black X-pointer needles white",
+  "fix": "Match Orbiter D3D9 legacy material policy: powers below 0.1 have no specular reflection",
+  "reference": {
+    "path": "OVP/D3D9Client/Mesh.cpp",
+    "method": "D3D9Mesh::SetMaterial",
+    "line": 1080
+  },
+  "negative_regressions": {
+    "gpu_zero_power": "failed before shader fix",
+    "actual_lm": {
+      "old_renderer": "unchanged d621bd4 candidate WgpuClient",
+      "renderer_sha256": "629ef97ff7d2d374acd51761200d4e57648d670a02076385dabff1d41caf304e",
+      "test": "new real-LM CDR/LMP needle-pixel integration check",
+      "exit_code": 1,
+      "expected_failure_verified": true,
+      "command": [
+        "<LOCAL_PATH>",
+        "<LOCAL_PATH>",
+        "<LOCAL_PATH>"
+      ]
+    }
+  },
+  "suites": {
+    "baseline": {
+      "passed": 83,
+      "total": 83,
+      "seconds": 145.89,
+      "gpu_tests": 28,
+      "build_passed": true
+    },
+    "candidate": {
+      "passed": 83,
+      "total": 83,
+      "seconds": 150.07,
+      "gpu_tests": 28,
+      "build_passed": true
+    }
+  },
+  "needle_checks": {
+    "baseline": {
+      "native_lm": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 1557
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 1507
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 1584
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 1485
+        }
+      ],
+      "native_liftoff": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 1559
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 1503
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 1589
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 1451
+        }
+      ],
+      "native_original_liftoff": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 650
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 631
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 660
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 624
+        }
+      ]
+    },
+    "candidate": {
+      "native_lm": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 1557
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 1507
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 1584
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 1485
+        }
+      ],
+      "native_liftoff": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 1575
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 1471
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 1598
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 1522
+        }
+      ],
+      "native_original_liftoff": [
+        {
+          "seat": "CDR",
+          "group": 677,
+          "black_pixels": 640
+        },
+        {
+          "seat": "CDR",
+          "group": 679,
+          "black_pixels": 599
+        },
+        {
+          "seat": "LMP",
+          "group": 678,
+          "black_pixels": 646
+        },
+        {
+          "seat": "LMP",
+          "group": 680,
+          "black_pixels": 627
+        }
+      ]
+    }
+  },
+  "exterior_material_checks": {
+    "baseline": {
+      "csm_highlight_pixels": 23378,
+      "lm_highlight_pixels": 60,
+      "zero_power_matches_specular_disabled": true,
+      "original_material_restoration_reproduces_exact_frame": true
+    },
+    "candidate": {
+      "csm_highlight_pixels": 23378,
+      "lm_highlight_pixels": 60,
+      "zero_power_matches_specular_disabled": true,
+      "original_material_restoration_reproduces_exact_frame": true
+    }
+  },
+  "source_adaptations_verified": {
+    "baseline": 100,
+    "candidate": 92
+  },
+  "evidence": {
+    "build/native-poc/runtime/Modules/Plugin/WgpuClient.dylib": {
+      "sha256": "73846d39d55d6ae8040e4725c6db3fb25692d445675143979752d130f70a3126",
+      "bytes": 11076112
+    },
+    "build/native-candidate/runtime/Modules/Plugin/WgpuClient.dylib": {
+      "sha256": "216064dc4387332c14527ea82281917da29253051455cc5c7dbc33870d8762ef",
+      "bytes": 11076112
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/actual-needle-regression-before.json": {
+      "sha256": "1c4c81ba200dd4aad1d1e9cd657d9b757df86ee52f105a5077bcc7d7d7a9a412",
+      "bytes": 621
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/actual-needle-regression-before.log": {
+      "sha256": "e7469a26ee285ad0bb0e8b04cb7ff093b4ab67deb3d44ace3f1435ec863a3cd1",
+      "bytes": 4767
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-after.ppm": {
+      "sha256": "69f9615bba06761bfd6312f48dea0167bd2c735a1c02a4f716a77371ceba248e",
+      "bytes": 11059217
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-before.ppm": {
+      "sha256": "ddb07ac4155e851a682ff6c3cbe9240b1192fa1a4952212c3b79da0f07a2e99c",
+      "bytes": 11059217
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-build.log": {
+      "sha256": "5f892d778b5577b28cc3feef1312dba4561b23834ca530db1cc81fc53d96d3ab",
+      "bytes": 1939
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-final-build.log": {
+      "sha256": "1bf23e7f1e7c6b10f57e395344c5fd9cb315b7ae32ea68909f1ded7013ccf6b3",
+      "bytes": 1609
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-focused.log": {
+      "sha256": "0aab9259e2916e669316a0f81e12d055a1800a2820ee3d043b450f1cd384db85",
+      "bytes": 559
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-full-suite-initial.log": {
+      "sha256": "a0817e4d35df6dd00d8a67e471ff383f4060d71399a67b17e5ee8ca42ed43b3c",
+      "bytes": 13999
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-full-suite.log": {
+      "sha256": "5451c434470aa630b307ee172bbab3d20ec0f9a57f71a1eb7aab7e04f24407c4",
+      "bytes": 8908
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-instrument-build.log": {
+      "sha256": "33688e504827c18d6940410ae959a8d49c82291a9557374f277a052b43698af6",
+      "bytes": 2579
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-instruments.log": {
+      "sha256": "adc37bbfa554c68aec9c8ce3d7a2d14ece94e32fc542834939bd5e6579f1c515",
+      "bytes": 659
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-last-test.log": {
+      "sha256": "b731f5fb46468a431654963823b5046aa7b4cd21aa470677682a8926af1bad6b",
+      "bytes": 201771
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-original-liftoff-flight.log": {
+      "sha256": "629eba2269a641d0c37306918f10fde96bf7c292f95a8711839d0a5546fa68cc",
+      "bytes": 4433
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/baseline-source-data-after.json": {
+      "sha256": "75926b2fb5daa6ce54ea577a36a4583ce1212501c94b14f5f2b4a420d367f976",
+      "bytes": 1312
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-after.ppm": {
+      "sha256": "595f81e85619623b407b99f5781fcf6609c71e71272868876245f58234b8cefc",
+      "bytes": 11059217
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-before.ppm": {
+      "sha256": "1f0ed78c3fd168fbc728874ee996c610123edf33a1af12c48f0cfe049ba48d8f",
+      "bytes": 11059217
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-final-build.log": {
+      "sha256": "cbca348b917155a4431151a32101fbe1fe6804139737828c7f36d3b5226bbf85",
+      "bytes": 3840
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-full-suite.log": {
+      "sha256": "003a68a585d230b90c3240ec4e969e429c1e771f47fc253ce36c543b58669723",
+      "bytes": 8914
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-last-test.log": {
+      "sha256": "37ed8caec5d609d67754dfde005588b7e7f8a7799f1c5d4352b1fd59ef5e328f",
+      "bytes": 209445
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-original-liftoff-flight.log": {
+      "sha256": "3fe7eea3cfc332832b102c2e4f05a67d646d5dc37733d58d4ba5944e19350e28",
+      "bytes": 5774
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/candidate-source-data-after.json": {
+      "sha256": "eda2169b237230bb3ec5c2e52cb0c7f4a29416b7eb69539ed9daf8f31696ad37",
+      "bytes": 1288
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/exterior-check-build.log": {
+      "sha256": "af27075e034b2a2f152b87114060d45c4a67568b012f4a4988a7330b6e9068d3",
+      "bytes": 2130
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/exterior-check.log": {
+      "sha256": "23f0aa890b0ac79265e5c2d99c5c0d4988adfb00a30f1d753ad9a848e535807a",
+      "bytes": 444
+    },
+    "<DEPENDENCY_CACHE>/visual-xpointer/zero-power-regression-before.log": {
+      "sha256": "87d2862d08cdc5dfb10912b83403ce9b3b4933ecdb3791ba35fec47e9ef5df45",
+      "bytes": 795
+    }
+  },
+  "initial_full_suite_issue": {
+    "test": "native_exterior",
+    "initial_passed": 82,
+    "total": 83,
+    "cause": "LM minimum highlight-pixel count included erroneous matte reflections",
+    "resolution": "Require visible real highlights; zero device-material powers must match specular-disabled frame; restoring materials must restore exact original image"
+  },
+  "limits": [
+    "No Windows lighting or numerical reference comparison",
+    "X-pointer color/visibility checked; velocity calibration not independently established",
+    "No complete legacy 2D panel presentation or live CUA/physical-controller validation",
+    "Guided descent radar/incorporation/impact issue remains unresolved",
+    "MCC cockpit display bindings remain separate work"
+  ],
+  "original_data_after_tests": {
+    "baseline": {
+      "critical_hashes_verified": 282,
+      "asset_files_present": 1054,
+      "all_asset_blobs_verified": true
+    },
+    "candidate": {
+      "critical_hashes_verified": 282,
+      "asset_files_present": 1054,
+      "all_asset_blobs_verified": true
+    }
+  },
+  "nassp_source_assets_and_patch_stacks_unchanged": true,
+  "evidence_directory": "<LOCAL_PATH>"
+}

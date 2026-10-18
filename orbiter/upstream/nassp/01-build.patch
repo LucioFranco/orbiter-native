@@ -1,0 +1,254 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/CMakeLists.txt
+index 017251d91ecc883742d0486c462b997f2c2baeb5..88bd0bdb44cae84f0c7934015627c40ef69d536a
+--- a/Orbitersdk/samples/ProjectApollo/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/CMakeLists.txt
+@@ -2,6 +2,39 @@
+ 
+ # Set the project name
+ project(NASSP VERSION 9.0)
++
++# Native in-tree build uses the engine's SDK and shared library targets.
++if(TARGET OrbiterCore)
++    set(NASSP_SOURCE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}")
++    get_target_property(_sdk_include OrbiterSDKHeaders INTERFACE_INCLUDE_DIRECTORIES)
++    list(GET _sdk_include 0 _sdk_include)
++    get_filename_component(ORBITERSDK_DIR "${_sdk_include}" DIRECTORY)
++    include(cmake/NativeTargets.cmake)
++    if(NOT TARGET PanelSDK)
++        add_subdirectory(Project/PanelSDK)
++    endif()
++    set(NASSP_NATIVE_MODULES "Saturn5;LEM;Sat5LMDSC" CACHE STRING "NASSP modules to build for the native port")
++    # The LM creates this vessel during separation; include it for older caches too.
++    if("LEM" IN_LIST NASSP_NATIVE_MODULES AND NOT "Sat5LMDSC" IN_LIST NASSP_NATIVE_MODULES)
++        list(APPEND NASSP_NATIVE_MODULES Sat5LMDSC)
++    endif()
++    if("Saturn5" IN_LIST NASSP_NATIVE_MODULES AND NOT "ML" IN_LIST NASSP_NATIVE_MODULES)
++        list(APPEND NASSP_NATIVE_MODULES ML)
++    endif()
++    if("Saturn5" IN_LIST NASSP_NATIVE_MODULES AND NOT "Floodlight" IN_LIST NASSP_NATIVE_MODULES)
++        list(APPEND NASSP_NATIVE_MODULES Floodlight)
++    endif()
++    foreach(module IN LISTS NASSP_NATIVE_MODULES)
++        add_subdirectory("Project/${module}")
++    endforeach()
++    if(TARGET LEM AND TARGET Sat5LMDSC)
++        add_dependencies(LEM Sat5LMDSC)
++    endif()
++    if(TARGET Saturn5 AND TARGET LEM AND NOT TARGET ProjectApolloMFD)
++        add_subdirectory(Project/ProjectApolloMFD)
++    endif()
++    return()
++endif()
+ 
+ # Set C++ compiler variables
+ set(CMAKE_CXX_STANDARD 17)
+@@ -28,7 +61,7 @@
+ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+ 
+ # Set NASSP-related variables
+-set(NASSP_SOURCE_ROOT ${CMAKE_SOURCE_DIR})
++set(NASSP_SOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+ set(NASSP_REPO_ROOT ${NASSP_SOURCE_ROOT}/../../../)
+ 
+ # Check if the user has specified a non-default Orbiter installation location.
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/Floodlight/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/Floodlight/CMakeLists.txt
+index 026266713bc1831dc6dba26ded12eb5b6e345d1b..fec55e8c8d67292b73d642e02f55bb2b46396eb5
+--- a/Orbitersdk/samples/ProjectApollo/Project/Floodlight/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/Floodlight/CMakeLists.txt
+@@ -14,6 +14,11 @@
+     ${NASSP_SOURCE_ROOT}/src_sys/soundlib.cpp
+ )
+ 
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    return()
++endif()
++
+ link_directories(${ORBITERSDK_DIR}/lib)
+ link_directories(${ORBITERSDK_DIR}/XRSound)
+ 
+@@ -23,4 +28,4 @@
+     Orbiter
+     Orbitersdk
+     XRSound
+-)
+\ No newline at end of file
++)
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/LEM/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/LEM/CMakeLists.txt
+index dc47b065c0952862543115e00df158b53d3cce46..0293a0309f9f909ffbbcf10324a7e2d45be5f738
+--- a/Orbitersdk/samples/ProjectApollo/Project/LEM/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/LEM/CMakeLists.txt
+@@ -92,6 +92,11 @@
+     ${NASSP_SOURCE_ROOT}/src_sys/yaAGC/rfopen.c
+ )
+ 
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    return()
++endif()
++
+ link_directories(${ORBITERSDK_DIR}/lib)
+ link_directories(${ORBITERSDK_DIR}/XRSound)
+ link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/ML/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/ML/CMakeLists.txt
+index 1b9c7c129b11b19785c9b512a5fd1354c9b8b077..1b6e0ef93e3e33af1a42091bc906549efb004ca2
+--- a/Orbitersdk/samples/ProjectApollo/Project/ML/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/ML/CMakeLists.txt
+@@ -26,6 +26,11 @@
+     ${NASSP_SOURCE_ROOT}/src_sys/soundlib.cpp
+ )
+ 
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    return()
++endif()
++
+ link_directories(${ORBITERSDK_DIR}/lib)
+ link_directories(${ORBITERSDK_DIR}/XRSound)
+ 
+@@ -35,4 +40,4 @@
+     Orbiter
+     Orbitersdk
+     XRSound
+-)
+\ No newline at end of file
++)
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/PanelSDK/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/PanelSDK/CMakeLists.txt
+index 0baefc47994b9be34dad6465638f0ab2621105f1..2ca2ee78e3e4b992601a1d9a272b58ce872b3fae
+--- a/Orbitersdk/samples/ProjectApollo/Project/PanelSDK/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/PanelSDK/CMakeLists.txt
+@@ -4,28 +4,30 @@
+     ${NASSP_SOURCE_ROOT}/src_sys
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals
+-    ${ORBITERSDK_DIR}/include
+ )
+ set(SOURCES
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/PanelSDK.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/BUILD.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/BUILD.CPP
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Matrix.cpp
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Vectors.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/VSMGMT.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/VSMGMT.CPP
+     ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/esysparse.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/esystems.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/hsysparse.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/hsystems.cpp
+-    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/thermal.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/Esystems.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/Hsysparse.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/Hsystems.cpp
++    ${NASSP_SOURCE_ROOT}/src_sys/PanelSDK/Internals/Thermal.cpp
+ )
+ 
+-link_directories(${ORBITERSDK_DIR}/lib)
+-link_directories(${ORBITERSDK_DIR}/XRSound)
+-
+ add_library(${PROJECT_NAME} STATIC ${SOURCES})
++set_target_properties(${PROJECT_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+ target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIRS})
+-target_link_libraries(${PROJECT_NAME} PRIVATE
+-    Orbiter
+-    Orbitersdk
+-    XRSound
+-)
+\ No newline at end of file
++if(TARGET OrbiterSDKHeaders)
++    # PanelSDK is computation only; its Orbiter symbols are resolved by the
++    # future shared core. It has no sound dependency.
++    target_link_libraries(${PROJECT_NAME} PUBLIC OrbiterSDKHeaders OrbiterCore)
++else()
++    target_include_directories(${PROJECT_NAME} PRIVATE ${ORBITERSDK_DIR}/include)
++    target_link_directories(${PROJECT_NAME} PRIVATE
++        ${ORBITERSDK_DIR}/lib ${ORBITERSDK_DIR}/XRSound)
++    target_link_libraries(${PROJECT_NAME} PRIVATE Orbiter Orbitersdk XRSound)
++endif()
+\ No newline at end of file
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/ProjectApolloMFD/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/ProjectApolloMFD/CMakeLists.txt
+index c6e2551a4e3de249300c42b72711abb18ddae1ff..6ffcc98a0ae1f42077626faf12162c973a8f8bd4
+--- a/Orbitersdk/samples/ProjectApollo/Project/ProjectApolloMFD/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/ProjectApolloMFD/CMakeLists.txt
+@@ -12,7 +12,7 @@
+     ${ORBITERSDK_DIR}/include
+ )
+ set(SOURCES
+-    ${NASSP_SOURCE_ROOT}/src_mfd/MFDConnector.cpp
++    ${NASSP_SOURCE_ROOT}/src_mfd/MFDconnector.cpp
+     ${NASSP_SOURCE_ROOT}/src_mfd/ProjectApolloChecklistMFD.cpp
+     ${NASSP_SOURCE_ROOT}/src_mfd/ProjectApolloMFD.cpp
+     ${NASSP_SOURCE_ROOT}/src_mfd/ProjectApolloMFDButtons.cpp
+@@ -20,6 +20,13 @@
+     ${NASSP_SOURCE_ROOT}/src_rtccmfd/OrbMech.cpp
+     ${NASSP_SOURCE_ROOT}/src_sys/connector.cpp
+ )
++
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    target_link_libraries(${PROJECT_NAME} PRIVATE Saturn5 LEM)
++    set_target_properties(${PROJECT_NAME} PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/runtime/Modules/Plugin" RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/runtime/Modules/Plugin")
++    return()
++endif()
+ 
+ link_directories(${ORBITERSDK_DIR}/lib)
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/Sat5LMDSC/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/Sat5LMDSC/CMakeLists.txt
+index 9c3f09bb85721dfca11756d2c25342cf9ca1053e..a7c90f4b90e3d5cf7582af0da0126b79a30f7739
+--- a/Orbitersdk/samples/ProjectApollo/Project/Sat5LMDSC/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/Sat5LMDSC/CMakeLists.txt
+@@ -17,6 +17,11 @@
+     ${NASSP_SOURCE_ROOT}/src_sys/soundlib.cpp
+ )
+ 
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    return()
++endif()
++
+ link_directories(${ORBITERSDK_DIR}/lib)
+ link_directories(${ORBITERSDK_DIR}/XRSound)
+ link_directories(${CMAKE_BINARY_DIR}/Projects/PanelSDK)
+diff --git a/Orbitersdk/samples/ProjectApollo/Project/Saturn5/CMakeLists.txt b/Orbitersdk/samples/ProjectApollo/Project/Saturn5/CMakeLists.txt
+index 2e99558f4b66673d834bda2524e27e9d7a828652..f837fc2f3ceb0576c2f22660802b7424638d3f5d
+--- a/Orbitersdk/samples/ProjectApollo/Project/Saturn5/CMakeLists.txt
++++ b/Orbitersdk/samples/ProjectApollo/Project/Saturn5/CMakeLists.txt
+@@ -102,6 +102,11 @@
+     ${NASSP_SOURCE_ROOT}/src_sys/yaAGC/rfopen.c
+ )
+ 
++if(TARGET OrbiterCore)
++    nassp_add_native_module(${PROJECT_NAME} ${SOURCES})
++    return()
++endif()
++
+ link_directories(${ORBITERSDK_DIR}/lib)
+ link_directories(${ORBITERSDK_DIR}/lib/Lua)
+ link_directories(${ORBITERSDK_DIR}/..)
+diff --git a/Orbitersdk/samples/ProjectApollo/cmake/NativeTargets.cmake b/Orbitersdk/samples/ProjectApollo/cmake/NativeTargets.cmake
+index 0000000000000000000000000000000000000000..26ea88fd0371f35c5513f488db7d7e86b99705ac
+new file mode 100644
+--- /dev/null
++++ b/Orbitersdk/samples/ProjectApollo/cmake/NativeTargets.cmake
+@@ -0,0 +1,22 @@
++# Shared native module configuration; the original per-module source lists are
++# authoritative. Windows import libraries and RC objects are not used here.
++function(nassp_add_native_module name)
++    set(sources ${ARGN})
++    list(FILTER sources EXCLUDE REGEX "/vesim\\.cpp$")
++    list(FILTER sources EXCLUDE REGEX "/soundevents\\.cpp$")
++    # KillableWorker is only used by RTCC MFD, not by Saturn's AGC worker.
++    if(name STREQUAL "Saturn5" OR name STREQUAL "LEM")
++        list(FILTER sources EXCLUDE REGEX "/thread\\.cpp$")
++    endif()
++    add_library(${name} SHARED ${sources} "${NASSP_SOURCE_ROOT}/src_native/SoundEvents.cpp" "${NASSP_SOURCE_ROOT}/src_native/FdaiRasterizer.cpp" "${NASSP_SOURCE_ROOT}/src_native/NativeVesim.cpp")
++    target_include_directories(${name} PRIVATE ${INCLUDE_DIRS} "${NASSP_SOURCE_ROOT}/src_native")
++    target_link_libraries(${name} PRIVATE OrbiterCore Orbitersdk PanelSDK NASSPBitmapResources lua::lib)
++    target_compile_definitions(${name} PRIVATE NASSP_NATIVE OPENORBITER)
++    set_target_properties(${name} PROPERTIES
++        # Native addon plugins link vessel C++ interfaces directly.
++        WINDOWS_EXPORT_ALL_SYMBOLS ON
++        PREFIX ""
++        SUFFIX "${CMAKE_SHARED_LIBRARY_SUFFIX}"
++        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/runtime/Modules/ProjectApollo"
++        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/runtime/Modules/ProjectApollo")
++endfunction()

@@ -1,0 +1,1606 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-11T16:02:29.160335+00:00",
+  "checkout": "<POC_CHECKOUT>",
+  "branch": "macos-openorbiter-nassp-v9",
+  "implementation_commit": "1f737d8f7fa6d9612b71488aa09b32b76d7c59e3",
+  "preserved_demo": {
+    "checkout": "<PRESERVED_POC>",
+    "commit": "9e8d452e4a41c9b73bbc516e77b13a49d79f7c77",
+    "git_status_clean": true
+  },
+  "upstream": {
+    "schema": 1,
+    "orbiter": {
+      "repository": "https://github.com/orbitersim/orbiter.git",
+      "release_ref": "latest",
+      "commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "tree": "098bc06f7d0a381833060e8b504f657052c4b73b"
+    },
+    "nassp": {
+      "repository": "https://github.com/rcflyinghokie/NASSP.git",
+      "ref": "NASSP-V9.0-Orbiter2024-434",
+      "commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "tree": "5a228ecd6ee1acc8057c9711868ffbc9e709c6f9"
+    },
+    "verification": "Exact upstream Git objects, clean reference checkouts, original data hashes and removable native source inventory",
+    "limitations": [
+      "Historical reports apply only to their own recorded pins",
+      "Native inventories contain inherited adaptations requiring behavioral review",
+      "Windows upstream reference run not yet available",
+      "Faithful AGC processor resume remains blocked; broad snapshot redesign paused"
+    ],
+    "candidate": {
+      "repository": "https://github.com/orbiternassp/NASSP.git",
+      "ref": "Orbiter2016",
+      "commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+      "date": "2026-10-06T18:37:58+02:00",
+      "patch_rehearsed": true,
+      "adoption_verified": true,
+      "isolated": true,
+      "active_source_updated": false,
+      "full_suite": {
+        "passed": 82,
+        "total": 82,
+        "seconds": 136.65
+      },
+      "patch_paths": 92
+    },
+    "historical_baselines": {
+      "orbiter": {
+        "repository": "https://github.com/orbitersim/orbiter.git",
+        "commit": "4137930c5126cf848212139cd138a9ef2ade7660",
+        "tree": "9226ebefd9235531b6769a32b075a6d9d2368d6f"
+      },
+      "nassp": {
+        "repository": "https://github.com/CaptainSwag101/NASSP.git",
+        "ref": "CMake",
+        "commit": "96b6380943c382a297f969842be9344ef969a6f4",
+        "tree": "b7497bf5a7fd3fa1298d98022064a250be1df530"
+      }
+    }
+  },
+  "migration": {
+    "previous_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+    "target_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+    "port_application": "Candidate adapter groups02..07 and08 applied by git apply --3way with no conflicts;group01 empty",
+    "removed_native_patch_paths": [
+      "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.h",
+      "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.h"
+    ],
+    "added_native_patch_paths": [],
+    "preservation": "Upstream source, scenario and planetary configuration changes retained;no migration-specific physics or mission-state tuning",
+    "native_build_policy": "Upstream CMake source/include lists read by Orbiter NativeNasspManifest.cmake;Windows architecture and lua.dll detection bypassed by external target configuration",
+    "persistence_overlay": "Five original state-persistence files retained separately;AGC timing/FIFO snapshot redesign remains paused"
+  },
+  "orbiter_upstream_delta": {
+    "old_commit": "4137930c5126cf848212139cd138a9ef2ade7660",
+    "new_commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "new_tree": "098bc06f7d0a381833060e8b504f657052c4b73b",
+    "changed_paths": [
+      "Sound/XRSound/CMakeLists.txt"
+    ],
+    "native_engine_files_changed_upstream": false,
+    "files": {
+      "Sound/XRSound/CMakeLists.txt": {
+        "sha256": "d0eb8c6287befd9a2604132e945008de3e94cbb565edf0b62993683a5cc476c5",
+        "byte_identical_upstream": true
+      }
+    }
+  },
+  "critical_upstream_data_delta": {
+    "old_candidate_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+    "v9_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+    "same_critical_count": 273,
+    "changed_critical": [
+      {
+        "path": "Config/ProjectApollo/Earth_VirtualAGC.cfg",
+        "status": "changed",
+        "new_sha256": "14ec749ded173a1eed2afe8da67e052652141e4bfac325a5e9692265deacfe6c",
+        "old_sha256": "53bee6617864ef4c81abcbd752dd0b8bf7392ac29ac99dc3aadd27c8568ef1a2",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Config/ProjectApollo/Moon.cfg",
+        "status": "changed",
+        "new_sha256": "5f0caf8b252c8821e1851dc534cb0029c57c722714dfc62628490e091c3483b5",
+        "old_sha256": "0a105b1c780a08bc59b71d99c0c4ed90c4610c877be5b3aced39d41c7b5ef4b4",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Config/ProjectApollo/Sol_VirtualAGC.cfg",
+        "status": "changed",
+        "new_sha256": "ae286391386e24a8e0d09e46c88f4e40b86a48aee387214dc2a38b931a71b5a3",
+        "old_sha256": "89b99634f09709323493c3f586b2062cf4b0bb781f34819b124e1eb2d5906dfe",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 01 - Launch T-20m.scn",
+        "status": "changed",
+        "new_sha256": "af290aa0bac64c14d2f1e325d988a4d2a41bb015a9a8ca69ca1111adde358406",
+        "old_sha256": "5d8b3a335e57bb38b66ab71a3b54c481f41ff0a0bd493c75921d4d6ab87ee538",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 02 - Insertion.scn",
+        "status": "changed",
+        "new_sha256": "b605f515baac988c1de2a38c5e94de46a01b0e7447fbe98c5412306b46a083f2",
+        "old_sha256": "082e851d5112c3e0d6b13303db663a5aca99a6d8ee457a4fca246ac5b14e3f9c",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 05 - MCC-2 T-15m.scn",
+        "status": "changed",
+        "new_sha256": "ef3046eba94a33879bb1ea4ec618425363236648c7f970fb44a454340d4d7a66",
+        "old_sha256": "b6616945e6c82d650eedf9ef0b424821b147b66296ecc911138820887eec6161",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+        "status": "changed",
+        "new_sha256": "db388bf544d08e38b170c74207c3bfe598f3cf0dfeedca5a0ed46f690d956bc5",
+        "old_sha256": "4f0d42f9f1e9e5925021089119a199f13a608c4333377d98c8c4ae649e0b081d",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 11 - Lunar Liftoff T-1m.scn",
+        "status": "changed",
+        "new_sha256": "51ed62ccf1c63ab22e571011942692c5262d32060f99c280353b4ae135c0f5c8",
+        "old_sha256": "35a951ef61edbc5de6dcd6c9ecf8dd26474f0bafbb28875edb65c7c4682f1c5c",
+        "comparison": "LF-normalized text"
+      },
+      {
+        "path": "Scenarios/Project Apollo - NASSP/Apollo 11 - Launch.scn",
+        "status": "changed",
+        "new_sha256": "904978786298523592c3420d8b0ac04b0b3226b5fbb2718209912bcbe381ea0f",
+        "old_sha256": "f5b96dbabd7277a868cc9fdb0fd4df51c8e89c6e9477d98f62ee82e39061b636",
+        "comparison": "LF-normalized text"
+      }
+    ],
+    "same_critical": [
+      "Config/GC/ProjectApollo_CMBapex.cfg",
+      "Config/GC/ProjectApollo_CMOpticsCover.cfg",
+      "Config/GC/ProjectApollo_CMapex.cfg",
+      "Config/GC/ProjectApollo_EVA.cfg",
+      "Config/GC/ProjectApollo_LEM.cfg",
+      "Config/GC/ProjectApollo_LEVA.cfg",
+      "Config/GC/ProjectApollo_SM.cfg",
+      "Config/GC/ProjectApollo_Sat5LMDSC.cfg",
+      "Config/GC/ProjectApollo_Saturn1B.cfg",
+      "Config/GC/ProjectApollo_Saturn5.cfg",
+      "Config/MFD/AGCDECMFD.cfg",
+      "Config/MFD/AGCDECMFD.lua",
+      "Config/MFD/ScriptMFD.cfg",
+      "Config/MFD/agcerrors.csv",
+      "Config/MFD/dsky.csv",
+      "Config/Moon/Marker/Apollo 10 Navigation Landmarks.mkr",
+      "Config/Moon/Marker/Apollo 11 Navigation Landmarks.mkr",
+      "Config/Moon/Marker/Apollo 12 Navigation Landmarks.mkr",
+      "Config/Moon/Marker/Apollo 8 Navigation Landmarks.mkr",
+      "Config/Moon/Marker/Apollo Navigation Landmarks.mkr",
+      "Config/ProjectApollo/AS-203 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-204 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-206 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-210 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-503 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-504 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-505 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-506 Flight Sequence Program.txt",
+      "Config/ProjectApollo/AS-507 Flight Sequence Program.txt",
+      "Config/ProjectApollo/ASTP.cfg",
+      "Config/ProjectApollo/AlsepLSM.cfg",
+      "Config/ProjectApollo/AlsepPSE.cfg",
+      "Config/ProjectApollo/AlsepRTG.cfg",
+      "Config/ProjectApollo/AlsepSBnd.cfg",
+      "Config/ProjectApollo/AlsepSIDE.cfg",
+      "Config/ProjectApollo/AlsepSWS.cfg",
+      "Config/ProjectApollo/AlsepStation.cfg",
+      "Config/ProjectApollo/AlsepTV.cfg",
+      "Config/ProjectApollo/Artemis072.bin",
+      "Config/ProjectApollo/Artemis072NBY71.bin",
+      "Config/ProjectApollo/CMBapex.cfg",
+      "Config/ProjectApollo/CMOpticsCover.cfg",
+      "Config/ProjectApollo/CMapex.cfg",
+      "Config/ProjectApollo/CMprobe.cfg",
+      "Config/ProjectApollo/Checkout/SVEDSTest.csv",
+      "Config/ProjectApollo/Colossus237.bin",
+      "Config/ProjectApollo/Colossus249.bin",
+      "Config/ProjectApollo/Comanche055.bin",
+      "Config/ProjectApollo/Comanche067.bin",
+      "Config/ProjectApollo/Crawler.cfg",
+      "Config/ProjectApollo/DSKYOut.cfg",
+      "Config/ProjectApollo/DrogueChute.cfg",
+      "Config/ProjectApollo/EVA.cfg",
+      "Config/ProjectApollo/Earth_VirtualAGC/Base/Canaveral_VirtualAGC.cfg",
+      "Config/ProjectApollo/Earth_VirtualAGC/Label.cfg",
+      "Config/ProjectApollo/EasepLR3.cfg",
+      "Config/ProjectApollo/EasepPSEP.cfg",
+      "Config/ProjectApollo/EasepSWC.cfg",
+      "Config/ProjectApollo/EasepTV.cfg",
+      "Config/ProjectApollo/FP6.bin",
+      "Config/ProjectApollo/FP8.bin",
+      "Config/ProjectApollo/FloatBag.cfg",
+      "Config/ProjectApollo/Floodlight.cfg",
+      "Config/ProjectApollo/H-Mission Flight Sequence Program.txt",
+      "Config/ProjectApollo/J-Mission Flight Sequence Program.txt",
+      "Config/ProjectApollo/LC34.cfg",
+      "Config/ProjectApollo/LC37.cfg",
+      "Config/ProjectApollo/LCC.cfg",
+      "Config/ProjectApollo/LEM.cfg",
+      "Config/ProjectApollo/LEMSaturn.cfg",
+      "Config/ProjectApollo/LEMSystems.cfg",
+      "Config/ProjectApollo/LES.cfg",
+      "Config/ProjectApollo/LEVA.cfg",
+      "Config/ProjectApollo/LM131R1.bin",
+      "Config/ProjectApollo/LRV.cfg",
+      "Config/ProjectApollo/LUM69R2.bin",
+      "Config/ProjectApollo/Luminary099.bin",
+      "Config/ProjectApollo/Luminary116.bin",
+      "Config/ProjectApollo/Luminary131.bin",
+      "Config/ProjectApollo/Luminary178.bin",
+      "Config/ProjectApollo/Luminary210.bin",
+      "Config/ProjectApollo/MCC.cfg",
+      "Config/ProjectApollo/ML.cfg",
+      "Config/ProjectApollo/ML_SaturnIB.cfg",
+      "Config/ProjectApollo/MSS.cfg",
+      "Config/ProjectApollo/MainChute.cfg",
+      "Config/ProjectApollo/Manche45R2.bin",
+      "Config/ProjectApollo/Manche72R3.bin",
+      "Config/ProjectApollo/Moon.PlannedLandingSites.cfg",
+      "Config/ProjectApollo/Moon/Base/Descartes.cfg",
+      "Config/ProjectApollo/Moon/Base/Fra Mauro.cfg",
+      "Config/ProjectApollo/Moon/Base/Hadley.cfg",
+      "Config/ProjectApollo/Moon/Base/Oceanus Procellarum.cfg",
+      "Config/ProjectApollo/Moon/Base/Taurus-Littrow.cfg",
+      "Config/ProjectApollo/Moon/Base/Tranquillity.cfg",
+      "Config/ProjectApollo/Moon/Label.cfg",
+      "Config/ProjectApollo/RTCC/1968-12-21 Init.txt",
+      "Config/ProjectApollo/RTCC/1969-05-18 Init.txt",
+      "Config/ProjectApollo/RTCC/1969-07-16 Init.txt",
+      "Config/ProjectApollo/RTCC/1969-07-18 Init.txt",
+      "Config/ProjectApollo/RTCC/1969-07-21 Init.txt",
+      "Config/ProjectApollo/RTCC/1969-11-14 Init.txt",
+      "Config/ProjectApollo/RTCC/1970-04-11 Init.txt",
+      "Config/ProjectApollo/RTCC/1971-01-31 Init.txt",
+      "Config/ProjectApollo/RTCC/1971-07-26 Init.txt",
+      "Config/ProjectApollo/RTCC/1972-04-16 Init.txt",
+      "Config/ProjectApollo/RTCC/1972-12-07 Init.txt",
+      "Config/ProjectApollo/RTCC/ASTP Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 10 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 10 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 10 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 11 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 11 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 11 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 12 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 12 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 12 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 13 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 13 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 13 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 14 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 14 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 14 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 15 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 15 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 15 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 16 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 16 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 16 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 17 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 17 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 17 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 5 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 7 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 8 Constants.txt",
+      "Config/ProjectApollo/RTCC/Apollo 8 SFP.txt",
+      "Config/ProjectApollo/RTCC/Apollo 8 TLI.txt",
+      "Config/ProjectApollo/RTCC/Apollo 9 Constants.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 100A.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 100B.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 103A.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 103B.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 108.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 500.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 501.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 512.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 514.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 515.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 517.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 523.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 525A.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 526 (1 Deg).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 526 (2 Deg).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 526 (3 Deg).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 526 (4 Deg).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUX).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUY).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUZ).txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 528.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP 99.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-75.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-76.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-77.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-15.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-23.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 1 Deg.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 2 Deg.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 3 Deg.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 4 Deg.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUX.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUY.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUZ.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-28.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-50.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-52A.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-52B.txt",
+      "Config/ProjectApollo/RTCC/EMPs/EMP SL-55.txt",
+      "Config/ProjectApollo/RTCC/EMPs/P99 L1D.txt",
+      "Config/ProjectApollo/RTCC/EMPs/Zero Cells.txt",
+      "Config/ProjectApollo/RTCC/Skylab 2 Constants.txt",
+      "Config/ProjectApollo/RTCC/Star Table.txt",
+      "Config/ProjectApollo/SIBSystems.cfg",
+      "Config/ProjectApollo/SIVBSystems.cfg",
+      "Config/ProjectApollo/SM.cfg",
+      "Config/ProjectApollo/Sat1Aerocap.cfg",
+      "Config/ProjectApollo/Sat1probe.cfg",
+      "Config/ProjectApollo/Sat5Flag.cfg",
+      "Config/ProjectApollo/Saturn IB Default Flight Sequence Program.txt",
+      "Config/ProjectApollo/Saturn V Default Flight Sequence Program.txt",
+      "Config/ProjectApollo/Saturn1b.cfg",
+      "Config/ProjectApollo/Saturn1bAbort1.cfg",
+      "Config/ProjectApollo/Saturn1bAbort2.cfg",
+      "Config/ProjectApollo/Saturn5.cfg",
+      "Config/ProjectApollo/Saturn5ML.cfg",
+      "Config/ProjectApollo/Saturn5lowres.cfg",
+      "Config/ProjectApollo/SaturnINT20.cfg",
+      "Config/ProjectApollo/SaturnSystems.cfg",
+      "Config/ProjectApollo/Skylab.cfg",
+      "Config/ProjectApollo/Skylark048.bin",
+      "Config/ProjectApollo/Sol_VirtualAGC/Marker/Additional RTCC Stars 1970.mkr",
+      "Config/ProjectApollo/Sol_VirtualAGC/Marker/Apollo AGC navigation stars.mkr",
+      "Config/ProjectApollo/Sunburst120.bin",
+      "Config/ProjectApollo/Sundance306ish.bin",
+      "Config/ProjectApollo/VAB.cfg",
+      "Config/ProjectApollo/Vesim/CSM - GenericJoystick.cfg",
+      "Config/ProjectApollo/Vesim/CSM - Keyboard.cfg",
+      "Config/ProjectApollo/Vesim/CSM - Logitech WingMan Extreme Digital 3D (USB).cfg",
+      "Config/ProjectApollo/Vesim/CSM - VKBsim Gladiator .cfg",
+      "Config/ProjectApollo/Vesim/LM - GenericJoystick.cfg",
+      "Config/ProjectApollo/Vesim/LM - Keyboard.cfg",
+      "Config/ProjectApollo/Vesim/LM - Logitech WingMan Extreme Digital 3D (USB).cfg",
+      "Config/ProjectApollo/Vesim/LM - VKBsim Gladiator .cfg",
+      "Config/ProjectApollo/joystick-DEFAULT.ini",
+      "Config/ProjectApollo/nSat1_SM.cfg",
+      "Config/ProjectApollo/nSat1astp2.cfg",
+      "Config/ProjectApollo/nSat1probe.cfg",
+      "Config/ProjectApollo/nSat1stg1.cfg",
+      "Config/ProjectApollo/nSat1stg2.cfg",
+      "Config/ProjectApollo/nsat1btower.cfg",
+      "Config/ProjectApollo/nsat1stg21.cfg",
+      "Config/ProjectApollo/nsat1stg22.cfg",
+      "Config/ProjectApollo/nsat1stg23.cfg",
+      "Config/ProjectApollo/nsat1stg24.cfg",
+      "Config/ProjectApollo/sat5LMDSC.cfg",
+      "Config/ProjectApollo/sat5_LMPKD.cfg",
+      "Config/ProjectApollo/sat5btower.cfg",
+      "Config/ProjectApollo/sat5intstg.cfg",
+      "Config/ProjectApollo/sat5intstg4.cfg",
+      "Config/ProjectApollo/sat5intstg8.cfg",
+      "Config/ProjectApollo/sat5intstglowres.cfg",
+      "Config/ProjectApollo/sat5sky1.cfg",
+      "Config/ProjectApollo/sat5sky2.cfg",
+      "Config/ProjectApollo/sat5stg1.cfg",
+      "Config/ProjectApollo/sat5stg2.cfg",
+      "Config/ProjectApollo/sat5stg3.cfg",
+      "Config/ProjectApollo/sat5stg31.cfg",
+      "Config/ProjectApollo/sat5stg31wide.cfg",
+      "Config/ProjectApollo/sat5stg32.cfg",
+      "Config/ProjectApollo/sat5stg32wide.cfg",
+      "Config/ProjectApollo/sat5stg33.cfg",
+      "Config/ProjectApollo/sat5stg33wide.cfg",
+      "Config/ProjectApollo/sat5stg34.cfg",
+      "Config/ProjectApollo/sat5stg34wide.cfg",
+      "Config/ProjectApollo/saturn5abort1.cfg",
+      "Config/ProjectApollo/saturn5abort2.cfg",
+      "Config/ProjectApollo/saturn5abort3.cfg",
+      "Config/ProjectApollo/sm-hga.cfg",
+      "Config/ProjectApollo/sm-panel1.cfg",
+      "Config/ProjectApollo/sm-panel2.cfg",
+      "Config/ProjectApollo/sm-panel3.cfg",
+      "Config/ProjectApollo/sm-panel4.cfg",
+      "Config/ProjectApollo/sm-panel5.cfg",
+      "Config/ProjectApollo/sm-panel6.cfg",
+      "Config/ProjectApollo/sm-sps.cfg",
+      "Doc/Project Apollo - NASSP/Checklists/Apollo 11 Checklists.xls",
+      "Doc/Project Apollo - NASSP/Checklists/Apollo 11 LM Checklists.xls",
+      "Missions/ProjectApollo/ASTP.cfg",
+      "Missions/ProjectApollo/Apollo 10.cfg",
+      "Missions/ProjectApollo/Apollo 11.cfg",
+      "Missions/ProjectApollo/Apollo 12.cfg",
+      "Missions/ProjectApollo/Apollo 13.cfg",
+      "Missions/ProjectApollo/Apollo 1301.cfg",
+      "Missions/ProjectApollo/Apollo 14.cfg",
+      "Missions/ProjectApollo/Apollo 15.cfg",
+      "Missions/ProjectApollo/Apollo 16.cfg",
+      "Missions/ProjectApollo/Apollo 17.cfg",
+      "Missions/ProjectApollo/Apollo 5.cfg",
+      "Missions/ProjectApollo/Apollo 7.cfg",
+      "Missions/ProjectApollo/Apollo 8.cfg",
+      "Missions/ProjectApollo/Apollo 9.cfg",
+      "Missions/ProjectApollo/SL-2.cfg",
+      "Textures/ProjectApollo/FDAI_Ball.dds",
+      "Textures/ProjectApollo/FDAI_Ball_LM.dds"
+    ],
+    "normalisation": "Text only; binary bytes unchanged"
+  },
+  "source_and_data": {
+    "data_preflight": {
+      "profile": "v9",
+      "upstream_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "upstream_repository": "https://github.com/rcflyinghokie/NASSP.git",
+      "data_root": "<NATIVE_WORKSPACE>/sources/nassp-v9",
+      "manifest_sha256": "22c14e9ad6da1f7f7d00aa9946518fd8cf262b91cfe34cb9227f838efbc0afb7",
+      "critical_hashes_verified": 282,
+      "asset_files_present": 1054,
+      "all_asset_blobs_verified": true,
+      "text_line_endings_converted": [],
+      "orbiter_textures": null,
+      "planetary_package_supplied": false,
+      "source_root": "<POC_CHECKOUT>/orbiter/Addons/NASSP",
+      "source_adaptations_verified": 92,
+      "exported_source_lists_verified": 14
+    },
+    "patch_reconstruction": {
+      "commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "reconstructed_groups": [
+        "build",
+        "mission-integration",
+        "input",
+        "audio",
+        "graphics",
+        "guidance-portability",
+        "compiler-portability",
+        "state-persistence"
+      ],
+      "canonical_git_patch_bases": true,
+      "patched_hashes_verified": 92,
+      "five_persistence_files_separate": 5
+    },
+    "clean_checkout_audit": {
+      "critical_binary_files_checked": 24,
+      "binary_types": {
+        ".bin": 20,
+        ".xls": 2,
+        ".dds": 2
+      },
+      "binary_mismatches": [],
+      "source_manifests": [
+        {
+          "name": "Project/PanelSDK/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/Saturn5/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/LEM/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/Sat5LMDSC/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/ML/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/Floodlight/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/ProjectApolloMFD/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/MCC/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/sii/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/SIVB/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Project/Flag/CMakeLists.txt",
+          "actual_tracked": true,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Build/VC2017/EasepPSEP.vcxproj",
+          "actual_tracked": false,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Build/VC2017/EasepLR3.vcxproj",
+          "actual_tracked": false,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        },
+        {
+          "name": "Build/VC2017/EasepSWC.vcxproj",
+          "actual_tracked": false,
+          "export_exists": true,
+          "source_equal": true,
+          "export_tracked": true
+        }
+      ],
+      "fresh_checkout_requirement": "Complete: all14 consumed exports now staged/tracked, including explicitly added3 VC2017 fallback lists;11 addon CMake manifests tracked;GLOB_RECURSE fallback reads exports when ignored addon Build is absent"
+    },
+    "fresh_clone_preflight": {
+      "profile": "v9",
+      "upstream_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "upstream_repository": "https://github.com/rcflyinghokie/NASSP.git",
+      "data_root": "<NATIVE_WORKSPACE>/sources/nassp-v9",
+      "manifest_sha256": "22c14e9ad6da1f7f7d00aa9946518fd8cf262b91cfe34cb9227f838efbc0afb7",
+      "critical_hashes_verified": 282,
+      "asset_files_present": 1054,
+      "all_asset_blobs_verified": true,
+      "text_line_endings_converted": [],
+      "orbiter_textures": "<EXTERNAL_ASSETS>/orbiter-2024/Textures",
+      "planetary_package_supplied": true,
+      "planetary_archive_sizes": {
+        "Earth/Archive/Surf.tree": 514909645,
+        "Earth/Archive/Elev.tree": 270146919,
+        "Moon/Archive/Surf.tree": 256358063,
+        "Moon/Archive/Elev.tree": 272443927
+      },
+      "planetary_archive_hashes_verified": false,
+      "source_root": "<NATIVE_WORKSPACE>/audit-clean/orbiter/Addons/NASSP",
+      "source_adaptations_verified": 92,
+      "exported_source_lists_verified": 14
+    },
+    "fresh_clone_configure_passed": true,
+    "native_engine_inventory_paths": 312,
+    "native_engine_inventory_all_hashes_verified": true,
+    "native_engine_inventory_deleted_upstream_files": 8,
+    "native_engine_inventory_scope": "Union of both Git tracked trees excluding Addons/, docs/ and upstream/",
+    "native_engine_inventory_review_hash_unchanged": true
+  },
+  "build": {
+    "passed": true,
+    "configure_script": "<NATIVE_EVIDENCE_ROOT>/configure-upgrade.sh",
+    "configure_log": "<NATIVE_EVIDENCE_ROOT>/configure.log",
+    "build_log": "<NATIVE_EVIDENCE_ROOT>/build.log",
+    "parallel_jobs": 2,
+    "offline_dependencies": true,
+    "binary_hash_manifest": "<NATIVE_EVIDENCE_ROOT>/v9-binaries.json"
+  },
+  "tests": {
+    "registered": 99,
+    "full_suite_completed": false,
+    "desktop_ctest_checks_passed": 89,
+    "desktop_ctest_checks": [
+      {
+        "number": 1,
+        "name": "native_world",
+        "seconds": 0.03
+      },
+      {
+        "number": 2,
+        "name": "native_cockpit",
+        "seconds": 0.0
+      },
+      {
+        "number": 3,
+        "name": "mesh_normals",
+        "seconds": 0.0
+      },
+      {
+        "number": 4,
+        "name": "tile_archive",
+        "seconds": 0.01
+      },
+      {
+        "number": 5,
+        "name": "elevation_tile",
+        "seconds": 0.44
+      },
+      {
+        "number": 6,
+        "name": "native_data_preflight",
+        "seconds": 2.11
+      },
+      {
+        "number": 7,
+        "name": "native_audio",
+        "seconds": 0.01
+      },
+      {
+        "number": 8,
+        "name": "portable_sdk",
+        "seconds": 0.0
+      },
+      {
+        "number": 9,
+        "name": "native_core",
+        "seconds": 0.31
+      },
+      {
+        "number": 10,
+        "name": "module_lifecycle",
+        "seconds": 0.01
+      },
+      {
+        "number": 11,
+        "name": "nassp_bitmap_resources",
+        "seconds": 0.01
+      },
+      {
+        "number": 12,
+        "name": "nassp_bmp_normalize",
+        "seconds": 0.02
+      },
+      {
+        "number": 13,
+        "name": "native_lua",
+        "seconds": 0.0
+      },
+      {
+        "number": 14,
+        "name": "nassp_mesh",
+        "seconds": 0.06
+      },
+      {
+        "number": 15,
+        "name": "nassp_stage_original_insertion",
+        "seconds": 0.47
+      },
+      {
+        "number": 16,
+        "name": "native_original_insertion",
+        "seconds": 46.91
+      },
+      {
+        "number": 17,
+        "name": "nassp_assets",
+        "seconds": 0.06
+      },
+      {
+        "number": 18,
+        "name": "nassp_scenario_state",
+        "seconds": 0.0
+      },
+      {
+        "number": 19,
+        "name": "panelsdk_math",
+        "seconds": 0.0
+      },
+      {
+        "number": 20,
+        "name": "native_sdl",
+        "seconds": 0.01
+      },
+      {
+        "number": 21,
+        "name": "native_cli",
+        "seconds": 2.66
+      },
+      {
+        "number": 22,
+        "name": "realtime_steps",
+        "seconds": 0.0
+      },
+      {
+        "number": 23,
+        "name": "native_joystick",
+        "seconds": 0.01
+      },
+      {
+        "number": 24,
+        "name": "native_vesim",
+        "seconds": 0.0
+      },
+      {
+        "number": 25,
+        "name": "native_wgpu",
+        "seconds": 0.02
+      },
+      {
+        "number": 26,
+        "name": "wgpu_text",
+        "seconds": 0.05
+      },
+      {
+        "number": 27,
+        "name": "wgpu_client",
+        "seconds": 0.06
+      },
+      {
+        "number": 28,
+        "name": "wgpu_world",
+        "seconds": 0.14
+      },
+      {
+        "number": 29,
+        "name": "wgpu_present",
+        "seconds": 1.11
+      },
+      {
+        "number": 30,
+        "name": "wgpu_mesh",
+        "seconds": 0.26
+      },
+      {
+        "number": 31,
+        "name": "wgpu_dds",
+        "seconds": 0.05
+      },
+      {
+        "number": 32,
+        "name": "nassp_stage_cockpit",
+        "seconds": 0.09
+      },
+      {
+        "number": 33,
+        "name": "wgpu_live_cockpit",
+        "seconds": 5.28
+      },
+      {
+        "number": 34,
+        "name": "nassp_stage_solar",
+        "seconds": 0.24
+      },
+      {
+        "number": 35,
+        "name": "native_solar",
+        "seconds": 1.81
+      },
+      {
+        "number": 36,
+        "name": "nassp_stage_csm",
+        "seconds": 0.24
+      },
+      {
+        "number": 37,
+        "name": "wgpu_csm_cockpit",
+        "seconds": 4.34
+      },
+      {
+        "number": 38,
+        "name": "native_rcs",
+        "seconds": 1.73
+      },
+      {
+        "number": 39,
+        "name": "native_pause",
+        "seconds": 1.03
+      },
+      {
+        "number": 40,
+        "name": "native_nassp_resume",
+        "seconds": 3.23
+      },
+      {
+        "number": 41,
+        "name": "wgpu_solar_cockpit",
+        "seconds": 10.25
+      },
+      {
+        "number": 42,
+        "name": "nassp_stage_insertion",
+        "seconds": 0.09
+      },
+      {
+        "number": 43,
+        "name": "wgpu_insertion_cockpit",
+        "seconds": 9.82
+      },
+      {
+        "number": 44,
+        "name": "animation_pose",
+        "seconds": 0.18
+      },
+      {
+        "number": 45,
+        "name": "nassp_poc_launch",
+        "seconds": 3.63
+      },
+      {
+        "number": 46,
+        "name": "star_catalog",
+        "seconds": 0.19
+      },
+      {
+        "number": 47,
+        "name": "wgpu_stars",
+        "seconds": 0.29
+      },
+      {
+        "number": 48,
+        "name": "local_lights",
+        "seconds": 0.18
+      },
+      {
+        "number": 49,
+        "name": "exhaust_geometry",
+        "seconds": 0.15
+      },
+      {
+        "number": 50,
+        "name": "terrain_texture_border",
+        "seconds": 0.15
+      },
+      {
+        "number": 51,
+        "name": "native_views",
+        "seconds": 15.78
+      },
+      {
+        "number": 52,
+        "name": "nassp_stage_lm",
+        "seconds": 0.21
+      },
+      {
+        "number": 53,
+        "name": "native_lm",
+        "seconds": 7.79
+      },
+      {
+        "number": 54,
+        "name": "native_lm_resume",
+        "seconds": 1.66
+      },
+      {
+        "number": 55,
+        "name": "nassp_stage_pair",
+        "seconds": 0.21
+      },
+      {
+        "number": 56,
+        "name": "native_pair",
+        "seconds": 6.52
+      },
+      {
+        "number": 57,
+        "name": "native_exterior",
+        "seconds": 3.89
+      },
+      {
+        "number": 58,
+        "name": "native_pair_resume",
+        "seconds": 2.26
+      },
+      {
+        "number": 59,
+        "name": "nassp_stage_liftoff",
+        "seconds": 0.21
+      },
+      {
+        "number": 60,
+        "name": "native_liftoff",
+        "seconds": 5.6
+      },
+      {
+        "number": 61,
+        "name": "native_liftoff_resume",
+        "seconds": 0.46
+      },
+      {
+        "number": 62,
+        "name": "wgpu_imgui",
+        "seconds": 0.25
+      },
+      {
+        "number": 63,
+        "name": "native_ui",
+        "seconds": 3.42
+      },
+      {
+        "number": 64,
+        "name": "native_mfd",
+        "seconds": 4.06
+      },
+      {
+        "number": 65,
+        "name": "native_mfd_resume",
+        "seconds": 2.05
+      },
+      {
+        "number": 66,
+        "name": "nassp_mfd",
+        "seconds": 3.33
+      },
+      {
+        "number": 67,
+        "name": "nassp_mfd_resume",
+        "seconds": 2.05
+      },
+      {
+        "number": 68,
+        "name": "native_fdai",
+        "seconds": 0.26
+      },
+      {
+        "number": 69,
+        "name": "nassp_stage_joystick",
+        "seconds": 0.22
+      },
+      {
+        "number": 70,
+        "name": "nassp_joystick",
+        "seconds": 1.65
+      },
+      {
+        "number": 71,
+        "name": "nassp_stage_joystick_flight",
+        "seconds": 0.21
+      },
+      {
+        "number": 72,
+        "name": "nassp_joystick_flight",
+        "seconds": 1.69
+      },
+      {
+        "number": 73,
+        "name": "nassp_stage_joystick_throttle",
+        "seconds": 0.21
+      },
+      {
+        "number": 74,
+        "name": "nassp_joystick_throttle",
+        "seconds": 1.36
+      },
+      {
+        "number": 75,
+        "name": "native_sound",
+        "seconds": 1.41
+      },
+      {
+        "number": 76,
+        "name": "terrain_textures",
+        "seconds": 12.08
+      },
+      {
+        "number": 77,
+        "name": "terrain_contact",
+        "seconds": 4.95
+      },
+      {
+        "number": 78,
+        "name": "particle_simulation",
+        "seconds": 0.2
+      },
+      {
+        "number": 79,
+        "name": "landing_sounds",
+        "seconds": 0.16
+      },
+      {
+        "number": 80,
+        "name": "landing_sound_playback",
+        "seconds": 1.39
+      },
+      {
+        "number": 81,
+        "name": "pdi_protocol_contract",
+        "seconds": 0.24
+      },
+      {
+        "number": 82,
+        "name": "pdi_pilot_contract",
+        "seconds": 0.06
+      },
+      {
+        "number": 83,
+        "name": "pdi_aca_contract",
+        "seconds": 0.08
+      },
+      {
+        "number": 84,
+        "name": "native_lm_persistence",
+        "seconds": 0.21
+      },
+      {
+        "number": 85,
+        "name": "nassp_stage_original_liftoff",
+        "seconds": 0.45
+      },
+      {
+        "number": 86,
+        "name": "native_original_liftoff",
+        "seconds": 59.08
+      },
+      {
+        "number": 87,
+        "name": "native_mcc",
+        "seconds": 65.01
+      },
+      {
+        "number": 88,
+        "name": "native_mcc_resume",
+        "seconds": 64.58
+      },
+      {
+        "number": 89,
+        "name": "nassp_stage_original_descent",
+        "seconds": 0.46
+      }
+    ],
+    "desktop_ctest_log": "<NATIVE_EVIDENCE_ROOT>/v9-suite-desktop-through-descent.log",
+    "desktop_stop": "Coordinator paused after current graphical test finished, then terminated after headless descent child completed; no further graphical launch",
+    "original_descent_verifier_completed": true,
+    "original_descent_ctest_result_collected": true,
+    "original_descent_verification": {
+      "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "source_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "scenario_modified": false,
+      "command": [
+        "<POC_CHECKOUT>/orbiter/build/native-v9/native_descent_probe",
+        "<POC_CHECKOUT>/orbiter/build/native-v9/runtime-original-descent",
+        "1750",
+        "--prepare-pdi",
+        "--scenario",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "--radar-limit-ft",
+        "2000",
+        "--proceed-approach",
+        "--stop-at-contact"
+      ],
+      "duration_seconds": 1750,
+      "wall_seconds": 70.118805958,
+      "first_contact_sim_elapsed": 1605.83,
+      "precontact_vertical_speed_mps": -0.894745,
+      "precontact_groundspeed_mps": 0.932137,
+      "radar_limit_ft": 2000,
+      "final_altitude_m": 3.51194,
+      "final_groundspeed_mps": 0.000397468,
+      "final_dps_level": 0.0,
+      "vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Floodlight",
+        "MCC"
+      ],
+      "fresh_resume_seconds": 10,
+      "fresh_ground_contact": true,
+      "fresh_groundspeed_mps": 0.000137665,
+      "fresh_dps_level": 0.0,
+      "lgc_memory_channels_retained": true,
+      "windows_comparison": false,
+      "limits": [
+        "Simplified pilot sequence accepts initial attitude early and omits the checklist yaw/manual-landing exercise",
+        "2000-foot radar acceptance is an explicit diagnostic bound, not an independently certified operational limit",
+        "Soft contact/engine stop/save/resume establish Mac execution, not Windows trajectory or historical landing-site parity"
+      ]
+    },
+    "remaining_headless_ctest": {
+      "passed": 6,
+      "total": 7,
+      "exit_code": 8,
+      "seconds": 244.36,
+      "tests": [
+        {
+          "name": "nassp_stage_pdi_protocol",
+          "seconds": 0.450008,
+          "passed": true,
+          "failure": null
+        },
+        {
+          "name": "native_pdi_protocol",
+          "seconds": 58.2355,
+          "passed": true,
+          "failure": null
+        },
+        {
+          "name": "nassp_stage_pdi_pilot",
+          "seconds": 0.46411,
+          "passed": true,
+          "failure": null
+        },
+        {
+          "name": "native_pdi_pilot",
+          "seconds": 91.4354,
+          "passed": false,
+          "failure": null
+        },
+        {
+          "name": "nassp_stage_pdi_uninterrupted_aca",
+          "seconds": 0.479441,
+          "passed": true,
+          "failure": null
+        },
+        {
+          "name": "native_pdi_uninterrupted_aca",
+          "seconds": 93.0165,
+          "passed": true,
+          "failure": null
+        },
+        {
+          "name": "fdai_rasterizer",
+          "seconds": 0.270334,
+          "passed": true,
+          "failure": null
+        }
+      ],
+      "xml": "<NATIVE_EVIDENCE_ROOT>/v9-headless-final.xml",
+      "log": "<NATIVE_EVIDENCE_ROOT>/v9-headless-final.log"
+    },
+    "unique_passing_ctest_checks": 98,
+    "additional_completed_descent_verifier": 0,
+    "total_validated_checks_including_descent_verifier": 98,
+    "strict_failed_gate": "native_pdi_pilot",
+    "graphics_held": [],
+    "graphics_hold_reason": null,
+    "sandbox_interrupted_run": {
+      "log": "<NATIVE_EVIDENCE_ROOT>/v9-suite-sandbox-interrupted.log",
+      "no_hardware_adapter": true,
+      "graphical_insertion_timeout_seconds": 120,
+      "user_app_restart_interrupted_after_test_40_start": true,
+      "desktop_hardware_probe_passed": true,
+      "retained": true
+    },
+    "original_descent_verification_before_ctest_recovery": {
+      "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "source_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "scenario_modified": false,
+      "command": [
+        "<POC_CHECKOUT>/orbiter/build/native-v9/native_descent_probe",
+        "<POC_CHECKOUT>/orbiter/build/native-v9/runtime-original-descent",
+        "1750",
+        "--prepare-pdi",
+        "--scenario",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "--radar-limit-ft",
+        "2000",
+        "--proceed-approach",
+        "--stop-at-contact"
+      ],
+      "duration_seconds": 1750,
+      "wall_seconds": 70.364740583,
+      "first_contact_sim_elapsed": 1605.83,
+      "precontact_vertical_speed_mps": -0.894745,
+      "precontact_groundspeed_mps": 0.932137,
+      "radar_limit_ft": 2000,
+      "final_altitude_m": 3.51193,
+      "final_groundspeed_mps": 0.000400184,
+      "final_dps_level": 0.0,
+      "vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Floodlight",
+        "MCC"
+      ],
+      "fresh_resume_seconds": 10,
+      "fresh_ground_contact": true,
+      "fresh_groundspeed_mps": 0.000134101,
+      "fresh_dps_level": 0.0,
+      "lgc_memory_channels_retained": true,
+      "windows_comparison": false,
+      "limits": [
+        "Simplified pilot sequence accepts initial attitude early and omits the checklist yaw/manual-landing exercise",
+        "2000-foot radar acceptance is an explicit diagnostic bound, not an independently certified operational limit",
+        "Soft contact/engine stop/save/resume establish Mac execution, not Windows trajectory or historical landing-site parity"
+      ]
+    },
+    "unique_failed_ctest_checks": 1,
+    "all_registered_tests_have_results": true,
+    "single_full_suite_invocation_completed": false,
+    "full_suite_notes": "All99 registered checks have recorded results across the initial desktop phase and final graphical/headless groups; repeated fixtures counted once. No single uninterrupted99-test invocation completed.98 pass; strict native_pdi_pilot fails.",
+    "final_tree_graphical_ctest": {
+      "total": 4,
+      "passed": 4,
+      "tests": [
+        {
+          "name": "nassp_stage_original_descent",
+          "seconds": 0.691263,
+          "passed": true
+        },
+        {
+          "name": "native_original_descent",
+          "seconds": 70.1454,
+          "passed": true
+        },
+        {
+          "name": "native_descent_visual",
+          "seconds": 18.0177,
+          "passed": true
+        },
+        {
+          "name": "native_pdi_window",
+          "seconds": 481.979,
+          "passed": true
+        }
+      ],
+      "xml": "<NATIVE_EVIDENCE_ROOT>/graphics-final/graphical-completion.xml",
+      "exit_code": 0,
+      "seconds": 570.84,
+      "log": "<NATIVE_EVIDENCE_ROOT>/graphics-final/graphical-completion.log"
+    },
+    "final_tree_headless_ctest": {
+      "total": 8,
+      "passed": 7,
+      "tests": [
+        {
+          "name": "native_data_preflight",
+          "seconds": 2.34359,
+          "passed": true
+        },
+        {
+          "name": "nassp_stage_pdi_protocol",
+          "seconds": 0.534956,
+          "passed": true
+        },
+        {
+          "name": "native_pdi_protocol",
+          "seconds": 57.5289,
+          "passed": true
+        },
+        {
+          "name": "nassp_stage_pdi_pilot",
+          "seconds": 0.529139,
+          "passed": true
+        },
+        {
+          "name": "native_pdi_pilot",
+          "seconds": 86.8975,
+          "passed": false
+        },
+        {
+          "name": "nassp_stage_pdi_uninterrupted_aca",
+          "seconds": 0.529553,
+          "passed": true
+        },
+        {
+          "name": "native_pdi_uninterrupted_aca",
+          "seconds": 86.2193,
+          "passed": true
+        },
+        {
+          "name": "fdai_rasterizer",
+          "seconds": 0.0146772,
+          "passed": true
+        }
+      ],
+      "xml": "<NATIVE_EVIDENCE_ROOT>/graphics-final/headless-regression.xml",
+      "exit_code": 8,
+      "seconds": 234.61,
+      "log": "<NATIVE_EVIDENCE_ROOT>/graphics-final/headless-regression.log"
+    },
+    "final_tree_affected_ctest_reruns": {
+      "total": 12,
+      "passed": 11,
+      "failed": 1
+    },
+    "combined_coverage_results": "<NATIVE_EVIDENCE_ROOT>/graphics-final/results.json"
+  },
+  "processor_resume": {
+    "saved_cycle_counter": 124205511,
+    "reloaded_cycle_counter": 0,
+    "cycle_counter_retained": false,
+    "cdu_fifo_snapshot_supported": false,
+    "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in module-static state shared by same-class AGCs"
+  },
+  "uninterrupted_aca": {
+    "validation_passed": true,
+    "verification": "<NATIVE_EVIDENCE_ROOT>/runtime-evidence/runtime-pdi-uninterrupted-aca/pdi-uninterrupted-aca-verification.json",
+    "manual_landing_validated": false,
+    "physical_controller_validated": false,
+    "faithful_resume_validated": false
+  },
+  "gravity_scope": {
+    "scope": "Source-grounded gravity model loading and inherited fixture physics options",
+    "config_default": {
+      "source": "orbiter/Src/Orbiter/Config.cpp:46",
+      "bNonsphericalGrav": false
+    },
+    "native_host_load": {
+      "source": "orbiter/Src/Orbiter/NativeHost.cpp:121",
+      "filename": "Orbiter.cfg",
+      "absent_file_behavior": "Normal Config defaults"
+    },
+    "force_dispatch": {
+      "source": "orbiter/Src/Orbiter/PSys.cpp:586",
+      "requires": "UseComplexGravity() and usePines()"
+    },
+    "runtime_configs": {
+      "runtime-original-insertion": {
+        "Orbiter_cfg_exists": false
+      },
+      "runtime-original-liftoff": {
+        "Orbiter_cfg_exists": false
+      },
+      "runtime-original-descent": {
+        "Orbiter_cfg_exists": false
+      },
+      "runtime-pdi-protocol": {
+        "Orbiter_cfg_exists": false
+      },
+      "runtime-pdi-pilot": {
+        "Orbiter_cfg_exists": false
+      }
+    },
+    "loaded_model_lines": [
+      "000000.063: GRAVITY MODEL: GravityModels\\jgmess_160a_sha.tab LOADED, Terms 65/13040",
+      "000000.070: GRAVITY MODEL: GravityModels\\mod_shgj120p.a01 LOADED, Terms 65/7380",
+      "000000.077: GRAVITY MODEL: GravityModels\\egm96_to360.tab LOADED, Terms 65/65340",
+      "000000.343: GRAVITY MODEL: GravityModels\\jgl165p1.sha LOADED, Terms 7380/13860",
+      "000000.365: GRAVITY MODEL: GravityModels\\jgmro_120f_sha.tab LOADED, Terms 65/7380",
+      "000000.047: GRAVITY MODEL: GravityModels\\jgmess_160a_sha.tab LOADED, Terms 65/13040",
+      "000000.056: GRAVITY MODEL: GravityModels\\mod_shgj120p.a01 LOADED, Terms 65/7380",
+      "000000.064: GRAVITY MODEL: GravityModels\\egm96_to360.tab LOADED, Terms 65/65340",
+      "000000.332: GRAVITY MODEL: GravityModels\\jgl165p1.sha LOADED, Terms 7380/13860",
+      "000000.355: GRAVITY MODEL: GravityModels\\jgmro_120f_sha.tab LOADED, Terms 65/7380",
+      "000000.044: GRAVITY MODEL: GravityModels\\jgmess_160a_sha.tab LOADED, Terms 65/13040",
+      "000000.052: GRAVITY MODEL: GravityModels\\mod_shgj120p.a01 LOADED, Terms 65/7380",
+      "000000.059: GRAVITY MODEL: GravityModels\\egm96_to360.tab LOADED, Terms 65/65340",
+      "000000.325: GRAVITY MODEL: GravityModels\\jgl165p1.sha LOADED, Terms 7380/13860",
+      "000000.347: GRAVITY MODEL: GravityModels\\jgmro_120f_sha.tab LOADED, Terms 65/7380"
+    ],
+    "new_harmonic_force_validation_claimed": false
+  },
+  "git_diff_check": {
+    "native_policy_tools_docs_passed": true,
+    "full_import_has_upstream_whitespace": true,
+    "upstream_text_preserved": true,
+    "full_import_log": "<NATIVE_EVIDENCE_ROOT>/staged-diff-check.log"
+  },
+  "backups": [
+    {
+      "path": "<PRIVATE_BACKUPS>/current-demo-9e8d452.bundle",
+      "bytes": 595562161,
+      "sha256": "85022fdc4a8a3f00d7b1daa23fd4a2b61339ae9154d25d6ce3d8fb5ac4ed5667",
+      "git_bundle_verified": true
+    },
+    {
+      "path": "<PRIVATE_BACKUPS>/v9-implementation-1f737d8.bundle",
+      "bytes": 597427500,
+      "sha256": "e8f42153672c43e70ded4d6d29385ff0ca2ca19dfc3742873346bee5dd1e4b67",
+      "git_bundle_verified": true
+    }
+  ],
+  "evidence": {
+    "root": "<NATIVE_EVIDENCE_ROOT>",
+    "runtime_archive": "<NATIVE_EVIDENCE_ROOT>/runtime-evidence",
+    "sha256_manifest": "<NATIVE_EVIDENCE_ROOT>/artifact-sha256.json",
+    "mirrored_evidence_path": "<PRIVATE_BACKUPS>/v9-evidence-20261011"
+  },
+  "coordination": {
+    "parent_thread_id": "<PRIVATE_TASK_ID>",
+    "parent_notification_tool_attempts_returned_thread_not_found": true,
+    "native_gpu_window_clear": true,
+    "new_graphical_tests_held": false,
+    "final_native_gpu_window_clear": true,
+    "final_process_inventory": "<NATIVE_EVIDENCE_ROOT>/graphics-final/process-final.json",
+    "parent_notification_limitation": "Start and GPU-clear notifications attempted with provided parent ID; both returned thread not found. No local execution/approval blocker. Final report uses automatic parent handoff."
+  },
+  "remaining_limits": [
+    "Strict AGC processor resume fails because cycle counter and pending CDU FIFO state are not serialized; broad snapshot redesign remains paused",
+    "Loaded new gravity tables do not establish nonspherical-force parity; inherited fixture default remains false",
+    "Windows trajectory/full original mission parity, flight-view correctness, human hit testing, physical controllers and manual landing unverified",
+    "Planetary archive sizes recorded; package SHA256 verification not established by this native upgrade"
+  ],
+  "pushed": false,
+  "hosted_ci_activated": false,
+  "repo_visibility_changed": false,
+  "inventory_review_followup": {
+    "recorded_at_utc": "2026-10-11T16:23:19.874682+00:00",
+    "review_thread": "<PRIVATE_TASK_ID>",
+    "finding": "P2: exporter omitted upstream-only tracked deletions",
+    "fix": "Compare the union of both Git tracked trees; only tracked membership supplies native/upstream bytes, so an untracked copy cannot hide a committed omission",
+    "unchanged_files": 4003,
+    "inventory_differences": 312,
+    "status_counts": {
+      "modified": 83,
+      "added": 221,
+      "deleted": 8
+    },
+    "omission_types": {
+      "scenery_pdfs": 5,
+      "windows_qt_dlls": 2,
+      "windows_qt_pdbs": 1
+    },
+    "all_inventory_hashes_and_union_coverage_verified": true,
+    "regression_command": "PYTHONDONTWRITEBYTECODE=1 python3 Tests/OrbiterUpstream.py",
+    "focused_tests": 2,
+    "before_fix": "Both focused tests reproduced the missing deletion and failed",
+    "after_fix": "Both focused tests passed",
+    "registered_runtime_test_count_unchanged": 99,
+    "runtime_test_results_unchanged": true,
+    "strict_processor_resume_failure_preserved": true,
+    "graphical_tests_launched": false,
+    "graphics_hold": "native_descent_visual and native_pdi_window remain held; parent VM owns UI",
+    "evidence_directory": "<NATIVE_EVIDENCE_ROOT>/inventory-review-fix",
+    "backup_policy": "Keep prior evidence and bundles intact; verify a separate review-fix bundle and evidence snapshot after the commit",
+    "pushed": false,
+    "hosted_ci_activated": false,
+    "repo_visibility_changed": false,
+    "historical_status_at_commit": "25d4abeb549071745f26f6ce14d4dcce8acdc3d5",
+    "runtime_status_superseded_by": "graphical_completion"
+  },
+  "graphical_completion": {
+    "recorded_at_utc": "2026-10-11T18:20:47.780714+00:00",
+    "tested_tree_commit": "25d4abeb549071745f26f6ce14d4dcce8acdc3d5",
+    "final_tree_build_passed": true,
+    "previous_runtime_binary_hashes_checked": 41,
+    "previous_runtime_binary_hashes_unchanged": true,
+    "source_changes_since_build": [
+      "Tests/OrbiterUpstream.py",
+      "tools/orbiter_upstream.py",
+      "docs/native-v9-upgrade.md",
+      "upstream/openorbiter-native.json",
+      "upstream/validation-v9-macos-2026-10-11.json"
+    ],
+    "graphical_ctest_passed": 4,
+    "graphical_ctest_total": 4,
+    "native_descent_visual_passed": true,
+    "native_pdi_window_passed": true,
+    "pdi_window": {
+      "runs": [
+        {
+          "run": 1,
+          "profile": "v9",
+          "validation_passed": true,
+          "wall_seconds": 240.480770459,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1461.7333333323327,
+            "mission_time": 370206.157069993,
+            "cycles": 124734577,
+            "height_ft": 1611.7125984251968,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 13,
+            "rendered_frames": 611,
+            "continuation_guarded": false
+          },
+          "lifecycle_events": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "captured_frames": {
+            "PDIProtocol.jsonl": "e102936ae720816a12c3a411d16c6024b0246f6eec1da13ec775a045656f8f4f",
+            "PDIWindow.jsonl": "9e16f2781d17b468c4de7140164786bea78c489d5c1b7141dc2b3556db502a09",
+            "window-captures/original-pdi.ppm": "8be90885a01fe2f6d9368ffb52b189dd697cc1d01c7240aca8ed36711bc1aca0",
+            "window-captures/p64-paused-handoff.ppm": "13009495a983872a02990503a16f180978a22f772fd28d9a13284c4d3a877cd9"
+          },
+          "human_control_validated": false,
+          "physical_controller_validated": false,
+          "landing_validated": false
+        },
+        {
+          "run": 2,
+          "profile": "v9",
+          "validation_passed": true,
+          "wall_seconds": 240.52007658300002,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1461.7333333323327,
+            "mission_time": 370206.157069993,
+            "cycles": 124734577,
+            "height_ft": 1611.7125984251968,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 13,
+            "rendered_frames": 611,
+            "continuation_guarded": false
+          },
+          "lifecycle_events": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "captured_frames": {
+            "PDIProtocol.jsonl": "9eaeb6fce237ab840a5f02b1fdf109a7e259604140b0505c4f0ee505f8a3d892",
+            "PDIWindow.jsonl": "9e16f2781d17b468c4de7140164786bea78c489d5c1b7141dc2b3556db502a09",
+            "window-captures/original-pdi.ppm": "8be90885a01fe2f6d9368ffb52b189dd697cc1d01c7240aca8ed36711bc1aca0",
+            "window-captures/p64-paused-handoff.ppm": "ab61a9682d30b8c84bbfec3175023476a0f37be3073a1426604a52d4ee9417f4"
+          },
+          "human_control_validated": false,
+          "physical_controller_validated": false,
+          "landing_validated": false
+        }
+      ],
+      "repeated_launch_validated": true,
+      "capture_review": {
+        "reviewed": [
+          "run1/original-pdi.ppm",
+          "run1/p64-paused-handoff.ppm"
+        ],
+        "cockpit_geometry_and_instrument_surfaces_visible": true,
+        "exterior_flight_view_correctness_validated": false,
+        "windows_visual_parity_validated": false
+      }
+    },
+    "original_descent_ctest_result_recovered_by_rerun": true,
+    "final_tree_headless_passed": 7,
+    "final_tree_headless_total": 8,
+    "strict_processor_resume_failure_reproduced": true,
+    "registered_ctest_checks": 99,
+    "unique_passing_ctest_checks": 98,
+    "unique_failed_ctest_checks": 1,
+    "single_uninterrupted_full_suite_invocation_completed": false,
+    "two_standalone_inventory_tests_passed": true,
+    "native_gpu_window_clear": true,
+    "remaining_graphical_gates": [],
+    "runtime_evidence_files_copied_and_hash_verified": 65,
+    "evidence_directory": "<NATIVE_EVIDENCE_ROOT>/graphics-final",
+    "physics_equations_or_original_mission_inputs_changed": false,
+    "strict_gate_waived": false,
+    "snapshot_redesign_added": false,
+    "pushed": false,
+    "hosted_ci_activated": false,
+    "repo_visibility_changed": false
+  }
+}

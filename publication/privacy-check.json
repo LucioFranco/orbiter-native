@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "tracked_files": 6298,
+  "blobs_above_50_MiB": [],
+  "high_signal_secret_scan_text_files": 3977,
+  "binary_or_over_8_MiB_skipped": 2321,
+  "secret_pattern_candidate_paths": [],
+  "private_metadata_locator_paths": [],
+  "tracked_symlinks": [],
+  "no_secret_values_reported": true,
+  "limitations": "Pattern scan does not guarantee absence of secrets; upstream binary/media metadata not exhaustively decoded. No private captures/installers/VM data imported."
+}

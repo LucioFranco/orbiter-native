@@ -1,0 +1,97 @@
+/assets/downloads/Orbiter-2024.zip
+/assets/orbiter-2024/
+
+# Publication exclusions: external prerequisites and scoped rights exceptions
+/orbiter/Addons/NASSP/Config/ProjectApollo/Artemis072.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Artemis072NBY71.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Colossus237.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Colossus249.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Comanche055.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Comanche067.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/FP6.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/FP8.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/LM131R1.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/LUM69R2.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Luminary099.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Luminary116.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Luminary131.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Luminary178.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Luminary210.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Manche45R2.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Manche72R3.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Skylark048.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Sunburst120.bin
+/orbiter/Addons/NASSP/Config/ProjectApollo/Sundance306ish.bin
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Apollo 7 Update Forms.doc
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 10 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 10 LM Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 11 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 11 LM Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 11 PDI Demo Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 12 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 12 LM Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 5 LM Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 7 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 8 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 9 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Apollo 9 LM Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/CSM Default Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Demo Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/LM Default Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Checklists/Skylab 2 Checklists.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Crew Module Panel Overview.pdf
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/GNC Tools/CMC Update.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/GNC Tools/Calculations.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/GNC Tools/External Delta V.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/GNC Tools/Landmark.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/GNC Tools/Terrain Model.xls
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Lunar Module Panel Overview.pdf
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/NASSP Quick Start Guide.pdf
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Programmers Notes/Apollo Optics.doc
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Programmers Notes/NASSP Quick Start Guide.docx
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/RTCC/ApolloRTCCMFD.pdf
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/RTCC/RTCC MFD Inputs Guide.pdf
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Saturn Masses.xlsx
+/orbiter/Addons/NASSP/Doc/Project Apollo - NASSP/Spacecraft Masses.xlsx
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/Skylab I.msh
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/SkylabFairing_1.msh
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/SkylabFairing_2.msh
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/SkylabFairing_3.msh
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/SkylabFairing_4.msh
+/orbiter/Addons/NASSP/Meshes/ProjectApollo/Skylab1973/SkylabRadiatorCover.msh
+/orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/Doc/AGC20short.doc
+/orbiter/BinAssets/msvcp71.dll
+/orbiter/BinAssets/msvcr71.dll
+/orbiter/Extern/Htmlhelp/lib-x64/Htmlhelp.Lib
+/orbiter/Extern/Htmlhelp/lib-x86/Htmlhelp.Lib
+/orbiter/Extern/imgui/architext.regular.ttf
+/orbiter/OVP/D3D9Client/doc/images/Guide to D3D9Client.docx
+/orbiter/OVP/D3D9Client/samples/InterfaceBuilder/InterfaceBuilder.exe
+/orbiter/Orbitersdk/doc/BuildingSamples.pdf
+/orbiter/Sound/XRSound/assets/Doc/Solar Serenity.jpg
+/orbiter/Sound/XRSound/assets/Doc/XRSound User Manual.docx
+/orbiter/Sound/XRSound/assets/Doc/XRSound User Manual.pdf
+/orbiter/Sound/XRSound/assets/XRSound/Default/Music/Solar Serenity.ogg
+/orbiter/Src/Celbody/Ariel/Ariel.dll
+/orbiter/Src/Celbody/Deimos/Deimos.dll
+/orbiter/Src/Celbody/Miranda/Miranda.dll
+/orbiter/Src/Celbody/Oberon/Oberon.dll
+/orbiter/Src/Celbody/Phobos/Phobos.dll
+/orbiter/Src/Celbody/Satsat/sources/1995A+A...297..588V.pdf
+/orbiter/Src/Celbody/Titania/Titania.dll
+/orbiter/Src/Celbody/Triton/Triton.dll
+/orbiter/Src/Celbody/Umbriel/Umbriel.dll
+/orbiter/Src/Plugin/TransX/Doc/TransX quickstart.pdf
+/orbiter/Src/Plugin/TransX/Doc/TransXmanualv3.pdf
+/orbiter/Src/Plugin/TransX/Doc/deepspacemanual.pdf
+/orbiter/Utils/plsplit/DxTex.exe
+/orbiter/Utils/tileedit/qt/extern/libpng/lib/libpng16.lib
+/orbiter/Utils/tileedit/qt/extern/libpng/lib/libpng16_static.lib
+/orbiter/Utils/tileedit/qt/extern/zlib/lib/zdll.lib
+/orbiter/Utils/tileedit/qt/extern/zlib/lib/zlib.lib
+/orbiter/Utils/tileedit/qt/extern/zlib/lib/zlib.pdb
+/NASSP/
+
+/.ci-cache/
+
+/ci-reports/

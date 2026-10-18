@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-10-12T05:50:14.425666+00:00",
+  "tested_source_commit": "0bd60e8105910096ece760cd614517bb5d0dbd5c",
+  "counts": {
+    "passed": 103,
+    "failed": 1,
+    "skipped": 0,
+    "total": 104
+  },
+  "known_strict_failed_tests": [
+    "native_pdi_pilot"
+  ],
+  "schema": 1,
+  "evidence": "orbiter/upstream/validation-v9-final-current-macos-2026-10-12.json",
+  "not_a_current_job_result": true,
+  "preview_ready": false,
+  "strict_failure": "AGC cycle counter 124205511 reloads as zero; faithful resume requires CDU FIFO persistence. No expected-failure or assertion waiver.",
+  "scope": "Dated complete macOS arm64 suite; not Windows/Linux runtime or hosted subset acceptance"
+}

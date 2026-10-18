@@ -1,0 +1,1703 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T23:56:47.173494+00:00",
+  "baseline_commit": "8503f9d04ffd943b0c5ad30b509dba2c23623ed0",
+  "scope": "Native exact neutrality and pulse validation of an external callback-only Module/adapter. Windows static build reviewed but guest execution unvalidated.",
+  "sources": "upstream/input-diagnostic",
+  "production_source_or_equations_changed": false,
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "build_provenance": {
+    "source_sha256": "9212d36284056cfb3e7e75a3fb542a8c5a3222017a7f4500da9d6cc558dd15c2",
+    "prelude_sha256": "4fd4325d7521bb5d453665a576efb7103c0522cca36e99aab6a8a02644ae7605",
+    "sdk_header_sha256": "22c5506e1b5a7ac328e8e12111e5a9a83a7411cf7aac486834ba45fb8026817e",
+    "sdk_import_library_sha256": "53dcfee3e351777880431af71a00a790096313a1a9f9f35c4ea5fcc7d262b30c",
+    "sdk_package_sha256": "f00f767089e93d443252d35da58fcd0ccfb223c3b9f548437428cfc6e44cf00d",
+    "native_compile": [
+      "/Library/Developer/CommandLineTools/usr/bin/clang++",
+      "-DIMGUI_USER_CONFIG=\"NativeImGuiConfig.h\"",
+      "-DNOGRAPHICS",
+      "-DORBITER_NATIVE_CORE",
+      "-I<POC_CHECKOUT>/orbiter/Src/Orbiter",
+      "-I<POC_CHECKOUT>/orbiter/Orbitersdk/include",
+      "-I<DEPENDENCY_CACHE>/dependencies/imgui",
+      "-I<DEPENDENCY_CACHE>/dependencies/imgui/backends",
+      "-O2",
+      "-g",
+      "-DNDEBUG",
+      "-std=c++17",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-ffp-contract=off",
+      "-Werror=pointer-to-int-cast",
+      "-Werror=int-to-pointer-cast",
+      "-Werror=format",
+      "-o",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity-native.o",
+      "-c",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/src/StepInputParity.cpp",
+      "-fPIC"
+    ],
+    "native_link": [
+      "/usr/bin/clang++",
+      "-dynamiclib",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity-native.o",
+      "<POC_CHECKOUT>/orbiter/build/native-v9/liborbiter.dylib",
+      "-o",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dylib",
+      "-Wl,-rpath,<POC_CHECKOUT>/orbiter/build/native-v9"
+    ],
+    "windows_compile": [
+      "/nix/store/6fgrwdc1iwn27zqi1gvkgvzjginbr9k6-clang-21.1.8/bin/clang-cl",
+      "--target=x86_64-pc-windows-msvc",
+      "/std:c++17",
+      "/O2",
+      "/GR-",
+      "/GS-",
+      "/EHs-c-",
+      "/Zl",
+      "/clang:-fno-builtin",
+      "/clang:-ffp-contract=off",
+      "/I<WINDOWS_SETUP_WORKSPACE>/staging/OpenOrbiter-NASSP9/Orbitersdk/include",
+      "/I<NATIVE_EVIDENCE_ROOT>/step-input/src",
+      "/c",
+      "/Fo<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.obj",
+      "--",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/src/StepInputParity.cpp"
+    ],
+    "windows_link": [
+      "/nix/store/7mkyiy0wica4b43a3mp5xd357m3iv7z1-rustc-stable-2025-12-11/lib/rustlib/aarch64-apple-darwin/bin/rust-lld",
+      "-flavor",
+      "link",
+      "/dll",
+      "/machine:x64",
+      "/nodefaultlib",
+      "/entry:DllMain",
+      "/out:<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dll",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.obj",
+      "<WINDOWS_SETUP_WORKSPACE>/staging/OpenOrbiter-NASSP9/Orbitersdk/lib/Orbiter.lib",
+      "<DEPENDENCY_CACHE>/cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/windows_x86_64_msvc-0.52.6/lib/windows.0.52.0.lib"
+    ],
+    "clang_cl_sha256": "d8fc158b621a7559f4a29f5040a1142919bbb72be4bf2cb9d243840d66779c14",
+    "linker_sha256": "d62965f665a2846aa2938e1a65763c46767bbb969368b2d48ae0ad8c317e8a7b",
+    "kernel32_import_archive_sha256": "24d8cbc445955b0d48041948a3c71ce2cddb948c089b25ec7106fadd9f3efde0",
+    "native_dylib_sha256": "d1e4e07462ac4f2b04213e5982a4f1c29a747ca2c453757c67574d7faf245f0e",
+    "windows_dll_sha256": "e973659c2cf0a4c5202b86793ef08629958315e1d7a617abef010668c0a5b2b8",
+    "windows_dll_bytes": 9216,
+    "windows_machine": "AMD64",
+    "new_installs": false,
+    "new_licenses_or_security_changes": false,
+    "guest_execution_validated": false,
+    "guest_execution_requested": false
+  },
+  "adapter_build": {
+    "compile": [
+      "/Library/Developer/CommandLineTools/usr/bin/clang++",
+      "-DIMGUI_USER_CONFIG=\"NativeImGuiConfig.h\"",
+      "-DNOGRAPHICS",
+      "-DORBITER_NATIVE_CORE",
+      "-I<POC_CHECKOUT>/orbiter/Src/Orbiter",
+      "-I<POC_CHECKOUT>/orbiter/Orbitersdk/include",
+      "-I<DEPENDENCY_CACHE>/dependencies/imgui",
+      "-I<DEPENDENCY_CACHE>/dependencies/imgui/backends",
+      "-O2",
+      "-g",
+      "-DNDEBUG",
+      "-std=c++17",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-ffp-contract=off",
+      "-Werror=pointer-to-int-cast",
+      "-Werror=int-to-pointer-cast",
+      "-Werror=format",
+      "-o",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/NativeStepInput.o",
+      "-c",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/src/NativeStepInput.cpp"
+    ],
+    "link": [
+      "/Library/Developer/CommandLineTools/usr/bin/clang++",
+      "-O2",
+      "-g",
+      "-DNDEBUG",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Wl,-search_paths_first",
+      "-Wl,-headerpad_max_install_names",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/NativeStepInput.o",
+      "-o",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+      "-Wl,-rpath,<POC_CHECKOUT>/orbiter/build/native-v9",
+      "liborbiter.dylib"
+    ],
+    "source_sha256": "c7242bd25f0df43f88d81920ee1c3a7330f4e6c482317f8e885cd0318dd016e5",
+    "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+    "physical_getters": false,
+    "scenario_save": "ordinary final boundary only",
+    "production_modified": false
+  },
+  "native_neutral_validation": {
+    "runs": {
+      "off-559-a": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "off"
+        ],
+        "started_utc": "2026-10-11T23:33:29.379913+00:00",
+        "returncode": 0,
+        "mode": "off",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "off",
+          "actual_down_steps": 0,
+          "module_status": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+      },
+      "off-559-b": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "off"
+        ],
+        "started_utc": "2026-10-11T23:33:32.248128+00:00",
+        "returncode": 0,
+        "mode": "off",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "off",
+          "actual_down_steps": 0,
+          "module_status": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+      },
+      "neutral-559-a": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "neutral"
+        ],
+        "started_utc": "2026-10-11T23:33:34.669046+00:00",
+        "returncode": 0,
+        "mode": "neutral",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "neutral",
+          "actual_down_steps": 0,
+          "module_status": [
+            559,
+            560,
+            0,
+            0,
+            558,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+      },
+      "neutral-559-b": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "neutral"
+        ],
+        "started_utc": "2026-10-11T23:33:37.322402+00:00",
+        "returncode": 0,
+        "mode": "neutral",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "neutral",
+          "actual_down_steps": 0,
+          "module_status": [
+            559,
+            560,
+            0,
+            0,
+            558,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+      },
+      "off-3601-a": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "3601",
+          "off"
+        ],
+        "started_utc": "2026-10-11T23:33:39.789782+00:00",
+        "returncode": 0,
+        "mode": "off",
+        "steps": 3601,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 3601,
+          "mode": "off",
+          "actual_down_steps": 0,
+          "module_status": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "3eacdae2ae3d879bf09d1fdc234ccb4cb2c5837d1e47441c24d0a854e18a7253"
+      },
+      "off-3601-b": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "3601",
+          "off"
+        ],
+        "started_utc": "2026-10-11T23:33:45.044546+00:00",
+        "returncode": 0,
+        "mode": "off",
+        "steps": 3601,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 3601,
+          "mode": "off",
+          "actual_down_steps": 0,
+          "module_status": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "final_save_sha256": "53176d87c7ba2ae3de1e933a02b33086a9722b6b54794c69341377f5e5d6a673"
+      }
+    },
+    "comparisons": {
+      "off-repeat-559": {
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/Scenarios/StepInputFinal.scn",
+        "complete_vessel_blocks_equal_after_newline_normalization": true,
+        "entire_scenario_text_equal_after_newline_normalization": true,
+        "mjd_equal": true,
+        "differing_vessels": [],
+        "diff_path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-repeat-559.diff"
+      },
+      "neutral-vs-off-559-a": {
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/Scenarios/StepInputFinal.scn",
+        "complete_vessel_blocks_equal_after_newline_normalization": true,
+        "entire_scenario_text_equal_after_newline_normalization": true,
+        "mjd_equal": true,
+        "differing_vessels": [],
+        "diff_path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-vs-off-559-a.diff"
+      },
+      "neutral-repeat-559": {
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/Scenarios/StepInputFinal.scn",
+        "complete_vessel_blocks_equal_after_newline_normalization": true,
+        "entire_scenario_text_equal_after_newline_normalization": true,
+        "mjd_equal": true,
+        "differing_vessels": [],
+        "diff_path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-repeat-559.diff"
+      },
+      "neutral-vs-off-559-b": {
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/Scenarios/StepInputFinal.scn",
+        "complete_vessel_blocks_equal_after_newline_normalization": true,
+        "entire_scenario_text_equal_after_newline_normalization": true,
+        "mjd_equal": true,
+        "differing_vessels": [],
+        "diff_path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-vs-off-559-b.diff"
+      },
+      "off-repeat-3601": {
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/Scenarios/StepInputFinal.scn",
+        "complete_vessel_blocks_equal_after_newline_normalization": false,
+        "entire_scenario_text_equal_after_newline_normalization": false,
+        "mjd_equal": true,
+        "differing_vessels": [
+          "Eagle"
+        ],
+        "diff_path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-repeat-3601.diff"
+      }
+    },
+    "all_complete_vessel_blocks_equal": false,
+    "no_tolerance": true
+  },
+  "native_pulse_validation": {
+    "scope": "559-step native protocol only; no Windows execution or cross-platform pulse claim",
+    "runs": {
+      "pulse-319": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "319",
+          "pulse"
+        ],
+        "returncode": 0,
+        "started_utc": "2026-10-11T23:37:57.176268+00:00",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319",
+        "steps": 319,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 319,
+          "mode": "pulse",
+          "actual_down_steps": 18,
+          "module_status": [
+            319,
+            320,
+            18,
+            18,
+            318,
+            0,
+            1,
+            0
+          ]
+        },
+        "final_state": {
+          "sha256": "64549740537ffca82f2dc60890e41bd55624354378a4d6264515fabf31b5909e",
+          "mjd_token": "40422.8318237093",
+          "vessels": {
+            "Columbia": {
+              "class": "ProjectApollo/Saturn5",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-523197.326 -11788.951 1765373.711",
+                "RVEL": "1567.2274 -14.9399 464.7931",
+                "AROT": "74.549 -83.309 -154.901",
+                "VROT": "-0.0224 -0.0176 0.0086",
+                "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+                "MISSNTIME": "368749.709153566742",
+                "SIMULATEDTIME": "368749.722916665429"
+              },
+              "agc_cycle_counter": "453688"
+            },
+            "Floodlight": {
+              "class": "ProjectApollo/Floodlight",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "61.367 4.534 8.238",
+                "PRPLEVEL": "0:1.000000"
+              }
+            },
+            "MCC": {
+              "class": "ProjectApollo/MCC",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "-0.000 84.912 -60.442"
+              }
+            },
+            "AS-506-S4BSTG": {
+              "class": "ProjectApollo/sat5stg3",
+              "fields": {
+                "STATUS": "Orbiting Sun",
+                "RPOS": "71671206911.566 -15025727.639 -133814535948.273",
+                "RVEL": "24939.9712 -62.8555 13407.4317",
+                "AROT": "7.756 -34.626 -101.690",
+                "VROT": "0.0174 -0.0040 -0.0036",
+                "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+                "MISSNTIME": "368749.722917"
+              }
+            },
+            "Eagle": {
+              "class": "ProjectApollo/LEM",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-440630.506 -11953.850 1711714.413",
+                "RVEL": "1636.3872 -14.7921 384.3922",
+                "AROT": "-178.885 34.442 -90.573",
+                "VROT": "0.0145 -0.6028 0.0113",
+                "PRPLEVEL": "0:0.986596 1:0.841137 2:0.815740",
+                "MISSNTIME": "368749.740404"
+              },
+              "agc_cycle_counter": "453688"
+            }
+          }
+        },
+        "logged_held_for_steps": [
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319
+        ]
+      },
+      "pulse-559-a": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "pulse"
+        ],
+        "returncode": 0,
+        "started_utc": "2026-10-11T23:37:59.349507+00:00",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "pulse",
+          "actual_down_steps": 18,
+          "module_status": [
+            559,
+            560,
+            18,
+            18,
+            558,
+            0,
+            1,
+            0
+          ]
+        },
+        "final_state": {
+          "sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557",
+          "mjd_token": "40422.8318700056",
+          "vessels": {
+            "Columbia": {
+              "class": "ProjectApollo/Saturn5",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-516925.138 -11848.639 1767221.787",
+                "RVEL": "1568.8623 -14.9041 459.2436",
+                "AROT": "75.500 -83.282 -155.811",
+                "VROT": "-0.0225 -0.0176 0.0086",
+                "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+                "MISSNTIME": "368753.709153565811",
+                "SIMULATEDTIME": "368753.722916664497"
+              },
+              "agc_cycle_counter": "795022"
+            },
+            "Floodlight": {
+              "class": "ProjectApollo/Floodlight",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "61.367 4.534 8.238",
+                "PRPLEVEL": "0:1.000000"
+              }
+            },
+            "MCC": {
+              "class": "ProjectApollo/MCC",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "-0.000 84.912 -60.442"
+              }
+            },
+            "AS-506-S4BSTG": {
+              "class": "ProjectApollo/sat5stg3",
+              "fields": {
+                "STATUS": "Orbiting Sun",
+                "RPOS": "71671306671.450 -15025979.061 -133814482318.508",
+                "RVEL": "24939.9704 -62.8555 13407.4508",
+                "AROT": "7.757 -34.555 -101.705",
+                "VROT": "0.0174 -0.0040 -0.0036",
+                "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+                "MISSNTIME": "368753.722917"
+              }
+            },
+            "Eagle": {
+              "class": "ProjectApollo/LEM",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-434081.836 -12012.940 1713239.813",
+                "RVEL": "1637.9429 -14.7524 378.3059",
+                "AROT": "-178.641 34.502 -90.390",
+                "VROT": "0.0145 0.0080 0.0113",
+                "PRPLEVEL": "0:0.986596 1:0.840518 2:0.815121",
+                "MISSNTIME": "368753.740404"
+              },
+              "agc_cycle_counter": "795022"
+            }
+          }
+        },
+        "logged_held_for_steps": [
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319
+        ]
+      },
+      "pulse-559-b": {
+        "command": [
+          "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+          "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b",
+          "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+          "559",
+          "pulse"
+        ],
+        "returncode": 0,
+        "started_utc": "2026-10-11T23:38:01.761679+00:00",
+        "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b",
+        "steps": 559,
+        "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+        "gpu": false,
+        "vm": false,
+        "adapter": {
+          "steps": 559,
+          "mode": "pulse",
+          "actual_down_steps": 18,
+          "module_status": [
+            559,
+            560,
+            18,
+            18,
+            558,
+            0,
+            1,
+            0
+          ]
+        },
+        "final_state": {
+          "sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557",
+          "mjd_token": "40422.8318700056",
+          "vessels": {
+            "Columbia": {
+              "class": "ProjectApollo/Saturn5",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-516925.138 -11848.639 1767221.787",
+                "RVEL": "1568.8623 -14.9041 459.2436",
+                "AROT": "75.500 -83.282 -155.811",
+                "VROT": "-0.0225 -0.0176 0.0086",
+                "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+                "MISSNTIME": "368753.709153565811",
+                "SIMULATEDTIME": "368753.722916664497"
+              },
+              "agc_cycle_counter": "795022"
+            },
+            "Floodlight": {
+              "class": "ProjectApollo/Floodlight",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "61.367 4.534 8.238",
+                "PRPLEVEL": "0:1.000000"
+              }
+            },
+            "MCC": {
+              "class": "ProjectApollo/MCC",
+              "fields": {
+                "STATUS": "Landed Earth",
+                "AROT": "-0.000 84.912 -60.442"
+              }
+            },
+            "AS-506-S4BSTG": {
+              "class": "ProjectApollo/sat5stg3",
+              "fields": {
+                "STATUS": "Orbiting Sun",
+                "RPOS": "71671306671.450 -15025979.061 -133814482318.508",
+                "RVEL": "24939.9704 -62.8555 13407.4508",
+                "AROT": "7.757 -34.555 -101.705",
+                "VROT": "0.0174 -0.0040 -0.0036",
+                "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+                "MISSNTIME": "368753.722917"
+              }
+            },
+            "Eagle": {
+              "class": "ProjectApollo/LEM",
+              "fields": {
+                "STATUS": "Orbiting Moon",
+                "RPOS": "-434081.836 -12012.940 1713239.813",
+                "RVEL": "1637.9429 -14.7524 378.3059",
+                "AROT": "-178.641 34.502 -90.390",
+                "VROT": "0.0145 0.0080 0.0113",
+                "PRPLEVEL": "0:0.986596 1:0.840518 2:0.815121",
+                "MISSNTIME": "368753.740404"
+              },
+              "agc_cycle_counter": "795022"
+            }
+          }
+        },
+        "logged_held_for_steps": [
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319
+        ]
+      }
+    },
+    "comparisons": {
+      "pulse-repeat-559": {
+        "complete_vessel_blocks_equal_after_newline_normalization": true,
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/Scenarios/StepInputFinal.scn",
+        "diff": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-repeat-559.diff"
+      },
+      "pulse-vs-existing-559": {
+        "complete_vessel_blocks_equal_after_newline_normalization": false,
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityFinal.scn",
+        "diff": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-vs-existing-559.diff"
+      },
+      "pulse-vs-existing-319": {
+        "complete_vessel_blocks_equal_after_newline_normalization": false,
+        "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/Scenarios/StepInputFinal.scn",
+        "right": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityPulse.scn",
+        "diff": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-vs-existing-319.diff"
+      }
+    },
+    "sixty_second_neutral_repeatability_failed_and_retained": true
+  },
+  "actual_response_boundaries": {
+    "neutral319": {
+      "sha256": "36a40e8e2fddc6fbbc863f56b224d5cb10655c0e5c1bc7e5cff1d71994502bf4",
+      "mjd": "MJD 40422.8318237093",
+      "eagle": {
+        "RPOS": "-440630.506 -11953.850 1711714.413",
+        "RVEL": "1636.3872 -14.7921 384.3922",
+        "AROT": "-178.932 34.442 -90.600",
+        "VROT": "0.0145 -0.0012 0.0113",
+        "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048"
+      },
+      "agc_counters": {
+        "Columbia": "453688",
+        "Eagle": "453688"
+      },
+      "channel_031_virtual_input_decimal": "28671"
+    },
+    "pulse319": {
+      "sha256": "64549740537ffca82f2dc60890e41bd55624354378a4d6264515fabf31b5909e",
+      "mjd": "MJD 40422.8318237093",
+      "eagle": {
+        "RPOS": "-440630.506 -11953.850 1711714.413",
+        "RVEL": "1636.3872 -14.7921 384.3922",
+        "AROT": "-178.885 34.442 -90.573",
+        "VROT": "0.0145 -0.6028 0.0113",
+        "PRPLEVEL": "0:0.986596 1:0.841137 2:0.815740"
+      },
+      "agc_counters": {
+        "Columbia": "453688",
+        "Eagle": "453688"
+      },
+      "channel_031_virtual_input_decimal": "12279"
+    },
+    "neutral559": {
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c",
+      "mjd": "MJD 40422.8318700056",
+      "eagle": {
+        "RPOS": "-434081.836 -12012.940 1713239.813",
+        "RVEL": "1637.9429 -14.7524 378.3059",
+        "AROT": "-178.927 34.500 -90.552",
+        "VROT": "0.0145 -0.0012 0.0113",
+        "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048"
+      },
+      "agc_counters": {
+        "Columbia": "795022",
+        "Eagle": "795022"
+      },
+      "channel_031_virtual_input_decimal": "28671"
+    },
+    "pulse559": {
+      "sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557",
+      "mjd": "MJD 40422.8318700056",
+      "eagle": {
+        "RPOS": "-434081.836 -12012.940 1713239.813",
+        "RVEL": "1637.9429 -14.7524 378.3059",
+        "AROT": "-178.641 34.502 -90.390",
+        "VROT": "0.0145 0.0080 0.0113",
+        "PRPLEVEL": "0:0.986596 1:0.840518 2:0.815121"
+      },
+      "agc_counters": {
+        "Columbia": "795022",
+        "Eagle": "795022"
+      },
+      "channel_031_virtual_input_decimal": "28671"
+    }
+  },
+  "existing_richer_ACA_reference_comparison": {
+    "319": {
+      "Columbia": {
+        "trajectory_saved_tokens_equal": {
+          "STATUS": true,
+          "RPOS": true,
+          "RVEL": true,
+          "AROT": true,
+          "VROT": true,
+          "PRPLEVEL": true
+        },
+        "AGC_complete_equal_after_newline_normalization": true,
+        "DSKY_complete_equal_after_newline_normalization": true
+      },
+      "Eagle": {
+        "trajectory_saved_tokens_equal": {
+          "STATUS": true,
+          "RPOS": true,
+          "RVEL": true,
+          "AROT": true,
+          "VROT": true,
+          "PRPLEVEL": true
+        },
+        "AGC_complete_equal_after_newline_normalization": true,
+        "DSKY_complete_equal_after_newline_normalization": true
+      }
+    },
+    "559": {
+      "Columbia": {
+        "trajectory_saved_tokens_equal": {
+          "STATUS": true,
+          "RPOS": true,
+          "RVEL": true,
+          "AROT": true,
+          "VROT": true,
+          "PRPLEVEL": true
+        },
+        "AGC_complete_equal_after_newline_normalization": true,
+        "DSKY_complete_equal_after_newline_normalization": true
+      },
+      "Eagle": {
+        "trajectory_saved_tokens_equal": {
+          "STATUS": true,
+          "RPOS": true,
+          "RVEL": true,
+          "AROT": true,
+          "VROT": true,
+          "PRPLEVEL": true
+        },
+        "AGC_complete_equal_after_newline_normalization": true,
+        "DSKY_complete_equal_after_newline_normalization": true
+      }
+    }
+  },
+  "scope_limits": [
+    "559-step exact neutrality passes for the whole scenario in four native runs.",
+    "3,601-step repeatability fails with the driver absent. This is variation without an observer, and its cause remains unresolved; no 60-second Module-neutral run or tolerance waiver follows.",
+    "Pulse runs repeat exactly in complete vessel blocks, but full-state equivalence to the richer ACA observer fails; trajectory tokens and complete guidance blocks match.",
+    "Input callback counts are requests only. Windows guest must verify actual pulse response and neutral serialized state.",
+    "Known stock loader/clock/display differences and shared AGC resume scheduling/pending FIFO limitation remain explicit."
+  ],
+  "package": {
+    "zip": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity-native-validated-Windows-unvalidated.zip",
+    "sha256": "22b23de075d14da914286585d5ed6accf8a21327b50ad404ba6455aebb7ede26",
+    "bytes": 26013,
+    "native_validated_steps": 559,
+    "windows_execution_validated": false,
+    "guest_launch_requested": false,
+    "files": [
+      {
+        "path": "StepInputParity.dll",
+        "sha256": "e973659c2cf0a4c5202b86793ef08629958315e1d7a617abef010668c0a5b2b8"
+      },
+      {
+        "path": "src/StepInputParity.cpp",
+        "sha256": "9212d36284056cfb3e7e75a3fb542a8c5a3222017a7f4500da9d6cc558dd15c2"
+      },
+      {
+        "path": "src/WinPrelude.h",
+        "sha256": "4fd4325d7521bb5d453665a576efb7103c0522cca36e99aab6a8a02644ae7605"
+      },
+      {
+        "path": "src/NativeStepInput.cpp",
+        "sha256": "c7242bd25f0df43f88d81920ee1c3a7330f4e6c482317f8e885cd0318dd016e5"
+      },
+      {
+        "path": "build-provenance.json",
+        "sha256": "f231cee99e7b9745487b1eeb675870a6c12c8dbd7bc90d3285d85844010d2fe0"
+      },
+      {
+        "path": "adapter-build.json",
+        "sha256": "c2771d1af8ea4a962114bf84bd3455f1288fa917750154b856c6a0b930db9f98"
+      },
+      {
+        "path": "plan-and-windows-needs.md",
+        "sha256": "de3027c0adc1041a2409144d93159b0687abb22b69413969f79c47f16af85b72"
+      },
+      {
+        "path": "windows-validation-instructions.md",
+        "sha256": "b6dd38343f89d5a20661ddffb5b8debe83836f57c7cb6a25f7ae7fd3d826c041"
+      },
+      {
+        "path": "neutral-validation.json",
+        "sha256": "8c5e2485f29f2ceb8d2a534871a5790a314e6da9d99eafa9da8c9335466ad85d"
+      },
+      {
+        "path": "pulse-validation.json",
+        "sha256": "7e6caf7d05b45f5a9fc27f28bb1556b1fca72c111bec6d625a17a58be5d682c2"
+      },
+      {
+        "path": "native-response-boundaries.json",
+        "sha256": "dd3ac1d5f3d866caac75f9ff4a6d95c9773b16c263ac7401e9c7441100d2f0f5"
+      },
+      {
+        "path": "off-repeat-3601.diff",
+        "sha256": "eb2a3110cad2ec603e12764f07aa4ba634e4c9a1aa58c2328135ee06a8b1cf02"
+      },
+      {
+        "path": "pulse-vs-existing-319.diff",
+        "sha256": "1e1cea5cc970fbc562a824438acee9d766d325f978905b41139211b5939ea0ff"
+      },
+      {
+        "path": "pulse-vs-existing-559.diff",
+        "sha256": "bd5173dc457001402e4cb1b424ca6241f1c1d00c97441b9ea8feb6f16b8cd8ac"
+      }
+    ]
+  },
+  "windows_instructions": "<NATIVE_EVIDENCE_ROOT>/step-input/windows-validation-instructions.md",
+  "windows_execution_requested": false,
+  "windows_execution_validated": false,
+  "gpu_launched": false,
+  "vm_operated": false,
+  "push_or_ci": false,
+  "registered_checks_added": false,
+  "ctest_rerun": false,
+  "removal_path": "Remove upstream/input-diagnostic and this diagnostic documentation/report plus external staged module/runner only after preserving evidence or equivalent upstream coverage. No production target or removable NASSP patch group changes.",
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/step-input",
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/NativeStepInput.o",
+      "bytes": 426112,
+      "sha256": "e79ffe503c4f7b01192380b5bb08c1bdcb2ccea7c38bedb82025e96b9ba56a77"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity-native-validated-Windows-unvalidated.zip",
+      "bytes": 26013,
+      "sha256": "22b23de075d14da914286585d5ed6accf8a21327b50ad404ba6455aebb7ede26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity-native.o",
+      "bytes": 52200,
+      "sha256": "6ef6c9dfb0d3d3c2d250a65e1d6816b3855526bea3d6af140b07b6020cedb436"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dll",
+      "bytes": 9216,
+      "sha256": "e973659c2cf0a4c5202b86793ef08629958315e1d7a617abef010668c0a5b2b8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dylib",
+      "bytes": 37512,
+      "sha256": "d1e4e07462ac4f2b04213e5982a4f1c29a747ca2c453757c67574d7faf245f0e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.lib",
+      "bytes": 2092,
+      "sha256": "657bed8d966a284948f995a9570c09c1a011fb0d01db9f6c1a335ed049897b7e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.obj",
+      "bytes": 12257,
+      "sha256": "0841a4b48449d403a69b04ec01c2b1b179f7701cea48b74420cdeca75975b601"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/adapter-build.json",
+      "bytes": 1834,
+      "sha256": "c2771d1af8ea4a962114bf84bd3455f1288fa917750154b856c6a0b930db9f98"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/adapter-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/adapter-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/build-provenance.json",
+      "bytes": 4011,
+      "sha256": "f231cee99e7b9745487b1eeb675870a6c12c8dbd7bc90d3285d85844010d2fe0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/build.py",
+      "bytes": 3830,
+      "sha256": "98df0383bf6232e93caf459c60f9874b8f75c605b974274a54acb9481901c6f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/build_adapter.py",
+      "bytes": 1587,
+      "sha256": "f258790660d4c325b9c07674cacdcc976b82d58ae6c60449edfc3ad750b2045d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/existing-aca-reference-execution.json",
+      "bytes": 457,
+      "sha256": "a907191985d940b666be063e091356a68ed4c0fe2a5d89cbeb2885d1ca3cc94f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/existing-aca-reference.log",
+      "bytes": 4200,
+      "sha256": "bc3ccd8d80a6ae625a25a5e18ec8236500f6a87a1c57d1d1250b0fb63bc68406"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/native-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/native-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/native-response-boundaries.json",
+      "bytes": 2086,
+      "sha256": "dd3ac1d5f3d866caac75f9ff4a6d95c9773b16c263ac7401e9c7441100d2f0f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+      "bytes": 41120,
+      "sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-559-a-execution.json",
+      "bytes": 936,
+      "sha256": "367778a155fe614e0f0ef2c77c257327938c268bdc6919fcde21529107a144cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-559-a.log",
+      "bytes": 3927,
+      "sha256": "fb3cd202257ccd991104238547a79631d9008b46d255f00c46370886d23c48ee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-559-b-execution.json",
+      "bytes": 936,
+      "sha256": "cf83faaaef0f8f509ea910f508f581dd2f101f0ae759ce9ab9d877816444c2da"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-559-b.log",
+      "bytes": 3927,
+      "sha256": "85858d73519b135c1840b0c4e4fc40f658a774a006398442d2ba65838ac621fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-repeat-559.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-validation.json",
+      "bytes": 9596,
+      "sha256": "8c5e2485f29f2ceb8d2a534871a5790a314e6da9d99eafa9da8c9335466ad85d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-validation.log",
+      "bytes": 989,
+      "sha256": "b581b7c93b0edc6dac84bebac285d211cd159cef28f31b5ad3fd79588ea4fecc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-vs-off-559-a.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/neutral-vs-off-559-b.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-319-execution.json",
+      "bytes": 2387,
+      "sha256": "36ca31dd8069ed9d68642147dd386f9fccc9a8f2cb6aa84592ec485a0b8e4de9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-319.log",
+      "bytes": 3755,
+      "sha256": "396ccad935d469bd719b9d1e820e7be73e0b620c95c51069019e46a32a23f6d2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-3601-a-execution.json",
+      "bytes": 915,
+      "sha256": "9b8c1d1a92cad1946bdbcad48b19afb6f8cbd6555668260b61cf1b9f44e57838"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-3601-a.log",
+      "bytes": 3840,
+      "sha256": "fbcfd2cca0a87fa4159a72727e082279773e7b5672e266ca8c77792a04c556b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-3601-b-execution.json",
+      "bytes": 915,
+      "sha256": "9f4fde71f85bd95b9fdef07dc46d32330cc1299d240078c6b6a0d05cda0f669d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-3601-b.log",
+      "bytes": 3840,
+      "sha256": "a859ac7b60cff8b3b4198d7eb12f750bedba27c1161aa6698a56dc0b57d2c7b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-559-a-execution.json",
+      "bytes": 910,
+      "sha256": "c8ca80490b69008085d13b0368ea635ebadf7cc49a2064e706fd62955a4961cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-559-a.log",
+      "bytes": 3811,
+      "sha256": "0934bfe15ee5b2d70cf4682bd449619e79ca6515125fc582bd5e97b96b051f8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-559-b-execution.json",
+      "bytes": 910,
+      "sha256": "eedc8cb43e9d0fc30cea9b875c26edf8f650f58a9e94930c5cdb51435e697aee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-559-b.log",
+      "bytes": 3811,
+      "sha256": "e8330856bafdc2ef6a509ae3e4ee837d1eba81c2a6cdee31e2423c8acc25e322"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-repeat-3601.diff",
+      "bytes": 2585,
+      "sha256": "eb2a3110cad2ec603e12764f07aa4ba634e4c9a1aa58c2328135ee06a8b1cf02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/off-repeat-559.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/package-index.json",
+      "bytes": 2284,
+      "sha256": "71fe4601c8445745fe1ef669699181c7b6c17c7202e93ac0466bfc9e0be4a262"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/plan-and-windows-needs.md",
+      "bytes": 5335,
+      "sha256": "de3027c0adc1041a2409144d93159b0687abb22b69413969f79c47f16af85b72"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-319-execution.json",
+      "bytes": 2855,
+      "sha256": "7c471653db315fd8bdb2819c99a101ab93cae012f656fc64e66c86281e617eda"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-319.log",
+      "bytes": 3814,
+      "sha256": "611707bd1b7670b1bf4a36d8178cfa8d26b6a74a5d5b26395ea54aca7b624025"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-559-a-execution.json",
+      "bytes": 2858,
+      "sha256": "a12980ca15dfa9d82f86337a5fa517fd9059729d776cc97393aa35a3990111f8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-559-a.log",
+      "bytes": 3870,
+      "sha256": "d5d824d9f8537fb8475422153f1a22516cd7ea774d0d39d48ebb7075144d001e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-559-b-execution.json",
+      "bytes": 2858,
+      "sha256": "81712f920909401a1148274fdef0a034fe8f0db3f6f71d7c3de74bae16f67169"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-559-b.log",
+      "bytes": 3870,
+      "sha256": "875673adf75452fb29277e281d5f15544b6424adf5d603d2f62c448863a83c2b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-repeat-559.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-validation.json",
+      "bytes": 12205,
+      "sha256": "7e6caf7d05b45f5a9fc27f28bb1556b1fca72c111bec6d625a17a58be5d682c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-validation.log",
+      "bytes": 232,
+      "sha256": "d4e6fc077cda8476ae1239562a755ae704fc6cee514aa317e07ffb8872ee6315"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-vs-existing-319.diff",
+      "bytes": 6141,
+      "sha256": "1e1cea5cc970fbc562a824438acee9d766d325f978905b41139211b5939ea0ff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/pulse-vs-existing-559.diff",
+      "bytes": 6477,
+      "sha256": "bd5173dc457001402e4cb1b424ca6241f1c1d00c97441b9ea8feb6f16b8cd8ac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/run_neutral.py",
+      "bytes": 3394,
+      "sha256": "65c3285dbaf80617cd4cb5d5a443e16f7093561f8006da2ea97eb6e48cb1fe7a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/run_pulse.py",
+      "bytes": 4335,
+      "sha256": "f2699fb73e9ae20858217d8dfdc8bac9871e2c143d613c25256e15599d301906"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/ParityOrbiter.log",
+      "bytes": 1952,
+      "sha256": "7e0d1ba70488155031b95074ad61902f7531fa643b610e02f77876a858426918"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityFinal.scn",
+      "bytes": 349312,
+      "sha256": "be020e523b5724dc2645edd54bfdbd8bcd69e08ba84322675719c2f38353f2be"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityLoaded.scn",
+      "bytes": 348965,
+      "sha256": "de87ae3cf7ae501a6442a236d49f5c7b3cf43712f144a6e0faa1ec84cae1fdbe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/Scenarios/ParityPulse.scn",
+      "bytes": 349509,
+      "sha256": "186c1db51532d0aafb9cf607c84dd3d730d4ac02139babc6a15940270b7c7774"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-existing-aca-reference/parity-state.jsonl",
+      "bytes": 826928,
+      "sha256": "ea867f0df1397396951d055c18590747103745cf31e3d029bc53c3c9c0da1aef"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349317,
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/StepInputOrbiter.log",
+      "bytes": 1946,
+      "sha256": "02b7520061f72edbeff8b4c0ef431d87fd7f05baed6c864cb61a32b06ccef752"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/adapter-result.json",
+      "bytes": 93,
+      "sha256": "92a3232cb24e2f40bb2a9dbe2f82e2240a81859d242fc97df64378861d7f0190"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-a/step-input.tsv",
+      "bytes": 488,
+      "sha256": "581f719c00db5c43f1c733fd615ee2a2687b2dfaeae41520c5ec39b3c776e537"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349317,
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/StepInputOrbiter.log",
+      "bytes": 1946,
+      "sha256": "c628eb1776c09db5f7b1b0b901a8fc54f9c59b95b4a3998591434e139551a7d5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/adapter-result.json",
+      "bytes": 93,
+      "sha256": "92a3232cb24e2f40bb2a9dbe2f82e2240a81859d242fc97df64378861d7f0190"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-neutral-559-b/step-input.tsv",
+      "bytes": 488,
+      "sha256": "581f719c00db5c43f1c733fd615ee2a2687b2dfaeae41520c5ec39b3c776e537"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/Scenarios/StepInputFinal.scn",
+      "bytes": 349356,
+      "sha256": "36a40e8e2fddc6fbbc863f56b224d5cb10655c0e5c1bc7e5cff1d71994502bf4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/StepInputOrbiter.log",
+      "bytes": 1940,
+      "sha256": "25b2e38674c43f1182fddd5f78b57802847b5b67334a072ba65305d1e65292d2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/adapter-result.json",
+      "bytes": 83,
+      "sha256": "c896208a9e636ce8dac92b31a5e9d90aef42fb033bf6ba55ab63a9c95a75a3b2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-319/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "3eacdae2ae3d879bf09d1fdc234ccb4cb2c5837d1e47441c24d0a854e18a7253"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/StepInputOrbiter.log",
+      "bytes": 1943,
+      "sha256": "3e22ddec3d6822758069520331578d9d6cdaad8932a04222fd77305040ba5328"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "53176d87c7ba2ae3de1e933a02b33086a9722b6b54794c69341377f5e5d6a673"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/StepInputOrbiter.log",
+      "bytes": 1943,
+      "sha256": "cb4bd829e1f8c496f36c21348a7b3d122b140f7e537e3a8613275b6720cfcdfe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349317,
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/StepInputOrbiter.log",
+      "bytes": 1942,
+      "sha256": "91e651bb920991fec1ce13393391c8b55f5b577ad207dab1a971420f2be70e38"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/adapter-result.json",
+      "bytes": 83,
+      "sha256": "c892d2b4c3f08deaae762f7ecd3694e98bd0d0961cfb4e79337a3ee9725637db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349317,
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/StepInputOrbiter.log",
+      "bytes": 1942,
+      "sha256": "a1c4f1e6aa3858919718c8b579527e20772150403d424a88a9c20d4364a4ed2c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/adapter-result.json",
+      "bytes": 83,
+      "sha256": "c892d2b4c3f08deaae762f7ecd3694e98bd0d0961cfb4e79337a3ee9725637db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-b/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/Scenarios/StepInputFinal.scn",
+      "bytes": 349496,
+      "sha256": "64549740537ffca82f2dc60890e41bd55624354378a4d6264515fabf31b5909e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/StepInputOrbiter.log",
+      "bytes": 1942,
+      "sha256": "8a850ba0f5a2c958b99013f559ab51765a0a115d647254a504dde68a73e8906b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/adapter-result.json",
+      "bytes": 94,
+      "sha256": "6245570d483a959084a2c6c204cb00234ebfbaed1203623e405f1b4d501f5932"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-319/step-input.tsv",
+      "bytes": 636,
+      "sha256": "50e6c94ffc65598c5e3798e824cffc4562413322855f2ed78d529c7adb6acbfa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349299,
+      "sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/StepInputOrbiter.log",
+      "bytes": 1944,
+      "sha256": "ac2f084b69d7108e2a13e3241fe8d6a91654fb326aea9b31dc84f6b34f405fb3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/adapter-result.json",
+      "bytes": 94,
+      "sha256": "fe904b9f6de9c01438bb1f157951e024656db58d3ca04ede876be8acc775f613"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-a/step-input.tsv",
+      "bytes": 796,
+      "sha256": "3d30d3bd50a20521031488f8a783cb6a42a79803c4eb60d5dd92e7789775f86d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349299,
+      "sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/StepInputOrbiter.log",
+      "bytes": 1944,
+      "sha256": "0c7130fcaa6e2c2245f86548ff3ed126a5c7b3ff12df7b2905b2d6b2f9a722df"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/adapter-result.json",
+      "bytes": 94,
+      "sha256": "fe904b9f6de9c01438bb1f157951e024656db58d3ca04ede876be8acc775f613"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-pulse-559-b/step-input.tsv",
+      "bytes": 796,
+      "sha256": "3d30d3bd50a20521031488f8a783cb6a42a79803c4eb60d5dd92e7789775f86d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/src/NativeStepInput.cpp",
+      "bytes": 3236,
+      "sha256": "c7242bd25f0df43f88d81920ee1c3a7330f4e6c482317f8e885cd0318dd016e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/src/StepInputParity.cpp",
+      "bytes": 6156,
+      "sha256": "9212d36284056cfb3e7e75a3fb542a8c5a3222017a7f4500da9d6cc558dd15c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/src/WinPrelude.h",
+      "bytes": 1442,
+      "sha256": "4fd4325d7521bb5d453665a576efb7103c0522cca36e99aab6a8a02644ae7605"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/windows-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/windows-inspection.log",
+      "bytes": 4045,
+      "sha256": "d5ca10607e26478345c7a1f58b017f20c0f1b37881d55b623008c6d21281949b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/windows-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/windows-validation-instructions.md",
+      "bytes": 6031,
+      "sha256": "b6dd38343f89d5a20661ddffb5b8debe83836f57c7cb6a25f7ae7fd3d826c041"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input/write_report.py",
+      "bytes": 3895,
+      "sha256": "c8c4bf7725a90647dc9a24f5280ca6f92c13a9f656c5e94c1ec492cb8d28c54b"
+    }
+  ]
+}

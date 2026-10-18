@@ -1,0 +1,124 @@
+name: Native CI foundation (capability limited)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-foundation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  policy:
+    # No runner is scheduled for the private predecessor or other repositories.
+    if: >-
+      github.repository == 'LucioFranco/orbiter-native' &&
+      github.event.repository.private == false &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name != github.repository)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - run: python3 ci/check_policy.py
+      - run: python3 -m unittest discover -s ci -p 'test_reports.py' -v
+      - name: State acceptance boundary
+        run: |
+          python3 -c 'import json; print(json.dumps(json.load(open("ci/acceptance-context.json")), indent=2))' >> "$GITHUB_STEP_SUMMARY"
+
+  windows-sdk:
+    needs: policy
+    name: Windows x64 SDK compile and execution only
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - run: cmake -S ci/sdk -B orbiter/build/ci-sdk -G "Visual Studio 17 2022" -A x64
+      - run: cmake --build orbiter/build/ci-sdk --config Release --parallel 2
+      - run: ctest --test-dir orbiter/build/ci-sdk -C Release --output-on-failure --no-tests=error --output-junit "$env:GITHUB_WORKSPACE/orbiter/build/ci-sdk/ctest.xml"
+      - name: Collect bounded reports
+        id: collect_reports
+        if: always()
+        run: python ci/collect_reports.py --build orbiter/build/ci-sdk --scope windows-x64-sdk-only
+      - name: Upload reports only
+        if: always() && steps.collect_reports.outcome == 'success' && steps.collect_reports.outputs.ready == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: reports-windows-x64-sdk
+          path: ${{ steps.collect_reports.outputs.directory }}
+          retention-days: 7
+          if-no-files-found: error
+
+  native:
+    needs: policy
+    name: ${{ matrix.scope }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            scope: macos-arm64-v9-build-hosted-cpu-subset
+            arguments: --nassp
+            data_arguments: --nassp-data
+          - os: ubuntu-24.04
+            scope: linux-x64-engine-cpu-renderer-compile-probe
+            arguments: ''
+            data_arguments: ''
+    env:
+      CARGO_HOME: ${{ github.workspace }}/.ci-cache/cargo
+      SDL_AUDIODRIVER: dummy
+      SDL_VIDEODRIVER: dummy
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@448cde739abec1eaf0646249e3d25bb8d9bc7702 # v31
+        with:
+          enable_kvm: false
+          set_as_trusted_user: false
+          extra_nix_config: accept-flake-config = false
+      - name: Restore pinned public input downloads
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: |
+            .ci-cache/deps
+            .ci-cache/cargo/registry
+          key: native-foundation-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('ci/inputs.json', 'orbiter/nix/flake.lock', 'orbiter/Src/WgpuClient/rust/Cargo.lock') }}
+      - name: Retrieve and verify exact public inputs
+        run: nix develop path:./orbiter/nix --command python3 ci/fetch_inputs.py ${{ matrix.data_arguments }}
+      - name: Build and run capability-limited tests
+        run: nix develop path:./orbiter/nix --command python3 ci/build_native.py ${{ matrix.arguments }}
+      - name: Compile Linux renderer without a GPU/runtime claim
+        if: runner.os == 'Linux'
+        run: nix develop path:./orbiter/nix --command cargo check --locked --manifest-path orbiter/Src/WgpuClient/rust/Cargo.toml
+      - name: Collect bounded reports and known strict failure context
+        id: collect_reports
+        if: always()
+        run: python3 ci/collect_reports.py --build orbiter/build/ci --scope ${{ matrix.scope }}
+      - name: Upload reports only
+        if: always() && steps.collect_reports.outcome == 'success' && steps.collect_reports.outputs.ready == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: reports-${{ runner.os }}-${{ runner.arch }}
+          path: ${{ steps.collect_reports.outputs.directory }}
+          retention-days: 7
+          if-no-files-found: error
+      - name: Save verified public downloads after successful trusted pushes
+        if: success() && github.event_name == 'push'
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: |
+            .ci-cache/deps
+            .ci-cache/cargo/registry
+          key: native-foundation-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('ci/inputs.json', 'orbiter/nix/flake.lock', 'orbiter/Src/WgpuClient/rust/Cargo.lock') }}

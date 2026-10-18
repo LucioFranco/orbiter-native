@@ -1,0 +1,76 @@
+{
+  "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+  "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+  "input_sha256": {
+    "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+    "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+    "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+  },
+  "initial_agc_clock_s": 368743.87,
+  "initial_tig_s": 369645.02,
+  "initial_countdown_s": 901.1500000000233,
+  "vessels": [
+    "AS-506-S4BSTG",
+    "Columbia",
+    "Eagle",
+    "Floodlight",
+    "MCC"
+  ],
+  "scenario_modified": false,
+  "checkpoint_reached": true,
+  "actual_ignition_elapsed_s": 898.616667,
+  "actual_ignition_minus_initial_lgc_tig_s": -2.5333329999999705,
+  "lgc_countdown_at_dps_start_s": 2.53,
+  "n62_displayed_tfi_s": -203,
+  "n68_request_after_actual_ignition_s": 300.08333300000004,
+  "checkpoint_elapsed_s": 1206.5,
+  "observed_dh_ft": 99999.0,
+  "radar_valid": false,
+  "radar_measurement_available": false,
+  "operational_dh_envelope": null,
+  "v57_sent": false,
+  "full_checklist_fidelity": false,
+  "manual_yaw_174_exercised": false,
+  "landing_attempted": false,
+  "windows_comparison": false,
+  "binary_sha256": {
+    "probe": "1b920a11a8f1056882e1a54ca6950e3983fda85ad204d3bca0484611a99fc881",
+    "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+  },
+  "fresh_zero_step_reload": true,
+  "lgc_memory_channels_retained": true,
+  "wall_seconds": 54.316790458,
+  "event_log_sha256": "aaeaa91aa3e0dc3abde061eb521bb1e07828692d0be89c0c56596e835d9f9a91",
+  "limits": [
+    "Prior power setup, visual checks, AGS updates, communications and manual yaws not validated",
+    "Radar validity and dH are observations; no operational envelope or V57 approval encoded",
+    "Original callback inputs do not validate graphical hit testing or human piloting"
+  ],
+  "platform": "macOS arm64",
+  "scope": "Separate observational PDI protocol ending before first V57 decision",
+  "base_commit": "d6b1c7d1aa053aa0263ca61e616016e1978693ef",
+  "branch": "macos-pdi-protocol",
+  "checkout": "<PRESERVED_POC>",
+  "data_profile": "baseline",
+  "source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "a1751a51f4d5254e80d1e055fc4f7282e08c1c63b8504755d10fc394f74c39d1",
+    "orbiter/Tests/NativePDIProtocol.py": "32e54e380d87712bda4d5f3301348ae527fab8ed5b3bde1830ac3ce3087b3c5e",
+    "orbiter/Tests/NativePDIProtocolContract.py": "5bce61f727268523e3dbf7d410f54abfc33c35bee0250b111f69f4eaf228e206",
+    "orbiter/cmake/NativeWgpu.cmake": "4a0ba057b83b5ca30757f979ee140b699e231196b0413d3553f821df0993d95d"
+  },
+  "original_diagnostic_unchanged": {
+    "orbiter/Tests/NativeDescent.cpp": "7b46a60997684401973a95aa6ff3772f0f6c165b7f0b57866a4575b7944e4218",
+    "orbiter/Tests/NativeOriginalDescent.py": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6"
+  },
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-protocol-baseline-20261007",
+  "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-protocol",
+  "compile_parallelism": 2,
+  "ctest_selector": "^(pdi_protocol_contract|nassp_stage_pdi_protocol|native_pdi_protocol)$",
+  "ctest_passed": 3,
+  "ctest_total": 3,
+  "synthetic_contract_checks": 21,
+  "ctest_wall_seconds": 54.84,
+  "candidate_runtime_run": false,
+  "full_existing_suite_rerun": false,
+  "next_step": "Resolve the omitted pilot yaw/other checklist inputs and unavailable radar measurement before choosing any operational V57 criterion or continuing."
+}

@@ -1,0 +1,753 @@
+{
+  "schema": 1,
+  "scope": "Native boundary capture only, stock 60-second comparison pending. Same original scenario and pinned source, no production change or new acceptance tolerance.",
+  "native_commit": "b183ddcd79a63a54cd6faf70c63685f3ad358d45",
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+  "target_total_steps": 3601,
+  "neutral_coast_steps_after_startup": 3600,
+  "windows_stop_threshold": "60.00833333333333",
+  "windows_request_path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/windows-capture-request.md",
+  "windows_request_sha256": "5164c2e3164c69ba4c36b36ff9be9e0f7249b0610b7640dbbd49e55b61ee9e97",
+  "native": {
+    "execution": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_coast_60",
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-11T22:31:49.791856+00:00",
+      "finished_utc": "2026-10-11T22:31:54.934895+00:00",
+      "wall_seconds": 5.142538708,
+      "gpu": false,
+      "vm": false,
+      "binary_sha256": "13896265fb33a2b29a4297c7bca1bb6e4966d7bd0ce31ab6158e2904eb71bb71",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    "steps": 3601,
+    "neutral_steps_after_startup": 3600,
+    "trace_observations": 61,
+    "initial": {
+      "phase": "loaded",
+      "step": 0,
+      "sim_time_s": 0,
+      "mjd": 40422.8317621738,
+      "advanced_s": 0,
+      "engine_sim_dt_s": 0,
+      "running": true,
+      "orbit_stabilised": false,
+      "nonspherical_gravity_enabled": true,
+      "keyboard_numpad3": false,
+      "rcs_mode": 1,
+      "mass_kg": 15163.170527131992,
+      "physics": {
+        "NonsphericalGravitySources": true,
+        "DistributedVesselMass": true,
+        "RadiationPressure": true,
+        "StabiliseOrbits": true,
+        "AtmosphericWind": false,
+        "RefuelOnPad": false,
+        "UnlimitedFuel": false,
+        "ElevationMode": 1,
+        "StartPaused_config": true
+      },
+      "relative_position_m": [
+        -449325.0599975586,
+        -11875.065000001341,
+        1709649.244003296
+      ],
+      "relative_velocity_m_s": [
+        1634.283800000001,
+        -14.8446,
+        392.47099999999955
+      ],
+      "angular_velocity_body_rad_s": [
+        0.0002513274122871834,
+        -2.0943951023931954e-05,
+        0.00019722220547535924
+      ],
+      "rotation_body_to_global": [
+        -0.009566012634015353,
+        -0.8254030321970438,
+        -0.5644628648921128,
+        -0.9996402812883577,
+        0.022038132015889493,
+        -0.015284919462767306,
+        0.025055926006015323,
+        0.5641136013048932,
+        -0.8253169363310104
+      ],
+      "force_available": true,
+      "force_body_n": [
+        -782.9858316223213,
+        -17935.53490966779,
+        15512.48737671601
+      ],
+      "torque_available": true,
+      "torque_body_nm": [
+        6.180163941173702e-07,
+        -1.2438564303526534e-08,
+        1.716265331099581e-08
+      ],
+      "weight_available": true,
+      "weight_body_n": [
+        -782.9858316223213,
+        -17935.53490966779,
+        15512.48737671601
+      ],
+      "thruster_levels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "propellant_mass_kg": [
+        8137.655771984375,
+        111.982867221445,
+        108.602932848048
+      ]
+    },
+    "final": {
+      "phase": "coast",
+      "step": 3601,
+      "sim_time_s": 60.01666666666454,
+      "mjd": 40422.83245681115,
+      "advanced_s": 0.01666666666666572,
+      "engine_sim_dt_s": 0.016666666666666666,
+      "running": true,
+      "orbit_stabilised": false,
+      "nonspherical_gravity_enabled": true,
+      "keyboard_numpad3": false,
+      "rcs_mode": 1,
+      "mass_kg": 15163.168543193024,
+      "physics": {
+        "NonsphericalGravitySources": true,
+        "DistributedVesselMass": true,
+        "RadiationPressure": true,
+        "StabiliseOrbits": true,
+        "AtmosphericWind": false,
+        "RefuelOnPad": false,
+        "UnlimitedFuel": false,
+        "ElevationMode": 1,
+        "StartPaused_config": true
+      },
+      "relative_position_m": [
+        -350572.82263183594,
+        -12747.856729887426,
+        1730453.767791748
+      ],
+      "relative_velocity_m_s": [
+        1655.6510805959879,
+        -14.23256440549413,
+        300.59203641515705
+      ],
+      "angular_velocity_body_rad_s": [
+        2.065805467205129e-05,
+        -2.1368619633803512e-05,
+        -2.8736814862626608e-05
+      ],
+      "rotation_body_to_global": [
+        -0.005909493159325027,
+        -0.8217241623026298,
+        -0.5698547876245681,
+        -0.9996923685750067,
+        0.018581960363239294,
+        -0.016427993241794003,
+        0.024088298061368363,
+        0.569582401270528,
+        -0.8215811840952826
+      ],
+      "force_available": true,
+      "force_body_n": [
+        -750.6337632931834,
+        -17161.396270231533,
+        16448.99345340017
+      ],
+      "torque_available": true,
+      "torque_body_nm": [
+        6.260856326400516e-07,
+        -1.2649090233294816e-08,
+        1.5768824732401868e-08
+      ],
+      "weight_available": true,
+      "weight_body_n": [
+        -750.6163881868047,
+        -17161.645023653018,
+        16448.71413954136
+      ],
+      "thruster_levels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "propellant_mass_kg": [
+        8137.655771984375,
+        111.98088328247628,
+        108.602932848048
+      ]
+    },
+    "sampled_all_finite": true,
+    "sampled_stabilised_steps": 0,
+    "input_steps_observed": 0,
+    "saves": {
+      "ParityBaseline": {
+        "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca",
+        "mjd_token": "40422.8317623667",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-531497.826 -11709.646 1762890.843",
+              "RVEL": "1565.0310 -14.9871 472.1370",
+              "AROT": "73.282 -83.342 -153.688",
+              "VROT": "-0.0223 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368744.409153567976",
+              "SIMULATEDTIME": "368744.422916666663"
+            },
+            "agc_cycle_counter": "1422"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671074729.716 -15025394.505 -133814607007.594",
+              "RVEL": "24939.9723 -62.8555 13407.4064",
+              "AROT": "7.753 -34.721 -101.669",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368744.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-449297.820 -11875.312 1709655.786",
+              "RVEL": "1634.2905 -14.8444 392.4457",
+              "AROT": "-178.939 34.365 -90.664",
+              "VROT": "0.0144 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368744.440404"
+            },
+            "agc_cycle_counter": "1422"
+          }
+        }
+      },
+      "ParityCoast": {
+        "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274",
+        "mjd_token": "40422.8318202371",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-523667.480 -11784.469 1765234.209",
+              "RVEL": "1567.1040 -14.9426 465.2091",
+              "AROT": "74.477 -83.311 -154.832",
+              "VROT": "-0.0224 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368749.409153566812",
+              "SIMULATEDTIME": "368749.422916665499"
+            },
+            "agc_cycle_counter": "428088"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671199429.575 -15025708.782 -133814539970.503",
+              "RVEL": "24939.9713 -62.8555 13407.4303",
+              "AROT": "7.755 -34.631 -101.688",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368749.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-441121.409 -11949.412 1711599.024",
+              "RVEL": "1636.2696 -14.7950 384.8484",
+              "AROT": "-178.933 34.437 -90.604",
+              "VROT": "0.0145 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368749.440404"
+            },
+            "agc_cycle_counter": "428088"
+          }
+        }
+      },
+      "ParityCoast10": {
+        "sha256": "54cf0186fe315983d4b03bdb6488eee67ec1d1c4807a56c1daad205d652f9d18",
+        "mjd_token": "40422.8318781074",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-515826.842 -11859.069 1767542.913",
+              "RVEL": "1569.1464 -14.8978 458.2718",
+              "AROT": "75.666 -83.278 -155.969",
+              "VROT": "-0.0225 -0.0177 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368754.409153565648",
+              "SIMULATEDTIME": "368754.422916664334"
+            },
+            "agc_cycle_counter": "854755"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671324129.429 -15026023.059 -133814472933.292",
+              "RVEL": "24939.9702 -62.8554 13407.4542",
+              "AROT": "7.758 -34.542 -101.708",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368754.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-432935.188 -12023.264 1713504.251",
+              "RVEL": "1638.2127 -14.7454 377.2401",
+              "AROT": "-178.926 34.510 -90.544",
+              "VROT": "0.0145 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368754.440404"
+            },
+            "agc_cycle_counter": "854755"
+          }
+        }
+      },
+      "ParityCoast30": {
+        "sha256": "2241d059d56cb2c37ee01b1d1b7d7ee2aef351b2b21757a99dd67e7ffa41ac25",
+        "mjd_token": "40422.8321095889",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-484364.475 -12155.214 1776430.196",
+              "RVEL": "1577.0073 -14.7163 430.4331",
+              "AROT": "80.336 -83.117 -160.434",
+              "VROT": "-0.0229 -0.0178 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368774.409153560991",
+              "SIMULATEDTIME": "368774.422916659678"
+            },
+            "agc_cycle_counter": "2561422"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671822928.792 -15027280.167 -133814204783.253",
+              "RVEL": "24939.9661 -62.8553 13407.5497",
+              "AROT": "7.767 -34.185 -101.785",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368774.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-400095.846 -12316.167 1720743.940",
+              "RVEL": "1645.6245 -14.5440 346.7004",
+              "AROT": "-178.899 34.711 -90.388",
+              "PRPLEVEL": "0:0.986596 1:0.841430 2:0.816048",
+              "MISSNTIME": "368774.440404"
+            },
+            "agc_cycle_counter": "2561422"
+          }
+        }
+      },
+      "ParityFinal": {
+        "sha256": "859b39586ab9f419d03aa4c8b46346ad6fad959506a333633eb9e932868e8c2e",
+        "mjd_token": "40422.8324568111",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-436888.548 -12592.519 1788713.737",
+              "RVEL": "1587.8676 -14.4361 388.4214",
+              "AROT": "87.011 -82.800 -166.799",
+              "VROT": "-0.0234 -0.0179 0.0087",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368804.409153554006",
+              "SIMULATEDTIME": "368804.422916652693"
+            },
+            "agc_cycle_counter": "5121422"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71672571127.682 -15029165.825 -133813802554.611",
+              "RVEL": "24939.9599 -62.8552 13407.6931",
+              "AROT": "7.781 -33.650 -101.901",
+              "VROT": "0.0174 -0.0041 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003040 3:1.000000",
+              "MISSNTIME": "368804.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-350573.423 -12747.843 1730454.184",
+              "RVEL": "1655.6511 -14.2326 300.5920",
+              "AROT": "-178.854 34.740 -90.412",
+              "PRPLEVEL": "0:0.986596 1:0.841430 2:0.816048",
+              "MISSNTIME": "368804.440404"
+            },
+            "agc_cycle_counter": "5121422"
+          }
+        }
+      },
+      "ParityLoaded": {
+        "sha256": "de87ae3cf7ae501a6442a236d49f5c7b3cf43712f144a6e0faa1ec84cae1fdbe",
+        "mjd_token": "40422.8317621738",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-531523.912 -11709.396 1762882.973",
+              "RVEL": "1565.0240 -14.9872 472.1601",
+              "AROT": "73.278 -83.342 -153.684",
+              "VROT": "-0.0223 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368744.392486901314",
+              "SIMULATEDTIME": "368744.406250000000"
+            },
+            "agc_cycle_counter": "0"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671074314.050 -15025393.457 -133814607231.051",
+              "RVEL": "24939.9723 -62.8555 13407.4063",
+              "AROT": "7.753 -34.721 -101.669",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368744.40625"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-449325.060 -11875.065 1709649.244",
+              "RVEL": "1634.2838 -14.8446 392.4710",
+              "AROT": "-178.939 34.365 -90.664",
+              "VROT": "0.0144 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368744.423737"
+            },
+            "agc_cycle_counter": "0"
+          }
+        }
+      }
+    }
+  },
+  "sampled_physics_flags_all_match": true,
+  "sampled_nonspherical_gravity_active": true,
+  "stock_prior_301_step_boundary_comparison": {
+    "Columbia": {
+      "STATUS": true,
+      "RPOS": true,
+      "RVEL": true,
+      "AROT": true,
+      "VROT": true,
+      "PRPLEVEL": true,
+      "AGC_complete_after_newline_normalization": true,
+      "DSKY_complete_after_newline_normalization": true
+    },
+    "Eagle": {
+      "STATUS": true,
+      "RPOS": true,
+      "RVEL": true,
+      "AROT": true,
+      "VROT": true,
+      "PRPLEVEL": true,
+      "AGC_complete_after_newline_normalization": true,
+      "DSKY_complete_after_newline_normalization": true
+    }
+  },
+  "known_differences_retained": [
+    "Correct native restoration of both DPS gimbal motor flags versus stock ignored flags; first-frame 35 W load difference.",
+    "Native double mission-clock parse versus stock float quantization.",
+    "Headless saved display cadence versus rendered stock cadence."
+  ],
+  "no_new_counterfactual_seed": true,
+  "no_registered_checks_added": true,
+  "no_production_source_or_library_changed": true,
+  "gpu_launched": false,
+  "vm_operated": false,
+  "push_or_ci": false,
+  "comparison_status": "Awaiting complete raw stock Windows ParityCoast60.scn and launch/configuration/cleanup evidence",
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/coast-60s",
+  "artifact_index": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeCoast60.cpp",
+      "bytes": 6002,
+      "sha256": "c12a2ffc41a82871a1612bd2b59d076587b8ba2b1a648ec64a09b8d36af6860c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeCoast60.o",
+      "bytes": 487920,
+      "sha256": "dc674a23d07470ec5f4a036f8ee23c04ecf1048d131914ae7526781b8dadbed4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/build_observer.py",
+      "bytes": 2408,
+      "sha256": "8322f1d4c318ac388438e18a3368988eed6b5b5477017b2ad6861c031e710cff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native-boundary-index.json",
+      "bytes": 17997,
+      "sha256": "497d468ebb83d52f68b3199592e2a748b6a1ff76c14627204b0933c612e2c6c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native-execution.json",
+      "bytes": 751,
+      "sha256": "4b82ea4854a89378a94a92283aa3fa479d8c6733be0e3d7bec3bbc775713510e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native.log",
+      "bytes": 3978,
+      "sha256": "ea0cae022e69f71d2284d7a8338c2ff4ae55e44b7063eaf7c75d2d6f4a1ad2bf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_coast_60",
+      "bytes": 43968,
+      "sha256": "13896265fb33a2b29a4297c7bca1bb6e4966d7bd0ce31ab6158e2904eb71bb71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/observer-build.json",
+      "bytes": 1935,
+      "sha256": "88c8d991b9e590fe3ac05a0a78a175f8971a6f711274445c7ca0ee37fc768d17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/run_native.py",
+      "bytes": 2427,
+      "sha256": "ee629944b487382028d257557ff739160ebd888f2e72002a34a9f34b39807743"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/ParityOrbiter.log",
+      "bytes": 1944,
+      "sha256": "600ab6a1575f943a848f3d7483484d356c1ea395845abadc1c371e12d380e88b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast10.scn",
+      "bytes": 349224,
+      "sha256": "54cf0186fe315983d4b03bdb6488eee67ec1d1c4807a56c1daad205d652f9d18"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast30.scn",
+      "bytes": 349217,
+      "sha256": "2241d059d56cb2c37ee01b1d1b7d7ee2aef351b2b21757a99dd67e7ffa41ac25"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityFinal.scn",
+      "bytes": 349191,
+      "sha256": "859b39586ab9f419d03aa4c8b46346ad6fad959506a333633eb9e932868e8c2e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityLoaded.scn",
+      "bytes": 348965,
+      "sha256": "de87ae3cf7ae501a6442a236d49f5c7b3cf43712f144a6e0faa1ec84cae1fdbe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/parity-state.jsonl",
+      "bytes": 89787,
+      "sha256": "e1c67bb427ea1578b342ef0c2f6a1f9188b835add5d0fb17a105dc16393b36b3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/windows-capture-request.md",
+      "bytes": 3831,
+      "sha256": "5164c2e3164c69ba4c36b36ff9be9e0f7249b0610b7640dbbd49e55b61ee9e97"
+    }
+  ]
+}

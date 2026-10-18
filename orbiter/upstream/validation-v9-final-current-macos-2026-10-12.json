@@ -1,0 +1,1558 @@
+{
+  "recorded_utc": "2026-10-12T05:50:14.425666+00:00",
+  "tested_source_commit": "0bd60e8105910096ece760cd614517bb5d0dbd5c",
+  "single_full_unfiltered_serial_suite": true,
+  "counts": {
+    "passed": 103,
+    "failed": 1,
+    "skipped": 0,
+    "total": 104
+  },
+  "ctest_returncode": 8,
+  "wall_seconds": 1191.3450825,
+  "registered_before_and_after": 104,
+  "all_registered_have_results": true,
+  "source_clean_before_and_after": true,
+  "binary_inventory_count": 93,
+  "binary_hashes_unchanged": true,
+  "binary_hashes_before": {
+    "animation_pose_test": "32bf27e1cd0e9d7cada38c9d9c0ac89cb9067b269a00b9977c14272b1554db89",
+    "core_module_fixture.dylib": "e3158d4d856b62ffc906171f29c4c6273065520e975a007305a2e76de8762ded",
+    "elevation_tile_test": "6e7cedabfdb397fd322f8ed84efad60bfe04746b9d1f97f1cea703d48fcd4910",
+    "exhaust_geometry_test": "8925fa619da87c6da39f9d3b1879213e57e9162d3c3e2a7262abfde00920b2a4",
+    "fdai_rasterizer_test": "5fac4f11202c675d0975274c5b7b848f9ef5801f0791bfbd52f27cd1e9641415",
+    "landing_sound_playback_test": "80c807b9a32cc3fcf2acab77172be435201b1e97ee409b40b4e32b2deafef20b",
+    "landing_sounds_test": "21c3d3bec0bfa5b35ea4fe45ac192f8532f0995411d3935f0dfd1063b8920182",
+    "legacy_module_fixture.dylib": "602963b371cc9418334b7dfbfbe42907f8dd26a9235dfbf0e6df889e58cbbe8f",
+    "liborbiter.dylib": "c68a5613be585be259c8e7610797b501c97dcefafae83fc5477813019556d556",
+    "local_lights_test": "713dd62e3e8d00aa01dc376b54dab42ee97a3083d483bc55ccebcbb7a1923437",
+    "mesh_normals_test": "dbf5a3a6e108c8adba1a74aa4c8f19d95697f62ca10ebd482ffa8f097d6856c0",
+    "module_lifecycle_test": "267c9611b78e320ea3df947a58c697ced36c151b2a5f68c837d5a9c3ca0aa70c",
+    "nassp_assets_test": "f322a2a17676e4f647a8760c1335a620a61a6755937c0ca2f2420e60143af7ad",
+    "nassp_bitmap_resources_test": "df9dfbb7e07db8fee584d1cd0eb8c14ca3de463eed3c918216f6739db65be8fc",
+    "nassp_joystick_flight_test": "6cf10d4d6bbb98c85b492613675ac360779d0ad26fe8d3a441307c0dd783618c",
+    "nassp_joystick_test": "6e1192c9ce3459360733a12d977a2a48a4a10f1911d3f6bd5a199c3ba39e0e83",
+    "native_audio_device_test": "719d76151beda27c16f621bb0204b2868b92013bc6e9fccdd58e42e4b833d5b8",
+    "native_audio_test": "70680c16b033378960a37e5d2f0c652305db5d217d47016990c7aa8938dfc3ea",
+    "native_cockpit_test": "cf0edcc2f3e203aa16e65584921bcfcad61d7b01a18f95558f515f8a3890e150",
+    "native_core_test": "c6dbbe216883401eae38070f782344f7c39653ddcb92e33ba3bbcd97a97a66e5",
+    "native_descent_probe": "326a5a31b47686cd3422563f70e5307cf9ae0cf2f7ea9b5bad20566633189a9a",
+    "native_fdai_test": "de99d6fe42fa49ee0fc6ed1c381779edc499e4c0f89779b27c8b2988adf773ce",
+    "native_joystick_test": "22f034583d4d906b1d886d614694f67992df129e5c99102cd6c7733abbad4a0d",
+    "native_lm_persistence_test": "eec8e975bca1182b7cdf1257ef5146c674d9d3a6f5b5d222249ed6329c2b17ea",
+    "native_lua_test": "1f044a193bd57346c5caebaaa8c6cdb780e1c1408656cdd0daff9a17125f81d8",
+    "native_parity_probe": "39686807348812d56c225d4dc1f9a4d7e6ed16228f7efe618dc6725521ea276b",
+    "native_pause_test": "a46defdd4252a330f68089ab4bf963c5b1b0fc706a7376c2079c242c064c76a2",
+    "native_pdi_protocol_probe": "0ae51979db019552eda43078e2b44c244d20d3c4bd7189a9300d133cb9b05bc6",
+    "native_rcs_test": "9b79531ba3e4d236d65110c250d898941bc7a272e09c3649e65b2f0d1b4cfcad",
+    "native_sdl_test": "b691afbe89c08cb59421a9c2ad30e1ecff888eadfca41e1cef508bda5306e691",
+    "native_solar_test": "089d8d4a87771fda0cc61f9ef1c4c7a2d8b996f5e76e4ad4a1f87f49e99a6393",
+    "native_sound_test": "57350885b241b2dac02bcd46ebcb322cc71b710d62a92741fa1c47c6af6105f8",
+    "native_startup_pause_test": "72d02e0e8d05b54203dbed92ea9583153f2116d8d2611e6ea27e2d9a2e512c06",
+    "native_vesim_test": "5f9c60a4926e2352d3567b6da2f2831ea640bafc26ec2726d46ec5dfc7ee020b",
+    "native_views_test": "5af39656a9d3980b13286cd72863d12237a5988af584880ec2c26440ad408679",
+    "native_wgpu_test": "ce71a61022a9d4ea0aad4feac55e4660b7eeb187e2d1d420d75cccaf4431b742",
+    "native_world_test": "c4e87a4b515a34f0d4ec53160cc45abcff625a5c8fe45d88153f2effb65410ee",
+    "orbiter": "58b589293981bd83e93c449420f328845c8216a84e65bb3378b506ac83172938",
+    "panelsdk_math_test": "ca9337d5593a9dc87f60187d61957e73f15fce7e133e9710a34c15e27f365358",
+    "particle_simulation_test": "1b5abfeb3f9d8814512721129ebb5fd1ca2fe0a23e549d618a4c52dc4ad80904",
+    "portable_sdk_test": "dd2c5f1427b11105c3cf5afec3ac2dc415fa8808828537f91ed944b0a53dadd9",
+    "realtime_steps_test": "b0d14ae92f809aeb6389669e51e5706344ccbb9631528f1d10306791f3a8d2da",
+    "runtime/Modules/Celbody/Callisto.dylib": "98f6e60acfb2316de3162e1cabdaa60669fd9f492002a51e785bd2ee9a448142",
+    "runtime/Modules/Celbody/Dione.dylib": "ed6cdc778fcad8fb6ab58cefc6ce3b39cff72c9e2ec0c5bf638aa6808c0cfb97",
+    "runtime/Modules/Celbody/Earth/Atmosphere/EarthAtmJ71G.dylib": "e9cdb392dd5365666f7ea312452cb6b1a4c6bce44cc68bf5172c7202273c31bb",
+    "runtime/Modules/Celbody/Earth.dylib": "8c794ae5d84582868379e55c07cb2ae1596b146f30f9437702ecb002fcf61e73",
+    "runtime/Modules/Celbody/Enceladus.dylib": "50e5f38889bbbd4b0c6696e1aeb43c359d72e0e38da4175e2b0b746780d3dfec",
+    "runtime/Modules/Celbody/Europa.dylib": "1d58fba3eb91096ac342c8353390f41a2d0ef395940e15b16178383943d7e2d8",
+    "runtime/Modules/Celbody/Ganymede.dylib": "61ff7bbb7ff5d0940693a4b2492301631880b034401be259e2a4ed37c596eb07",
+    "runtime/Modules/Celbody/Io.dylib": "569213505077933c10c1608c28d8fd0bf6a281fd9db5b0339113b0b129fec745",
+    "runtime/Modules/Celbody/Jupiter.dylib": "dd02fed23cfcd3c530655db4ee194b661be7a5a6d3ccd4c5f5c66940f0415d09",
+    "runtime/Modules/Celbody/Mars/Atmosphere/MarsAtm2006.dylib": "0f85ba185ca58a87af201031ef9b99a2cc73fd9f036d3819144ee73c8e02f848",
+    "runtime/Modules/Celbody/Mars.dylib": "8af2a59b5821c6ccc16450c941d0bc7eb021615649eeaa2835023125929ff450",
+    "runtime/Modules/Celbody/Mercury.dylib": "2d0f897e497d0365b971c8a65c823be75eb3f674b3cf1ecf8ff77956841a149b",
+    "runtime/Modules/Celbody/Mimas.dylib": "36a39fd0353db0be9590975def5f72dd3256cb16d4dcfc23d63197525b6ffe65",
+    "runtime/Modules/Celbody/Moon.dylib": "be246ef0be924e14999fd750a40160eef20c500c0b42ad878e81c58c024276ff",
+    "runtime/Modules/Celbody/Neptune.dylib": "f1a579a44cfea5de1709759f8db27748cdebda426b2ba8d9a6712ae88edc5d51",
+    "runtime/Modules/Celbody/Rhea.dylib": "b0db0b0d131892c101f31bf534adcd388727b19389bafe600eca8055b9037c44",
+    "runtime/Modules/Celbody/Saturn.dylib": "bc88319867591426802e1f1772302dc174d85071b430f59531403b64d51a1b15",
+    "runtime/Modules/Celbody/Sun.dylib": "5957c22220116bd996cc4a38b330e6d673290c961a4c82f4e0eedc7d8b324fb2",
+    "runtime/Modules/Celbody/Tethys.dylib": "4e8b70aec2cc00c7bf1bcafcf0424601011ae67c0056c664881c1b1d221c67e2",
+    "runtime/Modules/Celbody/Titan.dylib": "8b49ee4b90f1775fdf4ae48232342a2ca4abd255181e92ef71606fb8851c0333",
+    "runtime/Modules/Celbody/Uranus.dylib": "1540f7dbf45350e91bee60a3387844d7f6eb268a3aab95cb1bfc748ba8b002a5",
+    "runtime/Modules/Celbody/Venus/Atmosphere/VenusAtm2006.dylib": "cf0ca16ce6744c533a2b9586d4626cbbe70666f983b7487e6e1a63952a9abc21",
+    "runtime/Modules/Celbody/Venus.dylib": "52713be7de4cfcddd7fcc4660f1511b1bd35def7bc41cd89964bb63909cc572f",
+    "runtime/Modules/Plugin/ProjectApolloMFD.dylib": "17a1478afd86cf2d07b37f84254d4c287c66bb2f7fadb18086a9f3993bc9f8fc",
+    "runtime/Modules/Plugin/StepInputParity.dylib": "d1e4e07462ac4f2b04213e5982a4f1c29a747ca2c453757c67574d7faf245f0e",
+    "runtime/Modules/Plugin/WgpuClient.dylib": "c240f6f6eca21bb028dd12193aa656fa395e4b1be3cefdf923cffaeba83ee0e4",
+    "runtime/Modules/ProjectApollo/EasepLR3.dylib": "bd99adfa318da4b7070303e62e4a72db3cfda884bf4dc459f13e10ca0bff2783",
+    "runtime/Modules/ProjectApollo/EasepPSEP.dylib": "5b9456849ef1ea755afd4ecf2260827a4f38634f386502eb31b6e58be9a777ec",
+    "runtime/Modules/ProjectApollo/EasepSWC.dylib": "3a9ea4ca56679df51663d1d85a7a397dda8fd374e7b2fcda85a08f94b741d21d",
+    "runtime/Modules/ProjectApollo/Flag.dylib": "69aeb99ab954ff66cae6240859740a2ad06cade9fa48b5a5974f9d5ce52985a0",
+    "runtime/Modules/ProjectApollo/Floodlight.dylib": "8b87cc11a60fd8843f10941d2c60b882a620b3aa0f2f40270ba20d23dcdc1839",
+    "runtime/Modules/ProjectApollo/LEM.dylib": "53486971c05b9b2df5afdf0c087f92b5f20d7e32f11e3d7fae112f180f75d837",
+    "runtime/Modules/ProjectApollo/MCC.dylib": "764831c08090ce86fe0fb49fc965f68e21ec4a0f86b86ce755c7baf1a1a51fa6",
+    "runtime/Modules/ProjectApollo/ML.dylib": "eec420a87e009b410a281674a973ae6e6ff05c8c837d74f67a5c79f281fe455d",
+    "runtime/Modules/ProjectApollo/SII.dylib": "7726b2480203e1ebc0f52bf505c61f27ec673d470ce8f9039a76c7ef2cd2501a",
+    "runtime/Modules/ProjectApollo/SIVB.dylib": "a2f9ae9f04e4ff3498ecedd9edebaee417ad46eb35acc9eaf085b27fe48a06a5",
+    "runtime/Modules/ProjectApollo/Sat5LMDSC.dylib": "b51fc5940a216cd1ae7a5e1387356f6261c2d2e560af236519bf43b54c029217",
+    "runtime/Modules/ProjectApollo/Saturn5.dylib": "e321d6c151d3c37525340dcfadc7f7440a8604daa38d174eafa024509f04718b",
+    "runtime/Modules/libGalsat.dylib": "4aa65915c45f51bdbc339c149b8866d094094f4649ff7bc038d6bf78c92aa038",
+    "runtime/Modules/libSatsat.dylib": "1e851210f02ec484d37b5f54d6035c768126b6baa7979a9d22baa41e43a7ff93",
+    "scenario_state_test": "2baa492abf1837c909ec868ae22322283ea4be98da34f826b68ff7f4cdaacb2c",
+    "star_catalog_test": "8af727da259df4bbdf0b8a56e34c5abb85d32f30e1562ec9bc5d0de4de975604",
+    "sun_occlusion_test": "b9c41a57f530a07f1e9d5aa34142188a17662b5c4fc935bc532c0b729c42af94",
+    "terrain_texture_border_test": "69f0d05459a8540cf185da76fd1b3f91db04297b57be3360c957200f488d32f7",
+    "tile_archive_test": "31ff0b160c234654bb6d37ac17586edd1959ff95889b81a483a229bf9b502469",
+    "wgpu_client_test": "26e3bcff3aa83c2a2ed198ba923f60cb449599f426b0282bffcf327195bf0e61",
+    "wgpu_dds_test": "fbc28036a1eabe0eda1f91fd33bdb6c778e26a52eabc1c87816d69acefd8c0b3",
+    "wgpu_imgui_test": "fd0f526a14a06e262ca30a7ba1e76bc06832f4b4089643dbfe7d115dec9f05ea",
+    "wgpu_mesh_test": "bc18c481a04a70993a2672174b7ac5925007497e5be212a3a8fce4628018ed9d",
+    "wgpu_stars_test": "082257a91aa64db6d16e1cba033d21b9ad810af47802a50fec15204c617d315b",
+    "wgpu_text_test": "0e1d79725853949aeea2563b8b2e7afb169f5639b2d034a5b7a988c026cb41f9"
+  },
+  "binary_hashes_after": {
+    "animation_pose_test": "32bf27e1cd0e9d7cada38c9d9c0ac89cb9067b269a00b9977c14272b1554db89",
+    "core_module_fixture.dylib": "e3158d4d856b62ffc906171f29c4c6273065520e975a007305a2e76de8762ded",
+    "elevation_tile_test": "6e7cedabfdb397fd322f8ed84efad60bfe04746b9d1f97f1cea703d48fcd4910",
+    "exhaust_geometry_test": "8925fa619da87c6da39f9d3b1879213e57e9162d3c3e2a7262abfde00920b2a4",
+    "fdai_rasterizer_test": "5fac4f11202c675d0975274c5b7b848f9ef5801f0791bfbd52f27cd1e9641415",
+    "landing_sound_playback_test": "80c807b9a32cc3fcf2acab77172be435201b1e97ee409b40b4e32b2deafef20b",
+    "landing_sounds_test": "21c3d3bec0bfa5b35ea4fe45ac192f8532f0995411d3935f0dfd1063b8920182",
+    "legacy_module_fixture.dylib": "602963b371cc9418334b7dfbfbe42907f8dd26a9235dfbf0e6df889e58cbbe8f",
+    "liborbiter.dylib": "c68a5613be585be259c8e7610797b501c97dcefafae83fc5477813019556d556",
+    "local_lights_test": "713dd62e3e8d00aa01dc376b54dab42ee97a3083d483bc55ccebcbb7a1923437",
+    "mesh_normals_test": "dbf5a3a6e108c8adba1a74aa4c8f19d95697f62ca10ebd482ffa8f097d6856c0",
+    "module_lifecycle_test": "267c9611b78e320ea3df947a58c697ced36c151b2a5f68c837d5a9c3ca0aa70c",
+    "nassp_assets_test": "f322a2a17676e4f647a8760c1335a620a61a6755937c0ca2f2420e60143af7ad",
+    "nassp_bitmap_resources_test": "df9dfbb7e07db8fee584d1cd0eb8c14ca3de463eed3c918216f6739db65be8fc",
+    "nassp_joystick_flight_test": "6cf10d4d6bbb98c85b492613675ac360779d0ad26fe8d3a441307c0dd783618c",
+    "nassp_joystick_test": "6e1192c9ce3459360733a12d977a2a48a4a10f1911d3f6bd5a199c3ba39e0e83",
+    "native_audio_device_test": "719d76151beda27c16f621bb0204b2868b92013bc6e9fccdd58e42e4b833d5b8",
+    "native_audio_test": "70680c16b033378960a37e5d2f0c652305db5d217d47016990c7aa8938dfc3ea",
+    "native_cockpit_test": "cf0edcc2f3e203aa16e65584921bcfcad61d7b01a18f95558f515f8a3890e150",
+    "native_core_test": "c6dbbe216883401eae38070f782344f7c39653ddcb92e33ba3bbcd97a97a66e5",
+    "native_descent_probe": "326a5a31b47686cd3422563f70e5307cf9ae0cf2f7ea9b5bad20566633189a9a",
+    "native_fdai_test": "de99d6fe42fa49ee0fc6ed1c381779edc499e4c0f89779b27c8b2988adf773ce",
+    "native_joystick_test": "22f034583d4d906b1d886d614694f67992df129e5c99102cd6c7733abbad4a0d",
+    "native_lm_persistence_test": "eec8e975bca1182b7cdf1257ef5146c674d9d3a6f5b5d222249ed6329c2b17ea",
+    "native_lua_test": "1f044a193bd57346c5caebaaa8c6cdb780e1c1408656cdd0daff9a17125f81d8",
+    "native_parity_probe": "39686807348812d56c225d4dc1f9a4d7e6ed16228f7efe618dc6725521ea276b",
+    "native_pause_test": "a46defdd4252a330f68089ab4bf963c5b1b0fc706a7376c2079c242c064c76a2",
+    "native_pdi_protocol_probe": "0ae51979db019552eda43078e2b44c244d20d3c4bd7189a9300d133cb9b05bc6",
+    "native_rcs_test": "9b79531ba3e4d236d65110c250d898941bc7a272e09c3649e65b2f0d1b4cfcad",
+    "native_sdl_test": "b691afbe89c08cb59421a9c2ad30e1ecff888eadfca41e1cef508bda5306e691",
+    "native_solar_test": "089d8d4a87771fda0cc61f9ef1c4c7a2d8b996f5e76e4ad4a1f87f49e99a6393",
+    "native_sound_test": "57350885b241b2dac02bcd46ebcb322cc71b710d62a92741fa1c47c6af6105f8",
+    "native_startup_pause_test": "72d02e0e8d05b54203dbed92ea9583153f2116d8d2611e6ea27e2d9a2e512c06",
+    "native_vesim_test": "5f9c60a4926e2352d3567b6da2f2831ea640bafc26ec2726d46ec5dfc7ee020b",
+    "native_views_test": "5af39656a9d3980b13286cd72863d12237a5988af584880ec2c26440ad408679",
+    "native_wgpu_test": "ce71a61022a9d4ea0aad4feac55e4660b7eeb187e2d1d420d75cccaf4431b742",
+    "native_world_test": "c4e87a4b515a34f0d4ec53160cc45abcff625a5c8fe45d88153f2effb65410ee",
+    "orbiter": "58b589293981bd83e93c449420f328845c8216a84e65bb3378b506ac83172938",
+    "panelsdk_math_test": "ca9337d5593a9dc87f60187d61957e73f15fce7e133e9710a34c15e27f365358",
+    "particle_simulation_test": "1b5abfeb3f9d8814512721129ebb5fd1ca2fe0a23e549d618a4c52dc4ad80904",
+    "portable_sdk_test": "dd2c5f1427b11105c3cf5afec3ac2dc415fa8808828537f91ed944b0a53dadd9",
+    "realtime_steps_test": "b0d14ae92f809aeb6389669e51e5706344ccbb9631528f1d10306791f3a8d2da",
+    "runtime/Modules/Celbody/Callisto.dylib": "98f6e60acfb2316de3162e1cabdaa60669fd9f492002a51e785bd2ee9a448142",
+    "runtime/Modules/Celbody/Dione.dylib": "ed6cdc778fcad8fb6ab58cefc6ce3b39cff72c9e2ec0c5bf638aa6808c0cfb97",
+    "runtime/Modules/Celbody/Earth/Atmosphere/EarthAtmJ71G.dylib": "e9cdb392dd5365666f7ea312452cb6b1a4c6bce44cc68bf5172c7202273c31bb",
+    "runtime/Modules/Celbody/Earth.dylib": "8c794ae5d84582868379e55c07cb2ae1596b146f30f9437702ecb002fcf61e73",
+    "runtime/Modules/Celbody/Enceladus.dylib": "50e5f38889bbbd4b0c6696e1aeb43c359d72e0e38da4175e2b0b746780d3dfec",
+    "runtime/Modules/Celbody/Europa.dylib": "1d58fba3eb91096ac342c8353390f41a2d0ef395940e15b16178383943d7e2d8",
+    "runtime/Modules/Celbody/Ganymede.dylib": "61ff7bbb7ff5d0940693a4b2492301631880b034401be259e2a4ed37c596eb07",
+    "runtime/Modules/Celbody/Io.dylib": "569213505077933c10c1608c28d8fd0bf6a281fd9db5b0339113b0b129fec745",
+    "runtime/Modules/Celbody/Jupiter.dylib": "dd02fed23cfcd3c530655db4ee194b661be7a5a6d3ccd4c5f5c66940f0415d09",
+    "runtime/Modules/Celbody/Mars/Atmosphere/MarsAtm2006.dylib": "0f85ba185ca58a87af201031ef9b99a2cc73fd9f036d3819144ee73c8e02f848",
+    "runtime/Modules/Celbody/Mars.dylib": "8af2a59b5821c6ccc16450c941d0bc7eb021615649eeaa2835023125929ff450",
+    "runtime/Modules/Celbody/Mercury.dylib": "2d0f897e497d0365b971c8a65c823be75eb3f674b3cf1ecf8ff77956841a149b",
+    "runtime/Modules/Celbody/Mimas.dylib": "36a39fd0353db0be9590975def5f72dd3256cb16d4dcfc23d63197525b6ffe65",
+    "runtime/Modules/Celbody/Moon.dylib": "be246ef0be924e14999fd750a40160eef20c500c0b42ad878e81c58c024276ff",
+    "runtime/Modules/Celbody/Neptune.dylib": "f1a579a44cfea5de1709759f8db27748cdebda426b2ba8d9a6712ae88edc5d51",
+    "runtime/Modules/Celbody/Rhea.dylib": "b0db0b0d131892c101f31bf534adcd388727b19389bafe600eca8055b9037c44",
+    "runtime/Modules/Celbody/Saturn.dylib": "bc88319867591426802e1f1772302dc174d85071b430f59531403b64d51a1b15",
+    "runtime/Modules/Celbody/Sun.dylib": "5957c22220116bd996cc4a38b330e6d673290c961a4c82f4e0eedc7d8b324fb2",
+    "runtime/Modules/Celbody/Tethys.dylib": "4e8b70aec2cc00c7bf1bcafcf0424601011ae67c0056c664881c1b1d221c67e2",
+    "runtime/Modules/Celbody/Titan.dylib": "8b49ee4b90f1775fdf4ae48232342a2ca4abd255181e92ef71606fb8851c0333",
+    "runtime/Modules/Celbody/Uranus.dylib": "1540f7dbf45350e91bee60a3387844d7f6eb268a3aab95cb1bfc748ba8b002a5",
+    "runtime/Modules/Celbody/Venus/Atmosphere/VenusAtm2006.dylib": "cf0ca16ce6744c533a2b9586d4626cbbe70666f983b7487e6e1a63952a9abc21",
+    "runtime/Modules/Celbody/Venus.dylib": "52713be7de4cfcddd7fcc4660f1511b1bd35def7bc41cd89964bb63909cc572f",
+    "runtime/Modules/Plugin/ProjectApolloMFD.dylib": "17a1478afd86cf2d07b37f84254d4c287c66bb2f7fadb18086a9f3993bc9f8fc",
+    "runtime/Modules/Plugin/StepInputParity.dylib": "d1e4e07462ac4f2b04213e5982a4f1c29a747ca2c453757c67574d7faf245f0e",
+    "runtime/Modules/Plugin/WgpuClient.dylib": "c240f6f6eca21bb028dd12193aa656fa395e4b1be3cefdf923cffaeba83ee0e4",
+    "runtime/Modules/ProjectApollo/EasepLR3.dylib": "bd99adfa318da4b7070303e62e4a72db3cfda884bf4dc459f13e10ca0bff2783",
+    "runtime/Modules/ProjectApollo/EasepPSEP.dylib": "5b9456849ef1ea755afd4ecf2260827a4f38634f386502eb31b6e58be9a777ec",
+    "runtime/Modules/ProjectApollo/EasepSWC.dylib": "3a9ea4ca56679df51663d1d85a7a397dda8fd374e7b2fcda85a08f94b741d21d",
+    "runtime/Modules/ProjectApollo/Flag.dylib": "69aeb99ab954ff66cae6240859740a2ad06cade9fa48b5a5974f9d5ce52985a0",
+    "runtime/Modules/ProjectApollo/Floodlight.dylib": "8b87cc11a60fd8843f10941d2c60b882a620b3aa0f2f40270ba20d23dcdc1839",
+    "runtime/Modules/ProjectApollo/LEM.dylib": "53486971c05b9b2df5afdf0c087f92b5f20d7e32f11e3d7fae112f180f75d837",
+    "runtime/Modules/ProjectApollo/MCC.dylib": "764831c08090ce86fe0fb49fc965f68e21ec4a0f86b86ce755c7baf1a1a51fa6",
+    "runtime/Modules/ProjectApollo/ML.dylib": "eec420a87e009b410a281674a973ae6e6ff05c8c837d74f67a5c79f281fe455d",
+    "runtime/Modules/ProjectApollo/SII.dylib": "7726b2480203e1ebc0f52bf505c61f27ec673d470ce8f9039a76c7ef2cd2501a",
+    "runtime/Modules/ProjectApollo/SIVB.dylib": "a2f9ae9f04e4ff3498ecedd9edebaee417ad46eb35acc9eaf085b27fe48a06a5",
+    "runtime/Modules/ProjectApollo/Sat5LMDSC.dylib": "b51fc5940a216cd1ae7a5e1387356f6261c2d2e560af236519bf43b54c029217",
+    "runtime/Modules/ProjectApollo/Saturn5.dylib": "e321d6c151d3c37525340dcfadc7f7440a8604daa38d174eafa024509f04718b",
+    "runtime/Modules/libGalsat.dylib": "4aa65915c45f51bdbc339c149b8866d094094f4649ff7bc038d6bf78c92aa038",
+    "runtime/Modules/libSatsat.dylib": "1e851210f02ec484d37b5f54d6035c768126b6baa7979a9d22baa41e43a7ff93",
+    "scenario_state_test": "2baa492abf1837c909ec868ae22322283ea4be98da34f826b68ff7f4cdaacb2c",
+    "star_catalog_test": "8af727da259df4bbdf0b8a56e34c5abb85d32f30e1562ec9bc5d0de4de975604",
+    "sun_occlusion_test": "b9c41a57f530a07f1e9d5aa34142188a17662b5c4fc935bc532c0b729c42af94",
+    "terrain_texture_border_test": "69f0d05459a8540cf185da76fd1b3f91db04297b57be3360c957200f488d32f7",
+    "tile_archive_test": "31ff0b160c234654bb6d37ac17586edd1959ff95889b81a483a229bf9b502469",
+    "wgpu_client_test": "26e3bcff3aa83c2a2ed198ba923f60cb449599f426b0282bffcf327195bf0e61",
+    "wgpu_dds_test": "fbc28036a1eabe0eda1f91fd33bdb6c778e26a52eabc1c87816d69acefd8c0b3",
+    "wgpu_imgui_test": "fd0f526a14a06e262ca30a7ba1e76bc06832f4b4089643dbfe7d115dec9f05ea",
+    "wgpu_mesh_test": "bc18c481a04a70993a2672174b7ac5925007497e5be212a3a8fce4628018ed9d",
+    "wgpu_stars_test": "082257a91aa64db6d16e1cba033d21b9ad810af47802a50fec15204c617d315b",
+    "wgpu_text_test": "0e1d79725853949aeea2563b8b2e7afb169f5639b2d034a5b7a988c026cb41f9"
+  },
+  "known_strict_failed_tests": [
+    "native_pdi_pilot"
+  ],
+  "new_regressions": [],
+  "strict_pilot_failure": {
+    "test": "native_pdi_pilot",
+    "known_existing_failure": true,
+    "verification_error": "AGC cycle counter was not restored; faithful processor resume requires CDU FIFO persistence",
+    "processor_resume": {
+      "saved_cycle_counter": 124205511,
+      "reloaded_cycle_counter": 0,
+      "cycle_counter_retained": false,
+      "cdu_fifo_snapshot_supported": false,
+      "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in module-static state shared by same-class AGCs"
+    },
+    "neutral_continuation": {
+      "continuation_matches_observation_bounds": true,
+      "samples": 31,
+      "duration_seconds": 0.5,
+      "bounds": {
+        "range_ft": 0.05,
+        "angular_rate_rad_s": 2e-06,
+        "rotation_component": 5e-05,
+        "thrust_level": 1e-06,
+        "gimbal_position": 2e-12
+      },
+      "maximum_differences": {
+        "range_ft": 0.028818364881999514,
+        "angular_rate_rad_s": 6.38165527252349e-07,
+        "rotation_component": 1.4498474952294449e-05,
+        "thrust_level": 1.1102230246251565e-16,
+        "gimbal_position": 1.0000056338554941e-12
+      },
+      "violations": [],
+      "first_step": {
+        "reference": {
+          "seq": 6238,
+          "event": "neutral_resume_sample",
+          "action": "uninterrupted",
+          "checklist_yaw_enabled": true,
+          "pilot_driver_enabled": true,
+          "pilot_descent_enabled": true,
+          "handoff_aca_enabled": false,
+          "aca_phase_tick": 0,
+          "pilot_aca_axis_s16": 0,
+          "lgc_altitude_ft": 1918.061023622047,
+          "lgc_rhc_yaw_raw_s32": 0,
+          "lgc_rhc_yaw_count": 0,
+          "lgc_flagword11_octal": "2770",
+          "yaw_target_driver_enabled": false,
+          "yaw_integrated_deg": 173.8707396444296,
+          "checklist_row": 0,
+          "area_id": 0,
+          "mouse_event": 0,
+          "sim_elapsed_s": 1455.55,
+          "mission_time_s": 370199.9737366611,
+          "agc_clock_s": 370199.42,
+          "tig_s": 369645.02,
+          "countdown_s": -554.3999999999651,
+          "lgc_tfi_s": -0.98,
+          "tfi_high_octal": "77777",
+          "tfi_low_octal": "77635",
+          "actual_ignition_elapsed_s": 901.183333,
+          "guidance_channel_011": 4354,
+          "guidance_channel_012": 1698,
+          "guidance_channel_032": 512,
+          "guidance_channel_031": 8192,
+          "keyboard_yaw_right_down": false,
+          "aca_keyboard_yaw_right": 0,
+          "guidance_channel_033": 476,
+          "dps_level": 0.4235500000000001,
+          "ground_contact": false,
+          "altitude_m": 579.5448222116793,
+          "groundspeed_mps": 58.70289978259172,
+          "requested_field": "",
+          "requested_state": -1,
+          "readback": null,
+          "dsky": {
+            "PROG": "64",
+            "VERB": "06",
+            "NOUN": "64",
+            "R1": "+83 45",
+            "R2": "-00549",
+            "R3": "+02026",
+            "STATE": "536870912"
+          },
+          "radar": {
+            "RANGE": "1919.987774320097",
+            "ANTENNAANGLE": "0.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-137.561267306381 -12.041644718168 134.348909250291"
+          },
+          "neutral_trace_tick": 1,
+          "crosspointers": [
+            [
+              0,
+              0
+            ],
+            [
+              18.394328,
+              0.05571
+            ]
+          ],
+          "dps_gimbals": [
+            {
+              "position": -0.06592546,
+              "command": -1,
+              "motor_running": 1
+            },
+            {
+              "position": -0.0826567,
+              "command": 1,
+              "motor_running": 1
+            }
+          ],
+          "controls": {
+            "ModeControlPGNSSwitch": 2,
+            "ModeControlAGSSwitch": 2,
+            "EngineArmSwitch": 0,
+            "EngineDescentCommandOverrideSwitch": 1,
+            "LandingAntSwitch": 0,
+            "PGNS_LDG_RDR_CB": 1,
+            "RateScaleSwitch": 1,
+            "AltRngMonSwitch": 0,
+            "RendezvousRadarRotary": 1,
+            "ORDEALFDAI1Switch": 0,
+            "ORDEALFDAI2Switch": 0,
+            "LeftXPointerSwitch": 1,
+            "RightXPointerSwitch": 1,
+            "RollSwitch": 2,
+            "PitchSwitch": 2,
+            "YawSwitch": 2,
+            "DeadBandSwitch": 0,
+            "THRContSwitch": 1,
+            "ATTTranslSwitch": 1,
+            "BALCPLSwitch": 1,
+            "EngGimbalEnableSwitch": 1
+          },
+          "active_thrusters": [
+            {
+              "index": 0,
+              "level": 0.4235500000000001,
+              "max_thrust_n": 44393.967384156145,
+              "direction": [
+                0.001442631563833197,
+                1,
+                -0.0011506163378918227
+              ]
+            }
+          ],
+          "angular_velocity_body_rad_s": [
+            -0.0028638835713681084,
+            0.0004694564350256584,
+            -0.00033641494067115896
+          ],
+          "radar_geometry": {
+            "beam_nadir_cosine": 0.9856659598119188,
+            "beam_body": [
+              -0.03640149932051852,
+              -0.9374036069850605,
+              -0.346337131215549
+            ],
+            "nadir_global": [
+              -0.7742618702320195,
+              0.0070688635744025705,
+              -0.6328258745283587
+            ],
+            "altitude_above_radar_origin_m": 576.5448222116793,
+            "predicted_slant_range_ft": 1919.0591245905098,
+            "position1_discrete": false,
+            "position2_discrete": true,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "pgns_fdai_rpy_deg": [
+            358.9668166829782,
+            29.860584609804665,
+            1.6105549432059019
+          ],
+          "gasta_powered": true,
+          "forward_window_zenith_cosine": 0.4965798281775511,
+          "rotation_body_to_global": [
+            [
+              -0.0161688061970785,
+              0.3579028024343558,
+              0.9336188482008042
+            ],
+            [
+              0.99935717445316,
+              -0.024096154313363094,
+              0.026544551537059202
+            ],
+            [
+              0.031996993220587355,
+              0.9334478878635601,
+              -0.35728312732047784
+            ]
+          ],
+          "aca_proportional_roll_pitch_yaw": [
+            0,
+            0,
+            0
+          ],
+          "aca_out_of_detent": false,
+          "lgc_output_channel_005": 0,
+          "lgc_output_channel_006": 0,
+          "atca_primary_voltage_v": -4.7,
+          "guidance_relay_k12": false,
+          "guidance_relay_k13": false,
+          "pgns_jet_requests": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "jet_driver": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "jet_requests": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rcs_jet_levels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "lgc_cycle_counter": 124206933,
+          "crosspointer_cdu_counts": [
+            330,
+            1
+          ],
+          "lm_cog_m": [
+            0,
+            -0.17651658001846648,
+            0
+          ],
+          "pmi_m2": [
+            2.5428,
+            2.2871,
+            2.7566
+          ],
+          "relative_position_m": [
+            1344625.9054260254,
+            -12276.1787058115,
+            1099000.3475952148
+          ],
+          "altitude_mean_radius_m": -1434.7969960244372,
+          "last_cog_fuel_weight_kg": 1450.525475880283
+        },
+        "resumed": {
+          "seq": 1,
+          "event": "neutral_resume_sample",
+          "action": "resumed",
+          "checklist_yaw_enabled": true,
+          "pilot_driver_enabled": true,
+          "pilot_descent_enabled": false,
+          "handoff_aca_enabled": false,
+          "aca_phase_tick": 0,
+          "pilot_aca_axis_s16": 0,
+          "lgc_altitude_ft": 1918.061023622047,
+          "lgc_rhc_yaw_raw_s32": 0,
+          "lgc_rhc_yaw_count": 0,
+          "lgc_flagword11_octal": "2770",
+          "yaw_target_driver_enabled": false,
+          "yaw_integrated_deg": 0,
+          "checklist_row": 0,
+          "area_id": 0,
+          "mouse_event": 0,
+          "sim_elapsed_s": 0.016666666666666666,
+          "mission_time_s": 370199.97373666667,
+          "agc_clock_s": 370199.42,
+          "tig_s": 369645.02,
+          "countdown_s": -554.3999999999651,
+          "lgc_tfi_s": -0.98,
+          "tfi_high_octal": "77777",
+          "tfi_low_octal": "77635",
+          "actual_ignition_elapsed_s": null,
+          "guidance_channel_011": 4354,
+          "guidance_channel_012": 1698,
+          "guidance_channel_032": 512,
+          "guidance_channel_031": 8192,
+          "keyboard_yaw_right_down": false,
+          "aca_keyboard_yaw_right": 0,
+          "guidance_channel_033": 476,
+          "dps_level": 0.42355,
+          "ground_contact": false,
+          "altitude_m": 579.5447852283517,
+          "groundspeed_mps": 58.702941855258416,
+          "requested_field": "",
+          "requested_state": -1,
+          "readback": null,
+          "dsky": {
+            "PROG": "64",
+            "VERB": "06",
+            "NOUN": "64",
+            "R1": "+83 45",
+            "R2": "-00549",
+            "R3": "+02026",
+            "STATE": "536870912"
+          },
+          "radar": {
+            "RANGE": "1919.988649699256",
+            "ANTENNAANGLE": "0.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-137.561731976344 -12.044005606748 134.348461669298"
+          },
+          "neutral_trace_tick": 1,
+          "crosspointers": [
+            [
+              0,
+              0
+            ],
+            [
+              18.394328,
+              0.05571
+            ]
+          ],
+          "dps_gimbals": [
+            {
+              "position": -0.06592546,
+              "command": -1,
+              "motor_running": 1
+            },
+            {
+              "position": -0.0826567,
+              "command": 1,
+              "motor_running": 1
+            }
+          ],
+          "controls": {
+            "ModeControlPGNSSwitch": 2,
+            "ModeControlAGSSwitch": 2,
+            "EngineArmSwitch": 0,
+            "EngineDescentCommandOverrideSwitch": 1,
+            "LandingAntSwitch": 0,
+            "PGNS_LDG_RDR_CB": 1,
+            "RateScaleSwitch": 1,
+            "AltRngMonSwitch": 0,
+            "RendezvousRadarRotary": 1,
+            "ORDEALFDAI1Switch": 0,
+            "ORDEALFDAI2Switch": 0,
+            "LeftXPointerSwitch": 1,
+            "RightXPointerSwitch": 1,
+            "RollSwitch": 2,
+            "PitchSwitch": 2,
+            "YawSwitch": 2,
+            "DeadBandSwitch": 0,
+            "THRContSwitch": 1,
+            "ATTTranslSwitch": 1,
+            "BALCPLSwitch": 1,
+            "EngGimbalEnableSwitch": 1
+          },
+          "active_thrusters": [
+            {
+              "index": 0,
+              "level": 0.42355,
+              "max_thrust_n": 44393.967384156145,
+              "direction": [
+                0.0014426315638273793,
+                1,
+                -0.0011506163378976384
+              ]
+            }
+          ],
+          "angular_velocity_body_rad_s": [
+            -0.002863245405840856,
+            0.00046949220204349723,
+            -0.00033620909831277797
+          ],
+          "radar_geometry": {
+            "beam_nadir_cosine": 0.9856658577975478,
+            "beam_body": [
+              -0.03640149932051852,
+              -0.9374036069850605,
+              -0.346337131215549
+            ],
+            "nadir_global": [
+              -0.7742618702571351,
+              0.007068863561533072,
+              -0.6328258744977735
+            ],
+            "altitude_above_radar_origin_m": 576.5447852283517,
+            "predicted_slant_range_ft": 1919.0592001082246,
+            "position1_discrete": false,
+            "position2_discrete": true,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "pgns_fdai_rpy_deg": [
+            358.96598538969755,
+            29.86074974596632,
+            1.6106840673399285
+          ],
+          "gasta_powered": true,
+          "forward_window_zenith_cosine": 0.49658246265108413,
+          "rotation_body_to_global": [
+            [
+              -0.01616589154720849,
+              0.3579001999302864,
+              0.9336198963391605
+            ],
+            [
+              0.9993567708174085,
+              -0.02411041809247405,
+              0.026546795678718482
+            ],
+            [
+              0.03201106952111121,
+              0.9334485173962552,
+              -0.3572802216731952
+            ]
+          ],
+          "aca_proportional_roll_pitch_yaw": [
+            0,
+            0,
+            0
+          ],
+          "aca_out_of_detent": false,
+          "lgc_output_channel_005": 0,
+          "lgc_output_channel_006": 0,
+          "atca_primary_voltage_v": -4.7,
+          "guidance_relay_k12": false,
+          "guidance_relay_k13": false,
+          "pgns_jet_requests": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "jet_driver": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "jet_requests": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rcs_jet_levels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "lgc_cycle_counter": 1422,
+          "crosspointer_cdu_counts": [
+            330,
+            1
+          ],
+          "lm_cog_m": [
+            0,
+            -0.176516580018,
+            0
+          ],
+          "pmi_m2": [
+            2.5428,
+            2.2871,
+            2.7566
+          ],
+          "relative_position_m": [
+            1344625.9054412842,
+            -12276.178683202714,
+            1099000.347518921
+          ],
+          "altitude_mean_radius_m": -1434.7970326510258,
+          "last_cog_fuel_weight_kg": 1450.525475880283
+        }
+      }
+    },
+    "runtime_report": "<POC_CHECKOUT>/orbiter/build/native-v9/runtime-pdi-pilot/pdi-pilot-verification.json",
+    "recorded_utc": "2026-10-12T05:41:57.222512+00:00"
+  },
+  "full_command": [
+    "/nix/store/ak2ia3545lajx7np57i7fizgmiyycalf-cmake-4.4.2/bin/ctest",
+    "--test-dir",
+    "<POC_CHECKOUT>/orbiter/build/native-v9",
+    "--parallel",
+    "1",
+    "--output-on-failure",
+    "--output-junit",
+    "<NATIVE_EVIDENCE_ROOT>/final-current-0bd60e8-20261012/suite-junit.xml"
+  ],
+  "test_results": [
+    {
+      "name": "native_world",
+      "time_s": 0.0912457,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_cockpit",
+      "time_s": 0.332471,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "mesh_normals",
+      "time_s": 0.168963,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "tile_archive",
+      "time_s": 0.174307,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "elevation_tile",
+      "time_s": 0.692253,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_data_preflight",
+      "time_s": 2.18864,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_manual_step_alignment",
+      "time_s": 9.90839,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_audio",
+      "time_s": 0.203752,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "portable_sdk",
+      "time_s": 0.00417271,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_core",
+      "time_s": 0.196945,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "module_lifecycle",
+      "time_s": 0.0123911,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_bitmap_resources",
+      "time_s": 0.0152895,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_bmp_normalize",
+      "time_s": 0.0258892,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_lua",
+      "time_s": 0.00553013,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_mesh",
+      "time_s": 0.080613,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_original_insertion",
+      "time_s": 0.528008,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_original_insertion",
+      "time_s": 48.4107,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_assets",
+      "time_s": 0.301448,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_scenario_state",
+      "time_s": 0.175123,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "panelsdk_math",
+      "time_s": 0.165262,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_sdl",
+      "time_s": 0.227279,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_cli",
+      "time_s": 4.87847,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "realtime_steps",
+      "time_s": 0.00863654,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_joystick",
+      "time_s": 0.238975,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_vesim",
+      "time_s": 0.173619,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_wgpu",
+      "time_s": 0.0497354,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_text",
+      "time_s": 0.286117,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_client",
+      "time_s": 0.313514,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_world",
+      "time_s": 0.135104,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_present",
+      "time_s": 0.816997,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_mesh",
+      "time_s": 0.340444,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_dds",
+      "time_s": 0.0758988,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_cockpit",
+      "time_s": 0.111008,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_live_cockpit",
+      "time_s": 5.11236,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_solar",
+      "time_s": 0.280133,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_solar",
+      "time_s": 2.02073,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_csm",
+      "time_s": 0.259432,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_csm_cockpit",
+      "time_s": 4.44474,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_rcs",
+      "time_s": 1.92659,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pause",
+      "time_s": 1.00339,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_startup_pause",
+      "time_s": 6.05609,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_startup_pause_graphics",
+      "time_s": 9.32051,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_nassp_resume",
+      "time_s": 3.12403,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_solar_cockpit",
+      "time_s": 9.99495,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_insertion",
+      "time_s": 0.0904997,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_insertion_cockpit",
+      "time_s": 4.91126,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "animation_pose",
+      "time_s": 0.00572613,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_poc_launch",
+      "time_s": 3.04303,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "star_catalog",
+      "time_s": 0.00712883,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_stars",
+      "time_s": 0.0556403,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "local_lights",
+      "time_s": 0.0131881,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "exhaust_geometry",
+      "time_s": 0.00466,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "terrain_texture_border",
+      "time_s": 0.00396771,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_views",
+      "time_s": 15.4477,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_lm",
+      "time_s": 0.266356,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_lm",
+      "time_s": 6.63144,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_lm_resume",
+      "time_s": 1.683,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_pair",
+      "time_s": 0.261932,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pair",
+      "time_s": 6.53891,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_exterior",
+      "time_s": 3.92575,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pair_resume",
+      "time_s": 2.24146,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_liftoff",
+      "time_s": 0.265237,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_liftoff",
+      "time_s": 4.92754,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_liftoff_resume",
+      "time_s": 0.478732,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "wgpu_imgui",
+      "time_s": 0.251031,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_ui",
+      "time_s": 3.23851,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_mfd",
+      "time_s": 3.55507,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_mfd_resume",
+      "time_s": 2.10133,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_mfd",
+      "time_s": 3.21582,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_mfd_resume",
+      "time_s": 2.08226,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_fdai",
+      "time_s": 0.270453,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_joystick",
+      "time_s": 0.266223,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_joystick",
+      "time_s": 1.64496,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_joystick_flight",
+      "time_s": 0.291733,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_joystick_flight",
+      "time_s": 1.68715,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_joystick_throttle",
+      "time_s": 0.256377,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_joystick_throttle",
+      "time_s": 1.35756,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_sound",
+      "time_s": 1.39827,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "terrain_textures",
+      "time_s": 13.363,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "terrain_contact",
+      "time_s": 5.12493,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "particle_simulation",
+      "time_s": 0.00605383,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "sun_occlusion",
+      "time_s": 0.00335379,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "landing_sounds",
+      "time_s": 0.00582233,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "landing_sound_playback",
+      "time_s": 1.44115,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "pdi_protocol_contract",
+      "time_s": 0.247925,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "pdi_pilot_contract",
+      "time_s": 0.0623654,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "pdi_aca_contract",
+      "time_s": 0.0843786,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_lm_persistence",
+      "time_s": 0.208202,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_original_liftoff",
+      "time_s": 0.665313,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_original_liftoff",
+      "time_s": 58.5468,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_mcc",
+      "time_s": 65.7615,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_mcc_resume",
+      "time_s": 65.2304,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_original_descent",
+      "time_s": 0.547226,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_original_descent",
+      "time_s": 69.8976,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_descent_visual",
+      "time_s": 16.7194,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_pdi_protocol",
+      "time_s": 0.597829,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pdi_protocol",
+      "time_s": 57.0213,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_pdi_pilot",
+      "time_s": 0.512807,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pdi_pilot",
+      "time_s": 87.408,
+      "status": "failed",
+      "failure": null
+    },
+    {
+      "name": "nassp_stage_pdi_uninterrupted_aca",
+      "time_s": 0.514197,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pdi_uninterrupted_aca",
+      "time_s": 86.4395,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_pdi_window",
+      "time_s": 469.483,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "native_scenario_compatibility",
+      "time_s": 3.7958,
+      "status": "passed",
+      "failure": null
+    },
+    {
+      "name": "fdai_rasterizer",
+      "time_s": 0.306614,
+      "status": "passed",
+      "failure": null
+    }
+  ],
+  "fresh_runtime_files_preserved": 295,
+  "fresh_runtime_bytes_preserved": 204262841,
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/final-current-0bd60e8-20261012",
+  "no_assertion_waiver_disabled_test_or_expected_failure_annotation": true,
+  "external_exact_repeatability_failure_waived": false,
+  "interactive_QA_launched": false,
+  "production_or_mission_state_changes": false,
+  "scope": "Complete existing registered suite, including automated graphics/SDL; no interactive QA or full-mission acceptance",
+  "gpu_release": {
+    "checked_utc": "2026-10-12T05:50:31.333141+00:00",
+    "active_native_processes": [],
+    "full_suite_complete": true,
+    "native_graphics_released": true,
+    "interactive_QA_launched_by_worker": false
+  },
+  "paused_QA_refresh": {
+    "checked_utc": "2026-10-12T05:50:31.634823+00:00",
+    "updated_existing_runtime": true,
+    "build_hash_change": {
+      "<POC_CHECKOUT>/orbiter/build/native-v9/runtime/Modules/Plugin/WgpuClient.dylib": {
+        "old": "b2427484ef2e84ba24d6c6889cfe3b3f490f186307dda7a38f73b4fb878b1e37",
+        "current": "c240f6f6eca21bb028dd12193aa656fa395e4b1be3cefdf923cffaeba83ee0e4"
+      }
+    },
+    "app_identity_unchanged": "local.orbiter.native-v9.qa-task2",
+    "unique_registration": [
+      "<NATIVE_EVIDENCE_ROOT>/app-launch-20261012/NASSP Native v9 QA.app"
+    ],
+    "app_hashes_unchanged": true,
+    "case_inputs_configs_original_scenarios_unchanged": true,
+    "dry_runs_passed": {
+      "pdi": true,
+      "liftoff": true
+    },
+    "cleanup_refuses_unowned_PID": true,
+    "no_interactive_QA_launched": true,
+    "watchdog_PID_start_token_path_guards_unchanged": true,
+    "no_new_app_copy_or_registration": true
+  },
+  "remaining_QA_plan": {
+    "sequence": [
+      "PDI cockpit inspection first",
+      "Liftoff control visibility and bounded start/release only after PDI closes"
+    ],
+    "launchers": {
+      "pdi": "python3 <NATIVE_EVIDENCE_ROOT>/paused-app-qa-20261012/launch_paused.py pdi --launch",
+      "liftoff": "python3 <NATIVE_EVIDENCE_ROOT>/paused-app-qa-20261012/launch_paused.py liftoff --launch"
+    },
+    "all_launches_by_coordinator_or_Astra_only": true,
+    "binding": "One retained CUA app binding tied to anchored PID/start/bundle/executable; never reacquire after exit/binding loss",
+    "pdi": [
+      "Verify PAUSED Eagle and frozen original clock, capture commander/DSKY/FDAI/X-pointers and new-lit cockpit/exterior",
+      "Use Ctrl+Right from commander for DSKY, F1 exterior/cockpit and wheel zoom; F2 instruments if useful; close overlays before flight keys",
+      "Avoid the previously timed-out F4 focus cycle during initial inspection; never send flight keys with unverified Eagle focus",
+      "If reliable key down/up is available, resume once, tap/release L for0.2-0.3seconds, pause and inspect release response; remain under10resumed simseconds. Release does not imply zero angular rate",
+      "Close normally, retain actual captures/logs/named save and verify no owned process remains; no PRO/V57 or landing checklist"
+    ],
+    "liftoff_visibility": [
+      "Select CBLEFT with Ctrl+Left from commander; unmodified wheel down widens vertical FOV to90degree limit, while Ctrl+wheel does nothing",
+      "Window resize improves pixel size but does not expand the vertical FOV; HE PRESS/ASC center is at99.90percent height at the90degree limit, so do not click a clipped target",
+      "If ordinary right-button drag is supported by the operator/tool, look slightly downward while paused; prior CUA interface did not expose button choice, so do not invent one",
+      "Existing NASSP normal Down-arrow free-camera control is an alternative. It runs only while simulation is running. Resume briefly, hold unmodified Down for0.25-0.5simseconds, release, F5pause; shifts camera down0.05-0.1m at1x and leaves HE PRESS/ASC center around94.70-89.51percent height at90degree FOV. Confirm actual visibility/readback; this is a source-based proposal, not live acceptance",
+      "When all three controls are visible and identified, click MasterArm ON and HE PRESS/ASC, select DSKY via commander and set EngineArm ASC; require visible readbacks. If tool cannot position camera or control stays clipped, keep manual start blocked",
+      "Only then resume, press/release ] forabout0.5seconds, observe bounded separation/climb, and pause/close within30resumed simseconds including positioning time. Key release does not mean shutting down a latched running engine"
+    ],
+    "forbidden_scope": [
+      "No hidden clicks, edited scenario/state, source features or scripted switch bypass",
+      "No full mission, full ascent/rendezvous, manual landing or faithful-save-resume claim"
+    ],
+    "previous_limits_retained": [
+      "Physical controller calibration unverified",
+      "F4 CUA focus timeout unresolved",
+      "Terrain/material visual parity incomplete",
+      "AGC faithful snapshot and exact repeatability unresolved"
+    ]
+  },
+  "view_source_analysis": {
+    "method": "Static registered click center relative to stock CBLEFT camera; common currentCoG cancels. Does not prove live visibility or occlusion",
+    "default_camera": [
+      -0.55,
+      1.53,
+      1.05
+    ],
+    "maximum_vertical_FOV_degrees": 90,
+    "plain_wheel_per_step_full_FOV_degrees": 4,
+    "window_resize_does_not_expand_vertical_angle": true,
+    "controls": {
+      "MasterArm": {
+        "0": {
+          "camera_lowered_m": 0,
+          "downward_vertical_angle_degrees": 40.92322557785447,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.933468474373139
+        },
+        "0.05": {
+          "camera_lowered_m": 0.05,
+          "downward_vertical_angle_degrees": 37.71498712942403,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.8866528716690697
+        },
+        "0.1": {
+          "camera_lowered_m": 0.1,
+          "downward_vertical_angle_degrees": 34.202948832942766,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.8398372689650004
+        }
+      },
+      "HE_PRESS_ASC": {
+        "0": {
+          "camera_lowered_m": 0,
+          "downward_vertical_angle_degrees": 44.94072431386422,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.9989665129419587
+        },
+        "0.05": {
+          "camera_lowered_m": 0.05,
+          "downward_vertical_angle_degrees": 41.798783281423084,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.9470324899247996
+        },
+        "0.1": {
+          "camera_lowered_m": 0.1,
+          "downward_vertical_angle_degrees": 38.315682427633114,
+          "normalized_vertical_fraction_at_90deg_FOV": 0.8950984669076405
+        }
+      }
+    },
+    "normal_camera_controls": {
+      "Down_arrow": "NASSP LEM clbkConsumeDirectKey -> VCFreeCam, down0.2m per simulated second, max0.5m",
+      "while_paused": "Immediate direct-key path is not run; buffered arrows with Ctrl change seats only",
+      "possible_bounded_step": "While no flight key is held, brief running Down arrow0.25-0.5simseconds, release and F5pause; then inspect before any arm/start action",
+      "right_drag": "Existing normal look control, but prior CUA API did not expose mouse button selection",
+      "live_result_unverified": true
+    }
+  }
+}

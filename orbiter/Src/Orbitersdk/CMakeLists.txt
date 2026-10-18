@@ -1,0 +1,43 @@
+# Copyright (c) Martin Schweiger
+# Licensed under the MIT License
+
+# Static library containing version information and UI support for plugins.
+# Lifecycle callbacks are dispatched explicitly by the engine module manager.
+FetchContent_MakeAvailable(imgui)
+FetchContent_MakeAvailable(implot)
+
+add_library(Orbitersdk STATIC
+	Orbitersdk.cpp
+	${imgui_SOURCE_DIR}/imgui.cpp
+	${imgui_SOURCE_DIR}/imgui_demo.cpp
+	${imgui_SOURCE_DIR}/imgui_draw.cpp
+	${imgui_SOURCE_DIR}/imgui_tables.cpp
+	${imgui_SOURCE_DIR}/imgui_widgets.cpp
+	${implot_SOURCE_DIR}/implot.cpp
+	${implot_SOURCE_DIR}/implot_items.cpp
+	${implot_SOURCE_DIR}/implot_demo.cpp
+)
+
+set_target_properties(Orbitersdk
+	PROPERTIES
+	FOLDER Core
+)
+
+target_include_directories(Orbitersdk
+	PUBLIC ${imgui_SOURCE_DIR}
+	PRIVATE ${ORBITER_SOURCE_SDK_INCLUDE_DIR}
+)
+
+
+# Copy library to its Orbitersdk/lib location so that external project integrated into the build can find it
+add_custom_command(TARGET Orbitersdk
+	POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E make_directory ${ORBITER_BINARY_SDK_DIR}/lib
+	COMMAND ${CMAKE_COMMAND} -E copy ${ORBITER_SDK_LIB} ${ORBITER_BINARY_SDK_DIR}/lib/ 
+)
+
+# Installation: Orbiter addon entry interface library to SDK folder to be included by addons
+install(TARGETS Orbitersdk
+	ARCHIVE
+	DESTINATION ${ORBITER_INSTALL_SDK_DIR}/lib
+)

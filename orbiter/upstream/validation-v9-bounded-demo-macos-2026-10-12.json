@@ -1,0 +1,91 @@
+{
+  "verified_utc": "2026-10-12T06:56:58.902660+00:00",
+  "documentation_base_commit": "7b472ec2665c56a6c8cd178d5445ebda5fa1b011",
+  "new_build_test_or_simulation_run": false,
+  "raw_retry_report": "<MANUAL_QA_WORKSPACE>/evidence/he-hold-retry-20261012/report.txt",
+  "raw_saved_scenario": "<MANUAL_QA_WORKSPACE>/evidence/he-hold-retry-20261012/logs/PausedQALiftoff.scn",
+  "raw_save_sha256": "45d9754dfdc4636eb6767e7e5674bc1e79c16528e4aa5639453d78cddc91cd9e",
+  "original_scenario_sha256": "16b02ad534ee76dd07d98eb1e1b6c3c949d8a0346a03a305dbb8c420edb20f5b",
+  "original_vessel_count": 10,
+  "saved_vessel_count": 11,
+  "all_original_vessels_retained": true,
+  "added_vessel": {
+    "name": "Eagle-DESCENTSTG",
+    "class": "ProjectApollo/Sat5LMDSC",
+    "STATUS": "Orbiting Moon",
+    "RPOS": "1090408.617 -18511.925 1350813.573",
+    "RVEL": "-3.5963 -0.0680 2.9007"
+  },
+  "saved_Eagle": {
+    "STATUS": "Orbiting Moon",
+    "RPOS": "1090414.706 -18512.082 1350821.708",
+    "RVEL": "-0.9076 -0.1122 6.7281",
+    "CONFIGURATION": "2",
+    "THLEVEL": "0:1.000000",
+    "PRPLEVEL": "0:0.644733 1:0.600812 2:0.992305",
+    "EDMasterArm": "1 0",
+    "EDHePressASC": "0 0",
+    "EngineArmSwitch": "2 0"
+  },
+  "saved_master_arm_relays": [
+    "1"
+  ],
+  "computed_radial_speed_mps_from_saved_RPOS_RVEL": 4.66611905232322,
+  "computed_stage_separation_metres": 10.162617526955145,
+  "computed_relative_stage_radial_speed_mps": 4.667196784064309,
+  "observed_Surface_MFD": {
+    "ALT_R_km": 0.01,
+    "vertical_speed_mps": 4.67,
+    "image": "<MANUAL_QA_WORKSPACE>/evidence/he-hold-retry-20261012/12-paused-ascent-instruments.png"
+  },
+  "observed_separation_and_plume_image": "<MANUAL_QA_WORKSPACE>/evidence/he-hold-retry-20261012/11-paused-after-start.png",
+  "simulation_seconds_from_console": 10.8167,
+  "running_loop_steps": 648,
+  "stock_initialization_step_seconds": 0.016666666666666666,
+  "manual_ignition_separation_initial_climb_accepted": true,
+  "serialized_Orbiting_label_does_not_mean_lunar_orbit_achieved": true,
+  "fresh_HE_actuation_accepted": false,
+  "released_HE_SAFE_expected": true,
+  "original_ascent_system_already_primed": true,
+  "protected_hashes": {
+    "checked": 953,
+    "matched": 953
+  },
+  "session_normal_close_observed": true,
+  "open_returncode": 0,
+  "open_returncode_is_not_simulator_exit_code": true,
+  "no_simulator_running": true,
+  "last_full_suite": {
+    "tested_source_commit": "0bd60e8105910096ece760cd614517bb5d0dbd5c",
+    "counts": {
+      "passed": 103,
+      "failed": 1,
+      "skipped": 0,
+      "total": 104
+    },
+    "returncode": 8,
+    "binary_hashes_unchanged": true
+  },
+  "evidence_hashes": {
+    "report.txt": "d65ddec3e7d9a308a941fc52f16082a4fa9b3dd8331fe048be1090a8e6d031d2",
+    "logs/PausedQALiftoff.scn": "45d9754dfdc4636eb6767e7e5674bc1e79c16528e4aa5639453d78cddc91cd9e",
+    "logs/console.log": "76ea19844f82a5e44e3631004604f8948112b299a9d4bda633e53748980ae149",
+    "logs/session.json": "39de522110d5359eb3b05f9219745e391b8e646e6ead7342179fe090ddb515ba",
+    "input-actions.json": "447cb9b8cc7bf95ea91d3456ee79e04c684b45fe89f91d1ae48e4e66e196590b",
+    "integrity.json": "9dccd8c6283915ace2b07281761a0f1106e84e39ef8387381a222c8e9978a0dc",
+    "final-process-state.json": "46976e3c4bbafb8a27fc58dbdde8e4c3ae23f020b61dcddbee5b932782eb4437",
+    "11-paused-after-start.png": "53139600b1fd6d344acff994d04065bfd958c5ff708741a6e68269cfe0d6f5d9",
+    "12-paused-ascent-instruments.png": "80bb5dce03e0394ab5d7183a1cb67d80377cef4e5cde3834c33b4fe571074996"
+  },
+  "limits": [
+    "Fresh HE switch delivery/transient FIRE not verified",
+    "Yaw authority and neutral ACA telemetry not isolated by live PDI input",
+    "Physical controllers and F4 CUA cycle unresolved",
+    "Terrain/material/photometric parity incomplete",
+    "Strict AGC resume and exact-repeatability remain open",
+    "Full mission, full ascent/orbit/rendezvous and manual landing not accepted"
+  ],
+  "computed_separation_is_between_saved_vessel_origins": true,
+  "START_hold_duration": "Requested500ms; input requested2026-10-12T06:40:56.251Z, press/release returned06:40:56.841Z; no exact simulated hold duration claim",
+  "image_encoding_note": "Raw actual captures are JPEG despite.png filenames; no impossible screenshot-manifest dimensions copied"
+}

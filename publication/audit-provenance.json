@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "audit_date": "2026-10-12",
+  "original_POC_commit": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
+  "audit_copies": {
+    "RELEASE-CHOICES.md": {
+      "original_sha256": "8582f0e4e7d640fdfbc62caf38d2e2b267a306db74531362eaf7fd829f8327e8",
+      "public_sha256": "859a1fbb9dda0dbbb94429334d3230f566b0745d4b014d5721d534ea3b5e00ed"
+    },
+    "PUBLICATION-LICENSE-AUDIT.md": {
+      "original_sha256": "edcf2741c1f6848cb4b8f47a5afcbfc3eabbe3f6499adfab54757ea6de91ea9d",
+      "public_sha256": "689da2a34272c8a7b41b782043803d750ac3bb5a2ae2735e0c6a1f5b7d61cc84"
+    },
+    "COMPONENT-LICENSE-INVENTORY.csv": {
+      "original_sha256": "dec005202ef44dff612fdaf2536fdff935fc8899e20f66a4d854060dd765b80d",
+      "public_sha256": "dec005202ef44dff612fdaf2536fdff935fc8899e20f66a4d854060dd765b80d"
+    },
+    "PUBLICATION-COMPLIANCE-PLAN.md": {
+      "original_sha256": "2d2133053b714815980ae06c1481bbfd73bca81adfaced51345851c66bcede7c",
+      "public_sha256": "d1b50f8ac80929e96cab8135a83a7e2cb04dabad62d2f0bf40063c111aac80c5"
+    },
+    "rust-lock-license-inventory.csv": {
+      "original_sha256": "780760d4e947174ad09c06ce2f7d84346de63c7db42fa53a6ac4765e2eaeecfd",
+      "public_sha256": "780760d4e947174ad09c06ce2f7d84346de63c7db42fa53a6ac4765e2eaeecfd"
+    },
+    "native-font-provenance.json": {
+      "original_sha256": "f40c96be6f1e00c0d8d6fa516d42c95d948290c742af299871a388860c1626fa",
+      "public_sha256": "f40c96be6f1e00c0d8d6fa516d42c95d948290c742af299871a388860c1626fa"
+    }
+  },
+  "GPL3_text_source": "Pinned NASSP Skylab1973 Copying and GPL.txt, verbatim GPL text after component preamble; no new license grant to unrelated assets"
+}

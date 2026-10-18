@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-10T02:27:46.119364+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "4c31c550870edc66c21b4261714f21c1a40612ac",
+  "white_x_pointer_commit": "e9cc62d96440569c8b844080ee993dfd65c753f3",
+  "scope": "Removable diagnostic-only same-host PDI/P64 ACA window, keyboard/mouse takeover and bounded lifecycle validation",
+  "implementation": [
+    "Original scenario launched once per process; WgpuClient/ProjectApolloMFD/SDL render on same host",
+    "Accelerated prefix renders each five simulated seconds; ACA renders each 1/60 s step",
+    "SDL flight/focus input isolated during automation; owned focus prevents background gate from disarming scripted stick",
+    "Neutral-release pause preserves exact sim/mission time, LGC cycles, attitude/rates/position/velocity",
+    "Owned virtual stick and binding file removed; shared release API clears active original VESIM binding",
+    "Same host remains in cockpit loop; F5 resumes/pauses; laptop L/J yaw; native close or manual Esc exits",
+    "12 simulated seconds / calculated guidance altitude <=1200 ft / contact guard pauses further continuation"
+  ],
+  "launch_command": "python3 tools/nassp_pdi_window.py --build build/native-pdi-protocol",
+  "candidate_command": "python3 tools/nassp_pdi_window.py --build build/candidate-pdi-protocol",
+  "working_directory": "<PRESERVED_POC>/orbiter",
+  "profiles": {
+    "baseline": {
+      "window_ctest_passed": true,
+      "window_ctest_seconds_junit_rounded": 463.0,
+      "repeat_comparison": {
+        "event_rows": 6604,
+        "rows_with_observer_differences": 6424,
+        "maximum_observer_differences": {
+          "groundspeed_mps": 1.3143180410679633e-07,
+          "pgns_fdai_rpy_deg": 1.7553247744217515e-10,
+          "altitude_m": 0.00027548732577997725,
+          "radar_geometry.beam_nadir_cosine": 2.3637758417294208e-11,
+          "radar_geometry.nadir_global": 3.597455666692895e-11,
+          "radar_geometry.altitude_above_radar_origin_m": 0.00027548732577997725,
+          "radar_geometry.predicted_slant_range_ft": 20.06147301197052,
+          "forward_window_zenith_cosine": 4.070832559932569e-11,
+          "radar.RATE": 7.758730049545193e-07,
+          "radar.RANGE": 0.6470865830779076,
+          "relative_position_m": 0.0002288818359375,
+          "altitude_mean_radius_m": 0.00027480628341436386
+        },
+        "differing_leaf_counts": {
+          "groundspeed_mps": 6363,
+          "pgns_fdai_rpy_deg": 17779,
+          "altitude_m": 5550,
+          "radar_geometry.beam_nadir_cosine": 5550,
+          "radar_geometry.nadir_global": 16650,
+          "radar_geometry.altitude_above_radar_origin_m": 5550,
+          "radar_geometry.predicted_slant_range_ft": 5550,
+          "forward_window_zenith_cosine": 5550,
+          "radar.RATE": 4978,
+          "radar.RANGE": 3631,
+          "relative_position_m": 1056,
+          "altitude_mean_radius_m": 352
+        },
+        "differing_top_level_fields": {
+          "groundspeed_mps": 6363,
+          "pgns_fdai_rpy_deg": 6382,
+          "altitude_m": 5550,
+          "radar_geometry": 5550,
+          "forward_window_zenith_cosine": 5550,
+          "radar": 4978,
+          "relative_position_m": 352,
+          "altitude_mean_radius_m": 352
+        },
+        "text_differences": [],
+        "byte_identical_full_log": false,
+        "cause_of_float_variation_isolated": false,
+        "input_state_sequence_clocks_cycles_rotation_body_rates_jets_and_aca_exact": true,
+        "max_range_difference_when_both_range_good_ft": 0.0009141119730884384,
+        "largest_range_difference_context": {
+          "difference_ft": 0.6470865830779076,
+          "seq": 2973,
+          "elapsed_s": 1093.9333333333334,
+          "range_good": "0",
+          "beam_nadir_cosine": 0.0018774700282783163
+        }
+      },
+      "registered_test_count": 99,
+      "headless_checks_passed": 9,
+      "headless_ctest_seconds_junit_rounded": 143.0,
+      "headless_tree_note": "Final compiled transport",
+      "probe_sha256": "8318fc35c59b31b16651c8b0d07e58a694e4f747a6b358a7dbafa70d09f13073",
+      "core_executable_unchanged": true,
+      "core_sha256": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4",
+      "runs": [
+        {
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-window-test-1",
+          "verified": true,
+          "wall_seconds": 231.192906292,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1461.7333333323327,
+            "mission_time": 370206.157069993,
+            "cycles": 124734577,
+            "height_ft": 1611.7125984251968,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 15,
+            "rendered_frames": 611,
+            "continuation_guarded": false
+          },
+          "aca_measurements": {
+            "same_live_simulation": true,
+            "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+            "pulse_axis_s16": 14823,
+            "raw_rhc_count": -20,
+            "decoded_rhc_count": -19,
+            "aca_proportional_yaw": -0.4880706787109375,
+            "neutral_baseline_seconds": 1,
+            "pulse_seconds": 0.3,
+            "neutral_release_seconds": 4,
+            "samples": 321,
+            "baseline_max_abs_yaw_rate_deg_s": 0.02688052852226703,
+            "peak_right_yaw_rate_deg_s": 1.6292192561159307,
+            "final_yaw_rate_deg_s": 0.043317542221948564,
+            "last_second_max_abs_yaw_rate_deg_s": 0.0433320436043426,
+            "pulse_and_release_body_yaw_deg": 0.5112810218537467,
+            "attitude_matrix_max_change": 0.030465877827086763,
+            "first_response_delay_seconds": 0.21666666666669698,
+            "minimum_lgc_altitude_ft": 1611.7125984251968,
+            "programs_observed": [
+              "64"
+            ],
+            "observer_limits": {
+              "quiet_yaw_rate_deg_s": 0.15,
+              "quiet_dwell_seconds": 1,
+              "minimum_altitude_ft": 1200
+            },
+            "manual_landing_validated": false,
+            "physical_controller_validated": false,
+            "faithful_resume_validated": false
+          },
+          "live_checks": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "event_log_sha256": "b9b008ff5dfed8bc4c93242f11bdfb33bd160bba415a211ed0b3b71a7017632c",
+          "report_sha256": "ea99c7ff0d96658d3fd4235485af13daf503d0735520912e73ca9ff14c7413ed",
+          "source_preflight": {
+            "source_root": "<PRESERVED_POC>/orbiter/Addons/NASSP",
+            "source_adaptations_verified": 102,
+            "exported_source_lists_verified": 14
+          },
+          "original_inputs": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false
+          },
+          "body_forward_zenith_cosine": 0.4598759667339159,
+          "visible_scene_note": "Captured commander forward window shows starfield; physical flight-view correctness was not assessed."
+        },
+        {
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-window-test-2",
+          "verified": true,
+          "wall_seconds": 231.862446,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1461.7333333323327,
+            "mission_time": 370206.157069993,
+            "cycles": 124734577,
+            "height_ft": 1611.7125984251968,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 15,
+            "rendered_frames": 611,
+            "continuation_guarded": false
+          },
+          "aca_measurements": {
+            "same_live_simulation": true,
+            "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+            "pulse_axis_s16": 14823,
+            "raw_rhc_count": -20,
+            "decoded_rhc_count": -19,
+            "aca_proportional_yaw": -0.4880706787109375,
+            "neutral_baseline_seconds": 1,
+            "pulse_seconds": 0.3,
+            "neutral_release_seconds": 4,
+            "samples": 321,
+            "baseline_max_abs_yaw_rate_deg_s": 0.02688052852226703,
+            "peak_right_yaw_rate_deg_s": 1.6292192561159307,
+            "final_yaw_rate_deg_s": 0.043317542221948564,
+            "last_second_max_abs_yaw_rate_deg_s": 0.0433320436043426,
+            "pulse_and_release_body_yaw_deg": 0.5112810218537467,
+            "attitude_matrix_max_change": 0.030465877827086763,
+            "first_response_delay_seconds": 0.21666666666669698,
+            "minimum_lgc_altitude_ft": 1611.7125984251968,
+            "programs_observed": [
+              "64"
+            ],
+            "observer_limits": {
+              "quiet_yaw_rate_deg_s": 0.15,
+              "quiet_dwell_seconds": 1,
+              "minimum_altitude_ft": 1200
+            },
+            "manual_landing_validated": false,
+            "physical_controller_validated": false,
+            "faithful_resume_validated": false
+          },
+          "live_checks": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "event_log_sha256": "84e90752675acdfcecf4b266cecb2735390b73d2d55e82498bbe933989754bf3",
+          "report_sha256": "47237422ce65fb61a1742047b32275d3113db01cb5df74237f3ef80c4cdfa808",
+          "source_preflight": {
+            "source_root": "<PRESERVED_POC>/orbiter/Addons/NASSP",
+            "source_adaptations_verified": 102,
+            "exported_source_lists_verified": 14
+          },
+          "original_inputs": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false
+          },
+          "body_forward_zenith_cosine": 0.45987596669762426,
+          "visible_scene_note": "Captured commander forward window shows starfield; physical flight-view correctness was not assessed."
+        }
+      ]
+    },
+    "candidate": {
+      "window_ctest_passed": true,
+      "window_ctest_seconds_junit_rounded": 464.0,
+      "repeat_comparison": {
+        "event_rows": 6602,
+        "rows_with_observer_differences": 6394,
+        "maximum_observer_differences": {
+          "groundspeed_mps": 1.1467597005321295e-07,
+          "pgns_fdai_rpy_deg": 1.31905153466505e-10,
+          "altitude_m": 0.0002521459161926032,
+          "radar_geometry.beam_nadir_cosine": 2.2046697800703896e-11,
+          "radar_geometry.nadir_global": 4.4420134237554976e-11,
+          "radar_geometry.altitude_above_radar_origin_m": 0.0002521459161926032,
+          "radar_geometry.predicted_slant_range_ft": 23.99153381586075,
+          "forward_window_zenith_cosine": 4.629063798944344e-11,
+          "crosspointers": 1.0000000000287557e-06,
+          "radar.RATE": 8.434110014832186e-07,
+          "radar.RANGE": 23.99153381586075,
+          "relative_position_m": 0.0002288818359375,
+          "altitude_mean_radius_m": 0.0002511998172849417
+        },
+        "differing_leaf_counts": {
+          "groundspeed_mps": 6063,
+          "pgns_fdai_rpy_deg": 17631,
+          "altitude_m": 5548,
+          "radar_geometry.beam_nadir_cosine": 5548,
+          "radar_geometry.nadir_global": 16614,
+          "radar_geometry.altitude_above_radar_origin_m": 5548,
+          "radar_geometry.predicted_slant_range_ft": 5548,
+          "forward_window_zenith_cosine": 5548,
+          "crosspointers": 4,
+          "radar.RATE": 4976,
+          "radar.RANGE": 3632,
+          "relative_position_m": 1056,
+          "altitude_mean_radius_m": 352
+        },
+        "differing_top_level_fields": {
+          "groundspeed_mps": 6063,
+          "pgns_fdai_rpy_deg": 6333,
+          "altitude_m": 5548,
+          "radar_geometry": 5548,
+          "forward_window_zenith_cosine": 5548,
+          "crosspointers": 4,
+          "radar": 4976,
+          "relative_position_m": 352,
+          "altitude_mean_radius_m": 352
+        },
+        "text_differences": [],
+        "byte_identical_full_log": false,
+        "cause_of_float_variation_isolated": false,
+        "input_state_sequence_clocks_cycles_rotation_body_rates_jets_and_aca_exact": true,
+        "max_range_difference_when_both_range_good_ft": 0.0008574665089327027,
+        "largest_range_difference_context": {
+          "difference_ft": 23.99153381586075,
+          "seq": 2970,
+          "elapsed_s": 1093.8833333333332,
+          "range_good": "0",
+          "beam_nadir_cosine": 0.0011641454896592074
+        }
+      },
+      "registered_test_count": 99,
+      "headless_checks_passed": 9,
+      "headless_ctest_seconds_junit_rounded": 148.0,
+      "headless_tree_note": "Before test-only two-poll Esc assertion correction; production headless path unchanged",
+      "probe_sha256": "a0573ceb1eec9475975c1c24f6b30da67220ffba226719ea36cf88757b4117d0",
+      "core_executable_unchanged": true,
+      "core_sha256": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1",
+      "runs": [
+        {
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-window-test-1",
+          "verified": true,
+          "wall_seconds": 231.644506584,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1459.7333333323345,
+            "mission_time": 370204.15706999344,
+            "cycles": 124563911,
+            "height_ft": 1660.9251968503936,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 15,
+            "rendered_frames": 610,
+            "continuation_guarded": false
+          },
+          "aca_measurements": {
+            "same_live_simulation": true,
+            "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+            "pulse_axis_s16": 14823,
+            "raw_rhc_count": -20,
+            "decoded_rhc_count": -19,
+            "aca_proportional_yaw": -0.4880706787109375,
+            "neutral_baseline_seconds": 1,
+            "pulse_seconds": 0.3,
+            "neutral_release_seconds": 4,
+            "samples": 321,
+            "baseline_max_abs_yaw_rate_deg_s": 0.0630072694003054,
+            "peak_right_yaw_rate_deg_s": 1.6637025806469279,
+            "final_yaw_rate_deg_s": 0.009015326904888649,
+            "last_second_max_abs_yaw_rate_deg_s": 0.009076980549814678,
+            "pulse_and_release_body_yaw_deg": 0.4124984840085694,
+            "attitude_matrix_max_change": 0.015083046301612835,
+            "first_response_delay_seconds": 0.21666666666669698,
+            "minimum_lgc_altitude_ft": 1660.9251968503936,
+            "programs_observed": [
+              "64"
+            ],
+            "observer_limits": {
+              "quiet_yaw_rate_deg_s": 0.15,
+              "quiet_dwell_seconds": 1,
+              "minimum_altitude_ft": 1200
+            },
+            "manual_landing_validated": false,
+            "physical_controller_validated": false,
+            "faithful_resume_validated": false
+          },
+          "live_checks": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "event_log_sha256": "9ad8aed93eb47e8d33359b51cdf8241c3d547e5fabc6428b8aefd5fdf9252c85",
+          "report_sha256": "b3788dcf48d815fab4e2dab30ed096d16cb11a8065204434f6dd165524b207a9",
+          "source_preflight": {
+            "source_root": "<LOCAL_PATH>",
+            "source_adaptations_verified": 94,
+            "exported_source_lists_verified": 14
+          },
+          "original_inputs": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false
+          },
+          "body_forward_zenith_cosine": 0.47771222470856534,
+          "visible_scene_note": "Captured commander forward window shows starfield; physical flight-view correctness was not assessed."
+        },
+        {
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-window-test-2",
+          "verified": true,
+          "wall_seconds": 232.02547475,
+          "handoff": {
+            "event": "same_host_paused_handoff",
+            "sim_time": 1459.7333333323345,
+            "mission_time": 370204.15706999344,
+            "cycles": 124563911,
+            "height_ft": 1660.9251968503936,
+            "running": false,
+            "virtual_binding_active": false,
+            "aca_yaw": 0,
+            "aca_out_of_detent": false,
+            "joystick_devices": 0,
+            "filtered_input_events": 15,
+            "rendered_frames": 610,
+            "continuation_guarded": false
+          },
+          "aca_measurements": {
+            "same_live_simulation": true,
+            "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+            "pulse_axis_s16": 14823,
+            "raw_rhc_count": -20,
+            "decoded_rhc_count": -19,
+            "aca_proportional_yaw": -0.4880706787109375,
+            "neutral_baseline_seconds": 1,
+            "pulse_seconds": 0.3,
+            "neutral_release_seconds": 4,
+            "samples": 321,
+            "baseline_max_abs_yaw_rate_deg_s": 0.0630072694003054,
+            "peak_right_yaw_rate_deg_s": 1.6637025806469279,
+            "final_yaw_rate_deg_s": 0.009015326904888649,
+            "last_second_max_abs_yaw_rate_deg_s": 0.009076980549814678,
+            "pulse_and_release_body_yaw_deg": 0.4124984840085694,
+            "attitude_matrix_max_change": 0.015083046301612835,
+            "first_response_delay_seconds": 0.21666666666669698,
+            "minimum_lgc_altitude_ft": 1660.9251968503936,
+            "programs_observed": [
+              "64"
+            ],
+            "observer_limits": {
+              "quiet_yaw_rate_deg_s": 0.15,
+              "quiet_dwell_seconds": 1,
+              "minimum_altitude_ft": 1200
+            },
+            "manual_landing_validated": false,
+            "physical_controller_validated": false,
+            "faithful_resume_validated": false
+          },
+          "live_checks": [
+            "automation_input_isolation_checked",
+            "automation_started",
+            "automation_input_isolation_checked",
+            "same_host_paused_handoff",
+            "pause_frozen_checked",
+            "unpause_checked",
+            "manual_keyboard_aca_checked",
+            "manual_neutral_checked",
+            "focus_release_checked",
+            "manual_repause_checked",
+            "continuation_guard_checked",
+            "guard_repause_checked",
+            "normal_close_checked",
+            "escape_close_checked"
+          ],
+          "event_log_sha256": "4578f73686945f0b7eafb4c4215ffb1849fbfa2e17f3873b1dff8b951e5687a5",
+          "report_sha256": "25e818e8949d2422681bf0051d8d93bc17ffa60f11383799fe2e87ce714a4974",
+          "source_preflight": {
+            "source_root": "<LOCAL_PATH>",
+            "source_adaptations_verified": 94,
+            "exported_source_lists_verified": 14
+          },
+          "original_inputs": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false
+          },
+          "body_forward_zenith_cosine": 0.4777122246629967,
+          "visible_scene_note": "Captured commander forward window shows starfield; physical flight-view correctness was not assessed."
+        }
+      ]
+    }
+  },
+  "source_freeze": {
+    "Tests/NativePDIProtocol.cpp": "325a78da56eeb7a9a3257d98611111237adbbaaee927315aa35648d9a51500d6",
+    "Tests/NativePDIWindow.h": "b951a97292adb38ad61201661a389ed83a60e0c218e65d98174257ab9de82051",
+    "tools/nassp_pdi_window.py": "6007c3070e25ac05f3e6c628b38b32e4fb2b0130d9c38ac227bc103545cec6b2",
+    "cmake/NativeWgpu.cmake": "1c071272585273cbdabcedef2a10e85d6a771336df6effbd4fff71e1b4d7751e",
+    "Tests/NativePDIUninterruptedACA.py": "8fb768245215e2b13a59e5df94f95853c88304642941bee4d8c31b2c04487d29",
+    "Tests/NativePDIACAContract.py": "3ec872f2cfc13428bb270e2304fe4e65416899203f7b992006111afd42a7ef95",
+    "Tests/NativePDIPilot.py": "212c56522386625c3969f82fffc6ae5e39d6910890dd9f800ae592742b346fbf",
+    "Tests/NativePDIPersistence.py": "c104028f96655e93e25ad87d62d6caa67147f22e17b7c38cc6bfd7bc0577125b"
+  },
+  "controller_collision_check": {
+    "controller_collision_rejected": true,
+    "user_config_unchanged": true,
+    "exit_code": 1,
+    "stderr": "PDI window: controller config exists; use a fresh isolated runtime\n"
+  },
+  "constraints": {
+    "nassp_source_edits": false,
+    "core_physics_edits": false,
+    "serialize_or_reload_handoff": false,
+    "pose_injection": false,
+    "changed_scenario_rom_config_workbook": false,
+    "broad_agc_snapshot": false,
+    "push": false,
+    "windows_comparison": false,
+    "ci_or_visibility_change": false
+  },
+  "verification_limits": {
+    "CUA_available": false,
+    "human_input_validated": false,
+    "physical_desktop_visibility_verified": false,
+    "physical_controller_handoff_configured": false,
+    "human_mouse_hit_testing_validated": false,
+    "landing_validated": false,
+    "faithful_saved_state_resume_validated": false,
+    "full_99_test_suite_run": false,
+    "guard_branches_not_separately_exercised": [
+      "12 second cap",
+      "contact"
+    ],
+    "guard_readback_limit": "Uses original HCALC, which updates discretely; first crossing paused at 1186.43 ft baseline and 1141.12 ft candidate",
+    "actual_rendered_evidence": "SDL/Metal window rendering and framebuffer readbacks; inspected cockpit/status images, not desktop captures",
+    "manual_check": "Launch without --self-test; wait at same-host paused P64; inspect cockpit, F5, short laptop L/J yaw input/release, F5 pause, native close.",
+    "default_interactive_loop": "Source checked; shared Poll/tick transport tested programmatically. No human/CUA drove the default unbounded waiting loop."
+  },
+  "initial_diagnostic_failures": [
+    {
+      "stage": "first graphical prefix",
+      "cause": "normal background input gate disarmed scripted stick",
+      "resolution": "diagnostic-owned focus event; OS focus filtered only during automation",
+      "evidence": "initial-focus-failure"
+    },
+    {
+      "stage": "synthetic Esc assertion after normal close",
+      "cause": "preceding close left SDL poll sentinel; one-poll assertion was premature",
+      "resolution": "allow the next poll in synthetic test; production loop already repolls",
+      "evidence": "initial-escape-assertion"
+    }
+  ],
+  "approval_review": {
+    "rejected_action": "redundant second candidate nine-check headless run",
+    "stated_reason": "checks already passed; retained two-job compile/simulation limit",
+    "resolution": "No retry or indirect workaround. Retained green run; completed all subsequent new checks one job at a time."
+  },
+  "archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-window-20261010",
+  "mirror": "<LOCAL_PATH>"
+}

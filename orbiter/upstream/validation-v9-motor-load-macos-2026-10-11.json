@@ -1,0 +1,3621 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T22:26:53.119125+00:00",
+  "baseline_native_commit": "1c8dfb9f2eccc71adec6f52fe5dfc4b042bd5961",
+  "upstream": {
+    "OpenOrbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "NASSP": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+    "NASSPRelease": 434,
+    "runtime": "ARM64 Windows11, x64 app emulation, native D3D9 Microsoft Basic Render Driver software"
+  },
+  "scope": "Bounded source/early-step/causal comparison. Existing gimbal loader correction is retained. No production source, equations, canonical mission, registered checks or acceptance tolerances changed.",
+  "new_runtime_fix": false,
+  "gpu_used": false,
+  "vm_operated_by_native_worker": false,
+  "stock_vm_measurements_received": true,
+  "stock_config_serialization_note": "Stock post-close Orbiter.cfg rounds FixedStep to0.0166667. Actual launch used the full-precision raw config and the full-precision CLI override0.016666666666666666. Working configs restored after each run.",
+  "stock_inputs": {
+    "index_path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/reference-early-step-index.json",
+    "index_sha256": "3a1f93e0b5a1c00d98ad48fc101df7d8c0f8320826c83c625e463e7cc42e7536",
+    "complete_bundle_path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/reference-early-steps.zip",
+    "complete_bundle_sha256": "ad4159941312670286837719f87bad759fb55ce086b0b7229afe94299817a787",
+    "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+    "matched_orbiter_config_sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3",
+    "matched_d3d9_config_sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e",
+    "all_fresh_original_launches": true
+  },
+  "early_comparison": {
+    "2": {
+      "raw_windows_sha256": "c332c2a5cc116d3e26cd5d31d6d78555382771b94712914357d6f3c3ea729ee4",
+      "raw_native_sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434",
+      "windows_mjd_token": "MJD 40422.8317625596",
+      "native_mjd_token": "MJD 40422.8317625596",
+      "mjd_equal": true,
+      "normal_windows_exit": true,
+      "stock_cli_fixedstep": "0.016666666666666666",
+      "stock_maxsimtime": "0.025",
+      "vessels": {
+        "Columbia": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "2844",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        },
+        "Eagle": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "2844",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        }
+      },
+      "selected_record_differences": []
+    },
+    "3": {
+      "raw_windows_sha256": "02dbc79f64ae39ff3473e598589a66bffd51ba277317a922a91da063b8ba6060",
+      "raw_native_sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496",
+      "windows_mjd_token": "MJD 40422.8317627525",
+      "native_mjd_token": "MJD 40422.8317627525",
+      "mjd_equal": true,
+      "normal_windows_exit": true,
+      "stock_cli_fixedstep": "0.016666666666666666",
+      "stock_maxsimtime": "0.041666666666666664",
+      "vessels": {
+        "Columbia": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "4266",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        },
+        "Eagle": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "4266",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        }
+      },
+      "selected_record_differences": [
+        {
+          "vessel": "Eagle",
+          "field": "<RADIATOR>LM-ATCA-INV-Plate",
+          "a": [
+            "293.788552",
+            "0.001000"
+          ],
+          "b": [
+            "293.788674",
+            "0.001000"
+          ],
+          "b_minus_a": [
+            0.00012200000003304012,
+            0.0
+          ]
+        }
+      ]
+    },
+    "11": {
+      "raw_windows_sha256": "50a906c05d0f5826c99a9d5570f052df6ca1968575a85e0beda14688750a428b",
+      "raw_native_sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2",
+      "windows_mjd_token": "MJD 40422.8317642957",
+      "native_mjd_token": "MJD 40422.8317642957",
+      "mjd_equal": true,
+      "normal_windows_exit": true,
+      "stock_cli_fixedstep": "0.016666666666666666",
+      "stock_maxsimtime": "0.175",
+      "vessels": {
+        "Columbia": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "15644",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        },
+        "Eagle": {
+          "AGC_complete_block_equal_after_newline_normalization": true,
+          "DSKY_complete_block_equal_after_newline_normalization": true,
+          "cycle_counter": "15644",
+          "serialized_flight_fields_equal": {
+            "STATUS": true,
+            "RPOS": true,
+            "RVEL": true,
+            "AROT": true,
+            "VROT": true,
+            "PRPLEVEL": true
+          }
+        }
+      },
+      "selected_record_differences": [
+        {
+          "vessel": "Columbia",
+          "field": "TANK/BATTERYMANIFOLD/CHM/3",
+          "a": [
+            "0.166428638252",
+            "0.166262211898",
+            "42.684863866564"
+          ],
+          "b": [
+            "0.166428638252",
+            "0.166262211898",
+            "42.684863866563"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            -1.0018652574217413e-12
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/0",
+          "a": [
+            "11.657836353619",
+            "11.652157293832",
+            "2181.446551871996"
+          ],
+          "b": [
+            "11.657836353619",
+            "11.652157293832",
+            "2181.446551872003"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            7.275957614183426e-12
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/3",
+          "a": [
+            "0.335217375918",
+            "0.334960579024",
+            "70.879970599112"
+          ],
+          "b": [
+            "0.335217375918",
+            "0.334960579024",
+            "70.879970599113"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            9.947598300641403e-13
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/PRIMGLYCOLLOOP2/CHM/5",
+          "a": [
+            "1082.791681956836",
+            "0.000000000000",
+            "1134235.820446504746"
+          ],
+          "b": [
+            "1082.791681956836",
+            "0.000000000000",
+            "1134235.820588766132"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            0.00014226138591766357
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/PRIMGLYCOLSUITHXHEATING/CHM/5",
+          "a": [
+            "1070.840032733282",
+            "0.000000000000",
+            "1123083.908858360257"
+          ],
+          "b": [
+            "1070.840032733282",
+            "0.000000000000",
+            "1123083.908858393319"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            3.306195139884949e-08
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/PRIMEVAPINLET/CHM/5",
+          "a": [
+            "320.793198228275",
+            "0.000000000000",
+            "336077.919912497164"
+          ],
+          "b": [
+            "320.793198228275",
+            "0.000000000000",
+            "336077.919912782731"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            2.855667844414711e-07
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/PRIMEVAPOUTLET/CHM/5",
+          "a": [
+            "316.434646064989",
+            "0.000000000000",
+            "321216.883224579215"
+          ],
+          "b": [
+            "316.434646064989",
+            "0.000000000000",
+            "321216.883224580903"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            1.6880221664905548e-09
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/ASCBATCOOLING/CHM/5",
+          "a": [
+            "523.086517436847",
+            "0.000000000000",
+            "531346.251566120074"
+          ],
+          "b": [
+            "523.086517436847",
+            "0.000000000000",
+            "531346.251566120191"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            1.1641532182693481e-10
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/DESBATCOOLING/CHM/5",
+          "a": [
+            "524.520850065103",
+            "0.000000000000",
+            "534914.795458543696"
+          ],
+          "b": [
+            "524.520850065103",
+            "0.000000000000",
+            "534914.795458543813"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            1.1641532182693481e-10
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/SECASCBATCOOLING/CHM/5",
+          "a": [
+            "212.256494857143",
+            "0.000000000000",
+            "215888.350343854836"
+          ],
+          "b": [
+            "212.256494857143",
+            "0.000000000000",
+            "215888.350343854894"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            5.820766091346741e-11
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/SECGLYCOLLOOP2/CHM/5",
+          "a": [
+            "212.256494857143",
+            "0.000000000000",
+            "227095.645457802428"
+          ],
+          "b": [
+            "212.256494857143",
+            "0.000000000000",
+            "227095.645599769428"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            0.0001419670006725937
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "TANK/SECEVAPINLET/CHM/5",
+          "a": [
+            "106.128247428571",
+            "0.000000000000",
+            "109395.617009253736"
+          ],
+          "b": [
+            "106.128247428571",
+            "0.000000000000",
+            "109395.617009253750"
+          ],
+          "b_minus_a": [
+            0.0,
+            0.0,
+            1.4551915228366852e-11
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "<RADIATOR>LM-ATCA-INV-Plate",
+          "a": [
+            "293.788738",
+            "0.001000"
+          ],
+          "b": [
+            "293.788860",
+            "0.001000"
+          ],
+          "b_minus_a": [
+            0.0001219999999761967,
+            0.0
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "<BATTERY>DSC_BATTERY_C",
+          "a": [
+            "35855334.6953",
+            "286.7438"
+          ],
+          "b": [
+            "35855334.3071",
+            "286.7438"
+          ],
+          "b_minus_a": [
+            -0.3881999999284744,
+            0.0
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "<BATTERY>DSC_BATTERY_D",
+          "a": [
+            "35951988.1924",
+            "285.2702"
+          ],
+          "b": [
+            "35951987.9983",
+            "285.2702"
+          ],
+          "b_minus_a": [
+            -0.1940999999642372,
+            0.0
+          ]
+        },
+        {
+          "vessel": "Eagle",
+          "field": "<BATTERY>ASC_BATTERY_B",
+          "a": [
+            "31852872.2757",
+            "275.7776"
+          ],
+          "b": [
+            "31852872.0908",
+            "275.7777"
+          ],
+          "b_minus_a": [
+            -0.18490000069141388,
+            9.999999997489795e-05
+          ]
+        }
+      ]
+    }
+  },
+  "loader_cause": {
+    "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp",
+    "upstream_line": 926,
+    "upstream_condition": "!strnicmp(line, \"MOTORRUNNING\", 13)",
+    "key_length": 12,
+    "failed_comparison": "Character 13 compares the record space against the literal terminating NUL; branch is never entered for MOTORRUNNING 1. Constructor false default persists until first Timestep.",
+    "original_scenario_motor_flags": [
+      1,
+      1
+    ],
+    "existing_native_condition": "12-character key, space/tab boundary, one successful integer conversion before assignment",
+    "native_patch": "upstream/nassp-v9/08-state-persistence.patch:88",
+    "correction_predates_upgrade": true,
+    "protected_demo_commit_containing_correction": "9e8d452e4a41c9b73bbc516e77b13a49d79f7c77",
+    "compatibility_decision": "Retain the existing saved-state fix. No motor delay, thermal equation change, input substitution or stock-bug emulation in production.",
+    "upstream_removal_path": "Adopt the exact-key/boundary/complete-parse correction upstream; retain NativeLMPersistence motor regression; remove only the gimbal loader hunk from 08-state-persistence.patch."
+  },
+  "causal_diagnostic": {
+    "seed": {
+      "diagnostic_only": true,
+      "mission_input_modified": true,
+      "canonical_source_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "diagnostic_sha256": "4692bfd3f943e98408d5ea7fb24e73202e5d71f9ee37de8aecdd9e4ab521dded",
+      "changed_records": 2,
+      "changed_fields": [
+        "LM DPS pitch MOTORRUNNING 1 to 0",
+        "LM DPS roll MOTORRUNNING 1 to 0"
+      ],
+      "reason": "Reproduce the default false flags caused by stock upstream rejecting its own 12-character MOTORRUNNING key; not an acceptance scenario and not a runtime fix.",
+      "actual_c_library_prefix_reproducer": {
+        "key_bytes": 12,
+        "upstream_13_char_compare": 32,
+        "native_12_char_compare": 0
+      }
+    },
+    "observer_source": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/NativePanelPowerTrace.cpp",
+    "observer_source_sha256": "4c73732ac6dc59e0355132c9e7166d065a8f821b5f955b103d04780c6b48e12c",
+    "observer_binary_sha256": "ce898c64c96913788260e485576b8dd43b137b26ae90383b223b3f86de3b0177",
+    "same_binary_for_both_cases": true,
+    "canonical_source_unmodified": true,
+    "altered_seed_is_not_acceptance": true,
+    "all_eagle_selected_records": 144,
+    "eagle_exact_match_steps": [
+      2,
+      3,
+      11,
+      301
+    ],
+    "all_72_previous_eagle_coast_differences_removed_in_stock_loader_counterfactual": true,
+    "control_and_counterfactual_record_comparison": {
+      "2": {
+        "motor-original-control": {
+          "differences": [],
+          "count": 0,
+          "by_vessel": {
+            "Columbia": 0,
+            "Eagle": 0
+          }
+        },
+        "motor-stock-loader-counterfactual": {
+          "differences": [],
+          "count": 0,
+          "by_vessel": {
+            "Columbia": 0,
+            "Eagle": 0
+          }
+        }
+      },
+      "3": {
+        "motor-original-control": {
+          "differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "a": [
+                "293.788552",
+                "0.001000"
+              ],
+              "b": [
+                "293.788674",
+                "0.001000"
+              ],
+              "b_minus_a": [
+                0.00012200000003304012,
+                0.0
+              ]
+            }
+          ],
+          "count": 1,
+          "by_vessel": {
+            "Columbia": 0,
+            "Eagle": 1
+          }
+        },
+        "motor-stock-loader-counterfactual": {
+          "differences": [],
+          "count": 0,
+          "by_vessel": {
+            "Columbia": 0,
+            "Eagle": 0
+          }
+        }
+      },
+      "11": {
+        "motor-original-control": {
+          "differences": [
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/3",
+              "a": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.684863866564"
+              ],
+              "b": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.684863866563"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.0018652574217413e-12
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/0",
+              "a": [
+                "11.657836353619",
+                "11.652157293832",
+                "2181.446551871996"
+              ],
+              "b": [
+                "11.657836353619",
+                "11.652157293832",
+                "2181.446551872003"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                7.275957614183426e-12
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/3",
+              "a": [
+                "0.335217375918",
+                "0.334960579024",
+                "70.879970599112"
+              ],
+              "b": [
+                "0.335217375918",
+                "0.334960579024",
+                "70.879970599113"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                9.947598300641403e-13
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLLOOP2/CHM/5",
+              "a": [
+                "1082.791681956836",
+                "0.000000000000",
+                "1134235.820446504746"
+              ],
+              "b": [
+                "1082.791681956836",
+                "0.000000000000",
+                "1134235.820588766132"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                0.00014226138591766357
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLSUITHXHEATING/CHM/5",
+              "a": [
+                "1070.840032733282",
+                "0.000000000000",
+                "1123083.908858360257"
+              ],
+              "b": [
+                "1070.840032733282",
+                "0.000000000000",
+                "1123083.908858393319"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                3.306195139884949e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMEVAPINLET/CHM/5",
+              "a": [
+                "320.793198228275",
+                "0.000000000000",
+                "336077.919912497164"
+              ],
+              "b": [
+                "320.793198228275",
+                "0.000000000000",
+                "336077.919912782731"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.855667844414711e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMEVAPOUTLET/CHM/5",
+              "a": [
+                "316.434646064989",
+                "0.000000000000",
+                "321216.883224579215"
+              ],
+              "b": [
+                "316.434646064989",
+                "0.000000000000",
+                "321216.883224580903"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.6880221664905548e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/ASCBATCOOLING/CHM/5",
+              "a": [
+                "523.086517436847",
+                "0.000000000000",
+                "531346.251566120074"
+              ],
+              "b": [
+                "523.086517436847",
+                "0.000000000000",
+                "531346.251566120191"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.1641532182693481e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/DESBATCOOLING/CHM/5",
+              "a": [
+                "524.520850065103",
+                "0.000000000000",
+                "534914.795458543696"
+              ],
+              "b": [
+                "524.520850065103",
+                "0.000000000000",
+                "534914.795458543813"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.1641532182693481e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECASCBATCOOLING/CHM/5",
+              "a": [
+                "212.256494857143",
+                "0.000000000000",
+                "215888.350343854836"
+              ],
+              "b": [
+                "212.256494857143",
+                "0.000000000000",
+                "215888.350343854894"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                5.820766091346741e-11
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECGLYCOLLOOP2/CHM/5",
+              "a": [
+                "212.256494857143",
+                "0.000000000000",
+                "227095.645457802428"
+              ],
+              "b": [
+                "212.256494857143",
+                "0.000000000000",
+                "227095.645599769428"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                0.0001419670006725937
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECEVAPINLET/CHM/5",
+              "a": [
+                "106.128247428571",
+                "0.000000000000",
+                "109395.617009253736"
+              ],
+              "b": [
+                "106.128247428571",
+                "0.000000000000",
+                "109395.617009253750"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.4551915228366852e-11
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "a": [
+                "293.788738",
+                "0.001000"
+              ],
+              "b": [
+                "293.788860",
+                "0.001000"
+              ],
+              "b_minus_a": [
+                0.0001219999999761967,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "a": [
+                "35855334.6953",
+                "286.7438"
+              ],
+              "b": [
+                "35855334.3071",
+                "286.7438"
+              ],
+              "b_minus_a": [
+                -0.3881999999284744,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "a": [
+                "35951988.1924",
+                "285.2702"
+              ],
+              "b": [
+                "35951987.9983",
+                "285.2702"
+              ],
+              "b_minus_a": [
+                -0.1940999999642372,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "a": [
+                "31852872.2757",
+                "275.7776"
+              ],
+              "b": [
+                "31852872.0908",
+                "275.7777"
+              ],
+              "b_minus_a": [
+                -0.18490000069141388,
+                9.999999997489795e-05
+              ]
+            }
+          ],
+          "count": 16,
+          "by_vessel": {
+            "Columbia": 1,
+            "Eagle": 15
+          }
+        },
+        "motor-stock-loader-counterfactual": {
+          "differences": [
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/3",
+              "a": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.684863866564"
+              ],
+              "b": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.684863866563"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.0018652574217413e-12
+              ]
+            }
+          ],
+          "count": 1,
+          "by_vessel": {
+            "Columbia": 1,
+            "Eagle": 0
+          }
+        }
+      },
+      "301": {
+        "motor-original-control": {
+          "differences": [
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/0",
+              "a": [
+                "45.466143871757",
+                "45.368888279649",
+                "8510.004908717749"
+              ],
+              "b": [
+                "45.466143871757",
+                "45.368888279649",
+                "8510.004908717747"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.8189894035458565e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/2",
+              "a": [
+                "1.888339411207",
+                "0.000000000000",
+                "2243.834223722812"
+              ],
+              "b": [
+                "1.888339411207",
+                "0.000000000000",
+                "2243.834223722811"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -9.094947017729282e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/3",
+              "a": [
+                "1.725213044674",
+                "1.724262149249",
+                "364.322557086896"
+              ],
+              "b": [
+                "1.725213044674",
+                "1.724262149249",
+                "364.322557086895"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -9.663381206337363e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CSMTUNNEL/CHM/2",
+              "a": [
+                "0.015178736031",
+                "0.000000000000",
+                "3.174527376762"
+              ],
+              "b": [
+                "0.015178736031",
+                "0.000000000000",
+                "3.174527376761"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.000088900582341e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/PRIMRADIATOROUTLET/CHM/5",
+              "a": [
+                "1117.138270022484",
+                "0.000000000000",
+                "1165027.641428094357"
+              ],
+              "b": [
+                "1117.138270022484",
+                "0.000000000000",
+                "1165027.641428094590"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.3283064365386963e-10
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/PRIMEVAPORATORINLET/CHM/5",
+              "a": [
+                "1081.779689923462",
+                "0.000000000000",
+                "1128376.922568982700"
+              ],
+              "b": [
+                "1081.779689923462",
+                "0.000000000000",
+                "1128376.922568982933"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.3283064365386963e-10
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATACASE/CHM/1",
+              "a": [
+                "0.057801664052",
+                "0.057801664052",
+                "303.281580427529"
+              ],
+              "b": [
+                "0.057801664052",
+                "0.057801664052",
+                "303.281580427530"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATBCASE/CHM/3",
+              "a": [
+                "0.940256720231",
+                "0.939316475647",
+                "279.349538576924"
+              ],
+              "b": [
+                "0.940256720231",
+                "0.939316475647",
+                "279.349538576925"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATCCASE/CHM/0",
+              "a": [
+                "0.285501803189",
+                "0.285215656176",
+                "55.364251995661"
+              ],
+              "b": [
+                "0.285501803189",
+                "0.285215656176",
+                "55.364251995662"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0018652574217413e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATCCASE/CHM/3",
+              "a": [
+                "0.940256720231",
+                "0.939316475647",
+                "206.021175984989"
+              ],
+              "b": [
+                "0.940256720231",
+                "0.939316475647",
+                "206.021175984990"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/0",
+              "a": [
+                "0.053747221199",
+                "0.050650586183",
+                "12.716644311972"
+              ],
+              "b": [
+                "0.053747221199",
+                "0.050650586183",
+                "12.716644311973"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.000088900582341e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/1",
+              "a": [
+                "0.006431843256",
+                "0.006431843256",
+                "22.574338508256"
+              ],
+              "b": [
+                "0.006431843256",
+                "0.006431843256",
+                "22.574338508257"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                9.983125437429408e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/3",
+              "a": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.680472957767"
+              ],
+              "b": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.680472957769"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.9966250874858815e-12
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABIN/CHM/0",
+              "a": [
+                "2080.077196699615",
+                "2079.077271622752",
+                "391490.210471978935"
+              ],
+              "b": [
+                "2080.077196701017",
+                "2079.077271624148",
+                "391490.210472241102"
+              ],
+              "b_minus_a": [
+                1.4019860827829689e-09,
+                1.3960743672214448e-09,
+                2.621673047542572e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABIN/CHM/2",
+              "a": [
+                "184.578356984578",
+                "0.000000000000",
+                "220816.404482364218"
+              ],
+              "b": [
+                "184.578356984364",
+                "0.000000000000",
+                "220816.404482107115"
+              ],
+              "b_minus_a": [
+                -2.1398705030151177e-10,
+                0.0,
+                -2.5710323825478554e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABIN/CHM/3",
+              "a": [
+                "59.192537549845",
+                "59.147192471292",
+                "12588.700732290983"
+              ],
+              "b": [
+                "59.192537549880",
+                "59.147192471327",
+                "12588.700732298437"
+              ],
+              "b_minus_a": [
+                3.5001335163542535e-11,
+                3.5001335163542535e-11,
+                7.45421857573092e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABIN/CHM/4",
+              "a": [
+                "24.687794634031",
+                "24.687794633984",
+                "4625.741360660990"
+              ],
+              "b": [
+                "24.687794634049",
+                "24.687794634002",
+                "4625.741360664380"
+              ],
+              "b_minus_a": [
+                1.7998047496803338e-11,
+                1.7998047496803338e-11,
+                3.3905962482094765e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABINFANMANIFOLD/CHM/0",
+              "a": [
+                "1.900847812450",
+                "1.899707912789",
+                "354.201926612435"
+              ],
+              "b": [
+                "1.900847812617",
+                "1.899707912956",
+                "354.201926643455"
+              ],
+              "b_minus_a": [
+                1.670001914533259e-10,
+                1.6699996940872097e-10,
+                3.102002210653154e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABINFANMANIFOLD/CHM/2",
+              "a": [
+                "4.218517756889",
+                "0.000000000000",
+                "4996.130722287876"
+              ],
+              "b": [
+                "4.218517757258",
+                "0.000000000000",
+                "4996.130722725414"
+              ],
+              "b_minus_a": [
+                3.6899994171335493e-10,
+                0.0,
+                4.3753789213951677e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABINFANMANIFOLD/CHM/3",
+              "a": [
+                "0.093788508794",
+                "0.093724689234",
+                "19.743986643780"
+              ],
+              "b": [
+                "0.093788508802",
+                "0.093724689242",
+                "19.743986645509"
+              ],
+              "b_minus_a": [
+                8.00000343748053e-12,
+                8.00000343748053e-12,
+                1.7289991660618398e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CABINFANMANIFOLD/CHM/4",
+              "a": [
+                "0.051306523210",
+                "0.051306513741",
+                "9.516889221786"
+              ],
+              "b": [
+                "0.051306523215",
+                "0.051306513745",
+                "9.516889222619"
+              ],
+              "b_minus_a": [
+                4.999993474807951e-12,
+                3.999994779846361e-12,
+                8.329994471978353e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/0",
+              "a": [
+                "11.664281762858",
+                "11.658598399321",
+                "2182.691160795790"
+              ],
+              "b": [
+                "11.664281758536",
+                "11.658598395001",
+                "2182.691160069922"
+              ],
+              "b_minus_a": [
+                -4.322000535239567e-09,
+                -4.320000357438403e-09,
+                -7.258681762323249e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/2",
+              "a": [
+                "0.031213674485",
+                "0.000000000000",
+                "37.127207462965"
+              ],
+              "b": [
+                "0.031213674272",
+                "0.000000000000",
+                "37.127207211962"
+              ],
+              "b_minus_a": [
+                -2.1299999958257487e-10,
+                0.0,
+                -2.5100300149460963e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERHEATING/CHM/3",
+              "a": [
+                "0.335521548898",
+                "0.335264518990",
+                "70.945533301792"
+              ],
+              "b": [
+                "0.335521548774",
+                "0.335264518866",
+                "70.945533278174"
+              ],
+              "b_minus_a": [
+                -1.240000324642665e-10,
+                -1.2399997695311527e-10,
+                -2.361800000016956e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CDRSUIT/CHM/0",
+              "a": [
+                "12.746216006209",
+                "12.739954071049",
+                "2434.270579750857"
+              ],
+              "b": [
+                "12.746216002871",
+                "12.739954067713",
+                "2434.270579113753"
+              ],
+              "b_minus_a": [
+                -3.3380000985516745e-09,
+                -3.3359999207505098e-09,
+                -6.371042218233924e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CDRSUIT/CHM/2",
+              "a": [
+                "1.005614290767",
+                "0.001258437982",
+                "1219.731670595594"
+              ],
+              "b": [
+                "1.005614290650",
+                "0.001258437982",
+                "1219.731670453209"
+              ],
+              "b_minus_a": [
+                -1.1699996527170242e-10,
+                0.0,
+                -1.42385033541359e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CDRSUIT/CHM/3",
+              "a": [
+                "0.369538555223",
+                "0.369255466217",
+                "79.745159458706"
+              ],
+              "b": [
+                "0.369538555127",
+                "0.369255466121",
+                "79.745159437954"
+              ],
+              "b_minus_a": [
+                -9.599998573861512e-11,
+                -9.599998573861512e-11,
+                -2.0751997453771764e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CDRSUIT/CHM/4",
+              "a": [
+                "0.124659637695",
+                "0.124659637695",
+                "23.701050260750"
+              ],
+              "b": [
+                "0.124659637686",
+                "0.124659637686",
+                "23.701050258905"
+              ],
+              "b_minus_a": [
+                -9.000009071336024e-12,
+                -9.000009071336024e-12,
+                -1.8450023731020337e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/LMPSUIT/CHM/0",
+              "a": [
+                "12.745627006964",
+                "12.739365333695",
+                "2434.158181021318"
+              ],
+              "b": [
+                "12.745627003504",
+                "12.739365330236",
+                "2434.158180360793"
+              ],
+              "b_minus_a": [
+                -3.4600002862816837e-09,
+                -3.4590001973811013e-09,
+                -6.60525074636098e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/LMPSUIT/CHM/2",
+              "a": [
+                "1.006083995708",
+                "0.001258437989",
+                "1220.301901251649"
+              ],
+              "b": [
+                "1.006083995737",
+                "0.001258437989",
+                "1220.301901287016"
+              ],
+              "b_minus_a": [
+                2.9000135626233714e-11,
+                0.0,
+                3.5367065720492974e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/LMPSUIT/CHM/3",
+              "a": [
+                "0.369523023990",
+                "0.369239946881",
+                "79.741812520186"
+              ],
+              "b": [
+                "0.369523023890",
+                "0.369239946782",
+                "79.741812498763"
+              ],
+              "b_minus_a": [
+                -9.999995276288587e-11,
+                -9.899997488460599e-11,
+                -2.1423005591714173e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/LMPSUIT/CHM/4",
+              "a": [
+                "0.124721860390",
+                "0.124721860390",
+                "23.712881240260"
+              ],
+              "b": [
+                "0.124721860399",
+                "0.124721860399",
+                "23.712881241991"
+              ],
+              "b_minus_a": [
+                9.000009071336024e-12,
+                9.000009071336024e-12,
+                1.7309993438630045e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUIT/CHM/0",
+              "a": [
+                "12.220274658224",
+                "12.214273830516",
+                "2314.384388917219"
+              ],
+              "b": [
+                "12.220274660618",
+                "12.214273832908",
+                "2314.384389371274"
+              ],
+              "b_minus_a": [
+                2.3939996651733964e-09,
+                2.392001263729071e-09,
+                4.540552254184149e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUIT/CHM/2",
+              "a": [
+                "0.983957112006",
+                "0.000000000000",
+                "1184.509303687987"
+              ],
+              "b": [
+                "0.983957112202",
+                "0.000000000000",
+                "1184.509303924886"
+              ],
+              "b_minus_a": [
+                1.9599999401265222e-10,
+                0.0,
+                2.3689881345489994e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUIT/CHM/3",
+              "a": [
+                "0.354066192306",
+                "0.353794956069",
+                "75.771887369758"
+              ],
+              "b": [
+                "0.354066192375",
+                "0.353794956138",
+                "75.771887384630"
+              ],
+              "b_minus_a": [
+                6.899997240239486e-11,
+                6.899997240239486e-11,
+                1.4872000519972062e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUIT/CHM/4",
+              "a": [
+                "0.120619024322",
+                "0.120619024322",
+                "22.741781922026"
+              ],
+              "b": [
+                "0.120619024347",
+                "0.120619024347",
+                "22.741781926691"
+              ],
+              "b_minus_a": [
+                2.5000002068509275e-11,
+                2.5000002068509275e-11,
+                4.6650008300730406e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITGASDIVERTER/CHM/0",
+              "a": [
+                "1.993010399927",
+                "1.992031829640",
+                "377.073632246427"
+              ],
+              "b": [
+                "1.993010399659",
+                "1.992031829372",
+                "377.073632195488"
+              ],
+              "b_minus_a": [
+                -2.679998445387355e-10,
+                -2.679998445387355e-10,
+                -5.0938979256898165e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITGASDIVERTER/CHM/2",
+              "a": [
+                "0.161227643707",
+                "0.000000000000",
+                "193.892878804978"
+              ],
+              "b": [
+                "0.161227643684",
+                "0.000000000000",
+                "193.892878777514"
+              ],
+              "b_minus_a": [
+                -2.2999990800798287e-11,
+                0.0,
+                -2.7464011509437114e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITGASDIVERTER/CHM/3",
+              "a": [
+                "0.057736041444",
+                "0.057691812125",
+                "12.343341241079"
+              ],
+              "b": [
+                "0.057736041436",
+                "0.057691812117",
+                "12.343341239410"
+              ],
+              "b_minus_a": [
+                -7.999996498586626e-12,
+                -7.999996498586626e-12,
+                -1.669000937454257e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITGASDIVERTER/CHM/4",
+              "a": [
+                "0.019723476251",
+                "0.019723476251",
+                "3.714961275555"
+              ],
+              "b": [
+                "0.019723476248",
+                "0.019723476248",
+                "3.714961275029"
+              ],
+              "b_minus_a": [
+                -2.9999995543317226e-12,
+                -2.9999995543317226e-12,
+                -5.259996882500673e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CO2CANISTERMANIFOLD/CHM/0",
+              "a": [
+                "1.921650420559",
+                "1.920713204090",
+                "362.400853234429"
+              ],
+              "b": [
+                "1.921650420414",
+                "1.920713203946",
+                "362.400853206629"
+              ],
+              "b_minus_a": [
+                -1.450000119973538e-10,
+                -1.4399992309677145e-10,
+                -2.780001295832335e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CO2CANISTERMANIFOLD/CHM/2",
+              "a": [
+                "0.160543883589",
+                "0.000000000000",
+                "192.448510767839"
+              ],
+              "b": [
+                "0.160543883577",
+                "0.000000000000",
+                "192.448510752881"
+              ],
+              "b_minus_a": [
+                -1.2000012095114698e-11,
+                0.0,
+                -1.4958004612708464e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CO2CANISTERMANIFOLD/CHM/3",
+              "a": [
+                "0.055352680164",
+                "0.055310276646",
+                "11.795703343681"
+              ],
+              "b": [
+                "0.055352680159",
+                "0.055310276641",
+                "11.795703342765"
+              ],
+              "b_minus_a": [
+                -5.000000413701855e-12,
+                -5.000000413701855e-12,
+                -9.15999720518812e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/CO2CANISTERMANIFOLD/CHM/4",
+              "a": [
+                "0.020242824345",
+                "0.020242824345",
+                "3.800489764205"
+              ],
+              "b": [
+                "0.020242824344",
+                "0.020242824344",
+                "3.800489763926"
+              ],
+              "b_minus_a": [
+                -9.999986949615902e-13,
+                -9.999986949615902e-13,
+                -2.7899993426672154e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMCO2CANISTER/CHM/0",
+              "a": [
+                "1.048032251686",
+                "1.047521128883",
+                "197.644246950354"
+              ],
+              "b": [
+                "1.048032252889",
+                "1.047521130086",
+                "197.644247177363"
+              ],
+              "b_minus_a": [
+                1.2030001439455873e-09,
+                1.2029999219009824e-09,
+                2.2700902491123998e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMCO2CANISTER/CHM/2",
+              "a": [
+                "0.087649993109",
+                "0.000000000000",
+                "105.067456065061"
+              ],
+              "b": [
+                "0.087649993210",
+                "0.000000000000",
+                "105.067456185722"
+              ],
+              "b_minus_a": [
+                1.0100000003010479e-10,
+                0.0,
+                1.206609994142127e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMCO2CANISTER/CHM/3",
+              "a": [
+                "0.030186998182",
+                "0.030163873106",
+                "6.432794402122"
+              ],
+              "b": [
+                "0.030186998216",
+                "0.030163873141",
+                "6.432794409505"
+              ],
+              "b_minus_a": [
+                3.399999726205749e-11,
+                3.499999942646603e-11,
+                7.382999989147265e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMCO2CANISTER/CHM/4",
+              "a": [
+                "0.011047867022",
+                "0.011047867022",
+                "2.074164678616"
+              ],
+              "b": [
+                "0.011047867034",
+                "0.011047867034",
+                "2.074164681006"
+              ],
+              "b_minus_a": [
+                1.1999999952050366e-11,
+                1.1999999952050366e-11,
+                2.3900001977494867e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDIN/CHM/0",
+              "a": [
+                "1.683304531208",
+                "1.682483634028",
+                "317.445359549610"
+              ],
+              "b": [
+                "1.683304530726",
+                "1.682483633546",
+                "317.445359458673"
+              ],
+              "b_minus_a": [
+                -4.819999954719378e-10,
+                -4.819999954719378e-10,
+                -9.093696462514345e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDIN/CHM/2",
+              "a": [
+                "0.141006590168",
+                "0.000000000000",
+                "169.025620365450"
+              ],
+              "b": [
+                "0.141006590125",
+                "0.000000000000",
+                "169.025620313416"
+              ],
+              "b_minus_a": [
+                -4.2999992455605707e-11,
+                0.0,
+                -5.203401087783277e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDIN/CHM/3",
+              "a": [
+                "0.048481600272",
+                "0.048444460419",
+                "10.331263862671"
+              ],
+              "b": [
+                "0.048481600258",
+                "0.048444460405",
+                "10.331263859753"
+              ],
+              "b_minus_a": [
+                -1.3999995607250071e-11,
+                -1.4000002546143975e-11,
+                -2.9180000638007186e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDOUT/CHM/0",
+              "a": [
+                "2.745667774813",
+                "2.744328912257",
+                "578.756413920142"
+              ],
+              "b": [
+                "2.745667773928",
+                "2.744328911373",
+                "578.756413756557"
+              ],
+              "b_minus_a": [
+                -8.850000732252283e-10,
+                -8.83999984324646e-10,
+                -1.635850139791728e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDOUT/CHM/2",
+              "a": [
+                "0.230538776339",
+                "0.000000000000",
+                "308.887310118125"
+              ],
+              "b": [
+                "0.230538776257",
+                "0.000000000000",
+                "308.887310020192"
+              ],
+              "b_minus_a": [
+                -8.199999013136505e-11,
+                0.0,
+                -9.793302524485625e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITFANMANIFOLDOUT/CHM/3",
+              "a": [
+                "0.079070295637",
+                "0.079009722983",
+                "18.833513876963"
+              ],
+              "b": [
+                "0.079070295612",
+                "0.079009722958",
+                "18.833513871770"
+              ],
+              "b_minus_a": [
+                -2.4999988190721467e-11,
+                -2.5000002068509275e-11,
+                -5.193001584302692e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERCOOLING/CHM/0",
+              "a": [
+                "14.365012685209",
+                "14.358010673754",
+                "2661.636861292323"
+              ],
+              "b": [
+                "14.365012684867",
+                "14.358010673412",
+                "2661.636861230369"
+              ],
+              "b_minus_a": [
+                -3.420002059328908e-10,
+                -3.420002059328908e-10,
+                -6.19538695900701e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERCOOLING/CHM/2",
+              "a": [
+                "1.216750412966",
+                "0.000000000000",
+                "1433.012282671368"
+              ],
+              "b": [
+                "1.216750412931",
+                "0.000000000000",
+                "1433.012282631411"
+              ],
+              "b_minus_a": [
+                -3.5000002895912985e-11,
+                0.0,
+                -3.99570581066655e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SUITCIRCUITHEATEXCHANGERCOOLING/CHM/3",
+              "a": [
+                "0.413458364180",
+                "0.413141629936",
+                "86.565520730788"
+              ],
+              "b": [
+                "0.413458364171",
+                "0.413141629927",
+                "86.565520728878"
+              ],
+              "b_minus_a": [
+                -8.9999674379726e-12,
+                -9.000022949123831e-12,
+                -1.90999571714201e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDIN/CHM/0",
+              "a": [
+                "2.628843265053",
+                "2.627561964430",
+                "487.033240324907"
+              ],
+              "b": [
+                "2.628843262357",
+                "2.627561961735",
+                "487.033239825607"
+              ],
+              "b_minus_a": [
+                -2.6959998677966723e-09,
+                -2.69499977889609e-09,
+                -4.993000288777694e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDIN/CHM/2",
+              "a": [
+                "0.223001412026",
+                "0.000000000000",
+                "262.608289079003"
+              ],
+              "b": [
+                "0.223001411797",
+                "0.000000000000",
+                "262.608288809435"
+              ],
+              "b_minus_a": [
+                -2.2899998564085422e-10,
+                0.0,
+                -2.6956797682942124e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDIN/CHM/3",
+              "a": [
+                "0.075656658561",
+                "0.075598700961",
+                "15.838402347932"
+              ],
+              "b": [
+                "0.075656658483",
+                "0.075598700883",
+                "15.838402331702"
+              ],
+              "b_minus_a": [
+                -7.799999535151869e-11,
+                -7.80000092293065e-11,
+                -1.62300004546978e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDOUT/CHM/0",
+              "a": [
+                "2.487105281683",
+                "2.485893141829",
+                "462.640333978922"
+              ],
+              "b": [
+                "2.487105292458",
+                "2.485893152599",
+                "462.640335986668"
+              ],
+              "b_minus_a": [
+                1.0775000003349078e-08,
+                1.0770000002935376e-08,
+                2.007745990795229e-06
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDOUT/CHM/2",
+              "a": [
+                "0.001390041864",
+                "0.000000000000",
+                "1.643637924982"
+              ],
+              "b": [
+                "0.001390042136",
+                "0.000000000000",
+                "1.643638244567"
+              ],
+              "b_minus_a": [
+                2.719999999973438e-10,
+                0.0,
+                3.195850000192735e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERSEPMANIFOLDOUT/CHM/3",
+              "a": [
+                "0.071570912894",
+                "0.071516085223",
+                "15.043752919972"
+              ],
+              "b": [
+                "0.071570913204",
+                "0.071516085533",
+                "15.043752985262"
+              ],
+              "b_minus_a": [
+                3.099999978939394e-10,
+                3.099999978939394e-10,
+                6.528999918486988e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/H2OSURGETANK/CHM/2",
+              "a": [
+                "478.483427810347",
+                "0.000000000000",
+                "600585.045429402147"
+              ],
+              "b": [
+                "478.483427810348",
+                "0.000000000000",
+                "600585.045429402497"
+              ],
+              "b_minus_a": [
+                1.0231815394945443e-12,
+                0.0,
+                3.4924596548080444e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLACCUMULATOR/CHM/5",
+              "a": [
+                "3208.562956074993",
+                "0.000000000000",
+                "3267019.584992054850"
+              ],
+              "b": [
+                "3208.562956074993",
+                "0.000000000000",
+                "3267019.584992742632"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                6.877817213535309e-07
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLPUMPMANIFOLD/CHM/5",
+              "a": [
+                "1101.221315901128",
+                "0.000000000000",
+                "1122206.454693219857"
+              ],
+              "b": [
+                "1101.221315901128",
+                "0.000000000000",
+                "1122206.454693227308"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                7.450580596923828e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLSUITHXCOOLING/CHM/5",
+              "a": [
+                "1094.882499291816",
+                "0.000000000000",
+                "1127855.245504455874"
+              ],
+              "b": [
+                "1094.882499291816",
+                "0.000000000000",
+                "1127855.245504434686"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -2.1187588572502136e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLLOOP1/CHM/5",
+              "a": [
+                "1092.288287876521",
+                "0.000000000000",
+                "1128373.602633046685"
+              ],
+              "b": [
+                "1092.288287876521",
+                "0.000000000000",
+                "1128373.602633046918"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.3283064365386963e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/WATERGLYCOLHX/CHM/5",
+              "a": [
+                "1087.888537410605",
+                "0.000000000000",
+                "1125125.491632524878"
+              ],
+              "b": [
+                "1087.888537410605",
+                "0.000000000000",
+                "1125125.491632533725"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                8.847564458847046e-09
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLLOOP2/CHM/5",
+              "a": [
+                "1082.909429058009",
+                "0.000000000000",
+                "1134358.285307536833"
+              ],
+              "b": [
+                "1082.909429058009",
+                "0.000000000000",
+                "1134358.290311086224"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                0.005003549391403794
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMGLYCOLSUITHXHEATING/CHM/5",
+              "a": [
+                "1070.838432849938",
+                "0.000000000000",
+                "1123095.285625588149"
+              ],
+              "b": [
+                "1070.838432849938",
+                "0.000000000000",
+                "1123095.285671407357"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                4.581920802593231e-05
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMEVAPINLET/CHM/5",
+              "a": [
+                "320.793664729512",
+                "0.000000000000",
+                "336077.885565523233"
+              ],
+              "b": [
+                "320.793664729512",
+                "0.000000000000",
+                "336077.885898326698"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                0.00033280346542596817
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/PRIMEVAPOUTLET/CHM/5",
+              "a": [
+                "316.435777728400",
+                "0.000000000000",
+                "321209.346608091146"
+              ],
+              "b": [
+                "316.435777728400",
+                "0.000000000000",
+                "321209.346667029022"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                5.8937876019626856e-05
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/ASCBATCOOLING/CHM/5",
+              "a": [
+                "523.122484269403",
+                "0.000000000000",
+                "531385.110187300947"
+              ],
+              "b": [
+                "523.122484269403",
+                "0.000000000000",
+                "531385.110192765133"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                5.464185960590839e-06
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/DESBATCOOLING/CHM/5",
+              "a": [
+                "524.556514809143",
+                "0.000000000000",
+                "534954.519335618708"
+              ],
+              "b": [
+                "524.556514809143",
+                "0.000000000000",
+                "534954.519344730419"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                9.111710824072361e-06
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECASCBATCOOLING/CHM/5",
+              "a": [
+                "212.256494857143",
+                "0.000000000000",
+                "215888.235774667002"
+              ],
+              "b": [
+                "212.256494857143",
+                "0.000000000000",
+                "215888.235776663787"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.9967847038060427e-06
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECGLYCOLLOOP2/CHM/5",
+              "a": [
+                "212.256494857143",
+                "0.000000000000",
+                "227095.292632200493"
+              ],
+              "b": [
+                "212.256494857143",
+                "0.000000000000",
+                "227095.297097935720"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                0.004465735226403922
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/SECEVAPINLET/CHM/5",
+              "a": [
+                "106.128247428571",
+                "0.000000000000",
+                "109395.732411956575"
+              ],
+              "b": [
+                "106.128247428571",
+                "0.000000000000",
+                "109395.732411987774"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                3.119930624961853e-08
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "TANK/LCG/CHM/2",
+              "a": [
+                "1673.684040308301",
+                "0.000000000000",
+                "2006955.328428100329"
+              ],
+              "b": [
+                "1673.684040308301",
+                "0.000000000000",
+                "2006955.328428100795"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                4.656612873077393e-10
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "a": [
+                "293.794964",
+                "0.001000"
+              ],
+              "b": [
+                "293.795071",
+                "0.001000"
+              ],
+              "b_minus_a": [
+                0.00010700000001406806,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-ECA-Plate",
+              "a": [
+                "286.975420",
+                "0.001000"
+              ],
+              "b": [
+                "286.975421",
+                "0.001000"
+              ],
+              "b_minus_a": [
+                9.999999974752427e-07,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-Plate",
+              "a": [
+                "288.118648",
+                "0.001000"
+              ],
+              "b": [
+                "288.118649",
+                "0.001000"
+              ],
+              "b_minus_a": [
+                9.999999974752427e-07,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "a": [
+                "35852970.3189",
+                "286.7564"
+              ],
+              "b": [
+                "35852969.9306",
+                "286.7564"
+              ],
+              "b_minus_a": [
+                -0.38829999417066574,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "a": [
+                "35950806.0042",
+                "285.2658"
+              ],
+              "b": [
+                "35950805.8101",
+                "285.2658"
+              ],
+              "b_minus_a": [
+                -0.1940999999642372,
+                0.0
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "a": [
+                "31851746.3822",
+                "275.7842"
+              ],
+              "b": [
+                "31851746.1973",
+                "275.7842"
+              ],
+              "b_minus_a": [
+                -0.18490000069141388,
+                0.0
+              ]
+            }
+          ],
+          "count": 85,
+          "by_vessel": {
+            "Columbia": 13,
+            "Eagle": 72
+          }
+        },
+        "motor-stock-loader-counterfactual": {
+          "differences": [
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/0",
+              "a": [
+                "45.466143871757",
+                "45.368888279649",
+                "8510.004908717749"
+              ],
+              "b": [
+                "45.466143871757",
+                "45.368888279649",
+                "8510.004908717747"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.8189894035458565e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/2",
+              "a": [
+                "1.888339411207",
+                "0.000000000000",
+                "2243.834223722812"
+              ],
+              "b": [
+                "1.888339411207",
+                "0.000000000000",
+                "2243.834223722811"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -9.094947017729282e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/SUITCIRCUITRETURNVALVE/CHM/3",
+              "a": [
+                "1.725213044674",
+                "1.724262149249",
+                "364.322557086896"
+              ],
+              "b": [
+                "1.725213044674",
+                "1.724262149249",
+                "364.322557086895"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -9.663381206337363e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CSMTUNNEL/CHM/2",
+              "a": [
+                "0.015178736031",
+                "0.000000000000",
+                "3.174527376762"
+              ],
+              "b": [
+                "0.015178736031",
+                "0.000000000000",
+                "3.174527376761"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                -1.000088900582341e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/PRIMRADIATOROUTLET/CHM/5",
+              "a": [
+                "1117.138270022484",
+                "0.000000000000",
+                "1165027.641428094357"
+              ],
+              "b": [
+                "1117.138270022484",
+                "0.000000000000",
+                "1165027.641428094590"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.3283064365386963e-10
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/PRIMEVAPORATORINLET/CHM/5",
+              "a": [
+                "1081.779689923462",
+                "0.000000000000",
+                "1128376.922568982700"
+              ],
+              "b": [
+                "1081.779689923462",
+                "0.000000000000",
+                "1128376.922568982933"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                2.3283064365386963e-10
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATACASE/CHM/1",
+              "a": [
+                "0.057801664052",
+                "0.057801664052",
+                "303.281580427529"
+              ],
+              "b": [
+                "0.057801664052",
+                "0.057801664052",
+                "303.281580427530"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATBCASE/CHM/3",
+              "a": [
+                "0.940256720231",
+                "0.939316475647",
+                "279.349538576924"
+              ],
+              "b": [
+                "0.940256720231",
+                "0.939316475647",
+                "279.349538576925"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATCCASE/CHM/0",
+              "a": [
+                "0.285501803189",
+                "0.285215656176",
+                "55.364251995661"
+              ],
+              "b": [
+                "0.285501803189",
+                "0.285215656176",
+                "55.364251995662"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0018652574217413e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/CMBATCCASE/CHM/3",
+              "a": [
+                "0.940256720231",
+                "0.939316475647",
+                "206.021175984989"
+              ],
+              "b": [
+                "0.940256720231",
+                "0.939316475647",
+                "206.021175984990"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.0231815394945443e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/0",
+              "a": [
+                "0.053747221199",
+                "0.050650586183",
+                "12.716644311972"
+              ],
+              "b": [
+                "0.053747221199",
+                "0.050650586183",
+                "12.716644311973"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.000088900582341e-12
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/1",
+              "a": [
+                "0.006431843256",
+                "0.006431843256",
+                "22.574338508256"
+              ],
+              "b": [
+                "0.006431843256",
+                "0.006431843256",
+                "22.574338508257"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                9.983125437429408e-13
+              ]
+            },
+            {
+              "vessel": "Columbia",
+              "field": "TANK/BATTERYMANIFOLD/CHM/3",
+              "a": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.680472957767"
+              ],
+              "b": [
+                "0.166428638252",
+                "0.166262211898",
+                "42.680472957769"
+              ],
+              "b_minus_a": [
+                0.0,
+                0.0,
+                1.9966250874858815e-12
+              ]
+            }
+          ],
+          "count": 13,
+          "by_vessel": {
+            "Columbia": 13,
+            "Eagle": 0
+          }
+        }
+      }
+    },
+    "source_function_and_trace_analysis": {
+      "functions": [
+        {
+          "function": "DPSGimbalActuator::DPSGimbalActuator",
+          "upstream_lf_sha256": "335e40751a9967706af2dced5f7eabb7eb2c686c227dec5d8c722f5f488bf7e5",
+          "native_lf_sha256": "335e40751a9967706af2dced5f7eabb7eb2c686c227dec5d8c722f5f488bf7e5",
+          "identical": true
+        },
+        {
+          "function": "void DPSGimbalActuator::Timestep",
+          "upstream_lf_sha256": "156b3be9149a8779a1655e4fc3caaf9de51f909f10c9cf9517fa6273ff6fe5f6",
+          "native_lf_sha256": "156b3be9149a8779a1655e4fc3caaf9de51f909f10c9cf9517fa6273ff6fe5f6",
+          "identical": true
+        },
+        {
+          "function": "void DPSGimbalActuator::SystemTimestep",
+          "upstream_lf_sha256": "741d41fcf996f1213f16b445cd9f72556914fa274baf25125cf80d93d76ce8d6",
+          "native_lf_sha256": "741d41fcf996f1213f16b445cd9f72556914fa274baf25125cf80d93d76ce8d6",
+          "identical": true
+        },
+        {
+          "function": "bool DPSGimbalActuator::IsSystemPowered",
+          "upstream_lf_sha256": "ba476a49a2152deeed1dcd4eb1f328b3f80b95f9b487352491824700495d4e62",
+          "native_lf_sha256": "ba476a49a2152deeed1dcd4eb1f328b3f80b95f9b487352491824700495d4e62",
+          "identical": true
+        },
+        {
+          "function": "void DPSGimbalActuator::DrawSystemPower",
+          "upstream_lf_sha256": "f595471964ec8217d88acd4bcd90af1f0ffd87d97ff8884abbfedd3574a578f4",
+          "native_lf_sha256": "f595471964ec8217d88acd4bcd90af1f0ffd87d97ff8884abbfedd3574a578f4",
+          "identical": true
+        },
+        {
+          "function": "void DPSGimbalActuator::LoadState",
+          "upstream_lf_sha256": "450ab0e6b231af46ffd7fec3465ed729a186e944f9122526dc88ab58e903ddca",
+          "native_lf_sha256": "7d1ed35a9fa7fcb144e713ac9c7a26c591afcc32539b85e11a7e8031d31d6634",
+          "identical": false
+        }
+      ],
+      "paired_observations": 302,
+      "canonical_extra_reads_control_differing_observations": [],
+      "read_only_observer_control_identical": true,
+      "sampled_causal_trace": [
+        {
+          "step": 0,
+          "canonical_inverter": {
+            "load_w": 0,
+            "heatloss_w": 0,
+            "volts": 0,
+            "amperes": 0
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 0,
+            "heatloss_w": 0,
+            "volts": 0,
+            "amperes": 0
+          },
+          "canonical_gimbal_cb_load_w": 0,
+          "counterfactual_gimbal_cb_load_w": 0,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0,
+          "inverter_pending_load_delta_w": 0,
+          "inverter_pending_heat_delta_w": 0,
+          "plate_temperature_delta_k": 0.0,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 1,
+          "canonical_inverter": {
+            "load_w": 99.2895778037739,
+            "heatloss_w": 40,
+            "volts": 115,
+            "amperes": 0
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 62.5395778037739,
+            "heatloss_w": 40,
+            "volts": 115,
+            "amperes": 0
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 0,
+          "ac_bus_a_canonical_minus_counterfactual_w": 34.999999999999986,
+          "inverter_pending_load_delta_w": 36.74999999999999,
+          "inverter_pending_heat_delta_w": 0,
+          "plate_temperature_delta_k": 0.0,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 2,
+          "canonical_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 50.89343667056608,
+            "volts": 115,
+            "amperes": 0.8633876330762947
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 45.380936670566086,
+            "volts": 115,
+            "amperes": 0.5438224156849905
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 5.512499999999989,
+          "plate_temperature_delta_k": 0.0,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 3,
+          "canonical_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.78470776946478,
+            "volts": 115,
+            "amperes": 1.00793578978707
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.78470776946478,
+            "volts": 115,
+            "amperes": 1.00793578978707
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 0.0,
+          "plate_temperature_delta_k": 0.00012249999997493433,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 6,
+          "canonical_inverter": {
+            "load_w": 115.93134621624073,
+            "heatloss_w": 53.78896098439432,
+            "volts": 115,
+            "amperes": 1.0081471296593452
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.93134621624073,
+            "heatloss_w": 53.78896098439432,
+            "volts": 115,
+            "amperes": 1.0081471296593452
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 0.0,
+          "plate_temperature_delta_k": 0.00012233620554980007,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 7,
+          "canonical_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.78798558784213,
+            "volts": 115,
+            "amperes": 1.0080986627499193
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.78798558784213,
+            "volts": 115,
+            "amperes": 1.0080986627499193
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 0.0,
+          "plate_temperature_delta_k": 0.00012228166986005817,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": 0.0,
+            "DSC_BATTERY_D": 0.0,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": 0.0
+          }
+        },
+        {
+          "step": 11,
+          "canonical_inverter": {
+            "load_w": 115.93667403097844,
+            "heatloss_w": 53.78470776946478,
+            "volts": 115,
+            "amperes": 1.00793578978707
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.93667403097844,
+            "heatloss_w": 53.78470776946478,
+            "volts": 115,
+            "amperes": 1.00793578978707
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 0.0,
+          "plate_temperature_delta_k": 0.00012206383917146013,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": -0.388286717236042,
+            "DSC_BATTERY_D": -0.1941433623433113,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": -0.18489843979477882
+          }
+        },
+        {
+          "step": 301,
+          "canonical_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.787976897073634,
+            "volts": 115,
+            "amperes": 1.0080982309104909
+          },
+          "stock_loader_counterfactual_inverter": {
+            "load_w": 115.91261582551304,
+            "heatloss_w": 53.787976897073634,
+            "volts": 115,
+            "amperes": 1.0080982309104909
+          },
+          "canonical_gimbal_cb_load_w": 17.5,
+          "counterfactual_gimbal_cb_load_w": 17.5,
+          "ac_bus_a_canonical_minus_counterfactual_w": 0.0,
+          "inverter_pending_load_delta_w": 0.0,
+          "inverter_pending_heat_delta_w": 0.0,
+          "plate_temperature_delta_k": 0.00010749460244596776,
+          "battery_capacity_delta_j": {
+            "DSC_BATTERY_A": 0.0,
+            "DSC_BATTERY_B": 0.0,
+            "DSC_BATTERY_C": -0.388286717236042,
+            "DSC_BATTERY_D": -0.1941433623433113,
+            "ASC_BATTERY_A": 0.0,
+            "ASC_BATTERY_B": -0.18489843979477882
+          }
+        }
+      ],
+      "first_step_load_explanation": {
+        "two_actuators_w": 35.0,
+        "ac_bus_loss_factor": 1.05,
+        "extra_inverter_ac_load_w": 36.75,
+        "inverter_curve_slope_at_load": 0.15,
+        "extra_inverter_heat_w": 5.5125,
+        "frame_energy_j": 0.091875,
+        "radiator_heat_capacity_j_per_k": 750.0,
+        "isolated_heat_temperature_increment_k": 0.0001225,
+        "note": "The last value isolates heat injection before subsequent radiation and exchanger effects; no tolerance or accepted error bound."
+      },
+      "raw_original_load_flags": [
+        "MOTORRUNNING 1",
+        "MOTORRUNNING 1"
+      ],
+      "raw_counterfactual_load_flags": [
+        "MOTORRUNNING 0",
+        "MOTORRUNNING 0"
+      ]
+    }
+  },
+  "validation": {
+    "native_lm_persistence": "passed, 0.01 s",
+    "native_scenario_compatibility": "passed, 3.82 s",
+    "checks_run": 2,
+    "log": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/focused-ctest.log",
+    "full_suite_rerun": false,
+    "additional_diagnostic_reads_control": {
+      "paired_observations": 302,
+      "all_observed_canonical_systems_identical": true
+    },
+    "runtime_library_hashes": {
+      "liborbiter.dylib": "ab0eccfec184c1f77e928737d6f9bd4f21a3cab287fc50e5fc600001f383f908",
+      "runtime/Modules/ProjectApollo/LEM.dylib": "53486971c05b9b2df5afdf0c087f92b5f20d7e32f11e3d7fae112f180f75d837",
+      "runtime/Modules/ProjectApollo/Saturn5.dylib": "e321d6c151d3c37525340dcfadc7f7440a8604daa38d174eafa024509f04718b"
+    },
+    "production_runtime_libraries_rebuilt": false
+  },
+  "debugger_attempts": {
+    "default_sandbox_attempt": "Launch failed: no such process; log retained",
+    "authorized_escalated_attempt": "Stalled before first breakpoint. Test and debugserver were terminated after identification; shell exit 143",
+    "automatic_approval_rejected": false,
+    "replacement": "External observer built outside tracked source, with existing untouched runtime libraries",
+    "no_gpu": true
+  },
+  "unresolved": [
+    "A few Columbia chemical decimals vary across independent native processes; 13 at the new coast, versus three in the earlier canonical run. No tolerance or waiver.",
+    "IMU fractional remainder exact cause remains unisolated.",
+    "Shared AGC scheduling and pending CDU FIFO resume failure remains; broad redesign paused.",
+    "Physical controls and complete graphical mission/landing acceptance remain unverified."
+  ],
+  "next_windows_capture_needed_for_this_cause": false,
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison",
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/NativeEarlyElectricTrace.cpp",
+      "bytes": 5558,
+      "sha256": "49a1108bd386b5784ac1b60f9391c6861ebbbb7c1efb3be6208bdf2859b351e4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/NativeEarlyElectricTrace.o",
+      "bytes": 1832960,
+      "sha256": "82c3e917db452f2f952f3b02320201f4796ed5ad5f591017c2bb6fea6cf75e20"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/NativePanelPowerTrace.cpp",
+      "bytes": 15059,
+      "sha256": "4c73732ac6dc59e0355132c9e7166d065a8f821b5f955b103d04780c6b48e12c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/NativePanelPowerTrace.o",
+      "bytes": 1880456,
+      "sha256": "9fdec4b825e7956a20e017456aa12e937dcf6870eba593978126b548574a980a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ParityStep11.scn",
+      "bytes": 367868,
+      "sha256": "50a906c05d0f5826c99a9d5570f052df6ca1968575a85e0beda14688750a428b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ParityStep2.scn",
+      "bytes": 368160,
+      "sha256": "c332c2a5cc116d3e26cd5d31d6d78555382771b94712914357d6f3c3ea729ee4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ParityStep3.scn",
+      "bytes": 368243,
+      "sha256": "02dbc79f64ae39ff3473e598589a66bffd51ba277317a922a91da063b8ba6060"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/analyze_motor_trace.py",
+      "bytes": 4143,
+      "sha256": "5ee582d3f29768b9a4b9cbe15150ce18e44779437fd923de98513c47a14ee94b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/build_extended_observer.py",
+      "bytes": 2377,
+      "sha256": "c111626933e19adf138f708b4fdf1eff072b5a9058b604435a85c89421576063"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/build_panel_observer.py",
+      "bytes": 11942,
+      "sha256": "d08ac257b899e8b9fbd63e617ecaf8a7844d4763b6b27bc4ea9113845e3f98ad"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/compare_early.py",
+      "bytes": 1900,
+      "sha256": "ec0c586e251f42860c5929bcd6778d40eaa7473c6998b268c4c53add96161ab1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/debugger-attempts.json",
+      "bytes": 392,
+      "sha256": "919957e3c57e3b862d53a9e72ed8f076d9f4c2322646ffa56055e1d1bebda242"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/diagnostic-stock-ignored-motor-flags.scn",
+      "bytes": 366054,
+      "sha256": "4692bfd3f943e98408d5ea7fb24e73202e5d71f9ee37de8aecdd9e4ab521dded"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/early-electrical-execution.json",
+      "bytes": 541,
+      "sha256": "8777328facc555135ae8b9910d56bfa4333f6d47ff86c130a7abd1e834013a2c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/early-electrical-trace.log",
+      "bytes": 4427,
+      "sha256": "696e187ae088a4f896e53b2744007373f29ed19ab01c2b6addab68adb5d7277a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/early-selected-records.json",
+      "bytes": 7653,
+      "sha256": "d8e0fac43293dd627e271ee4dbe31d986e68f8d666a6dc5c09bcc4f08d458012"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/focused-ctest.log",
+      "bytes": 446,
+      "sha256": "bd3ac6869f829e90d12dfe39dcaffa6f7b2721608b29d48defcfc37e66950cba"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/inverter-callers-command.json",
+      "bytes": 233,
+      "sha256": "9cd9c5d2ea43766ca8cf682f063de7075f5f2a30aeabdcce33aff1b64a8a08e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/inverter-callers-retry.log",
+      "bytes": 939,
+      "sha256": "9863bd4c4d75f457730ab77ab8a73715ce53a3372c4873e5f71e9f50e0cb1dc1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/inverter-callers.lldb",
+      "bytes": 322,
+      "sha256": "1b4602f30d29af34789c38d1879bfc57efadd81727c859002cb587d1c7d3a56c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/inverter-callers.log",
+      "bytes": 994,
+      "sha256": "95335bec070424748b6e4f43fcbec0f20989a5d36e52f480d872e0b978708936"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-cause-analysis.json",
+      "bytes": 9809,
+      "sha256": "5eba02485da31768eea6442b03890285db4e577dd0c3563f69d95117f600f1f9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-counterfactual-record-comparison.json",
+      "bytes": 54263,
+      "sha256": "6ed76bdad3434bf5fb834b7076478ca0672dd61ab470b334b68db5c3edaab295"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-counterfactual-seed.json",
+      "bytes": 690,
+      "sha256": "6b1d4a14678994dc618d498064e30fa2d31a22eefcac65c6ffc36990267dbc36"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-original-control-execution.json",
+      "bytes": 533,
+      "sha256": "aa5f15807525869f63ccbdbde1b6d0fc30983d71690f24be458e6259759389a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-original-control.log",
+      "bytes": 4427,
+      "sha256": "cd5c51b1d7454f431e9f7a636be32f41546874b03053951ecc04b1bcab441e1e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-stock-loader-counterfactual-execution.json",
+      "bytes": 490,
+      "sha256": "61efd3011fec70b60711cb867fdd5cf0ff8ec488ea393b1759564dd7ddc13161"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/motor-stock-loader-counterfactual.log",
+      "bytes": 4735,
+      "sha256": "4e0d2a903f43159b960819140418746077c4b2b0ae180ba54a006d3247311533"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/native_early_electric_trace",
+      "bytes": 43048,
+      "sha256": "29d96677f4a8fec809035b7426f7b35f0e10817de8e440276e317d1bd733ff3f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/native_panel_power_trace",
+      "bytes": 59560,
+      "sha256": "ce898c64c96913788260e485576b8dd43b137b26ae90383b223b3f86de3b0177"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/observer-build-commands.json",
+      "bytes": 3840,
+      "sha256": "d3ea9e2451d42ef6e61d8ff70b55d800a90fecef19ac942fde4e9cc24cc1a303"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/observer-build.log",
+      "bytes": 38561,
+      "sha256": "219e3490aa244aa334c8aad7761b6d84d157ad41647428f650e1244d9dea5234"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/observer-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-observer-build-commands.json",
+      "bytes": 3828,
+      "sha256": "398f00ca7b1e19cbdfed106cb8551c34085ab67e469474f7c116db1358d85a68"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-observer-build.log",
+      "bytes": 38471,
+      "sha256": "804d1cce013b70b436ff868819f863345e9ce34fd2216226ff23f53647a24945"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-observer-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-power-execution.json",
+      "bytes": 533,
+      "sha256": "4115f5cb7e8944361e0c271f16d9bef2a0cc3222cbbb9dd79f47657726707a4d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-power-summary.log",
+      "bytes": 1814,
+      "sha256": "c2fc1672c93717df549b5c675a26338a1469c1db6f70045259a30873486cbf41"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/panel-power-trace.log",
+      "bytes": 4287,
+      "sha256": "4ef52ad50ba27871272ff97d34df4de8b25e3036ed4734363bca0053c668d7b4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/reference-early-step-index.json",
+      "bytes": 386660,
+      "sha256": "3a1f93e0b5a1c00d98ad48fc101df7d8c0f8320826c83c625e463e7cc42e7536"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/reference-early-steps.zip",
+      "bytes": 606133,
+      "sha256": "ad4159941312670286837719f87bad759fb55ce086b0b7229afe94299817a787"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/run_extended_observer.py",
+      "bytes": 1270,
+      "sha256": "058426836fedd2626248d0bc0ac13f529bc6a25513d59ffa2bbeb58a9faca4d8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/run_motor_counterfactual.py",
+      "bytes": 2461,
+      "sha256": "180bdac9e3fd6bd0f56a0b0474b09348ad85643be0fbe96433993d1183745e46"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/run_panel_observer.py",
+      "bytes": 1246,
+      "sha256": "e0834c819d561bddca67737cea894e6a66faae0f546e637f35ee2309fc7ca309"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/ThermalTraceOrbiter.log",
+      "bytes": 1969,
+      "sha256": "c9a3375e2a0370fcabdff92d08f457cff835dda8072b081b741b609ae6375238"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-early-electrical-trace/thermal-trace.jsonl",
+      "bytes": 103341,
+      "sha256": "8e45c97f575bfcaa40af13337ac95cd0c6575cfc6fdcc7cf33f61d9555c30f7f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-inverter-callers/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-inverter-callers/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-inverter-callers/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "72a414247bff78ed47c27ad6bd1b348a62b82f94d5eba55a64995ec88ed99b5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "357951724c6d4e84fe1a57c8209e665460bc74a8594cddc1cce2ff02357d6bdd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "d012c2ba562a6cb5ab2028ef07808dc681bbcd255fb834fc83158fcc76b9d8cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "f8fe0ef09c4956defa76f15026a03d59e05039febe432d0a823236c859ef32ce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "260abc0d16790fda37a2ef91b9e99669988c75700e937a1c2258c17eae0ee20a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/ThermalTraceOrbiter.log",
+      "bytes": 1969,
+      "sha256": "d621b0c8775e9b73b80a71093cd3f0705a20e730aabd4786831bab283e732eab"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-original-control/thermal-trace.jsonl",
+      "bytes": 11143020,
+      "sha256": "cc78eeaeed2476b552228c06674cdd763cfb02ffaefae57875e48651be3aa7c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ParitySeed.scn",
+      "bytes": 366054,
+      "sha256": "4692bfd3f943e98408d5ea7fb24e73202e5d71f9ee37de8aecdd9e4ab521dded"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "d8db0c2629148e9c27ec9453263277ab3582044cb6cee56d0e62b5a72be56377"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "6ea39cfe32e6d4b2e757ace817f3376b74ae66869dcb685cc145752c1be187d5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "d619e04716728d61ec202517d386e50fc233740cec58a00de72bb85ce7e66d67"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "4a7bad21959c8e0a5cd34415a8b2ab5e459ba172ccc64acad962a62cabac5948"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "640db4742eaf8d9b5743f782bab7d84f1a3b638182d51fd500cc5ffe4dac1933"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "9fe5a6e8b14924774d05ee6f1a8a7fa034ac2fe65ee797726b29f580decd362a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "47955b46c4d60e33941f576f452c596c7a42af59654f39de51d4a9d8498035e2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "6e71c8e29db61b0c975d87e419ca76353ecdb0b09a2adedd306101decd842e46"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/ThermalTraceOrbiter.log",
+      "bytes": 1980,
+      "sha256": "16d3570d2b639ae4cbae6842066579fc594020d909cc602fd1b8c97a935266ba"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-motor-stock-loader-counterfactual/thermal-trace.jsonl",
+      "bytes": 11142389,
+      "sha256": "ec89d8a9dab9057329bc676cf4c657b164bd47b0644b9ea83f750fff18d8420b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/ThermalTraceOrbiter.log",
+      "bytes": 1964,
+      "sha256": "949dff3bd4c0d9b32fc297d5a6508d2ad7bdd8caed60964cdf4a350eb836400f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/runtime-panel-power-trace/thermal-trace.jsonl",
+      "bytes": 431083,
+      "sha256": "962e8f40c85de1fda0a146abde9d5e57b35baa22d37954f007d94c8378befff5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/step2-complete-normalized.diff",
+      "bytes": 5097,
+      "sha256": "59429cbf5b28b776136b56e531fd100a753639409fceb4f3c6ad57316db946c1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/early-step-comparison/write_comparison_report.py",
+      "bytes": 6274,
+      "sha256": "290a808dd94882d11b7e306d3ae1e5d8bd2c2fdf5e40d7c8e9d7beb0399a0ca6"
+    }
+  ]
+}

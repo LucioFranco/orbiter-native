@@ -1,0 +1,2508 @@
+{
+  "schema": 1,
+  "upstream": {
+    "repository": "https://github.com/orbitersim/orbiter.git",
+    "release_ref": "latest",
+    "commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "tree": "098bc06f7d0a381833060e8b504f657052c4b73b"
+  },
+  "scope": "Union of both tracked engine trees excluding Addons/, docs/ and upstream/",
+  "normalisation": "CRLF to LF for text; binary bytes unchanged",
+  "unchanged_files": 3972,
+  "groups": {
+    "build": {
+      "removal_path": "Replace external native CMake policy with equivalent upstream targets; preserve source selection and matching-data preflight.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "host-platform": {
+      "removal_path": "Adopt upstream native host, VFS, input and audio services, then remove the matching platform implementation and dependent registrations.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "graphics": {
+      "removal_path": "Adopt an upstream native graphics client and cockpit services, then remove WgpuClient and its build targets/assets.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "sdk-core": {
+      "removal_path": "Adopt equivalent upstream portable SDK/core changes after original mission and state regressions pass.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "regression-tools": {
+      "removal_path": "Retain or upstream the corresponding validation; remove only with equivalent upstream coverage.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "native-assets": {
+      "removal_path": "Replace with equivalent upstream licensed native assets and remove their generation/build references.",
+      "removal_trigger": "Equivalent upstream implementation and unchanged native/original-mission regressions pass"
+    },
+    "upstream-omissions": {
+      "removal_path": "Restore omitted upstream files if required by native packaging; remove their omission records once restored.",
+      "removal_trigger": "Omitted files restored"
+    }
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "e753774a5c6c845d5b43db5e4e133c8b7308c233f036517be1e2ae01cb068790",
+      "native_lf_sha256": "dce76bf0bdc82198082ef23eabb97df4c550cf249546b99bda37746e07d37aaf"
+    },
+    {
+      "path": ".gitignore",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "f29236bc48e9667759f1094e5ea66f1de942786e2ea33d031176d180cc409d61",
+      "native_lf_sha256": "c457ec2f594dfeb8c88cfae90dbd8d3faa157d1276f56666806bdb48dacfcde3"
+    },
+    {
+      "path": ".gitmodules",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "320cf3d2589e7557d022b988a6f4dc7057100ac261c031bb910024390b3c048d"
+    },
+    {
+      "path": "BinAssets/msvcp71.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "df96156f6a548fd6fe5672918de5ae4509d3c810a57bffd2a91de45a3ed5b23b",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "BinAssets/msvcr71.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "8094af5ee310714caebccaeee7769ffb08048503ba478b879edfef5f1a24fefe",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "CMakeLists.txt",
+      "group": "build",
+      "status": "modified",
+      "upstream_lf_sha256": "d76d835ac38913a9bbb8bd286e596166cf4e9b304ca3275cb8be017c1b171200",
+      "native_lf_sha256": "60305b5de23e852d4b5d39e7acc83d41220c185b03d07a008c9866fd6755c8b1"
+    },
+    {
+      "path": "CMakePresets.json",
+      "group": "build",
+      "status": "modified",
+      "upstream_lf_sha256": "f33c75914df9e80c564d9eea45d824be58246b2e55ce64ad01fed48693a43517",
+      "native_lf_sha256": "500adc8d472468e3e4ebcc9b4dc46a3c230a9af8bcb1f189ef66d08d6aa0297c"
+    },
+    {
+      "path": "Doc/Scenery/AntelopeValley/00310ad.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "aaeb3757c45d4e235a5dc1d642436a0be8ec34679d820d6fb8e291f74d26e721",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Doc/Scenery/AntelopeValley/00500ad.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "c5a27049edd7284ed9725989a8e9e5dc62f69bafe0de7d079bf33f477f45ac48",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Doc/Scenery/AntelopeValley/00500adrogerslakebed.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "c7506ad5aa681ea6c13d6b35a7a0a69d95531f1cc4f467cf456cf27dadbc5a7d",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Doc/Scenery/AntelopeValley/05065ad.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "49e144daa27eb850a64fafb0ae534fddb76e245bc3c59fdcafb58f0b001d92f2",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Doc/Scenery/AntelopeValley/09353ad.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "bd6ac6096beda8b970e423226b810178884f5fbeb6dcb7dc70e9fb93dda37d58",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Extern/Htmlhelp/lib-x64/Htmlhelp.Lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "dc57b9d9e28f4eeb0e23a252126ce91170d355e86bb2338e9d9d9591789d6dba",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Extern/Htmlhelp/lib-x86/Htmlhelp.Lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "8316b70401e9f34332a018fc1c0e0b9d40cb53f2ab6f8a7b002a8f5a1a3dc86d",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Extern/Lua/CMakeLists.txt",
+      "group": "build",
+      "status": "modified",
+      "upstream_lf_sha256": "282c885edf862bd9d77deebae0732bb6682af2fd99af4753cb4d337f9e2b5d99",
+      "native_lf_sha256": "641e7f1fb5d77785277dfbd85356877985e1986170bc1b70468b89385e77d0cc"
+    },
+    {
+      "path": "Extern/NativeFonts/JetBrainsMono-Bold.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5590990c82e097397517f275f430af4546e1c45cff408bde4255dad142479dcb"
+    },
+    {
+      "path": "Extern/NativeFonts/JetBrainsMono-BoldItalic.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4039d5ce0ed225bf9c8b2c8c6436290ae2f356b7e90d70fa666227238324aa3b"
+    },
+    {
+      "path": "Extern/NativeFonts/JetBrainsMono-Italic.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9d0a1f7a708e6af183f1193b7e81d40da294f5c67682c085d8401c60aac8ded4"
+    },
+    {
+      "path": "Extern/NativeFonts/JetBrainsMono-Regular.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a0bf60ef0f83c5ed4d7a75d45838548b1f6873372dfac88f71804491898d138f"
+    },
+    {
+      "path": "Extern/NativeFonts/LICENSE-APACHE.txt",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+    },
+    {
+      "path": "Extern/NativeFonts/LICENSE-OFL.txt",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "path": "Extern/NativeFonts/README.md",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "63b48a36ebb8d0cee7ef2af0ec58679d1250b9a2215ef2327136fc6b1f78a236"
+    },
+    {
+      "path": "Extern/NativeFonts/Roboto-Bold.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "baf44ce81636cc927fc27768437e5da853bac699e8aaf832d042f0dfed29b4b4"
+    },
+    {
+      "path": "Extern/NativeFonts/Roboto-BoldItalic.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "467a9ef7b54c91eb8be98b2ef13f385729302d2295fab5101f800f1c8453b170"
+    },
+    {
+      "path": "Extern/NativeFonts/Roboto-Italic.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8aaf23ac2ee9b3ef1b61c2390b3e6e02c0aa6a409d591c7fd7f3d4d7cf51e00b"
+    },
+    {
+      "path": "Extern/NativeFonts/Roboto-Regular.ttf",
+      "group": "native-assets",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "319cff6e7a31f0f2a41c475dca42890aa5d19fe16017e2290f8c1d4e14f76481"
+    },
+    {
+      "path": "Extern/imgui/architext.regular.ttf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "a6b8e33ce190ee9c871590b982cff37e137b303bb73dcab55ef3ff7154ba143a",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "OVP/D3D9Client/doc/images/Guide to D3D9Client.docx",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "6b2074e54989d34d3144e3365c633c77321008cccefa512738bf6771dd9ca602",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "OVP/D3D9Client/samples/InterfaceBuilder/InterfaceBuilder.exe",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "1a53cbe5c98c34f064bc68b67bb4fd9743a23e6d07e7d236b3bc56f3536d66c7",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Orbitersdk/doc/BuildingSamples.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "68c018f8ae849d40ac8aa977ca93db5b76af3c089410cb724a74892745a9a073",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Orbitersdk/include/CelBodyAPI.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "76526178330b9d83ba54de79c940917f54582ef6fafdb02e71e0282daa20b150",
+      "native_lf_sha256": "b85ef0ba9295a8aae6da6b0852fb3a78a260ae4e7b140c0e63fcdc3ed0ca4920"
+    },
+    {
+      "path": "Orbitersdk/include/DrawAPI.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "1b664b52e5f953927125d6f1f0193f18bb86aa1c3b44e2d6741e80c87a95eeb7",
+      "native_lf_sha256": "e9b045aed0b240c744d2d300fd5cfb3fed428ece0e6e1e45dad100bc0ccefadc"
+    },
+    {
+      "path": "Orbitersdk/include/GraphicsAPI.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "7739c83dccdb412cc40ba2f253ebb45ce67e571b03322b0d278a6528f340ccf5",
+      "native_lf_sha256": "73b0b5bd17b9e6b23e5a8cd3eb9ce130aa5c9c47250a98a6e2744c453d4bc91a"
+    },
+    {
+      "path": "Orbitersdk/include/MFDAPI.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "054732e3d62d8ac0cd135c347b122e3af5ec52033fe8c1d0fe0930871802069d",
+      "native_lf_sha256": "6da7bb195d687fd5ed656937b70f3af708d801e64b238f7651a43bea9f36f00e"
+    },
+    {
+      "path": "Orbitersdk/include/NativeWindow.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1c7a205d66dba06ae69687543e4ae7242885db8c903ff8b9a243fa56b72d3bb5"
+    },
+    {
+      "path": "Orbitersdk/include/OrbiterAPI.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "56fc3d55ec1215b88be38467f117ad9e58ad78f9b95e9188fb08500a3fe788da",
+      "native_lf_sha256": "3fb3de54ba229d441a4f51bf0090ef2a88035a24a3761ce2f617927884a51e5c"
+    },
+    {
+      "path": "Orbitersdk/include/win32_compat.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7fabdd8c98631184e4a248d640c54b4276ee6dd46d61fa52ae1cec4bb53e7a10"
+    },
+    {
+      "path": "README.md",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "9636fbf779bf5b670d68578144f902577c3c245a9591dd0596d204bc0b2cfd60",
+      "native_lf_sha256": "9adc41fd3f2ff625198c7a0de1f0ee31233133284e1c8722423c549663726008"
+    },
+    {
+      "path": "Sound/XRSound/assets/Doc/Solar Serenity.jpg",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "8a6d825641bf7a0b617437059f92320142a44bd91ad6608e5c219a6cfb4e81f6",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Sound/XRSound/assets/Doc/XRSound User Manual.docx",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "dbc9738fa1d863683ad78526c1f0e5d3f9ad95c14bbacfc1498ef0ed442f58e4",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Sound/XRSound/assets/Doc/XRSound User Manual.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "43624e500adaef0f6581d3dcd6d801e93e0760bfa0c41f53f3db5630efa50a89",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Sound/XRSound/assets/XRSound/Default/Music/Solar Serenity.ogg",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "0094b5e077fdb67ee83c7e23b8a7a1c4f4ee0b14f17bd6213b6c5634ef54da35",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Ariel/Ariel.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "27bc9e001b1747b40f20b4168c734d201b7332fe7d2ba5409dc71bc56a51665d",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Deimos/Deimos.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "6d25ab1a08e60ea9c054f11e44192da8469ffa5ee8bd2f186f7a3963df72a53d",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Galsat/Lieske.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c2a575bbf77bef944b70f94ed202461a7689f2ce98a7387196f86cb2c1ab6d39",
+      "native_lf_sha256": "d864cae0bffd9e9bc1f698bdbbb971c9bde99de6700fd2fb29edffb35691b80a"
+    },
+    {
+      "path": "Src/Celbody/Miranda/Miranda.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "4dc3452d9b9bf7d1cba260b8c17af47dc6d8f86c754b9384b9b6aceb800da0c9",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Moon/ELP82.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "de49db82723b512f507cbba150d4af0d9aadc5b1471badb384ce3752336dc761",
+      "native_lf_sha256": "ba58157db3492773f8d25abf89c0df1d2f298d37664ba774e9c31f89c1666693"
+    },
+    {
+      "path": "Src/Celbody/Moon/Moon.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "e06a6b93c41c018c298558afedf0f5965736063af77384f8be41a55e1dc7f40c",
+      "native_lf_sha256": "4cbf99d80b06feae5b9419446416d6febc0a957e2863b91708b629aab79ad767"
+    },
+    {
+      "path": "Src/Celbody/NativeDependency.cpp.in",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8eeb124c8bccb0b49aa2fb070a56a81b9200354572741a40d05348679304e288"
+    },
+    {
+      "path": "Src/Celbody/Oberon/Oberon.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "c4211ebfba35832198fdf45d75f3c70049d8f7b4cb15e96708bf5dfffe0e7340",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Phobos/Phobos.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "edfee2b7ded73a4a746d694126c1a1581ca1d80f1b6aae67c994fedca83be96a",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Satsat/Satsat.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c0b9f379183a4a92f7de2b6b5df1c9b61a617749b29e65e6c0fc7dbdf073eec0",
+      "native_lf_sha256": "4f9be1176f3f50fd83b539df915a9685434468aa21e5921d46e7443fa43036b9"
+    },
+    {
+      "path": "Src/Celbody/Satsat/Tass17.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "14bd9d5c032db266e3eef14c629f38d0e382b0400511f96b585d7dcb83a66c3e",
+      "native_lf_sha256": "47ce62ac2f7423c52ea8fc0eff94afef39cbad06dce96a86cce22cd85f1fc569"
+    },
+    {
+      "path": "Src/Celbody/Satsat/sources/1995A+A...297..588V.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "d5238927120fb45d2e5c9fd93965eee9ad4b6129c2603c6ad42b80f08761b02b",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Titania/Titania.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "9ad632d5ae84419fc1f5ad75d16d61c9db99d4582ddf0aa64f327ada1b468db4",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Triton/Triton.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "96bf35be712975e4750ac369e82147c617fd07c5e36150722801c521033d4fdc",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Umbriel/Umbriel.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "e4e599f7335715404125f2fe5f182fc2d8c3a0a5107b505b05aaf29dd136ba70",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Earth/Atmosphere/EarthAtmJ71G/EarthAtmJ71G.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "2182c500b511242c265f5b9c2cc995b3fac1e2be0fe5dad2394d56847f29c126",
+      "native_lf_sha256": "fb3fd3d7256facec48d072dbca80a6eac1d552a2d4201845bd05ca409405f3fb"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Jupiter/Jupiter.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "2af6d3826991b9007fcc450a1c6e69a4adf7ffc8897d27da31beecb1b536e6e9",
+      "native_lf_sha256": "3e8ef0d9631ff6343e41dc5e13f76021f2322012cdefaa35c6a4919132446841"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Saturn/Saturn.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ac7ef5c67db13a68e5b16f6ca74863610da7d312dc0affce2df974ed849cd365",
+      "native_lf_sha256": "3742ee69f2957a162c2f6bc9a95d29cdb28379dba3cfb6d0355d62d8afbd6c55"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Vsop87.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "cab00522df623581746ba2fa44c7975673e290372c4cd71e249d470c0193a60f",
+      "native_lf_sha256": "1b9d376527a026cb319097110fcdc264ab7181e1d6ddad829733eec35dce5770"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Vsop87.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "8756f0d3e3f74cbf403a38c7cb27bcc9112e7af3c88a722d508e2339c4c8e67b",
+      "native_lf_sha256": "7a9849326a36162e2169cead00c0fd09eeac3f3dd3fe296385b617ec937e540a"
+    },
+    {
+      "path": "Src/Orbiter/AnnotationAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a0bee0b392584b9eb281835178e5be581ab8f424f71c8852487a63c3792ce041"
+    },
+    {
+      "path": "Src/Orbiter/Astro.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ce8be7d0bb0a9aef63451266d85dd4011f8359c5b9d01726f1623170a4c4781c",
+      "native_lf_sha256": "c70b4fcda6e402a332fc4d9eb4251fabe3b27a2aed4ebfa46dfd382280ce9711"
+    },
+    {
+      "path": "Src/Orbiter/Base.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "7daeea0a06f5b4a6f91e57f7c24ff658808b70d1dce773b190ac0c29978480aa",
+      "native_lf_sha256": "40a3bd33eb42aea754396c5d191d372fdb2a635ca746deb2dc2ff3b4ae161665"
+    },
+    {
+      "path": "Src/Orbiter/Baseobj.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c4007a92a93ff96557a12db582f2ee66f7fd53571b312185ce70b143e230e103",
+      "native_lf_sha256": "e3bdb1cf8efb782e3b2423f97b330337c1aa12cb86eb326b027aa6a95da1e66d"
+    },
+    {
+      "path": "Src/Orbiter/Baseobj.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "a51f308f342ee572e4ae5b2184256630300b50184185142e5e3fde6beb9f47f1",
+      "native_lf_sha256": "e0901bff12060641f71db580ec011d05affc311abc682d199d4a65950692b9d8"
+    },
+    {
+      "path": "Src/Orbiter/CMakeLists.txt",
+      "group": "build",
+      "status": "modified",
+      "upstream_lf_sha256": "816b0e46117cfb76dab92ba61da0c060e7cc10dbb0b791de2f778776750bfcf0",
+      "native_lf_sha256": "92dda0987725566970b737a61733e97ef202b071b7e88b2e3bf167c0c9c8c969"
+    },
+    {
+      "path": "Src/Orbiter/CamAPI.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "63097d8f50fc569ce056d89a3f701e5c4485c9653430aa1794686b09197a2c03",
+      "native_lf_sha256": "edca42048b67c5eea6fd1fad1257b7428964c9de935869b72aa0fd1fc6782140"
+    },
+    {
+      "path": "Src/Orbiter/Camera.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "b1a3c51081405daaf6648a1692ed66a77dd79c52e4c1352d4d3c37a8fe5083dc",
+      "native_lf_sha256": "3fa92848fdd2ca631cc876c93a37576b1944de7a1c9cfc6448eb39777faa4932"
+    },
+    {
+      "path": "Src/Orbiter/Camera.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "119c3ab27bf4e7d672f757e6a73c893fcdab2789facbdfa2f6f98473029b2632",
+      "native_lf_sha256": "8bc2014d78e18bd3bbcc0d899f8898039ae4c858a73692aaf6a5bedaf2a68ba1"
+    },
+    {
+      "path": "Src/Orbiter/Celbody.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "09a54488a60000b9d408f05565a57561505f654c34693407770f20653b0b36de",
+      "native_lf_sha256": "07c3346c701d2fb68c9c974e9507e23ce8c2349718285f08d4b312f73ab01bfc"
+    },
+    {
+      "path": "Src/Orbiter/Celbody.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "7eeef421fcf12beadaf7fce56785b03a5b7bc4bb8e112c1748fd1718bc0af947",
+      "native_lf_sha256": "5a53443fa1b6b5562e6b00713b9edd3ce1e47f6540331975fea714530b8a179f"
+    },
+    {
+      "path": "Src/Orbiter/CockpitAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b65ed29e74a20ab052a417843431bcb2422850584feafc62909973f964a9836b"
+    },
+    {
+      "path": "Src/Orbiter/Color.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8fb585850d46e4bc1dcdc62507c942ccd73ef7bb31051327702dab566e44e667"
+    },
+    {
+      "path": "Src/Orbiter/Color.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5b2a8a5ee60c55c5e67ae24a78cf619883a41adfbe2baf84c54d8dc2cd7255f4"
+    },
+    {
+      "path": "Src/Orbiter/Config.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ad41dec85df98bd15e653dffdf5e6ba7f31906eda29332cf5e140b8b6dcffc85",
+      "native_lf_sha256": "73ecb6266c7e06b7f291e73a8c68a94f1070825c3ca817149fb0c51274b562fc"
+    },
+    {
+      "path": "Src/Orbiter/Config.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "5f02edd5649031e82cbc5e2577e061b051e7a05d54f5f673b386808d1a4fa9c7",
+      "native_lf_sha256": "14a11c376d3350c791baa8fe49a0196c5baae17b93bcb8190215aaf67c295d76"
+    },
+    {
+      "path": "Src/Orbiter/CoreState.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d44d9ae254642fcf95cdee7a68a287f486aadd0d0f34c8cdddcedb801083918f"
+    },
+    {
+      "path": "Src/Orbiter/CoreState.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "40ebebc773d544a034eaffb3e2bcea40201bc1d600cf524e3b7f8a72525efd33"
+    },
+    {
+      "path": "Src/Orbiter/D3d7util.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ce45d5eeab4f74af53668ee2fc1c1cf9db781202c2a7c00d2345c0674e218fa6",
+      "native_lf_sha256": "58306de311fff9867457613df7039dc5c7ac01a1ff051710ae37f67cc0999fcd"
+    },
+    {
+      "path": "Src/Orbiter/D3dmath.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "1e005066e36c7ab921c1b85b9eae00ccd7c09371a3e1fe97ee4aded5a59fdc58",
+      "native_lf_sha256": "7e8e2146a57328e88174c372e535e35af9205e61220a9eb0ef1f07944c11570f"
+    },
+    {
+      "path": "Src/Orbiter/D3dmath.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "7ee1e87b1e3d5a68f0d408c563995c1ad855cf9fe9fd8e38d5208d6120052036",
+      "native_lf_sha256": "d2fdd33cdd6150a9bcbc943d1487febd611fbdbedbb7df1b71c52f661e4d421f"
+    },
+    {
+      "path": "Src/Orbiter/Element.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "0c2fe516a50898b16019aa60ab4cc09670b170e44cd5029c5aaa5ae604d6c363",
+      "native_lf_sha256": "7b490cd57d8b24b3a30c1ba8220c9f1ba731f7a4f16c42673e164ca57945c8d0"
+    },
+    {
+      "path": "Src/Orbiter/Element.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "60604a85294bb1718758b9f8f8de46d1b929dca4367607772bac5386a45d54df",
+      "native_lf_sha256": "05c86fb9a1b171148a793600c4ddbedb0b1a17310f4aff56bba321199ff923df"
+    },
+    {
+      "path": "Src/Orbiter/FileAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4e9848a7e3f1dced7ee52d05591aeffb29839b6023b3a9a3dcb526a16e0cecad"
+    },
+    {
+      "path": "Src/Orbiter/FlightInput.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5bad266e0f8783f3c8b3b5dacd55c3cc793043d8dbc237463da5b51a1564d289"
+    },
+    {
+      "path": "Src/Orbiter/FlightRecorder.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "dcfb0820387342c840e29beb4bc6bbeb8f29c1478c6598c8295ee0b61a22ca01",
+      "native_lf_sha256": "737f99ba90eb0e1b3369728861a30dd8f0adac1ef831eff00502e82cf656a418"
+    },
+    {
+      "path": "Src/Orbiter/GraphicsAPI.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "cb1587800efdfb0869f03b6564401b55d22b162484f26ef81989430aeb051f66",
+      "native_lf_sha256": "3eb3965ee8051e66349f875f436ec1bacb36045ee8f5d35fd34a1a1442d29f35"
+    },
+    {
+      "path": "Src/Orbiter/GraphicsClientCommon.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1c82240e94e9228100dea6c5013328e6e6bb9b64d357761fb84382b5115a08ac"
+    },
+    {
+      "path": "Src/Orbiter/Keymap.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "e6f3de65b94458e8b451d04fcfdcf025e5edce9c2f08daf35c23dd3009b27e7b",
+      "native_lf_sha256": "a806b60b558ea4a4b751c5a228e046b5678a23cd073f26f33da93bc0c1eeb6f7"
+    },
+    {
+      "path": "Src/Orbiter/LegacyGraphicsTypes.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "aeefb8a717a978ad9a19505651ede64562bad8731f509b6cab172288e09a36f7"
+    },
+    {
+      "path": "Src/Orbiter/Log.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "3e57fd29559e6266b0aa78f7d9409060ddef1a7aebc1f5c4819618eabb5c88bc",
+      "native_lf_sha256": "fd1d70ff3fd80fb6dd24a3015fe8f7dc9c0a86c16db7701b6afeb1d90953c08c"
+    },
+    {
+      "path": "Src/Orbiter/Log.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "f29276f40785ecc56937eca890c9dcdf72c9a194d94a19770a319a2cc150e30a",
+      "native_lf_sha256": "06268d725d1ec9716502322c449a6d2e46fe6a39b56de6b3e47cdc5692ef40e1"
+    },
+    {
+      "path": "Src/Orbiter/MapFlags.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0772f36be5d49d5307e67c37904d011715912a4b3f9c2c13b84c129e5adda75d"
+    },
+    {
+      "path": "Src/Orbiter/Mesh.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "5bef72bc1069528e33231ee1df66be3f424d1d1c6863b653c36d351f8d1a1c44",
+      "native_lf_sha256": "be77aa4a8fe00aa066e0a6535a85cf2d7f78d13338ff42bbdb7234b8caf614bc"
+    },
+    {
+      "path": "Src/Orbiter/Mesh.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "fb4c1f4a5bec410ff05d635cd547bd6b2067ed5d26faba315248e2ae2abd3284",
+      "native_lf_sha256": "404a1615a39cf8282d5add2ac2f6849b0b23bfce623c8d4ea98e349510ea0752"
+    },
+    {
+      "path": "Src/Orbiter/MeshAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0cd012edbe3170f4f5e57570b2eb8f5cf3d7fe1c39a1c8e4c21a0e2188dbd36f"
+    },
+    {
+      "path": "Src/Orbiter/Mfd.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "0a5d504ea777abd83b0f3ce45e147a946fad03bb3c70a17eb61600e4ff5108f4",
+      "native_lf_sha256": "3547ec39b33874e5038d440a52d1fd2053557f143a22d5a9c4a574f643fd8d9a"
+    },
+    {
+      "path": "Src/Orbiter/Mfd.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "133e1e852d9563535bb8404420f98aa40ce284e43eb98ba2f7c33652e97a8e10",
+      "native_lf_sha256": "a8ece37b3509eec2cb7f172e2257913277472fb3307bcdbcd8504bb9f271a492"
+    },
+    {
+      "path": "Src/Orbiter/MfdOrbit.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c3db3067efcaab76c5d3e54e45fef7d9f091b88ae133525821e8ed2000833bdc",
+      "native_lf_sha256": "8fb582fed176e996acb7cc875335a3d845366743b3b20c4d16f951991cb3e0aa"
+    },
+    {
+      "path": "Src/Orbiter/MfdOrbit.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c2ee5449c7d6684cd9dd40d2518e02dbbb41f44c656390e9814cb39c79d1efa5",
+      "native_lf_sha256": "72c887c099e25b7f2b064527bdd2f8a555021df6d759b9d0e5be52e00254966d"
+    },
+    {
+      "path": "Src/Orbiter/MfdSurface.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "934b8e1b77146e36b16a1c81622e500dc63c5694536275026b351be5b3230a33",
+      "native_lf_sha256": "f897d3379601f4a7738f586f39858e36bb268219ea3cf0f5fa7d9c54f4aedd79"
+    },
+    {
+      "path": "Src/Orbiter/MfdUser.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "bebcc62e14f4f6bcec779abeba4ba5b571b78f4b92dcf89c07e58ef67617186e",
+      "native_lf_sha256": "92b2ebd3a95ba846036e766df2478e4ca77a1345c6a4ba3e7348dd5c7543f8ce"
+    },
+    {
+      "path": "Src/Orbiter/ModuleAPI.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "f3a79e535ec8b08a34de2f23e58563d29139d4dd8bb29dce2a896cab192c57c6",
+      "native_lf_sha256": "8b07697bcb9aa802ec2d7da5ce379ab53d1a5046cd91cb57dbfdd4b1ba60e934"
+    },
+    {
+      "path": "Src/Orbiter/NativeCockpit.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f07fa044b3478a9c0d4b5313b31eb79f6abfeee38c64b3d00d141a2d1ca88c33"
+    },
+    {
+      "path": "Src/Orbiter/NativeCockpit.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8606e520d348a64519b71ef5837c1c1aa904b4d64c14710e1ecc724e2bb90839"
+    },
+    {
+      "path": "Src/Orbiter/NativeDialogs.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "74f231291e866992608ab5f3d298ceda8d4f2a281d78b4f862e7dd4ccbbe2be5"
+    },
+    {
+      "path": "Src/Orbiter/NativeGraphicsClient.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3d0514f3bf5bc00bc0204f4890148874fcba6b95ec21771f57cfba22970c40d5"
+    },
+    {
+      "path": "Src/Orbiter/NativeHost.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "2987e289bac8c8b4282626da07a5007f4d8e92ca33b6b14362df25c0a60c883c"
+    },
+    {
+      "path": "Src/Orbiter/NativeImGui.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5eaf71730aceab2187b57d5ff8434f37c498cdcacfcd599f246981f7f4de4b4e"
+    },
+    {
+      "path": "Src/Orbiter/NativeImGuiConfig.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6b653f6318bc5234b2cf2b9a538bc1081230e9882393821d57e9a41b780432d9"
+    },
+    {
+      "path": "Src/Orbiter/NativeMFD.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "20bb3b465a2498e3ed2efea26752ac3aca59ba409f65dcf818e664724079ab92"
+    },
+    {
+      "path": "Src/Orbiter/NativeMFD.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "82062b3c11a1a05dca076e9f2aed148642061f0e0f32632aa82ae128c1d311b9"
+    },
+    {
+      "path": "Src/Orbiter/NativeMain.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "56e3f71762fda0378580778c114b90a9ad797dd8c2bf98f1935fd3fc98ab83a9"
+    },
+    {
+      "path": "Src/Orbiter/NativeSound.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4846268b70be0c47ddbf2597ac806a6a62ab03d52e80b5933263f1774e2b64aa"
+    },
+    {
+      "path": "Src/Orbiter/NativeSound.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ded4d119b67dafc83393ef69850324eab60010b78afc7e4059189449dea69815"
+    },
+    {
+      "path": "Src/Orbiter/Nav.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "bef9f41a1028ecb344153e91838acb1dac4d308cc0830f6238531e53767996fa",
+      "native_lf_sha256": "390bc3321131d456fe9b9994db7ffcf3acc671753edae9cc8483c194f3b6ba0d"
+    },
+    {
+      "path": "Src/Orbiter/Nav.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "bbc06fe202e61e5f402693795e81bba6424a8af06fbcf3ff8ea25169c449297c",
+      "native_lf_sha256": "0e3e6a2ec880f616e4e5f0d8f4c68e3ba8aee8095fadb1b4b1879c94d7ce1df1"
+    },
+    {
+      "path": "Src/Orbiter/Orbiter.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "82ea3bbffede2cde66e2134b9ecf3d2acf4cc7608b94b99c7b73d485a234cdff",
+      "native_lf_sha256": "91bd9fd58f44926db071e3376177ec6edcafea5b5e5fd202fee1c724022aba11"
+    },
+    {
+      "path": "Src/Orbiter/Orbiter.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "2bf52a16b0bf84a03926c94e30a82d82291bb725775b079ee9727869a2785b27",
+      "native_lf_sha256": "8fc3bd795e12830bd02d48a5c8abf1fe95b0bad11466b8870858d485190d322a"
+    },
+    {
+      "path": "Src/Orbiter/OrbiterAPI.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "19655fe60e02c74188ea2d49ccfebc21bc3b2e761db29b607cd2240c0238fedb",
+      "native_lf_sha256": "4e1a4d13568ffe08ea2491446b64a0f0350df1c4533e8179c804ac874855f342"
+    },
+    {
+      "path": "Src/Orbiter/Pane.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c4ed1d089bcbea186c5fc08a7c4760a87767e2120425430a7fd49f3e63ed96bb",
+      "native_lf_sha256": "b37a7c5680173609827381df031818b9a337c962a7a0629efa2cbe1271e5d006"
+    },
+    {
+      "path": "Src/Orbiter/Pane.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "6af916e2605539cc397443996bd14727f4a90dcbb8d52ab62e1b81f78304dfee",
+      "native_lf_sha256": "099166a74f22a75d2eed734f642603afef8bf090c26dd551ef1b716d4206484d"
+    },
+    {
+      "path": "Src/Orbiter/Panel.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "efcbb61effed7b2059aeae02294937370ac660521c42d8f7f50fe189ce35e427",
+      "native_lf_sha256": "72e152311fe720e73cc44d4b30fe9df3599e3c1ce7d289bfafef6e6ae8615f52"
+    },
+    {
+      "path": "Src/Orbiter/Panel.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "d517f73ee3cf326e944b8ac000fd19a75e1b30ac2a4bac59b0c1d481cadce1c3",
+      "native_lf_sha256": "5cf4d0a202d63ef5b19bc593b5d78debfa40291bceef49b23b640094165b0b80"
+    },
+    {
+      "path": "Src/Orbiter/Panel2D.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c8a36214609a549f7715a332f2c1a6b66eaf542ff5b0b5646f89cd119a4dff82",
+      "native_lf_sha256": "6494f1a82551171daac35463a9a515dc33ef7ed1502e8d9a58116d622ff563d1"
+    },
+    {
+      "path": "Src/Orbiter/ParticleStream.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "e4372ff43549619b2a84e2bd55862887a8b4cc6e8fd50d6aa766a60979ab79c3"
+    },
+    {
+      "path": "Src/Orbiter/PinesGrav.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "e7ad2903085ec7eed53f02515ac9c02c24d251cedb0ae0c665584675618e5528",
+      "native_lf_sha256": "1ad53c7df72365ac1e856083d0aeed8f5b0a897e70187959e92fa75af3174321"
+    },
+    {
+      "path": "Src/Orbiter/Planet.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c3a03ae08188bbf19431a4e57af9498149f5bd0b7d3057e0bc264ab901cd3231",
+      "native_lf_sha256": "4699f2e3037c0ab0a08dad65f75d2f7409ffe5bfbc091f5f3364bb671d6e4f8b"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Audio.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "aa0c49358e6511e7bea13c644d98dd82cb97a7e6e7fd3744de1cf53aa0024b2b"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Audio.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b203c4aa5643aa799cf13b7cb954bc7aab2a0e65de0fa3feab302987e70d52ea"
+    },
+    {
+      "path": "Src/Orbiter/Platform/DynamicLibrary.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3d4b59931bc4899fa6da4d4d5054c5553c07c32cc4126a457374ab43b14ac404"
+    },
+    {
+      "path": "Src/Orbiter/Platform/DynamicLibrary.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "afd4fff704625e9b21ef08e74c57acd0870bf36db52804d0af3478e7b14f27e1"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Image.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8ec8b3a9e1d4ad8ce90420f0e5479be96be04e9540c980bc85e36813e6011572"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Image.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9510c1c3ecc75c655dd12cb29dd24a210ba44179fd9105a8e514b6aa33d9d1bc"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Joystick.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b4017995497fe99fba706b7ebaf0eb6b04218de9bfa826fa52a11004e7fd9237"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Joystick.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ee73ee004d2457744339d9e8c8739fe00e385b06ee0c3294462711a73bff3898"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Miniaudio.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0c769a7078d8d6fc5fcb1643a31ea0a193f9e6e082b2c9860e386e9b6b4ced54"
+    },
+    {
+      "path": "Src/Orbiter/Platform/ModuleLibrary.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a4eff714e44a893098fa3aa0af53968cf6a1a09606ce383391021ba051e1a2c7"
+    },
+    {
+      "path": "Src/Orbiter/Platform/ModuleLibrary.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "80635b80598a0dd0c46dc000b5c4a424391f60ef40c590298123f885981675c4"
+    },
+    {
+      "path": "Src/Orbiter/Platform/NativeMissionCompat.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0a80cdeac45b3e091e01beca4c36ab2e8e409987437cda51541bf434f892e4d3"
+    },
+    {
+      "path": "Src/Orbiter/Platform/RealtimeSteps.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "87aed66ec108a6316b066012e595567fab0f4f7ef1215adca148e725432c205e"
+    },
+    {
+      "path": "Src/Orbiter/Platform/SDLJoystick.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0ae48ed048643e18028ac66d0ac36d1e220bd54ac8041f2e30ec6806ea5fab76"
+    },
+    {
+      "path": "Src/Orbiter/Platform/SDLJoystick.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "63d21416fb34bc8c8401bc0f8857fe33e6afc4c29514fb7dd72785c70c1642e0"
+    },
+    {
+      "path": "Src/Orbiter/Platform/SDLWindow.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8debcc9773a7570d563d0673ae200c14e3dce0965218a474d920feeb8c53f819"
+    },
+    {
+      "path": "Src/Orbiter/Platform/SDLWindow.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4195906a0a9596a1fd9398876ddf6c058c575f55990ab8114963ff34084a2f0d"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Vfs.cpp",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bf6f0953a4f825d7f2e8fc8a69a9bac27d4fc891c952d82829f773b536530e45"
+    },
+    {
+      "path": "Src/Orbiter/Platform/Vfs.h",
+      "group": "host-platform",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "12eb64db0f8e6d2ba32163be62865957b8f49f167ccc6cbec18786c1aa2f9459"
+    },
+    {
+      "path": "Src/Orbiter/Select.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "32378480a42397ec637f42a297c60ee405cea564ec70f20c3971b7d489ab7f54",
+      "native_lf_sha256": "e85573bc0a19138a38a3fdf30ca8118d81a851ce0e8f18540b1a043f20563cff"
+    },
+    {
+      "path": "Src/Orbiter/Select.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "0ea1560216087f84fe49f388eca414756fcc1135eba1bdc43d106e7b93053f25",
+      "native_lf_sha256": "71a545df1941cb54555f411e32cd6aa12df4bb766bb8126f91502103cca652b8"
+    },
+    {
+      "path": "Src/Orbiter/State.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "3c5d92c17ac53def6360ab6d8aebf9d4f8be0cc3921b0bab00ad331c6af803cd",
+      "native_lf_sha256": "5da47884b78b47fac857bd42cfa4ed56eefa6089b32bd5522714fa329b40600d"
+    },
+    {
+      "path": "Src/Orbiter/State.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "d0d07d314e7ff0ee68cdd7d96e9600c1ad0e77a13324ac4beab8785eb4989444",
+      "native_lf_sha256": "512fdcec0e07cb9fe5e3242bee328d10f80aafd54f3101e371835e91b4c0fd03"
+    },
+    {
+      "path": "Src/Orbiter/SurfaceAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "dae58c585d7354b9594481bf01abe3144982cbaf6af1c43b1cab5c7f8416583f"
+    },
+    {
+      "path": "Src/Orbiter/Terrain/ElevationTile.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "62008d2a4129c00d257872fc5d8783a527ab48ad7da6ff7fcd1d30354579f04c"
+    },
+    {
+      "path": "Src/Orbiter/Terrain/ElevationTile.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "92a28b09a67e691192693d2d08ef94856945c3dfa14f24041e27ad230e871cbb"
+    },
+    {
+      "path": "Src/Orbiter/Terrain/TileGeometry.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "719fdaf5d1551d7f0cefc21a97506da8500113bb8107beace4aaec9b24f2400d"
+    },
+    {
+      "path": "Src/Orbiter/Terrain/TileSelection.h",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4b8c85e830e9df31905e94b8c465bf724cc73e7db3e448229b0b232996f8517d"
+    },
+    {
+      "path": "Src/Orbiter/TimeData.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "e9369c2c2b5c09a91cabafbb95701e98894f76aafb5a26c78b905e867542a62d",
+      "native_lf_sha256": "05e07680d417add0fd96097c3ec443ce30832d6868a6b85d5c6fd7d65089f6ff"
+    },
+    {
+      "path": "Src/Orbiter/Util.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ab2627599b997f2cf56f6536801ecd59e1374181bfa14a6416a6dbbac00198e2",
+      "native_lf_sha256": "cc36014abb111b09cba27efb457b2ed864e94b62a9c4eacc786fabd6efe6c9b4"
+    },
+    {
+      "path": "Src/Orbiter/Util.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "61c1826a9ce3c62e3d02f54c36629470f6ffeb0abad2d9b5eb95bc0c0a6bfb8e",
+      "native_lf_sha256": "606d2a1ae09519736428c593692ab216cf681d3bc752d74358cb9271b0ef6ec2"
+    },
+    {
+      "path": "Src/Orbiter/Vecmat.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "9435d47e6765446bc3554cc7f4e6814b01f4336900b0e691e13e11e16f01930c",
+      "native_lf_sha256": "a3719b4757492ad17f3b4076b23654dbe4f033c8cc4f7d595778bcbfd01d5572"
+    },
+    {
+      "path": "Src/Orbiter/VectorMap.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "72936830e11eec20b86f2f616f2988f94932e6700112bbb1d01d2a6cdb3aa808",
+      "native_lf_sha256": "a5f4fbeffdc8740c969f35ae8b816a4f3ebc3acf5d4c7fff148e6cc1c7cccb54"
+    },
+    {
+      "path": "Src/Orbiter/Vessel.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "5879cb903a006142a1014633a7d258ff5b29ed7f5390c54a06bce2285b7623dc",
+      "native_lf_sha256": "4bf63f1af1d940253acf28a102412a03f969b71c95214e1d6504659559ba7b94"
+    },
+    {
+      "path": "Src/Orbiter/Vessel.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "ba48aef754419d46b16dd159b79cd564cf3cf9298ec6d4ea1c739f1cefef0f85",
+      "native_lf_sha256": "3c4b8a3920472d85cbb57b8712dc304fb4333130c1ce6f7dbaca63d1ddcf4f10"
+    },
+    {
+      "path": "Src/Orbiter/VesselLifecycleAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "4bb4789f918f2eb949e76431abc6ae4d8ae3da424e1ce0bef524ab5e0de527db"
+    },
+    {
+      "path": "Src/Orbiter/Vesselbase.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "397003ab60932ebcebb2ab3cf79eeb97179146b5cd0d43a0a09f781e5ffe6c8f",
+      "native_lf_sha256": "61d2b4ba67d7435d9c8a29adbbc849465454a682cec4d8c0ae37d9013d5266fb"
+    },
+    {
+      "path": "Src/Orbiter/Vesselstatus.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "14a465e295678e6b2e19fb3e0a0c8d379fa20f0f806b0fb17fb74dc3f405a5d6",
+      "native_lf_sha256": "732f140ee6db12f24571a9837280da41eb8e0e2c1326f16af10196d36b315160"
+    },
+    {
+      "path": "Src/Orbiter/WorldAPI.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1b30751c686b459524cd6d44c6450aea3aeabdd66b54e847638d4bee44649e39"
+    },
+    {
+      "path": "Src/Orbiter/ZTreeMgr.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "930135d3de460348b0565c4ccae35e2307bcc3db6785120a801dc930ee84161c",
+      "native_lf_sha256": "6b2972e13cc39b78c7fad123aaf5955012c1fae8922672dbb373b5284fe6aa04"
+    },
+    {
+      "path": "Src/Orbiter/ZTreeMgr.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "4e350bc0023f609df87bdf79a8b5ee4cfd6e9411311e35a4ebd71b496fc61ecd",
+      "native_lf_sha256": "f220ebc720fe57f6586889c814b96b367d8065aa512a85fdc35e111d112f2acd"
+    },
+    {
+      "path": "Src/Orbiter/elevmgr.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "52193a03ba2e41269b8a4458fd2391d5b9f427b090b777cd053b250259443bd0",
+      "native_lf_sha256": "22f77f48c3e31713421a808ecced837a646b56cf7473ae72ba8d83279e57a97d"
+    },
+    {
+      "path": "Src/Orbiter/elevmgr.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "de3ab89582be051228e5c26e6ce3d4dfffc6f44d9ac0b80e3b346604b3c5f6df",
+      "native_lf_sha256": "a06f48e7555c81a0258351d143478dd5491812348af53a3e64fefba5dec569fd"
+    },
+    {
+      "path": "Src/Orbiter/hud.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "3f18667e52f3dad3698dc79f1e78f5ed9116d1a1de8cecb3cbd8fd02db9de569",
+      "native_lf_sha256": "9d52696883a41b33ae0781be6093716b240ece9e87a32873b80aa02cc2a177ab"
+    },
+    {
+      "path": "Src/Orbitersdk/CMakeLists.txt",
+      "group": "build",
+      "status": "modified",
+      "upstream_lf_sha256": "435c99742b8e4b213c96d1c0201ed86a8d0664c76d8b1132053356a141813cc3",
+      "native_lf_sha256": "8a447bb81f787dbd78d99bbe84b937b80adbbe595f3d5d0d89da095233ec81ec"
+    },
+    {
+      "path": "Src/Orbitersdk/Orbitersdk.cpp",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "c8f84ae7044501de6502144d3590613b3b1e11a17c90b2e67abbe31cfcb5517d",
+      "native_lf_sha256": "8d06333347e9792a2152bb21486b91fc5b4bf66259d429991bcaaa8cb550c9fe"
+    },
+    {
+      "path": "Src/Plugin/TransX/Doc/TransX quickstart.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "e2167a0472f5e7e5a6543e3c6c0af68b80b3d9591b31fecd45f1c7fd52b901b4",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Plugin/TransX/Doc/TransXmanualv3.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "eb1d11ed15e5f9f44f92989cab20b3f3367c09b06be3c3762e86ad70896ee154",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/Plugin/TransX/Doc/deepspacemanual.pdf",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "26e7671013ddeb35dcf7def13f2528173c7756731efd47474a7588b3f74c3d6f",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Src/WgpuClient/AnimationPose.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "40c3308e747c7fe2cf280c9175316251afe0d28fbbe394d7453b24a40ca31bef"
+    },
+    {
+      "path": "Src/WgpuClient/ExhaustGeometry.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5c68eef280517530b8b1ccd01a8ea2bea7d87510f9b335600b730c3efe0c81a9"
+    },
+    {
+      "path": "Src/WgpuClient/FocusedShadows.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c597b9a4b9e0f1e385605c813cbff0a1e336713598e05eae393fe583348c99c2"
+    },
+    {
+      "path": "Src/WgpuClient/LocalLights.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "348a53eb2b6b96286746d3161736d24b234f137319b40c3270c70760bf6bfbe4"
+    },
+    {
+      "path": "Src/WgpuClient/NativeFont.cpp",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1e1dc9fe2edfaf1bf0bd2fb11ca77c96d9c00ae4fa49f8a70245460c68af801f"
+    },
+    {
+      "path": "Src/WgpuClient/NativeFont.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "15547648111161172dbf3d72d2f8d6d091d436bd3afaeed95bd06b95704c8816"
+    },
+    {
+      "path": "Src/WgpuClient/NativeImGuiDraw.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6c5273267e637f421b888c871dddc31cd9e62e89d956b9ec7fb6c6fe0b6e10e0"
+    },
+    {
+      "path": "Src/WgpuClient/NativeParticleStream.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b0158c5261901eb06a22f29eb1e6b4ccab392479d944570b5ca94780562490af"
+    },
+    {
+      "path": "Src/WgpuClient/NativeSketchpad.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ec89574e9408458a742d3cdd4e27304a6a4488bdf949d3f1a25c6e5f9491e61c"
+    },
+    {
+      "path": "Src/WgpuClient/ParticleLighting.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1741e2d7c6a15d1d7dc73b97ace7a1cdc74e5da3343737d0bcaaa663e7896690"
+    },
+    {
+      "path": "Src/WgpuClient/ParticleSimulation.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "829d1b56af09468498f3ed9c8ea186c9a9d9609c9cd638561edb6cb484bdf995"
+    },
+    {
+      "path": "Src/WgpuClient/SkyLighting.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a360ce86dc92ac18b26c2fdd735367282772aa1b1724eeaa729bb4e8207a8623"
+    },
+    {
+      "path": "Src/WgpuClient/SkyTexture.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "e8f76f6543cdfe1df282fddf39706562ec219e8d153edfb18711b5f734c910bb"
+    },
+    {
+      "path": "Src/WgpuClient/StarCatalog.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "807d478d89e095d0a0451b08dd3d851dbe86040a1be47d58d710501d0811560c"
+    },
+    {
+      "path": "Src/WgpuClient/TerrainTextureBorder.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9f785a5b05873195715cfa7f9d6555ddaac523fb3b1aaa1745f1901cf6d3d899"
+    },
+    {
+      "path": "Src/WgpuClient/WgpuBridge.h",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5a179f129df565ee039e29aa4ef4cc15a13127b9e6c5d2e14d8bcbd24c1e5f19"
+    },
+    {
+      "path": "Src/WgpuClient/WgpuClient.cpp",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "82f3995c0d89c07baebe669a1363b84673de674866686d54a1ef82e6dae92744"
+    },
+    {
+      "path": "Src/WgpuClient/rust/Cargo.lock",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5ae4bbd6191bd168538c842c15676d0d8c3f111636606cfa621a573766325850"
+    },
+    {
+      "path": "Src/WgpuClient/rust/Cargo.toml",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "46000cf0348c93ee15f8297c8daaf68113c1ebcb61b819e56062962ca2683567"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/atmosphere.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7b5d7943b41a65a13b835ef19a19bf090cb01504702f85696706f1dad046a0e6"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/atmosphere.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "69a573dcd9253861e5d40c2560ea88879d673ec4e4b9dc81043a1bb545fb1af9"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/background.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "76f2fd3e212c91ac9bcfa8d8d17b24dd5fbb0e2acbf8cf919e9ae134394fdafd"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/background.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7c61d19bc5878f525ca8e837030361da6b8b2a4cdf4e4481c805ff8df95bf42f"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/dds.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5656cb84481382eb698fdd1f5a8335f030e15767a7d52196fbc50d94cbf689ca"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/dds_mips.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0e934ed6e28b67b710bf08ea1e797a02d629338c0ac173da74b37d5c01458792"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/draw.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6591c791990f196e95dd7041cd659014e283301c2037caaed3d9b0625ae08546"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/draw.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "688f6a0f91ee55dbd447799b8183cdd713a9b69ab34e87d0fd8a8c78bce1f32f"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/fill.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d9e175934dc5647456d85fd51e7ff39d689d22541e754545d4e4667090767057"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/lib.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "745de25fd1352b3cbfb558e0d06c4d57dbbcd53cd41d554071ba4b0376d2ee02"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/mesh.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "dc122bba10f28da3f2c8d4cee2c0e3a519f3c0e5c865568de12637a0962994a4"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/mesh.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0cc31ff40c26e0b12925a21c73ec16a074a1cd6f04f6abaaaa403855260b6b93"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/particles.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "912d505bb443af696ba033c49e5fff81b6c14e0d665a1ee495d7e7eaf4916352"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/particles.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0f101487bcd56da266bc2bd357c30e6d0a10ba6609c5f52ece37dd9097faf73e"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/present.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "cb75057556d4276432dec48abe9e3a32ba3919f06f6fbe23f3f12ea25159bb58"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/present.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "135f9fd33563e020386a4e52f6e06957826e6d69563aa77b94cab54c6446d721"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/shadow.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5ce19b54addd81caa3a8fdd09a8052f4fda01912371460bdc1f8f615915ba302"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/stars.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "655454010b08157987ca4a7b4262cf4202452e4306ef12254a3f1c94e75cab5d"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/stars.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7ccb1d1f50a3de4da1bae460a6d3406d5dbeded27b922ca0d3498895c6224f88"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/ui.rs",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8cbce89cbe604809729c12c86dacbd3ff455665cfe5b1f29428b46fdf5ba2020"
+    },
+    {
+      "path": "Src/WgpuClient/rust/src/ui.wgsl",
+      "group": "graphics",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "adada7b75484e72b4b19693c5753cfa1e84432dede2ac2ecd602677cfbd75ef2"
+    },
+    {
+      "path": "Tests/AnimationPose.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ba90436158f111be922e9139e91f388800ae26c103782d4597dc3da2a8c0298b"
+    },
+    {
+      "path": "Tests/BmpNormalize.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "91301db58f142c5efee81ad6a5ab3722f443db71009337a42802eef66922a3a4"
+    },
+    {
+      "path": "Tests/CoreModuleFixture.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "600cf503c9d5747113fb3f51b165b00fa9b2c1eff404e8b0ef482d5e3e68cc99"
+    },
+    {
+      "path": "Tests/ElevationTile.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "861ec12fafb17af460f602222178065603325e9279b1cb2d7f2d3bf517a49da1"
+    },
+    {
+      "path": "Tests/ExhaustGeometry.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5c54d99928594f4d62d802c82421b9d219457a6967b3afa014f9c7bf6c9867b7"
+    },
+    {
+      "path": "Tests/FdaiRasterizer.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "06f47750932ee110a29bd50f2b0505f246afa073fdd3e43cf94bb710df0842db"
+    },
+    {
+      "path": "Tests/Fixtures/NativeScenarioCompatibility/Orbiter.cfg",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "16f3bfcb759f82c84d88003edde610b08ad3fe04e520f9790946aa284d641e36"
+    },
+    {
+      "path": "Tests/Fixtures/NativeScenarioCompatibility/windows-reference.json",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a0d9996dff45faf590a58180800267465ba753174f5f128254a4dd9341ba202c"
+    },
+    {
+      "path": "Tests/Fixtures/NativeWorld/Config/Earth.cfg",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1f91b6849055341d8f94549515c4f109e0a75ec915feff46cef7ad5e1fdaff50"
+    },
+    {
+      "path": "Tests/Fixtures/NativeWorld/Config/Sun.cfg",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "82d4e3ef68e98615c91f021bf1b2a8643ce92d867d6cda84a4a1a7758ac11b46"
+    },
+    {
+      "path": "Tests/Fixtures/NativeWorld/Config/TestSystem.cfg",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bcde390b13bc87d93e1c651b1a189905ba9c3c340f151ac47c079ab708c15be9"
+    },
+    {
+      "path": "Tests/Fixtures/NativeWorld/Config/Vessels/Probe.cfg",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "fd41ce42f15477c1bc52db659f15def962740e59dc1d4e5d416801dcd76c96f4"
+    },
+    {
+      "path": "Tests/Fixtures/NativeWorld/Scenarios/Orbit.scn",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "Tests/LandingSoundPlayback.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0f218239edfb9ea407451df1fd38a624094b993a5d3f66482832d3e522e200ce"
+    },
+    {
+      "path": "Tests/LandingSounds.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6b2eac4a570dc7404b407e47883dc7b68399167703676ea65be165303b3a28f0"
+    },
+    {
+      "path": "Tests/LocalLights.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "818268fa70929731e24606f1f2cbb8bba3a20d9c18e7ffee679a0f811192a104"
+    },
+    {
+      "path": "Tests/MeshNormals.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "da7e5b132ab5925fc97a83609bd2e0fc2afe622737e268ba0131ab520c6759dd"
+    },
+    {
+      "path": "Tests/ModuleLifecycle.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b19592c7833c596b3111191f6ad55df0c24151edfcb417abd17dd39f8f1a85ba"
+    },
+    {
+      "path": "Tests/NasspAssets.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0b0be8248d7da94d8da2ab63781caf31a34cec944e54da401e63e2d463bedb62"
+    },
+    {
+      "path": "Tests/NasspBitmapResources.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9fb610c0a0065e8c6e29c9cb7951046df0cab30e12be797b592588c017c90141"
+    },
+    {
+      "path": "Tests/NasspJoystick.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "54437b4f7ffe6f88a4da48b5357e16fa191c7a02907190658abd66ff6f5f307a"
+    },
+    {
+      "path": "Tests/NasspJoystickFlight.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "01c3d0bed32cdefc401a0caee7222423c592bed31e7aa7896591e49fe8a7c2a2"
+    },
+    {
+      "path": "Tests/NasspMFD.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6c09957226e3dea52c695b19b7ffa929c8796c1ba0a9326a7f3cefe7a7d3050f"
+    },
+    {
+      "path": "Tests/NativeAudio.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6c357260c4b61a25bf43c43f21f1eeb0be4bac986627dd2fc3f308f24c9d4db2"
+    },
+    {
+      "path": "Tests/NativeAudioDevice.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "812a430c4a564c307e555f6faae953215f7acb06b15b2e53b60e6951bf8156ea"
+    },
+    {
+      "path": "Tests/NativeCLI.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "e39c525ac4bf8ac75aca84fa464989264e00c4e250f69600d8d505fd4581d901"
+    },
+    {
+      "path": "Tests/NativeCockpit.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0d933cea9068dc2677ea7752c80f0a82abcdd17b7dfabd18699ba5d2ef3cd04e"
+    },
+    {
+      "path": "Tests/NativeCore.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "955350dc9ee7a94183bd8b2e9d7796375053a7f5812647931bb130f873134b51"
+    },
+    {
+      "path": "Tests/NativeDataPreflight.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1907f48196e1133668202edcd30ad708d3334a98c1ed49080f593f1f077ed807"
+    },
+    {
+      "path": "Tests/NativeDemoLaunch.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "da8c48808492204aaf694419313c8a4b028e0e42ef3b5e9b6c031cb640726c9a"
+    },
+    {
+      "path": "Tests/NativeDescent.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "72d98cde4c7af64488d0fbbad11bf164e93e04d7bf6496fb830dff8d87dc2f0d"
+    },
+    {
+      "path": "Tests/NativeDescentVisual.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7f501502d760d6c7b76d9bef3742d6e7744cf2e1cb31c1951c4d978e43c3bb7e"
+    },
+    {
+      "path": "Tests/NativeFdai.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bccbef1ba6f61abb76482b1d3c927af2ff56ff50da49d76aa28b26429eac354a"
+    },
+    {
+      "path": "Tests/NativeJoystick.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5fd25938dc6e127789ac1e82ceb52c3011f7b959ed4127b68a2a913bf063629c"
+    },
+    {
+      "path": "Tests/NativeLM.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "981c1b5209377a023bfd95649de6b5895b8883638ac0999ad66daa2ed299e8fa"
+    },
+    {
+      "path": "Tests/NativeLMPersistence.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6ad227f4433d085cb800b44c2715545483b51a57779b224b265e76ec7affd3bb"
+    },
+    {
+      "path": "Tests/NativeLMResume.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6e320edb62cee832ec1b5272abc87f6578cc05f3b7013f294b25195351d4ef82"
+    },
+    {
+      "path": "Tests/NativeLiftoff.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ad36dda8dfad50b43e888f74214281caf6f0ea80cbb98dfcc10f372a5d40117c"
+    },
+    {
+      "path": "Tests/NativeLiftoffResume.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5523b8c76e461e47d62149a3ae4caf1ffb9e6e98cd6e35c2e7a9bdb94f023aee"
+    },
+    {
+      "path": "Tests/NativeLua.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "50b35a2457aa87730014b32ea79c451f0e6db1f7fcc5d6c943ae4f16beb50659"
+    },
+    {
+      "path": "Tests/NativeMCC.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f8f288b6d4bbce7a56fb8331089cbebf1323fe66f74f71a00ff21c3fbc495728"
+    },
+    {
+      "path": "Tests/NativeMFD.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c62df2e5f9ed70d5ed34ae8000bc9a489a6b31811664d17f3f4480dfdde0bd17"
+    },
+    {
+      "path": "Tests/NativeManualStepAlignment.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f7f56fab9e666ad4715a1252db59da7a34ba1160f2e69302b307c38cb047ed00"
+    },
+    {
+      "path": "Tests/NativeOriginalDescent.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6"
+    },
+    {
+      "path": "Tests/NativeOriginalInsertion.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b96d16a6dcd40cd621628d1e3d85a74a9a1aef2f0b7d747844455759781e73fc"
+    },
+    {
+      "path": "Tests/NativeOriginalLiftoff.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "90244710cf14791b4044996da541d872c0288f599839d4fbac39f70d37ad45ae"
+    },
+    {
+      "path": "Tests/NativePDIACAContract.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3ec872f2cfc13428bb270e2304fe4e65416899203f7b992006111afd42a7ef95"
+    },
+    {
+      "path": "Tests/NativePDIPersistence.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c104028f96655e93e25ad87d62d6caa67147f22e17b7c38cc6bfd7bc0577125b"
+    },
+    {
+      "path": "Tests/NativePDIPilot.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "212c56522386625c3969f82fffc6ae5e39d6910890dd9f800ae592742b346fbf"
+    },
+    {
+      "path": "Tests/NativePDIPilotContract.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "763015b40131cf651aa555a8605e6254ef8b1b3ebf75c7f45d4903844dab1d20"
+    },
+    {
+      "path": "Tests/NativePDIProtocol.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bb225159679e47bcacb4b25b6e0dc97ea099ff886f5f8b9be501d95bce6a7ba3"
+    },
+    {
+      "path": "Tests/NativePDIProtocol.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f47f9bc1fc9753ca4e47342851a6c75289fe5ebc690604041010a42f3b71ffb9"
+    },
+    {
+      "path": "Tests/NativePDIProtocolContract.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "dadc0c420baadc0260caf208c560de51af1960df32814bde28953e3e8001893a"
+    },
+    {
+      "path": "Tests/NativePDIUninterruptedACA.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8fb768245215e2b13a59e5df94f95853c88304642941bee4d8c31b2c04487d29"
+    },
+    {
+      "path": "Tests/NativePDIWindow.h",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b951a97292adb38ad61201661a389ed83a60e0c218e65d98174257ab9de82051"
+    },
+    {
+      "path": "Tests/NativePair.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b615ec4f9381a023fb5d2992a8b25d23abe45c1a059d2f060deedc59353faec4"
+    },
+    {
+      "path": "Tests/NativePairResume.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ee741d5e8ceea13cb688543a17b586b41499e27c2e8934d02d8292800f5601d6"
+    },
+    {
+      "path": "Tests/NativeParity.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "b018cf98cfbf1c740e0f102875e3bc41fd468aeb273a70ca879a80514c87ed93"
+    },
+    {
+      "path": "Tests/NativePause.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "10a8833a7cb556f552e1e41eb8da33273c445b565f8f4e36f88d766d073f71ed"
+    },
+    {
+      "path": "Tests/NativeRCS.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "cb25dcde02d9a9efff3d2e302cd6533f348722840ae2c149d4517729837db11a"
+    },
+    {
+      "path": "Tests/NativeResume.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "db532df135dff8fb8287a4a19ac3c4576a199185a55904fa744d82acd0026df8"
+    },
+    {
+      "path": "Tests/NativeSDL.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "2a8a9e97679a278fff7697564274fdc2b07db15ba2745f37868d6b8ecd690172"
+    },
+    {
+      "path": "Tests/NativeScenarioCompatibility.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "a2b35d1882fa77c33bdf870cf01c282c88ed284215a61dffbdc84b306d787eaf"
+    },
+    {
+      "path": "Tests/NativeSolar.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c1c609526f47f4657addc34f637c1646537b4d52124e97492ddc55dd5f9ff754"
+    },
+    {
+      "path": "Tests/NativeSound.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "81855b04f3819f514ce642cd5bde5ea8c54a087fe1427bba5e4ea4af57e065b2"
+    },
+    {
+      "path": "Tests/NativeStartupPause.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "affc9d4b5242c6a85553314351c97cc85c43ad79dc337f37b42f9d4d4b187fd3"
+    },
+    {
+      "path": "Tests/NativeStartupPause.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5b1bee53475860dc74a63a12bef3e91f5bca7c56669c550645762e62532e79eb"
+    },
+    {
+      "path": "Tests/NativeUI.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c45db46e3d0c68436fd5149973411e7e23899b6cb5781ba57967c0c3cb6de929"
+    },
+    {
+      "path": "Tests/NativeVesim.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bcf5ea31c66a8058ce0e0aa4593e5166f1649c0d66f16b695775612d91886d6c"
+    },
+    {
+      "path": "Tests/NativeViews.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "94990b5893eafa9f83501dc3a700d9218d5db5d9ac044bc7ce466503678e75ee"
+    },
+    {
+      "path": "Tests/NativeViews.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f74955d369d9ddb041ac88b278d8ec56a1184aede7ddd21111c38d7e468c2ba3"
+    },
+    {
+      "path": "Tests/NativeWgpu.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6736b39a4defcddf3e79f76ad13addb547bc92a757c7605d7b1689b08935fdcf"
+    },
+    {
+      "path": "Tests/NativeWorld.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f93de4c0580bd098bec4564165c3003405d363a9c06e93a2a98d5bc5e30bd2db"
+    },
+    {
+      "path": "Tests/NativeXPointer.h",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "02f05f957040e0e5203a4377226ad0da65e86d68a481b7c60c5c4f5cc6370445"
+    },
+    {
+      "path": "Tests/OrbiterUpstream.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "df1aaae70f31d4cc2070d366857a43f34304c36aea723f55c496ec7df314ebdd"
+    },
+    {
+      "path": "Tests/PanelSDKMath.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0ec4a5aa327ccd75fa414c636ed12bed4b3a47ba367f93b5acee9647432cebb9"
+    },
+    {
+      "path": "Tests/ParticleSimulation.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "10bf79fb435d0c3d93eadd859e045e129f61b3c1f37f0d58e0b31475c6e879ee"
+    },
+    {
+      "path": "Tests/PortableSDK.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "e98fd6a46124e6b07aafe075b184f33df24652616e95eb13221b2988b1bb81a2"
+    },
+    {
+      "path": "Tests/RealtimeSteps.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3384a641e20ec6b9754dd4f174b3188db16face723de10bded2ebfaee9f4fc2a"
+    },
+    {
+      "path": "Tests/ScenarioState.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f9342b702515bfb2351c66db75151d70956a4b01f550f071083716292a2e4a28"
+    },
+    {
+      "path": "Tests/StarCatalog.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "01fb77c77c2b8fdd3645ff2eb2d74d89e8ca994f497d996e7f9bac6fbcc62e86"
+    },
+    {
+      "path": "Tests/SunOcclusion.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f1adc995b389cddad3e70288b7ceb1907a2d9939cd2239bd956eaecd92ded505"
+    },
+    {
+      "path": "Tests/TerrainContact.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c6573e34cbc8377fccbe1325c2afb3af8cd67ab6700e256e18d868c67c015c44"
+    },
+    {
+      "path": "Tests/TerrainTextureBorder.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "903afaedb094199c1ea5a331ee31aa27453dc293d378bc6b24811cc70da238e3"
+    },
+    {
+      "path": "Tests/TerrainTextures.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "cd6e858761d3eb8155457608735e70ae8b41a460dfebc34ae48bb88c39d0d371"
+    },
+    {
+      "path": "Tests/TileArchive.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "328e574d74882ccb82ea61f42ea908a5b8788540ffa555af381d0cf9d5b09e27"
+    },
+    {
+      "path": "Tests/WgpuClient.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "24f51c87b1ddb990e2d6ed9cc994166e49c4dcd4ee900a2c997cdcd4f9cb31e1"
+    },
+    {
+      "path": "Tests/WgpuCockpit.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "dd5ee809b4bff4352ca8335813df509a0a76c56b59a3817db5e24d50f649d851"
+    },
+    {
+      "path": "Tests/WgpuDDS.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5b288dceefb82492831da44f8adbaa1dc169dbf7a3385ad05c698caf75b48292"
+    },
+    {
+      "path": "Tests/WgpuImGui.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "cf3436e4867efc51c64bccda688cee4d30f3b7e88831cb63cd836edafe57a0dc"
+    },
+    {
+      "path": "Tests/WgpuMesh.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "2d8b174f92aa545cc2a323e214d439191b085a1c216af9181f253e44afbec332"
+    },
+    {
+      "path": "Tests/WgpuPresent.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d179aabf28008b8182bbb99d0b75ea79f6a910cb12e0006b7c9fcf77a86307e4"
+    },
+    {
+      "path": "Tests/WgpuStars.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "0d1783f41112c8c56ff3a6a8048fbf0747e3a877747a5175f74cb798df2cbe70"
+    },
+    {
+      "path": "Tests/WgpuText.cpp",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "cd1ef48ab4a0512002289dbfd05453f1ef28d4bb59c356e723ba4dffa8c3040f"
+    },
+    {
+      "path": "Utils/plsplit/DxTex.exe",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "308cc94ccbab9a059c4599a82962dc91362534c480d47410f71c849a7db7e164",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/libpng/bin/libpng16.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "8a082a20f5f4182079531137286a47aff436c4cca2d63b7925355f3c82e601db",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/libpng/lib/libpng16.lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "ab45b5882f7efe10d70b3a4e4f10448809cbde437f67e3881a8511343c6d7188",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/libpng/lib/libpng16_static.lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "c7c9ef74f409a110199fac3bbdb43ffc5352a2d069ff7b875652cb99d67961ec",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/zlib/bin/zlib1.dll",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "80beb03e35ee6b169527b45604c9406895e56d9f8170828b9bbc07f8e08f50ae",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/zlib/bin/zlib1.pdb",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "511cb35ef741cebc4d2cb96d3826e053b241c3b0e9fca6e27a6ef85508bad7c7",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/zlib/lib/zdll.lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "e655917089e741b2ab1b4130cc68aad6542b01599aaac91bb9cc7b12e933654f",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/zlib/lib/zlib.lib",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "aff9a32b48e812dc5f8b7491b5d1d340251ef8cf03c6af8fc5bc9ce322c868f4",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "Utils/tileedit/qt/extern/zlib/lib/zlib.pdb",
+      "group": "upstream-omissions",
+      "status": "deleted",
+      "upstream_lf_sha256": "71b17d6b21dad6008b0e134ef8a0fb9869ca319ad5ea93962071aaf080ea0721",
+      "native_lf_sha256": null
+    },
+    {
+      "path": "cmake/NasspResources.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3f376bb25136ce26af6e2c832d5c96fa4060f9b325212d30f866d5cfb3b1f3b2"
+    },
+    {
+      "path": "cmake/NativeAudio.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "3cd88d2abb86611ea9c05c90f8244f14ec3b8af672224779b3c56f8d8373dfdf"
+    },
+    {
+      "path": "cmake/NativeCelbody.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bedbdb895caebfa08c127cc5fb0c7d6991a2064254809692e99c1d70f350d271"
+    },
+    {
+      "path": "cmake/NativeImGui.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "247cc948f98978afc6bc3e1e1619660d3d63bfb4af6b4bc36af236ee71b61724"
+    },
+    {
+      "path": "cmake/NativeImage.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d905f6d5b967ac93eefc9fa71cb0ee4c99a5704b29f8aa6193a42e17814fb866"
+    },
+    {
+      "path": "cmake/NativeMissionCelbody.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "05f83b1e9225477c2500c6666aa9d6fcf37b644d4ef34f4d57783f275201f52b"
+    },
+    {
+      "path": "cmake/NativeMissionModules.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8ab2ffb07f3f84e48451ebeaa9d18e49f3417293457cc1ba4fb0b34dfca940c1"
+    },
+    {
+      "path": "cmake/NativeNassp.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "5737712f608c0b4cf6e5115cb53a67fc675dd7806b5da6049c581ace1c1b9be1"
+    },
+    {
+      "path": "cmake/NativeNasspManifest.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "00acbf39ac8056658bbde282d83f5a54a716268eb248f58e9b3c5991e68e11b9"
+    },
+    {
+      "path": "cmake/NativeSDL.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "6c4e7419a4a085a22dd9eed2f942aaa936ac6eb9b51782ec970915ca2434a795"
+    },
+    {
+      "path": "cmake/NativeWgpu.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "130c4e1235840a3e92604ecf53d8314fa4de82cee36aae95d57531ed80507ac5"
+    },
+    {
+      "path": "cmake/NativeWorld.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "1fa1679c623c14ead6d8a7c10f584fa55c50cbbd91dc40eff436d76c496dde40"
+    },
+    {
+      "path": "cmake/PatchMiniaudio.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "bac1a32db17392a344b38934c16cf3d22f39ab6b9581e8f1b6f94c68217ec282"
+    },
+    {
+      "path": "cmake/PortableChecks.cmake",
+      "group": "build",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "ac13bed0f5ba6910c45137f25662bb7839e1e2e077a43b008be4708b56f70d54"
+    },
+    {
+      "path": "nix/flake.lock",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "7367a4488f79aff5bd92a6484f27e40eed1703c3b7f3ca0694ef29585d691a34"
+    },
+    {
+      "path": "nix/flake.nix",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9565b07749750a5a31c021f1584142bde18944f0ac7692a8964f3122e923b26e"
+    },
+    {
+      "path": "tools/analyze_terrain_trace.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "90dd46fc50e5d53464013ef154e198c5f1317b950d0900e8e90d3b49cfff14e4"
+    },
+    {
+      "path": "tools/bmp_normalize.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "51c5cb0216a4b9ee273994a2afebc6511d8ffc5095be8bb7699a4f3e44fb0df6"
+    },
+    {
+      "path": "tools/embed_native_fonts.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "55a3bf6abf30739f205ccb51b271cac4e8dbcac5be6c3c44eb6a3418687c008f"
+    },
+    {
+      "path": "tools/inspect_planet_texture.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "f76c39e2f970298d401ebb547ad924a2a5672c74810ca0fe631b20cae06a5993"
+    },
+    {
+      "path": "tools/nassp_agc_pending_state_probe.c",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "54e8e8aae6a4c335d757920eebac3b471770ef986807764a2df845e625fff3a2"
+    },
+    {
+      "path": "tools/nassp_bitmap_resources.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "fb514c354e36360b7ce5dd4ea8019cf0fc3ba6c9e1866a139ece18e14f31433f"
+    },
+    {
+      "path": "tools/nassp_demo.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "202d54e3ba83b1ea51b584e6dd4dd29c23820645e27cf0eda4b575af87ddffc5"
+    },
+    {
+      "path": "tools/nassp_pdi_window.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "562eb0303c5f37de209c6555f160b9c917204f4de8ea873459455d12d1f0857a"
+    },
+    {
+      "path": "tools/nassp_state_persistence.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d3d3b8fa5d3f4c3a9459aa5e47d58626e4dcf24202ea9c728b3861598d8879b8"
+    },
+    {
+      "path": "tools/nassp_upstream.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d7aea1b7b3b13ad1d1fc408f6e6bb9de39348d148ce199ba496672c62d24be69"
+    },
+    {
+      "path": "tools/orbiter_upstream.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "8cb5a331b0b2077450ccab991f68c0cc38199e747226ce456bd063a58add7206"
+    },
+    {
+      "path": "tools/stage_nassp_manual.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "610db29a4ae65f47b5b51385081effb89694e4aaeba1cd555fa979b90ee95d87"
+    },
+    {
+      "path": "tools/stage_nassp_mission.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "d4819ca3e6fd3dff6b04ec6afcfa4ee5b8e528227e33b6f7ea5f65bd2f5aa3c4"
+    },
+    {
+      "path": "tools/stage_nassp_smoke.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "27d7975bc3c66ede65eb298af84e2cf9bfde9729b692d1318d1167276a0e9adc"
+    }
+  ]
+}

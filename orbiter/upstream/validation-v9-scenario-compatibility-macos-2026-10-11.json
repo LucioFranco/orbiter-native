@@ -1,0 +1,677 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T21:34:24.424869+00:00",
+  "baseline_native_commit": "938b10af6252f58d6575eedf1b4ab86477ea9ce7",
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "scope": "One demonstrated legacy recorder-loader defect; classify bounded clock/meter/IMU differences. No equations, mission source, force code or acceptance tolerances changed.",
+  "gpu_used": false,
+  "vm_operated": false,
+  "push_or_hosted_ci": false,
+  "source_change": {
+    "path": "Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp",
+    "function": "DSE::LoadState",
+    "line": 5696,
+    "patch_group": "07-compiler-portability",
+    "before": "int inttemp[9];",
+    "after": "int inttemp[9] = {};",
+    "upstream_defect": true,
+    "reason": "Only three assignments on the legacy record; eight relay ints previously uninitialized. Defaults equal existing constructor false state. No DSE equations or save-format changes.",
+    "removal_path": "Adopt equivalent upstream initialization and keep the real-loader compatibility gate"
+  },
+  "red_regression": {
+    "gpu": false,
+    "vm_operation": false,
+    "reference": {
+      "schema": 1,
+      "orbiter_commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "nassp_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "provenance": "Unmodified stock Windows x64 releases, fixed 1/60 s: initial step then 300 neutral steps; selected raw records only. Full originals retained in the 938b10a evidence and verified backup.",
+      "saves": {
+        "original": {
+          "raw_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+          "mjd": "MJD 40422.8317621738",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368744.392486901314",
+              "DATARECORDER": "15.000000 15.000000 0.000000 5 368744.392487",
+              "DCVoltMeter": "28.010201 28.010257"
+            },
+            "Eagle": {
+              "MISSNTIME": "368744.423737"
+            }
+          }
+        },
+        "baseline": {
+          "raw_sha256": "099239c29962384e395ef7e2f508d77d0ecc81ada387e10dbf314d359ef5a861",
+          "mjd": "MJD 40422.8317623667",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368744.422916666663",
+              "DATARECORDER": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+              "DCVoltMeter": "28.010201 28.010257"
+            },
+            "Eagle": {
+              "MISSNTIME": "368744.454167"
+            }
+          }
+        },
+        "coast": {
+          "raw_sha256": "1a176325ad4bcfb6ec4f9bfa83f3ce5c8f273b5437d787d113814fc77c5f7b0b",
+          "mjd": "MJD 40422.8318202371",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368749.422916665499",
+              "DATARECORDER": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+              "DCVoltMeter": "27.675513 27.675133"
+            },
+            "Eagle": {
+              "MISSNTIME": "368749.454167"
+            }
+          }
+        }
+      },
+      "config_sha256": "77dfbd191b7a228ea8b4edecc6e0efba9a3caa3022031c5d0ac0dcb7a7f122bb"
+    },
+    "probe_sha256": "94ffc7f57195ffe70d66231dc2e34c6e68b2d04f40f075773f5f7f83f4d2f947",
+    "clock_reproducer": {
+      "Columbia": {
+        "source_token": "368744.392486901314",
+        "upstream_float_s": 368744.40625,
+        "native_double_s": 368744.3924869013,
+        "upstream_minus_native_s": 0.013763098686467856
+      },
+      "Eagle": {
+        "source_token": "368744.423737",
+        "upstream_float_s": 368744.4375,
+        "native_double_s": 368744.423737,
+        "upstream_minus_native_s": 0.013763000024482608
+      }
+    },
+    "raw_evidence_directory": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/red/run-fuw778un",
+    "checks": {
+      "zero_step_clocks_preserved": true,
+      "recorder_loaded": {
+        "actual": "15.000000 15.000000 0 1 1 1 1 1 1 1 1",
+        "expected": "15.000000 15.000000 0 0 0 0 0 0 0 0 0",
+        "equal": false
+      },
+      "recorder_baseline": {
+        "actual": "14.500000 15.241667 0 1 1 0 0 1 1 0 0",
+        "expected": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+        "equal": false
+      },
+      "recorder_coast": {
+        "actual": "3.750000 35.829167 0 1 1 0 0 1 1 0 0",
+        "expected": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+        "equal": false
+      }
+    },
+    "passed": false,
+    "error": "legacy DSE must use constructor defaults for missing relays and match Windows coast"
+  },
+  "green_regression": {
+    "gpu": false,
+    "vm_operation": false,
+    "reference": {
+      "schema": 1,
+      "orbiter_commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "nassp_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "provenance": "Unmodified stock Windows x64 releases, fixed 1/60 s: initial step then 300 neutral steps; selected raw records only. Full originals retained in the 938b10a evidence and verified backup.",
+      "saves": {
+        "original": {
+          "raw_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+          "mjd": "MJD 40422.8317621738",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368744.392486901314",
+              "DATARECORDER": "15.000000 15.000000 0.000000 5 368744.392487",
+              "DCVoltMeter": "28.010201 28.010257"
+            },
+            "Eagle": {
+              "MISSNTIME": "368744.423737"
+            }
+          }
+        },
+        "baseline": {
+          "raw_sha256": "099239c29962384e395ef7e2f508d77d0ecc81ada387e10dbf314d359ef5a861",
+          "mjd": "MJD 40422.8317623667",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368744.422916666663",
+              "DATARECORDER": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+              "DCVoltMeter": "28.010201 28.010257"
+            },
+            "Eagle": {
+              "MISSNTIME": "368744.454167"
+            }
+          }
+        },
+        "coast": {
+          "raw_sha256": "1a176325ad4bcfb6ec4f9bfa83f3ce5c8f273b5437d787d113814fc77c5f7b0b",
+          "mjd": "MJD 40422.8318202371",
+          "vessels": {
+            "Columbia": {
+              "MISSNTIME": "368749.422916665499",
+              "DATARECORDER": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+              "DCVoltMeter": "27.675513 27.675133"
+            },
+            "Eagle": {
+              "MISSNTIME": "368749.454167"
+            }
+          }
+        }
+      },
+      "config_sha256": "77dfbd191b7a228ea8b4edecc6e0efba9a3caa3022031c5d0ac0dcb7a7f122bb"
+    },
+    "probe_sha256": "94ffc7f57195ffe70d66231dc2e34c6e68b2d04f40f075773f5f7f83f4d2f947",
+    "clock_reproducer": {
+      "Columbia": {
+        "source_token": "368744.392486901314",
+        "upstream_float_s": 368744.40625,
+        "native_double_s": 368744.3924869013,
+        "upstream_minus_native_s": 0.013763098686467856
+      },
+      "Eagle": {
+        "source_token": "368744.423737",
+        "upstream_float_s": 368744.4375,
+        "native_double_s": 368744.423737,
+        "upstream_minus_native_s": 0.013763000024482608
+      }
+    },
+    "raw_evidence_directory": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/green/run-32d55yn5",
+    "checks": {
+      "zero_step_clocks_preserved": true,
+      "recorder_loaded": {
+        "actual": "15.000000 15.000000 0 0 0 0 0 0 0 0 0",
+        "expected": "15.000000 15.000000 0 0 0 0 0 0 0 0 0",
+        "equal": true
+      },
+      "recorder_baseline": {
+        "actual": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+        "expected": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+        "equal": true
+      },
+      "recorder_coast": {
+        "actual": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+        "expected": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+        "equal": true
+      },
+      "modern_recorder_retained": true,
+      "reload_clocks_retained": true
+    },
+    "passed": true
+  },
+  "clock_decision": {
+    "retained_existing_direct_double_parser": true,
+    "author_original_rationale_available": false,
+    "current_evidence": "Existing PDI protocol/pilot require zero-step saved-clock retention; the focused C scanf reproducer proves float quantization, and actual native initial/reloaded clocks preserve saved precision.",
+    "patch_group": "02-mission-integration",
+    "conversion": {
+      "Columbia": {
+        "source_token": "368744.392486901314",
+        "upstream_float_s": 368744.40625,
+        "native_double_s": 368744.3924869013,
+        "upstream_minus_native_s": 0.013763098686467856
+      },
+      "Eagle": {
+        "source_token": "368744.423737",
+        "upstream_float_s": 368744.4375,
+        "native_double_s": 368744.423737,
+        "upstream_minus_native_s": 0.013763000024482608
+      }
+    },
+    "stock_windows_elapsed_matches": true,
+    "absolute_clock_parity": false,
+    "equations_changed": false
+  },
+  "instrument_classification": {
+    "source_functions_equal_pinned_upstream": true,
+    "columbia_differing_meters": 35,
+    "columbia_differing_meters_held_at_original": 33,
+    "changing_headless_meters": [
+      "SuitComprDeltaPMeter",
+      "EcsRadTempPrimOutletMeter"
+    ],
+    "changing_headless_poll": "Saturn::GetDisplayedAtmosStatus at src_csm/satsystems.cpp:3411",
+    "render_callback": "MeterSwitch::GetDisplayValue at src_sys/toggleswitch.cpp:3929 updates QueryValue and filter when polled; DrawSwitch/VC animation request it",
+    "columbia_values": [
+      {
+        "key": "HighGainAntennaYawMeter",
+        "windows": "354.826083 354.838199",
+        "native": "354.911497 354.923723",
+        "source": "354.911497 354.923723",
+        "native_held_source": true
+      },
+      {
+        "key": "HighGainAntennaStrengthMeter",
+        "windows": "15.363981 15.156760",
+        "native": "13.692214 13.459789",
+        "source": "13.692214 13.459789",
+        "native_held_source": true
+      },
+      {
+        "key": "HighGainAntennaPitchMeter",
+        "windows": "5.016345 5.002203",
+        "native": "4.917351 4.903162",
+        "source": "4.917351 4.903162",
+        "native_held_source": true
+      },
+      {
+        "key": "H2oQuantityMeter",
+        "windows": "0.888435 0.888435",
+        "native": "0.888429 0.888429",
+        "source": "0.888429 0.888429",
+        "native_held_source": true
+      },
+      {
+        "key": "AccumQuantityMeter",
+        "windows": "0.520549 0.520540",
+        "native": "0.520575 0.520571",
+        "source": "0.520575 0.520571",
+        "native_held_source": true
+      },
+      {
+        "key": "GlycolDischPressMeter",
+        "windows": "36.922862 36.922819",
+        "native": "36.913391 36.914396",
+        "source": "36.913391 36.914396",
+        "native_held_source": true
+      },
+      {
+        "key": "GlyEvapSteamPressMeter",
+        "windows": "0.131502 0.131249",
+        "native": "0.131027 0.130905",
+        "source": "0.131027 0.130905",
+        "native_held_source": true
+      },
+      {
+        "key": "GlyEvapTempOutletMeter",
+        "windows": "40.730632 40.729107",
+        "native": "40.726077 40.729404",
+        "source": "40.726077 40.729404",
+        "native_held_source": true
+      },
+      {
+        "key": "EcsRadTempSecOutletMeter",
+        "windows": "56.171803 56.171878",
+        "native": "56.171836 56.171831",
+        "source": "56.171836 56.171831",
+        "native_held_source": true
+      },
+      {
+        "key": "EcsRadTempPrimOutletMeter",
+        "windows": "48.887085 48.889297",
+        "native": "48.887454 48.889310",
+        "source": "48.900351 48.902551",
+        "native_held_source": false
+      },
+      {
+        "key": "EcsRadTempInletMeter",
+        "windows": "88.859032 88.861161",
+        "native": "88.877097 88.879088",
+        "source": "88.877097 88.879088",
+        "native_held_source": true
+      },
+      {
+        "key": "SuitCabinDeltaPMeter",
+        "windows": "2.456973 2.452626",
+        "native": "2.453268 2.453877",
+        "source": "2.453268 2.453877",
+        "native_held_source": true
+      },
+      {
+        "key": "SuitComprDeltaPMeter",
+        "windows": "0.273104 0.273164",
+        "native": "0.273043 0.273268",
+        "source": "0.273132 0.273147",
+        "native_held_source": false
+      },
+      {
+        "key": "PartPressCO2Meter",
+        "windows": "1.083295 1.083276",
+        "native": "1.083274 1.083281",
+        "source": "1.083274 1.083281",
+        "native_held_source": true
+      },
+      {
+        "key": "CabinPressMeter",
+        "windows": "5.003532 5.003527",
+        "native": "5.003432 5.003427",
+        "source": "5.003432 5.003427",
+        "native_held_source": true
+      },
+      {
+        "key": "SuitPressMeter",
+        "windows": "5.365398 5.365300",
+        "native": "5.365192 5.365223",
+        "source": "5.365192 5.365223",
+        "native_held_source": true
+      },
+      {
+        "key": "CabinTempMeter",
+        "windows": "69.026742 69.025471",
+        "native": "69.001332 69.000008",
+        "source": "69.001332 69.000008",
+        "native_held_source": true
+      },
+      {
+        "key": "SuitTempMeter",
+        "windows": "51.531373 51.522651",
+        "native": "51.524026 51.527467",
+        "source": "51.524026 51.527467",
+        "native_held_source": true
+      },
+      {
+        "key": "FuelCellCondenserTempMeter",
+        "windows": "1.017660 1.017540",
+        "native": "1.015088 1.015078",
+        "source": "1.015088 1.015078",
+        "native_held_source": true
+      },
+      {
+        "key": "FuelCellTempMeter",
+        "windows": "2.582491 2.582427",
+        "native": "2.581170 2.581162",
+        "source": "2.581170 2.581162",
+        "native_held_source": true
+      },
+      {
+        "key": "FuelCellO2FlowMeter",
+        "windows": "2.872422 2.872287",
+        "native": "2.663900 2.663916",
+        "source": "2.663900 2.663916",
+        "native_held_source": true
+      },
+      {
+        "key": "FuelCellH2FlowMeter",
+        "windows": "2.869914 2.869800",
+        "native": "2.647113 2.647137",
+        "source": "2.647113 2.647137",
+        "native_held_source": true
+      },
+      {
+        "key": "DCVoltMeter",
+        "windows": "27.675513 27.675133",
+        "native": "28.010201 28.010257",
+        "source": "28.010201 28.010257",
+        "native_held_source": true
+      },
+      {
+        "key": "O2Quantity2Meter",
+        "windows": "3.421141 3.421172",
+        "native": "3.421261 3.421293",
+        "source": "3.421261 3.421293",
+        "native_held_source": true
+      },
+      {
+        "key": "O2Quantity1Meter",
+        "windows": "3.426158 3.426188",
+        "native": "3.426274 3.426304",
+        "source": "3.426274 3.426304",
+        "native_held_source": true
+      },
+      {
+        "key": "H2Quantity2Meter",
+        "windows": "3.248648 3.248656",
+        "native": "3.248679 3.248686",
+        "source": "3.248679 3.248686",
+        "native_held_source": true
+      },
+      {
+        "key": "H2Quantity1Meter",
+        "windows": "3.248648 3.248656",
+        "native": "3.248679 3.248687",
+        "source": "3.248679 3.248687",
+        "native_held_source": true
+      },
+      {
+        "key": "O2Pressure2Meter",
+        "windows": "3.139717 3.145952",
+        "native": "3.163548 3.169928",
+        "source": "3.163548 3.169928",
+        "native_held_source": true
+      },
+      {
+        "key": "O2Pressure1Meter",
+        "windows": "2.739719 2.739425",
+        "native": "2.738659 2.738427",
+        "source": "2.738659 2.738427",
+        "native_held_source": true
+      },
+      {
+        "key": "H2Pressure2Meter",
+        "windows": "230.793101 230.674987",
+        "native": "230.344403 230.224311",
+        "source": "230.344403 230.224311",
+        "native_held_source": true
+      },
+      {
+        "key": "H2Pressure1Meter",
+        "windows": "230.793101 230.674987",
+        "native": "230.344403 230.224311",
+        "source": "230.344403 230.224311",
+        "native_held_source": true
+      },
+      {
+        "key": "SPSTempMeter",
+        "windows": "1.415286 1.415277",
+        "native": "1.415117 1.415109",
+        "source": "1.415117 1.415109",
+        "native_held_source": true
+      },
+      {
+        "key": "RCSTempMeter",
+        "windows": "115.147589 115.148788",
+        "native": "115.171651 115.172896",
+        "source": "115.171651 115.172896",
+        "native_held_source": true
+      },
+      {
+        "key": "RCSHeliumPressMeter",
+        "windows": "3598.005916 3598.010166",
+        "native": "3598.091201 3598.095614",
+        "source": "3598.091201 3598.095614",
+        "native_held_source": true
+      },
+      {
+        "key": "RCSQuantityMeter",
+        "windows": "0.766288 0.766289",
+        "native": "0.766297 0.766297",
+        "source": "0.766297 0.766297",
+        "native_held_source": true
+      }
+    ],
+    "eagle_helium_meter": {
+      "source": "1271.254011 1271.254011",
+      "native_coast": "1271.254011 1271.254011",
+      "windows_coast": "1271.266252 1271.266252",
+      "native_held_source": true,
+      "display_call_site": "src_lm/lemswitches.cpp:1971"
+    },
+    "matched_graphical_callback_execution_verified": false,
+    "filter_or_system_equations_changed": false
+  },
+  "source_function_audit": [
+    {
+      "path": "src_sys/toggleswitch.cpp",
+      "signature": "double MeterSwitch::GetDisplayValue()",
+      "upstream_line": 3929,
+      "native_line": 3929,
+      "upstream_lf_sha256": "679a55f1272f40c3b4f3d74f5b9e67ad0c4470b4ded191a218c4af85420034d9",
+      "native_lf_sha256": "679a55f1272f40c3b4f3d74f5b9e67ad0c4470b4ded191a218c4af85420034d9",
+      "reference_938b10a_equal_upstream": true,
+      "current_equal_upstream": true
+    },
+    {
+      "path": "src_csm/satsystems.cpp",
+      "signature": "void Saturn::GetDisplayedAtmosStatus(",
+      "upstream_line": 3379,
+      "native_line": 3411,
+      "upstream_lf_sha256": "e020bbd734c51122bba2ae360bd648cadc4f180b04af40bc23d89b14f8257b15",
+      "native_lf_sha256": "e020bbd734c51122bba2ae360bd648cadc4f180b04af40bc23d89b14f8257b15",
+      "reference_938b10a_equal_upstream": true,
+      "current_equal_upstream": true
+    },
+    {
+      "path": "src_sys/imu.cpp",
+      "signature": "void IMU::Timestep(",
+      "upstream_line": 367,
+      "native_line": 367,
+      "upstream_lf_sha256": "f01c373ab88dd8a08bcb8bc861656663aa5863f57f0c7000335605dcff9ececd",
+      "native_lf_sha256": "f01c373ab88dd8a08bcb8bc861656663aa5863f57f0c7000335605dcff9ececd",
+      "reference_938b10a_equal_upstream": true,
+      "current_equal_upstream": true
+    },
+    {
+      "path": "src_csm/csm_telecom.cpp",
+      "signature": "void DSE::LoadState(",
+      "upstream_line": 5677,
+      "native_line": 5690,
+      "upstream_lf_sha256": "7b700caf3a191bb2b55a51aaf212bbc30fd4d53b37b083047f0847575f5b3609",
+      "native_lf_sha256": "a7a9182d32463b3386eacfcbe38063190dbf72a57d76b85ef60ba46a060ab1c3",
+      "reference_938b10a_equal_upstream": true,
+      "current_equal_upstream": false
+    }
+  ],
+  "imu": {
+    "largest_lm_remainder_difference_pulse": 1.7e-10,
+    "largest_csm_remainder_difference_pulse": 6.3e-11,
+    "lm_pulse_m_s": 0.01,
+    "csm_pulse_m_s": 0.0585,
+    "equivalent_lm_residual_difference_m_s": 1.7e-12,
+    "equivalent_csm_residual_difference_m_s": 3.6855e-12,
+    "meaning": "Dimensional conversion of the five-second observed residuals, not acceptance limits. IMU timestep/pulse equations equal upstream. Exact arithmetic source not isolated.",
+    "integer_agc_records_equal_at_baseline_and_coast": true,
+    "new_tolerance_chosen": false,
+    "later_guidance_parity_verified": false
+  },
+  "validation": {
+    "full_build_passed": true,
+    "full_build_log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/build-final.log",
+    "ctest_registered_count": 100,
+    "complete_suite_rerun": false,
+    "focused_ctest": {
+      "passed": [
+        "native_world",
+        "native_data_preflight",
+        "native_lm_persistence",
+        "native_scenario_compatibility"
+      ],
+      "log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/ctest-focused.log"
+    },
+    "headless_mission_ctest": {
+      "passed": [
+        "nassp_stage_solar",
+        "native_nassp_resume",
+        "nassp_stage_original_descent",
+        "native_original_descent",
+        "nassp_stage_pdi_pilot"
+      ],
+      "failed": [
+        "native_pdi_pilot"
+      ],
+      "log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/ctest-mission.log",
+      "known_failure_waived": false
+    },
+    "inventory_regressions": {
+      "passed_cases": 2,
+      "log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility/inventory-regression.log"
+    },
+    "patch_reconstruction": {
+      "patches": [
+        {
+          "patch": "02-mission-integration.patch",
+          "sha256": "bc392528d4b8f8aec83303edddf14fc9616791c8fffd55ad8421767ee08f44c8",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "03-input.patch",
+          "sha256": "67f35647e6d4594612687d87c98a32f90c692cdc7947e93ad335300e58ce47ad",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "04-audio.patch",
+          "sha256": "6006760eaf1bd17d7ac8bb17d87b079ce554e17a53be60f975263bfa522d715e",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "05-graphics.patch",
+          "sha256": "204a54cecf650ceeeabc35387c885fabfbd2cba2e84585e5019db1f0c3b40dd2",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "06-guidance-portability.patch",
+          "sha256": "fd2bb99f8dafd93cdb87c676e35283da392ad05fce5aa27ddaae4b3b2a421005",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "07-compiler-portability.patch",
+          "sha256": "65d09bf7d2ed3de1789df5963be06b1c569c1ca1e2d75f1defbb1dae4d40f76d",
+          "check_and_apply_passed": true
+        },
+        {
+          "patch": "08-state-persistence.patch",
+          "sha256": "641eb536350d4650bfc87044f1d89558c455197b5f43d6a8793011df93edf42a",
+          "check_and_apply_passed": true
+        }
+      ],
+      "inventoried_paths_verified": 92,
+      "scope": "Canonical git blobs for every inventoried path; apply all eight overlays and verify every normalized adapted hash",
+      "checkout_newline_note": "Pristine working checkout has autocrlf CRLF bytes while canonical blobs and patches use LF; first working-byte attempt failed before using canonical blobs. Original source checkout unchanged."
+    },
+    "binaries": {
+      "previous_binaries_checked": 41,
+      "changed": [
+        {
+          "path": "runtime/Modules/ProjectApollo/Saturn5.dylib",
+          "previous_sha256": "e24fb7f493b56bfbd90250343920fab7ef054082d9da53589fe34f097df121c8",
+          "sha256": "e321d6c151d3c37525340dcfadc7f7440a8604daa38d174eafa024509f04718b",
+          "bytes": 3079984
+        }
+      ]
+    }
+  },
+  "shared_agc_resume_failure": {
+    "saved_cycle_counter": 124205511,
+    "reloaded_cycle_counter": 0,
+    "cycle_counter_retained": false,
+    "cdu_fifo_snapshot_supported": false,
+    "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in module-static state shared by same-class AGCs"
+  },
+  "remaining_differences": [
+    "Thermal/tank/battery values remain unclassified; complete raw diffs retained at reference.",
+    "Native MASSCG_STATE/THRUSTCOMMAND/NATIVE_LANDING_AUDIO remain documented existing extra records.",
+    "Windows pulse/full-precision per-frame trace unavailable.",
+    "Physical input, exterior flight view/manual landing and matched graphical callbacks not verified in this phase."
+  ],
+  "reference_preservation": {
+    "artifacts_rehashed": 186,
+    "snapshot_artifacts_rehashed": 186,
+    "reference_bundle_rehashed": true,
+    "reference_bundle_sha256": "6b9ac0b0c51bdd4b083a71a39d76482fc0e5755e3b942d1176d3bbcc28a27e83",
+    "reference_backup_verification": "<PRIVATE_BACKUPS>/v9-parity-backup-verification-938b10a.json"
+  },
+  "engine_inventory": {
+    "differences": 317,
+    "unchanged": 4002,
+    "modified": 84,
+    "added": 225,
+    "deleted": 8
+  },
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility",
+  "new_regression_removal_paths": [
+    "Tests/NativeScenarioCompatibility.py",
+    "Tests/Fixtures/NativeScenarioCompatibility",
+    "cmake/PortableChecks.cmake registration",
+    "Specific raw-config attribute in .gitattributes; remove only with matching fixture removal"
+  ],
+  "harness_notes": [
+    "Initial ctypes scanf call crashed because arm64 variadic fixed arguments were unspecified; corrected before recorder red/green runs.",
+    "Expected source-hash preflight blocked the first configure after editing until the new loader hash was inventoried.",
+    "Direct exporter includes externally managed asset omissions; only the csm_telecom patch section was replaced and all eight overlays were reconstructed.",
+    "First source reconstruction used autocrlf working bytes and failed; canonical Git blobs apply every patch and match all 92 adapted hashes."
+  ]
+}

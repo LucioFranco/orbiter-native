@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "investigation_date_utc": "2026-10-10",
+  "starting_commit": "e01b5b2f5e232cbe36c5e494e4820221ca1b2148",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "scope": "Bounded Mac-only source/ownership investigation; no AGC/PCM implementation, no flight equations, ROM or supplied asset changes.",
+  "scope_decision": {
+    "fifo_only_patch": "Small and mechanically removable, but insufficient to establish faithful AGC/peripheral continuation.",
+    "complete_snapshot": "Requires coherent per-instance engine auxiliary state, wrapper epoch rebasing, PCM interrupt timing and atomic checkpoint ownership across LM/CSM. This exceeds a narrow FIFO serializer; broad implementation paused.",
+    "equation_fork_needed": "No equation changes indicated by this investigation. Ownership relocation changes existing same-class multi-vessel behavior and needs upstream-level regression coverage.",
+    "fallback": "Use original uninterrupted PDI through the validated source-chart radar incorporation and P64 handoff. Label saves archival only for faithful-resume purposes. Stop at the existing handoff; no resumed ACA or landing claims."
+  },
+  "verified_ownership": {
+    "cmake": "Separate agc_engine.c objects link into LEM.dylib and Saturn5.dylib; each dylib contains non-external CduFifos/CduChecker symbols.",
+    "module_symbols": {
+      "LEM": [
+        "0000000000233ed0 (__DATA,__bss) non-external _CduChecker",
+        "0000000000233888 (__DATA,__bss) non-external _CduFifos",
+        "00000000000d7ca8 (__TEXT,__text) external _UnprogrammedIncrement",
+        "00000000000d7fbc (__TEXT,__text) external _agc_engine"
+      ],
+      "Saturn5": [
+        "00000000002356e0 (__DATA,__bss) non-external _CduChecker",
+        "0000000000235098 (__DATA,__bss) non-external _CduFifos",
+        "0000000000185200 (__TEXT,__text) external _UnprogrammedIncrement",
+        "0000000000185514 (__TEXT,__text) external _agc_engine"
+      ]
+    },
+    "meaning": "The normal LM/CSM pair has separate module-local queues. Multiple AGCs of the same vessel module share the static queues and pulse accumulators. This corrects the earlier process-global wording.",
+    "probe": "Exact existing helper calls confirm an increment enqueued for A is serviced into B."
+  },
+  "state_contract": [
+    {
+      "component": "Existing CPU context",
+      "fields": "Erasable, InputChannel, wrapper OutputChannel, OutputChannel7/10, IndexValue, interrupt requests, CPU pending/delay/alarm/trap flags, NextZ, ScalerCounter, ChannelRoutineCount, WarningFilter, DskyChannel163",
+      "status": "Already serialized; retain unchanged with pinned ROM identity."
+    },
+    {
+      "component": "Per-AGC CDU FIFO ownership",
+      "fields": "CduFifos[3]: Ptr, Size, IntervalType, NextUpdate uint64, all Counts[128] packed 32-bit words; CduChecker",
+      "status": "Module-static; not serialized. Relocate into agc_t (or an owned per-instance state object), never a global map keyed by vessel load order."
+    },
+    {
+      "component": "FIFO clock",
+      "fields": "CycleCounter uint64, restored atomically with all FIFO state",
+      "status": "Saved but deliberately not loaded. Counter-only restoration is invalid."
+    },
+    {
+      "component": "Fine alignment pending output",
+      "fields": "GyroCount, OldChannel14, GyroTimer",
+      "status": "Module-static; not serialized; live default gyro burst path."
+    },
+    {
+      "component": "Coarse alignment pending output",
+      "fields": "CountCDUX, CountCDUY, CountCDUZ, ImuCduCount uint64, ImuChannel14",
+      "status": "Module/function-static; not serialized. Retain signed residual pulses and absolute burst phase with CycleCounter."
+    },
+    {
+      "component": "Existing agc_t display state",
+      "fields": "DskyTimer, DskyFlash, RestartLight",
+      "status": "Per-AGC already, but omitted by ApolloGuidance::SaveState/LoadState. Timer range below 81920, flash phase 0..3."
+    },
+    {
+      "component": "Wrapper CPU-to-simulation phase",
+      "fields": "LastCycled validity and fractional age relative to the snapshot simulation time",
+      "status": "Unsaved in both LEMcomputer and CSMcomputer. Rebase against the new simulation epoch, rather than storing/restoring raw absolute LastCycled. Existing zero sentinel requires care."
+    },
+    {
+      "component": "External DOWNRUPT phase",
+      "fields": "LM_PCM and CSM PCM last_update age, word_addr, frame_addr, frame_count, active bitrate/saved switch state; any pending internal buffers if not at an idle byte boundary",
+      "status": "Unsaved telemetry state generates actual AGC DOWNRUPT independently of engine DownruptTime. HBR frames have 128 bytes, 50 frames/s; LM interrupt emitted at word 0."
+    },
+    {
+      "component": "Inactive/derived state",
+      "fields": "DownruptTime/DownruptTimeValid, CheckParity/Parities, debug/socket globals, CduLog, TrapPIPA",
+      "status": "Engine DOWNRUPT creation/service are explicitly disabled for NASSP; PCM owns live timing. Parity state derives from unchanged ROM loading. Diagnostic/socket globals are outside the native demo contract; TrapPIPA stays zero in the live increment path. Do not claim these cause current two-count difference."
+    }
+  ],
+  "new_snapshot_loading_contract": [
+    "Version a complete extension within each original vessel AGC/PCM context; keep original legacy records. Stage parsed fields until the entire known version is valid, then restore CPU clock and pending work together.",
+    "For direct ring storage, validate exactly three FIFO records, 128 words per FIFO, Ptr in 0..127, Size in 0..128, IntervalType in 0..2, CduChecker in 0..2 and nonzero low 30-bit magnitude for active words. Preserve both high sign/rate bits with unsigned 32-bit wire encoding.",
+    "Use exact-width uint64 cycle/deadline representation. An overdue NextUpdate is legitimate pending work; do not force it to the future or discard it. Preserve original 13/13/14 and 213/213/214 scheduling and 128-entry overflow behavior.",
+    "Missing extension means legacy loading with a cold processor clock, queue and wrapper/PCM defaults; it remains loadable but cannot pass faithful-resume certification. Unknown, partial, duplicate or malformed extensions must not partially restore a counter and must fail the strict new-checkpoint capability check.",
+    "Take the per-instance CPU, auxiliary queues, wrapper timing and PCM phase at one completed frame boundary; quiesce/join any accelerated worker. Current cycle wrappers use agcCycleMutex, while guidance SaveState itself has no mutex guard.",
+    "Keep client pointers, mutexes, threads and ROM bytes outside the snapshot. Rebind client pointers on creation. Audit init/power-loss paths without introducing a new pulse-discard or hardware-reset policy.",
+    "Test two same-module AGCs plus the original LM/CSM scenario, repeated load order, independent construction/destruction, sign/rate switches, ring wrap/full queue, overdue deadlines, nonzero gyro/coarse residuals, worker checkpoint timing and older saves.",
+    "Require exact zero-step restoration and paired continued traces beyond the existing 31 samples; exercise at least two 1.28-second display periods, multiple 20ms DOWNRUPT frames and the 75ms coarse burst period. Require full pending-state equality separately from bounded SDK-decimal instrument observers."
+  ],
+  "fifo_probe": {
+    "source": "tools/nassp_agc_pending_state_probe.c",
+    "source_sha256": "54e8e8aae6a4c335d757920eebac3b471770ef986807764a2df845e625fff3a2",
+    "helper_service_cycles_per_trace": 1500,
+    "profiles": {
+      "baseline": [
+        "shared_fifo: pulse enqueued by AGC A consumed by AGC B (confirmed)",
+        "complete_private_fifo_snapshot: exact 1500-cycle trace matches (confirmed)",
+        "counter_only_snapshot: 1500-cycle trace differs (confirmed)",
+        "wrapped_full_fifo_snapshot: exact 1500-cycle trace matches (confirmed)"
+      ],
+      "candidate": [
+        "shared_fifo: pulse enqueued by AGC A consumed by AGC B (confirmed)",
+        "complete_private_fifo_snapshot: exact 1500-cycle trace matches (confirmed)",
+        "counter_only_snapshot: 1500-cycle trace differs (confirmed)",
+        "wrapped_full_fifo_snapshot: exact 1500-cycle trace matches (confirmed)"
+      ]
+    },
+    "limitations": "This reproduces private FIFO helper behavior with exact engine source and a manual in-memory copy. It does not implement file serialization, relocate state, run complete AGC/PCM physics or prove a faithful production resume.",
+    "compile_template": "/Library/Developer/CommandLineTools/usr/bin/clang -std=c11 -O1 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -Wl,-dead_strip -I <addon>/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC <orbiter>/tools/nassp_agc_pending_state_probe.c -o <output>",
+    "binary_sha256": {
+      "baseline": "1bc85a2a35b8d23bf9f5caa01bad84f8f884d1da50b24a69f6c07e7cae229956",
+      "candidate": "bf93485c047d8a969976537ef296ceab049c8fa35e728225f46acb703dc00968"
+    },
+    "log_sha256": {
+      "baseline": "d37fc90072e305742494bdebd00d2c50ffc880d27e022540ce290a5bf41162fb",
+      "candidate": "d37fc90072e305742494bdebd00d2c50ffc880d27e022540ce290a5bf41162fb"
+    }
+  },
+  "existing_runtime_evidence": {
+    "baseline": {
+      "samples": 31,
+      "duration_seconds": 0.5,
+      "uninterrupted_start_cycle": 124205511,
+      "resumed_start_cycle": 0,
+      "uninterrupted_cycle_increments": [
+        0,
+        1422,
+        2844,
+        4266,
+        5688,
+        7111,
+        8533,
+        9955,
+        11377,
+        12800,
+        14222,
+        15644,
+        17066,
+        18488,
+        19911,
+        21333,
+        22755,
+        24177,
+        25600,
+        27022,
+        28444,
+        29866,
+        31288,
+        32711,
+        34133,
+        35555,
+        36977,
+        38400,
+        39822,
+        41244,
+        42666
+      ],
+      "resumed_cycle_increments": [
+        0,
+        1422,
+        2844,
+        4266,
+        5688,
+        7111,
+        8533,
+        9955,
+        11377,
+        12799,
+        14222,
+        15644,
+        17066,
+        18488,
+        19911,
+        21333,
+        22755,
+        24177,
+        25599,
+        27022,
+        28444,
+        29866,
+        31288,
+        32711,
+        34133,
+        35555,
+        36977,
+        38399,
+        39822,
+        41244,
+        42666
+      ],
+      "cdu_differences": [
+        {
+          "tick": 0,
+          "uninterrupted_cdu_counts": [
+            330,
+            1
+          ],
+          "resumed_cdu_counts": [
+            0,
+            0
+          ]
+        }
+      ],
+      "event_log_sha256": "1c2f1ab290e9a20e4e5b1c6a885922be0a98951a83d657914c424a4951bc8082",
+      "resume_log_sha256": "2fae9304834b1dede1ce5ee559a9787268b51043e2485dc23b0ef7d87b490111"
+    },
+    "candidate": {
+      "samples": 31,
+      "duration_seconds": 0.5,
+      "uninterrupted_start_cycle": 124034844,
+      "resumed_start_cycle": 0,
+      "uninterrupted_cycle_increments": [
+        0,
+        1422,
+        2844,
+        4267,
+        5689,
+        7111,
+        8533,
+        9955,
+        11378,
+        12800,
+        14222,
+        15644,
+        17067,
+        18489,
+        19911,
+        21333,
+        22755,
+        24178,
+        25600,
+        27022,
+        28444,
+        29867,
+        31289,
+        32711,
+        34133,
+        35555,
+        36978,
+        38400,
+        39822,
+        41244,
+        42667
+      ],
+      "resumed_cycle_increments": [
+        0,
+        1422,
+        2844,
+        4266,
+        5688,
+        7111,
+        8533,
+        9955,
+        11377,
+        12799,
+        14222,
+        15644,
+        17066,
+        18488,
+        19911,
+        21333,
+        22755,
+        24177,
+        25599,
+        27022,
+        28444,
+        29866,
+        31288,
+        32711,
+        34133,
+        35555,
+        36977,
+        38399,
+        39822,
+        41244,
+        42666
+      ],
+      "cdu_differences": [
+        {
+          "tick": 0,
+          "uninterrupted_cdu_counts": [
+            339,
+            -3
+          ],
+          "resumed_cdu_counts": [
+            0,
+            0
+          ]
+        },
+        {
+          "tick": 28,
+          "uninterrupted_cdu_counts": [
+            334,
+            -5
+          ],
+          "resumed_cdu_counts": [
+            336,
+            -5
+          ]
+        },
+        {
+          "tick": 29,
+          "uninterrupted_cdu_counts": [
+            334,
+            -5
+          ],
+          "resumed_cdu_counts": [
+            336,
+            -5
+          ]
+        },
+        {
+          "tick": 30,
+          "uninterrupted_cdu_counts": [
+            334,
+            -5
+          ],
+          "resumed_cdu_counts": [
+            336,
+            -5
+          ]
+        }
+      ],
+      "event_log_sha256": "f6faa40e0ba56e565fe918a313327d799e789e844db6e64f5be6b61bbe07fffb",
+      "resume_log_sha256": "eaf39eaf60f2dcfbf8b43cac70266c7cda528ef4a5306cceece8fe30c6d9e973"
+    },
+    "origin": "Unmodified final e01b5b2 full-suite logs; no full descent rerun in this investigation.",
+    "strict_gate": "native_pdi_pilot remains enabled and failing on the missing processor snapshot; both latest complete suites stay 94/95 with zero skips."
+  },
+  "candidate_two_count_difference": {
+    "verified": "At ticks 28..30, uninterrupted forward CDU is 334 and resumed is 336. Lateral values agree at -5. Both original pointer filters propagate the changed target.",
+    "filter_explanation": "Original 0.5571 ft/s per CDU count, display factor 0.1 and gain 1.5*(1/60)*5=0.125 turn two counts into 0.0139275, 0.0261140625 and 0.0367773046875 display-unit differences over three steps, matching the recorded rounding.",
+    "distinct_rounding": "Tick 7 pointer text differs by 1e-6 with equal raw CDU counts, consistent with six-decimal serialization/observer precision. No tolerance was relaxed.",
+    "causality": "Unisolated. Direct native IMU read paths bypass FIFO enqueueing; no runtime FIFO occupancy was captured at the original handoff. CPU fractional cycle phase and external PCM DOWNRUPT phase are additional candidates, not established causes."
+  },
+  "source_references": {
+    "fifo": "src_sys/yaAGC/agc_engine.c:1353-1549",
+    "gyro_coarse": "src_sys/yaAGC/agc_engine.c:1618-1673,1840-1850,2298-2396",
+    "display": "src_sys/yaAGC/agc_engine.c:1676-1741",
+    "serializer": "src_sys/apolloguidance.cpp:350-595",
+    "wrapper": "src_lm/LEMcomputer.cpp:83-100, src_csm/CSMcomputer.cpp:87-105",
+    "direct_imu": "src_lm/LEMcomputer.cpp:301-303, src_csm/CSMcomputer.cpp:435-436",
+    "pcm": "src_lm/lm_telecom.cpp:377-409,516-557,825-830,1382-1392",
+    "native_callbacks": "src_sys/apolloguidance.cpp:1039-1048",
+    "backtrace": "src_sys/yaAGC/Backtrace.c:106-120,145-158; compiled legacy debugger snapshot also incomplete, but disabled by default SingleStepCounter=-2 (agc_engine.h:449)"
+  },
+  "raw_source_sha256": {
+    "baseline": {
+      "src_sys/yaAGC/agc_engine.c": "c0e8d15dd31a26097624ddd93e6d324e567f62a084ff543051bc4f66e59fdce7",
+      "src_sys/yaAGC/agc_engine.h": "84747d9734bd92d6c4bd753e56f46242f99e4af8d2e7d88c56325948d3ab337f",
+      "src_sys/yaAGC/agc_engine_init.c": "0c5284e52939ef7bac3b4cb941eea2c41beb5e5a3f936550547cab10dd369a87",
+      "src_sys/apolloguidance.cpp": "68b1202f5614d069c5a0ca1baa2da1365ceb2a484e3748f892004b2c88d17199",
+      "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee",
+      "src_csm/CSMcomputer.cpp": "da312f0244b676581f7bb8ad3a5459db90fac87266cc6b0169d70ca2791ab95b",
+      "src_lm/lm_telecom.cpp": "e699fe0ab42f8d30ca7746ec6122599065be2634cf0df944e7ac8221615204ac",
+      "src_lm/lm_telecom.h": "b47a57fb75930a512607b4916082dbd3cd5b61ae7651f20c1353629167c8da23",
+      "src_csm/csm_telecom.cpp": "3ba62bd10f954f174a0777d553d8373d4992db62008fcef6a3d74a4a2a21a79a",
+      "src_sys/cdu.cpp": "3a54f5238d8202fc9aea02694aa4dcb81b243c3977033d726bb64fe42da0efbe"
+    },
+    "candidate": {
+      "src_sys/yaAGC/agc_engine.c": "c0e8d15dd31a26097624ddd93e6d324e567f62a084ff543051bc4f66e59fdce7",
+      "src_sys/yaAGC/agc_engine.h": "84747d9734bd92d6c4bd753e56f46242f99e4af8d2e7d88c56325948d3ab337f",
+      "src_sys/yaAGC/agc_engine_init.c": "0c5284e52939ef7bac3b4cb941eea2c41beb5e5a3f936550547cab10dd369a87",
+      "src_sys/apolloguidance.cpp": "68b1202f5614d069c5a0ca1baa2da1365ceb2a484e3748f892004b2c88d17199",
+      "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee",
+      "src_csm/CSMcomputer.cpp": "1e459885e83d438657d97edb228de00dd9ddd7946745bfb329c7cf272d974ed9",
+      "src_lm/lm_telecom.cpp": "4313ee4220e199ca3476b2f71b04ae3931acd6331e11559e67cfa8e8a4061b7c",
+      "src_lm/lm_telecom.h": "b47a57fb75930a512607b4916082dbd3cd5b61ae7651f20c1353629167c8da23",
+      "src_csm/csm_telecom.cpp": "3ba62bd10f954f174a0777d553d8373d4992db62008fcef6a3d74a4a2a21a79a",
+      "src_sys/cdu.cpp": "3a54f5238d8202fc9aea02694aa4dcb81b243c3977033d726bb64fe42da0efbe"
+    },
+    "pristine_baseline": {
+      "src_sys/yaAGC/agc_engine.c": "c0e8d15dd31a26097624ddd93e6d324e567f62a084ff543051bc4f66e59fdce7",
+      "src_sys/yaAGC/agc_engine.h": "84747d9734bd92d6c4bd753e56f46242f99e4af8d2e7d88c56325948d3ab337f",
+      "src_sys/yaAGC/agc_engine_init.c": "1aae87159573005611086591c38260a3a08cb9507e4413220ccd120a61c545b3",
+      "src_sys/apolloguidance.cpp": "af3e83e5510f0f212ccbd5a7a89f61716d4fa4064ac0498229575cf59365bad3",
+      "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee",
+      "src_csm/CSMcomputer.cpp": "da312f0244b676581f7bb8ad3a5459db90fac87266cc6b0169d70ca2791ab95b",
+      "src_lm/lm_telecom.cpp": "55502aa9bf70689a9a7bd9cf8b36a46ea3b1aeaf2286d11ddffaf221a636dfcc",
+      "src_lm/lm_telecom.h": "e260a3d957fccebcaeef604995a5646e88a83a833739e819b0c6f182eb93472a",
+      "src_csm/csm_telecom.cpp": "cad3d37efbc00c4352e3fe8a27bee7cafc5f600252e9b7ff3563a3f802e1b661",
+      "src_sys/cdu.cpp": "3a54f5238d8202fc9aea02694aa4dcb81b243c3977033d726bb64fe42da0efbe"
+    },
+    "pristine_candidate": {
+      "src_sys/yaAGC/agc_engine.c": "c0e8d15dd31a26097624ddd93e6d324e567f62a084ff543051bc4f66e59fdce7",
+      "src_sys/yaAGC/agc_engine.h": "84747d9734bd92d6c4bd753e56f46242f99e4af8d2e7d88c56325948d3ab337f",
+      "src_sys/yaAGC/agc_engine_init.c": "1aae87159573005611086591c38260a3a08cb9507e4413220ccd120a61c545b3",
+      "src_sys/apolloguidance.cpp": "af3e83e5510f0f212ccbd5a7a89f61716d4fa4064ac0498229575cf59365bad3",
+      "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee",
+      "src_csm/CSMcomputer.cpp": "1e459885e83d438657d97edb228de00dd9ddd7946745bfb329c7cf272d974ed9",
+      "src_lm/lm_telecom.cpp": "6ffa4d28b228fb118381427c793d6ed4cd446be22e01ad6c1bfe6837e1999f24",
+      "src_lm/lm_telecom.h": "e260a3d957fccebcaeef604995a5646e88a83a833739e819b0c6f182eb93472a",
+      "src_csm/csm_telecom.cpp": "cad3d37efbc00c4352e3fe8a27bee7cafc5f600252e9b7ff3563a3f802e1b661",
+      "src_sys/cdu.cpp": "3a54f5238d8202fc9aea02694aa4dcb81b243c3977033d726bb64fe42da0efbe"
+    }
+  },
+  "constraints": {
+    "aca_pulse_executed": false,
+    "windows_comparison": false,
+    "push": false,
+    "ci_activation": false,
+    "broad_persistence_implementation": false,
+    "original_equations_changed": false,
+    "roms_changed": false,
+    "supplied_scenarios_changed": false
+  },
+  "focused_validation": {
+    "diagnostic_profiles": [
+      "baseline",
+      "candidate"
+    ],
+    "diagnostic_exit_codes": [
+      0,
+      0
+    ],
+    "pilot_contract_tests": 24,
+    "protocol_contract_tests": 44,
+    "contracts_passed": 68,
+    "previous_code_freeze_files": 20,
+    "unchanged_code_freeze_files": 19,
+    "only_previous_source_change": "NativePDIPersistence.py source_limit description corrected; validation rules unchanged.",
+    "full_suite_rerun": false,
+    "reason": "No production NASSP/Orbiter source or regression rule changed."
+  },
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/agc-pending-20261010",
+  "evidence_mirror": "<LOCAL_PATH>"
+}

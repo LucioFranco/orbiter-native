@@ -1,0 +1,2033 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T21:58:21.593245+00:00",
+  "baseline_commit": "f8d4ff81d7dd0be2356c7010df67f01dbac38ee5",
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "scope": "Bounded diagnosis only. No runtime source, equations, original mission, test tolerance, GPU, VM, push or hosted CI changes. Counterfactual mission clocks explicitly diagnostic only.",
+  "runtime_change": false,
+  "gpu_used": false,
+  "vm_operated": false,
+  "full_suite_rerun": false,
+  "optional_texture_fix": {
+    "commit": "f8d4ff81d7dd0be2356c7010df67f01dbac38ee5",
+    "unset_argument_real_loader_coast_reload": "passed",
+    "configured_argument_ctest": "passed",
+    "separate_report": "validation-v9-optional-textures-macos-2026-10-11.json"
+  },
+  "initial_and_serialization": {
+    "selected_record_count": 278,
+    "zero_step_text_differences": [
+      {
+        "vessel": "Eagle",
+        "field": "TANK/DESH2OTANK/CHM/2",
+        "a": [
+          "119567.0",
+          "0.0",
+          "147209514.1"
+        ],
+        "b": [
+          "119567.000000000000",
+          "0.000000000000",
+          "147209514.099999994040"
+        ],
+        "b_minus_a": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "binary64_equal": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/ASCH2OTANK1/CHM/2",
+        "a": [
+          "19232.3",
+          "0.0",
+          "23678606.67"
+        ],
+        "b": [
+          "19232.299999999999",
+          "0.000000000000",
+          "23678606.670000001788"
+        ],
+        "b_minus_a": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "binary64_equal": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/ASCH2OTANK2/CHM/2",
+        "a": [
+          "19232.3",
+          "0.0",
+          "23678606.67"
+        ],
+        "b": [
+          "19232.299999999999",
+          "0.000000000000",
+          "23678606.670000001788"
+        ],
+        "b_minus_a": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "binary64_equal": [
+          true,
+          true,
+          true
+        ]
+      }
+    ],
+    "all_original_loaded_binary64_values_equal": true,
+    "stock_windows_startup_step_differences": 0,
+    "canonical_coast_record_differences": 75,
+    "canonical_coast_by_vessel": {
+      "Columbia": 3,
+      "Eagle": 72
+    },
+    "canonical_coast_battery_and_radiators": [
+      {
+        "vessel": "Eagle",
+        "field": "<RADIATOR>LM-ATCA-INV-Plate",
+        "windows": [
+          "293.794964",
+          "0.001000"
+        ],
+        "native": [
+          "293.795071",
+          "0.001000"
+        ],
+        "native_minus_windows": [
+          0.00010700000001406806,
+          0.0
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "<RADIATOR>LM-SCERA-ECA-Plate",
+        "windows": [
+          "286.975420",
+          "0.001000"
+        ],
+        "native": [
+          "286.975421",
+          "0.001000"
+        ],
+        "native_minus_windows": [
+          9.999999974752427e-07,
+          0.0
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "<RADIATOR>LM-SCERA-Plate",
+        "windows": [
+          "288.118648",
+          "0.001000"
+        ],
+        "native": [
+          "288.118649",
+          "0.001000"
+        ],
+        "native_minus_windows": [
+          9.999999974752427e-07,
+          0.0
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "<BATTERY>DSC_BATTERY_C",
+        "windows": [
+          "35852970.3189",
+          "286.7564"
+        ],
+        "native": [
+          "35852969.9306",
+          "286.7564"
+        ],
+        "native_minus_windows": [
+          -0.38829999417066574,
+          0.0
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "<BATTERY>DSC_BATTERY_D",
+        "windows": [
+          "35950806.0042",
+          "285.2658"
+        ],
+        "native": [
+          "35950805.8101",
+          "285.2658"
+        ],
+        "native_minus_windows": [
+          -0.1940999999642372,
+          0.0
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "<BATTERY>ASC_BATTERY_B",
+        "windows": [
+          "31851746.3822",
+          "275.7842"
+        ],
+        "native": [
+          "31851746.1973",
+          "275.7842"
+        ],
+        "native_minus_windows": [
+          -0.18490000069141388,
+          0.0
+        ]
+      }
+    ],
+    "interpretation": "No initial numerical difference in selected records; integration/internal initialization cause remains unresolved. Battery and chemical differences are not waived as serialization noise."
+  },
+  "focused_upstream_functions": [
+    {
+      "path": "src_sys/PanelSDK/Internals/Esystems.cpp",
+      "signature": "void Battery::UpdateFlow",
+      "upstream_sha256": "e4f12ac549f96b4fb5802451d11890ba338d69acdab866b94d9f3af4e4b09f96",
+      "native_sha256": "e4f12ac549f96b4fb5802451d11890ba338d69acdab866b94d9f3af4e4b09f96",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Esystems.cpp",
+      "signature": "void Battery::Load",
+      "upstream_sha256": "864e5bfd5892a8e31c8fa6daf897e47f84b270d882b0d9857f6b66f320853de6",
+      "native_sha256": "864e5bfd5892a8e31c8fa6daf897e47f84b270d882b0d9857f6b66f320853de6",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Esystems.cpp",
+      "signature": "void Battery::Save",
+      "upstream_sha256": "271126d821af358b778ad91f108749b70e6f4f710bd99452fb5830a316f82d7c",
+      "native_sha256": "271126d821af358b778ad91f108749b70e6f4f710bd99452fb5830a316f82d7c",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Hsystems.cpp",
+      "signature": "void h_Tank::Load",
+      "upstream_sha256": "87311b921f641024f4b723464980207543ab8689cbc3af0e724e7c6fa1f9effb",
+      "native_sha256": "87311b921f641024f4b723464980207543ab8689cbc3af0e724e7c6fa1f9effb",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Hsystems.cpp",
+      "signature": "void h_Tank::Save",
+      "upstream_sha256": "61abd156946391abac07e97d98a629fff64bb4f979bb3754ac21bac48973f22d",
+      "native_sha256": "61abd156946391abac07e97d98a629fff64bb4f979bb3754ac21bac48973f22d",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Hsystems.cpp",
+      "signature": "void h_HeatLoad::GenerateHeat",
+      "upstream_sha256": "47b20968a9c7049e334c7896a814fc5de0ababe0430521a31033b372a5dcb864",
+      "native_sha256": "47b20968a9c7049e334c7896a814fc5de0ababe0430521a31033b372a5dcb864",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Hsystems.cpp",
+      "signature": "void h_HeatLoad::refresh",
+      "upstream_sha256": "1df6ff1905c5ed5696e1c6b43f4d5a578628a7f30f0cc84dabcb49927c039484",
+      "native_sha256": "1df6ff1905c5ed5696e1c6b43f4d5a578628a7f30f0cc84dabcb49927c039484",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/PanelSDK.cpp",
+      "signature": "void PanelSDK::SimpleTimestep",
+      "upstream_sha256": "1f5bddc7baf981cf10475ada468e62564c76abccc788ecdb875186066f25dd39",
+      "native_sha256": "1f5bddc7baf981cf10475ada468e62564c76abccc788ecdb875186066f25dd39",
+      "identical": true
+    },
+    {
+      "path": "src_sys/PanelSDK/Internals/Thermal.cpp",
+      "signature": "void Thermal_engine::Radiative",
+      "upstream_sha256": "39acca672a0a959194505383c05e74345fd7a69e2b5b7eae19dea9f8900ddec6",
+      "native_sha256": "39acca672a0a959194505383c05e74345fd7a69e2b5b7eae19dea9f8900ddec6",
+      "identical": true
+    },
+    {
+      "path": "src_lm/lm_eps.cpp",
+      "signature": "void LEM_INV::UpdateFlow",
+      "upstream_sha256": "bb522ffdc33ae8b20b05bcea85b40d20c94cbff58324a5bc498684210b5d83d4",
+      "native_sha256": "bb522ffdc33ae8b20b05bcea85b40d20c94cbff58324a5bc498684210b5d83d4",
+      "identical": true
+    },
+    {
+      "path": "src_lm/lm_eps.cpp",
+      "signature": "double LEM_INV::get_hlpw",
+      "upstream_sha256": "1c38f1c5bbffb75f76c5c0725aec982b2aceba2ee5fdb072e5868ba84794affe",
+      "native_sha256": "1c38f1c5bbffb75f76c5c0725aec982b2aceba2ee5fdb072e5868ba84794affe",
+      "identical": true
+    },
+    {
+      "path": "src_lm/lm_eps.cpp",
+      "signature": "void LEM_INV::SystemTimestep",
+      "upstream_sha256": "baedaca390afa80779a7949addd2b27675a72570b232d68d70b646a01cfcb6b9",
+      "native_sha256": "baedaca390afa80779a7949addd2b27675a72570b232d68d70b646a01cfcb6b9",
+      "identical": true
+    }
+  ],
+  "observer": {
+    "source": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/NativeThermalTrace.cpp",
+    "source_sha256": "6e849d4ebb4c7495608a7cfd9357e548883d94f482510ebcdd3d894af1f0c9c8",
+    "current_binary": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native_thermal_trace_poll",
+    "current_binary_sha256": "ff89274cb48a13a518717cbf97da66c806ee86d375ea00a1f3b6201d66961657",
+    "controlled_comparisons_use_same_binary": true,
+    "private_system_access": "Temporary diagnostic uses existing NASSP types/pointers; no modifications to NASSP libraries",
+    "baseline_mode": "Read-only observe/save",
+    "poll_mode": "Intentionally calls original GetDisplayValue once after each step for the 36 specified meters; updates display filters only by original code",
+    "observations": 302,
+    "save_steps": [
+      0,
+      1,
+      2,
+      3,
+      11,
+      31,
+      61,
+      121,
+      241,
+      301
+    ],
+    "equation_or_control_input_writes": false,
+    "graphics_rendered": false,
+    "removal_path": "Diagnostic observer, scripts and staged runtimes remain outside tracked source. Delete local diagnostic directory after evidence retention; no production patch or registered test was added.",
+    "earlier_binary_limitation": "Earlier native_thermal_trace binary is preserved, but its exact predecessor source was overwritten by the poll-capable variant. It is not required for the controlled clock/display conclusions; both are verified with the current retained source/binary."
+  },
+  "clock_counterfactual": {
+    "modified_seed": {
+      "diagnostic_only": true,
+      "mission_input_modified": true,
+      "reason": "Counterfactual isolate float load conversion; no production or canonical source changes, not an acceptance run",
+      "source_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "diagnostic_sha256": "805f884d25a609ba9b9205ad0bbe9a98cc40f8a196c7e478444ea802882aa4d0",
+      "changed_fields": [
+        {
+          "original": "368744.392486901314",
+          "diagnostic_float_value": "368744.406250000000"
+        },
+        {
+          "original": "368744.423737",
+          "diagnostic_float_value": "368744.437500000000"
+        }
+      ]
+    },
+    "controlled_trace_comparison": {
+      "same_observer_binary": true,
+      "paired_observations": 302,
+      "differing_observations_except_mission_time": [],
+      "all_observed_battery_inverter_pending_heat_radiator_values_identical": true,
+      "no_meter_polling": true
+    },
+    "earlier_all_selected_coast_records_equal": true,
+    "conclusion": "Clock quantization is excluded as the cause within the observed bounded native systems."
+  },
+  "display_cadence": {
+    "trace_comparison": {
+      "paired_steps": 302,
+      "differing_observations": [],
+      "all_observed_systems_identical": true,
+      "actual_graphics_rendered": false,
+      "poll_scope": "One GetDisplayValue call per completed step for the 35 differing CSM meters and LM helium meter",
+      "simulation_time_equal": true,
+      "no-poll-control": {
+        "DCVoltMeter": "28.010201 28.010257",
+        "MainHeliumPressureMeter": "1271.254011 1271.254011"
+      },
+      "poll-meters": {
+        "DCVoltMeter": "27.675513 27.675133",
+        "MainHeliumPressureMeter": "1271.266252 1271.266252"
+      }
+    },
+    "selected_meters": 36,
+    "stock_windows_exact_matches": 36,
+    "conclusion": "All 36 meter discrepancies reproduced by display poll cadence. Their polls leave all observed systems exactly identical at every frame. Other graphical callbacks not exercised."
+  },
+  "first_native_electrical_propagation": {
+    "capacities_unchanged_through_step": 6,
+    "first_depletion_step": 7,
+    "first_depletion_j": {
+      "DSC_BATTERY_A": -5.9012215584516525,
+      "DSC_BATTERY_B": -2.9506107792258263,
+      "DSC_BATTERY_C": -6.749529264867306,
+      "DSC_BATTERY_D": -3.374764636158943,
+      "ASC_BATTERY_A": -2.8101055063307285,
+      "ASC_BATTERY_B": -3.2140615545213223
+    },
+    "sampled_trace": [
+      {
+        "step": 0,
+        "sim_time_s": 0,
+        "mission_time_s": 368744.423737,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571033.1401,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 286.7098,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637116.1476,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 286.0473,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855373.4789,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 286.7439,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952007.5842,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 285.2705,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877629.3092,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 275.621,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852890.7441,
+            "load_w": 0,
+            "volts": 37.2,
+            "amperes": 0,
+            "temperature_k": 275.7775,
+            "heat_w": 0
+          }
+        },
+        "inverter_1": {
+          "load_w": 0,
+          "heatloss_w": 0,
+          "volts": 0,
+          "amperes": 0
+        },
+        "heat_pending_w": {
+          "INVHEAT": 0,
+          "ATCAHEAT": 0,
+          "SCERAHEAT": 0,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.792039,
+          "LM-SCERA-ECA-Plate": 286.975737,
+          "LM-SCERA-Plate": 288.119823
+        }
+      },
+      {
+        "step": 1,
+        "sim_time_s": 0.016666666666666666,
+        "mission_time_s": 368744.44040366664,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571033.1401,
+            "load_w": 0,
+            "volts": 36.37882648383021,
+            "amperes": 0,
+            "temperature_k": 286.70975325918323,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637116.1476,
+            "load_w": 0,
+            "volts": 36.38593958533195,
+            "amperes": 0,
+            "temperature_k": 286.047259376502,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855373.4789,
+            "load_w": 0,
+            "volts": 36.409432561964934,
+            "amperes": 0,
+            "temperature_k": 286.7438503992336,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952007.5842,
+            "load_w": 0,
+            "volts": 36.4198341496882,
+            "amperes": 0,
+            "temperature_k": 285.27046400113096,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877629.3092,
+            "load_w": 0,
+            "volts": 37.186854863856986,
+            "amperes": 0,
+            "temperature_k": 275.6210094556816,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852890.7441,
+            "load_w": 0,
+            "volts": 37.18325644269473,
+            "amperes": 0,
+            "temperature_k": 275.7775073179694,
+            "heat_w": 0
+          }
+        },
+        "inverter_1": {
+          "load_w": 99.2895778037739,
+          "heatloss_w": 40,
+          "volts": 115,
+          "amperes": 0
+        },
+        "heat_pending_w": {
+          "INVHEAT": 80,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 0,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.7889987905259,
+          "LM-SCERA-ECA-Plate": 286.9757361836062,
+          "LM-SCERA-Plate": 288.11931208565363
+        }
+      },
+      {
+        "step": 2,
+        "sim_time_s": 0.03333333333333333,
+        "mission_time_s": 368744.4570703333,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571033.1401,
+            "load_w": 0,
+            "volts": 36.37882648383021,
+            "amperes": 0,
+            "temperature_k": 286.7097065186879,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637116.1476,
+            "load_w": 0,
+            "volts": 36.38593958533195,
+            "amperes": 0,
+            "temperature_k": 286.04721875326885,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855373.4789,
+            "load_w": 0,
+            "volts": 36.409432561964934,
+            "amperes": 0,
+            "temperature_k": 286.7438007989491,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952007.5842,
+            "load_w": 0,
+            "volts": 36.4198341496882,
+            "amperes": 0,
+            "temperature_k": 285.2704280026182,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877629.3092,
+            "load_w": 0,
+            "volts": 37.186854863856986,
+            "amperes": 0,
+            "temperature_k": 275.6210189112045,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852890.7441,
+            "load_w": 0,
+            "volts": 37.18325644269473,
+            "amperes": 0,
+            "temperature_k": 275.77751463586355,
+            "heat_w": 0
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.91261582551304,
+          "heatloss_w": 50.89343667056608,
+          "volts": 115,
+          "amperes": 0.8633876330762947
+        },
+        "heat_pending_w": {
+          "INVHEAT": 90.89343667056608,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.7887154910004,
+          "LM-SCERA-ECA-Plate": 286.9757353661744,
+          "LM-SCERA-Plate": 288.11880139770415
+        }
+      },
+      {
+        "step": 3,
+        "sim_time_s": 0.05,
+        "mission_time_s": 368744.47373699996,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571033.1401,
+            "load_w": 0,
+            "volts": 36.37882648383021,
+            "amperes": 0,
+            "temperature_k": 286.70965977851387,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637116.1476,
+            "load_w": 0,
+            "volts": 36.38593958533195,
+            "amperes": 0,
+            "temperature_k": 286.04717813030067,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855373.4789,
+            "load_w": 0,
+            "volts": 36.409432561964934,
+            "amperes": 0,
+            "temperature_k": 286.74375119914635,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952007.5842,
+            "load_w": 0,
+            "volts": 36.4198341496882,
+            "amperes": 0,
+            "temperature_k": 285.27039200446166,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877629.3092,
+            "load_w": 0,
+            "volts": 37.186854863856986,
+            "amperes": 0,
+            "temperature_k": 275.6210283665686,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852890.7441,
+            "load_w": 0,
+            "volts": 37.18325644269473,
+            "amperes": 0,
+            "temperature_k": 275.77752195368237,
+            "heat_w": 0
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.91261582551304,
+          "heatloss_w": 53.78470776946478,
+          "volts": 115,
+          "amperes": 1.00793578978707
+        },
+        "heat_pending_w": {
+          "INVHEAT": 93.78470776946477,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.78867439223,
+          "LM-SCERA-ECA-Plate": 286.975734547153,
+          "LM-SCERA-Plate": 288.11880115772084
+        }
+      },
+      {
+        "step": 6,
+        "sim_time_s": 0.09999999999999999,
+        "mission_time_s": 368744.52373699995,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571033.1401,
+            "load_w": 354.0732936611778,
+            "volts": 36.37882648383021,
+            "amperes": 0,
+            "temperature_k": 286.7095195599197,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637116.1476,
+            "load_w": 177.0366468305889,
+            "volts": 36.38593958533195,
+            "amperes": 0,
+            "temperature_k": 286.047056262985,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855373.4789,
+            "load_w": 404.97175599678,
+            "volts": 36.409432561964934,
+            "amperes": 0,
+            "temperature_k": 286.7436024026283,
+            "heat_w": 0
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952007.5842,
+            "load_w": 202.48587799839,
+            "volts": 36.4198341496882,
+            "amperes": 0,
+            "temperature_k": 285.27028401212885,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877629.3092,
+            "load_w": 168.60633031484656,
+            "volts": 37.186854863856986,
+            "amperes": 0,
+            "temperature_k": 275.62105673170873,
+            "heat_w": 0
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852890.7441,
+            "load_w": 192.8436933318,
+            "volts": 37.18325644269473,
+            "amperes": 0,
+            "temperature_k": 275.7775439066862,
+            "heat_w": 0
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.93134621624073,
+          "heatloss_w": 53.78896098439432,
+          "volts": 115,
+          "amperes": 1.0081471296593452
+        },
+        "heat_pending_w": {
+          "INVHEAT": 93.78896098439432,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.78874385973717,
+          "LM-SCERA-ECA-Plate": 286.97573208070014,
+          "LM-SCERA-Plate": 288.11880042683356
+        }
+      },
+      {
+        "step": 7,
+        "sim_time_s": 0.11666666666666665,
+        "mission_time_s": 368744.5404036666,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571027.238878444,
+            "load_w": 362.4999242208153,
+            "volts": 34.14024738381079,
+            "amperes": 9.732949847036917,
+            "temperature_k": 286.7095130406208,
+            "heat_w": 21.787971926735267
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637113.19698922,
+            "load_w": 181.24996211040764,
+            "volts": 35.26686884561024,
+            "amperes": 4.865523574440184,
+            "temperature_k": 286.04702569204255,
+            "heat_w": 5.4448635202896325
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855366.729370736,
+            "load_w": 478.2666997713975,
+            "volts": 33.85120729512995,
+            "amperes": 11.12271539270934,
+            "temperature_k": 286.7436053302668,
+            "heat_w": 28.45440347265906
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35952004.209435366,
+            "load_w": 239.13334988569875,
+            "volts": 35.141086833653304,
+            "amperes": 5.559769359908619,
+            "temperature_k": 285.2702611392757,
+            "heat_w": 7.1095381271371
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877626.499094494,
+            "load_w": 172.61901153372156,
+            "volts": 36.35259286208997,
+            "amperes": 4.534030396819605,
+            "temperature_k": 275.6210736769021,
+            "heat_w": 3.7825674216282827
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852887.530038446,
+            "load_w": 227.74604751018927,
+            "volts": 36.228975931752615,
+            "amperes": 5.1863045838656605,
+            "temperature_k": 275.77756102487655,
+            "heat_w": 4.9491869635391765
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.91261582551304,
+          "heatloss_w": 53.78798558784213,
+          "volts": 115,
+          "amperes": 1.0080986627499193
+        },
+        "heat_pending_w": {
+          "INVHEAT": 93.78798558784213,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.78876708568856,
+          "LM-SCERA-ECA-Plate": 286.97573125553185,
+          "LM-SCERA-Plate": 288.1188001796714
+        }
+      },
+      {
+        "step": 11,
+        "sim_time_s": 0.18333333333333332,
+        "mission_time_s": 368744.60707033327,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35571003.072158895,
+            "load_w": 362.5026028680914,
+            "volts": 33.92088205116387,
+            "amperes": 10.686700852985084,
+            "temperature_k": 286.7095193653649,
+            "heat_w": 26.267282277874187
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35637101.11362945,
+            "load_w": 181.2513014340457,
+            "volts": 35.2016798729767,
+            "amperes": 5.14894823528418,
+            "temperature_k": 286.04690818657457,
+            "heat_w": 6.097683623816297
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35855334.307060935,
+            "load_w": 489.03970488590704,
+            "volts": 33.001377808049284,
+            "amperes": 14.81761103261921,
+            "temperature_k": 286.74377038116774,
+            "heat_w": 50.49916724421966
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35951987.99828047,
+            "load_w": 244.51985244295352,
+            "volts": 34.80399492428621,
+            "amperes": 7.025378770414668,
+            "temperature_k": 285.2701996165597,
+            "heat_w": 11.351867779592418
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31877614.991132803,
+            "load_w": 172.6202870800435,
+            "volts": 36.312154067016266,
+            "amperes": 4.753797359586455,
+            "temperature_k": 275.6211444102121,
+            "heat_w": 4.158140437826052
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31852872.090843305,
+            "load_w": 232.87604994567002,
+            "volts": 35.99279977893192,
+            "amperes": 6.469858426620555,
+            "temperature_k": 275.77765041735825,
+            "heat_w": 7.702068523134392
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.93667403097844,
+          "heatloss_w": 53.78470776946478,
+          "volts": 115,
+          "amperes": 1.00793578978707
+        },
+        "heat_pending_w": {
+          "INVHEAT": 93.78470776946477,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.7888597288184,
+          "LM-SCERA-ECA-Plate": 286.9757279402995,
+          "LM-SCERA-Plate": 288.1187991738876
+        }
+      },
+      {
+        "step": 301,
+        "sim_time_s": 5.016666666666654,
+        "mission_time_s": 368749.4404036655,
+        "batteries": {
+          "DSC_BATTERY_A": {
+            "capacity_j": 35569260.40166914,
+            "load_w": 360.5467644306249,
+            "volts": 33.9349926044158,
+            "amperes": 10.624535060084458,
+            "temperature_k": 286.7098590344002,
+            "heat_w": 25.962571405881686
+          },
+          "DSC_BATTERY_B": {
+            "capacity_j": 35636229.77838457,
+            "load_w": 180.27338221531244,
+            "volts": 35.208207012742946,
+            "amperes": 5.120161586050012,
+            "temperature_k": 286.0383628858226,
+            "heat_w": 6.0296925734702995
+          },
+          "DSC_BATTERY_C": {
+            "capacity_j": 35852969.93060087,
+            "load_w": 489.22190336324906,
+            "volts": 32.99928594731309,
+            "amperes": 14.825599562537112,
+            "temperature_k": 286.7564266482475,
+            "heat_w": 50.553632549401144
+          },
+          "DSC_BATTERY_D": {
+            "capacity_j": 35950805.81005079,
+            "load_w": 244.61095168162453,
+            "volts": 34.80312813168684,
+            "amperes": 7.028594175509754,
+            "temperature_k": 285.26584876474,
+            "heat_w": 11.362261299322219
+          },
+          "ASC_BATTERY_A": {
+            "capacity_j": 31876785.14804247,
+            "load_w": 171.6889354431547,
+            "volts": 36.31687562096933,
+            "amperes": 4.727480722442903,
+            "temperature_k": 275.62623422953675,
+            "heat_w": 4.112229612516746
+          },
+          "ASC_BATTERY_B": {
+            "capacity_j": 31851746.197290987,
+            "load_w": 232.9628111253567,
+            "volts": 35.99210012314042,
+            "amperes": 6.472770848438499,
+            "temperature_k": 275.7841823550429,
+            "heat_w": 7.709004291976725
+          }
+        },
+        "inverter_1": {
+          "load_w": 115.91261582551304,
+          "heatloss_w": 53.787976897073634,
+          "volts": 115,
+          "amperes": 1.0080982309104909
+        },
+        "heat_pending_w": {
+          "INVHEAT": 93.78797689707363,
+          "ATCAHEAT": 44,
+          "SCERAHEAT": 22.96,
+          "ECA3HEAT": 0
+        },
+        "radiator_temperature_k": {
+          "LM-ATCA-INV-Plate": 293.7950711352307,
+          "LM-SCERA-ECA-Plate": 286.9754205545194,
+          "LM-SCERA-Plate": 288.1186487086818
+        }
+      }
+    ],
+    "interpretation": "Original electrical/thermal source chains propagate pending loads across multiple frames; equality at the first step is insufficient to prove integration parity."
+  },
+  "next_stock_windows_measurement": {
+    "request_path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/windows-minimum-capture-request.md",
+    "fresh_original_launches": [
+      {
+        "total_steps": 3,
+        "maxsimtime": "0.041666666666666664",
+        "native_agc_counter": 4266
+      },
+      {
+        "total_steps": 11,
+        "maxsimtime": "0.175",
+        "native_agc_counter": 15644
+      }
+    ],
+    "same_fixedstep": "0.016666666666666666",
+    "upstream_stop_condition": "td.SimT0 >= MaxSimTime after visual update, Src/Orbiter/Orbiter.cpp:1817",
+    "raw_files_required": [
+      "complete Current state.scn",
+      "Orbiter log",
+      "actual Orbiter.cfg",
+      "actual D3D9Client.cfg",
+      "launch/collect JSON and raw hashes"
+    ],
+    "available_native_saved_fields": [
+      {
+        "steps": 3,
+        "raw_sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496",
+        "mjd": "MJD 40422.8317627525",
+        "agc_counters": {
+          "Columbia": "4266",
+          "Eagle": "4266"
+        },
+        "eagle_selected_records": {
+          "<RADIATOR>CABINSTRUCTURE": [
+            "285.294026",
+            "0.122500"
+          ],
+          "<RADIATOR>LMRCSQUAD1": [
+            "336.630033",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD2": [
+            "336.902432",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD3": [
+            "337.210692",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD4": [
+            "337.023598",
+            "0.400000"
+          ],
+          "<RADIATOR>LEM-SBand-Steerable-Antenna": [
+            "256.660725",
+            "0.500000"
+          ],
+          "<RADIATOR>LEM-RR-Antenna": [
+            "277.007718",
+            "0.500000"
+          ],
+          "<RADIATOR>LEM-LR-Antenna": [
+            "287.940625",
+            "0.500000"
+          ],
+          "<RADIATOR>LM-CABIN-Plate": [
+            "283.987577",
+            "0.002000"
+          ],
+          "<RADIATOR>LM-LGC-Plate": [
+            "290.698913",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-CDU-Plate": [
+            "282.583045",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-PSA-Plate": [
+            "284.737346",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-GASTA-Plate": [
+            "287.203697",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-LCA-Plate": [
+            "279.565581",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DSE-Plate": [
+            "279.564909",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-TLE-Plate": [
+            "281.323991",
+            "0.001000"
+          ],
+          "<RADIATOR>LEM-ASA-HSink": [
+            "323.266366",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASA-Plate": [
+            "303.359421",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-PTA-Plate": [
+            "284.962842",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-IMU-Case": [
+            "328.149758",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-RGA-Plate": [
+            "284.027256",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-PRIM-SEC-Plate": [
+            "286.597024",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-SBD-Plate": [
+            "291.563000",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-AEA-VHF-Plate": [
+            "291.032588",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-ATCA-INV-Plate": [
+            "293.788674",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-SCERA-ECA-Plate": [
+            "286.975735",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-CWEA-PCM-Plate": [
+            "288.060607",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-SCERA-Plate": [
+            "288.118801",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-RRE-Plate": [
+            "292.802976",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-ECA-DUA-INV-Plate": [
+            "275.477256",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASCBAT1-Plate": [
+            "275.576103",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASCBAT2-Plate": [
+            "275.625087",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DESBATLeftPlate": [
+            "281.646166",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DESBATRightPlate": [
+            "281.370422",
+            "0.000000"
+          ],
+          "<BATTERY>DSC_BATTERY_A": [
+            "35571033.1401",
+            "286.7097"
+          ],
+          "<BATTERY>DSC_BATTERY_B": [
+            "35637116.1476",
+            "286.0472"
+          ],
+          "<BATTERY>DSC_BATTERY_C": [
+            "35855373.4789",
+            "286.7438"
+          ],
+          "<BATTERY>DSC_BATTERY_D": [
+            "35952007.5842",
+            "285.2704"
+          ],
+          "<BATTERY>ASC_BATTERY_A": [
+            "31877629.3092",
+            "275.6210"
+          ],
+          "<BATTERY>ASC_BATTERY_B": [
+            "31852890.7441",
+            "275.7775"
+          ],
+          "<BATTERY>BATTERY_ED_A": [
+            "100039.5084",
+            "281.7091"
+          ],
+          "<BATTERY>BATTERY_ED_B": [
+            "100039.5084",
+            "275.4903"
+          ],
+          "<BATTERY>BATTERY_DUMMY": [
+            "10000000000.0000",
+            "273.1500"
+          ]
+        }
+      },
+      {
+        "steps": 11,
+        "raw_sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2",
+        "mjd": "MJD 40422.8317642957",
+        "agc_counters": {
+          "Columbia": "15644",
+          "Eagle": "15644"
+        },
+        "eagle_selected_records": {
+          "<RADIATOR>CABINSTRUCTURE": [
+            "285.294162",
+            "0.122500"
+          ],
+          "<RADIATOR>LMRCSQUAD1": [
+            "336.637514",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD2": [
+            "336.901471",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD3": [
+            "337.209758",
+            "0.400000"
+          ],
+          "<RADIATOR>LMRCSQUAD4": [
+            "337.022564",
+            "0.400000"
+          ],
+          "<RADIATOR>LEM-SBand-Steerable-Antenna": [
+            "256.661290",
+            "0.500000"
+          ],
+          "<RADIATOR>LEM-RR-Antenna": [
+            "277.009231",
+            "0.500000"
+          ],
+          "<RADIATOR>LEM-LR-Antenna": [
+            "287.940174",
+            "0.500000"
+          ],
+          "<RADIATOR>LM-CABIN-Plate": [
+            "283.987906",
+            "0.002000"
+          ],
+          "<RADIATOR>LM-LGC-Plate": [
+            "290.698880",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-CDU-Plate": [
+            "282.583006",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-PSA-Plate": [
+            "284.737310",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-GASTA-Plate": [
+            "287.203662",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-LCA-Plate": [
+            "279.569822",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DSE-Plate": [
+            "279.564867",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-TLE-Plate": [
+            "281.323834",
+            "0.001000"
+          ],
+          "<RADIATOR>LEM-ASA-HSink": [
+            "323.266479",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASA-Plate": [
+            "303.359743",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-PTA-Plate": [
+            "284.962733",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-IMU-Case": [
+            "328.148813",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-RGA-Plate": [
+            "284.027012",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-PRIM-SEC-Plate": [
+            "286.597048",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-SBD-Plate": [
+            "291.563003",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-AEA-VHF-Plate": [
+            "291.032591",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-ATCA-INV-Plate": [
+            "293.788860",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-SCERA-ECA-Plate": [
+            "286.975728",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-CWEA-PCM-Plate": [
+            "288.060603",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-SCERA-Plate": [
+            "288.118799",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-RRE-Plate": [
+            "292.802983",
+            "0.001000"
+          ],
+          "<RADIATOR>LM-ECA-DUA-INV-Plate": [
+            "275.477219",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASCBAT1-Plate": [
+            "275.576122",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-ASCBAT2-Plate": [
+            "275.625123",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DESBATLeftPlate": [
+            "281.646071",
+            "0.000000"
+          ],
+          "<RADIATOR>LM-DESBATRightPlate": [
+            "281.370442",
+            "0.000000"
+          ],
+          "<BATTERY>DSC_BATTERY_A": [
+            "35571003.0722",
+            "286.7095"
+          ],
+          "<BATTERY>DSC_BATTERY_B": [
+            "35637101.1136",
+            "286.0469"
+          ],
+          "<BATTERY>DSC_BATTERY_C": [
+            "35855334.3071",
+            "286.7438"
+          ],
+          "<BATTERY>DSC_BATTERY_D": [
+            "35951987.9983",
+            "285.2702"
+          ],
+          "<BATTERY>ASC_BATTERY_A": [
+            "31877614.9911",
+            "275.6211"
+          ],
+          "<BATTERY>ASC_BATTERY_B": [
+            "31852872.0908",
+            "275.7777"
+          ],
+          "<BATTERY>BATTERY_ED_A": [
+            "100039.5084",
+            "281.7090"
+          ],
+          "<BATTERY>BATTERY_ED_B": [
+            "100039.5084",
+            "275.4902"
+          ],
+          "<BATTERY>BATTERY_DUMMY": [
+            "10000000000.0000",
+            "273.1500"
+          ]
+        }
+      }
+    ],
+    "blocked_on": "Additional stock Windows saves for first differing update; no native access blocker."
+  },
+  "remaining_limits": [
+    "No native thermal/battery defect isolated; no corrective runtime change justified.",
+    "Shared AGC scheduling/pending CDU FIFO resume failure retained; broad redesign stays paused.",
+    "No new full mission or graphical acceptance claim.",
+    "Independent native processes vary in a few final Columbia chemical decimals; no new acceptance tolerance."
+  ],
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis",
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/NativeThermalTrace.cpp",
+      "bytes": 5043,
+      "sha256": "6e849d4ebb4c7495608a7cfd9357e548883d94f482510ebcdd3d894af1f0c9c8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/NativeThermalTrace.o",
+      "bytes": 1819296,
+      "sha256": "62e067db8c0e006dfd156e8bb2035048b9be8d687ef4ad4ec74959a2cb59bd59"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/analyze_records.py",
+      "bytes": 2457,
+      "sha256": "f96efb9ff4fd7b4cc2c15bacd05ba089df9956874c622d634de1035096981a5c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-controlled-comparison.json",
+      "bytes": 225,
+      "sha256": "5df7bab541da4ec854427215aec8be041176fe9529cfbe1609ef3a4172fe37c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-float-control-execution.json",
+      "bytes": 590,
+      "sha256": "18d474b06068881fea2d3d648032429c5e56fe865bd8d3557c0f823422b7ecda"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-float-control.log",
+      "bytes": 4231,
+      "sha256": "5e4b685b5682f5b937210ff87c3060d4c28d5da7e2ae3979ad5bc316ed28d05b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-native-control-execution.json",
+      "bytes": 645,
+      "sha256": "aef271d8b9d7e5c4c307754f5464418704dd9333a023379ff4256af774cae96b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-native-control.log",
+      "bytes": 4259,
+      "sha256": "3f6917bb7d701c4e23ab76ab29edb355bd4a6b59eae68b707ef9c4882902d293"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/clock-trace-comparison.json",
+      "bytes": 165,
+      "sha256": "c1574c4256ec0236e00ea97d1e1eed50cb2fcd07205e2cfbbd9e0c3e6878aa82"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/diagnostic-float-clock-only.scn",
+      "bytes": 366060,
+      "sha256": "805f884d25a609ba9b9205ad0bbe9a98cc40f8a196c7e478444ea802882aa4d0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/display-poll-result.json",
+      "bytes": 535,
+      "sha256": "fa1b833939df8efd4fd464afb1ef822b268f8ae3dc93e44113c0b0675454313a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/float-clock-only-changes.json",
+      "bytes": 604,
+      "sha256": "b31828ea2f20e98d8dc1b35afa1189b7498ce00503ecffa435bd94d8da736fe6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/float-clock-trace-execution.json",
+      "bytes": 400,
+      "sha256": "a6ed0b4e4b6f82404af47ca3c42fc3df9e3d01653166c4ab37bfd4e6fadbd9c4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/float-clock-trace.log",
+      "bytes": 4175,
+      "sha256": "36b300f9a5d4fbbb99f5f1ff036951978f96ab50c4fff05ef934bef8d1d66ea7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/focused-functions.json",
+      "bytes": 3652,
+      "sha256": "d32e900dcbb128390878bc9254a8e32fdaa2b40e38b0dc86274557a122ceecd9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/initial-value-bit-check.json",
+      "bytes": 1007,
+      "sha256": "9067d793e24be71aefec33a49c3fbc3193a0e137a6b4b9db311f5ce44afee7fc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native-clock-counterfactual-result.json",
+      "bytes": 73340,
+      "sha256": "04731961a2d4d5c0009834a324c3d63cd2a878b912a43228763839c13ee6015e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native-trace-execution.json",
+      "bytes": 449,
+      "sha256": "1fcb47662a0581a0dd9d467964460af5ca4ef89301661dfb8a27c3f0ec6c0e00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native-trace.log",
+      "bytes": 4035,
+      "sha256": "0893e57c615e4056bdac7678786c4757b2db43b96f48a16f0b3a5bf1488d30dc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native_thermal_trace",
+      "bytes": 42136,
+      "sha256": "c97187823a864624c833e97cb796372f5fadb291b264c0ad0f8e40b12b979e60"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/native_thermal_trace_poll",
+      "bytes": 42728,
+      "sha256": "ff89274cb48a13a518717cbf97da66c806ee86d375ea00a1f3b6201d66961657"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/no-poll-control-execution.json",
+      "bytes": 387,
+      "sha256": "b0459852d73192c6f8f2ef543028377785f10b3e9a76b2f9647d75d14cecbd97"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/no-poll-control.log",
+      "bytes": 4119,
+      "sha256": "cd329bc411c929a4ff0419125e13a7e1b04b1350cbd61e14f98d11223d189c5c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/observer-build-poll.log",
+      "bytes": 38261,
+      "sha256": "1206d016321fe01c9efd10ff1f7a090f0a1e99a73105c272f4dbc826d56cd984"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/observer-build.log",
+      "bytes": 22313,
+      "sha256": "1d1a4a5e306e214829636a190fb89143ec52f050febe98155ffe4640ef0b3e11"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/observer-link-poll.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/observer-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/poll-meters-execution.json",
+      "bytes": 413,
+      "sha256": "094766f5ea93c2370d4bb78c2e7be52c617c071c0b06ca0b6d1ca3e0d79a3fa3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/poll-meters.log",
+      "bytes": 4007,
+      "sha256": "6a50b1c103c563d88f072aff7ad428c9531d890b1dd5bfc7dc716748fd34b0a2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/polled-meter-comparison.json",
+      "bytes": 6007,
+      "sha256": "a0c1af9df2c0e599e1f0164e4abcaa07b54d1bff49f0669f6b8f7c968af9b3d4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/record-differences.json",
+      "bytes": 31913,
+      "sha256": "85afda4324f86d9efe2146c4df8dfdfc3f656a99678b267ec241b689b16516f8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/reproduced-record-comparison.json",
+      "bytes": 30500,
+      "sha256": "a66e1cba9ee08e3f688810bbe82e60d947fde8b4c376c54160c9ccfbae85f34f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/requested-capture-native-fields.json",
+      "bytes": 7944,
+      "sha256": "cd6f95c1ab0cee6726ca4e1815c303350e8fbba80d99cb4e71127ea5aa66cf12"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/run_controlled_observer.py",
+      "bytes": 1883,
+      "sha256": "e0bde81ff461ee54f5f1fa17c96fa3edc13fe5ecf2b0a1b3d6e260d2b9753221"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/run_native_diagnosis.py",
+      "bytes": 2152,
+      "sha256": "8dd664dc47f4fc0a9d27a8fbc8ba07ffc186288c82e9ef41c3c3f1522afeecc1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ParitySeed.scn",
+      "bytes": 366060,
+      "sha256": "805f884d25a609ba9b9205ad0bbe9a98cc40f8a196c7e478444ea802882aa4d0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep0.scn",
+      "bytes": 348931,
+      "sha256": "8c2dc4e7a692e2798d6fa4278a56c69e1f267c349c5661507b6a7f6584a0cff0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "d1a9fdd0bafaca23fe16730658f9bc30cd14d09cf34ef783263c1b4a43b6c683"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep11.scn",
+      "bytes": 348964,
+      "sha256": "cc3a936340f459f57b971e2512e0dda0347f8099f51f9841690c345bbf1623b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "20b80d36021b90a475c2a7d548edcd9674bf5f0209c2f066a7bea30bac9adc1c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep2.scn",
+      "bytes": 349241,
+      "sha256": "39213d06a1c150c409664c68c74097fe59ec7d8d8a9b91563262379cccb5f6f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "31eda7d51d93b9ae0f0eafb56caf7228767856dacefd9bcee38235a379b14109"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep3.scn",
+      "bytes": 349318,
+      "sha256": "17348a5064354cab2e3464afe0127fee05436e688f931b2383a890ca562925e9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "3832f34944dea877e596a8291458f2188b3a089e432e92a596973f4a33439d15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "88fff11d264a01c417bd83af868a8a05818235403e699c044809e7291c2d2cf5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "01a297395ce508ab563cd8b6b9534a64729316c7c1ed32613ac7cc3e752c0f42"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/ThermalTraceOrbiter.log",
+      "bytes": 1962,
+      "sha256": "397659698e8e423e1f3c9804f8a4bc2f09cef4967d9fac8af79bf09b2a3e25c0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-float-control/thermal-trace.jsonl",
+      "bytes": 491565,
+      "sha256": "411507decfa8075c3bccaa7e83ad3744fc598cb56e2e53a65c971b9e6ff0ad8e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "72a414247bff78ed47c27ad6bd1b348a62b82f94d5eba55a64995ec88ed99b5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "357951724c6d4e84fe1a57c8209e665460bc74a8594cddc1cce2ff02357d6bdd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "d012c2ba562a6cb5ab2028ef07808dc681bbcd255fb834fc83158fcc76b9d8cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "f8fe0ef09c4956defa76f15026a03d59e05039febe432d0a823236c859ef32ce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "260abc0d16790fda37a2ef91b9e99669988c75700e937a1c2258c17eae0ee20a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/ThermalTraceOrbiter.log",
+      "bytes": 1963,
+      "sha256": "16d655c4cdb88c2a775f92328494dee028367916862999814cb976011be2144f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-clock-native-control/thermal-trace.jsonl",
+      "bytes": 491571,
+      "sha256": "59f3ae68b67a36faffb71f25d5deb7e1c1a59571f27da5659d7648d407aaef17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ParitySeed.scn",
+      "bytes": 366060,
+      "sha256": "805f884d25a609ba9b9205ad0bbe9a98cc40f8a196c7e478444ea802882aa4d0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep0.scn",
+      "bytes": 348931,
+      "sha256": "8c2dc4e7a692e2798d6fa4278a56c69e1f267c349c5661507b6a7f6584a0cff0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "d1a9fdd0bafaca23fe16730658f9bc30cd14d09cf34ef783263c1b4a43b6c683"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep11.scn",
+      "bytes": 348964,
+      "sha256": "cc3a936340f459f57b971e2512e0dda0347f8099f51f9841690c345bbf1623b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "20b80d36021b90a475c2a7d548edcd9674bf5f0209c2f066a7bea30bac9adc1c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep2.scn",
+      "bytes": 349241,
+      "sha256": "39213d06a1c150c409664c68c74097fe59ec7d8d8a9b91563262379cccb5f6f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "31eda7d51d93b9ae0f0eafb56caf7228767856dacefd9bcee38235a379b14109"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep3.scn",
+      "bytes": 349318,
+      "sha256": "17348a5064354cab2e3464afe0127fee05436e688f931b2383a890ca562925e9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "3832f34944dea877e596a8291458f2188b3a089e432e92a596973f4a33439d15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "88fff11d264a01c417bd83af868a8a05818235403e699c044809e7291c2d2cf5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "01a297395ce508ab563cd8b6b9534a64729316c7c1ed32613ac7cc3e752c0f42"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/ThermalTraceOrbiter.log",
+      "bytes": 1960,
+      "sha256": "30c04236d7e978982dfa8fa6d77413f5bf175dd680ec45790ef8ef0a6fe56541"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-float-clock-trace/thermal-trace.jsonl",
+      "bytes": 491565,
+      "sha256": "411507decfa8075c3bccaa7e83ad3744fc598cb56e2e53a65c971b9e6ff0ad8e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "72a414247bff78ed47c27ad6bd1b348a62b82f94d5eba55a64995ec88ed99b5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "357951724c6d4e84fe1a57c8209e665460bc74a8594cddc1cce2ff02357d6bdd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "d012c2ba562a6cb5ab2028ef07808dc681bbcd255fb834fc83158fcc76b9d8cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "f8fe0ef09c4956defa76f15026a03d59e05039febe432d0a823236c859ef32ce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "260abc0d16790fda37a2ef91b9e99669988c75700e937a1c2258c17eae0ee20a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/ThermalTraceOrbiter.log",
+      "bytes": 1955,
+      "sha256": "016b431598b1e8f185da347af35bd3cdcd0412d153b7beb916dfc321c0920c05"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-native-trace/thermal-trace.jsonl",
+      "bytes": 491571,
+      "sha256": "59f3ae68b67a36faffb71f25d5deb7e1c1a59571f27da5659d7648d407aaef17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "710576ee84b4ac0e0a97e8434f6861add9e161bd7a804d9235558bd1ec16bcd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "72a414247bff78ed47c27ad6bd1b348a62b82f94d5eba55a64995ec88ed99b5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep2.scn",
+      "bytes": 349240,
+      "sha256": "7c2d701315aee4b285200f29f8ac75148296facf5a0c6912a49385cdbee5e434"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "357951724c6d4e84fe1a57c8209e665460bc74a8594cddc1cce2ff02357d6bdd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "fcdb2576083ab85e2ebe9f1775a8958a6b9a126e1ec0f1e98ee8c8fe94899496"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "d012c2ba562a6cb5ab2028ef07808dc681bbcd255fb834fc83158fcc76b9d8cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "f8fe0ef09c4956defa76f15026a03d59e05039febe432d0a823236c859ef32ce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "260abc0d16790fda37a2ef91b9e99669988c75700e937a1c2258c17eae0ee20a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/ThermalTraceOrbiter.log",
+      "bytes": 1958,
+      "sha256": "572c0245a6f7cadccf3b3995807a01ad51b33de7d595ae6f97f8f93a51ded6c8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-no-poll-control/thermal-trace.jsonl",
+      "bytes": 491571,
+      "sha256": "59f3ae68b67a36faffb71f25d5deb7e1c1a59571f27da5659d7648d407aaef17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep11.scn",
+      "bytes": 348963,
+      "sha256": "9a293edb37b55cf2d62e294cd7b6e4be8d87e937d1fc36bddac41e22fb1786ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep121.scn",
+      "bytes": 349130,
+      "sha256": "840fc407479d76e06d24010cfc002d20b310af5564d677731c264df4aa14708a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep2.scn",
+      "bytes": 349239,
+      "sha256": "0de13c431705392ea100c2707fd1be61e1efd13e5a1fd503993de5d3930b479d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep241.scn",
+      "bytes": 349192,
+      "sha256": "be30a36661beb8bd170f296b39c2fb9e0655f627bfdf01dba8a8367d732cce91"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep3.scn",
+      "bytes": 349320,
+      "sha256": "6481a2ac74bde6cc71f878236b5b24d9d549402ae22a5c615b17e1f2184ab092"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "43fc9b7bc3309390edcc1d291bc9da1a13d892ec845fa6837dcbe56a5157eb26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep31.scn",
+      "bytes": 349016,
+      "sha256": "edd5ed0229fe115a23328f402db19f6c2351fec400c2a6dadbf5a7d0f51952f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/Scenarios/ThermalStep61.scn",
+      "bytes": 349306,
+      "sha256": "c4df2c986d85bb35e9ac0daccb62d10c19392e445d96024bdc7595379512d234"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/ThermalTraceOrbiter.log",
+      "bytes": 1954,
+      "sha256": "09a8b427afa132b093499d9ca017144df0c66888c0b34795f8bd70cd6cfad888"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/runtime-poll-meters/thermal-trace.jsonl",
+      "bytes": 491571,
+      "sha256": "59f3ae68b67a36faffb71f25d5deb7e1c1a59571f27da5659d7648d407aaef17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/windows-minimum-capture-request.md",
+      "bytes": 3115,
+      "sha256": "30bb3ddaae8b2749dca069b7c1e5c3b1258029a3ca1c0c6b3fe24ea921e956d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/thermal-diagnosis/write_report.py",
+      "bytes": 6673,
+      "sha256": "bdf209e4893ed253bb16916a54fcf78b3e90b65ac8d95e4dc156d04f2b887029"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "orbiter_commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+  "nassp_commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+  "provenance": "Unmodified stock Windows x64 releases, fixed 1/60 s: initial step then 300 neutral steps; selected raw records only. Full originals retained in the 938b10a evidence and verified backup.",
+  "saves": {
+    "original": {
+      "raw_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "mjd": "MJD 40422.8317621738",
+      "vessels": {
+        "Columbia": {
+          "MISSNTIME": "368744.392486901314",
+          "DATARECORDER": "15.000000 15.000000 0.000000 5 368744.392487",
+          "DCVoltMeter": "28.010201 28.010257"
+        },
+        "Eagle": {
+          "MISSNTIME": "368744.423737"
+        }
+      }
+    },
+    "baseline": {
+      "raw_sha256": "099239c29962384e395ef7e2f508d77d0ecc81ada387e10dbf314d359ef5a861",
+      "mjd": "MJD 40422.8317623667",
+      "vessels": {
+        "Columbia": {
+          "MISSNTIME": "368744.422916666663",
+          "DATARECORDER": "14.500000 15.241667 0 0 1 0 0 0 1 0 0",
+          "DCVoltMeter": "28.010201 28.010257"
+        },
+        "Eagle": {
+          "MISSNTIME": "368744.454167"
+        }
+      }
+    },
+    "coast": {
+      "raw_sha256": "1a176325ad4bcfb6ec4f9bfa83f3ce5c8f273b5437d787d113814fc77c5f7b0b",
+      "mjd": "MJD 40422.8318202371",
+      "vessels": {
+        "Columbia": {
+          "MISSNTIME": "368749.422916665499",
+          "DATARECORDER": "3.750000 35.829167 0 0 1 0 0 0 1 0 0",
+          "DCVoltMeter": "27.675513 27.675133"
+        },
+        "Eagle": {
+          "MISSNTIME": "368749.454167"
+        }
+      }
+    }
+  },
+  "config_sha256": "77dfbd191b7a228ea8b4edecc6e0efba9a3caa3022031c5d0ac0dcb7a7f122bb"
+}

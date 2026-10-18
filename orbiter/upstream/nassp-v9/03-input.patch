@@ -1,0 +1,483 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h b/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
+index bac4226fc740b07d7bdea43734241db359c533dd..bb14f534248c0b2810048be8f9bb10c04d6449d0
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
+@@ -24,8 +24,10 @@
+ 
+ #pragma once
+ 
++#ifndef NASSP_NATIVE
+ #define DIRECTINPUT_VERSION 0x0800
+ #include "dinput.h"
++#endif
+ 
+ #define VESIM_INPUTTYPE_BUTTON 1
+ #define VESIM_INPUTTYPE_AXIS   2
+@@ -53,6 +55,9 @@
+ 	bool notifyOnChange;
+ };
+ 
++#ifdef NASSP_NATIVE
++#include "NativeVesim.h"
++#else
+ struct VesimDeviceInputConn {
+ 	int deviceID;
+ 	int subdeviceType;
+@@ -142,4 +147,5 @@
+ 	void createUserConfigs();
+ 
+ 	friend BOOL CALLBACK VesimEnumJoysticksCB(const DIDEVICEINSTANCE* pdidInstance, VOID* pVesim);
+-};
+\ No newline at end of file
++};
++#endif
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
+index 6a1680f7bb5a7bea9b6dc30b225a408bb0810ab7..de54017048e8c595603f755e4ee24690edde31cd
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
+@@ -1859,8 +1859,8 @@
+ {
+ 	TRACESETUP("Saturn::SystemsInternalTimestep");
+ 
+-	double mintFactor = __max(simdt / 100.0, 0.5);
+-	double tFactor = __min(mintFactor, simdt);
++	double mintFactor = std::max(simdt / 100.0, 0.5);
++	double tFactor = std::min(mintFactor, simdt);
+ 	while (simdt > 0) {
+ 
+ 		// Each timestep is passed to the SPSDK
+@@ -1939,7 +1939,7 @@
+ 		ExteriorLighting.SystemTimestep(tFactor);
+ 
+ 		simdt -= tFactor;
+-		tFactor = __min(mintFactor, simdt);
++		tFactor = std::min(mintFactor, simdt);
+ 		TRACE("Internal timestep done");
+ 	}
+ 
+@@ -1955,13 +1955,17 @@
+ 
+ }
+ 
+-void Saturn::JoystickTimestep()
++void Saturn::JoystickTimestep(bool releaseControls)
+ 
+ {
+ 	// Read joysticks and feed data to the computer
+ 	// Do not do this if we aren't the active vessel.
+-	if (oapiGetFocusInterface() == this) {
+-		if (enableVESIM) vesim.poolDevices();
++	if (oapiGetFocusInterface() == this || releaseControls) {
++#ifdef NASSP_NATIVE
++        if (enableVESIM) vesim.poolDevices(!releaseControls);
++#else
++        if (enableVESIM) vesim.poolDevices();
++#endif
+ 		// Invert joystick configuration according to navmode in case of one joystick
+ 		int tmp_id, tmp_rot_id, tmp_sld_id, tmp_rzx_id, tmp_pov_id, tmp_debug;
+ 		if (rhc_thctoggle && ((rhc_id != -1 && thc_id == -1 && GetAttitudeMode() == RCS_LIN) ||
+@@ -2067,6 +2071,7 @@
+ 		int rhc_x_pos = 32768; 
+ 		int rhc_y_pos = 32768; 
+ 		int rhc_rot_pos = 32768; 
++#ifndef NASSP_NATIVE
+ 		if (enableVESIM) {
+ 			if (GetAttitudeMode() == RCS_ROT) {
+ 				rhc_x_pos = vesim.getInputValue(CSM_AXIS_INPUT_RHC_R);
+@@ -2119,7 +2124,10 @@
+ 				}
+ 			}
+ 		// Use Orbiter's attitude control as RHC
+-		} else {
++		}
++		else
++#endif
++		{
+ 			// Roll
+ 			double rollLeft = rhc_keyboard_deflection[THGROUP_ATT_BANKLEFT - THGROUP_ATT_PITCHUP];
+ 			double rollRight = rhc_keyboard_deflection[THGROUP_ATT_BANKRIGHT - THGROUP_ATT_PITCHUP];
+@@ -2149,6 +2157,13 @@
+ 			}
+ 		}
+ 
++#ifdef NASSP_NATIVE
++        if (!releaseControls && GetAttitudeMode() == RCS_ROT) {
++            if (vesim.hasActiveBinding(CSM_AXIS_INPUT_RHC_R)) rhc_x_pos = vesim.getInputValue(CSM_AXIS_INPUT_RHC_R);
++            if (vesim.hasActiveBinding(CSM_AXIS_INPUT_RHC_P)) rhc_y_pos = vesim.getInputValue(CSM_AXIS_INPUT_RHC_P);
++            if (vesim.hasActiveBinding(CSM_AXIS_INPUT_RHC_Y)) rhc_rot_pos = vesim.getInputValue(CSM_AXIS_INPUT_RHC_Y);
++        }
++#endif
+ 		int rhc_pos[3] = { rhc_x_pos, rhc_y_pos, rhc_rot_pos };
+ 
+ 		rhc2.Timestep(rhc_pos, rhc_voltage2 > SP_MIN_DCVOLTAGE, eca.IsAC2Powered(), rhc_directv2 > SP_MIN_DCVOLTAGE, rhc_directv2 > SP_MIN_DCVOLTAGE);
+@@ -2520,6 +2535,7 @@
+ 		int thc_rot_pos = 32768; 
+ 
+ 		
++#ifndef NASSP_NATIVE
+ 		if (enableVESIM) {
+ 			if (GetAttitudeMode() == RCS_ROT) {
+ 				thc_x_pos = vesim.getInputValue(CSM_AXIS_INPUT_THC_Y);
+@@ -2589,7 +2605,10 @@
+ 			}
+ 
+ 		// Use Orbiter's attitude control as THC
+-		} else {
++		}
++		else
++#endif
++		{
+ 			// Up/down
+ 			if (GetManualControlLevel(THGROUP_ATT_DOWN) > 0) {
+ 				thc_y_pos = (int) ((1. - GetManualControlLevel(THGROUP_ATT_DOWN)) * 32768.);
+@@ -2610,6 +2629,17 @@
+ 			}
+ 		}
+ 
++#ifdef NASSP_NATIVE
++        if (!releaseControls) {
++            const bool rotation = GetAttitudeMode() == RCS_ROT;
++            const int x = rotation ? CSM_AXIS_INPUT_THC_Y : CSM_AXIS_INPUT_RHC_R;
++            const int y = rotation ? CSM_AXIS_INPUT_THC_Z : CSM_AXIS_INPUT_RHC_P;
++            const int z = rotation ? CSM_AXIS_INPUT_THC_X : CSM_AXIS_INPUT_RHC_Y;
++            if (vesim.hasActiveBinding(x)) thc_x_pos = vesim.getInputValue(x);
++            if (vesim.hasActiveBinding(y)) thc_y_pos = rotation ? 65536 - vesim.getInputValue(y) : vesim.getInputValue(y);
++            if (vesim.hasActiveBinding(z)) thc_rot_pos = vesim.getInputValue(z);
++        }
++#endif
+ 		if (thc_voltage > SP_MIN_DCVOLTAGE) {
+ 			if (SCContSwitch.IsUp() && !THCRotary.IsClockwise()) {	// CMC
+ 				if (thc_x_pos < 16384) {							
+@@ -2648,6 +2678,8 @@
+ 		// Submit data to the AGC
+ 		agc.SetInputChannel(031, val31);
+ 	}
++	// A focus handoff refreshes the hand controllers only, without replaying ullage.
++	if (releaseControls) return;
+ 
+ 	//
+ 	// IMPORTANT: The following must be the last SetRCSState calls within a time step, especially after the RJ/EC
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+index 2ce26ad7d2162a8ac1e68162d83d6df74e211b88..150967b9f52280f03aee07708a93ec4ce7f5a446
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+@@ -1,3 +1,4 @@
++#include <algorithm>
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+@@ -870,11 +871,15 @@
+ 	atca.Init(this, (h_HeatLoad *)Panelsdk.GetPointerByString("HYDRAULIC:ATCAHEAT"));
+ }
+ 
+-void LEM::JoystickTimestep(double simdt)
++void LEM::JoystickTimestep(double simdt, bool releaseControls)
+ {
+ 	// Joystick read
+-	if (oapiGetFocusInterface() == this) {
+-		if (enableVESIM) vesim.poolDevices();
++	if (oapiGetFocusInterface() == this || releaseControls) {
++#ifdef NASSP_NATIVE
++        if (enableVESIM) vesim.poolDevices(!releaseControls);
++#else
++        if (enableVESIM) vesim.poolDevices();
++#endif
+ 		// Invert joystick configuration according to navmode in case of one joystick
+ 		int tmp_id, tmp_rot_id, tmp_sld_id, tmp_rzx_id, tmp_pov_id, tmp_debug;
+ 		if (rhc_thctoggle && ((rhc_id != -1 && thc_id == -1 && GetAttitudeMode() == RCS_LIN) ||
+@@ -946,6 +951,7 @@
+ 		// Read data
+ 		HRESULT hr;
+ 		// Handle RHC
++#ifndef NASSP_NATIVE
+ 		if (enableVESIM) {
+ 			if (GetAttitudeMode() == RCS_ROT) {
+ 				rhc_pos[0] = vesim.getInputValue(LM_AXIS_INPUT_ACAR);
+@@ -1008,7 +1014,9 @@
+ 				}
+ 			}
+ 		}
+-		else {
++		else
++#endif
++		{
+ 
+ 			// No JS
+ 
+@@ -1041,6 +1049,13 @@
+ 			}
+ 		}
+ 
++#ifdef NASSP_NATIVE
++        if (!releaseControls && GetAttitudeMode() == RCS_ROT) {
++            if (vesim.hasActiveBinding(LM_AXIS_INPUT_ACAR)) rhc_pos[0] = vesim.getInputValue(LM_AXIS_INPUT_ACAR);
++            if (vesim.hasActiveBinding(LM_AXIS_INPUT_ACAP)) rhc_pos[1] = vesim.getInputValue(LM_AXIS_INPUT_ACAP);
++            if (vesim.hasActiveBinding(LM_AXIS_INPUT_ACAY)) rhc_pos[2] = 65536 - vesim.getInputValue(LM_AXIS_INPUT_ACAY);
++        }
++#endif
+ 		CDR_ACA.Timestep(rhc_pos);
+ 
+ 		if (CDR_ACA.GetOutOfDetent())
+@@ -1225,6 +1240,7 @@
+ 		}
+ 
+ 		// And now the THC...
++#ifndef NASSP_NATIVE
+ 		if (enableVESIM) {
+ 			if (LeftTTCATranslSwitch.IsUp()) {
+ 				if (GetAttitudeMode() == RCS_ROT) {
+@@ -1314,7 +1330,9 @@
+ 				}
+ 			}
+ 		}
+-		else {
++		else
++#endif
++		{
+ 			// No JS
+ 
+ 			// Up/down
+@@ -1342,6 +1360,26 @@
+ 			//sprintf(oapiDebugString(), "%f %f", ttca_throttle_pos_dig, ttca_thrustcmd);
+ 		}
+ 
++#ifdef NASSP_NATIVE
++        if (!releaseControls) {
++            const bool rotation = GetAttitudeMode() == RCS_ROT;
++            const int x = rotation ? LM_AXIS_INPUT_TTCAY : LM_AXIS_INPUT_ACAR;
++            const int y = rotation ? LM_AXIS_INPUT_TTCAX : LM_AXIS_INPUT_ACAP;
++            const int z = rotation ? LM_AXIS_INPUT_TTCAZ : LM_AXIS_INPUT_ACAY;
++            if (LeftTTCATranslSwitch.IsUp()) {
++                if (vesim.hasActiveBinding(x)) thc_x_pos = vesim.getInputValue(x) - 32768;
++                if (vesim.hasActiveBinding(y)) thc_y_pos = vesim.getInputValue(y) - 32768;
++                if (vesim.hasActiveBinding(z)) thc_z_pos = vesim.getInputValue(z) - 32768;
++            }
++            const bool lever = vesim.hasActiveBinding(LM_AXIS_THR_JET_LEVER) &&
++                vesim.getInputValue(LM_AXIS_THR_JET_LEVER) >= 32768;
++            const int throttle = lever ? y : LM_AXIS_INPUT_THROTTLE;
++            if (vesim.hasActiveBinding(throttle)) {
++                ttca_throttle_pos_dig = (65536.0 - vesim.getInputValue(throttle)) / 65536.0;
++                if (lever) thc_y_pos = 0;
++            }
++        }
++#endif
+ 		ttca_pos[0] = thc_y_pos;
+ 		ttca_pos[1] = thc_x_pos;
+ 		ttca_pos[2] = thc_z_pos;
+@@ -1403,8 +1441,8 @@
+ 
+ void LEM::SystemsInternalTimestep(double simdt)
+ {
+-	double mintFactor = __max(simdt / 50.0, 0.02);
+-	double tFactor = __min(mintFactor, simdt);
++	double mintFactor = std::max(simdt / 50.0, 0.02);
++	double tFactor = std::min(mintFactor, simdt);
+ 	while (simdt > 0) {
+ 
+ 		// Each Timestep is passed to the SPSDK
+@@ -1491,7 +1529,7 @@
+ 		LMPManualEngineStop.SystemTimestep(tFactor);
+ 
+ 		simdt -= tFactor;
+-		tFactor = __min(mintFactor, simdt);
++		tFactor = std::min(mintFactor, simdt);
+ 	}
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
+index fae853f5f742a594970a09581a39927e704640f8..e76e49b6c70cb7e4346c1798fdfc8cade0fa8167
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
+@@ -46,7 +46,7 @@
+ LEM_RGA::LEM_RGA()
+ {
+ 	powered = false;
+-	dc_source = false;
++	dc_source = nullptr;
+ 	rates = _V(0, 0, 0);
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp
+index 0000000000000000000000000000000000000000..9813dc1e9136d46203eddf8c608c4977e8d58a0a
+new file mode 100644
+--- /dev/null
++++ b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp
+@@ -0,0 +1,126 @@
++#include "Orbitersdk.h"
++#include "../src_aux/vesim.h"
++#include "Platform/Joystick.h"
++#include "Platform/Vfs.h"
++#include <algorithm>
++#include <cmath>
++#include <fstream>
++#include <iomanip>
++#include <sstream>
++#include <stdexcept>
++
++Vesim::Vesim(CbInputChanged callback, void *context) : callback_(callback), context_(context) {
++    orbiter::platform::RegisterJoystickRelease(this, [](void *owner) { static_cast<Vesim *>(owner)->releaseControls(); });
++}
++Vesim::~Vesim() { orbiter::platform::UnregisterJoystickRelease(this); }
++
++bool Vesim::addInput(int id, const char *name, int type, int value, bool notify) {
++    if (id < 0 || id >= VESIM_MAX_INPUTS || !name ||
++        (type != VESIM_INPUTTYPE_BUTTON && type != VESIM_INPUTTYPE_AXIS)) return false;
++    for (const auto &[key, input] : inputs_) if (input.name == name) return false;
++    return inputs_.emplace(id, Input{name, type, value, value, notify}).second;
++}
++bool Vesim::loadConfig(const std::string &path) {
++    std::ifstream file(orbiter::platform::ResolvePath(path));
++    if (!file.is_open()) { releaseControls(); bindings_.clear(); return false; }
++    std::vector<Binding> parsed;
++    std::string line;
++    unsigned number = 0;
++    while (std::getline(file, line)) {
++        ++number;
++        std::istringstream row(line);
++        row >> std::ws;
++        if (row.eof() || row.peek() == '#') continue;
++        auto fail = [&]() { throw std::runtime_error(path + ":" + std::to_string(number) + ": invalid joystick binding"); };
++        Binding binding{};
++        std::string name, kind;
++        if (!(row >> std::quoted(name) >> std::quoted(binding.device) >> std::quoted(binding.serial) >> kind >> binding.index)) fail();
++        if (binding.device.empty() || binding.index < 0 || binding.index > 255) fail();
++        auto input = std::find_if(inputs_.begin(), inputs_.end(), [&](const auto &item) { return item.second.name == name; });
++        if (input == inputs_.end()) fail();
++        binding.input = input->first;
++        if (std::any_of(parsed.begin(), parsed.end(), [&](const Binding &other) { return other.input == binding.input; })) fail();
++        if (kind == "Axis") {
++            binding.kind = Kind::Axis;
++            int reverse;
++            if (input->second.type != VESIM_INPUTTYPE_AXIS || !(row >> reverse >> binding.deadzone) ||
++                (reverse != 0 && reverse != 1) || !std::isfinite(binding.deadzone) ||
++                binding.deadzone < 0 || binding.deadzone >= 1) fail();
++            binding.reverse = reverse != 0;
++        } else if (kind == "Button") {
++            binding.kind = Kind::Button;
++            if (input->second.type != VESIM_INPUTTYPE_BUTTON) fail();
++        } else if (kind == "Hat") {
++            binding.kind = Kind::Hat;
++            if (input->second.type != VESIM_INPUTTYPE_BUTTON || !(row >> binding.mask) ||
++                binding.mask < 1 || binding.mask > 15 || (binding.mask & 5) == 5 || (binding.mask & 10) == 10) fail();
++        } else fail();
++        row >> std::ws;
++        if (!row.eof() && row.peek() != '#') fail();
++        parsed.push_back(std::move(binding));
++    }
++    if (file.bad()) throw std::runtime_error("Cannot read joystick config: " + path);
++    releaseControls();
++    bindings_ = std::move(parsed);
++    return !bindings_.empty();
++}
++void Vesim::setValue(int id, int value) {
++    auto &input = inputs_.at(id);
++    if (input.value == value) return;
++    input.value = value;
++    if (input.notify && callback_) callback_(id, input.type == VESIM_INPUTTYPE_AXIS ?
++        VESIM_EVTTYPE_AXIS_CHANGED : (value ? VESIM_EVTTYPE_BUTTON_ON : VESIM_EVTTYPE_BUTTON_OFF), value, context_);
++}
++void Vesim::releaseControls() {
++    for (auto &binding : bindings_) { binding.armed = binding.active = false; binding.instance = 0; }
++    for (const auto &[id, input] : inputs_) setValue(id, input.initial);
++}
++void Vesim::poolDevices(bool enabled) {
++    if (!enabled || !orbiter::platform::JoystickInputEnabled()) { releaseControls(); return; }
++    for (auto &binding : bindings_) {
++        const orbiter::platform::JoystickState *selected = nullptr;
++        unsigned matches = 0;
++        for (const auto &device : orbiter::platform::JoystickStates()) {
++            if ((binding.device == "*" || binding.device == device.guid || binding.device == device.name) &&
++                (binding.serial.empty() || binding.serial == device.serial)) { selected = &device; ++matches; }
++        }
++        auto reset = [&]() {
++            binding.armed = binding.active = false; binding.instance = 0;
++            setValue(binding.input, inputs_.at(binding.input).initial);
++        };
++        // Refuse ambiguous devices instead of silently changing which stick flies.
++        if (matches != 1) { reset(); continue; }
++        if (binding.instance != selected->instance) { reset(); binding.instance = selected->instance; }
++        int value = 0;
++        bool neutral = false;
++        const auto index = static_cast<std::size_t>(binding.index);
++        if (binding.kind == Kind::Axis) {
++            if (index >= selected->axes.size()) { reset(); continue; }
++            const int raw = selected->axes[index];
++            double axis = raw < 0 ? raw / 32768.0 : raw / 32767.0;
++            neutral = std::abs(axis) <= std::max(binding.deadzone, 0.02);
++            axis = std::abs(axis) <= binding.deadzone ? 0 :
++                std::copysign((std::abs(axis) - binding.deadzone) / (1 - binding.deadzone), axis);
++            if (binding.reverse) axis = -axis;
++            value = static_cast<int>(std::lround((axis + 1) * 32768));
++        } else if (binding.kind == Kind::Button) {
++            if (index >= selected->buttons.size()) { reset(); continue; }
++            value = selected->buttons[index] != 0; neutral = value == 0;
++        } else {
++            if (index >= selected->hats.size()) { reset(); continue; }
++            value = (selected->hats[index] & binding.mask) == binding.mask; neutral = selected->hats[index] == 0;
++        }
++        if (!binding.armed && neutral) binding.armed = true;
++        binding.active = binding.armed;
++        setValue(binding.input, binding.active ? value : inputs_.at(binding.input).initial);
++    }
++}
++int Vesim::getInputValue(int id) const {
++    const auto input = inputs_.find(id);
++    return input == inputs_.end() ? VESIM_DEFAULT_AXIS_VALUE : input->second.value;
++}
++bool Vesim::hasActiveBinding(int id) const {
++    return std::any_of(bindings_.begin(), bindings_.end(), [id](const Binding &binding) {
++        return binding.input == id && binding.active;
++    });
++}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h
+index 0000000000000000000000000000000000000000..50cffeb3394c77e0faacb6928dca645ec6366c99
+new file mode 100644
+--- /dev/null
++++ b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h
+@@ -0,0 +1,46 @@
++#pragma once
++#include <cstdint>
++#include <map>
++#include <string>
++#include <vector>
++
++class Vesim {
++public:
++    Vesim(CbInputChanged callback, void *context);
++    ~Vesim();
++    Vesim(const Vesim &) = delete;
++    Vesim &operator=(const Vesim &) = delete;
++    bool addInput(int id, const char *name, int type,
++                  int value = VESIM_DEFAULT_AXIS_VALUE, bool notify = false);
++    bool addInput(VesimInputDefinition *input) {
++        return input && addInput(input->id, input->name, input->type,
++                                 input->defaultValue, input->notifyOnChange);
++    }
++    // Explicit native config; missing files leave bindings empty. Invalid files
++    // throw with a line number and leave the previous bindings intact.
++    bool loadConfig(const std::string &path);
++    int clbkConsumeBufferedKey(DWORD, bool, char *) { return 0; }
++    void poolDevices(bool enabled = true);
++    void releaseControls();
++    int getInputValue(int id) const;
++    // True only when a uniquely selected connected device is armed and enabled.
++    // Callers must preserve keyboard/manual control for unmapped inputs.
++    bool hasActiveBinding(int id) const;
++    void createUserConfigs() {}
++private:
++    struct Input { std::string name; int type, initial, value; bool notify; };
++    enum class Kind { Axis, Button, Hat };
++    struct Binding {
++        int input, index, mask = 0;
++        Kind kind;
++        std::string device, serial;
++        bool reverse = false, armed = false, active = false;
++        double deadzone = 0;
++        std::uint32_t instance = 0;
++    };
++    void setValue(int id, int value);
++    std::map<int, Input> inputs_;
++    std::vector<Binding> bindings_;
++    CbInputChanged callback_;
++    void *context_;
++};

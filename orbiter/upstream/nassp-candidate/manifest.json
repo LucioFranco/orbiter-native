@@ -1,0 +1,886 @@
+{
+  "schema": 1,
+  "upstream": {
+    "repository": "https://github.com/orbiternassp/NASSP.git",
+    "ref": "Orbiter2016",
+    "commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60"
+  },
+  "scope": [
+    "Orbitersdk",
+    "Config",
+    "Scenarios"
+  ],
+  "normalisation": "CRLF to LF",
+  "unchanged_files": 1301,
+  "groups": {
+    "build": {
+      "patch": "01-build.patch",
+      "reason": "Native source selection, linkage and platform adapters",
+      "test_gates": [
+        "native_core",
+        "module_lifecycle",
+        "nassp_assets",
+        "native_original_insertion",
+        "native_original_liftoff"
+      ],
+      "removal_path": "Move build overlays to Orbiter; remove NASSP CMake edits when upstream supports the adapter",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "mission-integration": {
+      "patch": "02-mission-integration.patch",
+      "reason": "Mixed vessel input, audio, visuals and save-state integration; requires behavioral review",
+      "test_gates": [
+        "native_nassp_resume",
+        "native_lm_resume",
+        "native_liftoff",
+        "native_liftoff_resume"
+      ],
+      "removal_path": "Move optional features behind platform services; retain only reviewed minimal hooks",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "input": {
+      "patch": "03-input.patch",
+      "reason": "Replace DirectInput with SDL/VESIM and release held controls",
+      "test_gates": [
+        "native_vesim",
+        "nassp_joystick",
+        "nassp_joystick_flight",
+        "native_rcs"
+      ],
+      "removal_path": "Use an upstream input adapter; remove native-specific vessel branches",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "audio": {
+      "patch": "04-audio.patch",
+      "reason": "miniaudio/XRSound and temporary landing-callout implementation",
+      "test_gates": [
+        "native_audio",
+        "native_sound",
+        "landing_sounds",
+        "landing_sound_playback"
+      ],
+      "removal_path": "Re-back the upstream audio interface; remove custom scheduler once upstream semantics are supported",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "graphics": {
+      "patch": "05-graphics.patch",
+      "reason": "Native surface, material, cockpit and CPU FDAI adapters",
+      "test_gates": [
+        "native_fdai",
+        "fdai_rasterizer",
+        "wgpu_csm_cockpit",
+        "native_lm"
+      ],
+      "removal_path": "Move rendering implementation to Orbiter; remove direct backend dependencies from NASSP",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "guidance-portability": {
+      "patch": "06-guidance-portability.patch",
+      "reason": "ROM/resource loading, fixed-width state and embedded process I/O; no guidance tuning",
+      "test_gates": [
+        "nassp_assets",
+        "native_nassp_resume",
+        "native_lm_resume"
+      ],
+      "removal_path": "Adopt equivalent upstream fixes or a shared SDK/VFS interface; preserve ROM and state tests",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "compiler-portability": {
+      "patch": "07-compiler-portability.patch",
+      "reason": "Compiler, path, initialisation and fixed-width compatibility; individually review non-mechanical hunks",
+      "test_gates": [
+        "portable_sdk",
+        "panelsdk_math",
+        "nassp_assets",
+        "native_lm",
+        "native_rcs",
+        "native_original_insertion",
+        "native_original_liftoff"
+      ],
+      "removal_path": "Adopt upstream portability fixes; eliminate formatting-only churn and narrow remaining compatibility patches",
+      "removal_trigger": "equivalent upstream capability plus passing native/reference parity gates"
+    },
+    "state-persistence": {
+      "patch": "08-state-persistence.patch",
+      "reason": "Temporary upstream exact-token/complete-value loader fixes for LR range, right pointer and gimbal motor flags, plus persistence of the existing DPS throttle command and restoration of existing cached CoG/PMI/last-update fuel weight before the first frame; no equation changes",
+      "test_gates": [
+        "native_lm_persistence",
+        "native_pdi_pilot",
+        "native_lm_resume",
+        "native_original_descent"
+      ],
+      "removal_path": "Adopt upstream fixes for the three loaders and throttle persistence; adopt cached mass/CoG persistence and restoration before the first frame, then remove this overlay, regenerate the adapter inventory against the new pin and rerun persistence/neutral continuation gates",
+      "removal_trigger": "equivalent upstream loader/state fixes and pre-step initialization plus exact zero-step and bounded continuation checks in both supported revisions",
+      "port_specific": false,
+      "state_restore_lifecycle": "LEM.cpp/LEM.h persist cached CoG/PMI/fuel history and reuse original setup in post-creation; independent Windows execution deferred"
+    }
+  },
+  "files": [
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "88371927a15a601ad0849ae04bfdc47eac80cc72472fff0b04f07b2241ae19f8",
+      "patched_sha256": "08ab54e274d171aa77667863e7d609228a72d706f8d29d528d7f52d1545d52dd",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "c98b809385307cc0779ff3d33f3747a5ed53f603d5898a633d3e80a9aaa26cc6",
+      "patched_sha256": "67023a2232a3aef123d5ec43eaa65ef0d2c99422d2c58955aae5275ae190648f",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "f4f5997983f9fc1707885bed8a6dde1ae4b996fac69e9eba684aafdba56464bb",
+      "patched_sha256": "27b73d04de58dfa3d242777ed8f0c116ac959c0998a7c626054d8996b2cadce4",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "3023d623aeb6ac4b482bec4e47a0e6faa3fdbaa78671b3f1eec665f04ad96bcd",
+      "patched_sha256": "2e8a531404851bbc12a0c82eba92402de439e4bf463a22b9a110f5b31cb97d0b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_aux/vesim.h",
+      "group": "input",
+      "status": "modified",
+      "baseline_sha256": "1603a72d87ddff3ac0d424f4cac83bc13d2eae1005bc35093f2a0f093045575e",
+      "patched_sha256": "db877fc1bca9d8993924754dcf009b86f540b02a83c2fba0f763162205491a32",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "52bf506d396bf183d61af10da73b25fb5d7a6a103e9b8ad03db978aa976b7787",
+      "patched_sha256": "4dbf39544a24a64b92ff109781fb6de06c494999f138330ae9523ab8be7ddfcc",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "a515b27a4e0f369b4a8f5035caa75e469f8d9e624501eb80116deaf4a4d35817",
+      "patched_sha256": "0baeff15b19f51386af697e890759537e016a11e3a32d977865f20b462f88eb4",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "99fa0312b714816c3272fe2d4aecb0fe75e55dd632fb5707a7156135a0c861ce",
+      "patched_sha256": "433f44e885a0c04b3abaefadd0eb9651de4f4d47dbbc65bb03f4889d7ed7f602",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/eps.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "601cdaa19117c4356a3c4c1b35bdaa5bd5f2131fb3c994beb09e19c3b2217de9",
+      "patched_sha256": "8eb3cc1696da7ea40563ed58fb2c6c5d00b92a895293aef4e1ea463da46a3ec2",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp",
+      "group": "input",
+      "status": "modified",
+      "baseline_sha256": "294a2cda9a3f332aa89bdc382d4d48b7ab672ddf5c6db04d5432a5bf94969765",
+      "patched_sha256": "e2a6d914b9a6c188cf36af7cd160e2241fef0e12544ba67183ddfef7234b9008",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp",
+      "group": "mission-integration",
+      "status": "modified",
+      "baseline_sha256": "1d100a5638047c84eaa60d460dab115086b6b2bc95982e9bf70ebe532e5404f4",
+      "patched_sha256": "80bb9f4a47570775eb5a1e9309a091cea6f509085b01bef0d5a0ea838ef3f5f8",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/saturn.h",
+      "group": "mission-integration",
+      "status": "modified",
+      "baseline_sha256": "661f1311bac996463f12137f0932efca771fc24654be974b3eb2285cfa2c1a3d",
+      "patched_sha256": "5e69888fb8eb104560e763a6f7215fd6cd28c3c0d88f302e34380efbb4ea286a",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "250c6f3fcfd16216c524b93e2d3af2937a3943dc150d46258c0429a01dd8e5ab",
+      "patched_sha256": "833a60511728bbd32045a357d87699cc07506ffe3aa6f865914692ccad3d0ff6",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "77e57a388e2796fede6a6f176953df6707e9a77f18f11162e6e7f9d14323e3dd",
+      "patched_sha256": "0c857530b1da7021b1d566bf3380dcb88fcb2a7fa3f66a3e143d46b2a3a2ae51",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "069d477e8102c778b2f72b0f882c1a6fac54fd800c9ac1102cfa96edd07cf3e2",
+      "patched_sha256": "ce702969562d3de8287ad9df521b2619894e264a0e3c0c17732dabda8cf36a65",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "ed37e35bd9fcbd7949752c827b3dcc421ff4afdf7d3b73d173ad6925b996d74e",
+      "patched_sha256": "e7c1ca79272c4009ded45b4ce6f7f5a23e65f9061d4a082a3ae1cfc67aef08d8",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/scs.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "91dffec61790d114171e90f6cf9d74754182b23064642f2799888d0d7bdc342c",
+      "patched_sha256": "3860253ee66493f88c863dca128c890857798b4695fa14e89bb59f921c55bd08",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "d18e5a719281efb2cac0779d2a615d506a496deabef41b4b361c179c54b39d48",
+      "patched_sha256": "4edf6e9911fbdb02f470169994464782ae11b2775e5d6088f35c657c5df6699b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "352bb25521fb98e91a39f949297a2f8676c94593d5a8c464844365aefd80b871",
+      "patched_sha256": "56aa5500f2201f79e921b0f60e37de383105ed3cb98796edd56d641832503173",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "303524ace9f5ca0b06a0a4aa1fe6c0b68befba784956abb83d18dcbf42f91f7c",
+      "patched_sha256": "2818f53039eef3243ef1b8997a6cc0b97f124784fb32ac65078ddc6498a2b3f2",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "bc43e6e55508c52528ca62667526ef5772fbaf769dcbc5eabc2e3cb09b25b607",
+      "patched_sha256": "18116f82265a771be47c2741a32d185a25bb7befb565306965783321508798cc",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "41408e4cc5b2e6c9772d98936a1b4067fa353cb74c2703e99eaed4ad25e2ffb7",
+      "patched_sha256": "53e15b9fe1dc05dc8cab01b4b2a21acc95f3236d35dd545fa1c996b10e4ca77b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "76bd77e0ab32c79350e6a446f58677af822885f954a7eead8b0f25c81da696c0",
+      "patched_sha256": "71bb20b91bfcc941905fcd6702a074742797e47573072d8633d3068e858aac7a",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "d0a3cb9a205540b2d00937af075576f18bcf5e966f27d3651ef209a882515016",
+      "patched_sha256": "ff5662e15815208a3fbc2f9f4f9c2d641946fad283e1ea0d87ebabe92c8145ad",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "70e0dd88feef4bdebcd8c8755a19c4154a38edc25fab4cf1a3e8563d85ea1d71",
+      "patched_sha256": "167871308e6b74b4cd6cfbca32dc963734c12617c7dad42940789752edb0b873",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "425b3dce00ad18e7f1bf56dc3aa19009968b226805e613ae4699f814c6e6b938",
+      "patched_sha256": "f3b456f9c9b28123447412b7707f77d694817bb59844797b4f720bacea4ec84b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "b4fe73bdcc9406daaf27a543fa965a42b2c1be5bb73ccb5d6a78d858b144b355",
+      "patched_sha256": "391c5d39d524cfce2f10568ac9ef337c1a31591c2d7e37c937a1648dd06b68a0",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "39b458e59b12c2a4ca49d147caa430cd628c1dbf4feecf904cab2c9a033a6c71",
+      "patched_sha256": "503e99812c6a0c8ba0b1f030077a2ad19715e4c00d251c6e981b56fcf687ed02",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "08d5ee52312467157310c2c8f139fcd572175d334b038ec7585355f9204f4894",
+      "patched_sha256": "26dc46477b1ef5e604b2374989ee5cc217daf96f630ed89e9532bb037f6db0da",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp",
+      "group": "mission-integration",
+      "status": "modified",
+      "baseline_sha256": "0cb4a8be9466af2f700e10e8c0b505ac8429dc0328d2b709cdd6ec586ebddbff",
+      "patched_sha256": "7bab7c3844d09d4e94c14bc531b2d157921a9dbc896d7618d0647548ac54dcd3",
+      "review": "native/reference behavioral parity review required",
+      "additional_groups": [
+        "state-persistence"
+      ],
+      "overlay_base_sha256": "4f7b3c20bda82f6951690242bd1a1292225683f5e0d07413886426ec4e95613e"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/LEM.h",
+      "group": "mission-integration",
+      "status": "modified",
+      "baseline_sha256": "9d6d7e22d7b0e73f1bf864cf61dd025cfa86dfe8d2981f18440698f4338061a9",
+      "patched_sha256": "9537efa74f6c2b6d23f6a85c3e0d4472ee701672fe1f69dbb3447cd05230353f",
+      "review": "native/reference behavioral parity review required",
+      "additional_groups": [
+        "state-persistence"
+      ],
+      "overlay_base_sha256": "a849c1234ac5474aed89edaf68024778f2fac27b6ad90d3d41dd7095e5cfc8dd"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "abdd472ce85f1ae46dcaa5ada294319371d7508fd7b87ccacadb5341e47b5db8",
+      "patched_sha256": "4dc2b8de1d01e48d5a3067f9bf08c11bff01b7274de0534952cb530dd5653693",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "4735ffe91a64f16e9c5379d754f72bd9942c9cbe530f25077d20caad17565dfe",
+      "patched_sha256": "cd5ead518d238a5e445619e68947bff204a884f078c6fa26fb2104fcf8e997d1",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp",
+      "group": "input",
+      "status": "modified",
+      "baseline_sha256": "1ca6fd59f341ed3faa76c87ffda53379dbeb7a7d6187a1db5e6eb69b6efebae3",
+      "patched_sha256": "6a5f6ac8f656a7e04e52d9e9310e90a9f284b1cee64eeaf7b8924636dcfc21f9",
+      "review": "native/reference behavioral parity review required",
+      "additional_groups": [
+        "state-persistence"
+      ],
+      "overlay_base_sha256": "df6f1a6ff2f4113bf1e8a08f9e7247a2615849525024b538b3dfa35f7f1c1ac8"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "65041cc3983ed8b13a9ba64edba94543ce2df716b889944f6564a45f8b1b530c",
+      "patched_sha256": "bf38a037ac2655102e7f076dd770dd6bd15624ee0ebcbdfd43364c8705bbbc39",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "3394ab454272abda530724fc715b00881e6f9e6a301d889f8b87e03e8bb70923",
+      "patched_sha256": "f4194f4db8f766d15591edfcf35cab1520a732f67606f29b909601fc2e2f0c8b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp",
+      "group": "state-persistence",
+      "status": "modified",
+      "baseline_sha256": "372be56ff146ff47b7a6180ec5a79b7fee0f5beefae7abbcce0f738688de9ee5",
+      "review": "Upstream loader correction; Windows behavior not independently executed",
+      "overlay_base_sha256": "372be56ff146ff47b7a6180ec5a79b7fee0f5beefae7abbcce0f738688de9ee5",
+      "patched_sha256": "68fbf56c9a43483311e710c64b8d9ac2bdabd367f228b2aa78bbfcce0761ae60"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "1cad7aab36816064c57a93c6fbbd9e4a073ee3c1af8b0c286de4b7d6b1ab85f9",
+      "patched_sha256": "9ebf9454821d5134dc136eca8412035579e545d80e183f9b4d6875bee07645cb",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp",
+      "group": "state-persistence",
+      "status": "modified",
+      "baseline_sha256": "c8897bad522485aadb08a32f557449f6acc2b97a852885e0c53bc8f2f370aa9c",
+      "review": "Upstream loader correction; Windows behavior not independently executed",
+      "overlay_base_sha256": "c8897bad522485aadb08a32f557449f6acc2b97a852885e0c53bc8f2f370aa9c",
+      "patched_sha256": "2195c6675621f58b2051eeebf770797814ddec399f9a31e524503d8288fc1a16"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "baab18c8616bd1a831cd1592209bde8b79af034e5de2b00040087131623b1596",
+      "patched_sha256": "b70d7771dfedeeaf2ae53070a58d35b95f20f6ca2eb4b3b904932c1ea58c613a",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "d715b268a687d2971a2a53091c534100bd80db79df31585f4a20279f3fe6c9f3",
+      "patched_sha256": "b0dc8a54dd6e44a85074dbe532dfab7ddb106bf64ff69aa220b2ca813c8d27a7",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp",
+      "group": "input",
+      "status": "modified",
+      "baseline_sha256": "023949287ab724a0d564123a8b2bbbd39da313c82e3598bcf9405586c13be8e2",
+      "patched_sha256": "1175c2e592befd415a985a8c1e0f197076cf24e1c9b6e360dcf43741eca9eea5",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "d50375bce51d5b2224931b2c3d42ca59d6c47c6ad60cd41937868d5ef93b16ae",
+      "patched_sha256": "8b0896bce6417c2a4918b046d65781010a6fa2466ce60661a9f97707253b806d",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "820ee9ef7b73900ac511a291a23f0b7074f1042ecbfc197b8c216cd2d3c1feaa",
+      "patched_sha256": "29d0adb1415a43adbd07373553ccf9075beab3803e5da71ecfcde9be5f27afd5",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "6862c3e5ec532f138f14348a970b6acb882e200c3da986b208a40bd9eceef039",
+      "patched_sha256": "64b8330a14531f6dd0f667c9d807d6cc52bcff8c2716634ab8280e8eb90b7910",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.h",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "fa57b28bb1181b243a3afa347730d92b948bce9a01eee59ec02a687cb4977d52",
+      "patched_sha256": "d0cc42262dae0d73b9dd4e437228f12c5f6ef839d732fb097256da2efdf2d402",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "ae647ff9b84ac3c59372fca3177d8fe9532c4f3562de1aa561f9780067e3ae96",
+      "patched_sha256": "80d6e9e481219a5027aeb31e0a60ce1243332b34817b8cf470930f171c77ac8e",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.h",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "78314137a3013aa8e519d334c0ae0c805ab53eadff520d1c2f27c0a867f88965",
+      "patched_sha256": "abb0501facf8add258f3cfcb76052953ba1d1e94ac42e6749b1894b171c17f37",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "7f26f13c2ae5a9ce8dd235146afcd39584015617ba3198043ab57926ebfb2fc9",
+      "patched_sha256": "3e201a85b2e8d91593bff22df81c55bdb62c78215007af8b673fce5fa8c5a087",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "d113a678152dd2e9dc9d87e6fcb5d00572031d4f24c7795df0f37d4881f0e3d8",
+      "patched_sha256": "db6169f060c72d41cc0525a47a422ad319f165fa9ae3ac2630f505d842867f7a",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp",
+      "group": "graphics",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "c146d728ed28787115533481c7f1f92c793c8dcb02f9169b80ed40b072c8f6d0",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h",
+      "group": "graphics",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "0ea362d1953f46ba96b36d167118737ccc94861f83f1f4ef5aed54444649c730",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/LandingSounds.h",
+      "group": "audio",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "d307bcda47e4a487a7e02433582d8381277af56f138ca6bc4de00d7954bfa930",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp",
+      "group": "input",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "9cc925329c51b4cd2b7124f8301c4ae916d99fd81c29fbc4e1f7a08901a7c19d",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h",
+      "group": "input",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "fc7faa45b6afacd1cfd148b6141fe998d58bac3be1996216fe458ceb0217fd77",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_native/SoundEvents.cpp",
+      "group": "audio",
+      "status": "added",
+      "baseline_sha256": null,
+      "patched_sha256": "4fddf9bd24427aad8c4a1eab8d832ec3b10d1bea8cac5bd448fd2d3a4a0f1bd4",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "277b5f8396706d617115ee4914077d2b628512da56f0943d5e4baee6dd070a1a",
+      "patched_sha256": "6675979c571184a0935c4c5e890e633cd78bebcccbb072d535add31a45a7b591",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "1fc43838dc13b573e250f606d677c11c094d572bafb684983ca06f56fc67c76a",
+      "patched_sha256": "a3676041173925c699558a65c3647cf1d1b6e6686d776dacd427f1716f01d3e1",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "0b80e86c37cfba8711522eddb1834a243b441ed25e633a6dbed798caad96f7a1",
+      "patched_sha256": "19a3c1158a852c354de43f16035695db12e387f8532638aa9d0d435d8be6c428",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "24228b05cc8599daf8d68f3c90ddc4f1824e6f4fe5550b75c853191f5f9206d3",
+      "patched_sha256": "8b6e5effa17d3e47530872d669f3dff343c2a93e134ecef68c486b3c80677a7b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "6585d4b9e5ad1c0b334a9eb1c205672059cb6d105d5ac5fc99174e4f1d9880cf",
+      "patched_sha256": "0abcd86ef8f1a8344de9292c7ed1dcb3a215f624f7504c832dd6d908fb889c3c",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "d124f4ff12f0b559361dd9a3be91676ad6e25ffa489627f642d52089e1e6f94c",
+      "patched_sha256": "d8190f2464b5dd6dfe1736b18b3c2a934869a7e2676035c2d48e8d83da5af398",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "abd52f74dce3f9432130d567f1944a31f8138453e231719a6a0e5a9be45cc305",
+      "patched_sha256": "05117a420f5b197888082b4aad5a2274fb7e56c60d36505e8688e7846c7abf72",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "4efd07902e60a5b929b8581749a2f0fceb1210bb437afb0b2f524c98ee9f360a",
+      "patched_sha256": "a6459661c925338812d9b1d2d83fff2553927f9e529d8a2fa6f0394b95008fbc",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "658cf46c2f0018dc67904f4915ee70ebd4de99b08df35b76f5e220e82c96044c",
+      "patched_sha256": "305e1d4fbe93ab1e5c60ce1e50db12cdaf509e8079e946499de895c3cb1967bc",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "aafc5225498ae461b8d07b2d28708f952ed6e72bff1d121f33812b46071c8167",
+      "patched_sha256": "97d5bbe84c41893c2807342ba316d39633f29b8a694db128d4ba43e41d7a2314",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "33070fa56f152a4c5d372c5355a21861ccdd78c51e884b01416afccf44866aae",
+      "patched_sha256": "5072535b63e15bd947a1c8ae8529fffc0a55ce82adef9c5c5afb4b156f1ab4c3",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "9b01ccd8f28f68b8d1671405a69fe85d17271cfd360bd62628e7894050c1faab",
+      "patched_sha256": "e3411826cb20ecac896c66bc75687e8900ca262323927d081bb1e0c99388989d",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "db396c89de7e3b807d443157647835c9ee5db1071ce20682ccaa9791e8ae6236",
+      "patched_sha256": "90d2bfe0a4a11783998f793877e3578f55c12c32a9d36646db88ccbd3a6fe60b",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "bab0e145e8844ee3f67dff35196ca58a515094fb684873e77c121a1dfcee0c2c",
+      "patched_sha256": "c76299de27e42bbd1ef72bfe98d913da592751d044465ec94ba9373985f70cd1",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "3bded5cb25815b9344289d5c36ded5a6ee7bb60f4b0c887e1d4f1fdc10872067",
+      "patched_sha256": "8aab116dde9b3d771d0e23c2e992ad54c98ec43ea2ab632d5b4c3f3663124c07",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "c54e15ac73b0f990e99605529e31870451589a475f7c7ab338a7a9aad13c8486",
+      "patched_sha256": "713acced773f2add4f07feab52c24f38e747c7a808d20b61021a65faa1d28d00",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h",
+      "group": "graphics",
+      "status": "modified",
+      "baseline_sha256": "6cd73a9cd7ee702e9bc187ee478ecc201cce1e8a3482cfbbbb165c44f04937fb",
+      "patched_sha256": "35fb249d25c431e1e15f7a09ad3c12e619aa7ad31a0d0e0c4a7ec557edb62a18",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "52b4bd2485c515cb33bf4c40a7769219902689990f96ec10332794695caa09d4",
+      "patched_sha256": "39e4dc82fe4e206863c6281c8b415061a08c216356208082e738940f9ed9cdb5",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "4b9de63ced27584d36b0cc0231c2a3a7c680ec230e21ea6f3914f1b09fdb33a6",
+      "patched_sha256": "abc9b12ed5ceb74c9c5882aa79d0d93ef101c4ca17078c127c973cb37dba6289",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "ff3468aa48d5d46df628fe0a7d1acf245ba6f04d4fa7f4508ccdbece78414c49",
+      "patched_sha256": "e9c0f2d759c78cace9305011891f200a951fc068f410b9c129573fe86a9fc10e",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "bf6993d6bca21be72a7c1f1d220113f23bfd5c4cbebac42616904e7d57d39ed3",
+      "patched_sha256": "e2e3dbe60f160b5735df6d473bfea0f5579a9f1094dd2e1039600b23b6b023da",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "5cd1f48f12c61ef79b7816de32b3bac5f12b390d2679b84d0559c0902752be41",
+      "patched_sha256": "78b9c7106325c9524ce44e115eebe25697c341d5605c8ee56ee8b9e79faccd70",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "3e5f3cfe38fb8184c820e1b3f1b5fe9b623a601063968f432fa3a20035e2addd",
+      "patched_sha256": "fb24a2762636d287cfd3bcc42a1a65a2e8ff5125bc8955e5b39ce79bbbc2c6b8",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "7223627b9f82b41244bbf569ac9203451bf5b339cab2310d0edf62a72f6ec8f2",
+      "patched_sha256": "cc9dada0c4186f73345aad39291092b8874358135b578a98ca77dd22a8ff5fde",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "f90d58ca2f55a7c5a2946a5afc1d41ff0b4cb73137261bc3f699017ee46b4b4a",
+      "patched_sha256": "4ad6a0b436d2457bd1468d4184e04dede4724c318b511f7289256cd324ca2cb8",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "733f4abd7221eded8ad2118350c9288f57d51006f519c3a0a7fb7189ee28426f",
+      "patched_sha256": "38725c06d72ffbf988781fa7468526d0830b4df9935f5ffc3786a555f0d234e0",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "abc5a7db1d329406b18f4e793b605d1bc6ccc17f73fad524edb6cd19b55f235a",
+      "patched_sha256": "0585cde046f7f4b1517fcd7540fe0444875431d603628757d12d11264be562e4",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "53a28dedf044b3ca3cddeba6db7d3a9fc5aec962ac82cdea3040cabe275844dd",
+      "patched_sha256": "fb31ee32541710eafee2e9a1a39060f50555607a95db53a2fc6df0a107929a2f",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/dsky.h",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "54f239928a63077783678d9c1cd12096d1a3da9371dc89a2d92a356219979ed7",
+      "patched_sha256": "685bed4cd23c18d825ea1cb1e09b6e2692773e73bdd5e1b197bce2054ee17602",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "19757a1715fa200d3442be11ad471b356d78397b6afd0ebab617953121c41bea",
+      "patched_sha256": "3de2d2cafd3e0cd1a0a8225caa956a1614e9f1d850dad0b09c8a9143b3bf6bf8",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "b7d9dcc9a273386294c0b199c03768476697b8c0a044ac537f4467cad1fb60e7",
+      "patched_sha256": "afd326c4db22de71ad3b0f42464237b63f2df5217d0760cf80e8765eaae22c05",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "fb4f565efb0139f14d3ca5cd6f7d26d60c509751b6d7ca2c2a562e749d5f4e70",
+      "patched_sha256": "bb46b5f8e41d3088275a2b5e156140b89b5cea4e04dc1d693f0df05411ad423d",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/soundevents.h",
+      "group": "audio",
+      "status": "modified",
+      "baseline_sha256": "1b2664f3dd2424e59da330f7da984b37895671b6e6550bc8749a0ce7a09bb4af",
+      "patched_sha256": "c7295a54e4167887943825b5f6cd11e8ada21ce061decde9a0a6912ba70ad714",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/soundlib.cpp",
+      "group": "audio",
+      "status": "modified",
+      "baseline_sha256": "1551e8a8a813474e7f6fbee4ced5a4cac226cebfa4fe3098ef4c7c273d6b625a",
+      "patched_sha256": "5e0708997cf74010a3705e091e9838921ef67ec68bf2c4bbf83dba2fe9cc59ed",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/soundlib.h",
+      "group": "audio",
+      "status": "modified",
+      "baseline_sha256": "9fb1a8067a321cd227f68610c9594165001df52a082dec24c051b47d20d0940a",
+      "patched_sha256": "6c3a1da97fff3289acdb4ba09d6b448e6dbdc0be729c5c5660fc19e811433fbc",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "63d52dc3c0aa63f0450c497927b4a03d0eb148529ec0cc38619c5a26a2e3f9f3",
+      "patched_sha256": "9cb3c03e00eae706c045fb484df3d4798afbdc6e1260aa5033a81b3215984ae5",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h",
+      "group": "compiler-portability",
+      "status": "modified",
+      "baseline_sha256": "10e35c83acc54955e87ee4e38ad92fe3bfaf45fe7801062b900a4be1bf0539c7",
+      "patched_sha256": "bf5a36375739251b68ede540504f4c052b959f82b34bc8c05079601bc2a90bee",
+      "review": "native/reference behavioral parity review required"
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "b7f450ca2d8f6836b7620d4a36c708dbdf337eef45d694a78faa458a19f17fd3",
+      "patched_sha256": "c72589475751e30143a6e70e43291afe69d71f832d57a10e5fe1426ca499d11e",
+      "review": "native/reference behavioral parity review required"
+    }
+  ]
+}

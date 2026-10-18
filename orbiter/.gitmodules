@@ -1,0 +1,4 @@
+[submodule "Addons/NASSP"]
+	path = Addons/NASSP
+	url = https://github.com/LucioFranco/NASSP.git
+	branch = macos

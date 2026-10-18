@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "recorded_date": "2026-10-12",
+  "prepared_date": "2026-10-18",
+  "scope": "Portable summary of retained historical evidence; no new mission run",
+  "poc_documentation_commit": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
+  "upstream": {
+    "OpenOrbiter": {
+      "repository": "https://github.com/orbitersim/orbiter",
+      "commit": "bd1d101f348da66e8c5b986633127c05e18d42c8"
+    },
+    "NASSP": {
+      "repository": "https://github.com/rcflyinghokie/NASSP",
+      "commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "release": "NASSP-V9.0-Orbiter2024-434"
+    }
+  },
+  "suite": {
+    "tested_source_commit": "0bd60e8105910096ece760cd614517bb5d0dbd5c",
+    "counts": {
+      "passed": 103,
+      "failed": 1,
+      "skipped": 0,
+      "total": 104
+    },
+    "ctest_returncode": 8,
+    "wall_seconds": 1191.3450825,
+    "binary_inventory_count": 93,
+    "binary_hashes_unchanged": true,
+    "known_strict_failed_tests": [
+      "native_pdi_pilot"
+    ]
+  },
+  "strict_resume": {
+    "saved_AGC_cycles": 124205511,
+    "reloaded_AGC_cycles": 0,
+    "pending_CDU_FIFO_persistence_complete": false,
+    "redesign_paused": true
+  },
+  "original_scenarios": {
+    "liftoff": {
+      "relative_path": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 11 - Lunar Liftoff T-1m.scn",
+      "sha256": "16b02ad534ee76dd07d98eb1e1b6c3c949d8a0346a03a305dbb8c420edb20f5b"
+    },
+    "pdi": {
+      "relative_path": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    }
+  },
+  "manual_liftoff": {
+    "total_simulation_seconds": 10.8167,
+    "original_vessels": 10,
+    "saved_vessels": 11,
+    "configuration": 2,
+    "radial_speed_mps": 4.666119,
+    "origin_separation_metres": 10.162618,
+    "raw_save_sha256": "45d9754dfdc4636eb6767e7e5674bc1e79c16528e4aa5639453d78cddc91cd9e",
+    "fresh_HE_actuation_verified": false,
+    "lunar_orbit_achieved": false,
+    "full_mission_or_manual_landing_accepted": false
+  },
+  "external_exact_60_second_repeatability": {
+    "passing": false,
+    "part_of_registered_suite": false,
+    "production_RNG_changed": false
+  },
+  "Moon_archives": {
+    "Surf.tree": {
+      "bytes": 256358063,
+      "sha256": "0ed3d152d5bddbeda3a9b019c7fc8bf98400e934085d4b829a87429f1e44a798"
+    },
+    "Elev.tree": {
+      "bytes": 272443927,
+      "sha256": "dd57a09d47b60964cdb4fbc5917684cdf9926fe7a8229e6b9e89a12873059744"
+    }
+  },
+  "supporting_records": [
+    {
+      "path": "validation-v9-final-current-macos-2026-10-12.json",
+      "original_POC_sha256": "9b982f45efda26b6a26250a30fb2c3821a2c3bc643abf973a7f624f585be6791",
+      "public_copy_sha256": "f2563cd4906d7a69a06e881ba1aef6aabc91119610bdcbb04bdb8afc437de7c1"
+    },
+    {
+      "path": "validation-v9-bounded-demo-macos-2026-10-12.json",
+      "original_POC_sha256": "7ccbff77767c7aed141793a4bc5d3255faa75e15f8b4381da5260d70f314bed1",
+      "public_copy_sha256": "545f2fa691eb2a7c992d88820c7666d064776f0cc2a5225028d6b0780e225cd8"
+    },
+    {
+      "path": "validation-v9-step-input-comparison-macos-2026-10-12.json",
+      "original_POC_sha256": "c72a2d0215ac1a2f443daae5d09cef3f2e2801920c915f9410ea349213b15084",
+      "public_copy_sha256": "dfc7ec9ef4fa083ebbb9f45f07ab4bafbf9656d2dc6b7be8ec9b0c830339796f"
+    },
+    {
+      "path": "validation-v9-coast60-comparison-macos-2026-10-11.json",
+      "original_POC_sha256": "e472de095c51f47a8d0cf307b4823d9a084af6f29444f2b2945bdd2d65d80c3d",
+      "public_copy_sha256": "a1ae15586f988dd307616574197ea31fc2b664d0bc96f66fc6aec6a593753639"
+    },
+    {
+      "path": "validation-v9-sun-render-comparison-macos-2026-10-12.json",
+      "original_POC_sha256": "908f3817e5f52a68b664deb1d4528e46b57e7ab7d72487d2f138313317498542",
+      "public_copy_sha256": "506ce3a329737b51c74e48b3afe7b0333e8d653c033b6bc559e10054cde15eda"
+    },
+    {
+      "path": "validation-v9-repeatability-macos-2026-10-12.json",
+      "original_POC_sha256": "e992d2b60d4a7e0a6d98574d55d09f0e270af0f0461171cbe3b7fd18d48efeed",
+      "public_copy_sha256": "5406fc4e6b55cc29e08ba40406d83150838670098cc058698664fad15d5ae305"
+    }
+  ],
+  "public_metadata_normalized": true
+}

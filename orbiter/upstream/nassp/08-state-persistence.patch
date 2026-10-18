@@ -1,0 +1,225 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
+index a123cbc51a3eb5f1e271c672e94c111b764c5021..86d8c9001b865223e198cf4eddd32a753052d9b4
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
+@@ -481,28 +481,19 @@
+ 
+ void LEM_LR::LoadState(FILEHANDLE scn, char *end_str) {
+ 	char *line;
+-	double dec = 0;
+-	int end_len = strlen(end_str);
++	char key[32];
++	double dec, x, y, z;
++	int integer;
+ 
+ 	while (oapiReadScenario_nextline(scn, line)) {
+-		if (!strnicmp(line, end_str, end_len))
+-			return;
+-		if (!strnicmp(line, "RANGE", 5)) {
+-			sscanf(line + 5, "%lf", &dec);
+-			range = dec;
+-		}
+-		if (!strnicmp(line, "ANTENNAANGLE", 12)) {
+-			sscanf(line + 12, "%lf", &dec);
+-			antennaAngle = dec;
+-		}
+-		if (!strnicmp(line, "RANGEGOOD", 9)) {
+-			sscanf(line + 9, "%d", &rangeGood);
+-		}
+-		if (!strnicmp(line, "VELOCITYGOOD", 12)) {
+-			sscanf(line + 12, "%d", &velocityGood);
+-		}
+-		if (!strnicmp(line, "RATE", 4)) {
+-			sscanf(line + 4, "%lf %lf %lf", &rate[0], &rate[1], &rate[2]);
++		if (sscanf(line, "%31s", key) != 1) continue;
++		if (!stricmp(key, end_str)) return;
++		if (!stricmp(key, "RANGE") && sscanf(line, "%*s %lf", &dec) == 1) range = dec;
++		else if (!stricmp(key, "ANTENNAANGLE") && sscanf(line, "%*s %lf", &dec) == 1) antennaAngle = dec;
++		else if (!stricmp(key, "RANGEGOOD") && sscanf(line, "%*s %d", &integer) == 1) rangeGood = integer;
++		else if (!stricmp(key, "VELOCITYGOOD") && sscanf(line, "%*s %d", &integer) == 1) velocityGood = integer;
++		else if (!stricmp(key, "RATE") && sscanf(line, "%*s %lf %lf %lf", &x, &y, &z) == 3) {
++			rate[0] = x; rate[1] = y; rate[2] = z;
+ 		}
+ 	}
+ }
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+index ceea088e79b3b4787b7f2de58e34899874bebf31..6e742859cf2635ac1c322c60157499e9337e7361
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+@@ -3466,5 +3466,10 @@
+ 
+ void CrossPointer::LoadState(char *line)
+ {
+-	sscanf(line + 17, "%lf %lf", &display_vel_x, &display_vel_y);
+-}
++	char key[32];
++	double x, y;
++	if (sscanf(line, "%31s %lf %lf", key, &x, &y) == 3 &&
++		(!stricmp(key, "CROSSPOINTER_LEFT") || !stricmp(key, "CROSSPOINTER_RIGHT"))) {
++		display_vel_x = x; display_vel_y = y;
++	}
++}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
+index a92a2cf779c55f48095a92b351bf8a86c3731da2..3a916247f257c53ea501d649b57463f88de62695
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
+@@ -754,6 +754,7 @@
+ void LEM_DPS::SaveState(FILEHANDLE scn, char *start_str, char *end_str) {
+ 	oapiWriteLine(scn, start_str);
+ 	oapiWriteScenario_int(scn, "THRUSTON", (thrustOn ? 1 : 0));
++	papiWriteScenario_double(scn, "THRUSTCOMMAND", thrustcommand);
+ 	oapiWriteScenario_int(scn, "ENGPREVALVESARM", (engPreValvesArm ? 1 : 0));
+ 	oapiWriteScenario_int(scn, "ENGARM", (engArm ? 1 : 0));
+ 	papiWriteScenario_double(scn, "EROSION", Erosion);
+@@ -764,11 +765,13 @@
+ void LEM_DPS::LoadState(FILEHANDLE scn, char *end_str) {
+ 	char *line;
+ 	int end_len = strlen(end_str);
++	char key[32]; double command;
+ 
+ 	while (oapiReadScenario_nextline(scn, line)) {
+ 		if (!strnicmp(line, end_str, end_len))
+ 			return;
+ 
++		if (sscanf(line, "%31s %lf", key, &command) == 2 && !stricmp(key, "THRUSTCOMMAND")) thrustcommand = command;
+ 		papiReadScenario_bool(line, "THRUSTON", thrustOn);
+ 		papiReadScenario_bool(line, "ENGPREVALVESARM", engPreValvesArm);
+ 		papiReadScenario_bool(line, "ENGARM", engArm);
+@@ -919,9 +922,8 @@
+ 		else if (!strnicmp(line, "COMMANDEDPOSITION", 17)) {
+ 			sscanf(line + 17, "%d", &commandedPosition);
+ 		}
+-		else if (!strnicmp(line, "MOTORRUNNING", 13)) {
+-			sscanf(line + 13, "%d", &i);
+-			motorRunning = (i != 0);
++		else if (!strnicmp(line, "MOTORRUNNING", 12) && (line[12] == ' ' || line[12] == '\t')) {
++			if (sscanf(line + 12, "%d", &i) == 1) motorRunning = (i != 0);
+ 		}
+ 	}
+ }
+\ No newline at end of file
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+index 5db03243bd3194f8c95b6cb24608de504a1f11b9..88b68363e15f1ae163c05e84926e990b01ea9b10
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+@@ -44,6 +44,7 @@
+ #include "mccvessel.h"
+ 
+ #include "LEM.h"
++#include <cmath>
+ #include "tracer.h"
+ #include "papi.h"
+ #include "Mission.h"
+@@ -1866,6 +1867,17 @@
+ 			sscanf(line + 8, "%d", &i);
+ 			Crewed = (i == 0);
+ 		}
++		else if (!strnicmp(line, "MASSCG_STATE", 12) && (line[12] == ' ' || line[12] == '\t')) {
++            VECTOR3 cog, pmi; double fuel;
++            if (sscanf(line + 12, "%lf %lf %lf %lf %lf %lf %lf",
++                       &cog.x, &cog.y, &cog.z, &pmi.x, &pmi.y, &pmi.z, &fuel) == 7 &&
++                std::isfinite(cog.x) && std::isfinite(cog.y) && std::isfinite(cog.z) &&
++                std::isfinite(pmi.x) && std::isfinite(pmi.y) && std::isfinite(pmi.z) &&
++                std::isfinite(fuel) && fuel >= 0 && pmi.x > 0 && pmi.y > 0 && pmi.z > 0) {
++                loadedCoG = cog; loadedPMI = pmi; loadedLastFuelWeight = fuel;
++                massCGStateLoaded = true;
++            }
++        }
+ 		else if (!strnicmp(line, "LANG", 4)) {
+ 			strncpy(AudioLanguage, line + 5, 64);
+ 		}
+@@ -2195,6 +2207,12 @@
+ 
+ void LEM::clbkPostCreation()
+ {
++	// Restore the existing cached physical setup before the first systems frame.
++	if (massCGStateLoaded) {
++		ApplyMassAndCoG(loadedPMI, loadedCoG);
++		LastFuelWeight = loadedLastFuelWeight;
++		massCGStateLoaded = false;
++	}
+ 	//Set up systems
+ 	imu.clbkPostCreation();
+ 
+@@ -2486,6 +2504,12 @@
+ 	VESSEL4::clbkSaveState(scn);
+ 	// reset CoG to correct position
+ 	ShiftCG(currentCoG); 
++    if (std::isfinite(LastFuelWeight)) {
++        VECTOR3 pmi; GetPMI(pmi); char state[256];
++        snprintf(state, sizeof(state), "%.12lf %.12lf %.12lf %.12lf %.12lf %.12lf %.12lf",
++                 currentCoG.x, currentCoG.y, currentCoG.z, pmi.x, pmi.y, pmi.z, LastFuelWeight);
++        oapiWriteScenario_string(scn, "MASSCG_STATE", state);
++    }
+ 
+ 	oapiWriteScenario_int (scn, "CONFIGURATION", status);
+ 	if (EVA_IP[0]){
+@@ -2818,25 +2842,30 @@
+ 		// Update physical parameters
+ 		VECTOR3 pmi, CoG;
+ 		CalculatePMIandCOG(pmi, CoG);
+-		// Use SetPMI, ShiftCG, etc.
+-		VECTOR3 CoGShift = CoG - currentCoG;
+-		ShiftCG(CoGShift);
+-		SetPMI(pmi);
+-		currentCoG = CoG;
+-
+-		//Touchdown Points
+-		DefineTouchdownPoints(stage);
+-
+-		//Lights
+-		trackLightPos -= CoGShift;
+-		for (int i = 0;i < 5;i++)
+-		{
+-			dockingLightsPos[i] -= CoGShift;
+-		}
+-
++		ApplyMassAndCoG(pmi, CoG);
+ 		// All done!
+ 		LastFuelWeight = CurrentFuelWeight;
+ 	}
++}
++
++void LEM::ApplyMassAndCoG(const VECTOR3 &pmi, const VECTOR3 &CoG)
++{
++	// Use SetPMI, ShiftCG, etc.
++	VECTOR3 CoGShift = CoG - currentCoG;
++	ShiftCG(CoGShift);
++	SetPMI(pmi);
++	currentCoG = CoG;
++
++	//Touchdown Points
++	DefineTouchdownPoints(stage);
++
++	//Lights
++	trackLightPos -= CoGShift;
++	for (int i = 0;i < 5;i++)
++	{
++		dockingLightsPos[i] -= CoGShift;
++	}
++
+ }
+ 
+ double LEM::GetAscentStageMass()
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+index 6213cf9e7dcd0985d208282c2194b7afaad13937..fe256a10ca101cb2e9848b07ad1b0e0bc3a2ddca
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+@@ -710,6 +710,9 @@
+ 	// DS20160916 Physical parameters updation
+ 	double CurrentFuelWeight, LastFuelWeight; // Fuel weights right now and at the last update
+ 	VECTOR3 currentCoG; // 0,0,0 corresponds to CoG at center of mesh
++	bool massCGStateLoaded = false;
++	VECTOR3 loadedCoG, loadedPMI;
++	double loadedLastFuelWeight;
+ 
+ 	//
+ 	// These functions must be virtual so they can be called from the Saturn V or the LEVA
+@@ -826,6 +829,7 @@
+     PanelSDK Panelsdk;
+ 
+ 	void UpdateMassAndCoG();
++	void ApplyMassAndCoG(const VECTOR3 &pmi, const VECTOR3 &CoG);
+ 	void RedrawPanel_XPointer (CrossPointer *cp, SURFHANDLE surf);
+ 	void RedrawPanel_MFDButton(SURFHANDLE surf, int mfd, int side, int xoffset, int yoffset);
+ 	void MousePanel_MFDButton(int mfd, int event, int mx, int my);

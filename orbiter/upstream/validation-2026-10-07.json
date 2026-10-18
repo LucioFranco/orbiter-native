@@ -1,0 +1,208 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-07T04:48:30.995581+00:00",
+  "host": "Lucios-Air",
+  "platform": "macOS arm64",
+  "checkout_head": "b5f31350e25b49c5b531fdb3947ceb49949040ce",
+  "published_base": "8cdb481d37b689d89f322e109a645de88aad0983",
+  "orbiter_commit": "4137930c5126cf848212139cd138a9ef2ade7660",
+  "nassp_baseline_commit": "96b6380943c382a297f969842be9344ef969a6f4",
+  "nassp_candidate_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+  "suites": {
+    "baseline": {
+      "passed": 82,
+      "total": 82,
+      "seconds": 154.09
+    },
+    "candidate": {
+      "passed": 82,
+      "total": 82,
+      "seconds": 136.65
+    }
+  },
+  "builds_passed": {
+    "baseline": true,
+    "candidate": true
+  },
+  "candidate_promoted": false,
+  "patch_reconstruction_verified": {
+    "baseline_paths": 100,
+    "candidate_paths": 92
+  },
+  "evidence": {
+    "build/native-poc/adoption-final-baseline-suite.log": {
+      "sha256": "4513332e398425c1f32116cb08ab19b00ae8a5e605451b88c584ad6adc42e15b",
+      "bytes": 8785
+    },
+    "build/native-poc/adoption-final-candidate-suite.log": {
+      "sha256": "0140b4c44eced62273973898250593135805fbe81b9041afa901ada2e827708a",
+      "bytes": 8755
+    },
+    "build/native-poc/original-insertion-sustained.json": {
+      "sha256": "d5b6cccec72d83b8b4d48778f934a607cbd842c211d75be294f2d6a0095a098f",
+      "bytes": 656
+    },
+    "build/native-poc/original-insertion-sustained.log": {
+      "sha256": "198dc8a78992a4bb59cdad6e98d8aad4e38aba105403d138f901fdb518d085ef",
+      "bytes": 100
+    },
+    "build/native-poc/upstream-candidate-sustained.json": {
+      "sha256": "0efe6d2356db6ddcb15a89bbe75cc688920cbcc7db1b8b061dac8a7cbdd3cf1d",
+      "bytes": 656
+    },
+    "build/native-poc/upstream-candidate-sustained.log": {
+      "sha256": "198dc8a78992a4bb59cdad6e98d8aad4e38aba105403d138f901fdb518d085ef",
+      "bytes": 100
+    },
+    "build/native-poc/upstream-candidate-resolution.json": {
+      "sha256": "d3a5ffba8652433336d8674a5417beda877c5e3547ba29bceb354806c32aa4fc",
+      "bytes": 33154
+    },
+    "build/native-poc/post-formatting-baseline-annotation.log": {
+      "sha256": "cfd1a874686efc356d529fa526b074ddc4b14d98da9a535941525297c4326640",
+      "bytes": 2886
+    },
+    "build/native-poc/post-formatting-candidate-annotation.log": {
+      "sha256": "ab7cae20505558f91731f77c26a7f319b6396531b5789fb21235ca144b429c2f",
+      "bytes": 2766
+    }
+  },
+  "reports": {
+    "baseline_insertion": {
+      "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 02 - Insertion.scn",
+      "source_sha256": "07b1de8d6882dbe1d3866353ccb301808611ecf25bd99e025bf94fa5d351fa3d",
+      "scenario_modified": false,
+      "vessels": [
+        "AS-506-INTSTG",
+        "AS-506-STG2",
+        "Columbia",
+        "Floodlight",
+        "MCC"
+      ],
+      "surviving_vessels": [
+        "Columbia",
+        "Floodlight",
+        "MCC"
+      ],
+      "discarded_stages_removed": [
+        "AS-506-INTSTG",
+        "AS-506-STG2"
+      ],
+      "coast_seconds": 900,
+      "resume_seconds": 2,
+      "reference_run_available": false,
+      "claim": "original scenario compatibility and native coast/save/resume; upstream trajectory parity unverified"
+    },
+    "candidate_insertion": {
+      "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 02 - Insertion.scn",
+      "source_sha256": "9deebefd62300d394aaa9a603955c0b76304f8a461a279e9954bd96979b1e864",
+      "scenario_modified": false,
+      "vessels": [
+        "AS-506-INTSTG",
+        "AS-506-STG2",
+        "Columbia",
+        "Floodlight",
+        "MCC"
+      ],
+      "surviving_vessels": [
+        "Columbia",
+        "Floodlight",
+        "MCC"
+      ],
+      "discarded_stages_removed": [
+        "AS-506-INTSTG",
+        "AS-506-STG2"
+      ],
+      "coast_seconds": 900,
+      "resume_seconds": 2,
+      "reference_run_available": false,
+      "claim": "original scenario compatibility and native coast/save/resume; upstream trajectory parity unverified"
+    },
+    "baseline_liftoff": {
+      "source_sha256": "04858c32d7a9bb5666e59f92ecce6d1a6918b05a7291629640368551233ef173",
+      "scenario_modified": false,
+      "original_vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Flag",
+        "Floodlight",
+        "LR3",
+        "MCC",
+        "PSEP",
+        "SWC",
+        "TV"
+      ],
+      "ascent_vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Eagle-DESCENTSTG",
+        "Flag",
+        "Floodlight",
+        "LR3",
+        "MCC",
+        "PSEP",
+        "SWC",
+        "TV"
+      ],
+      "resume_seconds": 2,
+      "reference_run_available": false,
+      "claim": "original scenario compatibility, cockpit-commanded liftoff and fresh-process continuation; trajectory parity unverified"
+    },
+    "candidate_liftoff": {
+      "source_sha256": "8f857bdf03e076086d92b5b74a28676aaafd788eb505c9757944432c91e55d04",
+      "scenario_modified": false,
+      "original_vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Flag",
+        "Floodlight",
+        "LR3",
+        "MCC",
+        "PSEP",
+        "SWC",
+        "TV"
+      ],
+      "ascent_vessels": [
+        "AS-506-S4BSTG",
+        "Columbia",
+        "Eagle",
+        "Eagle-DESCENTSTG",
+        "Flag",
+        "Floodlight",
+        "LR3",
+        "MCC",
+        "PSEP",
+        "SWC",
+        "TV"
+      ],
+      "resume_seconds": 2,
+      "reference_run_available": false,
+      "claim": "original scenario compatibility, cockpit-commanded liftoff and fresh-process continuation; trajectory parity unverified"
+    }
+  },
+  "limitations": [
+    "Windows/reference trajectory parity unverified",
+    "Automatic autosave cadence/notification not exercised",
+    "Full guided landing/orbit/rendezvous and full mission parity unverified",
+    "Live CUA app discovery stalled; static visual QA only",
+    "White X-pointer face unexplained; full legacy panels and MCC VC display rendering unverified",
+    "Sustained GPU performance, terrain seams and physical controllers unverified",
+    "Orbiter-wide upstream patch inventory not yet exported"
+  ],
+  "post_formatting_annotation": {
+    "reason": "Whitespace-only cleanup of imported engine AnnotationAPI.cpp",
+    "baseline": {
+      "passed": 2,
+      "total": 2,
+      "seconds": 4.73
+    },
+    "candidate": {
+      "passed": 2,
+      "total": 2,
+      "seconds": 4.03
+    }
+  }
+}

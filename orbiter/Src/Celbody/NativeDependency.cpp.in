@@ -1,0 +1,4 @@
+// Native lifecycle adapter for an unchanged planetary perturbation theory.
+#include "OrbiterAPI.h"
+extern "C" void orbiter_native_init_@family@(HINSTANCE);
+DLLCLBK void InitModule(HINSTANCE handle) { orbiter_native_init_@family@(handle); }

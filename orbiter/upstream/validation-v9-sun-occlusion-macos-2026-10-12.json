@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-10-12T05:06:32.437611+00:00",
+  "review_base_commit": "4cbe07a58c32c76499ef964b21c0e5c50cac7d1a",
+  "upstream_OpenOrbiter_commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+  "upstream_relation": "OVP/D3D9Client/VPlanetAtmo.cpp SunLightColor(VECTOR3,double) airless ca>0 sunlit side",
+  "source_change": "Skip only an individual occluder whose center projection on the Sun ray is strictly negative; retain all other finite-segment tests",
+  "red_ctest_log": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/red-ctest.log",
+  "red_failed_cases": [
+    "actual below-datum Eagle receives daylight",
+    "below-datum Sun just above the radial horizon remains visible",
+    "separate-body near miss does not eclipse daylight"
+  ],
+  "green_ctest": [
+    "sun_occlusion",
+    "particle_simulation",
+    "local_lights"
+  ],
+  "green_geometry_checks": [
+    "PASS fixture preserves actual below-datum daylight geometry",
+    "PASS actual below-datum Eagle receives daylight",
+    "PASS below-datum true night remains occluded",
+    "PASS below-datum Sun just above the radial horizon remains visible",
+    "PASS below-datum exact radial horizon is not bypassed",
+    "PASS elevated ray clearing the near limb remains visible",
+    "PASS elevated ray intersecting the near limb remains occluded",
+    "PASS ordinary above-datum daylight remains visible",
+    "PASS ordinary above-datum night remains occluded",
+    "PASS another body still eclipses below-datum daylight",
+    "PASS separate-body near miss does not eclipse daylight",
+    "PASS body beyond finite light segment remains non-occluding",
+    "PASS degenerate light direction remains invalid"
+  ],
+  "actual_scenario_before_visible": false,
+  "actual_scenario_after_visible": true,
+  "other_recorded_scene_fields_exactly_equal": true,
+  "actual_solar_elevation_degrees": 22.021946645715193,
+  "before_scene": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/actual-scene-fixture.json",
+  "after_scene": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/scene-after.json",
+  "baseline_production_hashes_unchanged": 41,
+  "baseline_expected_hash_change": [
+    "<POC_CHECKOUT>/orbiter/build/native-v9/runtime/Modules/Plugin/WgpuClient.dylib"
+  ],
+  "renderer_before_sha256": "b2427484ef2e84ba24d6c6889cfe3b3f490f186307dda7a38f73b4fb878b1e37",
+  "renderer_after_sha256": "c240f6f6eca21bb028dd12193aa656fa395e4b1be3cefdf923cffaeba83ee0e4",
+  "equations_mission_state_assets_brightness_changed": false,
+  "core_app_binaries_unchanged": true,
+  "registered_tests": 104,
+  "full_suite_rerun": false,
+  "graphics_launched": false,
+  "comparison_staged": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/manifest.json",
+  "comparison_dry_run_passed": true,
+  "graphics_handoff_required": true,
+  "limits": [
+    "Binary mean-radius occlusion; no fractional solar-disc or atmospheric extinction parity",
+    "No terrain horizon model; exactly tangent below-datum ray retains obstruction",
+    "Terrain source resolution unchanged, level9 at site",
+    "Rendered visual acceptance awaits graphics coordination and Windows reference",
+    "Prior manual-flight and strict AGC resume/repeatability limits remain open"
+  ]
+}

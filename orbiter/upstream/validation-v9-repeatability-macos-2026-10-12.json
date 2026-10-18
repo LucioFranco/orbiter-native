@@ -1,0 +1,2001 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-12T01:39:03.597341+00:00",
+  "baseline_commit": "269a424197537b1b3e0181f6463272f4205d27e0",
+  "scope": "Bounded original-scenario native no-driver repeatability diagnosis; no production fix or acceptance waiver.",
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "classification": "Real serialized-state variation from wall-time C RNG reseeding and random rigid-body flush phase; inherited source coupling observed on macOS. No native-only production defect isolated.",
+  "fixture_audit": {
+    "files_per_original_run": 1161,
+    "all_identical": true,
+    "audit_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/original-failure-fixture-audit.json",
+    "audit_sha256": "9807ef51564d252e409cad267595e3266ce803d80f664a4f6bc229cdd0610c00",
+    "binary_hashes": {
+      "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dylib": "d1e4e07462ac4f2b04213e5982a4f1c29a747ca2c453757c67574d7faf245f0e",
+      "<POC_CHECKOUT>/orbiter/build/native-v9/liborbiter.dylib": "ab0eccfec184c1f77e928737d6f9bd4f21a3cab287fc50e5fc600001f383f908",
+      "<POC_CHECKOUT>/orbiter/build/native-v9/runtime/Modules/ProjectApollo/LEM.dylib": "53486971c05b9b2df5afdf0c087f92b5f20d7e32f11e3d7fae112f180f75d837",
+      "<POC_CHECKOUT>/orbiter/build/native-v9/runtime/Modules/ProjectApollo/Saturn5.dylib": "e321d6c151d3c37525340dcfadc7f7440a8604daa38d174eafa024509f04718b"
+    },
+    "archive_matches": [
+      {
+        "current": "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "archive": "<PRIVATE_BACKUPS>/v9-step-input-evidence-01e6a14/evidence/step-input/native_step_input",
+        "identical": true
+      },
+      {
+        "current": "<NATIVE_EVIDENCE_ROOT>/step-input/StepInputParity.dylib",
+        "archive": "<PRIVATE_BACKUPS>/v9-step-input-evidence-01e6a14/evidence/step-input/StepInputParity.dylib",
+        "identical": true
+      }
+    ],
+    "textures_aliases": {
+      "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a/Textures",
+      "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b/Textures"
+    },
+    "textures_content_rehashed": false
+  },
+  "original_failing_saves": [
+    {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-11T23:33:39.789782+00:00",
+      "returncode": 0,
+      "mode": "off",
+      "steps": 3601,
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-a",
+      "gpu": false,
+      "vm": false,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "3eacdae2ae3d879bf09d1fdc234ccb4cb2c5837d1e47441c24d0a854e18a7253"
+    },
+    {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-11T23:33:45.044546+00:00",
+      "returncode": 0,
+      "mode": "off",
+      "steps": 3601,
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "runtime": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-3601-b",
+      "gpu": false,
+      "vm": false,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "53176d87c7ba2ae3de1e933a02b33086a9722b6b54794c69341377f5e5d6a673"
+    }
+  ],
+  "source_proof": [
+    {
+      "upstream_pin": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "upstream_path": "Src/Orbiter/Body.cpp",
+      "raw_upstream_sha256": "68a44745b4d5b7fbeef53903e395fb9c290182c2e8a6094a1a27085dfa9ccf65",
+      "adapted_path": "orbiter/Src/Orbiter/Body.cpp",
+      "adapted_sha256": "68a44745b4d5b7fbeef53903e395fb9c290182c2e8a6094a1a27085dfa9ccf65",
+      "same_relevant_expressions": [
+        "updcount = irand(100);"
+      ]
+    },
+    {
+      "upstream_pin": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "upstream_path": "Src/Orbiter/Rigidbody.cpp",
+      "raw_upstream_sha256": "7f43575a28b8d7665d1e61feaa42243cc7bcd8204ac3e6f9375818183c67ff30",
+      "adapted_path": "orbiter/Src/Orbiter/Rigidbody.cpp",
+      "adapted_sha256": "7f43575a28b8d7665d1e61feaa42243cc7bcd8204ac3e6f9375818183c67ff30",
+      "same_relevant_expressions": [
+        "if (updcount++ == 1000)",
+        "rpos_base += rpos_add;",
+        "rvel_base += rvel_add;"
+      ]
+    },
+    {
+      "upstream_pin": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "upstream_path": "Src/Orbiter/Vecmat.cpp",
+      "raw_upstream_sha256": "8be3be230618377896b28bf98b6b7e536f0cd2f7294035d041afdbd0aaacbcf2",
+      "adapted_path": "orbiter/Src/Orbiter/Vecmat.cpp",
+      "adapted_sha256": "8be3be230618377896b28bf98b6b7e536f0cd2f7294035d041afdbd0aaacbcf2",
+      "same_relevant_expressions": [
+        "(double)rand()*(double)range/drand_max"
+      ]
+    },
+    {
+      "upstream_pin": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/src_sys/missiontimer.cpp",
+      "raw_upstream_sha256": "e7a160fec8e65b89eb9d4b517759cce1eadc092a44811fd858cc5ee90f96d2bd",
+      "adapted_path": "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_sys/missiontimer.cpp",
+      "adapted_sha256": "e7a160fec8e65b89eb9d4b517759cce1eadc092a44811fd858cc5ee90f96d2bd",
+      "same_relevant_expressions": [
+        "srand((unsigned int) time(NULL));"
+      ]
+    }
+  ],
+  "runs": {
+    "fixed1-observer-3601": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:31:43.357133+00:00",
+      "finished_utc": "2026-10-12T01:31:48.163449+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": true,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a",
+      "cadence": "step\tColumbia\tEagle\n0\t41\t83\n918\t959\t0\n960\t0\t42\n1919\t959\t0\n1961\t0\t42\n2920\t959\t0\n2962\t0\t42\n3601\t639\t681\n",
+      "seeds": "1791768704\t1\t1791768704\n1791768704\t1\t1791768704\n1791768704\t1\t1791768704\n1791768704\t1\t1791768704\n1791768704\t1\t1791768704\n1791768704\t1\t1791768704\n"
+    },
+    "fixed1-original-3601-a": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:31:32.887118+00:00",
+      "finished_utc": "2026-10-12T01:31:37.650867+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a",
+      "seeds": "1791768694\t1\t1791768694\n1791768694\t1\t1791768694\n1791768694\t1\t1791768694\n1791768694\t1\t1791768694\n1791768694\t1\t1791768694\n1791768694\t1\t1791768694\n"
+    },
+    "fixed1-original-3601-b": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:31:38.089790+00:00",
+      "finished_utc": "2026-10-12T01:31:42.893692+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a",
+      "seeds": "1791768699\t1\t1791768699\n1791768699\t1\t1791768699\n1791768699\t1\t1791768699\n1791768699\t1\t1791768699\n1791768699\t1\t1791768699\n1791768699\t1\t1791768699\n"
+    },
+    "fixed1-original-900": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "900",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:31.135467+00:00",
+      "finished_utc": "2026-10-12T01:32:33.429104+00:00",
+      "returncode": 0,
+      "steps": 900,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 900,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "395ddbc9041b76187f59c90f7e08e08ffed8cffdb502946a4ffea0b9004feca3",
+      "seeds": "1791768752\t1\t1791768752\n1791768752\t1\t1791768752\n1791768752\t1\t1791768752\n1791768752\t1\t1791768752\n1791768752\t1\t1791768752\n1791768752\t1\t1791768752\n"
+    },
+    "fixed1-original-918": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "918",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:45.585971+00:00",
+      "finished_utc": "2026-10-12T01:32:47.897017+00:00",
+      "returncode": 0,
+      "steps": 918,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 918,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "c48d8db43993800ef91ed774a76877b892067b0a53c63f1e74d87ebd90ba8ffe",
+      "seeds": "1791768766\t1\t1791768766\n1791768766\t1\t1791768766\n1791768766\t1\t1791768766\n1791768766\t1\t1791768766\n1791768766\t1\t1791768766\n1791768766\t1\t1791768766\n"
+    },
+    "fixed1-original-919": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "919",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:51.127804+00:00",
+      "finished_utc": "2026-10-12T01:32:53.442624+00:00",
+      "returncode": 0,
+      "steps": 919,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 919,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "620118fb685c79afc14ec776cde26f10466f9f8fcdd8afa913d4419f3ee945d8",
+      "seeds": "1791768772\t1\t1791768772\n1791768772\t1\t1791768772\n1791768772\t1\t1791768772\n1791768772\t1\t1791768772\n1791768772\t1\t1791768772\n1791768772\t1\t1791768772\n"
+    },
+    "fixed1-original-920": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "920",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:56.687377+00:00",
+      "finished_utc": "2026-10-12T01:32:59.009596+00:00",
+      "returncode": 0,
+      "steps": 920,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 1,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 920,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "4d6a14a917f60e6af23b450ad7fa1747f56e61ee828c2ea6afcfcbbdd6d81f6e",
+      "seeds": "1791768777\t1\t1791768777\n1791768777\t1\t1791768777\n1791768777\t1\t1791768777\n1791768777\t1\t1791768777\n1791768778\t1\t1791768778\n1791768778\t1\t1791768778\n"
+    },
+    "fixed2-observer-3601": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:25.900626+00:00",
+      "finished_utc": "2026-10-12T01:32:30.684824+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": true,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 2,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "9575c2915e40ba2da218826de38616ca4146546f203c0e01a4f87d87faea0f27",
+      "cadence": "step\tColumbia\tEagle\n0\t41\t66\n935\t976\t0\n960\t0\t25\n1936\t976\t0\n1961\t0\t25\n2937\t976\t0\n2962\t0\t25\n3601\t639\t664\n",
+      "seeds": "1791768747\t2\t1791768747\n1791768747\t2\t1791768747\n1791768747\t2\t1791768747\n1791768747\t2\t1791768747\n1791768747\t2\t1791768747\n1791768747\t2\t1791768747\n"
+    },
+    "fixed2-original-900": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "900",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:33.873168+00:00",
+      "finished_utc": "2026-10-12T01:32:36.217327+00:00",
+      "returncode": 0,
+      "steps": 900,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 2,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 900,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "395ddbc9041b76187f59c90f7e08e08ffed8cffdb502946a4ffea0b9004feca3",
+      "seeds": "1791768755\t2\t1791768755\n1791768755\t2\t1791768755\n1791768755\t2\t1791768755\n1791768755\t2\t1791768755\n1791768755\t2\t1791768755\n1791768755\t2\t1791768755\n"
+    },
+    "fixed2-original-918": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "918",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:48.343099+00:00",
+      "finished_utc": "2026-10-12T01:32:50.655234+00:00",
+      "returncode": 0,
+      "steps": 918,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 2,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 918,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "c48d8db43993800ef91ed774a76877b892067b0a53c63f1e74d87ebd90ba8ffe",
+      "seeds": "1791768769\t2\t1791768769\n1791768769\t2\t1791768769\n1791768769\t2\t1791768769\n1791768769\t2\t1791768769\n1791768769\t2\t1791768769\n1791768769\t2\t1791768769\n"
+    },
+    "fixed2-original-919": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "919",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:53.891605+00:00",
+      "finished_utc": "2026-10-12T01:32:56.222190+00:00",
+      "returncode": 0,
+      "steps": 919,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 2,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 919,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "620118fb685c79afc14ec776cde26f10466f9f8fcdd8afa913d4419f3ee945d8",
+      "seeds": "1791768775\t2\t1791768775\n1791768775\t2\t1791768775\n1791768775\t2\t1791768775\n1791768775\t2\t1791768775\n1791768775\t2\t1791768775\n1791768775\t2\t1791768775\n"
+    },
+    "fixed2-original-920": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "920",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:32:59.475447+00:00",
+      "finished_utc": "2026-10-12T01:33:01.786525+00:00",
+      "returncode": 0,
+      "steps": 920,
+      "counter_observer": false,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": 2,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 920,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "5bbfa2822916749fa027b18b9fe1ce7f26374f3595de02d1285d69c4b5175a07",
+      "seeds": "1791768780\t2\t1791768780\n1791768780\t2\t1791768780\n1791768780\t2\t1791768780\n1791768780\t2\t1791768780\n1791768780\t2\t1791768780\n1791768780\t2\t1791768780\n"
+    },
+    "natural-3601-a": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-natural-3601-a",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:30:05.582620+00:00",
+      "finished_utc": "2026-10-12T01:30:07.358061+00:00",
+      "returncode": -11,
+      "steps": 3601,
+      "counter_observer": true,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": "a95d0ce530c180fd1d115c5a36cde79616af37c38717198a6de2173f71d50e46",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": null
+    },
+    "observed-3601-a": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:30:29.957776+00:00",
+      "finished_utc": "2026-10-12T01:30:34.946890+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": true,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "9e972b20fc798c3cf57f6ce04d6f4ce8eee040de9057a62710c4c3786d00c7af",
+      "cadence": "step\tColumbia\tEagle\n0\t41\t61\n940\t981\t0\n960\t0\t20\n1941\t981\t0\n1961\t0\t20\n2942\t981\t0\n2962\t0\t20\n3601\t639\t659\n",
+      "seeds": "1791768631\t1791768631\t1791768631\n1791768631\t1791768631\t1791768631\n1791768631\t1791768631\t1791768631\n1791768631\t1791768631\t1791768631\n1791768631\t1791768631\t1791768631\n1791768631\t1791768631\t1791768631\n"
+    },
+    "observed-3601-b": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:30:35.387197+00:00",
+      "finished_utc": "2026-10-12T01:30:40.173738+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": true,
+      "seed_trace": true,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf",
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "c9bc06c008158bdb6c9fadd4e9636a79904562515b6492b09faf24e43ef8c7ac",
+      "cadence": "step\tColumbia\tEagle\n0\t41\t76\n925\t966\t0\n960\t0\t35\n1926\t966\t0\n1961\t0\t35\n2927\t966\t0\n2962\t0\t35\n3601\t639\t674\n",
+      "seeds": "1791768636\t1791768636\t1791768636\n1791768636\t1791768636\t1791768636\n1791768636\t1791768636\t1791768636\n1791768636\t1791768636\t1791768636\n1791768636\t1791768636\t1791768636\n1791768636\t1791768636\t1791768636\n"
+    },
+    "unhooked-559": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "559",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:30:27.574178+00:00",
+      "finished_utc": "2026-10-12T01:30:29.519554+00:00",
+      "returncode": 0,
+      "steps": 559,
+      "counter_observer": true,
+      "seed_trace": false,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09",
+      "seed_trace_binary_sha256": null,
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 559,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c",
+      "cadence": "step\tColumbia\tEagle\n0\t41\t11\n559\t600\t570\n"
+    },
+    "untouched-original-3601-a": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:34:40.925065+00:00",
+      "finished_utc": "2026-10-12T01:34:45.704626+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": false,
+      "seed_trace": false,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": null,
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "07fa04101537b6d0304319e7488bb711d4be7ffb1d4c87a6f70ea2b1a93ea082"
+    },
+    "untouched-original-3601-b": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/step-input/native_step_input",
+        "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601",
+        "off"
+      ],
+      "started_utc": "2026-10-12T01:34:46.153059+00:00",
+      "finished_utc": "2026-10-12T01:34:50.973579+00:00",
+      "returncode": 0,
+      "steps": 3601,
+      "counter_observer": false,
+      "seed_trace": false,
+      "fixed_seed_counterfactual": null,
+      "binary_sha256": "8faf50cbc163e160436916735ec6f3d9f65da0e113ee8fcb558215397b38a35d",
+      "seed_trace_binary_sha256": null,
+      "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "config_sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366",
+      "gpu": false,
+      "vm": false,
+      "no_intermediate_save": true,
+      "no_input_or_physical_getter": true,
+      "adapter": {
+        "steps": 3601,
+        "mode": "off",
+        "actual_down_steps": 0,
+        "module_status": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "final_save_sha256": "4dc227bc08087e8f6b01c3a8b321ef0d8b8e5872917fb77ddd403b9c4e42e8d3"
+    }
+  },
+  "comparisons": {
+    "fixed1-observer-neutrality-3601": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-observer-neutrality-3601.diff"
+    },
+    "fixed1-repeat-3601": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-repeat-3601.diff"
+    },
+    "observed-repeat-3601": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": false,
+      "complete_vessel_blocks_equal": false,
+      "differing_vessels": [
+        "Columbia",
+        "Eagle"
+      ],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-repeat-3601.diff"
+    },
+    "observer-neutrality-559": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/step-input/runtime-off-559-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observer-neutrality-559.diff"
+    },
+    "seed1-vs2-3601": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": false,
+      "complete_vessel_blocks_equal": false,
+      "differing_vessels": [
+        "Columbia",
+        "Eagle"
+      ],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-3601.diff"
+    },
+    "seed1-vs2-900": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-900.diff"
+    },
+    "seed1-vs2-918": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-918.diff"
+    },
+    "seed1-vs2-919": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": true,
+      "complete_vessel_blocks_equal": true,
+      "differing_vessels": [],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-919.diff"
+    },
+    "seed1-vs2-920": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": false,
+      "complete_vessel_blocks_equal": false,
+      "differing_vessels": [
+        "Eagle"
+      ],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-920.diff"
+    },
+    "untouched-original-repeat-3601": {
+      "left": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/Scenarios/StepInputFinal.scn",
+      "right": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/Scenarios/StepInputFinal.scn",
+      "entire_bytes_equal": false,
+      "complete_vessel_blocks_equal": false,
+      "differing_vessels": [
+        "Eagle"
+      ],
+      "diff_path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-repeat-3601.diff"
+    }
+  },
+  "adjacent_boundary_result": {
+    "first_differing_observed_final_boundary": 920,
+    "complete_saves_equal_at": [
+      900,
+      918,
+      919
+    ],
+    "seed1_Eagle_initial_counter": 83,
+    "seed2_Eagle_initial_counter": 66,
+    "seed1_Eagle_first_flush_step": 918,
+    "seed2_Eagle_first_flush_step": 935,
+    "Columbia_initial_counter_both": 41,
+    "Columbia_first_flush_step_both": 960,
+    "differing_vessels_at_920": [
+      "Eagle"
+    ],
+    "differing_saved_fields_at_920": {
+      "LASTGLOBALVEL": {
+        "seed1": "27571.616892430440 -97.938288667951 13433.040103971025",
+        "seed2": "27571.616892430440 -97.938288667951 13433.040103971027"
+      },
+      "RR_RATE": {
+        "seed1": "102.456304153137",
+        "seed2": "102.456304153136"
+      }
+    },
+    "limitation": "Separate final-only runs bracket the first difference near the first flush; every earlier step was not individually saved. Original failed runs did not log RNG seed/counter, so their exact historic phases cannot be reconstructed."
+  },
+  "boundary_AGC_DSKY_trajectory_checks": {
+    "900": {
+      "mjd_equal": true,
+      "saved_selected_records": {
+        "Columbia": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        },
+        "Eagle": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        }
+      }
+    },
+    "918": {
+      "mjd_equal": true,
+      "saved_selected_records": {
+        "Columbia": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        },
+        "Eagle": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        }
+      }
+    },
+    "919": {
+      "mjd_equal": true,
+      "saved_selected_records": {
+        "Columbia": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        },
+        "Eagle": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        }
+      }
+    },
+    "920": {
+      "mjd_equal": true,
+      "saved_selected_records": {
+        "Columbia": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        },
+        "Eagle": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        }
+      }
+    },
+    "3601": {
+      "mjd_equal": true,
+      "saved_selected_records": {
+        "Columbia": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        },
+        "Eagle": {
+          "trajectory_tokens_equal": true,
+          "AGC_complete_equal": true,
+          "DSKY_complete_equal": true
+        }
+      }
+    }
+  },
+  "decisions": {
+    "production_runtime_changed": false,
+    "native_equations_or_intended_assignment_timing_changed": false,
+    "acceptance_scenario_changed": false,
+    "force_seed_in_production_or_acceptance_tests": false,
+    "tolerance_or_serialized_state_waiver": false,
+    "AGC_snapshot_redesign": false,
+    "registered_ctest_suite_rerun": false,
+    "source_inventory_or_patch_stack_changed": false,
+    "gpu_or_vm_launch": false,
+    "new_windows_capture": false,
+    "push_or_hosted_ci": false
+  },
+  "limits": [
+    "Strict original no-driver repeat still fails, including a new untouched original-runner pair. Fixed-seed green controls are diagnostic only.",
+    "Both source mechanisms are pinned upstream; Windows process/runtime RNG behavior and long-run repeatability are not measured in this phase.",
+    "Other core consumers share rand(); only the first-flush neighborhood is localized. Later residuals are retained without attributing every decimal to a single expression.",
+    "Native startup lacks upstream Windows WinMain srand(12345); not patched here, and it cannot by itself prevent later timer reseeding.",
+    "Fixed-seed reproducibility and observer neutrality do not rule out uninitialized-state defects in other scenarios or boundaries.",
+    "Historical strict AGC resume failure remains open; full flight, graphical-native parity, physical controls and manual landing remain unverified."
+  ],
+  "failed_diagnostic_attempt": {
+    "case": "natural-3601-a",
+    "returncode": -11,
+    "cause": "Initial external RTLD_NEXT-based interposer crashed with SIGSEGV before a completed run. Its failed source/binary and log are retained; direct replacee call within excluded interposer image used for successful controls.",
+    "production_or_fixtures_modified": false
+  },
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis",
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/CadenceObserver.o",
+      "bytes": 609072,
+      "sha256": "1be274580342fcbb15ac00385f34fd8ce5a4e8552bc8631feb3873b08eaae56d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/SeedTrace-RTLD_NEXT-failed.dylib",
+      "bytes": 33776,
+      "sha256": "a95d0ce530c180fd1d115c5a36cde79616af37c38717198a6de2173f71d50e46"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/SeedTrace.dylib",
+      "bytes": 33744,
+      "sha256": "fdc99803cb65cd6d56077dcf9fcfff25113d7d4652009a51b15afda6a0c788bf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/audit.py",
+      "bytes": 2412,
+      "sha256": "d17383a96aaaadd3748f3ba83ad3f749edfaaf15c09b681eea2272a6ea92861e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/cadence_observer",
+      "bytes": 41392,
+      "sha256": "3104996d0af95e0b4e4ef8a99e05104996a551d53e5a9c8dbf6415a1b4a3fe09"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-observer-3601-execution.json",
+      "bytes": 1635,
+      "sha256": "b4c99be387554c12318a283e0e1765a0bdac99a59b15a8d6e2203ce8bdbd4b5f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-observer-3601.log",
+      "bytes": 4484,
+      "sha256": "04f37d2c415fcce18f737d3634f6fbbfa09a488f5b44f06d0c37e39c619b5f5e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-observer-neutrality-3601-comparison.json",
+      "bytes": 540,
+      "sha256": "86afd5c1be2ce87fd63b772fda511df9cd8edd7aaceeb006b10c82bfb519bf3e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-observer-neutrality-3601.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-3601-a-execution.json",
+      "bytes": 1480,
+      "sha256": "a32f3be4006eec322cf1c9dd0acc6905934c10e254d703b057a1fcf98dee0006"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-3601-a.log",
+      "bytes": 4540,
+      "sha256": "73c2c8feac5295db7f968e1678963f756ff9b8dae0ed63acd8908a3e83c89429"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-3601-b-execution.json",
+      "bytes": 1480,
+      "sha256": "867c77c2719bbbee4fe512d49089b2f3fcabff1975cdbfc575747780680001a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-3601-b.log",
+      "bytes": 4540,
+      "sha256": "03c316d5741b8a6ccd2f970fef8cb046ad663566ae046fb59683b482866f1f25"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-900-execution.json",
+      "bytes": 1474,
+      "sha256": "3a2d221e9ce65baf5e39c135a66fda51099722c9d7f9762920973e83f014291d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-900.log",
+      "bytes": 4455,
+      "sha256": "3e8da4f19ddb173d877a9e484f74d2316c401d597df9c31a2766f245f65ac37c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-918-execution.json",
+      "bytes": 1474,
+      "sha256": "cb7e2bd5e913f078b072ae6d2771b2867fc5447173282cdbaa7da2640e5f9896"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-918.log",
+      "bytes": 4455,
+      "sha256": "d5dd7e5338363f63867954fcbe75ba2c29684d3696e63abc14b92205cfa218eb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-919-execution.json",
+      "bytes": 1474,
+      "sha256": "46eab58add9c541299b832bd87c8dbaaebe5313318e694a1f49185159581e5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-919.log",
+      "bytes": 4455,
+      "sha256": "cc538a49d4c3aecebdf92b46ec1346175e6ebde76aec13cc31608b40227f12ed"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-920-execution.json",
+      "bytes": 1474,
+      "sha256": "9178e845706967a585d8624efd044f9dd373b4da94f8b31dd239944b89dff1ac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-original-920.log",
+      "bytes": 4455,
+      "sha256": "68034a88089ced346227e881403f73c0b608ea27a48703a3800bba8841b8d366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-repeat-3601-comparison.json",
+      "bytes": 529,
+      "sha256": "6e11c673753254fd6de081a017629cd3893ac14996690a17e59fefa255c2607b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed1-repeat-3601.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-observer-3601-execution.json",
+      "bytes": 1635,
+      "sha256": "09afebc8005ecd1fefb081bd3f567b13bbb9001aa09f1649d28d2cc1ef1bb6c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-observer-3601.log",
+      "bytes": 4484,
+      "sha256": "1e3c560588b8dffb85e9b9b0e089602125288dc1ff74890da259e3b34c8956f1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-900-execution.json",
+      "bytes": 1474,
+      "sha256": "4b4bdf95adc3a117ac09079d583cc46c5883f3a099d87f4509c9b42871c99fb0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-900.log",
+      "bytes": 4455,
+      "sha256": "8f1a0f9e3707bb4e488a751723f57c52e92e8eed7cda5346220bfa5b57c8b11a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-918-execution.json",
+      "bytes": 1474,
+      "sha256": "e6f209fb72f99940ccff75866071f1e0746bcee11ffbbfdf0413aad99929d666"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-918.log",
+      "bytes": 4455,
+      "sha256": "4e08d9b587dd393b2ddc457768950f96c4890e543ca1a0f8279e36a2f3d1619f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-919-execution.json",
+      "bytes": 1474,
+      "sha256": "c96526dbbc28f83e0fa8d0500f9483cfa43f84e6c5d41cb1cf2d7f18bed28316"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-919.log",
+      "bytes": 4455,
+      "sha256": "8d62bd6d5c4cfba9fa94997f033cc78e108ba1a853174f591a1a3865112a596e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-920-execution.json",
+      "bytes": 1474,
+      "sha256": "d4875318f5064f132a3f67c18bf0ed6c26f4878b208f2be90677214eaa33bf34"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/fixed2-original-920.log",
+      "bytes": 4455,
+      "sha256": "6c508f97fb6e11b2d9d44de84022a0cd78bd667f4736598e8b3b4b5cd425e180"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/interposer-build.json",
+      "bytes": 919,
+      "sha256": "4dac1748b154fab5e0e986bf51fe10163596d32464cf454ee08c412be007e845"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/natural-3601-a-execution.json",
+      "bytes": 1053,
+      "sha256": "58e3d1c4ee2e6d7e3e3c7e13e602c2a000d536146f245ed513e0fa07595dbf3c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/natural-3601-a.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-3601-a-execution.json",
+      "bytes": 1687,
+      "sha256": "2e6f6578d663f2ff99c9e0699e75ea9933f0e16026ae0d93e423970ebfda9709"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-3601-a.log",
+      "bytes": 4344,
+      "sha256": "9888fb1c469c8583e6347e745ceda7511cf3321954cc9e397121fe73fab4ced9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-3601-b-execution.json",
+      "bytes": 1687,
+      "sha256": "76fb32bb96a17fa0c6ec8020319066e52ac7631d2bdf9b5aa337c9e098c9cd48"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-3601-b.log",
+      "bytes": 4344,
+      "sha256": "9cc948f31052b8ac3a3b058451ea3c8170bdc0b7a553d8fdf76eb147d67b487f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-repeat-3601-comparison.json",
+      "bytes": 550,
+      "sha256": "07eac07d4e908b2be854a5a221d66895fb55a7ac89d52af05aa54548024d2e99"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observed-repeat-3601.diff",
+      "bytes": 3673,
+      "sha256": "8e85169259a29efc0452a53fc406284c6df7ddf9c17750e53ea8a64f9d28e262"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observer-build.json",
+      "bytes": 1922,
+      "sha256": "f90e1e0a9b1bf08d1255be00d25111bf2c2ff933d63014ba2fe0f610fca088b8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observer-neutrality-559-comparison.json",
+      "bytes": 498,
+      "sha256": "decbbadd0133127d7efe1db353d1eabfad3e44d1bdf7cbc68e813c56b2b8442c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/observer-neutrality-559.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/original-failure-fixture-audit.json",
+      "bytes": 190339,
+      "sha256": "9807ef51564d252e409cad267595e3266ce803d80f664a4f6bc229cdd0610c00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/run.py",
+      "bytes": 3153,
+      "sha256": "1ee5414da8f7c2b46541943aa4b5e5001b81835f8bda830106af555f81f5debe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/StepInputOrbiter.log",
+      "bytes": 1966,
+      "sha256": "b65956831e0cc3450e0c403c19945624dc7c88ce79d890cea55d31b1a0f87075"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/cadence.tsv",
+      "bytes": 102,
+      "sha256": "fdd7fc7b62e830976a70ea9ca62b1dc2ed03b890259d8981f313330e01fb81e2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-observer-3601/seed.tsv",
+      "bytes": 144,
+      "sha256": "a70a23ed2134b7b4c1f2950fad730bff04a5d5c110fa1f238b5937467de55b26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/StepInputOrbiter.log",
+      "bytes": 1968,
+      "sha256": "1806594f899c46bd64b1ed1d96b0d4b865c7a32c9a46c0ff8111b2fbdf19cd5a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-a/seed.tsv",
+      "bytes": 144,
+      "sha256": "58ce4d5387449ffd2b4422f1f02cc93cfe3b7f3cbf382710156c0a44982e2528"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "fc0f60de9f3a27fcc2d3f684a69b8170ac97120a9376604b1d8c6a6ecf3bd74a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/StepInputOrbiter.log",
+      "bytes": 1968,
+      "sha256": "a0cd101df26a8d8cded479b8d71173814c26f4b79697d5a15d6620d552bfe09a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-3601-b/seed.tsv",
+      "bytes": 144,
+      "sha256": "788eaca79554dcd113e023c2602c75d2d159b73b3cf4bf532e75772c54137c2b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/Scenarios/StepInputFinal.scn",
+      "bytes": 349096,
+      "sha256": "395ddbc9041b76187f59c90f7e08e08ffed8cffdb502946a4ffea0b9004feca3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "b0ec612f1cde5dfd7445ab95deafa6ff7b777ae5437e1f55de25b1b3c5ca3429"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/adapter-result.json",
+      "bytes": 83,
+      "sha256": "77a67549cf5d343e93c13730a606dc4ede03eeb51ded1fbd335d4e175ab2b79c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-900/seed.tsv",
+      "bytes": 144,
+      "sha256": "005cba9f047bfe9ee812549ff938c6c7ee7bc1ce2c0965dce08c1662ce7c1d15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/Scenarios/StepInputFinal.scn",
+      "bytes": 349171,
+      "sha256": "c48d8db43993800ef91ed774a76877b892067b0a53c63f1e74d87ebd90ba8ffe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "ffb2e549b556aef70ccaa4dbb5ef2bfa581430400cd933517d7f41308d7b2077"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/adapter-result.json",
+      "bytes": 83,
+      "sha256": "4cf86bb7f81d935fcf0683861e1b2905faba38447ff39e96e9b1930d6f4f8da7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-918/seed.tsv",
+      "bytes": 144,
+      "sha256": "108fbdf11b9f16c0c914eac1821348d2d4a8de11dcf0d4bf95a9482f261a2d68"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/Scenarios/StepInputFinal.scn",
+      "bytes": 349272,
+      "sha256": "620118fb685c79afc14ec776cde26f10466f9f8fcdd8afa913d4419f3ee945d8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "8342d4eac4fda069734366a7d1a5f20dde0f7979b1427cd8e9c3759ca181a6c0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/adapter-result.json",
+      "bytes": 83,
+      "sha256": "f6f198b5aa34209a8638646bef342b9ef5ed214f476762c43a6f18fe07c7f186"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-919/seed.tsv",
+      "bytes": 144,
+      "sha256": "b4d907d1c7fd461303daaed389b5b8c076aecb44deac2720c15aed8a9918caa3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/Scenarios/StepInputFinal.scn",
+      "bytes": 349100,
+      "sha256": "4d6a14a917f60e6af23b450ad7fa1747f56e61ee828c2ea6afcfcbbdd6d81f6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "40fac2eb38ab957efc842943cdbd3c592f6f0bb0ddb35c3a0c31e8315d65291e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/adapter-result.json",
+      "bytes": 83,
+      "sha256": "7f1d53ff4debabb950b173c7d377f717a3b3fcb501feee1047158ba3b971d352"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed1-original-920/seed.tsv",
+      "bytes": 144,
+      "sha256": "8b3d95ea22e8f62f73c5a8fb8cc0a2001bb6abc913c327a45e1cba68da3a5bd7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "9575c2915e40ba2da218826de38616ca4146546f203c0e01a4f87d87faea0f27"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/StepInputOrbiter.log",
+      "bytes": 1966,
+      "sha256": "82a9395edddfde4235c4ef270be75451e5b854feaa368f0fc29f6d82a1283da0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/cadence.tsv",
+      "bytes": 102,
+      "sha256": "23bf52ba39de3e33b3258826ff100747dfffbd085c55d7bf10fd1768b82f78cd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-observer-3601/seed.tsv",
+      "bytes": 144,
+      "sha256": "460aa0c74a27499406eefbdce08037463c76f8a09a5416fd17c34e34db2301d1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/Scenarios/StepInputFinal.scn",
+      "bytes": 349096,
+      "sha256": "395ddbc9041b76187f59c90f7e08e08ffed8cffdb502946a4ffea0b9004feca3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "a28bca31b178c6560b84b802cd8869f181b421981a9a137e1cb3f51d4bb8b86f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/adapter-result.json",
+      "bytes": 83,
+      "sha256": "77a67549cf5d343e93c13730a606dc4ede03eeb51ded1fbd335d4e175ab2b79c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-900/seed.tsv",
+      "bytes": 144,
+      "sha256": "14d074200170c709d331791439c509cc88d0e6106bdaf7ef9d8649b3213dde1e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/Scenarios/StepInputFinal.scn",
+      "bytes": 349171,
+      "sha256": "c48d8db43993800ef91ed774a76877b892067b0a53c63f1e74d87ebd90ba8ffe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "c47ab5262c0b039015d94d7efb83cbfd00f7e0cbe4d24ab14d4b43d143e26243"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/adapter-result.json",
+      "bytes": 83,
+      "sha256": "4cf86bb7f81d935fcf0683861e1b2905faba38447ff39e96e9b1930d6f4f8da7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-918/seed.tsv",
+      "bytes": 144,
+      "sha256": "20bead18bc37e5a5373f02bd9532041d057096a21a4e323bbfef9f361e99cd1e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/Scenarios/StepInputFinal.scn",
+      "bytes": 349272,
+      "sha256": "620118fb685c79afc14ec776cde26f10466f9f8fcdd8afa913d4419f3ee945d8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "851987cbf72db12bb8d1161474e6b72fd3537209e9a38b6fe65462969d0fa3a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/adapter-result.json",
+      "bytes": 83,
+      "sha256": "f6f198b5aa34209a8638646bef342b9ef5ed214f476762c43a6f18fe07c7f186"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-919/seed.tsv",
+      "bytes": 144,
+      "sha256": "335657aaf67e41b437417ed5834b6cc469059c1d810dea5b097fb1176818e5aa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/Scenarios/StepInputFinal.scn",
+      "bytes": 349100,
+      "sha256": "5bbfa2822916749fa027b18b9fe1ce7f26374f3595de02d1285d69c4b5175a07"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/StepInputOrbiter.log",
+      "bytes": 1965,
+      "sha256": "e1bb375ef4760c0f16500cfe6366ef9a3816f9c967e210d3e239f1227b5281f0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/adapter-result.json",
+      "bytes": 83,
+      "sha256": "7f1d53ff4debabb950b173c7d377f717a3b3fcb501feee1047158ba3b971d352"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-fixed2-original-920/seed.tsv",
+      "bytes": 144,
+      "sha256": "149fce694e5e5ccf940e526ef9f2f1950413c75787c2f51d608830436f77d7ed"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-natural-3601-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-natural-3601-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-natural-3601-a/StepInputOrbiter.log",
+      "bytes": 1275,
+      "sha256": "7ad62c65f23d8f925f8273aa37ff9b2bd90e340169d74e69725ba3f9b2c1523d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "9e972b20fc798c3cf57f6ce04d6f4ce8eee040de9057a62710c4c3786d00c7af"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/StepInputOrbiter.log",
+      "bytes": 1961,
+      "sha256": "940307d10c8b3be01a320e5d21a8b269a2bacacb29bba7fc5b63d644975777a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/cadence.tsv",
+      "bytes": 102,
+      "sha256": "9e3835023ea483fb93ecfafb55e5bc6c024b57e1756e87391f83daf0735bcdf1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-a/seed.tsv",
+      "bytes": 198,
+      "sha256": "48c7115457b4fca2e90d32434b4646e07920b7c881b819ae704aea0f04f15c8d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "c9bc06c008158bdb6c9fadd4e9636a79904562515b6492b09faf24e43ef8c7ac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/StepInputOrbiter.log",
+      "bytes": 1961,
+      "sha256": "ff322b4781b2330c8ddb8c1aa8e8edd5cf10efdd111c691b8b505af562ddfb95"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/cadence.tsv",
+      "bytes": 102,
+      "sha256": "bb2d91abdcd98a53dde061d82609d33917df4d54ba0459037b275a3477783cd7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-observed-3601-b/seed.tsv",
+      "bytes": 198,
+      "sha256": "0d4065ee59e119248aab2c704e09e92d62e803166353efcad5378703187456be"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/Scenarios/StepInputFinal.scn",
+      "bytes": 349317,
+      "sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/StepInputOrbiter.log",
+      "bytes": 1958,
+      "sha256": "7ace81329c87dad9b7f769c28db675d3a5df78ae8dcdd6e42d490c794fd72e12"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/adapter-result.json",
+      "bytes": 83,
+      "sha256": "c892d2b4c3f08deaae762f7ecd3694e98bd0d0961cfb4e79337a3ee9725637db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-unhooked-559/cadence.tsv",
+      "bytes": 40,
+      "sha256": "ad1f12058caf0583641dada10931ef688f8d70e240a42ec60e494a73e4dd2114"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "07fa04101537b6d0304319e7488bb711d4be7ffb1d4c87a6f70ea2b1a93ea082"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/StepInputOrbiter.log",
+      "bytes": 1971,
+      "sha256": "84d045bd8ce6ca170732f447c43440d04ec651989a7f3a194bb5182e672bfbaf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-a/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/Scenarios/StepInputFinal.scn",
+      "bytes": 349178,
+      "sha256": "4dc227bc08087e8f6b01c3a8b321ef0d8b8e5872917fb77ddd403b9c4e42e8d3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/StepInputOrbiter.log",
+      "bytes": 1971,
+      "sha256": "a3127bafaf6010ecfc62756de96c5568d779b14768f153d785062e19c300545f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/runtime-untouched-original-3601-b/adapter-result.json",
+      "bytes": 84,
+      "sha256": "d126af37b0131af705639a7ca0134265e87302d53137dd927427fca20ec7ef26"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-3601-comparison.json",
+      "bytes": 556,
+      "sha256": "7acec315312ba340729085a9b0cc9152df1acfbb64c6d4b55cec6b34334ee3be"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-3601.diff",
+      "bytes": 3510,
+      "sha256": "f39f794a5f502493fd3ae0d3637cab80046d8cadeab260b254ca5f75407a0b43"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-900-comparison.json",
+      "bytes": 518,
+      "sha256": "f22a42acd538bbac8e2c31fa424ca78c47198f90108cea4289632efc4d1afa8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-900.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-918-comparison.json",
+      "bytes": 518,
+      "sha256": "de4f239902088b171cf427b77f8537d20f9704ace7485ee402c7a60c96112d1d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-918.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-919-comparison.json",
+      "bytes": 518,
+      "sha256": "9f85fba958cd2bd535e8da58164d0042822270df967f9ed1e2a124d92299f5cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-919.diff",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-920-comparison.json",
+      "bytes": 535,
+      "sha256": "149c578dd5cb35a9dfa0c0a05a5c44aba8d32189a4ba5ebfbf249778e7045255"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/seed1-vs2-920.diff",
+      "bytes": 775,
+      "sha256": "b2f56b07f82b7e801a8e16639438d1a97d5feb35c57a8ff9b3888d1e8f763439"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/setup.py",
+      "bytes": 2546,
+      "sha256": "f7d905734912604da7a92d6ae437fc552950336b10ffc350257cf29764aca96b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/src/CadenceObserver.cpp",
+      "bytes": 4099,
+      "sha256": "f54e7eda9a0d6a5dbe82a603b0bdf49caec8bf866fb33288c556df7bbe25817f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/src/SeedTrace-RTLD_NEXT-failed.c",
+      "bytes": 986,
+      "sha256": "23446cffba624889189c61027d51d4d9df9404c391b046faaf01df47368a78a4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/src/SeedTrace.c",
+      "bytes": 941,
+      "sha256": "a614bdf4793643a1dc4d91d730d7773c6d5f06b020ffe72b400a2be6540253c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/unhooked-559-execution.json",
+      "bytes": 1309,
+      "sha256": "0ed9ff67a7ad33bdff81f1658281e8d2b58dacbea664519b720a49b7e828467c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/unhooked-559.log",
+      "bytes": 4259,
+      "sha256": "d2fa454f5f42ef9f0981ef7bfe860c14bbe54e5f3f9fb9efab33caa276cecc15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-3601-a-execution.json",
+      "bytes": 1248,
+      "sha256": "7233bedf6e93f8126d4357ef7773b7c0efb5c5621edec7f8cdc35e7646bbed9d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-3601-a.log",
+      "bytes": 4624,
+      "sha256": "7cf12c126ae190b70ba642d0fb84d6af7a7ba7eb5e9e8d5f0ca08683b4a7a597"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-3601-b-execution.json",
+      "bytes": 1248,
+      "sha256": "fc21458ef646ec16c0accd3242ebbe1a151d70e614ab3931779d8a902b304fc7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-3601-b.log",
+      "bytes": 4624,
+      "sha256": "415c86ae1b1ab883d7b44743fdc3d9b1fdd8991baf2fc096ad3814d194d6e8da"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-repeat-3601-comparison.json",
+      "bytes": 564,
+      "sha256": "36bd774ac948a7d84a2866e24f992b9eaebd767402e2fbe065d9f000b348630c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/untouched-original-repeat-3601.diff",
+      "bytes": 3672,
+      "sha256": "907bddc8eb1c4b76abd0087ade8aa2617c89aea02d5a4fe523a7c49f85e1852a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/repeatability-diagnosis/write_report.py",
+      "bytes": 8361,
+      "sha256": "6b695aa790837bbf1c08b7fc1cb0b86bcecfb06a9f24e3c278834293dfda8836"
+    }
+  ]
+}

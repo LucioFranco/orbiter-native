@@ -1,0 +1,471 @@
+{
+  "platform": "macOS arm64",
+  "recorded_at_utc": "2026-10-07T21:08:12.730776+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "4650f20805fbb1f073f0c0e26287f7b0092a2f6c",
+  "base_commit": "d6b1c7d1aa053aa0263ca61e616016e1978693ef",
+  "scope": "First N68 decision checkpoint with a separately verified original NUMPAD3 yaw-input experiment; no V57 continuation",
+  "compile_parallelism": 2,
+  "synthetic_contract_checks": 25,
+  "profiles": {
+    "baseline": {
+      "nassp_source_root": "<PRESERVED_POC>/orbiter/Addons/NASSP",
+      "build": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol",
+      "full_suite": {
+        "passed": 91,
+        "total": 91,
+        "failures": 0,
+        "skipped": 0,
+        "wall_seconds": 502.79,
+        "parallelism": 1,
+        "junit_sha256": "e1bb3558ddc8dfeb4cc74abe48b951c145bc20c16301a14d56789037aff7371e",
+        "console_log_sha256": "702f67cabff6b70a0efc218e6b18ec55dcc53755ddb915bd33d4a6fe6c2986dc"
+      },
+      "runs": {
+        "default": {
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-protocol",
+          "verification": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false,
+            "checkpoint_reached": true,
+            "actual_ignition_elapsed_s": 901.1833333333333,
+            "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+            "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+            "n62_displayed_tfi_s": -203,
+            "n68_request_after_actual_ignition_s": 300.01666666666677,
+            "checkpoint_elapsed_s": 1209,
+            "observed_dh_ft": 99999.0,
+            "radar_valid": false,
+            "radar_measurement_available": false,
+            "checkpoint_radar_geometry": {
+              "beam_nadir_cosine": -0.4658479324665984,
+              "altitude_above_radar_origin_m": 9793.369407460876,
+              "predicted_slant_range_ft": -68972.02889464889,
+              "position1_discrete": true,
+              "position2_discrete": false,
+              "range_good_discrete": false,
+              "velocity_good_discrete": false,
+              "position2_command": false,
+              "radar_test_switch": 1
+            },
+            "radar_range_unit": "ft",
+            "radar_rate_unit": "ft/s",
+            "n68_dh_unit": "ft",
+            "operational_dh_envelope": null,
+            "v57_sent": false,
+            "full_checklist_fidelity": false,
+            "manual_yaw_measurement": "Integral of -body-Y angular velocity while original NUMPAD3 is held; settled attitude not certified",
+            "manual_yaw_settled_attitude_validated": false,
+            "manual_yaw_after_release_rate_deg_s": {},
+            "manual_yaw_10_exercised": false,
+            "manual_yaw_174_exercised": false,
+            "landing_attempted": false,
+            "windows_comparison": false,
+            "binary_sha256": {
+              "probe": "48b0213d14050cffaa7ce46778ca88dad7bf16f08718d599da69ebddda58f596",
+              "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+            },
+            "fresh_zero_step_reload": true,
+            "lgc_memory_channels_retained": true,
+            "wall_seconds": 55.579247416,
+            "event_log_sha256": "3594855358102265355bcbbd6847b5b65bfa7dee74ef43dbaa7e09e528770c4f",
+            "limits": [
+              "Prior power setup, visual checks, AGS updates, communications and full pilot fidelity not validated",
+              "Radar validity and dH are observations; no operational envelope or V57 approval encoded",
+              "Original callback inputs do not validate graphical hit testing or human piloting"
+            ]
+          },
+          "observations": {
+            "original_radar_readback": {
+              "RANGE": "1000000.000000000000",
+              "ANTENNAANGLE": "24.000000000000",
+              "RANGEGOOD": "0",
+              "VELOCITYGOOD": "0",
+              "RATE": "-2474.991834303950 24.212157259383 458.678443022056"
+            },
+            "range_good_records": 0,
+            "velocity_good_records": 0,
+            "yaw_key_hold_observations": []
+          }
+        },
+        "yaw_input": {
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-yaw",
+          "verification": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false,
+            "checkpoint_reached": true,
+            "actual_ignition_elapsed_s": 901.1833333333333,
+            "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+            "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+            "n62_displayed_tfi_s": -203,
+            "n68_request_after_actual_ignition_s": 300.0666666666667,
+            "checkpoint_elapsed_s": 1209.05,
+            "observed_dh_ft": 99999.0,
+            "radar_valid": false,
+            "radar_measurement_available": false,
+            "checkpoint_radar_geometry": {
+              "beam_nadir_cosine": 0.5413790377056009,
+              "altitude_above_radar_origin_m": 9782.704853092635,
+              "predicted_slant_range_ft": 59284.6898897075,
+              "position1_discrete": true,
+              "position2_discrete": false,
+              "range_good_discrete": false,
+              "velocity_good_discrete": false,
+              "position2_command": false,
+              "radar_test_switch": 1
+            },
+            "radar_range_unit": "ft",
+            "radar_rate_unit": "ft/s",
+            "n68_dh_unit": "ft",
+            "operational_dh_envelope": null,
+            "v57_sent": false,
+            "full_checklist_fidelity": false,
+            "manual_yaw_measurement": "Integral of -body-Y angular velocity while original NUMPAD3 is held; settled attitude not certified",
+            "manual_yaw_settled_attitude_validated": false,
+            "manual_yaw_after_release_rate_deg_s": {
+              "checklist_yaw_right_10": 9.637134680266264,
+              "checklist_yaw_right_174": 18.6408023521671
+            },
+            "manual_yaw_10_exercised": true,
+            "manual_yaw_174_exercised": true,
+            "landing_attempted": false,
+            "windows_comparison": false,
+            "binary_sha256": {
+              "probe": "48b0213d14050cffaa7ce46778ca88dad7bf16f08718d599da69ebddda58f596",
+              "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+            },
+            "fresh_zero_step_reload": true,
+            "lgc_memory_channels_retained": true,
+            "wall_seconds": 56.8805375,
+            "event_log_sha256": "96dc3d4448252ac5e850094aca4caef55b327fff4125e3e42b1cbe6b9d7aa66c",
+            "limits": [
+              "Prior power setup, visual checks, AGS updates, communications and full pilot fidelity not validated",
+              "Radar validity and dH are observations; no operational envelope or V57 approval encoded",
+              "Original callback inputs do not validate graphical hit testing or human piloting"
+            ]
+          },
+          "observations": {
+            "original_radar_readback": {
+              "RANGE": "59288.530614902797",
+              "ANTENNAANGLE": "24.000000000000",
+              "RANGEGOOD": "0",
+              "VELOCITYGOOD": "0",
+              "RATE": "-2088.366962479054 -472.916027146849 1320.271224119676"
+            },
+            "range_good_records": 0,
+            "velocity_good_records": 0,
+            "yaw_key_hold_observations": [
+              {
+                "action": "checklist_yaw_right_10",
+                "key_down_elapsed_s": 12.8,
+                "key_up_elapsed_s": 15.083333333333334,
+                "integrated_rotation_while_held_deg": 10.105955341627075,
+                "after_release_sample_elapsed_s": 15.283333333333333,
+                "after_release_body_angular_velocity_rad_s": [
+                  0.00024354548012528094,
+                  -0.1681997306287773,
+                  0.00020206757655358417
+                ],
+                "keyboard_released": true,
+                "aca_neutral": true
+              },
+              {
+                "action": "checklist_yaw_right_174",
+                "key_down_elapsed_s": 1081.1833333333334,
+                "key_up_elapsed_s": 1092.15,
+                "integrated_rotation_while_held_deg": 174.01975690121589,
+                "after_release_sample_elapsed_s": 1092.35,
+                "after_release_body_angular_velocity_rad_s": [
+                  0.00018821722948031167,
+                  -0.32534337625881943,
+                  -0.0008768143752713091
+                ],
+                "keyboard_released": true,
+                "aca_neutral": true
+              }
+            ]
+          }
+        }
+      },
+      "original_source_sha256": {
+        "lm_lr.cpp": "06acffc5a5ab52fe9969a9fd6b014d993cef30c090d92a7b287da9be3c5b32e6",
+        "LEM.cpp": "d334bd4cf6e78e5006e15a1517109f05e45c5022c76ff9adcfe05d3af9d83903",
+        "lemsystems.cpp": "a1c4ea1cfffbe0ec0797d031638a986cd7170307a9e0082098a2ff627e7eb0ab",
+        "lmscs.cpp": "d2096b840fe4ca0eef401d1af0736c4644dcd9c4491e3107892bf76be2c5496d"
+      }
+    },
+    "candidate": {
+      "nassp_source_root": "<LOCAL_PATH>",
+      "build": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol",
+      "full_suite": {
+        "passed": 91,
+        "total": 91,
+        "failures": 0,
+        "skipped": 0,
+        "wall_seconds": 510.97,
+        "parallelism": 1,
+        "junit_sha256": "39eb7093a7e01f6ee0f2e55baf4352fa79e3378b6e193d30bf4e0cc000101db4",
+        "console_log_sha256": "1ce9d136a1b4592c556233d4753c6030e0953a9a45c4ca0b7c24aff066713f62"
+      },
+      "runs": {
+        "default": {
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-protocol",
+          "verification": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false,
+            "checkpoint_reached": true,
+            "actual_ignition_elapsed_s": 901.1833333333333,
+            "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+            "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+            "n62_displayed_tfi_s": -203,
+            "n68_request_after_actual_ignition_s": 300.01666666666677,
+            "checkpoint_elapsed_s": 1209,
+            "observed_dh_ft": 99999.0,
+            "radar_valid": false,
+            "radar_measurement_available": false,
+            "checkpoint_radar_geometry": {
+              "beam_nadir_cosine": -0.4652870926610124,
+              "altitude_above_radar_origin_m": 9935.27402314654,
+              "predicted_slant_range_ft": -70055.76534824433,
+              "position1_discrete": true,
+              "position2_discrete": false,
+              "range_good_discrete": false,
+              "velocity_good_discrete": false,
+              "position2_command": false,
+              "radar_test_switch": 1
+            },
+            "radar_range_unit": "ft",
+            "radar_rate_unit": "ft/s",
+            "n68_dh_unit": "ft",
+            "operational_dh_envelope": null,
+            "v57_sent": false,
+            "full_checklist_fidelity": false,
+            "manual_yaw_measurement": "Integral of -body-Y angular velocity while original NUMPAD3 is held; settled attitude not certified",
+            "manual_yaw_settled_attitude_validated": false,
+            "manual_yaw_after_release_rate_deg_s": {},
+            "manual_yaw_10_exercised": false,
+            "manual_yaw_174_exercised": false,
+            "landing_attempted": false,
+            "windows_comparison": false,
+            "binary_sha256": {
+              "probe": "3032cced4a8d4dd619916261b82f3d174884dde61e396db683816fcc2db155bd",
+              "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+            },
+            "fresh_zero_step_reload": true,
+            "lgc_memory_channels_retained": true,
+            "wall_seconds": 55.449191416,
+            "event_log_sha256": "4b5cb0810c84651e5e131b8a6bbcacd238ebfea9106fd329bb5c97ce9038c205",
+            "limits": [
+              "Prior power setup, visual checks, AGS updates, communications and full pilot fidelity not validated",
+              "Radar validity and dH are observations; no operational envelope or V57 approval encoded",
+              "Original callback inputs do not validate graphical hit testing or human piloting"
+            ]
+          },
+          "observations": {
+            "original_radar_readback": {
+              "RANGE": "1000000.000000000000",
+              "ANTENNAANGLE": "24.000000000000",
+              "RANGEGOOD": "0",
+              "VELOCITYGOOD": "0",
+              "RATE": "-2475.633480679496 17.421814489446 453.966653975588"
+            },
+            "range_good_records": 0,
+            "velocity_good_records": 0,
+            "yaw_key_hold_observations": []
+          }
+        },
+        "yaw_input": {
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-yaw",
+          "verification": {
+            "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+            "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+            "input_sha256": {
+              "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+              "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+              "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+            },
+            "initial_agc_clock_s": 368743.87,
+            "initial_tig_s": 369645.02,
+            "initial_countdown_s": 901.1500000000233,
+            "vessels": [
+              "AS-506-S4BSTG",
+              "Columbia",
+              "Eagle",
+              "Floodlight",
+              "MCC"
+            ],
+            "scenario_modified": false,
+            "checkpoint_reached": true,
+            "actual_ignition_elapsed_s": 901.1833333333333,
+            "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+            "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+            "n62_displayed_tfi_s": -203,
+            "n68_request_after_actual_ignition_s": 300.0333333333334,
+            "checkpoint_elapsed_s": 1209.0166666666667,
+            "observed_dh_ft": 99999.0,
+            "radar_valid": false,
+            "radar_measurement_available": false,
+            "checkpoint_radar_geometry": {
+              "beam_nadir_cosine": 0.5389562065151277,
+              "altitude_above_radar_origin_m": 9924.139984951067,
+              "predicted_slant_range_ft": 60412.17077144561,
+              "position1_discrete": true,
+              "position2_discrete": false,
+              "range_good_discrete": false,
+              "velocity_good_discrete": false,
+              "position2_command": false,
+              "radar_test_switch": 1
+            },
+            "radar_range_unit": "ft",
+            "radar_rate_unit": "ft/s",
+            "n68_dh_unit": "ft",
+            "operational_dh_envelope": null,
+            "v57_sent": false,
+            "full_checklist_fidelity": false,
+            "manual_yaw_measurement": "Integral of -body-Y angular velocity while original NUMPAD3 is held; settled attitude not certified",
+            "manual_yaw_settled_attitude_validated": false,
+            "manual_yaw_after_release_rate_deg_s": {
+              "checklist_yaw_right_10": 9.637134680266264,
+              "checklist_yaw_right_174": 18.687399277897768
+            },
+            "manual_yaw_10_exercised": true,
+            "manual_yaw_174_exercised": true,
+            "landing_attempted": false,
+            "windows_comparison": false,
+            "binary_sha256": {
+              "probe": "3032cced4a8d4dd619916261b82f3d174884dde61e396db683816fcc2db155bd",
+              "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+            },
+            "fresh_zero_step_reload": true,
+            "lgc_memory_channels_retained": true,
+            "wall_seconds": 57.754211583,
+            "event_log_sha256": "aef13bb292d56ec5d86685350308ed8a99f82a589d7393462f449ce69a7ecad7",
+            "limits": [
+              "Prior power setup, visual checks, AGS updates, communications and full pilot fidelity not validated",
+              "Radar validity and dH are observations; no operational envelope or V57 approval encoded",
+              "Original callback inputs do not validate graphical hit testing or human piloting"
+            ]
+          },
+          "observations": {
+            "original_radar_readback": {
+              "RANGE": "60416.356832778452",
+              "ANTENNAANGLE": "24.000000000000",
+              "RANGEGOOD": "0",
+              "VELOCITYGOOD": "0",
+              "RATE": "-2088.559779034955 -478.469564221988 1318.449938217119"
+            },
+            "range_good_records": 0,
+            "velocity_good_records": 0,
+            "yaw_key_hold_observations": [
+              {
+                "action": "checklist_yaw_right_10",
+                "key_down_elapsed_s": 12.8,
+                "key_up_elapsed_s": 15.083333333333334,
+                "integrated_rotation_while_held_deg": 10.105955341627075,
+                "after_release_sample_elapsed_s": 15.283333333333333,
+                "after_release_body_angular_velocity_rad_s": [
+                  0.00024354548012528094,
+                  -0.1681997306287773,
+                  0.00020206757655358417
+                ],
+                "keyboard_released": true,
+                "aca_neutral": true
+              },
+              {
+                "action": "checklist_yaw_right_174",
+                "key_down_elapsed_s": 1081.1833333333334,
+                "key_up_elapsed_s": 1092.2166666666667,
+                "integrated_rotation_while_held_deg": 174.22463872178074,
+                "after_release_sample_elapsed_s": 1092.4166666666667,
+                "after_release_body_angular_velocity_rad_s": [
+                  -0.0010405196964725016,
+                  -0.32615664603412686,
+                  -0.001882971486821271
+                ],
+                "keyboard_released": true,
+                "aca_neutral": true
+              }
+            ]
+          }
+        }
+      },
+      "original_source_sha256": {
+        "lm_lr.cpp": "06acffc5a5ab52fe9969a9fd6b014d993cef30c090d92a7b287da9be3c5b32e6",
+        "LEM.cpp": "3c338121f32cf5d4811665f6743512ca76dbfde94acf0253fd8d4ba9c9831a50",
+        "lemsystems.cpp": "81a194ad6e23e2aafe16adf939dcc8dec64a0f86ffa4236933c18cec0bf2ae09",
+        "lmscs.cpp": "d2096b840fe4ca0eef401d1af0736c4644dcd9c4491e3107892bf76be2c5496d"
+      }
+    }
+  },
+  "nassp_source_edited": false,
+  "original_diagnostic_unchanged": {
+    "orbiter/Tests/NativeDescent.cpp": "7b46a60997684401973a95aa6ff3772f0f6c165b7f0b57866a4575b7944e4218",
+    "orbiter/Tests/NativeOriginalDescent.py": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6"
+  },
+  "historical_evidence": "orbiter/upstream/validation-pdi-protocol-macos-2026-10-07.json",
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-protocol-followup-20261007",
+  "limits": [
+    "Synthetic contract checks are not simulator or flight proof",
+    "Angles integrate original body-Y gyro rate while the key is held; settled pilot attitude is not certified",
+    "Range/velocity flags and N68 +99999 are original simulator observations, not calibrated flight parity",
+    "The unchanged 10 < range_ft < 50000 source lock condition is not an operational dH envelope",
+    "No compensating/braking pilot inputs, early HOVER, V57, landing, scenario/ROM edits or Windows comparisons"
+  ],
+  "next_step": "Interactive/reference pilot validation of the original yaw maneuver and settling, followed by radar acquisition and an agreed operational dH criterion before any V57 continuation.",
+  "source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "cae7ef9bab3d56f495a2cf6e2a320a8bdcb9fbe3bca81d6e37e30bbfc4b443f1",
+    "orbiter/Tests/NativePDIProtocol.py": "9b57e2e16b15492df5bcdd1de4f557b14a7c77b71b2e692d412d1539eba27ad3",
+    "orbiter/Tests/NativePDIProtocolContract.py": "a0ee3fbaf574b5abe222b28097ede00d419bd427fdde8ef8e8abc004c9df1dfe",
+    "orbiter/cmake/NativeWgpu.cmake": "4a0ba057b83b5ca30757f979ee140b699e231196b0413d3553f821df0993d95d",
+    "orbiter/docs/macos-pdi-protocol.md": "ccb18788d538d0d880a2d82864641312850df002a3f4bd60b151a62308e5b696"
+  }
+}

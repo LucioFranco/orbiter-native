@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "baseline_commit": "b09baba11a6367174dea773672d3430e85205656",
+  "fix": "Keep optional textures as a string; omit --textures when the supplied CMake argument is empty.",
+  "source": "Tests/NativeScenarioCompatibility.py",
+  "runtime_source_changed": false,
+  "before_unset_case": {
+    "passed": false,
+    "cause": "Path(\"\") became . and staging required missing Earth/Archive/Surf.tree",
+    "result": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility-textures-unset/red/run-_fc5p8v_/result.json",
+    "log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility-textures-unset/before.log"
+  },
+  "after_unset_case": {
+    "passed": true,
+    "evidence": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility-textures-unset/run-5418_l49",
+    "real_loader_coast_and_reload": true
+  },
+  "configured_textures_case": {
+    "passed": true,
+    "ctest_checks": 1,
+    "log": "<NATIVE_EVIDENCE_ROOT>/scenario-compatibility-textures-unset/configured-ctest.log"
+  },
+  "registered_checks": 100,
+  "gpu_used": false,
+  "vm_operated": false
+}

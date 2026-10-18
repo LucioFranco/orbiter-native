@@ -1,0 +1,5 @@
+# Patch bodies contain upstream CRLF context; preserve their exact bytes.
+*.patch -text
+
+# Exact captured Windows launch profiles retain mixed CRLF/LF bytes.
+windows-reference/*.cfg -text

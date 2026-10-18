@@ -1,0 +1,1104 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h b/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
+index bb4de558586f4ed60318421a7f589f4ce8e4c4ce..ace2c2e673626380c2ebdbf9f0f84d0a6c46161e
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2024
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
+index 6446498fcc4515de95deae56e267205428f4bd49..fa005a30fbdba48953c0fadb652cc1c2312f798d
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include <cstdint>
+ #include <cstring>
+ #ifdef NASSP_NATIVE
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
+index b95a5cc512b14f8f59cb5403608cf24db04b7dc5..12a734fe7a2c3ac99f16ec64678349f4e7c6ba44
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008 Yap Chun Wei 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp b/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
+index 799f5b6b08d6f4ef03746456e24d34b72cc5b8b7..14886df604740010d092e966dc5682ecc87c385d
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #ifdef NASSP_NATIVE
+ #include "Platform/Vfs.h"
+ #endif
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h b/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
+index bb14f534248c0b2810048be8f9bb10c04d6449d0..5fafc770dc631d4f3b3975943a16a7088e20459e
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/vesim.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2020
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
+index eae93796ca8febb27940276e5d1c8f21eaddb7bd..a99c8d692832ad60305e95692e75ab98d1184d45
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+   This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
+index 01c19bb80e33580e20669901913f70cbbc4103f8..2074b77e417d7ed4f045378ac2826acd9482facb
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
+index af3ec542835892939a6002592bf0aaddf6ddfb66..09fb78f010c0929ae4be20b94b1766c5aa0a1bd1
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/eps.h b/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
+index 04e868f2eb8f83752ba148791b9d6aa253ba17b4..849424c60bba146af6b94a5fc1b060d9cfad31a6
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2024
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
+index de54017048e8c595603f755e4ee24690edde31cd..c297b259ad5cc9c12eded002a37379bfd1384422
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/satsystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
+index 0c99979170dd5bdb3e3fbc06512be4d7f4113c35..81659155057375df3e09a3dde5c47a50dd8c9a34
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant, Matthias Mueller
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
+index eea8fec047c09dcfe5f367e9a5511451761f554f..53aaab35bf26cb35218ebb4b55930a9e56f1ec44
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2007
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
+index f83cb62e714cc6ca67428e7c2a7f378e593f3e75..2a460f7f72b24c97addf37d4b8a106c6ac38db54
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
+index 0a3e09df34b7ffe104af8460fcca14c97b2f7149..186d2152ce08b4bd3deb15dc42d89c79edc448da
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
+index 05eed91ebae36244481b91c89014f221e72b94dc..3ef224067315773594b0de1846c19679f73b0b5d
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
+index f0d057befc2b85cedc66abc8d8a1221e4eeb735b..bcdce5ff169852138c2722e33b828b3cdef07396
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2006 dseagrav
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/scs.h b/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
+index 501e53eff2544f728f113cb2bab4c70a77c3e205..0516f41baf1fbabcc6e44e880e327755867924ef
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
+index 685535d0643aec43337e9a517342a271f4486f22..39bf42403511baa5dbcbd30bb9b375c554b8e742
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
+index f5375831c9ede10018f95511c02c6339d2564771..eadff9b3f81a188f814139d9fbf086c427ccabd4
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h b/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
+index 409ee65188902a70973c54b1813a92cdb57a576d..485a20181a3f3688ecd8d33e7e7abd6038b97360
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+   This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
+index dc160baafa2bbba870b1527ccc1ae0d49eb3fb63..967bef4b32ee56a6be7da15826ce14879e00a027
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
+index 998c2c5fdf70433095e9b3368a62d674d50cf497..39deb70af5ef140175d95eca1bc819682d962c66
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
+index f3517a07599a3ccd3a84d1ef3c2ba76883330f61..980471ef2ece6360a6e8c84ac461c3af6a5286e4
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
+index c4308dd3914df4fb2e797dce209a7f2b150ce035..a853e845aae92f83474db94dbf6f02b9eebdf6e2
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
+index 93e2c9496b0d51eed81992eb90bc5d9b40c05ee1..a9dafcb5a5d730f7714c2d94025f9ca1cf6f4b44
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
+index 6e7a34ca9b9564eb3be025b5ab8dbdce3aee3f0d..aaa035c81985e8112e9df1692a1e2d81fcab27a3
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2022
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
+index ff5ee152c80314154d08e4e811b1aae9b888c256..58b243ef6c615ae6c0ecb00621a01d4267f80797
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+   This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
+index 6d287ea8c936eb4ffc46817647ee3b20abe4bfa2..dea44a540130ad0376c069fd24622e41e6d1c277
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
+index 50ccf9901f6c6d10bf8437a913bf9cdf3a5fbfa5..45772b1a6618b61b274e9817d2798ecf202816a7
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+index 6780ddcfc70422974bd59e41121977c06b5574f9..7a52527ba19d7f4a22a670a2e013303aac8346b8
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+index 828bac112fc4d0ed47ff8ac044637282a9b00859..6002db302d9d84617e6325207d1bd7271dbb9a66
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /**************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
+index 4cb2883bf03a58bf84af620d9a2897462acb3600..406470e48b9cd9e217d22725eb54f1b838392ae5
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
+index 8c5ccd7839a5040382528b892f49a2044119fe91..e4d785df799c4c375eb790a6bfb95d6004251857
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant, Matthias M?Eler
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+index 8a164099a11d006c504dbcb1de7ff4d4645b77d6..8a9dc74683565d3a21b14d3d058096123de54ce4
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include <algorithm>
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
+index f53b88e4c68b41efe3b2aeb211076e5485872c46..07ac9a9b1b71b4b64c6ab39c37b41c1ad5c58e63
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Jean-Luc Rocca-Serra, Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
+index 865872f1a28e6f8aa91468fe58e8636e2d198058..68d6d1d87cf609697bb1d3aac8e0205b9f59571a
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include <inttypes.h>
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
+index 3a916247f257c53ea501d649b57463f88de62695..ad390498aa19302b81b3d651b8d68f2d23a0ada4
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2017
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h b/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
+index bc774c6c4da8b62bdd509eb20721d54c60a6efb8..ae28b6d040c6e3b36148cefa23837377076ef111
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
+index 86d8c9001b865223e198cf4eddd32a753052d9b4..27b235fe30b92ea051079ef451e44ec4a55c2c3d
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2023
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
+index 154e4bd78fd6ead9df8341e29233a1ca9cee46c2..7313ea6df997e44f2dcacc74592a84ab1ce403e3
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
+index f14fb0b76fb102659dc7b1b5fcd2544c0a15d19d..5715555f6cdd5cd9d2fe9c7ba957146020f67084
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2009
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
+index e76e49b6c70cb7e4346c1798fdfc8cade0fa8167..4b3ed1bbae03b2ddc68fdf70ea392464eec525a0
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
+index 6b76e26e8f0c2e785d37628526f2679ebd1d9a76..568d117a7a1bb2e20294e5c1e285dbdc19d791d3
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /*
+   Copyright 2005,2017,2022 Ronald S. Burkey <info@sandroid.org>
+   
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
+index 49de3e710b27800d6aadd9f7d17162def7e6a3b4..f387a5ad9437db871287cf23ccd7c70ae372d323
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /*
+   Copyright 2005 Ronald S. Burkey <info@sandroid.org>
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
+index 13e47e91c5602e0d0e765e6cb04f3849efab2a33..f74653d4aff8d4d4428f1034c135f61f2c9f0539
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
+index b82ecfcf34daea27526dca1a352f7a9ba6eb216a..7dcc2d351c4523873abc196b732923c452fbbf90
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2006 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
+index 14ad07f0a2520bee953a2fa11f4230fe1b5e5f1f..894c7d654f07a7848bf24bdba2b85120e2059a75
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008
+diff --git a/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp b/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
+index dbbbd55951e9d4f4090ba4ec4078c51ad5e753a1..7d9ab7f8145b6054b7f8c899b853c85891ba29fd
+--- a/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2025
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp
+index 22e94216f1f5eecc6155852a0dc6dc3d648f00f8..3f4e398f4302ae720565d4f0cce83f24a6b65143
+--- a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include "FdaiRasterizer.h"
+ #include <algorithm>
+ #include <cmath>
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h
+index dc86bb0a1f06382c3fcc333d542ed064c5e125d8..f1b95ebd98f8c2b3ebfa1bced912b4e7f54d7189
+--- a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h
++++ b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #pragma once
+ #include "Platform/Image.h"
+ #include <array>
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/LandingSounds.h b/Orbitersdk/samples/ProjectApollo/src_native/LandingSounds.h
+index 50f64268bed9c875d4cd71b710025aab2b781ade..3f49d76433294e25bfb2343a43a3cbb782691f03
+--- a/Orbitersdk/samples/ProjectApollo/src_native/LandingSounds.h
++++ b/Orbitersdk/samples/ProjectApollo/src_native/LandingSounds.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #pragma once
+ #include <algorithm>
+ #include <cmath>
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp
+index 9813dc1e9136d46203eddf8c608c4977e8d58a0a..f426e6440ab8952b783a77126e2800b993824ee0
+--- a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include "Orbitersdk.h"
+ #include "../src_aux/vesim.h"
+ #include "Platform/Joystick.h"
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h
+index 50cffeb3394c77e0faacb6928dca645ec6366c99..e1024527ea0e5984458f3c9a37285446d8b43629
+--- a/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h
++++ b/Orbitersdk/samples/ProjectApollo/src_native/NativeVesim.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #pragma once
+ #include <cstdint>
+ #include <map>
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/SoundEvents.cpp b/Orbitersdk/samples/ProjectApollo/src_native/SoundEvents.cpp
+index f218f4ac391793355a839d5bd158003c82ad8ec7..e12eec4c1620c8c1a096da35a8606b9d3f4355c3
+--- a/Orbitersdk/samples/ProjectApollo/src_native/SoundEvents.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_native/SoundEvents.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include "Orbitersdk.h"
+ #include "soundlib.h"
+ #include "soundevents.h"
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
+index 2e08bf127b396f4264c4c7c15def38761ccc7499..c80ce975e57841768d7c3542d44463673bfd8009
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
+index c99727a0b0afe56c3fa3dd3883440571087ebfe9..97a6edf6c3909004a60a52dc45745b20c772847c
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
+index 58805df4b5d894f3cff48f7ee248e56efe0ab2c0..eb8afa0404b4f848419cc7dbfe7d73ae43d13eb2
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2014-2018
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
+index 6bc9e3847518aef50814442ae8803bfbaf28a860..37c6b7b5d580604777b13aad28a5269076606c26
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2020
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
+index f6374596ed1bb70c308c5aeb8419ef7edd380659..6ec41486700b5cc65ef8ccf866b0a6fb639535dc
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ // ==============================================================
+ //          ORBITER AUX LIBRARY: Multiple Buttons Pages
+ //             http://sf.net/projects/enjomitchsorbit
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
+index 885d6e44d08a6a58c94cbbebcdcd3da48cc05d2e..21a7c32c09432255b35cafdc0f9700ef8944c546
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include <algorithm>
+ using std::min;
+ using std::max;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
+index d7e736acf563418ebeda61fecc4ae23269202e92..8a12908c6a6e2ed163f5de34f39d341d770a9d6b
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2019
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
+index 3eb9f06a8816735062b62b1b6dda7f71cd7208a4..e7d4ef92708f0988bef6b6734c158706680c3437
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
+index 8d224970a422647fdac1e4f3b2dbc9b4ca70cb7b..af114310063830ebbbfbb33bf6a9e0aa26f99a20
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
+index c95831464d14fa462865218d11c96e3890709563..04f1de1d41b80884c14870e7e68e8faa2082a458
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
+index 4e394567b5b7d5616ba9fa456b486fc9db17e91b..785923216770b18e24baf458abc8b424fc2714df
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /****************************************************************************
+ This file is part of Project Apollo - NASSP
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
+index d3e87a0c4bc00097ad2c1e03062a0b18929c8f16..b2f3caba5a5939d50a973e4ac452ab93c191f664
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
+index 09e43639f67c81f4b695e06247a0085ab61c713e..5f85335c0d6cfd081849e0e6d74256e34bc7f37e
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
+index 7edc2eec7c78eb52150d17e0124f4b733c26f7ca..44bf22e4288a4d83282be0826123b9c09afe423a
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2017
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
+index 9cd7288c4f3cd1d9b49b62c9ab41ff55fda72c0b..99ca27e30bdf8bdb220d5a41ac9aeef10ac11e63
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+ This file is part of Project Apollo - NASSP
+ Copyright 2017
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
+index 6fe860417df787387f570da1ca28d47a389cf074..47c59dc066188989c5bd4b0c32db16d1fd9968a9
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Rob Conley, Markus Joachim
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
+index fab782c295f4c062881c8dfaf158a601580c9fc9..76b43d60b65bdce643ab45bfd325ed09f60cc16f
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Rob Conley, Markus Joachim
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
+index 3649c2157bb10d47911d3ec54ea236051ff3c470..960f05dd7114d70b30cbd8072eb41b726758832d
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #include <stdexcept>
+ #include <string>
+ #ifdef ORBITER_NATIVE_CORE
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
+index ed22d48be24cd2731963ae46af7d908181b5eae3..7da989e5c5d2020664b16a410a7a8766ecc6abe3
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
+index 2b5aaf10a3eb150cfc6f25d1dc2096d2694ec7d5..8d4771081ee0c17f614124faadc76773d55d0d6b
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #ifndef __SPSDK_DATA_TABLES_H
+ #define __SPSDK_DATA_TABLES_H
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
+index ddcf9053f3b257e35c89ed5866b68bf48dd2df43..1906f4a3aa2b9d4d2698d1954b37226b9c70bdb8
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
+index 5b3b673cd32119b09ad424a35012484ed07a3c00..52977821c1df3ad9d08cda1cbfd19c2e44dee71c
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
+index 50f41adccba7a9043059090e4bdb99828b8a8244..667ecc4f2e78f1d4864c703f53900fb88a3df50b
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
+index 5b0ac1858d72f77c12e59666e2314d6365b71499..6903f9b2e1fae0be3c6f7f33bdefbfab8f2e72dd
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
+index 4c7afbdaeee9646b13a085bb5de36546e32a72e9..cc86d63eb6db5b27ba049f2c03a3549686dce15c
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ #ifdef NASSP_NATIVE
+ #include "Platform/Vfs.h"
+ #include <stdexcept>
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
+index a89b679f8961ab0a870d46c1b4b08e3920045d37..1a33fc831b4fc4c230c0ce2622fbe24f4f1fac72
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2007 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
+index 759f0025e7c45dbd510dd7f9dd8b3b285ebb6cae..6d2dfd62856d7a3d19609b9f2b7b71528bb2dfb6
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
+index 6ea7beb9d2b86825b38f5a6e39cb4d3aef5a97d4..29f7f7220c8dd8e5899ab1326374ee1e6ab5b5c7
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
+index 897a50128465e87b570d71a71f938475f894e3fc..c444ee68d5829f9e45eca9610dfa992cb70364bb
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
+index b8c62da371f1d943edf24cf2b685e6c0e7d13386..4b7ed077131fb990631ffa92fd245fd82e0e1313
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
+index ce3de6b52afbfb67f9469e8e56db7d0540b61c83..4e7879c303b6a7fc4c227b9ba3d0e5f54923d57b
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
+index c823d67f5d6f1d345c9e7fdf7d10ae99a499c976..ceb2d9e30c119103c02305e00ab1b33dc9eebdab
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/soundevents.h b/Orbitersdk/samples/ProjectApollo/src_sys/soundevents.h
+index 2f42202a4089478f25ae5f9137f40f9450cee61e..8abb902bc9b1f2350e00587f2f36ff434a9056f5
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/soundevents.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/soundevents.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.cpp
+index 10173ac51bd5806c59305d53dd5b67220b69e904..0b3763407b1eecc628a6cbb30d4bb63cf7825b20
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.h b/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.h
+index acf72aba85be75730591d48b653a262fe1a7e56a..e7b503eda6b8a85c12ae99a3d938dd47922ebfb5
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/soundlib.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
+index 5601786b49e7e1cc278a0c132e0ab5cc8ea533b6..7cab79f9feeb32af846d826bf2e66f4a2e1a7fb3
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
+index e955ede93c956f806a5acdb2b15d82e0f0e34be4..005bf72833282128725dbfbe462298a6a9499730
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
+index a37fda9dfeadc5ef77cbec6586c8773e67bae888..90044bb5d16edad4555ee24ea268fa5780c77c51
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
+@@ -1,3 +1,7 @@
++/* Modified for native portability. Publication notice added 2026-10-18.
++ * Original copyright, license grants and linking exceptions remain unchanged.
++ * Behavioral changes are inventoried in upstream/nassp-v9/manifest.json.
++ */
+ /*
+   Copyright 2003-2005 Ronald S. Burkey <info@sandroid.org>
+ 

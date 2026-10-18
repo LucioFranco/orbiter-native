@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+  "purpose": "Unmodified upstream CMake source/include manifests, plus Visual Studio manifests for three lunar experiments lacking CMake; native platform policy remains external to NASSP",
+  "normalisation": "CRLF to LF only",
+  "files": {
+    "Project/PanelSDK/CMakeLists.txt": {
+      "git_blob": "0baefc47994b9be34dad6465638f0ab2621105f1",
+      "lf_sha256": "a5dfa31e259bc4ac3daf7e58a1347fb9041395811e536e9f37051e0563e91c40"
+    },
+    "Project/Saturn5/CMakeLists.txt": {
+      "git_blob": "2e99558f4b66673d834bda2524e27e9d7a828652",
+      "lf_sha256": "19463cac78813b058bdebbc1ec6a39871d5b7dab975316c018718f02a84d9843"
+    },
+    "Project/LEM/CMakeLists.txt": {
+      "git_blob": "dc47b065c0952862543115e00df158b53d3cce46",
+      "lf_sha256": "eaa9be1d46dff0bb196344cd5ebc38aab7ea417a29c8303a5db9455f1287ddf6"
+    },
+    "Project/Sat5LMDSC/CMakeLists.txt": {
+      "git_blob": "9c3f09bb85721dfca11756d2c25342cf9ca1053e",
+      "lf_sha256": "268061918ea6cb01831bdfc168bcd9d98b9d2d979579ce614cb83655ab86f0ab"
+    },
+    "Project/ML/CMakeLists.txt": {
+      "git_blob": "1b9c7c129b11b19785c9b512a5fd1354c9b8b077",
+      "lf_sha256": "f1b390e50903cb516939c3aa2216b5e0e9fda1a9bd14280f84ca1aa1c04f2f48"
+    },
+    "Project/Floodlight/CMakeLists.txt": {
+      "git_blob": "026266713bc1831dc6dba26ded12eb5b6e345d1b",
+      "lf_sha256": "0d858e9aef2f7d9a63241136e065a4200a41a00adc42f75cc58d4e25b94c3127"
+    },
+    "Project/ProjectApolloMFD/CMakeLists.txt": {
+      "git_blob": "c6e2551a4e3de249300c42b72711abb18ddae1ff",
+      "lf_sha256": "5f9f5430a1a3c2590dc764b472b7fbe0b5b9cd13523ad1a3e3d892354905df5a"
+    },
+    "Project/MCC/CMakeLists.txt": {
+      "git_blob": "50accd11c7a9a18140777f532e9d0aae335a63d8",
+      "lf_sha256": "0ed7b419c298ace17636970f40efc5b33948c942602b87dce314e9b17134ea24"
+    },
+    "Project/sii/CMakeLists.txt": {
+      "git_blob": "ff901f7033f818ce3a885ce1fdf6ef85ba6a85b7",
+      "lf_sha256": "a1fb78d9075145931410443e66547ee02303714256bcc0ffe69360d3508b1ac8"
+    },
+    "Project/SIVB/CMakeLists.txt": {
+      "git_blob": "7c1b78937ebccd56aa53e8aaeed1134d30f6fc30",
+      "lf_sha256": "199fc131224a2f7fe0ad3e28778f7821da9e432c0310e00c6873162ef37c12d7"
+    },
+    "Project/Flag/CMakeLists.txt": {
+      "git_blob": "ec060aac38a8f6271f6a7a6ed376b7f19240576a",
+      "lf_sha256": "6415184fcca11d9cd4f9689901ad127bb5e0995cb1241746a91a51990c7a86cb"
+    },
+    "Build/VC2017/EasepPSEP.vcxproj": {
+      "git_blob": "2bd5706f880c8ec45b203058aa941c0c9ec8907e",
+      "lf_sha256": "91f54bf876b434d6fde335377416763bb588a80b52b5ac4f0489b92a005a94be"
+    },
+    "Build/VC2017/EasepLR3.vcxproj": {
+      "git_blob": "4b22a5fb04b291fd8e912cff602ec71086cdcd10",
+      "lf_sha256": "f40de63cb0fd46824610977ba804876677f0274c991e435dc4ae2a3ada9177b2"
+    },
+    "Build/VC2017/EasepSWC.vcxproj": {
+      "git_blob": "9423c90f70e7386f4f0122d2fcceea59507fb402",
+      "lf_sha256": "480e6fbbe2920c7440507ef4e01b1a363320ac7015644e028350a468a0bfda9b"
+    }
+  }
+}

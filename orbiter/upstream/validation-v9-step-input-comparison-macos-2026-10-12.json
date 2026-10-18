@@ -1,0 +1,5839 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-12T01:17:41.641864+00:00",
+  "baseline_commit": "01e6a144fabd33120718d0fb217530a3945bf682",
+  "scope": "Original-state cross-platform neutral/pulse-end/settled keyboard-ACA boundaries. Exact saved agreement and remaining full-state differences both retained.",
+  "upstream": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+  "reviewed_module_sha256": "e973659c2cf0a4c5202b86793ef08629958315e1d7a617abef010668c0a5b2b8",
+  "windows_bundle_sha256": "6ae7b917e326e5d3a195334c95db390ca4fd14f46763b61612aedcf52bfb6bde",
+  "windows_index_sha256": "4a722b636e5dcbb8cc561756babbfe654448692439c028f7c52a46d2c1eb48a5",
+  "windows_file_manifest_verified_count": 153,
+  "windows_neutral_gate": {
+    "whole_scenario_byte_identical": true,
+    "complete_vessel_record_mismatches": 0,
+    "raw_sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6",
+    "fresh_cases": [
+      "off-a",
+      "off-b",
+      "neutral-a",
+      "neutral-b"
+    ]
+  },
+  "native_neutral_gate": {
+    "whole_scenario_byte_identical": true,
+    "raw_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c",
+    "evidence": "validation-v9-step-input-macos-2026-10-11.json"
+  },
+  "windows_launch_records": {
+    "pulse-559": {
+      "Mode": "pulse",
+      "TargetTotalSteps": 559,
+      "StopThreshold": "9.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": true,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": "E973659C2CF0A4C5202B86793EF08629958315E1D7A617ABEF010668C0A5B2B8",
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=9.308333333333334 --maxsystime=300 --plugin=StepInputParity",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "pulse",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\pulse-559\\trace.tsv"
+      }
+    },
+    "neutral-b": {
+      "Mode": "neutral",
+      "TargetTotalSteps": 559,
+      "StopThreshold": "9.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": true,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": "E973659C2CF0A4C5202B86793EF08629958315E1D7A617ABEF010668C0A5B2B8",
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=9.308333333333334 --maxsystime=300 --plugin=StepInputParity",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "neutral",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\neutral-b\\trace.tsv"
+      }
+    },
+    "off-b": {
+      "Mode": "off",
+      "TargetTotalSteps": 559,
+      "StopThreshold": "9.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": false,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": null,
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=9.308333333333334 --maxsystime=300",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "neutral",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\off-b\\trace.tsv"
+      }
+    },
+    "neutral-319": {
+      "Mode": "neutral",
+      "TargetTotalSteps": 319,
+      "StopThreshold": "5.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": true,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": "E973659C2CF0A4C5202B86793EF08629958315E1D7A617ABEF010668C0A5B2B8",
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=5.308333333333334 --maxsystime=300 --plugin=StepInputParity",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "neutral",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\neutral-319\\trace.tsv"
+      }
+    },
+    "neutral-a": {
+      "Mode": "neutral",
+      "TargetTotalSteps": 559,
+      "StopThreshold": "9.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": true,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": "E973659C2CF0A4C5202B86793EF08629958315E1D7A617ABEF010668C0A5B2B8",
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=9.308333333333334 --maxsystime=300 --plugin=StepInputParity",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "neutral",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\neutral-a\\trace.tsv"
+      }
+    },
+    "pulse-319": {
+      "Mode": "pulse",
+      "TargetTotalSteps": 319,
+      "StopThreshold": "5.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": true,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": "E973659C2CF0A4C5202B86793EF08629958315E1D7A617ABEF010668C0A5B2B8",
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=5.308333333333334 --maxsystime=300 --plugin=StepInputParity",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "pulse",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\pulse-319\\trace.tsv"
+      }
+    },
+    "off-a": {
+      "Mode": "off",
+      "TargetTotalSteps": 559,
+      "StopThreshold": "9.308333333333334",
+      "FixedStep": "0.016666666666666666",
+      "StartPaused": true,
+      "TimeAcceleration": 1,
+      "PluginEnabled": false,
+      "SourceOrCoreBinariesModified": false,
+      "ScenarioSHA256": "CEF66D6824503CCC6C36A6CAD46FCC967D33C53323565A3857DD6E7D238E7203",
+      "PluginSHA256": null,
+      "OrbiterConfigSHA256": "D5F4F65E16C3A66925E1C8E543EEE2AA5F82B737ABEC12E39D4C1AA7578495E3",
+      "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+      "OrbiterArguments": "-s \"Project Apollo - NASSP\\Apollo - Mission Scenarios\\Apollo 11\\Apollo 11 - 10 - PDI T-15m\" --fixedstep=0.016666666666666666 --maxsimtime=9.308333333333334 --maxsystime=300",
+      "ChildEnvironment": {
+        "STEP_INPUT_MODE": "neutral",
+        "STEP_INPUT_TRACE": "C:\\NASSPReferenceEvidence\\StepInput\\validation-20261012\\off-a\\trace.tsv"
+      }
+    }
+  },
+  "cross_platform_case_summaries": {
+    "neutral-319": {
+      "windows_case": "neutral-319",
+      "native_case": "off-319",
+      "windows_raw_sha256": "db8b52609c35ea49f708126800c1fae288f56bd1787c95e2741476d8bd03a25f",
+      "native_raw_sha256": "36a40e8e2fddc6fbbc863f56b224d5cb10655c0e5c1bc7e5cff1d71994502bf4",
+      "windows_mjd": "MJD 40422.8318237093",
+      "native_mjd": "MJD 40422.8318237093",
+      "mjd_equal": true,
+      "complete_vessel_blocks_equal": false,
+      "vessels": {
+        "Columbia": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-523197.326 -11788.951 1765373.711",
+              "native": "-523197.326 -11788.951 1765373.711",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1567.2274 -14.9399 464.7931",
+              "native": "1567.2274 -14.9399 464.7931",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "74.549 -83.309 -154.901",
+              "native": "74.549 -83.309 -154.901",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "-0.0224 -0.0176 0.0086",
+              "native": "-0.0224 -0.0176 0.0086",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "453688",
+          "cycle_counter_native": "453688",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763098687",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.482507534693"
+              ],
+              "native": [
+                "-0.482507534674"
+              ],
+              "native_minus_windows_decimal": [
+                "1.9E-11"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.813340955995"
+              ],
+              "native": [
+                "0.813340956058"
+              ],
+              "native_minus_windows_decimal": [
+                "6.3E-11"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "6.3E-11",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27498.605506388132",
+                "-98.186485030248",
+                "13528.638199441401"
+              ],
+              "native": [
+                "27498.605506388139",
+                "-98.186485030248",
+                "13528.638199441402"
+              ],
+              "native_minus_windows_decimal": [
+                "7E-12",
+                "0E-12",
+                "1E-12"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 2,
+          "chemical_max_absolute_difference": {
+            "mass_g": "0E-12",
+            "vapor_mass_g": "0E-12",
+            "energy_j": "2.32E-10"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-440630.506 -11953.850 1711714.413",
+              "native": "-440630.506 -11953.850 1711714.413",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1636.3872 -14.7921 384.3922",
+              "native": "1636.3872 -14.7921 384.3922",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "-178.932 34.442 -90.600",
+              "native": "-178.932 34.442 -90.600",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "0.0145 -0.0012 0.0113",
+              "native": "0.0145 -0.0012 0.0113",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.841445 2:0.816048",
+              "native": "0:0.986596 1:0.841445 2:0.816048",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "453688",
+          "cycle_counter_native": "453688",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.759998288588"
+              ],
+              "native": [
+                "-0.759998288428"
+              ],
+              "native_minus_windows_decimal": [
+                "1.60E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.026398923708"
+              ],
+              "native": [
+                "0.026398923701"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.410990183170"
+              ],
+              "native": [
+                "0.410990183339"
+              ],
+              "native_minus_windows_decimal": [
+                "1.69E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.69E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27567.765592341944",
+                "-98.038692889797",
+                "13448.239600562436"
+              ],
+              "native": [
+                "27567.765592341952",
+                "-98.038692889797",
+                "13448.239600562438"
+              ],
+              "native_minus_windows_decimal": [
+                "8E-12",
+                "0E-12",
+                "2E-12"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 66,
+          "chemical_max_absolute_difference": {
+            "mass_g": "2.976E-9",
+            "vapor_mass_g": "2.974E-9",
+            "energy_j": "0.005247588036"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SBD-Plate",
+              "windows": [
+                "291.563041",
+                "0.001000"
+              ],
+              "native": [
+                "291.563042",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.795320",
+                "0.001000"
+              ],
+              "native": [
+                "293.795426",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000106",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-DESBATRightPlate",
+              "windows": [
+                "281.371257",
+                "0.000000"
+              ],
+              "native": [
+                "281.371258",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35852823.5660",
+                "286.7572"
+              ],
+              "native": [
+                "35852823.1778",
+                "286.7572"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3882",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35950732.6278",
+                "285.2656"
+              ],
+              "native": [
+                "35950732.4336",
+                "285.2656"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1942",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31851676.4999",
+                "275.7846"
+              ],
+              "native": [
+                "31851676.3150",
+                "275.7846"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1849",
+                "0.0000"
+              ]
+            }
+          ],
+          "ASA_differences": [
+            {
+              "field": "REMAININGDELTAVEL",
+              "windows": [
+                "-0.000502249793",
+                "-0.000583315693",
+                "0.000643231452"
+              ],
+              "native": [
+                "-0.000502249795",
+                "-0.000583315693",
+                "0.000643231451"
+              ],
+              "native_minus_windows_decimal": [
+                "-2E-12",
+                "0E-12",
+                "-1E-12"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "neutral-a": {
+      "windows_case": "neutral-a",
+      "native_case": "off-559-a",
+      "windows_raw_sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6",
+      "native_raw_sha256": "f7a5596cb7fe91a8aeaa5cac276f76372dc64b071b7896673657e56ed089812c",
+      "windows_mjd": "MJD 40422.8318700056",
+      "native_mjd": "MJD 40422.8318700056",
+      "mjd_equal": true,
+      "complete_vessel_blocks_equal": false,
+      "vessels": {
+        "Columbia": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-516925.138 -11848.639 1767221.787",
+              "native": "-516925.138 -11848.639 1767221.787",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1568.8623 -14.9041 459.2436",
+              "native": "1568.8623 -14.9041 459.2436",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "75.500 -83.282 -155.811",
+              "native": "75.500 -83.282 -155.811",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "-0.0225 -0.0176 0.0086",
+              "native": "-0.0225 -0.0176 0.0086",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "795022",
+          "cycle_counter_native": "795022",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763098686",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.660285799746"
+              ],
+              "native": [
+                "-0.660285799759"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.3E-11"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.909070040678"
+              ],
+              "native": [
+                "0.909070040816"
+              ],
+              "native_minus_windows_decimal": [
+                "1.38E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.38E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27500.240003240277",
+                "-98.150446956160",
+                "13523.110522070940"
+              ],
+              "native": [
+                "27500.240003240287",
+                "-98.150446956160",
+                "13523.110522070940"
+              ],
+              "native_minus_windows_decimal": [
+                "1.0E-11",
+                "0E-12",
+                "0E-12"
+              ]
+            },
+            {
+              "field": "LASTWEIGHT",
+              "windows": [
+                "0.406162052196",
+                "0.009029928774",
+                "-1.382653652684"
+              ],
+              "native": [
+                "0.406162052186",
+                "0.009029928774",
+                "-1.382653652663"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.0E-11",
+                "0E-12",
+                "2.1E-11"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 3,
+          "chemical_max_absolute_difference": {
+            "mass_g": "0E-12",
+            "vapor_mass_g": "0E-12",
+            "energy_j": "4.66E-10"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-434081.836 -12012.940 1713239.813",
+              "native": "-434081.836 -12012.940 1713239.813",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1637.9429 -14.7524 378.3059",
+              "native": "1637.9429 -14.7524 378.3059",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "-178.927 34.500 -90.552",
+              "native": "-178.927 34.500 -90.552",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "0.0145 -0.0012 0.0113",
+              "native": "0.0145 -0.0012 0.0113",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.841445 2:0.816048",
+              "native": "0:0.986596 1:0.841445 2:0.816048",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "795022",
+          "cycle_counter_native": "795022",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.239999768394"
+              ],
+              "native": [
+                "-0.239999768692"
+              ],
+              "native_minus_windows_decimal": [
+                "-2.98E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.706398924966"
+              ],
+              "native": [
+                "0.706398924961"
+              ],
+              "native_minus_windows_decimal": [
+                "-5E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.690998587974"
+              ],
+              "native": [
+                "0.690998588812"
+              ],
+              "native_minus_windows_decimal": [
+                "8.38E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "8.38E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27569.320907249428",
+                "-97.998729425632",
+                "13442.175128493125"
+              ],
+              "native": [
+                "27569.320907249439",
+                "-97.998729425632",
+                "13442.175128493122"
+              ],
+              "native_minus_windows_decimal": [
+                "1.1E-11",
+                "0E-12",
+                "-3E-12"
+              ]
+            },
+            {
+              "field": "LASTWEIGHT",
+              "windows": [
+                "0.385945009578",
+                "0.010012409988",
+                "-1.516990510240"
+              ],
+              "native": [
+                "0.385945009568",
+                "0.010012409988",
+                "-1.516990510215"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.0E-11",
+                "0E-12",
+                "2.5E-11"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 67,
+          "chemical_max_absolute_difference": {
+            "mass_g": "9.867E-9",
+            "vapor_mass_g": "9.865E-9",
+            "energy_j": "0.007995880442"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SBD-Plate",
+              "windows": [
+                "291.562974",
+                "0.001000"
+              ],
+              "native": [
+                "291.562975",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-AEA-VHF-Plate",
+              "windows": [
+                "291.032489",
+                "0.001000"
+              ],
+              "native": [
+                "291.032490",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.799764",
+                "0.001000"
+              ],
+              "native": [
+                "293.799860",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000096",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-ECA-Plate",
+              "windows": [
+                "286.975077",
+                "0.001000"
+              ],
+              "native": [
+                "286.975078",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-CWEA-PCM-Plate",
+              "windows": [
+                "288.060099",
+                "0.001000"
+              ],
+              "native": [
+                "288.060100",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35850866.8655",
+                "286.7677"
+              ],
+              "native": [
+                "35850866.4773",
+                "286.7677"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3882",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35949754.2775",
+                "285.2620"
+              ],
+              "native": [
+                "35949754.0834",
+                "285.2620"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1941",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31850744.7377",
+                "275.7900"
+              ],
+              "native": [
+                "31850744.5528",
+                "275.7900"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1849",
+                "0.0000"
+              ]
+            }
+          ],
+          "ASA_differences": [
+            {
+              "field": "REMAININGDELTAVEL",
+              "windows": [
+                "-0.000502326328",
+                "-0.000583318095",
+                "0.000643269305"
+              ],
+              "native": [
+                "-0.000502326335",
+                "-0.000583318096",
+                "0.000643269310"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12",
+                "-1E-12",
+                "5E-12"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "pulse-319": {
+      "windows_case": "pulse-319",
+      "native_case": "pulse-319",
+      "windows_raw_sha256": "06dc17bea20616ab6f2d432c028c0c574b0c8fede60506e8da39707034758b3d",
+      "native_raw_sha256": "64549740537ffca82f2dc60890e41bd55624354378a4d6264515fabf31b5909e",
+      "windows_mjd": "MJD 40422.8318237093",
+      "native_mjd": "MJD 40422.8318237093",
+      "mjd_equal": true,
+      "complete_vessel_blocks_equal": false,
+      "vessels": {
+        "Columbia": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-523197.326 -11788.951 1765373.711",
+              "native": "-523197.326 -11788.951 1765373.711",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1567.2274 -14.9399 464.7931",
+              "native": "1567.2274 -14.9399 464.7931",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "74.549 -83.309 -154.901",
+              "native": "74.549 -83.309 -154.901",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "-0.0224 -0.0176 0.0086",
+              "native": "-0.0224 -0.0176 0.0086",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "453688",
+          "cycle_counter_native": "453688",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763098687",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.482507534693"
+              ],
+              "native": [
+                "-0.482507534674"
+              ],
+              "native_minus_windows_decimal": [
+                "1.9E-11"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.813340955995"
+              ],
+              "native": [
+                "0.813340956058"
+              ],
+              "native_minus_windows_decimal": [
+                "6.3E-11"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "6.3E-11",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27498.605506388132",
+                "-98.186485030248",
+                "13528.638199441401"
+              ],
+              "native": [
+                "27498.605506388139",
+                "-98.186485030248",
+                "13528.638199441402"
+              ],
+              "native_minus_windows_decimal": [
+                "7E-12",
+                "0E-12",
+                "1E-12"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 2,
+          "chemical_max_absolute_difference": {
+            "mass_g": "0E-12",
+            "vapor_mass_g": "0E-12",
+            "energy_j": "2.32E-10"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-440630.506 -11953.850 1711714.413",
+              "native": "-440630.506 -11953.850 1711714.413",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1636.3872 -14.7921 384.3922",
+              "native": "1636.3872 -14.7921 384.3922",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "-178.885 34.442 -90.573",
+              "native": "-178.885 34.442 -90.573",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "0.0145 -0.6028 0.0113",
+              "native": "0.0145 -0.6028 0.0113",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.841137 2:0.815740",
+              "native": "0:0.986596 1:0.841137 2:0.815740",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "453688",
+          "cycle_counter_native": "453688",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.759998288588"
+              ],
+              "native": [
+                "-0.759998288428"
+              ],
+              "native_minus_windows_decimal": [
+                "1.60E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.026398923697"
+              ],
+              "native": [
+                "0.026398923690"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.410990183169"
+              ],
+              "native": [
+                "0.410990183339"
+              ],
+              "native_minus_windows_decimal": [
+                "1.70E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.70E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27567.765592341944",
+                "-98.038692889797",
+                "13448.239600562436"
+              ],
+              "native": [
+                "27567.765592341952",
+                "-98.038692889797",
+                "13448.239600562438"
+              ],
+              "native_minus_windows_decimal": [
+                "8E-12",
+                "0E-12",
+                "2E-12"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 66,
+          "chemical_max_absolute_difference": {
+            "mass_g": "2.976E-9",
+            "vapor_mass_g": "2.974E-9",
+            "energy_j": "0.005247588270"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SBD-Plate",
+              "windows": [
+                "291.563041",
+                "0.001000"
+              ],
+              "native": [
+                "291.563042",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.795320",
+                "0.001000"
+              ],
+              "native": [
+                "293.795427",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000107",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-DESBATRightPlate",
+              "windows": [
+                "281.371257",
+                "0.000000"
+              ],
+              "native": [
+                "281.371258",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35852821.0303",
+                "286.7573"
+              ],
+              "native": [
+                "35852820.6420",
+                "286.7573"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3883",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35950731.3599",
+                "285.2656"
+              ],
+              "native": [
+                "35950731.1658",
+                "285.2656"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1941",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31851675.2924",
+                "275.7846"
+              ],
+              "native": [
+                "31851675.1075",
+                "275.7846"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1849",
+                "0.0000"
+              ]
+            }
+          ],
+          "ASA_differences": [
+            {
+              "field": "REMAININGDELTAVEL",
+              "windows": [
+                "-0.000502249793",
+                "-0.000583315693",
+                "0.000643231452"
+              ],
+              "native": [
+                "-0.000502249795",
+                "-0.000583315693",
+                "0.000643231451"
+              ],
+              "native_minus_windows_decimal": [
+                "-2E-12",
+                "0E-12",
+                "-1E-12"
+              ]
+            }
+          ]
+        }
+      },
+      "input_traces": {
+        "windows": {
+          "down_requested_for_steps": [
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319
+          ],
+          "end_completed": 319,
+          "end_prepared": 320,
+          "active_frames": 18,
+          "down_calls": 18,
+          "faults": 0,
+          "raw_sha256": "50e6c94ffc65598c5e3798e824cffc4562413322855f2ed78d529c7adb6acbfa"
+        },
+        "native": {
+          "down_requested_for_steps": [
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319
+          ],
+          "end_completed": 319,
+          "end_prepared": 320,
+          "active_frames": 18,
+          "down_calls": 18,
+          "faults": 0,
+          "raw_sha256": "50e6c94ffc65598c5e3798e824cffc4562413322855f2ed78d529c7adb6acbfa"
+        },
+        "requested_steps_equal": true,
+        "end_summary_equal": {
+          "end_completed": true,
+          "end_prepared": true,
+          "active_frames": true,
+          "down_calls": true,
+          "faults": true
+        }
+      }
+    },
+    "pulse-559": {
+      "windows_case": "pulse-559",
+      "native_case": "pulse-559-a",
+      "windows_raw_sha256": "ce5af95b2852da28fd6ad9beb917365fc30f1b7ab622b463e4d0689519a8f3bb",
+      "native_raw_sha256": "b6dddc59b69cdf851a3d8ce7cbada20c4d4e5c1403acf8c371b496d8f7f42557",
+      "windows_mjd": "MJD 40422.8318700056",
+      "native_mjd": "MJD 40422.8318700056",
+      "mjd_equal": true,
+      "complete_vessel_blocks_equal": false,
+      "vessels": {
+        "Columbia": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-516925.138 -11848.639 1767221.787",
+              "native": "-516925.138 -11848.639 1767221.787",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1568.8623 -14.9041 459.2436",
+              "native": "1568.8623 -14.9041 459.2436",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "75.500 -83.282 -155.811",
+              "native": "75.500 -83.282 -155.811",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "-0.0225 -0.0176 0.0086",
+              "native": "-0.0225 -0.0176 0.0086",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "795022",
+          "cycle_counter_native": "795022",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763098686",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.660285799746"
+              ],
+              "native": [
+                "-0.660285799759"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.3E-11"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.909070040678"
+              ],
+              "native": [
+                "0.909070040816"
+              ],
+              "native_minus_windows_decimal": [
+                "1.38E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.38E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27500.240003240277",
+                "-98.150446956160",
+                "13523.110522070940"
+              ],
+              "native": [
+                "27500.240003240287",
+                "-98.150446956160",
+                "13523.110522070940"
+              ],
+              "native_minus_windows_decimal": [
+                "1.0E-11",
+                "0E-12",
+                "0E-12"
+              ]
+            },
+            {
+              "field": "LASTWEIGHT",
+              "windows": [
+                "0.406162052196",
+                "0.009029928774",
+                "-1.382653652684"
+              ],
+              "native": [
+                "0.406162052186",
+                "0.009029928774",
+                "-1.382653652663"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.0E-11",
+                "0E-12",
+                "2.1E-11"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 3,
+          "chemical_max_absolute_difference": {
+            "mass_g": "0E-12",
+            "vapor_mass_g": "0E-12",
+            "energy_j": "4.66E-10"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_tokens": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true
+            },
+            "RPOS": {
+              "windows": "-434081.836 -12012.940 1713239.813",
+              "native": "-434081.836 -12012.940 1713239.813",
+              "equal": true
+            },
+            "RVEL": {
+              "windows": "1637.9429 -14.7524 378.3059",
+              "native": "1637.9429 -14.7524 378.3059",
+              "equal": true
+            },
+            "AROT": {
+              "windows": "-178.641 34.502 -90.390",
+              "native": "-178.641 34.502 -90.390",
+              "equal": true
+            },
+            "VROT": {
+              "windows": "0.0145 0.0080 0.0113",
+              "native": "0.0145 0.0080 0.0113",
+              "equal": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.840518 2:0.815121",
+              "native": "0:0.986596 1:0.840518 2:0.815121",
+              "equal": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_differences": [],
+          "DSKY_differences": [],
+          "cycle_counter_windows": "795022",
+          "cycle_counter_native": "795022",
+          "mission_clock_offset_native_minus_windows_s": "-0.013763",
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.239999768397"
+              ],
+              "native": [
+                "-0.239999768695"
+              ],
+              "native_minus_windows_decimal": [
+                "-2.98E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.706398924867"
+              ],
+              "native": [
+                "0.706398924862"
+              ],
+              "native_minus_windows_decimal": [
+                "-5E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.690998587973"
+              ],
+              "native": [
+                "0.690998588812"
+              ],
+              "native_minus_windows_decimal": [
+                "8.39E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "8.39E-10",
+          "INERTIAL_DATA_differences": [
+            {
+              "field": "LASTGLOBALVEL",
+              "windows": [
+                "27569.320907249428",
+                "-97.998729425633",
+                "13442.175128493123"
+              ],
+              "native": [
+                "27569.320907249439",
+                "-97.998729425633",
+                "13442.175128493122"
+              ],
+              "native_minus_windows_decimal": [
+                "1.1E-11",
+                "0E-12",
+                "-1E-12"
+              ]
+            },
+            {
+              "field": "LASTWEIGHT",
+              "windows": [
+                "0.385945009578",
+                "0.010012409988",
+                "-1.516990510240"
+              ],
+              "native": [
+                "0.385945009568",
+                "0.010012409988",
+                "-1.516990510215"
+              ],
+              "native_minus_windows_decimal": [
+                "-1.0E-11",
+                "0E-12",
+                "2.5E-11"
+              ]
+            }
+          ],
+          "chemical_record_difference_count": 68,
+          "chemical_max_absolute_difference": {
+            "mass_g": "3.663E-9",
+            "vapor_mass_g": "3.661E-9",
+            "energy_j": "0.007995881606"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-AEA-VHF-Plate",
+              "windows": [
+                "291.032480",
+                "0.001000"
+              ],
+              "native": [
+                "291.032481",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.799796",
+                "0.001000"
+              ],
+              "native": [
+                "293.799892",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000096",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-Plate",
+              "windows": [
+                "288.118419",
+                "0.001000"
+              ],
+              "native": [
+                "288.118420",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-RRE-Plate",
+              "windows": [
+                "292.803134",
+                "0.001000"
+              ],
+              "native": [
+                "292.803135",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-DESBATRightPlate",
+              "windows": [
+                "281.371879",
+                "0.000000"
+              ],
+              "native": [
+                "281.371880",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35850846.4517",
+                "286.7682"
+              ],
+              "native": [
+                "35850846.0634",
+                "286.7682"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3883",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35949744.0706",
+                "285.2621"
+              ],
+              "native": [
+                "35949743.8765",
+                "285.2621"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1941",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31850735.0169",
+                "275.7900"
+              ],
+              "native": [
+                "31850734.8320",
+                "275.7900"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1849",
+                "0.0000"
+              ]
+            }
+          ],
+          "ASA_differences": [
+            {
+              "field": "REMAININGDELTAVEL",
+              "windows": [
+                "-0.000502326328",
+                "-0.000583318256",
+                "0.000643269294"
+              ],
+              "native": [
+                "-0.000502326335",
+                "-0.000583318256",
+                "0.000643269299"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12",
+                "0E-12",
+                "5E-12"
+              ]
+            }
+          ]
+        }
+      },
+      "input_traces": {
+        "windows": {
+          "down_requested_for_steps": [
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319
+          ],
+          "end_completed": 559,
+          "end_prepared": 560,
+          "active_frames": 18,
+          "down_calls": 18,
+          "faults": 0,
+          "raw_sha256": "3d30d3bd50a20521031488f8a783cb6a42a79803c4eb60d5dd92e7789775f86d"
+        },
+        "native": {
+          "down_requested_for_steps": [
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319
+          ],
+          "end_completed": 559,
+          "end_prepared": 560,
+          "active_frames": 18,
+          "down_calls": 18,
+          "faults": 0,
+          "raw_sha256": "3d30d3bd50a20521031488f8a783cb6a42a79803c4eb60d5dd92e7789775f86d"
+        },
+        "requested_steps_equal": true,
+        "end_summary_equal": {
+          "end_completed": true,
+          "end_prepared": true,
+          "active_frames": true,
+          "down_calls": true,
+          "faults": true
+        }
+      }
+    }
+  },
+  "actual_input_response": {
+    "pulse_end": {
+      "physical_response": {
+        "windows": {
+          "VROT_delta_deg_s": [
+            "0.0000",
+            "-0.6016",
+            "0.0000"
+          ],
+          "RCS_fraction_delta": {
+            "0": "0.000000",
+            "1": "-0.000308",
+            "2": "-0.000308"
+          },
+          "neutral_VROT": "0.0145 -0.0012 0.0113",
+          "pulse_VROT": "0.0145 -0.6028 0.0113"
+        },
+        "native": {
+          "VROT_delta_deg_s": [
+            "0.0000",
+            "-0.6016",
+            "0.0000"
+          ],
+          "RCS_fraction_delta": {
+            "0": "0.000000",
+            "1": "-0.000308",
+            "2": "-0.000308"
+          },
+          "neutral_VROT": "0.0145 -0.0012 0.0113",
+          "pulse_VROT": "0.0145 -0.6028 0.0113"
+        }
+      },
+      "imu_response_residuals": {
+        "Columbia": {
+          "RPX": "0E-12",
+          "RPY": "0",
+          "RPZ": "0E-12"
+        },
+        "Eagle": {
+          "RPX": "0E-12",
+          "RPY": "0E-12",
+          "RPZ": "1E-12"
+        }
+      },
+      "physical_response_exact_at_saved_precision": true,
+      "interpretation": "Differences of saved fractional remainders only; no inference of total PIPA response, acceptance tolerance or cancellation of complete state differences."
+    },
+    "settled_end": {
+      "physical_response": {
+        "windows": {
+          "VROT_delta_deg_s": [
+            "0.0000",
+            "0.0092",
+            "0.0000"
+          ],
+          "RCS_fraction_delta": {
+            "0": "0.000000",
+            "1": "-0.000927",
+            "2": "-0.000927"
+          },
+          "neutral_VROT": "0.0145 -0.0012 0.0113",
+          "pulse_VROT": "0.0145 0.0080 0.0113"
+        },
+        "native": {
+          "VROT_delta_deg_s": [
+            "0.0000",
+            "0.0092",
+            "0.0000"
+          ],
+          "RCS_fraction_delta": {
+            "0": "0.000000",
+            "1": "-0.000927",
+            "2": "-0.000927"
+          },
+          "neutral_VROT": "0.0145 -0.0012 0.0113",
+          "pulse_VROT": "0.0145 0.0080 0.0113"
+        }
+      },
+      "imu_response_residuals": {
+        "Columbia": {
+          "RPX": "0E-12",
+          "RPY": "0",
+          "RPZ": "0E-12"
+        },
+        "Eagle": {
+          "RPX": "0E-12",
+          "RPY": "0E-12",
+          "RPZ": "1E-12"
+        }
+      },
+      "physical_response_exact_at_saved_precision": true,
+      "interpretation": "Differences of saved fractional remainders only; no inference of total PIPA response, acceptance tolerance or cancellation of complete state differences."
+    }
+  },
+  "remaining_field_inventory": {
+    "neutral-319": {
+      "Columbia": {
+        "panel_saved_record_differences": [
+          {
+            "field": "AccumQuantityMeter",
+            "windows": [
+              "0.520553",
+              "0.520542"
+            ],
+            "native": [
+              "0.520575",
+              "0.520571"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000022",
+              "0.000029"
+            ]
+          },
+          {
+            "field": "CabinPressMeter",
+            "windows": [
+              "5.003538",
+              "5.003533"
+            ],
+            "native": [
+              "5.003432",
+              "5.003427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000106",
+              "-0.000106"
+            ]
+          },
+          {
+            "field": "CabinTempMeter",
+            "windows": [
+              "69.028266",
+              "69.026996"
+            ],
+            "native": [
+              "69.001332",
+              "69.000008"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.026934",
+              "-0.026988"
+            ]
+          },
+          {
+            "field": "DCVoltMeter",
+            "windows": [
+              "27.675806",
+              "27.675429"
+            ],
+            "native": [
+              "28.010201",
+              "28.010257"
+            ],
+            "native_minus_windows_decimal": [
+              "0.334395",
+              "0.334828"
+            ]
+          },
+          {
+            "field": "EcsRadTempInletMeter",
+            "windows": [
+              "88.858209",
+              "88.860291"
+            ],
+            "native": [
+              "88.877097",
+              "88.879088"
+            ],
+            "native_minus_windows_decimal": [
+              "0.018888",
+              "0.018797"
+            ]
+          },
+          {
+            "field": "EcsRadTempPrimOutletMeter",
+            "windows": [
+              "48.885956",
+              "48.888255"
+            ],
+            "native": [
+              "48.886149",
+              "48.888092"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000193",
+              "-0.000163"
+            ]
+          },
+          {
+            "field": "EcsRadTempSecOutletMeter",
+            "windows": [
+              "56.171803",
+              "56.171879"
+            ],
+            "native": [
+              "56.171836",
+              "56.171831"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "-0.000048"
+            ]
+          },
+          {
+            "field": "FuelCellCondenserTempMeter",
+            "windows": [
+              "1.017803",
+              "1.017683"
+            ],
+            "native": [
+              "1.015088",
+              "1.015078"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002715",
+              "-0.002605"
+            ]
+          },
+          {
+            "field": "FuelCellH2FlowMeter",
+            "windows": [
+              "2.870033",
+              "2.869930"
+            ],
+            "native": [
+              "2.647113",
+              "2.647137"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.222920",
+              "-0.222793"
+            ]
+          },
+          {
+            "field": "FuelCellO2FlowMeter",
+            "windows": [
+              "2.872577",
+              "2.872446"
+            ],
+            "native": [
+              "2.663900",
+              "2.663916"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.208677",
+              "-0.208530"
+            ]
+          },
+          {
+            "field": "FuelCellTempMeter",
+            "windows": [
+              "2.582566",
+              "2.582503"
+            ],
+            "native": [
+              "2.581170",
+              "2.581162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001396",
+              "-0.001341"
+            ]
+          },
+          {
+            "field": "GlyEvapSteamPressMeter",
+            "windows": [
+              "0.131243",
+              "0.131288"
+            ],
+            "native": [
+              "0.131027",
+              "0.130905"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000216",
+              "-0.000383"
+            ]
+          },
+          {
+            "field": "GlyEvapTempOutletMeter",
+            "windows": [
+              "40.732255",
+              "40.730054"
+            ],
+            "native": [
+              "40.726077",
+              "40.729404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.006178",
+              "-0.000650"
+            ]
+          },
+          {
+            "field": "GlycolDischPressMeter",
+            "windows": [
+              "36.921790",
+              "36.922013"
+            ],
+            "native": [
+              "36.913391",
+              "36.914396"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.008399",
+              "-0.007617"
+            ]
+          },
+          {
+            "field": "H2Pressure1Meter",
+            "windows": [
+              "230.820000",
+              "230.701898"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.475597",
+              "-0.477587"
+            ]
+          },
+          {
+            "field": "H2Pressure2Meter",
+            "windows": [
+              "230.820000",
+              "230.701898"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.475597",
+              "-0.477587"
+            ]
+          },
+          {
+            "field": "H2Quantity1Meter",
+            "windows": [
+              "3.248646",
+              "3.248655"
+            ],
+            "native": [
+              "3.248679",
+              "3.248687"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "0.000032"
+            ]
+          },
+          {
+            "field": "H2Quantity2Meter",
+            "windows": [
+              "3.248646",
+              "3.248654"
+            ],
+            "native": [
+              "3.248679",
+              "3.248686"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "0.000032"
+            ]
+          },
+          {
+            "field": "H2oQuantityMeter",
+            "windows": [
+              "0.888435",
+              "0.888435"
+            ],
+            "native": [
+              "0.888429",
+              "0.888429"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000006",
+              "-0.000006"
+            ]
+          },
+          {
+            "field": "HighGainAntennaPitchMeter",
+            "windows": [
+              "5.022833",
+              "5.008722"
+            ],
+            "native": [
+              "4.917351",
+              "4.903162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.105482",
+              "-0.105560"
+            ]
+          },
+          {
+            "field": "HighGainAntennaStrengthMeter",
+            "windows": [
+              "15.459721",
+              "15.252438"
+            ],
+            "native": [
+              "13.692214",
+              "13.459789"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.767507",
+              "-1.792649"
+            ]
+          },
+          {
+            "field": "HighGainAntennaYawMeter",
+            "windows": [
+              "354.820519",
+              "354.832613"
+            ],
+            "native": [
+              "354.911497",
+              "354.923723"
+            ],
+            "native_minus_windows_decimal": [
+              "0.090978",
+              "0.091110"
+            ]
+          },
+          {
+            "field": "O2Pressure1Meter",
+            "windows": [
+              "2.739790",
+              "2.739493"
+            ],
+            "native": [
+              "2.738659",
+              "2.738427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001131",
+              "-0.001066"
+            ]
+          },
+          {
+            "field": "O2Pressure2Meter",
+            "windows": [
+              "3.138327",
+              "3.144535"
+            ],
+            "native": [
+              "3.163548",
+              "3.169928"
+            ],
+            "native_minus_windows_decimal": [
+              "0.025221",
+              "0.025393"
+            ]
+          },
+          {
+            "field": "O2Quantity1Meter",
+            "windows": [
+              "3.426152",
+              "3.426181"
+            ],
+            "native": [
+              "3.426274",
+              "3.426304"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000122",
+              "0.000123"
+            ]
+          },
+          {
+            "field": "O2Quantity2Meter",
+            "windows": [
+              "3.421134",
+              "3.421165"
+            ],
+            "native": [
+              "3.421261",
+              "3.421293"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000127",
+              "0.000128"
+            ]
+          },
+          {
+            "field": "PartPressCO2Meter",
+            "windows": [
+              "1.083282",
+              "1.083274"
+            ],
+            "native": [
+              "1.083274",
+              "1.083281"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000008",
+              "0.000007"
+            ]
+          },
+          {
+            "field": "RCSHeliumPressMeter",
+            "windows": [
+              "3598.000816",
+              "3598.005066"
+            ],
+            "native": [
+              "3598.091201",
+              "3598.095614"
+            ],
+            "native_minus_windows_decimal": [
+              "0.090385",
+              "0.090548"
+            ]
+          },
+          {
+            "field": "RCSQuantityMeter",
+            "windows": [
+              "0.766288",
+              "0.766288"
+            ],
+            "native": [
+              "0.766297",
+              "0.766297"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000009",
+              "0.000009"
+            ]
+          },
+          {
+            "field": "RCSTempMeter",
+            "windows": [
+              "115.146150",
+              "115.147349"
+            ],
+            "native": [
+              "115.171651",
+              "115.172896"
+            ],
+            "native_minus_windows_decimal": [
+              "0.025501",
+              "0.025547"
+            ]
+          },
+          {
+            "field": "SPSTempMeter",
+            "windows": [
+              "1.415296",
+              "1.415287"
+            ],
+            "native": [
+              "1.415117",
+              "1.415109"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000179",
+              "-0.000178"
+            ]
+          },
+          {
+            "field": "SuitCabinDeltaPMeter",
+            "windows": [
+              "2.449486",
+              "2.452171"
+            ],
+            "native": [
+              "2.453268",
+              "2.453877"
+            ],
+            "native_minus_windows_decimal": [
+              "0.003782",
+              "0.001706"
+            ]
+          },
+          {
+            "field": "SuitComprDeltaPMeter",
+            "windows": [
+              "0.273310",
+              "0.273178"
+            ],
+            "native": [
+              "0.273299",
+              "0.273245"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000011",
+              "0.000067"
+            ]
+          },
+          {
+            "field": "SuitPressMeter",
+            "windows": [
+              "5.365339",
+              "5.365298"
+            ],
+            "native": [
+              "5.365192",
+              "5.365223"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000147",
+              "-0.000075"
+            ]
+          },
+          {
+            "field": "SuitTempMeter",
+            "windows": [
+              "51.525123",
+              "51.521798"
+            ],
+            "native": [
+              "51.524026",
+              "51.527467"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001097",
+              "0.005669"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27498.605506388132",
+              "-98.186485030248",
+              "13528.638199441401"
+            ],
+            "native": [
+              "27498.605506388139",
+              "-98.186485030248",
+              "13528.638199441402"
+            ],
+            "native_minus_windows_decimal": [
+              "7E-12",
+              "0E-12",
+              "1E-12"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368749.722916665429"
+            ],
+            "native": [
+              "368749.709153566742"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763098687"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.482507534693"
+            ],
+            "native": [
+              "-0.482507534674"
+            ],
+            "native_minus_windows_decimal": [
+              "1.9E-11"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.813340955995"
+            ],
+            "native": [
+              "0.813340956058"
+            ],
+            "native_minus_windows_decimal": [
+              "6.3E-11"
+            ]
+          }
+        ]
+      },
+      "Eagle": {
+        "panel_saved_record_differences": [
+          {
+            "field": "MainHeliumPressureMeter",
+            "windows": [
+              "1271.266984",
+              "1271.266984"
+            ],
+            "native": [
+              "1271.254011",
+              "1271.254011"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.012973",
+              "-0.012973"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27567.765592341944",
+              "-98.038692889797",
+              "13448.239600562436"
+            ],
+            "native": [
+              "27567.765592341952",
+              "-98.038692889797",
+              "13448.239600562438"
+            ],
+            "native_minus_windows_decimal": [
+              "8E-12",
+              "0E-12",
+              "2E-12"
+            ]
+          },
+          {
+            "field": "MASSCG_STATE",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "0.000000000000",
+              "-0.730421378489",
+              "0.000000000000",
+              "2.542800000000",
+              "2.287100000000",
+              "2.756600000000",
+              "8358.241572053867"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368749.754167"
+            ],
+            "native": [
+              "368749.740404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763"
+            ]
+          },
+          {
+            "field": "NATIVE_LANDING_AUDIO",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "\"\""
+            ]
+          },
+          {
+            "field": "REMAININGDELTAVEL",
+            "occurrence": 0,
+            "windows": [
+              "-0.000502249793",
+              "-0.000583315693",
+              "0.000643231452"
+            ],
+            "native": [
+              "-0.000502249795",
+              "-0.000583315693",
+              "0.000643231451"
+            ],
+            "native_minus_windows_decimal": [
+              "-2E-12",
+              "0E-12",
+              "-1E-12"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.759998288588"
+            ],
+            "native": [
+              "-0.759998288428"
+            ],
+            "native_minus_windows_decimal": [
+              "1.60E-10"
+            ]
+          },
+          {
+            "field": "RPY",
+            "occurrence": 0,
+            "windows": [
+              "0.026398923708"
+            ],
+            "native": [
+              "0.026398923701"
+            ],
+            "native_minus_windows_decimal": [
+              "-7E-12"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.410990183170"
+            ],
+            "native": [
+              "0.410990183339"
+            ],
+            "native_minus_windows_decimal": [
+              "1.69E-10"
+            ]
+          },
+          {
+            "field": "THRUSTCOMMAND",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1.000000000000"
+            ]
+          }
+        ]
+      }
+    },
+    "neutral-a": {
+      "Columbia": {
+        "panel_saved_record_differences": [
+          {
+            "field": "AccumQuantityMeter",
+            "windows": [
+              "0.520610",
+              "0.520595"
+            ],
+            "native": [
+              "0.520575",
+              "0.520571"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000035",
+              "-0.000024"
+            ]
+          },
+          {
+            "field": "CabinPressMeter",
+            "windows": [
+              "5.003619",
+              "5.003614"
+            ],
+            "native": [
+              "5.003432",
+              "5.003427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000187",
+              "-0.000187"
+            ]
+          },
+          {
+            "field": "CabinTempMeter",
+            "windows": [
+              "69.048587",
+              "69.047318"
+            ],
+            "native": [
+              "69.001332",
+              "69.000008"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.047255",
+              "-0.047310"
+            ]
+          },
+          {
+            "field": "DCVoltMeter",
+            "windows": [
+              "27.679589",
+              "27.679241"
+            ],
+            "native": [
+              "28.010201",
+              "28.010257"
+            ],
+            "native_minus_windows_decimal": [
+              "0.330612",
+              "0.331016"
+            ]
+          },
+          {
+            "field": "EcsRadTempInletMeter",
+            "windows": [
+              "88.847369",
+              "88.849344"
+            ],
+            "native": [
+              "88.877097",
+              "88.879088"
+            ],
+            "native_minus_windows_decimal": [
+              "0.029728",
+              "0.029744"
+            ]
+          },
+          {
+            "field": "EcsRadTempPrimOutletMeter",
+            "windows": [
+              "48.869422",
+              "48.872188"
+            ],
+            "native": [
+              "48.869781",
+              "48.872120"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000359",
+              "-0.000068"
+            ]
+          },
+          {
+            "field": "EcsRadTempSecOutletMeter",
+            "windows": [
+              "56.171814",
+              "56.171890"
+            ],
+            "native": [
+              "56.171836",
+              "56.171831"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000022",
+              "-0.000059"
+            ]
+          },
+          {
+            "field": "FuelCellCondenserTempMeter",
+            "windows": [
+              "1.019644",
+              "1.019532"
+            ],
+            "native": [
+              "1.015088",
+              "1.015078"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.004556",
+              "-0.004454"
+            ]
+          },
+          {
+            "field": "FuelCellH2FlowMeter",
+            "windows": [
+              "2.871385",
+              "2.871300"
+            ],
+            "native": [
+              "2.647113",
+              "2.647137"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.224272",
+              "-0.224163"
+            ]
+          },
+          {
+            "field": "FuelCellO2FlowMeter",
+            "windows": [
+              "2.874493",
+              "2.874374"
+            ],
+            "native": [
+              "2.663900",
+              "2.663916"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.210593",
+              "-0.210458"
+            ]
+          },
+          {
+            "field": "FuelCellTempMeter",
+            "windows": [
+              "2.583539",
+              "2.583479"
+            ],
+            "native": [
+              "2.581170",
+              "2.581162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002369",
+              "-0.002317"
+            ]
+          },
+          {
+            "field": "GlyEvapSteamPressMeter",
+            "windows": [
+              "0.131185",
+              "0.131275"
+            ],
+            "native": [
+              "0.131027",
+              "0.130905"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000158",
+              "-0.000370"
+            ]
+          },
+          {
+            "field": "GlyEvapTempOutletMeter",
+            "windows": [
+              "40.732161",
+              "40.730245"
+            ],
+            "native": [
+              "40.726077",
+              "40.729404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.006084",
+              "-0.000841"
+            ]
+          },
+          {
+            "field": "GlycolDischPressMeter",
+            "windows": [
+              "36.907596",
+              "36.908251"
+            ],
+            "native": [
+              "36.913391",
+              "36.914396"
+            ],
+            "native_minus_windows_decimal": [
+              "0.005795",
+              "0.006145"
+            ]
+          },
+          {
+            "field": "H2Pressure1Meter",
+            "windows": [
+              "231.178658",
+              "231.060597"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.834255",
+              "-0.836286"
+            ]
+          },
+          {
+            "field": "H2Pressure2Meter",
+            "windows": [
+              "231.178658",
+              "231.060596"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.834255",
+              "-0.836285"
+            ]
+          },
+          {
+            "field": "H2Quantity1Meter",
+            "windows": [
+              "3.248622",
+              "3.248630"
+            ],
+            "native": [
+              "3.248679",
+              "3.248687"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000057",
+              "0.000057"
+            ]
+          },
+          {
+            "field": "H2Quantity2Meter",
+            "windows": [
+              "3.248622",
+              "3.248630"
+            ],
+            "native": [
+              "3.248679",
+              "3.248686"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000057",
+              "0.000056"
+            ]
+          },
+          {
+            "field": "H2oQuantityMeter",
+            "windows": [
+              "0.888430",
+              "0.888431"
+            ],
+            "native": [
+              "0.888429",
+              "0.888429"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000001",
+              "-0.000002"
+            ]
+          },
+          {
+            "field": "HighGainAntennaPitchMeter",
+            "windows": [
+              "5.109406",
+              "5.095325"
+            ],
+            "native": [
+              "4.917351",
+              "4.903162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.192055",
+              "-0.192163"
+            ]
+          },
+          {
+            "field": "HighGainAntennaStrengthMeter",
+            "windows": [
+              "16.681756",
+              "16.488862"
+            ],
+            "native": [
+              "13.692214",
+              "13.459789"
+            ],
+            "native_minus_windows_decimal": [
+              "-2.989542",
+              "-3.029073"
+            ]
+          },
+          {
+            "field": "HighGainAntennaYawMeter",
+            "windows": [
+              "354.746299",
+              "354.758367"
+            ],
+            "native": [
+              "354.911497",
+              "354.923723"
+            ],
+            "native_minus_windows_decimal": [
+              "0.165198",
+              "0.165356"
+            ]
+          },
+          {
+            "field": "O2Pressure1Meter",
+            "windows": [
+              "2.740798",
+              "2.740462"
+            ],
+            "native": [
+              "2.738659",
+              "2.738427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002139",
+              "-0.002035"
+            ]
+          },
+          {
+            "field": "O2Pressure2Meter",
+            "windows": [
+              "3.121132",
+              "3.126669"
+            ],
+            "native": [
+              "3.163548",
+              "3.169928"
+            ],
+            "native_minus_windows_decimal": [
+              "0.042416",
+              "0.043259"
+            ]
+          },
+          {
+            "field": "O2Quantity1Meter",
+            "windows": [
+              "3.426082",
+              "3.426104"
+            ],
+            "native": [
+              "3.426274",
+              "3.426304"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000192",
+              "0.000200"
+            ]
+          },
+          {
+            "field": "O2Quantity2Meter",
+            "windows": [
+              "3.421060",
+              "3.421083"
+            ],
+            "native": [
+              "3.421261",
+              "3.421293"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000201",
+              "0.000210"
+            ]
+          },
+          {
+            "field": "PartPressCO2Meter",
+            "windows": [
+              "1.083295",
+              "1.083279"
+            ],
+            "native": [
+              "1.083274",
+              "1.083281"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000021",
+              "0.000002"
+            ]
+          },
+          {
+            "field": "RCSHeliumPressMeter",
+            "windows": [
+              "3597.932825",
+              "3597.937075"
+            ],
+            "native": [
+              "3598.091201",
+              "3598.095614"
+            ],
+            "native_minus_windows_decimal": [
+              "0.158376",
+              "0.158539"
+            ]
+          },
+          {
+            "field": "RCSQuantityMeter",
+            "windows": [
+              "0.766281",
+              "0.766282"
+            ],
+            "native": [
+              "0.766297",
+              "0.766297"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000016",
+              "0.000015"
+            ]
+          },
+          {
+            "field": "RCSTempMeter",
+            "windows": [
+              "115.126968",
+              "115.128166"
+            ],
+            "native": [
+              "115.171651",
+              "115.172896"
+            ],
+            "native_minus_windows_decimal": [
+              "0.044683",
+              "0.044730"
+            ]
+          },
+          {
+            "field": "SPSTempMeter",
+            "windows": [
+              "1.415430",
+              "1.415422"
+            ],
+            "native": [
+              "1.415117",
+              "1.415109"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000313",
+              "-0.000313"
+            ]
+          },
+          {
+            "field": "SuitCabinDeltaPMeter",
+            "windows": [
+              "2.449373",
+              "2.452519"
+            ],
+            "native": [
+              "2.453268",
+              "2.453877"
+            ],
+            "native_minus_windows_decimal": [
+              "0.003895",
+              "0.001358"
+            ]
+          },
+          {
+            "field": "SuitComprDeltaPMeter",
+            "windows": [
+              "0.273373",
+              "0.273181"
+            ],
+            "native": [
+              "0.272940",
+              "0.273123"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000433",
+              "-0.000058"
+            ]
+          },
+          {
+            "field": "SuitPressMeter",
+            "windows": [
+              "5.365478",
+              "5.365398"
+            ],
+            "native": [
+              "5.365192",
+              "5.365223"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000286",
+              "-0.000175"
+            ]
+          },
+          {
+            "field": "SuitTempMeter",
+            "windows": [
+              "51.529535",
+              "51.522438"
+            ],
+            "native": [
+              "51.524026",
+              "51.527467"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.005509",
+              "0.005029"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27500.240003240277",
+              "-98.150446956160",
+              "13523.110522070940"
+            ],
+            "native": [
+              "27500.240003240287",
+              "-98.150446956160",
+              "13523.110522070940"
+            ],
+            "native_minus_windows_decimal": [
+              "1.0E-11",
+              "0E-12",
+              "0E-12"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "occurrence": 0,
+            "windows": [
+              "0.406162052196",
+              "0.009029928774",
+              "-1.382653652684"
+            ],
+            "native": [
+              "0.406162052186",
+              "0.009029928774",
+              "-1.382653652663"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.0E-11",
+              "0E-12",
+              "2.1E-11"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368753.722916664497"
+            ],
+            "native": [
+              "368753.709153565811"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763098686"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.660285799746"
+            ],
+            "native": [
+              "-0.660285799759"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.3E-11"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.909070040678"
+            ],
+            "native": [
+              "0.909070040816"
+            ],
+            "native_minus_windows_decimal": [
+              "1.38E-10"
+            ]
+          }
+        ]
+      },
+      "Eagle": {
+        "panel_saved_record_differences": [
+          {
+            "field": "MainHeliumPressureMeter",
+            "windows": [
+              "1271.276745",
+              "1271.276745"
+            ],
+            "native": [
+              "1271.254011",
+              "1271.254011"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.022734",
+              "-0.022734"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "<H2OSEP>",
+            "occurrence": 0,
+            "windows": [
+              "WATERSEP1",
+              "1384.228166"
+            ],
+            "native": [
+              "WATERSEP1",
+              "1384.228264"
+            ]
+          },
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27569.320907249428",
+              "-97.998729425632",
+              "13442.175128493125"
+            ],
+            "native": [
+              "27569.320907249439",
+              "-97.998729425632",
+              "13442.175128493122"
+            ],
+            "native_minus_windows_decimal": [
+              "1.1E-11",
+              "0E-12",
+              "-3E-12"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "occurrence": 0,
+            "windows": [
+              "0.385945009578",
+              "0.010012409988",
+              "-1.516990510240"
+            ],
+            "native": [
+              "0.385945009568",
+              "0.010012409988",
+              "-1.516990510215"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.0E-11",
+              "0E-12",
+              "2.5E-11"
+            ]
+          },
+          {
+            "field": "MASSCG_STATE",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "0.000000000000",
+              "-0.730421378489",
+              "0.000000000000",
+              "2.542800000000",
+              "2.287100000000",
+              "2.756600000000",
+              "8358.241572053867"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368753.754167"
+            ],
+            "native": [
+              "368753.740404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763"
+            ]
+          },
+          {
+            "field": "NATIVE_LANDING_AUDIO",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "\"\""
+            ]
+          },
+          {
+            "field": "REMAININGDELTAVEL",
+            "occurrence": 0,
+            "windows": [
+              "-0.000502326328",
+              "-0.000583318095",
+              "0.000643269305"
+            ],
+            "native": [
+              "-0.000502326335",
+              "-0.000583318096",
+              "0.000643269310"
+            ],
+            "native_minus_windows_decimal": [
+              "-7E-12",
+              "-1E-12",
+              "5E-12"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.239999768394"
+            ],
+            "native": [
+              "-0.239999768692"
+            ],
+            "native_minus_windows_decimal": [
+              "-2.98E-10"
+            ]
+          },
+          {
+            "field": "RPY",
+            "occurrence": 0,
+            "windows": [
+              "0.706398924966"
+            ],
+            "native": [
+              "0.706398924961"
+            ],
+            "native_minus_windows_decimal": [
+              "-5E-12"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.690998587974"
+            ],
+            "native": [
+              "0.690998588812"
+            ],
+            "native_minus_windows_decimal": [
+              "8.38E-10"
+            ]
+          },
+          {
+            "field": "RR_RATE",
+            "occurrence": 0,
+            "windows": [
+              "102.062834388937"
+            ],
+            "native": [
+              "102.062834388939"
+            ],
+            "native_minus_windows_decimal": [
+              "2E-12"
+            ]
+          },
+          {
+            "field": "THRUSTCOMMAND",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1.000000000000"
+            ]
+          }
+        ]
+      }
+    },
+    "pulse-319": {
+      "Columbia": {
+        "panel_saved_record_differences": [
+          {
+            "field": "AccumQuantityMeter",
+            "windows": [
+              "0.520553",
+              "0.520542"
+            ],
+            "native": [
+              "0.520575",
+              "0.520571"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000022",
+              "0.000029"
+            ]
+          },
+          {
+            "field": "CabinPressMeter",
+            "windows": [
+              "5.003538",
+              "5.003533"
+            ],
+            "native": [
+              "5.003432",
+              "5.003427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000106",
+              "-0.000106"
+            ]
+          },
+          {
+            "field": "CabinTempMeter",
+            "windows": [
+              "69.028266",
+              "69.026996"
+            ],
+            "native": [
+              "69.001332",
+              "69.000008"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.026934",
+              "-0.026988"
+            ]
+          },
+          {
+            "field": "DCVoltMeter",
+            "windows": [
+              "27.675806",
+              "27.675429"
+            ],
+            "native": [
+              "28.010201",
+              "28.010257"
+            ],
+            "native_minus_windows_decimal": [
+              "0.334395",
+              "0.334828"
+            ]
+          },
+          {
+            "field": "EcsRadTempInletMeter",
+            "windows": [
+              "88.858209",
+              "88.860291"
+            ],
+            "native": [
+              "88.877097",
+              "88.879088"
+            ],
+            "native_minus_windows_decimal": [
+              "0.018888",
+              "0.018797"
+            ]
+          },
+          {
+            "field": "EcsRadTempPrimOutletMeter",
+            "windows": [
+              "48.885956",
+              "48.888255"
+            ],
+            "native": [
+              "48.886149",
+              "48.888092"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000193",
+              "-0.000163"
+            ]
+          },
+          {
+            "field": "EcsRadTempSecOutletMeter",
+            "windows": [
+              "56.171803",
+              "56.171879"
+            ],
+            "native": [
+              "56.171836",
+              "56.171831"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "-0.000048"
+            ]
+          },
+          {
+            "field": "FuelCellCondenserTempMeter",
+            "windows": [
+              "1.017803",
+              "1.017683"
+            ],
+            "native": [
+              "1.015088",
+              "1.015078"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002715",
+              "-0.002605"
+            ]
+          },
+          {
+            "field": "FuelCellH2FlowMeter",
+            "windows": [
+              "2.870033",
+              "2.869930"
+            ],
+            "native": [
+              "2.647113",
+              "2.647137"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.222920",
+              "-0.222793"
+            ]
+          },
+          {
+            "field": "FuelCellO2FlowMeter",
+            "windows": [
+              "2.872577",
+              "2.872446"
+            ],
+            "native": [
+              "2.663900",
+              "2.663916"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.208677",
+              "-0.208530"
+            ]
+          },
+          {
+            "field": "FuelCellTempMeter",
+            "windows": [
+              "2.582566",
+              "2.582503"
+            ],
+            "native": [
+              "2.581170",
+              "2.581162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001396",
+              "-0.001341"
+            ]
+          },
+          {
+            "field": "GlyEvapSteamPressMeter",
+            "windows": [
+              "0.131243",
+              "0.131288"
+            ],
+            "native": [
+              "0.131027",
+              "0.130905"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000216",
+              "-0.000383"
+            ]
+          },
+          {
+            "field": "GlyEvapTempOutletMeter",
+            "windows": [
+              "40.732255",
+              "40.730054"
+            ],
+            "native": [
+              "40.726077",
+              "40.729404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.006178",
+              "-0.000650"
+            ]
+          },
+          {
+            "field": "GlycolDischPressMeter",
+            "windows": [
+              "36.921790",
+              "36.922013"
+            ],
+            "native": [
+              "36.913391",
+              "36.914396"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.008399",
+              "-0.007617"
+            ]
+          },
+          {
+            "field": "H2Pressure1Meter",
+            "windows": [
+              "230.820000",
+              "230.701898"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.475597",
+              "-0.477587"
+            ]
+          },
+          {
+            "field": "H2Pressure2Meter",
+            "windows": [
+              "230.820000",
+              "230.701898"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.475597",
+              "-0.477587"
+            ]
+          },
+          {
+            "field": "H2Quantity1Meter",
+            "windows": [
+              "3.248646",
+              "3.248655"
+            ],
+            "native": [
+              "3.248679",
+              "3.248687"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "0.000032"
+            ]
+          },
+          {
+            "field": "H2Quantity2Meter",
+            "windows": [
+              "3.248646",
+              "3.248654"
+            ],
+            "native": [
+              "3.248679",
+              "3.248686"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000033",
+              "0.000032"
+            ]
+          },
+          {
+            "field": "H2oQuantityMeter",
+            "windows": [
+              "0.888435",
+              "0.888435"
+            ],
+            "native": [
+              "0.888429",
+              "0.888429"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000006",
+              "-0.000006"
+            ]
+          },
+          {
+            "field": "HighGainAntennaPitchMeter",
+            "windows": [
+              "5.022833",
+              "5.008722"
+            ],
+            "native": [
+              "4.917351",
+              "4.903162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.105482",
+              "-0.105560"
+            ]
+          },
+          {
+            "field": "HighGainAntennaStrengthMeter",
+            "windows": [
+              "15.459721",
+              "15.252438"
+            ],
+            "native": [
+              "13.692214",
+              "13.459789"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.767507",
+              "-1.792649"
+            ]
+          },
+          {
+            "field": "HighGainAntennaYawMeter",
+            "windows": [
+              "354.820519",
+              "354.832613"
+            ],
+            "native": [
+              "354.911497",
+              "354.923723"
+            ],
+            "native_minus_windows_decimal": [
+              "0.090978",
+              "0.091110"
+            ]
+          },
+          {
+            "field": "O2Pressure1Meter",
+            "windows": [
+              "2.739790",
+              "2.739493"
+            ],
+            "native": [
+              "2.738659",
+              "2.738427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001131",
+              "-0.001066"
+            ]
+          },
+          {
+            "field": "O2Pressure2Meter",
+            "windows": [
+              "3.138327",
+              "3.144535"
+            ],
+            "native": [
+              "3.163548",
+              "3.169928"
+            ],
+            "native_minus_windows_decimal": [
+              "0.025221",
+              "0.025393"
+            ]
+          },
+          {
+            "field": "O2Quantity1Meter",
+            "windows": [
+              "3.426152",
+              "3.426181"
+            ],
+            "native": [
+              "3.426274",
+              "3.426304"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000122",
+              "0.000123"
+            ]
+          },
+          {
+            "field": "O2Quantity2Meter",
+            "windows": [
+              "3.421134",
+              "3.421165"
+            ],
+            "native": [
+              "3.421261",
+              "3.421293"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000127",
+              "0.000128"
+            ]
+          },
+          {
+            "field": "PartPressCO2Meter",
+            "windows": [
+              "1.083282",
+              "1.083274"
+            ],
+            "native": [
+              "1.083274",
+              "1.083281"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000008",
+              "0.000007"
+            ]
+          },
+          {
+            "field": "RCSHeliumPressMeter",
+            "windows": [
+              "3598.000816",
+              "3598.005066"
+            ],
+            "native": [
+              "3598.091201",
+              "3598.095614"
+            ],
+            "native_minus_windows_decimal": [
+              "0.090385",
+              "0.090548"
+            ]
+          },
+          {
+            "field": "RCSQuantityMeter",
+            "windows": [
+              "0.766288",
+              "0.766288"
+            ],
+            "native": [
+              "0.766297",
+              "0.766297"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000009",
+              "0.000009"
+            ]
+          },
+          {
+            "field": "RCSTempMeter",
+            "windows": [
+              "115.146150",
+              "115.147349"
+            ],
+            "native": [
+              "115.171651",
+              "115.172896"
+            ],
+            "native_minus_windows_decimal": [
+              "0.025501",
+              "0.025547"
+            ]
+          },
+          {
+            "field": "SPSTempMeter",
+            "windows": [
+              "1.415296",
+              "1.415287"
+            ],
+            "native": [
+              "1.415117",
+              "1.415109"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000179",
+              "-0.000178"
+            ]
+          },
+          {
+            "field": "SuitCabinDeltaPMeter",
+            "windows": [
+              "2.449486",
+              "2.452171"
+            ],
+            "native": [
+              "2.453268",
+              "2.453877"
+            ],
+            "native_minus_windows_decimal": [
+              "0.003782",
+              "0.001706"
+            ]
+          },
+          {
+            "field": "SuitComprDeltaPMeter",
+            "windows": [
+              "0.273310",
+              "0.273178"
+            ],
+            "native": [
+              "0.273299",
+              "0.273245"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000011",
+              "0.000067"
+            ]
+          },
+          {
+            "field": "SuitPressMeter",
+            "windows": [
+              "5.365339",
+              "5.365298"
+            ],
+            "native": [
+              "5.365192",
+              "5.365223"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000147",
+              "-0.000075"
+            ]
+          },
+          {
+            "field": "SuitTempMeter",
+            "windows": [
+              "51.525123",
+              "51.521798"
+            ],
+            "native": [
+              "51.524026",
+              "51.527467"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.001097",
+              "0.005669"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27498.605506388132",
+              "-98.186485030248",
+              "13528.638199441401"
+            ],
+            "native": [
+              "27498.605506388139",
+              "-98.186485030248",
+              "13528.638199441402"
+            ],
+            "native_minus_windows_decimal": [
+              "7E-12",
+              "0E-12",
+              "1E-12"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368749.722916665429"
+            ],
+            "native": [
+              "368749.709153566742"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763098687"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.482507534693"
+            ],
+            "native": [
+              "-0.482507534674"
+            ],
+            "native_minus_windows_decimal": [
+              "1.9E-11"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.813340955995"
+            ],
+            "native": [
+              "0.813340956058"
+            ],
+            "native_minus_windows_decimal": [
+              "6.3E-11"
+            ]
+          }
+        ]
+      },
+      "Eagle": {
+        "panel_saved_record_differences": [
+          {
+            "field": "MainHeliumPressureMeter",
+            "windows": [
+              "1271.266984",
+              "1271.266984"
+            ],
+            "native": [
+              "1271.254011",
+              "1271.254011"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.012973",
+              "-0.012973"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27567.765592341944",
+              "-98.038692889797",
+              "13448.239600562436"
+            ],
+            "native": [
+              "27567.765592341952",
+              "-98.038692889797",
+              "13448.239600562438"
+            ],
+            "native_minus_windows_decimal": [
+              "8E-12",
+              "0E-12",
+              "2E-12"
+            ]
+          },
+          {
+            "field": "MASSCG_STATE",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "0.000000000000",
+              "-0.730421378489",
+              "0.000000000000",
+              "2.542800000000",
+              "2.287100000000",
+              "2.756600000000",
+              "8358.241572053867"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368749.754167"
+            ],
+            "native": [
+              "368749.740404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763"
+            ]
+          },
+          {
+            "field": "NATIVE_LANDING_AUDIO",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "\"\""
+            ]
+          },
+          {
+            "field": "REMAININGDELTAVEL",
+            "occurrence": 0,
+            "windows": [
+              "-0.000502249793",
+              "-0.000583315693",
+              "0.000643231452"
+            ],
+            "native": [
+              "-0.000502249795",
+              "-0.000583315693",
+              "0.000643231451"
+            ],
+            "native_minus_windows_decimal": [
+              "-2E-12",
+              "0E-12",
+              "-1E-12"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.759998288588"
+            ],
+            "native": [
+              "-0.759998288428"
+            ],
+            "native_minus_windows_decimal": [
+              "1.60E-10"
+            ]
+          },
+          {
+            "field": "RPY",
+            "occurrence": 0,
+            "windows": [
+              "0.026398923697"
+            ],
+            "native": [
+              "0.026398923690"
+            ],
+            "native_minus_windows_decimal": [
+              "-7E-12"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.410990183169"
+            ],
+            "native": [
+              "0.410990183339"
+            ],
+            "native_minus_windows_decimal": [
+              "1.70E-10"
+            ]
+          },
+          {
+            "field": "THRUSTCOMMAND",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1.000000000000"
+            ]
+          }
+        ]
+      }
+    },
+    "pulse-559": {
+      "Columbia": {
+        "panel_saved_record_differences": [
+          {
+            "field": "AccumQuantityMeter",
+            "windows": [
+              "0.520610",
+              "0.520595"
+            ],
+            "native": [
+              "0.520575",
+              "0.520571"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000035",
+              "-0.000024"
+            ]
+          },
+          {
+            "field": "CabinPressMeter",
+            "windows": [
+              "5.003619",
+              "5.003614"
+            ],
+            "native": [
+              "5.003432",
+              "5.003427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000187",
+              "-0.000187"
+            ]
+          },
+          {
+            "field": "CabinTempMeter",
+            "windows": [
+              "69.048587",
+              "69.047318"
+            ],
+            "native": [
+              "69.001332",
+              "69.000008"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.047255",
+              "-0.047310"
+            ]
+          },
+          {
+            "field": "DCVoltMeter",
+            "windows": [
+              "27.679589",
+              "27.679241"
+            ],
+            "native": [
+              "28.010201",
+              "28.010257"
+            ],
+            "native_minus_windows_decimal": [
+              "0.330612",
+              "0.331016"
+            ]
+          },
+          {
+            "field": "EcsRadTempInletMeter",
+            "windows": [
+              "88.847369",
+              "88.849344"
+            ],
+            "native": [
+              "88.877097",
+              "88.879088"
+            ],
+            "native_minus_windows_decimal": [
+              "0.029728",
+              "0.029744"
+            ]
+          },
+          {
+            "field": "EcsRadTempPrimOutletMeter",
+            "windows": [
+              "48.869422",
+              "48.872188"
+            ],
+            "native": [
+              "48.869781",
+              "48.872120"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000359",
+              "-0.000068"
+            ]
+          },
+          {
+            "field": "EcsRadTempSecOutletMeter",
+            "windows": [
+              "56.171814",
+              "56.171890"
+            ],
+            "native": [
+              "56.171836",
+              "56.171831"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000022",
+              "-0.000059"
+            ]
+          },
+          {
+            "field": "FuelCellCondenserTempMeter",
+            "windows": [
+              "1.019644",
+              "1.019532"
+            ],
+            "native": [
+              "1.015088",
+              "1.015078"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.004556",
+              "-0.004454"
+            ]
+          },
+          {
+            "field": "FuelCellH2FlowMeter",
+            "windows": [
+              "2.871385",
+              "2.871300"
+            ],
+            "native": [
+              "2.647113",
+              "2.647137"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.224272",
+              "-0.224163"
+            ]
+          },
+          {
+            "field": "FuelCellO2FlowMeter",
+            "windows": [
+              "2.874493",
+              "2.874374"
+            ],
+            "native": [
+              "2.663900",
+              "2.663916"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.210593",
+              "-0.210458"
+            ]
+          },
+          {
+            "field": "FuelCellTempMeter",
+            "windows": [
+              "2.583539",
+              "2.583479"
+            ],
+            "native": [
+              "2.581170",
+              "2.581162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002369",
+              "-0.002317"
+            ]
+          },
+          {
+            "field": "GlyEvapSteamPressMeter",
+            "windows": [
+              "0.131185",
+              "0.131275"
+            ],
+            "native": [
+              "0.131027",
+              "0.130905"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000158",
+              "-0.000370"
+            ]
+          },
+          {
+            "field": "GlyEvapTempOutletMeter",
+            "windows": [
+              "40.732161",
+              "40.730245"
+            ],
+            "native": [
+              "40.726077",
+              "40.729404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.006084",
+              "-0.000841"
+            ]
+          },
+          {
+            "field": "GlycolDischPressMeter",
+            "windows": [
+              "36.907596",
+              "36.908251"
+            ],
+            "native": [
+              "36.913391",
+              "36.914396"
+            ],
+            "native_minus_windows_decimal": [
+              "0.005795",
+              "0.006145"
+            ]
+          },
+          {
+            "field": "H2Pressure1Meter",
+            "windows": [
+              "231.178658",
+              "231.060597"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.834255",
+              "-0.836286"
+            ]
+          },
+          {
+            "field": "H2Pressure2Meter",
+            "windows": [
+              "231.178658",
+              "231.060596"
+            ],
+            "native": [
+              "230.344403",
+              "230.224311"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.834255",
+              "-0.836285"
+            ]
+          },
+          {
+            "field": "H2Quantity1Meter",
+            "windows": [
+              "3.248622",
+              "3.248630"
+            ],
+            "native": [
+              "3.248679",
+              "3.248687"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000057",
+              "0.000057"
+            ]
+          },
+          {
+            "field": "H2Quantity2Meter",
+            "windows": [
+              "3.248622",
+              "3.248630"
+            ],
+            "native": [
+              "3.248679",
+              "3.248686"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000057",
+              "0.000056"
+            ]
+          },
+          {
+            "field": "H2oQuantityMeter",
+            "windows": [
+              "0.888430",
+              "0.888431"
+            ],
+            "native": [
+              "0.888429",
+              "0.888429"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000001",
+              "-0.000002"
+            ]
+          },
+          {
+            "field": "HighGainAntennaPitchMeter",
+            "windows": [
+              "5.109406",
+              "5.095325"
+            ],
+            "native": [
+              "4.917351",
+              "4.903162"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.192055",
+              "-0.192163"
+            ]
+          },
+          {
+            "field": "HighGainAntennaStrengthMeter",
+            "windows": [
+              "16.681756",
+              "16.488862"
+            ],
+            "native": [
+              "13.692214",
+              "13.459789"
+            ],
+            "native_minus_windows_decimal": [
+              "-2.989542",
+              "-3.029073"
+            ]
+          },
+          {
+            "field": "HighGainAntennaYawMeter",
+            "windows": [
+              "354.746299",
+              "354.758367"
+            ],
+            "native": [
+              "354.911497",
+              "354.923723"
+            ],
+            "native_minus_windows_decimal": [
+              "0.165198",
+              "0.165356"
+            ]
+          },
+          {
+            "field": "O2Pressure1Meter",
+            "windows": [
+              "2.740798",
+              "2.740462"
+            ],
+            "native": [
+              "2.738659",
+              "2.738427"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.002139",
+              "-0.002035"
+            ]
+          },
+          {
+            "field": "O2Pressure2Meter",
+            "windows": [
+              "3.121132",
+              "3.126669"
+            ],
+            "native": [
+              "3.163548",
+              "3.169928"
+            ],
+            "native_minus_windows_decimal": [
+              "0.042416",
+              "0.043259"
+            ]
+          },
+          {
+            "field": "O2Quantity1Meter",
+            "windows": [
+              "3.426082",
+              "3.426104"
+            ],
+            "native": [
+              "3.426274",
+              "3.426304"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000192",
+              "0.000200"
+            ]
+          },
+          {
+            "field": "O2Quantity2Meter",
+            "windows": [
+              "3.421060",
+              "3.421083"
+            ],
+            "native": [
+              "3.421261",
+              "3.421293"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000201",
+              "0.000210"
+            ]
+          },
+          {
+            "field": "PartPressCO2Meter",
+            "windows": [
+              "1.083295",
+              "1.083279"
+            ],
+            "native": [
+              "1.083274",
+              "1.083281"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000021",
+              "0.000002"
+            ]
+          },
+          {
+            "field": "RCSHeliumPressMeter",
+            "windows": [
+              "3597.932825",
+              "3597.937075"
+            ],
+            "native": [
+              "3598.091201",
+              "3598.095614"
+            ],
+            "native_minus_windows_decimal": [
+              "0.158376",
+              "0.158539"
+            ]
+          },
+          {
+            "field": "RCSQuantityMeter",
+            "windows": [
+              "0.766281",
+              "0.766282"
+            ],
+            "native": [
+              "0.766297",
+              "0.766297"
+            ],
+            "native_minus_windows_decimal": [
+              "0.000016",
+              "0.000015"
+            ]
+          },
+          {
+            "field": "RCSTempMeter",
+            "windows": [
+              "115.126968",
+              "115.128166"
+            ],
+            "native": [
+              "115.171651",
+              "115.172896"
+            ],
+            "native_minus_windows_decimal": [
+              "0.044683",
+              "0.044730"
+            ]
+          },
+          {
+            "field": "SPSTempMeter",
+            "windows": [
+              "1.415430",
+              "1.415422"
+            ],
+            "native": [
+              "1.415117",
+              "1.415109"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000313",
+              "-0.000313"
+            ]
+          },
+          {
+            "field": "SuitCabinDeltaPMeter",
+            "windows": [
+              "2.449373",
+              "2.452519"
+            ],
+            "native": [
+              "2.453268",
+              "2.453877"
+            ],
+            "native_minus_windows_decimal": [
+              "0.003895",
+              "0.001358"
+            ]
+          },
+          {
+            "field": "SuitComprDeltaPMeter",
+            "windows": [
+              "0.273373",
+              "0.273181"
+            ],
+            "native": [
+              "0.272940",
+              "0.273123"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000433",
+              "-0.000058"
+            ]
+          },
+          {
+            "field": "SuitPressMeter",
+            "windows": [
+              "5.365478",
+              "5.365398"
+            ],
+            "native": [
+              "5.365192",
+              "5.365223"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.000286",
+              "-0.000175"
+            ]
+          },
+          {
+            "field": "SuitTempMeter",
+            "windows": [
+              "51.529535",
+              "51.522438"
+            ],
+            "native": [
+              "51.524026",
+              "51.527467"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.005509",
+              "0.005029"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27500.240003240277",
+              "-98.150446956160",
+              "13523.110522070940"
+            ],
+            "native": [
+              "27500.240003240287",
+              "-98.150446956160",
+              "13523.110522070940"
+            ],
+            "native_minus_windows_decimal": [
+              "1.0E-11",
+              "0E-12",
+              "0E-12"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "occurrence": 0,
+            "windows": [
+              "0.406162052196",
+              "0.009029928774",
+              "-1.382653652684"
+            ],
+            "native": [
+              "0.406162052186",
+              "0.009029928774",
+              "-1.382653652663"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.0E-11",
+              "0E-12",
+              "2.1E-11"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368753.722916664497"
+            ],
+            "native": [
+              "368753.709153565811"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763098686"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.660285799746"
+            ],
+            "native": [
+              "-0.660285799759"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.3E-11"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.909070040678"
+            ],
+            "native": [
+              "0.909070040816"
+            ],
+            "native_minus_windows_decimal": [
+              "1.38E-10"
+            ]
+          }
+        ]
+      },
+      "Eagle": {
+        "panel_saved_record_differences": [
+          {
+            "field": "MainHeliumPressureMeter",
+            "windows": [
+              "1271.276745",
+              "1271.276745"
+            ],
+            "native": [
+              "1271.254011",
+              "1271.254011"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.022734",
+              "-0.022734"
+            ]
+          }
+        ],
+        "remaining_non_tank_non_panel_record_differences": [
+          {
+            "field": "<H2OSEP>",
+            "occurrence": 0,
+            "windows": [
+              "WATERSEP1",
+              "1384.228102"
+            ],
+            "native": [
+              "WATERSEP1",
+              "1384.228101"
+            ]
+          },
+          {
+            "field": "LASTGLOBALVEL",
+            "occurrence": 0,
+            "windows": [
+              "27569.320907249428",
+              "-97.998729425633",
+              "13442.175128493123"
+            ],
+            "native": [
+              "27569.320907249439",
+              "-97.998729425633",
+              "13442.175128493122"
+            ],
+            "native_minus_windows_decimal": [
+              "1.1E-11",
+              "0E-12",
+              "-1E-12"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "occurrence": 0,
+            "windows": [
+              "0.385945009578",
+              "0.010012409988",
+              "-1.516990510240"
+            ],
+            "native": [
+              "0.385945009568",
+              "0.010012409988",
+              "-1.516990510215"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.0E-11",
+              "0E-12",
+              "2.5E-11"
+            ]
+          },
+          {
+            "field": "MASSCG_STATE",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "0.000000000000",
+              "-0.730421378489",
+              "0.000000000000",
+              "2.542800000000",
+              "2.287100000000",
+              "2.756600000000",
+              "8358.241572053867"
+            ]
+          },
+          {
+            "field": "MISSNTIME",
+            "occurrence": 0,
+            "windows": [
+              "368753.754167"
+            ],
+            "native": [
+              "368753.740404"
+            ],
+            "native_minus_windows_decimal": [
+              "-0.013763"
+            ]
+          },
+          {
+            "field": "NATIVE_LANDING_AUDIO",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "\"\""
+            ]
+          },
+          {
+            "field": "REMAININGDELTAVEL",
+            "occurrence": 0,
+            "windows": [
+              "-0.000502326328",
+              "-0.000583318256",
+              "0.000643269294"
+            ],
+            "native": [
+              "-0.000502326335",
+              "-0.000583318256",
+              "0.000643269299"
+            ],
+            "native_minus_windows_decimal": [
+              "-7E-12",
+              "0E-12",
+              "5E-12"
+            ]
+          },
+          {
+            "field": "RPX",
+            "occurrence": 0,
+            "windows": [
+              "-0.239999768397"
+            ],
+            "native": [
+              "-0.239999768695"
+            ],
+            "native_minus_windows_decimal": [
+              "-2.98E-10"
+            ]
+          },
+          {
+            "field": "RPY",
+            "occurrence": 0,
+            "windows": [
+              "0.706398924867"
+            ],
+            "native": [
+              "0.706398924862"
+            ],
+            "native_minus_windows_decimal": [
+              "-5E-12"
+            ]
+          },
+          {
+            "field": "RPZ",
+            "occurrence": 0,
+            "windows": [
+              "0.690998587973"
+            ],
+            "native": [
+              "0.690998588812"
+            ],
+            "native_minus_windows_decimal": [
+              "8.39E-10"
+            ]
+          },
+          {
+            "field": "RR_RATE",
+            "occurrence": 0,
+            "windows": [
+              "102.062834388938"
+            ],
+            "native": [
+              "102.062834388939"
+            ],
+            "native_minus_windows_decimal": [
+              "1E-12"
+            ]
+          },
+          {
+            "field": "THRUSTCOMMAND",
+            "occurrence": 0,
+            "windows": null,
+            "native": [
+              "1.000000000000"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "complete_numeric_comparison": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/cross-platform-comparison.json",
+  "known_differences_retained": [
+    "Correct native MOTORRUNNING restoration versus stock skipped initial flags; native first-frame power consumption retained.",
+    "Double-loaded native mission clocks versus stock float quantization.",
+    "Headless versus rendered panel/display cadence.",
+    "Extra native cached mass/CoG, throttle and audio state records."
+  ],
+  "unresolved_and_limits": [
+    "Complete cross-platform vessel blocks differ. No numerical tolerance, reference injection or full-state waiver.",
+    "Inertial, IMU, chemical, water-separator and radar residual causes remain unisolated beyond the earlier bounded motor-load analysis.",
+    "Exact saved trajectory tokens have finite precision; no full-precision trajectory or unsampled guidance equality claim.",
+    "Differences of PIPA fractional remainders do not measure total PIPA response; pulse-minus-neutral arithmetic is not an acceptance tolerance.",
+    "The 60-second no-driver repeatability failure and richer native observer comparison failures remain unchanged.",
+    "Shared AGC scheduling/pending CDU FIFO resume remains incomplete; broad redesign stays paused.",
+    "Full mission, physical devices, graphical-native equivalence and manual landing remain unverified."
+  ],
+  "windows_cleanup": {
+    "UTC": "2026-10-12T00:56:29.9863417Z",
+    "OrbiterCount": 0,
+    "CaptureTasks": [],
+    "OriginalPluginRestored": true,
+    "StagedTemporaryDLLRemoved": true,
+    "OrbiterConfigSHA256": "77DFBD191B7A228EA8B4EDECC6E0EFBA9A3CAA3022031C5D0AC0DCB7A7F122BB",
+    "D3D9ConfigSHA256": "332F9BF15F492B193FCB963FA72232CA5942E74F9D00613CA1D5A929A7540C6E",
+    "CurrentStateSHA256": "1A176325AD4BCFB6EC4F9BFA83F3CE5C8F273B5437D787D113814FC77C5F7B0B",
+    "Quicksave25SHA256": "4E81AAB7D3CC72C642773A884EB615C772C1D657556B423AC979DC6E7D859462",
+    "NoCredentialsOrPersistentEnvironment": true,
+    "CoreBinaryHashes": [
+      {
+        "Match": true,
+        "Path": "Orbiter.exe",
+        "SHA256": "14C91475D844BCF0E056B0768E8121297CD07FE10E9130D16FF97327AAE62684"
+      },
+      {
+        "Match": true,
+        "Path": "Modules\\ProjectApollo\\LEM.dll",
+        "SHA256": "DFF0570079E0B45E3FD5E525F8021E2F2800EB4662DB0746DE42E1D1C40463C5"
+      },
+      {
+        "Match": true,
+        "Path": "Modules\\ProjectApollo\\Saturn5.dll",
+        "SHA256": "55C5876AD26EAB736F2E5B814B4275918857AA0CE2DA6F0BE93B8D786A7C730A"
+      },
+      {
+        "Match": true,
+        "Path": "Modules\\Plugin\\ProjectApolloMFD.dll",
+        "SHA256": "6DE80130C7D14AE1DDCC103730DE95916C783FE2B54A9DC13EBFFAC650ED4346"
+      }
+    ],
+    "WorkingConfigsRestored": true,
+    "CurrentStateRestored": true,
+    "QuicksaveUnchanged": true,
+    "CoreBinariesUnchanged": true
+  },
+  "new_guest_capture_required": false,
+  "validation": {
+    "seven_windows_normal_exits": true,
+    "four_windows_neutral_whole_saves_equal": true,
+    "input_request_steps_exactly_302_through_319": true,
+    "release_before_320": true,
+    "zero_native_and_windows_trace_faults": true,
+    "actual_saved_response_equal": true,
+    "all_four_case_both_vessel_trajectory_AGC_DSKY_boundary_comparisons_pass": true,
+    "production_source_equations_inputs_or_tolerances_changed": false,
+    "new_native_runtime_or_ctest_runs": false,
+    "gpu_or_vm_operated_by_native_comparison_worker": false,
+    "push_or_ci": false
+  },
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison",
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/StepInputParity-Windows-validation.zip",
+      "bytes": 1381316,
+      "sha256": "6ae7b917e326e5d3a195334c95db390ca4fd14f46763b61612aedcf52bfb6bde"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/analyze_response.py",
+      "bytes": 2565,
+      "sha256": "0b06ccabc33d08d8c33c7fe8de24e6d4fd0ebfc529040089ac6f70c044f23917"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/classify_fields.py",
+      "bytes": 1894,
+      "sha256": "68f62d50dd5596acf03593f97c7668e8f9561e295f412128f5b21410ff07b508"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/compare.py",
+      "bytes": 6874,
+      "sha256": "6c2a2b6b7f4f52876d85adb7360b8b4d7aa5457d9f2fde026edaddd9ff3ab378"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/cross-platform-comparison.json",
+      "bytes": 191667,
+      "sha256": "3f8a8035718ed71533344fe5200b78d345e449cf0458b002c2ef74e421250de5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/neutral-319-complete.diff",
+      "bytes": 22854,
+      "sha256": "38df4b227d61ed184eadd6fb1673cc62c24b7bcd3453539a991fc9b2f1b116f2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/neutral-a-complete.diff",
+      "bytes": 24172,
+      "sha256": "930950abd9215b61d34d1270d27199379c10c570d9325807bb6f733d7665c629"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/pulse-319-complete.diff",
+      "bytes": 22867,
+      "sha256": "e8bb8adae45af52961d0a4bae2582872ad5e37a1a94d16f675c1e36244227d6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/pulse-559-complete.diff",
+      "bytes": 24721,
+      "sha256": "6e497eb38c17949736e504fe5962cd40e296ecdb6522890e9a38b60eb87ab72c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/remaining-field-inventory.json",
+      "bytes": 69118,
+      "sha256": "f3edf092f49201f7e09afee60c01977c4a436797e5faf5289087c738979df4fb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/response-comparison.json",
+      "bytes": 2679,
+      "sha256": "0cbd94b425c6d6ca3612460035cbcdd17d41c637dfc9d81a474e40d68dc5d2b8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-package-verification.json",
+      "bytes": 7379,
+      "sha256": "4d890adebdc8e43c2820ca4c4bef5d2d32c93e701e93d1d86d301ceb110ca661"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-prepared.json",
+      "bytes": 1571,
+      "sha256": "4907e2a6e10f1f3fb81676793b1613921e7ed0a02ef755735b75cd0c1a220dbe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-readiness.json",
+      "bytes": 566,
+      "sha256": "9df365e940a86ec49467a37f324aa8b09e340bdb3ecfeb33a4879bd85c78e21c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/actual-response.json",
+      "bytes": 2794,
+      "sha256": "50744a0ce66aac9848db103b8a77eed21ee10f93845c22e64402afaa08f7e5da"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-neutral-319-pulse-319.json",
+      "bytes": 13742,
+      "sha256": "6353f4d1656ebe401af37f02ce24d0d9a8e417c15af68765527e7afe16f52f27"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-neutral-319.json",
+      "bytes": 6267,
+      "sha256": "7da40a1fdb760e4a9709917e79dd9e40f73c7658c0a58da38bdf7f221db2a401"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-neutral-a-pulse-559.json",
+      "bytes": 14378,
+      "sha256": "b228f1ce7f0a6fcfec3f834fb4fdd45a3c783a6f05644031b0a8fa28504fac95"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-off-a-off-b-neutral-a-neutral-b.json",
+      "bytes": 23061,
+      "sha256": "8bcfead45522374f1fadc159f1a23b8d2272d25ab524bc09f0a924b6efae1629"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-off-a-off-b-neutral-a.json",
+      "bytes": 16563,
+      "sha256": "e5007ccc1661b6074579e5dafbc3e402d9cb66d7c6fe04c3534f0e57bff0eae0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-off-a-off-b.json",
+      "bytes": 10063,
+      "sha256": "04dc979cf5742ae19b7244465ba75189750ec7dcc49ba61e0712f7b6900c0038"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/comparison-off-a.json",
+      "bytes": 5044,
+      "sha256": "2b0d7ce821281da2f377c68cb6d7237a3457e224627a7fd29a63108e87f2105c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/file-manifest.json",
+      "bytes": 28129,
+      "sha256": "e1837a481a07068c623eaf05fdbf97f03fc18e65ca0d11d43f12db0acbaf8c03"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/final-state.json",
+      "bytes": 2051,
+      "sha256": "7c3d035ce211cd528790b1f605f76c58c6815321a95ed991babcb8a0e442dce0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/D3D9ClientLog.html",
+      "bytes": 131677,
+      "sha256": "b1ca5fbe39b3b4e6337bb1925405b65d8b309572df19a93b6f299ee11da79887"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/Orbiter.log",
+      "bytes": 27500,
+      "sha256": "f210f7b66c501a81b966e66be6a5b95f458726e01351bb557c5cf9cece96a230"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/action.cmd.txt",
+      "bytes": 430,
+      "sha256": "eae517075750d94aab881a1d3e723cb31e64eae4decaa7918bae4988e7a5ac31"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/complete-vessel-blocks.lf.txt",
+      "bytes": 348885,
+      "sha256": "44da3ec32aec35600d14341584115327c44d8d8404bf8dd984781c3ce91c28f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/launch.json",
+      "bytes": 2786,
+      "sha256": "3c3d398ae01198cba5938dc62bb8424fdc363136921356b45cb2588b244aa7aa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/result.json",
+      "bytes": 2276,
+      "sha256": "5905ec3313cb01f08d01382c8c976843eded7b4fed494a42bf5d1e723c1d9166"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/saved.scn",
+      "bytes": 368261,
+      "sha256": "db8b52609c35ea49f708126800c1fae288f56bd1787c95e2741476d8bd03a25f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319/trace.tsv",
+      "bytes": 356,
+      "sha256": "a732c033b774d948003c6bfff2455445f7414359ea77efde6d5ccd90cb9444e9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-319-vs-pulse-319.diff",
+      "bytes": 23024,
+      "sha256": "a31de8d824ab20cc7a34ebde45485ae86f5141de9057e1ceb78f8bd9285b4483"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/D3D9ClientLog.html",
+      "bytes": 131677,
+      "sha256": "ca684b987fe514900a2a17ee3032a8075983ad1ea292ddba09ee556b37bfd60b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/Orbiter.log",
+      "bytes": 27500,
+      "sha256": "df039b3a39266128dc222cba5be2ddb7f73dc91d706550af38a8d20963081f6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/action.cmd.txt",
+      "bytes": 428,
+      "sha256": "b1c83f2112d58c3d14a8e17983808c5b67d43d76172bf27a1a1dbc6acef265ae"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/complete-vessel-blocks.lf.txt",
+      "bytes": 348846,
+      "sha256": "2a2e9f5d594936b46bfb6319083ee14ee910567b8600a70c3a1e9a70c455b7fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/launch.json",
+      "bytes": 2776,
+      "sha256": "42611c493648bfce9534b1408f91b2a71228bd9eea63128a3454668869264822"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/result.json",
+      "bytes": 2274,
+      "sha256": "38d43d957eb1e11ae31a3ebbf64f6bb75103221dd5c6324fb26908168b0bec6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/saved.scn",
+      "bytes": 368219,
+      "sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/trace-start.tsv",
+      "bytes": 78,
+      "sha256": "aac7c23ce5a52fae1da0ea9dc7f2ff8078a96695b6262e50e345e766ebda4e22"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a/trace.tsv",
+      "bytes": 488,
+      "sha256": "581f719c00db5c43f1c733fd615ee2a2687b2dfaeae41520c5ec39b3c776e537"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-a-vs-pulse-559.diff",
+      "bytes": 38178,
+      "sha256": "e331352d861ee7f6faff3b0b3da3b493fda509f5180a1e6da9a342344668a911"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/D3D9ClientLog.html",
+      "bytes": 130706,
+      "sha256": "f4c28d98c7151e2d50a586fd7a913b7c888e1201e2a4daa2c0548f781e2393d2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/Orbiter.log",
+      "bytes": 27500,
+      "sha256": "5762aed0e0692a3f7e0e74b543d9de49f289896c3cb4d8967a5290c916206c09"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/action.cmd.txt",
+      "bytes": 428,
+      "sha256": "4608cf9846ef7abc01481b5ef61f00b1acde9383b46cbe669d7aaded1c87f7c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/complete-vessel-blocks.lf.txt",
+      "bytes": 348846,
+      "sha256": "2a2e9f5d594936b46bfb6319083ee14ee910567b8600a70c3a1e9a70c455b7fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/launch.json",
+      "bytes": 2776,
+      "sha256": "0d6c3c45edb270ac69c2bfac6171f76f7490d8dc497e035988567388ee7dfac9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/result.json",
+      "bytes": 2274,
+      "sha256": "903b12dbff497a4d2e3bcbb68167c701aef831afafc083a517b8269e4d1fa7fe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/saved.scn",
+      "bytes": 368219,
+      "sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/trace-progress.tsv",
+      "bytes": 404,
+      "sha256": "2a2de92bea6aec9e52163ab650d728640f20012b44c2940ae799e5c920b39251"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/neutral-b/trace.tsv",
+      "bytes": 488,
+      "sha256": "581f719c00db5c43f1c733fd615ee2a2687b2dfaeae41520c5ec39b3c776e537"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/D3D9ClientLog.html",
+      "bytes": 130690,
+      "sha256": "66e5f2daa7ed457472077cbfdd5c7a379c34ac2fb007c174c375bba431fd60fc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/Orbiter.log",
+      "bytes": 27410,
+      "sha256": "1b4dec68e253903f5e7a4c6a30b07f1f9cac212790d900051ea857d8a7c0008f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/action.cmd.txt",
+      "bytes": 399,
+      "sha256": "ff41ef182cd84de51446d3a730ba4aa3a5726985335bfcedb15d3115d61721ab"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/complete-vessel-blocks.lf.txt",
+      "bytes": 348846,
+      "sha256": "2a2e9f5d594936b46bfb6319083ee14ee910567b8600a70c3a1e9a70c455b7fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/launch.json",
+      "bytes": 2638,
+      "sha256": "22b235e7cc3aa6fd8a6c2ad31cf182daf96756799214688ff574c938645a3fbf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/result.json",
+      "bytes": 2182,
+      "sha256": "a5a96db481c46b2de4bab86f38fe4ef07943ec36bf7d0ee7975fbdbfd5378106"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a/saved.scn",
+      "bytes": 368219,
+      "sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a-vs-neutral-a.diff",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a-vs-neutral-b.diff",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-a-vs-off-b.diff",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/D3D9ClientLog.html",
+      "bytes": 130704,
+      "sha256": "38576a63089200fc7648cccf9d7360a9c66878b18d29d988824aa7498522b347"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/Orbiter.log",
+      "bytes": 27410,
+      "sha256": "24679ea6383dd4cfadbe5be19d4ac66981ad73485f2429da07c9e839b8795d14"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/action.cmd.txt",
+      "bytes": 399,
+      "sha256": "1beeca470ec251aaf034f13162da6eda1edf05aa43f7ad7d1d94788d18d335dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/complete-vessel-blocks.lf.txt",
+      "bytes": 348846,
+      "sha256": "2a2e9f5d594936b46bfb6319083ee14ee910567b8600a70c3a1e9a70c455b7fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/launch.json",
+      "bytes": 2638,
+      "sha256": "c375f8ba4accdb7fb4ecc0f0da7532aec506c17f98a947c247477d52edb0e3c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/result.json",
+      "bytes": 2182,
+      "sha256": "3ad5b94440e1a564f7a5d5705e17aea11d7b2cadabdd01b5380b09498fdb7235"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/off-b/saved.scn",
+      "bytes": 368219,
+      "sha256": "a467c9b4bb07618cbb5a0b2f818f51c8423c2f4f7b7c8b8b66cf95f0682e6df6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/progress.json",
+      "bytes": 2756,
+      "sha256": "c0b6369efbb30ad1504293b95f0236165ec836b3af8ab7189617e49df00eadbd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/D3D9ClientLog.html",
+      "bytes": 131676,
+      "sha256": "1def6b861b92cba753b55c19b9efe07a66255147e859f2212690f1602e80a857"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/Orbiter.log",
+      "bytes": 27500,
+      "sha256": "f7808daf2a43c74a7100074725f5cd1cac37053729a0f1c5b174ce03baff8f5c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/action.cmd.txt",
+      "bytes": 426,
+      "sha256": "9589e67520ddaac1e0487ceb4c5f888a91b5276f6f175e08e53d2a6f68099b71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/complete-vessel-blocks.lf.txt",
+      "bytes": 349025,
+      "sha256": "f302c8571325209ce8a531a5b4cef8243f1ac5b2fe4d278ea50c92fd65e538ae"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/launch.json",
+      "bytes": 2772,
+      "sha256": "3daa201f2898f03809a08f7a3d9efc6665bffc759ada8d47511432150fbd779e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/result.json",
+      "bytes": 2274,
+      "sha256": "85cf81b87ab3dfc8315e39cddad1d8feee20ead0bad493a3a97e16624544f57a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/saved.scn",
+      "bytes": 368407,
+      "sha256": "06dc17bea20616ab6f2d432c028c0c574b0c8fede60506e8da39707034758b3d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-319/trace.tsv",
+      "bytes": 636,
+      "sha256": "50e6c94ffc65598c5e3798e824cffc4562413322855f2ed78d529c7adb6acbfa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/D3D9ClientLog.html",
+      "bytes": 131679,
+      "sha256": "c488a56a2462cc4ece566b36d33916f7558cd4d951d54d565a4057004009aa4b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/Orbiter.log",
+      "bytes": 27500,
+      "sha256": "be61ef04417cf52628e53bf7a00cd9e9f58de1badffc6a2d4bc932333337f568"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/action.cmd.txt",
+      "bytes": 426,
+      "sha256": "e692bc514b131cca1b576b8d668f47816c8938e9f4fbf71c9bd3cee731b03874"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/complete-vessel-blocks.lf.txt",
+      "bytes": 348828,
+      "sha256": "450305cf656e1728e6f94be6cf32e35d464720d7e6972af67a9c28a3c2a5e4bc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/launch-D3D9Client.cfg",
+      "bytes": 1445,
+      "sha256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/launch-Orbiter.cfg",
+      "bytes": 879,
+      "sha256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/launch.json",
+      "bytes": 2772,
+      "sha256": "93ebc8c42d170235f61f1676cbf9e71888b641ab628e18bc67d02998d8b77a39"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/post-close-D3D9Client.cfg",
+      "bytes": 1448,
+      "sha256": "191a55880880276ddb694ed5de7f164cedad0e97fd3f426fc2b0312c85b5a256"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/post-close-Orbiter.cfg",
+      "bytes": 827,
+      "sha256": "b7cc0996d3ebec5e3368b7a0e8f6e7dc1564f5f857bce2ebbff469cd669d0a2f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/result.json",
+      "bytes": 2274,
+      "sha256": "3066d4348e4c74ec6a890cfbacb0c0cd60fe5929165fff01eb71e456591adfb7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/saved.scn",
+      "bytes": 368201,
+      "sha256": "ce5af95b2852da28fd6ad9beb917365fc30f1b7ab622b463e4d0689519a8f3bb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/pulse-559/trace.tsv",
+      "bytes": 796,
+      "sha256": "3d30d3bd50a20521031488f8a783cb6a42a79803c4eb60d5dd92e7789775f86d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows/validation-index.json",
+      "bytes": 6939,
+      "sha256": "4a722b636e5dcbb8cc561756babbfe654448692439c028f7c52a46d2c1eb48a5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/evidence/step-input-windows-validation-instructions.md",
+      "bytes": 6031,
+      "sha256": "b6dd38343f89d5a20661ddffb5b8debe83836f57c7cb6a25f7ae7fd3d826c041"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/guest.py",
+      "bytes": 1664,
+      "sha256": "f9d5a9cfbc6b9d17d335c75c29c336db4ec3d02d690764d4c7dbf49d7db28060"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_collect_template.ps1",
+      "bytes": 3681,
+      "sha256": "d3a109da0b0da31dc9e4f45c570045018206897c47d41c2c6e867e6714428af7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_compare.py",
+      "bytes": 5503,
+      "sha256": "671ba900d6726f4a08d3a0ca67c45a81e11f66f1ce3086b33f58fd91a9219577"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_finish.ps1",
+      "bytes": 2371,
+      "sha256": "5a867075a9e959cc9d9460e302a763d069bb6e64820e139b0d41dacda05f7d3d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_launch_template.ps1",
+      "bytes": 4861,
+      "sha256": "8a044c88795e452540cbd386bbb1893c2137487f0dd7c01d7be8699446aceed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-319_collect.ps1",
+      "bytes": 3684,
+      "sha256": "57229ddce3b0535b142f28ba1d40204ae4a0c753c87e19606f3eaa5f69fd7304"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-319_launch.ps1",
+      "bytes": 4861,
+      "sha256": "bf1dea65977eed08a3c41f08325cca9df813d156edb8d8ac09cc4355d0d5037d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-319_probe.ps1",
+      "bytes": 441,
+      "sha256": "adeccadccc3d87e223e4cc80633b90989c59e8f7b57918c8c3e0bdc66a8dc4bb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-319_trace_read.ps1",
+      "bytes": 450,
+      "sha256": "5a3d10361a6087337849b42327f14c71ab9622a2637a738ed6b8c443b81a9938"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-a_collect.ps1",
+      "bytes": 3682,
+      "sha256": "b8a499b41c4fdf8e0c56e18490fad67641b962345a922a91ab127247488cba2d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-a_launch.ps1",
+      "bytes": 4859,
+      "sha256": "df9e9f2069ce1da957b690fc5a26a1a33aed8712d1da6834ebb957cb6257e71c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-a_probe.ps1",
+      "bytes": 439,
+      "sha256": "17ec2179454686e7f853f53eac8db6f05f04f2d60bbef11d775b5d33fa31c5b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-a_trace_read.ps1",
+      "bytes": 448,
+      "sha256": "88a9594130c1b2884ac754bfc630edcf1d44bae933e5d3401c8ae2d55e1fda79"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-b_collect.ps1",
+      "bytes": 3682,
+      "sha256": "b80a5a712749709fa751eeb420c9b5a4cad759adee924d553a636e6a00c90df1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-b_launch.ps1",
+      "bytes": 4859,
+      "sha256": "87402970bceb761c0155ae488e3eadf22245aa6e3d8be48feb399fff78bc5c01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-b_probe.ps1",
+      "bytes": 439,
+      "sha256": "7aaebfa4ba781cb1ca18e7492ea819413017ef3f36374f5113ab8289beb0ef83"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_neutral-b_trace_read.ps1",
+      "bytes": 448,
+      "sha256": "ab9d1f00fddcec418e689f30101794a46ee680ccfa22057e8f8669f57576f3d8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-a_collect.ps1",
+      "bytes": 3678,
+      "sha256": "7924d3c941098045468c8861380102d0231adcbde0a879dac8f4d04cd91cd426"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-a_launch.ps1",
+      "bytes": 4851,
+      "sha256": "a716087af77686a2c7da0d3383e3c679355b912c998892d9d5e5a83b8bbce953"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-a_probe.ps1",
+      "bytes": 435,
+      "sha256": "a812528cc43923514a54e0bc0d4b8625cf8db6226794c4932d4af61b2434d7fe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-b_collect.ps1",
+      "bytes": 3678,
+      "sha256": "474cda54e54ffb0d6beca20fbabd5108045425a38304c26432f44b2cc30fc7fc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-b_launch.ps1",
+      "bytes": 4851,
+      "sha256": "da24bfed6ce68b8ab8dbb98936159ddb22c252df628d606467041f809f90be00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_off-b_probe.ps1",
+      "bytes": 435,
+      "sha256": "b90305d49364a2ecee0244766a93ae58432c34e9cab97bc0ec4eb94178bc038e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pack.py",
+      "bytes": 3659,
+      "sha256": "dcbca6bcfecc0c17de2d518c58f4ce357aa9286720cb7699b9726e3d0a5ca174"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_prepare.ps1",
+      "bytes": 1947,
+      "sha256": "7a99bd475feecc362cda2b2fc9c437b019cf65c6d7b4eb66b2242556f7414e8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_probe_template.ps1",
+      "bytes": 438,
+      "sha256": "ce563472a86faef996daf207908e5839c6a8a0ecb291b2f3843d05f9cd2b9f44"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-319_collect.ps1",
+      "bytes": 3682,
+      "sha256": "d9b8bb22628600a05183aaaa1991b75ed368adf337ec3277fbc7f9509de0b9b4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-319_launch.ps1",
+      "bytes": 4857,
+      "sha256": "41dd96b6b8f3e1317aaeb4c8263e3538047e31855451a89d3472eaa52edf080d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-319_probe.ps1",
+      "bytes": 439,
+      "sha256": "12493fb6c99028c8aecc757dc554d12b2aa7260b05f299156cadfc4c21e2167f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-319_trace_read.ps1",
+      "bytes": 448,
+      "sha256": "e06e4ee199d6966a3d61dcb27ff8f290b81df215ea104c8275ca7c0ecd38447f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-559_collect.ps1",
+      "bytes": 3682,
+      "sha256": "7b4fc3d15b627fe872cd5cc4a531176f2e5359679ecb6d3cbde7c0a5f94b03c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-559_launch.ps1",
+      "bytes": 4857,
+      "sha256": "a9ab99f390a0adb57891712baad3448d61868c7a100bf45b7581bdded0adf855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-559_probe.ps1",
+      "bytes": 439,
+      "sha256": "cae1d963e0bb4783ea57a4730468ba08931189e5eba799e01782351e0c10e101"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_pulse-559_trace_read.ps1",
+      "bytes": 448,
+      "sha256": "b0daf815ef75f214b73b27daa2ff3dbca42c7653ae49767cc9a882be220c1f76"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/scripts/step_input_response.py",
+      "bytes": 2274,
+      "sha256": "66d32e08a65d3075f79f7258c6cd4ca61b89d7871b67b836b977d98d4ecff58a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/StepInputParity.dll",
+      "bytes": 9216,
+      "sha256": "e973659c2cf0a4c5202b86793ef08629958315e1d7a617abef010668c0a5b2b8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/adapter-build.json",
+      "bytes": 1834,
+      "sha256": "c2771d1af8ea4a962114bf84bd3455f1288fa917750154b856c6a0b930db9f98"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/build-provenance.json",
+      "bytes": 4011,
+      "sha256": "f231cee99e7b9745487b1eeb675870a6c12c8dbd7bc90d3285d85844010d2fe0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/native-response-boundaries.json",
+      "bytes": 2086,
+      "sha256": "dd3ac1d5f3d866caac75f9ff4a6d95c9773b16c263ac7401e9c7441100d2f0f5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/neutral-validation.json",
+      "bytes": 9596,
+      "sha256": "8c5e2485f29f2ceb8d2a534871a5790a314e6da9d99eafa9da8c9335466ad85d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/off-repeat-3601.diff",
+      "bytes": 2585,
+      "sha256": "eb2a3110cad2ec603e12764f07aa4ba634e4c9a1aa58c2328135ee06a8b1cf02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/plan-and-windows-needs.md",
+      "bytes": 5335,
+      "sha256": "de3027c0adc1041a2409144d93159b0687abb22b69413969f79c47f16af85b72"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/pulse-validation.json",
+      "bytes": 12205,
+      "sha256": "7e6caf7d05b45f5a9fc27f28bb1556b1fca72c111bec6d625a17a58be5d682c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/pulse-vs-existing-319.diff",
+      "bytes": 6141,
+      "sha256": "1e1cea5cc970fbc562a824438acee9d766d325f978905b41139211b5939ea0ff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/pulse-vs-existing-559.diff",
+      "bytes": 6477,
+      "sha256": "bd5173dc457001402e4cb1b424ca6241f1c1d00c97441b9ea8feb6f16b8cd8ac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/src/NativeStepInput.cpp",
+      "bytes": 3236,
+      "sha256": "c7242bd25f0df43f88d81920ee1c3a7330f4e6c482317f8e885cd0318dd016e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/src/StepInputParity.cpp",
+      "bytes": 6156,
+      "sha256": "9212d36284056cfb3e7e75a3fb542a8c5a3222017a7f4500da9d6cc558dd15c2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/src/WinPrelude.h",
+      "bytes": 1442,
+      "sha256": "4fd4325d7521bb5d453665a576efb7103c0522cca36e99aab6a8a02644ae7605"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/windows/step-input-package/windows-validation-instructions.md",
+      "bytes": 6031,
+      "sha256": "b6dd38343f89d5a20661ddffb5b8debe83836f57c7cb6a25f7ae7fd3d826c041"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/step-input-comparison/write_report.py",
+      "bytes": 5528,
+      "sha256": "560dd1b6236267da1104815f99e17ace01e034b09a315c0deed38924cc088fef"
+    }
+  ]
+}

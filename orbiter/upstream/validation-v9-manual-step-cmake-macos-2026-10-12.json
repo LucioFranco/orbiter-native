@@ -1,0 +1,24 @@
+{
+  "explicit_v9": true,
+  "auto_to_v9": true,
+  "identical_registered_tests": true,
+  "registered_test_count": 103,
+  "native_manual_step_alignment_count": 1,
+  "final_profile_restored": "v9",
+  "build_or_graphics_launched": false,
+  "recorded_utc": "2026-10-12T04:31:50.940269+00:00",
+  "review_base_commit": "1d51fe04b8d29659f8d3c2712d1a982345ae3c49",
+  "change": "Register manual alignment after preflight using resolved _native_data_profile",
+  "configure_logs": [
+    "<NATIVE_EVIDENCE_ROOT>/manual-step-cmake-20261012/configure-v9.log",
+    "<NATIVE_EVIDENCE_ROOT>/manual-step-cmake-20261012/configure-auto.log",
+    "<NATIVE_EVIDENCE_ROOT>/manual-step-cmake-20261012/configure-v9-restored.log"
+  ],
+  "test_lists": [
+    "<NATIVE_EVIDENCE_ROOT>/manual-step-cmake-20261012/list-v9.json",
+    "<NATIVE_EVIDENCE_ROOT>/manual-step-cmake-20261012/list-auto.json"
+  ],
+  "runtime_tests_repeated": false,
+  "reason": "CMake-only registration change; runtime already validated at review base",
+  "full_103_suite_rerun": false
+}

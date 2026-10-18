@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "commit": "96b6380943c382a297f969842be9344ef969a6f4",
+  "files": {
+    "EasepLR3.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/EasepLR3.vcxproj",
+      "git_blob": "4b22a5fb04b291fd8e912cff602ec71086cdcd10",
+      "lf_sha256": "f40de63cb0fd46824610977ba804876677f0274c991e435dc4ae2a3ada9177b2"
+    },
+    "EasepPSEP.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/EasepPSEP.vcxproj",
+      "git_blob": "2bd5706f880c8ec45b203058aa941c0c9ec8907e",
+      "lf_sha256": "91f54bf876b434d6fde335377416763bb588a80b52b5ac4f0489b92a005a94be"
+    },
+    "EasepSWC.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/EasepSWC.vcxproj",
+      "git_blob": "9423c90f70e7386f4f0122d2fcceea59507fb402",
+      "lf_sha256": "480e6fbbe2920c7440507ef4e01b1a363320ac7015644e028350a468a0bfda9b"
+    },
+    "Flag.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/Flag.vcxproj",
+      "git_blob": "57da127b28bfaf5b5c7f3db7b0c6d22de4e28db6",
+      "lf_sha256": "594ec20a8a1d10cb89e680a168fa0b8b01bfa491e739a3dac554889466da3356"
+    },
+    "Floodlight.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/Floodlight.vcxproj",
+      "git_blob": "311c2ed7cf30d835fcbeb198749dccfbd0d0a8f2",
+      "lf_sha256": "7a4df81a266db863d7148759daa7fc51b0bb9a7ee7ed268ad8539271f1508e31"
+    },
+    "LEM.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/LEM.vcxproj",
+      "git_blob": "29111c66024dd615bca9fb61bb0bcc27e10f243a",
+      "lf_sha256": "b258cdff5eb53d1328f977fc00069753cdb1f4706456ff9c0e8d160a84fd2177"
+    },
+    "MCC.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/MCC.vcxproj",
+      "git_blob": "005f4c2883dfe61e78f8c6666ddb262b3a4a9856",
+      "lf_sha256": "15f879735b44712ba61e39ac81a17f22aead3dbb9c50330357b6398d84fbb46e"
+    },
+    "ML.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/ML.vcxproj",
+      "git_blob": "dec5453e4500e7f236fb18df20d32771293630c5",
+      "lf_sha256": "790a0bd5e933fa50b0080a3f30020a0f1ac02e01557482a08088071203e96960"
+    },
+    "PanelSDK.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/PanelSDK.vcxproj",
+      "git_blob": "efa550097655c84edbbe6e0ab2d62dfb373b3e3b",
+      "lf_sha256": "6c4f72a942c969ef486955cbf0f016c0e427a7f293c48dd353ec4b63fdf536cf"
+    },
+    "ProjectApolloMFD.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/ProjectApolloMFD.vcxproj",
+      "git_blob": "8bf56af10db889ff4224641a2aa72ee4c5d47ff5",
+      "lf_sha256": "812db46bde1af4e74b22dfdf3bbaee234d4694eff8379a2e78a99a706d7fe0b9"
+    },
+    "SIVb.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/SIVb.vcxproj",
+      "git_blob": "a09da619199e1592712996ca2cc5981d676a6cf4",
+      "lf_sha256": "4fe29966651e6e5aab8691e9d129c2e28335a1b68fdf339362e7ca751d12b817"
+    },
+    "Sat5LMDSC.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/Sat5LMDSC.vcxproj",
+      "git_blob": "34792e9ceb832b1c260aeec0750d2bc3386288ae",
+      "lf_sha256": "b2770c1781bcf4f5b74ac829745513211c7ef1a94894e13bf8a386d4f5037a9f"
+    },
+    "Saturn5NASP.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/Saturn5NASP.vcxproj",
+      "git_blob": "d194417a482dc985ce301ecb9ccea3555cbbbb0e",
+      "lf_sha256": "9575a21bb8a216ad3b508141aa4d9e17f6f91420b417fd653957e09da1c8332b"
+    },
+    "sii.vcxproj": {
+      "upstream_path": "Orbitersdk/samples/ProjectApollo/Build/VC2017/sii.vcxproj",
+      "git_blob": "a43bf4b261b3ea1916eb51042c0d326d0d11f763",
+      "lf_sha256": "edc6e3c3cf19618fd3e6e96f64db2138480caf61fc34c49247504ab81f666d30"
+    }
+  },
+  "purpose": "Unmodified upstream source-list metadata, retained outside NASSP because inherited Build ignore rules omit it from a clean checkout",
+  "normalisation": "CRLF to LF only"
+}

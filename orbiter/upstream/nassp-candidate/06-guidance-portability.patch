@@ -1,0 +1,256 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
+index 7ce900f1362cdbcd6e005154b4136737d8ccad2b..865872f1a28e6f8aa91468fe58e8636e2d198058
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_ags.cpp
+@@ -1,3 +1,4 @@
++#include <inttypes.h>
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005
+@@ -884,10 +885,10 @@
+ 	oapiWriteScenario_int(scn, "OVERFLOW", vags.Overflow);
+ 	oapiWriteScenario_int(scn, "HALT", vags.Halt);
+ 
+-	sprintf(buffer, "  CYCLECOUNTER %I64d", vags.CycleCounter);
++	sprintf(buffer, "  CYCLECOUNTER %" PRIu64, vags.CycleCounter);
+ 	oapiWriteLine(scn, buffer);
+ 
+-	sprintf(buffer, "  NEXT20MSSIGNAL %I64d", vags.Next20msSignal);
++	sprintf(buffer, "  NEXT20MSSIGNAL %" PRIu64, vags.Next20msSignal);
+ 	oapiWriteLine(scn, buffer);
+ 
+ 	papiWriteScenario_bool(scn, "POWERED", powered);
+@@ -949,10 +950,10 @@
+ 		papiReadScenario_int(line, "HALT", vags.Halt);
+ 
+ 		if (!strnicmp(line, "CYCLECOUNTER", 12)) {
+-			sscanf(line + 12, "%I64d", &vags.CycleCounter);
++			sscanf(line + 12, "%" SCNu64, &vags.CycleCounter);
+ 		}
+ 		else if (!strnicmp(line, "NEXT20MSSIGNAL", 14)) {
+-			sscanf(line + 14, "%I64d", &vags.Next20msSignal);
++			sscanf(line + 14, "%" SCNu64, &vags.Next20msSignal);
+ 		}
+ 
+ 		papiReadScenario_bool(line, "POWERED", powered);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
+index 26720d47f2efc93bea78c55a2dfc0319f7212c87..6b76e26e8f0c2e785d37628526f2679ebd1d9a76
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine.c
+@@ -122,9 +122,9 @@
+ static const int64_t CONST64_2 = 0177777777777LL;
+ static const int64_t CONST64_3 = 1LL;
+ #else
+-static const int64_t CONST64_1 = ~0377777777777i64;
+-static const int64_t CONST64_2 = 0177777777777i64;
+-static const int64_t CONST64_3 = 1i64;
++static const int64_t CONST64_1 = ~0377777777777LL;
++static const int64_t CONST64_2 = 0177777777777LL;
++static const int64_t CONST64_3 = 1LL;
+ #endif
+ 
+ //----------------------------------------------------------------------------
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
+index 4be3ac1186d442de133cd1f912adda47bf06b46f..49de3e710b27800d6aadd9f7d17162def7e6a3b4
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
+@@ -55,7 +55,7 @@
+   FILE *cd = NULL;
+   int m, n;
+ 
+-#ifndef WIN32
++#if !defined(WIN32) && !defined(NASSP_NATIVE)
+   // The purpose of this is to make sure that getchar doesn't halt the program
+   // when there's no keystroke immediately available.
+   UnblockSocket (fileno (stdin));
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
+index dad8a941206d13c47aa5751ff41f20d8db9bac2d..4c7afbdaeee9646b13a085bb5de36546e32a72e9
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
+@@ -1,3 +1,7 @@
++#ifdef NASSP_NATIVE
++#include "Platform/Vfs.h"
++#include <stdexcept>
++#endif
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2005 Mark Grant
+@@ -103,7 +107,14 @@
+ 
+ {
+ 
++#ifdef NASSP_NATIVE
++	const auto path = orbiter::platform::ResolvePath(binfile).string();
++	const int result = agc_load_binfile(&vagc, path.c_str());
++	if (result != 0) throw std::runtime_error("AGC program load failed: " + path + " (" + std::to_string(result) + ")");
++	oapiWriteLogV("AGC program loaded: %s", path.c_str());
++#else
+ 	(void) agc_load_binfile(&vagc, binfile);
++#endif
+ 
+ 	// Set channels only once, otherwise this code overwrites the channel values in the scenario
+ 	if (!PadLoaded) { 
+@@ -433,7 +444,7 @@
+ 	oapiWriteScenario_int(scn, "DSKYCHANNEL163", vagc.DskyChannel163);
+ 	oapiWriteScenario_int(scn, "WARNINGFILTER", vagc.WarningFilter);
+ 
+-	sprintf(buffer, "  CYCLECOUNTER %I64d", vagc.CycleCounter);
++	sprintf(buffer, "  CYCLECOUNTER %lld", static_cast<long long>(vagc.CycleCounter));
+ 	oapiWriteLine(scn, buffer);
+ 		
+ 	for (i = 0; i < 16; i++) {
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
+index a0f5fcd3dbe180b35e16b8233cbc8ce4d10b3b78..6ea7beb9d2b86825b38f5a6e39cb4d3aef5a97d4
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.cpp
+@@ -207,8 +207,10 @@
+ DSKY::~DSKY()
+ 
+ {
++#ifndef NASSP_NATIVE
+ 	closesocket(clientSock);
+ 	WSACleanup();
++#endif
+ }
+ 
+ void DSKY::Init(
+@@ -251,6 +253,7 @@
+ 	{
+ 		FirstTimeStep = false;
+ 		soundlib.LoadSound(Sclick, BUTTON_SOUND);
++#ifndef NASSP_NATIVE
+ 		FILEHANDLE DSKYOutConfig = oapiOpenFile("ProjectApollo\\DSKYOut.cfg", FILE_IN_ZEROONFAIL, CONFIG);
+ 		if (DSKYOutConfig) {
+ 			oapiReadItem_bool(DSKYOutConfig, "ENABLED", DSKYOutEnabled);
+@@ -272,7 +275,9 @@
+ 			}
+ 		}
+ 		oapiCloseFile(DSKYOutConfig, FILE_IN_ZEROONFAIL);
+-	}
++#endif
++	}
++#ifndef NASSP_NATIVE
+ 	if(DSKYOutEnabled){
+ 		char buffer[512];
+ 		int recvLen = recv(clientSock, buffer, sizeof(buffer) - 1, 0);
+@@ -325,6 +330,7 @@
+ 			//sprintf(oapiDebugString(), buffer);
+ 		}
+ 	}
++#endif
+ }
+ 
+ void DSKY::SystemTimestep(double simdt)
+@@ -953,7 +959,7 @@
+ 		unsigned ELOff:1;
+ 		unsigned PrioDispLight:1;
+ 	} u;
+-	unsigned long word;
++	DWORD word;
+ } DSKYState;
+ 
+ void DSKY::SaveState(FILEHANDLE scn, char *start_str, char *end_str)
+@@ -1035,7 +1041,7 @@
+ 		}
+ 		else if (!strnicmp (line, "STATE", 5)) {
+ 			DSKYState state;
+-			sscanf (line+5, "%d", &state.word);
++			sscanf (line+5, "%u", &state.word);
+ 
+ 			VerbFlashing = state.u.VerbFlashing;
+ 			NounFlashing = state.u.NounFlashing;
+@@ -1517,6 +1523,7 @@
+ 
+ void DSKY::SendNetworkPacketDSKY()
+ {
++#ifndef NASSP_NATIVE
+ 	if (DSKYOutEnabled == true) {
+ 		std::string compLight = "\"compLight\": ";
+ 		std::string prog = "\"prog\": ";
+@@ -1567,6 +1574,7 @@
+ 		sendto(clientSock, message.c_str(), message.length(), 0, (LPSOCKADDR)&serverAddr, sizeof(struct sockaddr));
+ 		//strcpy(oapiDebugString(), message.c_str());
+ 	}
++#endif
+ }
+ 
+ bool DSKY::GetStatusLtPower()
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
+index 55428170af233f29302a3c25f2c08c6636e04151..897a50128465e87b570d71a71f938475f894e3fc
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/dsky.h
+@@ -303,9 +303,11 @@
+ 	bool DSKYOutEnabled;
+ 	char DSKYOutIp[256];
+ 	int DSKYOutPort;
++#ifndef NASSP_NATIVE
+ 	WSADATA wsaData;
+ 	struct sockaddr_in serverAddr;
+ 	int clientSock;
++#endif
+ 	
+ 	//
+ 	// Local helper functions.
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
+index 2c1c42a33abd6f8c05153711f13d85d4522465ce..b8c62da371f1d943edf24cf2b685e6c0e7d13386
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/imu.cpp
+@@ -225,7 +225,7 @@
+ 	TRACESETUP("CHANNEL OUTPUT PROCESS");
+ 
+ 	char buffers[80];
+-	sprintf(buffers,"CHANNEL OUTPUT %o %o", address,value.to_ulong());
++	sprintf(buffers,"CHANNEL OUTPUT %o %lo", address,value.to_ulong());
+ 	TRACE(buffers);
+ 
+ 	int pulses;
+@@ -744,7 +744,7 @@
+ 		unsigned Initialized:1;
+ 		unsigned Caged:1;
+ 	} u;
+-	unsigned long word;
++	DWORD word;
+ } IMUState;
+ 
+ void IMU::LoadState(FILEHANDLE scn)
+@@ -822,7 +822,7 @@
+ 		}
+ 		else if (!strnicmp (line, "STATE", 5)) {
+ 			IMUState state;
+-			sscanf (line+5, "%d", &state.word);
++			sscanf (line+5, "%u", &state.word);
+ 
+ 			Operate = (state.u.Operate != 0);
+ 			Initialized = (state.u.Initialized != 0);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
+index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..a37fda9dfeadc5ef77cbec6586c8773e67bae888
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
+@@ -152,7 +152,7 @@
+ 	  Parity = RawValue & 1;
+ 
+ 	  State->Fixed[Bank][j] = RawValue >> 1;
+-	  State->Parities[(Bank * 02000 + j) / 32] |= Parity << (j % 32);
++	  State->Parities[(Bank * 02000 + j) / 32] |= (uint32_t)Parity << (j % 32);
+ 	  j++;
+ 
+ 	  // If any of the parity bits are actually set, this must be a ROM built with
+@@ -177,6 +177,8 @@
+ 	}
+     }
+ 
++  RetVal = 0; // Every requested ROM word was read successfully.
++
+ Done:
+   if (fp != NULL)
+     fclose (fp);
+@@ -190,7 +192,8 @@
+   int RetVal = 0, i, j, Bank;
+   FILE *cd = NULL;
+ 
+-#ifndef WIN32
++#if !defined(WIN32) && !defined(NASSP_NATIVE)
++  // Embedded NASSP receives input through the DSKY, never process stdin.
+   // The purpose of this is to make sure that getchar doesn't halt the program
+   // when there's no keystroke immediately available.
+   UnblockSocket (fileno (stdin));

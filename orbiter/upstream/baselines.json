@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "orbiter": {
+    "repository": "https://github.com/orbitersim/orbiter.git",
+    "release_ref": "latest",
+    "commit": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "tree": "098bc06f7d0a381833060e8b504f657052c4b73b"
+  },
+  "nassp": {
+    "repository": "https://github.com/rcflyinghokie/NASSP.git",
+    "ref": "NASSP-V9.0-Orbiter2024-434",
+    "commit": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+    "tree": "5a228ecd6ee1acc8057c9711868ffbc9e709c6f9"
+  },
+  "verification": "Exact upstream Git objects, clean reference checkouts, original data hashes and removable native source inventory",
+  "limitations": [
+    "Historical reports apply only to their own recorded pins",
+    "Native inventories contain inherited adaptations requiring behavioral review",
+    "Windows upstream reference run not yet available",
+    "Faithful AGC processor resume remains blocked; broad snapshot redesign paused"
+  ],
+  "candidate": {
+    "repository": "https://github.com/orbiternassp/NASSP.git",
+    "ref": "Orbiter2016",
+    "commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+    "date": "2026-10-06T18:37:58+02:00",
+    "patch_rehearsed": true,
+    "adoption_verified": true,
+    "isolated": true,
+    "active_source_updated": false,
+    "full_suite": {
+      "passed": 82,
+      "total": 82,
+      "seconds": 136.65
+    },
+    "patch_paths": 92
+  },
+  "historical_baselines": {
+    "orbiter": {
+      "repository": "https://github.com/orbitersim/orbiter.git",
+      "commit": "4137930c5126cf848212139cd138a9ef2ade7660",
+      "tree": "9226ebefd9235531b6769a32b075a6d9d2368d6f"
+    },
+    "nassp": {
+      "repository": "https://github.com/CaptainSwag101/NASSP.git",
+      "ref": "CMake",
+      "commit": "96b6380943c382a297f969842be9344ef969a6f4",
+      "tree": "b7497bf5a7fd3fa1298d98022064a250be1df530"
+    }
+  }
+}

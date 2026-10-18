@@ -1,0 +1,1854 @@
+{
+  "platform": "macOS arm64",
+  "recorded_at_utc": "2026-10-10T00:41:29.994202+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "13866c0fd8f39147f5364418f946a6124461e216",
+  "status": "blocked: full faithful AGC/CDU processor resume is not implemented in either pin",
+  "white_x_pointer_commit": "e9cc62d96440569c8b844080ee993dfd65c753f3",
+  "scope": "Minimal LM instrument/throttle/mass-state persistence, native SDK cache correction, strict original-input handoff checks; no ACA or manual landing test after incomplete processor resume",
+  "nassp_changed_files": [
+    "src_lm/lm_lr.cpp",
+    "src_lm/lemsystems.cpp",
+    "src_lm/lm_dps.cpp",
+    "src_lm/LEM.cpp",
+    "src_lm/LEM.h"
+  ],
+  "equations_rom_supplied_scenario_changes": false,
+  "manual_landing_validated": false,
+  "aca_pulse_executed": false,
+  "windows_comparison": false,
+  "push_or_ci_activation": false,
+  "synthetic_contract_checks": 68,
+  "code_freeze_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "b863a301f9227bb8db5cbcdbc2b976c69257dc75cc1b5018f5f1f4d16ba620bd",
+    "orbiter/Tests/NativePDIProtocol.py": "f47f9bc1fc9753ca4e47342851a6c75289fe5ebc690604041010a42f3b71ffb9",
+    "orbiter/Tests/NativePDIPilot.py": "212c56522386625c3969f82fffc6ae5e39d6910890dd9f800ae592742b346fbf",
+    "orbiter/Tests/NativePDIPersistence.py": "99e0dea47b5a4144eb277193eeee1e3f356c452f47915dadb0d3f5632c3ba1d5",
+    "orbiter/Tests/NativeLMPersistence.cpp": "6ad227f4433d085cb800b44c2715545483b51a57779b224b265e76ec7affd3bb",
+    "orbiter/Tests/NativePDIPilotContract.py": "763015b40131cf651aa555a8605e6254ef8b1b3ebf75c7f45d4903844dab1d20",
+    "orbiter/Tests/NativeDataPreflight.py": "fae9933911ca895c4afc5f11d267df48fd1709a2ce8c63f89643ae8f4dafbbfe",
+    "orbiter/Tests/NativeWorld.cpp": "f93de4c0580bd098bec4564165c3003405d363a9c06e93a2a98d5bc5e30bd2db",
+    "orbiter/Src/Orbiter/Vessel.cpp": "4bf63f1af1d940253acf28a102412a03f969b71c95214e1d6504659559ba7b94",
+    "orbiter/cmake/NativeWgpu.cmake": "d781bc03d685a8e4626c8703f9e8d0a9db24c9432978816353247d6ff20921f6",
+    "orbiter/tools/nassp_state_persistence.py": "d3d3b8fa5d3f4c3a9459aa5e47d58626e4dcf24202ea9c728b3861598d8879b8",
+    "orbiter/upstream/nassp/manifest.json": "c4fc7ca33f1081ed12fef71501f743bccc25fc191988b7e2f98ab7b3a282a40e",
+    "orbiter/upstream/nassp/08-state-persistence.patch": "4a49b82a2e57c5f4021a4c587345a7469369f2b991745ac08e5672c8719285b8",
+    "orbiter/upstream/nassp-candidate/manifest.json": "9cc1d912368ea7e68ef23d16f232bbdd711c16aaaaf36f22170f1369c4ebed04",
+    "orbiter/upstream/nassp-candidate/08-state-persistence.patch": "641eb536350d4650bfc87044f1d89558c455197b5f43d6a8793011df93edf42a",
+    "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp": "8bf154a2e47ba5055a944600f469d61e401ec2811aa819f7a9780972ea8a8cc2",
+    "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h": "b42496ac3438fb284bd96b15b92ec64521d09df42a47abd32f10938026c15579",
+    "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/lm_lr.cpp": "a1e38b4824adfedfe60ec7aea2d87d4ece9b487f0cf77fbda053100d505f65e3",
+    "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/lemsystems.cpp": "a62b18ba63fc424a633d9301c3f774b00d7770546d7d8ed816850681e692eed2",
+    "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/lm_dps.cpp": "02aca4b9db4b1784d2f6e0b171491b5505924d1faafc54f1f3daa47dd93548ca"
+  },
+  "pinned_source_evidence": {
+    "baseline": {
+      "pinned_commit": "96b6380943c382a297f969842be9344ef969a6f4",
+      "verified": {
+        "range_prefix_loader": true,
+        "right_pointer_offset_17": true,
+        "motor_running_compare_13": true,
+        "saved_throttle_command_absent": true,
+        "cycle_counter_restore_explicitly_disabled": true,
+        "process_global_cdu_fifos": true,
+        "move_fifos_into_processor_fixme": true
+      },
+      "guidance_sha256": "f90d58ca2f55a7c5a2946a5afc1d41ff0b4cb73137261bc3f699017ee46b4b4a",
+      "yaagc_engine_sha256": "396d3c2ff42576bac7d1a0462d8c7c8e7e65642aa31eab8764d1ea6941f9f796"
+    },
+    "candidate": {
+      "pinned_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+      "verified": {
+        "range_prefix_loader": true,
+        "right_pointer_offset_17": true,
+        "motor_running_compare_13": true,
+        "saved_throttle_command_absent": true,
+        "cycle_counter_restore_explicitly_disabled": true,
+        "process_global_cdu_fifos": true,
+        "move_fifos_into_processor_fixme": true
+      },
+      "guidance_sha256": "f90d58ca2f55a7c5a2946a5afc1d41ff0b4cb73137261bc3f699017ee46b4b4a",
+      "yaagc_engine_sha256": "396d3c2ff42576bac7d1a0462d8c7c8e7e65642aa31eab8764d1ea6941f9f796"
+    }
+  },
+  "patch_reconstruction_and_adoption": {
+    "baseline": {
+      "pinned_commit": "96b6380943c382a297f969842be9344ef969a6f4",
+      "patch_groups": 8,
+      "reconstructed_patched_files": 102,
+      "adoption_order_independent": true,
+      "existing_seven_groups_unchanged": true
+    },
+    "candidate": {
+      "pinned_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+      "patch_groups": 8,
+      "reconstructed_patched_files": 94,
+      "adoption_order_independent": true,
+      "existing_seven_groups_unchanged": true
+    }
+  },
+  "mass_equation_and_setup_scope": {
+    "baseline": {
+      "mass_equations_unchanged": true,
+      "physical_setup_body_unchanged": true,
+      "update_threshold_kg": 100,
+      "equations_sha256": "cbf6835d7fa28295aab574a9ae26d87834bc957dc15a618f89f5a8719ca7d7ca"
+    },
+    "candidate": {
+      "mass_equations_unchanged": true,
+      "physical_setup_body_unchanged": true,
+      "update_threshold_kg": 100,
+      "equations_sha256": "cbf6835d7fa28295aab574a9ae26d87834bc957dc15a618f89f5a8719ca7d7ca"
+    }
+  },
+  "profiles": {
+    "baseline": {
+      "pinned_commit": "96b6380943c382a297f969842be9344ef969a6f4",
+      "full_suite": {
+        "passed": 94,
+        "total": 95,
+        "failures": 1,
+        "skipped": 0,
+        "failure_names": [
+          "native_pdi_pilot"
+        ],
+        "wall_seconds": 592.9,
+        "parallelism": 1,
+        "junit_sha256": "9780ef139cf63f2d1d965c7b7fd53e0e85b3bacb53ec32e91a3cd5f8d1fc1713",
+        "console_log_sha256": "f341c11d54b0d0b98017aca9db6824a7f707a6d7c794226f066d6b8fe6710bac"
+      },
+      "pilot_verification": {
+        "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+        "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+        "input_sha256": {
+          "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+          "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+          "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+        },
+        "initial_agc_clock_s": 368743.87,
+        "initial_tig_s": 369645.02,
+        "initial_countdown_s": 901.1500000000233,
+        "vessels": [
+          "AS-506-S4BSTG",
+          "Columbia",
+          "Eagle",
+          "Floodlight",
+          "MCC"
+        ],
+        "scenario_modified": false,
+        "checkpoint_reached": true,
+        "actual_ignition_elapsed_s": 901.1833333333333,
+        "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+        "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+        "n62_displayed_tfi_s": -203,
+        "n68_request_after_actual_ignition_s": 300.05000000000007,
+        "checkpoint_elapsed_s": 1455.5333333333333,
+        "observed_dh_ft": -1832.0,
+        "radar_valid": true,
+        "radar_measurement_available": true,
+        "checkpoint_radar_geometry": {
+          "beam_nadir_cosine": 0.8601467138944281,
+          "beam_body": [
+            -0.07310866014238826,
+            -0.7147168646786284,
+            -0.6955824373545783
+          ],
+          "nadir_global": [
+            -0.7427058851737098,
+            0.008925187709186821,
+            -0.6695582940660895
+          ],
+          "altitude_above_radar_origin_m": 9786.304878720499,
+          "predicted_slant_range_ft": 37327.70113774861,
+          "position1_discrete": true,
+          "position2_discrete": false,
+          "range_good_discrete": true,
+          "velocity_good_discrete": true,
+          "position2_command": false,
+          "radar_test_switch": 1
+        },
+        "radar_range_unit": "ft",
+        "radar_rate_unit": "ft/s",
+        "n68_dh_unit": "ft",
+        "operational_dh_envelope": {
+          "altitude_interval_ft": [
+            27500,
+            40700
+          ],
+          "maximum_absolute_dh_ft": 17500,
+          "rule": "Apollo 11 mission rule 5-89, printed 5-13 (1969-04-16)",
+          "rule_url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11missionrules.pdf",
+          "crew_chart": "LM crew chart 9, printed 50 (1969-06-27)",
+          "crew_chart_url": "https://www.ibiblio.org/apollo/Documents/Apollo%2011%20Crew%20Charts%20And%20Console%20Charts.pdf",
+          "timeline": "Final flown LM timeline, printed 9, revision G (1969-07-01)",
+          "timeline_url": "https://www.ibiblio.org/apollo/Documents/Apollo11-LM-TimelineBook-excerpts.pdf",
+          "qualification": "MTM 28D item 2 (1969-07-09): MIT had not independently verified this published envelope",
+          "qualification_url": "https://www.ibiblio.org/apollo/Documents/mission_techniques_memo_28d.pdf",
+          "extrapolation": false
+        },
+        "v57_sent": true,
+        "full_checklist_fidelity": false,
+        "pilot_driver_enabled": true,
+        "pilot_body_yaw_targets": {
+          "pilot_yaw_right_10": {
+            "target_body_yaw_deg": 10,
+            "settled_body_yaw_deg": 9.244686686728107,
+            "post_observation_body_yaw_deg": 9.178758010963119,
+            "relative_matrix_twist_deg": 9.178979260665313,
+            "pilot_axis_s16": 14823,
+            "original_lgc_rhc_counts": [
+              -19
+            ],
+            "nominal_command_rate_deg_s": 5.157988429016466,
+            "peak_measured_right_yaw_rate_deg_s": 5.148938305243152,
+            "acquired_elapsed_s": 21.65,
+            "end_elapsed_s": 29.65,
+            "forward_window_zenith_cosine_before": -0.6613450579896303,
+            "forward_window_zenith_cosine_after": -0.656551702639454,
+            "fdai_rpy_deg_before": [
+              178.88507563900893,
+              286.25442546605325,
+              358.7542154119892
+            ],
+            "fdai_rpy_deg_after": [
+              178.8486321671922,
+              285.83533806764314,
+              349.58085363273557
+            ],
+            "observer_angle_tolerance_deg": 1,
+            "observer_rate_tolerance_deg_s": 0.1,
+            "full_historical_pilot_pose_certified": false
+          },
+          "pilot_yaw_right_174": {
+            "target_body_yaw_deg": 174,
+            "settled_body_yaw_deg": 173.75587975881155,
+            "post_observation_body_yaw_deg": 173.87073964442956,
+            "relative_matrix_twist_deg": 173.8672349793598,
+            "pilot_axis_s16": 14823,
+            "original_lgc_rhc_counts": [
+              -19
+            ],
+            "nominal_command_rate_deg_s": 5.157988429016466,
+            "peak_measured_right_yaw_rate_deg_s": 5.189583625995805,
+            "acquired_elapsed_s": 1132.3333333333333,
+            "end_elapsed_s": 1140.3333333333333,
+            "forward_window_zenith_cosine_before": -0.9668387094059088,
+            "forward_window_zenith_cosine_after": 0.9697559208443085,
+            "fdai_rpy_deg_before": [
+              178.83180450668382,
+              266.2195447651656,
+              350.05660880184337
+            ],
+            "fdai_rpy_deg_after": [
+              0.45111718768727543,
+              81.27309853443445,
+              3.741027235309127
+            ],
+            "observer_angle_tolerance_deg": 1,
+            "observer_rate_tolerance_deg_s": 0.1,
+            "full_historical_pilot_pose_certified": false
+          }
+        },
+        "manual_yaw_measurement": "Integral of original pilot body yaw including neutral braking; windows-up geometry observed",
+        "manual_yaw_settled_attitude_validated": false,
+        "manual_yaw_release_and_settling": {},
+        "yaw_target_driver_enabled": false,
+        "diagnostic_relative_yaw_targets": {},
+        "manual_yaw_release_readback_delay_s": null,
+        "manual_yaw_after_release_rate_deg_s": {},
+        "manual_yaw_10_exercised": true,
+        "manual_yaw_174_exercised": true,
+        "landing_attempted": false,
+        "windows_comparison": false,
+        "pilot_descent_enabled": true,
+        "radar_acceptance": {
+          "lgc_altitude_ft": 34171.587926509186,
+          "dh_ft": -1832,
+          "source_chart": {
+            "altitude_interval_ft": [
+              27500,
+              40700
+            ],
+            "maximum_absolute_dh_ft": 17500,
+            "rule": "Apollo 11 mission rule 5-89, printed 5-13 (1969-04-16)",
+            "rule_url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11missionrules.pdf",
+            "crew_chart": "LM crew chart 9, printed 50 (1969-06-27)",
+            "crew_chart_url": "https://www.ibiblio.org/apollo/Documents/Apollo%2011%20Crew%20Charts%20And%20Console%20Charts.pdf",
+            "timeline": "Final flown LM timeline, printed 9, revision G (1969-07-01)",
+            "timeline_url": "https://www.ibiblio.org/apollo/Documents/Apollo11-LM-TimelineBook-excerpts.pdf",
+            "qualification": "MTM 28D item 2 (1969-07-09): MIT had not independently verified this published envelope",
+            "qualification_url": "https://www.ibiblio.org/apollo/Documents/mission_techniques_memo_28d.pdf",
+            "extrapolation": false
+          }
+        },
+        "post_v57_dh_ft": 83,
+        "convergence_observation_seconds": 30,
+        "radar_adequacy_for_entire_mission_certified": false,
+        "original_p64_elapsed_s": 1397.8333333333333,
+        "handoff_lgc_altitude_ft": 1918.061023622047,
+        "handoff_guidance_program": "64",
+        "manual_landing_validated": false,
+        "ags_deda_validated": false,
+        "graphical_hit_testing_validated": false,
+        "zero_step_persistence": {
+          "radar": {
+            "RANGE": [
+              1920.918004423569
+            ],
+            "ANTENNAANGLE": [
+              0.0
+            ],
+            "RANGEGOOD": [
+              1.0
+            ],
+            "VELOCITYGOOD": [
+              1.0
+            ],
+            "RATE": [
+              -137.615194318935,
+              -12.046085469897,
+              134.386308300528
+            ]
+          },
+          "crosspointer_left": [
+            18.395761,
+            0.05571
+          ],
+          "crosspointer_right": [
+            18.395761,
+            0.05571
+          ],
+          "gimbal_pitch": {
+            "POSITION": [
+              -0.062592126667
+            ],
+            "COMMANDEDPOSITION": [
+              -1.0
+            ],
+            "MOTORRUNNING": [
+              1.0
+            ]
+          },
+          "gimbal_roll": {
+            "POSITION": [
+              -0.085990033333
+            ],
+            "COMMANDEDPOSITION": [
+              1.0
+            ],
+            "MOTORRUNNING": [
+              1.0
+            ]
+          },
+          "dps": {
+            "THRUSTON": [
+              1.0
+            ],
+            "THRUSTCOMMAND": [
+              0.42355
+            ],
+            "ENGPREVALVESARM": [
+              1.0
+            ],
+            "ENGARM": [
+              1.0
+            ],
+            "EROSION": [
+              1190.649559760309
+            ],
+            "PROPSHUTOFFVALVES": [
+              1.0
+            ]
+          },
+          "mass_cg_state": [
+            0.0,
+            -0.176516580018,
+            0.0,
+            2.5428,
+            2.2871,
+            2.7566,
+            1450.525475880283
+          ]
+        },
+        "processor_resume": {
+          "saved_cycle_counter": 124205511,
+          "reloaded_cycle_counter": 0,
+          "cycle_counter_retained": false,
+          "cdu_fifo_snapshot_supported": false,
+          "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in process-global static state"
+        },
+        "neutral_continuation": {
+          "continuation_matches_observation_bounds": true,
+          "samples": 31,
+          "duration_seconds": 0.5,
+          "bounds": {
+            "range_ft": 0.05,
+            "angular_rate_rad_s": 2e-06,
+            "rotation_component": 5e-05,
+            "thrust_level": 1e-06,
+            "gimbal_position": 2e-12
+          },
+          "maximum_differences": {
+            "range_ft": 0.030254567134988974,
+            "angular_rate_rad_s": 6.38165527252349e-07,
+            "rotation_component": 1.4498474952294449e-05,
+            "thrust_level": 1.1102230246251565e-16,
+            "gimbal_position": 1.0000056338554941e-12
+          },
+          "violations": [],
+          "first_step": {
+            "reference": {
+              "seq": 6238,
+              "event": "neutral_resume_sample",
+              "action": "uninterrupted",
+              "checklist_yaw_enabled": true,
+              "pilot_driver_enabled": true,
+              "pilot_descent_enabled": true,
+              "pilot_aca_axis_s16": 0,
+              "lgc_altitude_ft": 1918.061023622047,
+              "lgc_rhc_yaw_raw_s32": 0,
+              "lgc_rhc_yaw_count": 0,
+              "lgc_flagword11_octal": "2770",
+              "yaw_target_driver_enabled": false,
+              "yaw_integrated_deg": 173.8707396444296,
+              "checklist_row": 0,
+              "area_id": 0,
+              "mouse_event": 0,
+              "sim_elapsed_s": 1455.55,
+              "mission_time_s": 370199.9737366611,
+              "agc_clock_s": 370199.42,
+              "tig_s": 369645.02,
+              "countdown_s": -554.3999999999651,
+              "lgc_tfi_s": -0.98,
+              "tfi_high_octal": "77777",
+              "tfi_low_octal": "77635",
+              "actual_ignition_elapsed_s": 901.183333,
+              "guidance_channel_011": 4354,
+              "guidance_channel_012": 1698,
+              "guidance_channel_032": 512,
+              "guidance_channel_031": 8192,
+              "keyboard_yaw_right_down": false,
+              "aca_keyboard_yaw_right": 0,
+              "guidance_channel_033": 476,
+              "dps_level": 0.4235500000000001,
+              "ground_contact": false,
+              "altitude_m": 579.5452537573142,
+              "groundspeed_mps": 58.70289969159427,
+              "requested_field": "",
+              "requested_state": -1,
+              "readback": null,
+              "dsky": {
+                "PROG": "64",
+                "VERB": "06",
+                "NOUN": "64",
+                "R1": "+83 45",
+                "R2": "-00549",
+                "R3": "+02026",
+                "STATE": "536870912"
+              },
+              "radar": {
+                "RANGE": "1919.989210726633",
+                "ANTENNAANGLE": "0.000000000000",
+                "RANGEGOOD": "1",
+                "VELOCITYGOOD": "1",
+                "RATE": "-137.561266065378 -12.041644815868 134.348910084074"
+              },
+              "neutral_trace_tick": 1,
+              "crosspointers": [
+                [
+                  18.394328,
+                  0.05571
+                ],
+                [
+                  18.394328,
+                  0.05571
+                ]
+              ],
+              "dps_gimbals": [
+                {
+                  "position": -0.06592546,
+                  "command": -1,
+                  "motor_running": 1
+                },
+                {
+                  "position": -0.0826567,
+                  "command": 1,
+                  "motor_running": 1
+                }
+              ],
+              "controls": {
+                "ModeControlPGNSSwitch": 2,
+                "ModeControlAGSSwitch": 2,
+                "EngineArmSwitch": 0,
+                "EngineDescentCommandOverrideSwitch": 1,
+                "LandingAntSwitch": 0,
+                "PGNS_LDG_RDR_CB": 1,
+                "RateScaleSwitch": 1,
+                "AltRngMonSwitch": 0,
+                "RendezvousRadarRotary": 1,
+                "ORDEALFDAI1Switch": 0,
+                "ORDEALFDAI2Switch": 0,
+                "LeftXPointerSwitch": 1,
+                "RightXPointerSwitch": 1
+              },
+              "active_thrusters": [
+                {
+                  "index": 0,
+                  "level": 0.4235500000000001,
+                  "max_thrust_n": 44393.967384156145,
+                  "direction": [
+                    0.001442631563833197,
+                    1,
+                    -0.0011506163378918227
+                  ]
+                }
+              ],
+              "angular_velocity_body_rad_s": [
+                -0.0028638835713681084,
+                0.0004694564350256584,
+                -0.00033641494067115896
+              ],
+              "radar_geometry": {
+                "beam_nadir_cosine": 0.9856659598253916,
+                "beam_body": [
+                  -0.03640149932051852,
+                  -0.9374036069850605,
+                  -0.346337131215549
+                ],
+                "nadir_global": [
+                  -0.7742618701806899,
+                  0.007068863574201367,
+                  -0.6328258745911626
+                ],
+                "altitude_above_radar_origin_m": 576.5452537573142,
+                "predicted_slant_range_ft": 1919.060560986143,
+                "position1_discrete": false,
+                "position2_discrete": true,
+                "range_good_discrete": true,
+                "velocity_good_discrete": true,
+                "position2_command": false,
+                "radar_test_switch": 1
+              },
+              "pgns_fdai_rpy_deg": [
+                358.9668166829805,
+                29.860584609812374,
+                1.610554943205954
+              ],
+              "gasta_powered": true,
+              "forward_window_zenith_cosine": 0.4965798281071955,
+              "rotation_body_to_global": [
+                [
+                  -0.0161688061970785,
+                  0.3579028024343558,
+                  0.9336188482008042
+                ],
+                [
+                  0.99935717445316,
+                  -0.024096154313363094,
+                  0.026544551537059202
+                ],
+                [
+                  0.031996993220587355,
+                  0.9334478878635601,
+                  -0.35728312732047784
+                ]
+              ],
+              "aca_proportional_roll_pitch_yaw": [
+                0,
+                0,
+                0
+              ],
+              "aca_out_of_detent": false,
+              "lgc_output_channel_005": 0,
+              "lgc_output_channel_006": 0,
+              "atca_primary_voltage_v": -4.7,
+              "guidance_relay_k12": false,
+              "guidance_relay_k13": false,
+              "pgns_jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_driver": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "rcs_jet_levels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "lgc_cycle_counter": 124206933,
+              "crosspointer_cdu_counts": [
+                330,
+                1
+              ],
+              "lm_cog_m": [
+                0,
+                -0.17651658001846648,
+                0
+              ],
+              "pmi_m2": [
+                2.5428,
+                2.2871,
+                2.7566
+              ],
+              "relative_position_m": [
+                1344625.905670166,
+                -12276.178708504885,
+                1099000.3479766846
+              ],
+              "altitude_mean_radius_m": -1434.796565572964,
+              "last_cog_fuel_weight_kg": 1450.525475880283
+            },
+            "resumed": {
+              "seq": 1,
+              "event": "neutral_resume_sample",
+              "action": "resumed",
+              "checklist_yaw_enabled": true,
+              "pilot_driver_enabled": true,
+              "pilot_descent_enabled": false,
+              "pilot_aca_axis_s16": 0,
+              "lgc_altitude_ft": 1918.061023622047,
+              "lgc_rhc_yaw_raw_s32": 0,
+              "lgc_rhc_yaw_count": 0,
+              "lgc_flagword11_octal": "2770",
+              "yaw_target_driver_enabled": false,
+              "yaw_integrated_deg": 0,
+              "checklist_row": 0,
+              "area_id": 0,
+              "mouse_event": 0,
+              "sim_elapsed_s": 0.016666666666666666,
+              "mission_time_s": 370199.97373666667,
+              "agc_clock_s": 370199.42,
+              "tig_s": 369645.02,
+              "countdown_s": -554.3999999999651,
+              "lgc_tfi_s": -0.98,
+              "tfi_high_octal": "77777",
+              "tfi_low_octal": "77635",
+              "actual_ignition_elapsed_s": null,
+              "guidance_channel_011": 4354,
+              "guidance_channel_012": 1698,
+              "guidance_channel_032": 512,
+              "guidance_channel_031": 8192,
+              "keyboard_yaw_right_down": false,
+              "aca_keyboard_yaw_right": 0,
+              "guidance_channel_033": 476,
+              "dps_level": 0.42355,
+              "ground_contact": false,
+              "altitude_m": 579.5447852283517,
+              "groundspeed_mps": 58.702941855258416,
+              "requested_field": "",
+              "requested_state": -1,
+              "readback": null,
+              "dsky": {
+                "PROG": "64",
+                "VERB": "06",
+                "NOUN": "64",
+                "R1": "+83 45",
+                "R2": "-00549",
+                "R3": "+02026",
+                "STATE": "536870912"
+              },
+              "radar": {
+                "RANGE": "1919.988649699256",
+                "ANTENNAANGLE": "0.000000000000",
+                "RANGEGOOD": "1",
+                "VELOCITYGOOD": "1",
+                "RATE": "-137.561731976344 -12.044005606748 134.348461669298"
+              },
+              "neutral_trace_tick": 1,
+              "crosspointers": [
+                [
+                  18.394328,
+                  0.05571
+                ],
+                [
+                  18.394328,
+                  0.05571
+                ]
+              ],
+              "dps_gimbals": [
+                {
+                  "position": -0.06592546,
+                  "command": -1,
+                  "motor_running": 1
+                },
+                {
+                  "position": -0.0826567,
+                  "command": 1,
+                  "motor_running": 1
+                }
+              ],
+              "controls": {
+                "ModeControlPGNSSwitch": 2,
+                "ModeControlAGSSwitch": 2,
+                "EngineArmSwitch": 0,
+                "EngineDescentCommandOverrideSwitch": 1,
+                "LandingAntSwitch": 0,
+                "PGNS_LDG_RDR_CB": 1,
+                "RateScaleSwitch": 1,
+                "AltRngMonSwitch": 0,
+                "RendezvousRadarRotary": 1,
+                "ORDEALFDAI1Switch": 0,
+                "ORDEALFDAI2Switch": 0,
+                "LeftXPointerSwitch": 1,
+                "RightXPointerSwitch": 1
+              },
+              "active_thrusters": [
+                {
+                  "index": 0,
+                  "level": 0.42355,
+                  "max_thrust_n": 44393.967384156145,
+                  "direction": [
+                    0.0014426315638273793,
+                    1,
+                    -0.0011506163378976384
+                  ]
+                }
+              ],
+              "angular_velocity_body_rad_s": [
+                -0.002863245405840856,
+                0.00046949220204349723,
+                -0.00033620909831277797
+              ],
+              "radar_geometry": {
+                "beam_nadir_cosine": 0.9856658577975478,
+                "beam_body": [
+                  -0.03640149932051852,
+                  -0.9374036069850605,
+                  -0.346337131215549
+                ],
+                "nadir_global": [
+                  -0.7742618702571351,
+                  0.007068863561533072,
+                  -0.6328258744977735
+                ],
+                "altitude_above_radar_origin_m": 576.5447852283517,
+                "predicted_slant_range_ft": 1919.0592001082246,
+                "position1_discrete": false,
+                "position2_discrete": true,
+                "range_good_discrete": true,
+                "velocity_good_discrete": true,
+                "position2_command": false,
+                "radar_test_switch": 1
+              },
+              "pgns_fdai_rpy_deg": [
+                358.96598538969755,
+                29.86074974598412,
+                1.6106840673399285
+              ],
+              "gasta_powered": true,
+              "forward_window_zenith_cosine": 0.49658246265108413,
+              "rotation_body_to_global": [
+                [
+                  -0.01616589154720849,
+                  0.3579001999302864,
+                  0.9336198963391605
+                ],
+                [
+                  0.9993567708174085,
+                  -0.02411041809247405,
+                  0.026546795678718482
+                ],
+                [
+                  0.03201106952111121,
+                  0.9334485173962552,
+                  -0.3572802216731952
+                ]
+              ],
+              "aca_proportional_roll_pitch_yaw": [
+                0,
+                0,
+                0
+              ],
+              "aca_out_of_detent": false,
+              "lgc_output_channel_005": 0,
+              "lgc_output_channel_006": 0,
+              "atca_primary_voltage_v": -4.7,
+              "guidance_relay_k12": false,
+              "guidance_relay_k13": false,
+              "pgns_jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_driver": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "rcs_jet_levels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "lgc_cycle_counter": 1422,
+              "crosspointer_cdu_counts": [
+                330,
+                1
+              ],
+              "lm_cog_m": [
+                0,
+                -0.176516580018,
+                0
+              ],
+              "pmi_m2": [
+                2.5428,
+                2.2871,
+                2.7566
+              ],
+              "relative_position_m": [
+                1344625.9054412842,
+                -12276.178683202714,
+                1099000.347518921
+              ],
+              "altitude_mean_radius_m": -1434.7970326510258,
+              "last_cog_fuel_weight_kg": 1450.525475880283
+            }
+          }
+        },
+        "faithful_neutral_resume": false,
+        "aca_pulse_executed": false,
+        "fresh_zero_step_reload": true,
+        "lgc_memory_channels_retained": true,
+        "verification_wall_seconds": 86.397985542,
+        "binary_sha256": {
+          "probe": "51b9f93343670a61baf65a061bcd1d9e63ab3415d543b1f7a60ba0371715c336",
+          "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+        },
+        "event_log_sha256": "1c2f1ab290e9a20e4e5b1c6a885922be0a98951a83d657914c424a4951bc8082",
+        "limits": [
+          "Observer yaw tolerances are not Apollo flight tolerances",
+          "Crew-chart envelope applies only inside the cited altitude interval",
+          "30-second net convergence does not certify all radar or mission go/no-go criteria",
+          "Prior visual checks, communications, AGS DEDA, manual evaluation and landing remain unvalidated",
+          "Original callback inputs do not validate graphical hit testing or full human piloting"
+        ],
+        "validation_passed": false,
+        "verification_error": "AGC cycle counter was not restored; faithful processor resume requires CDU FIFO persistence"
+      },
+      "first_step_cycle_counter": {
+        "reference": 124206933,
+        "resumed": 1422
+      },
+      "late_forward_cdu_counts": {
+        "reference": [
+          327,
+          325,
+          325,
+          325
+        ],
+        "resumed": [
+          327,
+          325,
+          325,
+          325
+        ]
+      }
+    },
+    "candidate": {
+      "pinned_commit": "5dffae9a73366604a66308617b7b9f6e7dbf6c60",
+      "full_suite": {
+        "passed": 94,
+        "total": 95,
+        "failures": 1,
+        "skipped": 0,
+        "failure_names": [
+          "native_pdi_pilot"
+        ],
+        "wall_seconds": 596.37,
+        "parallelism": 1,
+        "junit_sha256": "cd72c47ae4b5946250e030d84c5c90654d49dc6811713f44f026a5a8e9ed14dc",
+        "console_log_sha256": "56638594f97a703a6ea3973fc4cb720aa590cfc52111f46d53246f026a07140e"
+      },
+      "pilot_verification": {
+        "scenario": "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+        "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+        "input_sha256": {
+          "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+          "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+          "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+        },
+        "initial_agc_clock_s": 368743.87,
+        "initial_tig_s": 369645.02,
+        "initial_countdown_s": 901.1500000000233,
+        "vessels": [
+          "AS-506-S4BSTG",
+          "Columbia",
+          "Eagle",
+          "Floodlight",
+          "MCC"
+        ],
+        "scenario_modified": false,
+        "checkpoint_reached": true,
+        "actual_ignition_elapsed_s": 901.1833333333333,
+        "actual_ignition_minus_initial_lgc_tig_s": 0.033333333309997215,
+        "lgc_countdown_at_dps_start_s": -0.03999999997904524,
+        "n62_displayed_tfi_s": -203,
+        "n68_request_after_actual_ignition_s": 300.05000000000007,
+        "checkpoint_elapsed_s": 1453.5333333333333,
+        "observed_dh_ft": -1171.0,
+        "radar_valid": true,
+        "radar_measurement_available": true,
+        "checkpoint_radar_geometry": {
+          "beam_nadir_cosine": 0.8586006593718456,
+          "beam_body": [
+            -0.07310866014238826,
+            -0.7147168646786284,
+            -0.6955824373545783
+          ],
+          "nadir_global": [
+            -0.7427008015351065,
+            0.008943575754465041,
+            -0.6695636876741705
+          ],
+          "altitude_above_radar_origin_m": 9926.604885312927,
+          "predicted_slant_range_ft": 37931.02296659469,
+          "position1_discrete": true,
+          "position2_discrete": false,
+          "range_good_discrete": true,
+          "velocity_good_discrete": true,
+          "position2_command": false,
+          "radar_test_switch": 1
+        },
+        "radar_range_unit": "ft",
+        "radar_rate_unit": "ft/s",
+        "n68_dh_unit": "ft",
+        "operational_dh_envelope": {
+          "altitude_interval_ft": [
+            27500,
+            40700
+          ],
+          "maximum_absolute_dh_ft": 17500,
+          "rule": "Apollo 11 mission rule 5-89, printed 5-13 (1969-04-16)",
+          "rule_url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11missionrules.pdf",
+          "crew_chart": "LM crew chart 9, printed 50 (1969-06-27)",
+          "crew_chart_url": "https://www.ibiblio.org/apollo/Documents/Apollo%2011%20Crew%20Charts%20And%20Console%20Charts.pdf",
+          "timeline": "Final flown LM timeline, printed 9, revision G (1969-07-01)",
+          "timeline_url": "https://www.ibiblio.org/apollo/Documents/Apollo11-LM-TimelineBook-excerpts.pdf",
+          "qualification": "MTM 28D item 2 (1969-07-09): MIT had not independently verified this published envelope",
+          "qualification_url": "https://www.ibiblio.org/apollo/Documents/mission_techniques_memo_28d.pdf",
+          "extrapolation": false
+        },
+        "v57_sent": true,
+        "full_checklist_fidelity": false,
+        "pilot_driver_enabled": true,
+        "pilot_body_yaw_targets": {
+          "pilot_yaw_right_10": {
+            "target_body_yaw_deg": 10,
+            "settled_body_yaw_deg": 9.244686686728107,
+            "post_observation_body_yaw_deg": 9.178758010963119,
+            "relative_matrix_twist_deg": 9.178979260665313,
+            "pilot_axis_s16": 14823,
+            "original_lgc_rhc_counts": [
+              -19
+            ],
+            "nominal_command_rate_deg_s": 5.157988429016466,
+            "peak_measured_right_yaw_rate_deg_s": 5.148938305243152,
+            "acquired_elapsed_s": 21.65,
+            "end_elapsed_s": 29.65,
+            "forward_window_zenith_cosine_before": -0.6613450579896303,
+            "forward_window_zenith_cosine_after": -0.656551702639454,
+            "fdai_rpy_deg_before": [
+              178.88507563900893,
+              286.25442546605325,
+              358.7542154119892
+            ],
+            "fdai_rpy_deg_after": [
+              178.8486321671922,
+              285.83533806764376,
+              349.58085363273557
+            ],
+            "observer_angle_tolerance_deg": 1,
+            "observer_rate_tolerance_deg_s": 0.1,
+            "full_historical_pilot_pose_certified": false
+          },
+          "pilot_yaw_right_174": {
+            "target_body_yaw_deg": 174,
+            "settled_body_yaw_deg": 173.7046292002148,
+            "post_observation_body_yaw_deg": 173.8189770345967,
+            "relative_matrix_twist_deg": 173.8263099114916,
+            "pilot_axis_s16": 14823,
+            "original_lgc_rhc_counts": [
+              -19
+            ],
+            "nominal_command_rate_deg_s": 5.157988429016466,
+            "peak_measured_right_yaw_rate_deg_s": 5.234609808937741,
+            "acquired_elapsed_s": 1132.3333333333333,
+            "end_elapsed_s": 1140.3333333333333,
+            "forward_window_zenith_cosine_before": -0.9668612651351834,
+            "forward_window_zenith_cosine_after": 0.969663284125541,
+            "fdai_rpy_deg_before": [
+              178.75927495576377,
+              266.25665959366796,
+              350.02502186452404
+            ],
+            "fdai_rpy_deg_after": [
+              0.5426012769977194,
+              81.24467030603006,
+              3.7235229013184634
+            ],
+            "observer_angle_tolerance_deg": 1,
+            "observer_rate_tolerance_deg_s": 0.1,
+            "full_historical_pilot_pose_certified": false
+          }
+        },
+        "manual_yaw_measurement": "Integral of original pilot body yaw including neutral braking; windows-up geometry observed",
+        "manual_yaw_settled_attitude_validated": false,
+        "manual_yaw_release_and_settling": {},
+        "yaw_target_driver_enabled": false,
+        "diagnostic_relative_yaw_targets": {},
+        "manual_yaw_release_readback_delay_s": null,
+        "manual_yaw_after_release_rate_deg_s": {},
+        "manual_yaw_10_exercised": true,
+        "manual_yaw_174_exercised": true,
+        "landing_attempted": false,
+        "windows_comparison": false,
+        "pilot_descent_enabled": true,
+        "radar_acceptance": {
+          "lgc_altitude_ft": 33970.22637795276,
+          "dh_ft": -1171,
+          "source_chart": {
+            "altitude_interval_ft": [
+              27500,
+              40700
+            ],
+            "maximum_absolute_dh_ft": 17500,
+            "rule": "Apollo 11 mission rule 5-89, printed 5-13 (1969-04-16)",
+            "rule_url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11missionrules.pdf",
+            "crew_chart": "LM crew chart 9, printed 50 (1969-06-27)",
+            "crew_chart_url": "https://www.ibiblio.org/apollo/Documents/Apollo%2011%20Crew%20Charts%20And%20Console%20Charts.pdf",
+            "timeline": "Final flown LM timeline, printed 9, revision G (1969-07-01)",
+            "timeline_url": "https://www.ibiblio.org/apollo/Documents/Apollo11-LM-TimelineBook-excerpts.pdf",
+            "qualification": "MTM 28D item 2 (1969-07-09): MIT had not independently verified this published envelope",
+            "qualification_url": "https://www.ibiblio.org/apollo/Documents/mission_techniques_memo_28d.pdf",
+            "extrapolation": false
+          }
+        },
+        "post_v57_dh_ft": 170,
+        "convergence_observation_seconds": 30,
+        "radar_adequacy_for_entire_mission_certified": false,
+        "original_p64_elapsed_s": 1397.8333333333333,
+        "handoff_lgc_altitude_ft": 1978.75656167979,
+        "handoff_guidance_program": "64",
+        "manual_landing_validated": false,
+        "ags_deda_validated": false,
+        "graphical_hit_testing_validated": false,
+        "zero_step_persistence": {
+          "radar": {
+            "RANGE": [
+              1982.432488752424
+            ],
+            "ANTENNAANGLE": [
+              0.0
+            ],
+            "RANGEGOOD": [
+              1.0
+            ],
+            "VELOCITYGOOD": [
+              1.0
+            ],
+            "RATE": [
+              -142.537577590337,
+              -15.817173864225,
+              136.934317375607
+            ]
+          },
+          "crosspointer_left": [
+            0.0,
+            -0.0
+          ],
+          "crosspointer_right": [
+            18.961992,
+            -0.16713
+          ],
+          "gimbal_pitch": {
+            "POSITION": [
+              0.09407454
+            ],
+            "COMMANDEDPOSITION": [
+              1.0
+            ],
+            "MOTORRUNNING": [
+              1.0
+            ]
+          },
+          "gimbal_roll": {
+            "POSITION": [
+              0.0373433
+            ],
+            "COMMANDEDPOSITION": [
+              1.0
+            ],
+            "MOTORRUNNING": [
+              1.0
+            ]
+          },
+          "dps": {
+            "THRUSTON": [
+              1.0
+            ],
+            "THRUSTCOMMAND": [
+              0.42775
+            ],
+            "ENGPREVALVESARM": [
+              1.0
+            ],
+            "ENGARM": [
+              1.0
+            ],
+            "EROSION": [
+              1189.033502947912
+            ],
+            "PROPSHUTOFFVALVES": [
+              1.0
+            ]
+          },
+          "mass_cg_state": [
+            0.0,
+            -0.191169553914,
+            0.0,
+            2.5428,
+            2.2871,
+            2.7566,
+            1550.929684367613
+          ]
+        },
+        "processor_resume": {
+          "saved_cycle_counter": 124034844,
+          "reloaded_cycle_counter": 0,
+          "cycle_counter_retained": false,
+          "cdu_fifo_snapshot_supported": false,
+          "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in process-global static state"
+        },
+        "neutral_continuation": {
+          "continuation_matches_observation_bounds": false,
+          "samples": 31,
+          "duration_seconds": 0.5,
+          "bounds": {
+            "range_ft": 0.05,
+            "angular_rate_rad_s": 2e-06,
+            "rotation_component": 5e-05,
+            "thrust_level": 1e-06,
+            "gimbal_position": 2e-12
+          },
+          "maximum_differences": {
+            "range_ft": 0.04597864844186006,
+            "angular_rate_rad_s": 7.971767061646062e-07,
+            "rotation_component": 1.116417456870078e-06,
+            "thrust_level": 3.3306690738754696e-16,
+            "gimbal_position": 0.0
+          },
+          "violations": [
+            {
+              "tick": 7,
+              "field": "both_crosspointers"
+            },
+            {
+              "tick": 28,
+              "field": "both_crosspointers"
+            },
+            {
+              "tick": 29,
+              "field": "both_crosspointers"
+            },
+            {
+              "tick": 30,
+              "field": "both_crosspointers"
+            }
+          ],
+          "first_step": {
+            "reference": {
+              "seq": 6236,
+              "event": "neutral_resume_sample",
+              "action": "uninterrupted",
+              "checklist_yaw_enabled": true,
+              "pilot_driver_enabled": true,
+              "pilot_descent_enabled": true,
+              "pilot_aca_axis_s16": 0,
+              "lgc_altitude_ft": 1978.75656167979,
+              "lgc_rhc_yaw_raw_s32": 0,
+              "lgc_rhc_yaw_count": 0,
+              "lgc_flagword11_octal": "2770",
+              "yaw_target_driver_enabled": false,
+              "yaw_integrated_deg": 173.81897703459722,
+              "checklist_row": 0,
+              "area_id": 0,
+              "mouse_event": 0,
+              "sim_elapsed_s": 1453.55,
+              "mission_time_s": 370197.97373666154,
+              "agc_clock_s": 370197.42,
+              "tig_s": 369645.02,
+              "countdown_s": -552.3999999999651,
+              "lgc_tfi_s": -0.98,
+              "tfi_high_octal": "77777",
+              "tfi_low_octal": "77635",
+              "actual_ignition_elapsed_s": 901.183333,
+              "guidance_channel_011": 4354,
+              "guidance_channel_012": 1186,
+              "guidance_channel_032": 512,
+              "guidance_channel_031": 8192,
+              "keyboard_yaw_right_down": false,
+              "aca_keyboard_yaw_right": 0,
+              "guidance_channel_033": 476,
+              "dps_level": 0.42774999999999974,
+              "ground_contact": false,
+              "altitude_m": 597.3617903133318,
+              "groundspeed_mps": 60.398104351222266,
+              "requested_field": "",
+              "requested_state": -1,
+              "readback": null,
+              "dsky": {
+                "PROG": "64",
+                "VERB": "06",
+                "NOUN": "64",
+                "R1": "+84 46",
+                "R2": "-00569",
+                "R3": "+02090",
+                "STATE": "536870912"
+              },
+              "radar": {
+                "RANGE": "1981.434831189631",
+                "ANTENNAANGLE": "0.000000000000",
+                "RANGEGOOD": "1",
+                "VELOCITYGOOD": "1",
+                "RATE": "-142.474842113030 -15.817537359888 136.904360821004"
+              },
+              "neutral_trace_tick": 1,
+              "crosspointers": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  18.952454,
+                  -0.16713
+                ]
+              ],
+              "dps_gimbals": [
+                {
+                  "position": 0.097407873333,
+                  "command": 0,
+                  "motor_running": 1
+                },
+                {
+                  "position": 0.040676633333,
+                  "command": 1,
+                  "motor_running": 1
+                }
+              ],
+              "controls": {
+                "ModeControlPGNSSwitch": 2,
+                "ModeControlAGSSwitch": 2,
+                "EngineArmSwitch": 0,
+                "EngineDescentCommandOverrideSwitch": 1,
+                "LandingAntSwitch": 0,
+                "PGNS_LDG_RDR_CB": 1,
+                "RateScaleSwitch": 1,
+                "AltRngMonSwitch": 0,
+                "RendezvousRadarRotary": 1,
+                "ORDEALFDAI1Switch": 0,
+                "ORDEALFDAI2Switch": 0,
+                "LeftXPointerSwitch": 1,
+                "RightXPointerSwitch": 1
+              },
+              "active_thrusters": [
+                {
+                  "index": 0,
+                  "level": 0.42774999999999974,
+                  "max_thrust_n": 44392.35150409375,
+                  "direction": [
+                    -0.0007099411802931424,
+                    1,
+                    0.0017000881070322479
+                  ]
+                }
+              ],
+              "angular_velocity_body_rad_s": [
+                -0.0061418535557625185,
+                -0.0010996043764580415,
+                -0.0006296874147163047
+              ],
+              "radar_geometry": {
+                "beam_nadir_cosine": 0.9846267543720698,
+                "beam_body": [
+                  -0.03640149932051852,
+                  -0.9374036069850605,
+                  -0.346337131215549
+                ],
+                "nadir_global": [
+                  -0.7741439928305599,
+                  0.00706549181350665,
+                  -0.6329701076589568
+                ],
+                "altitude_above_radar_origin_m": 594.3617903133318,
+                "predicted_slant_range_ft": 1980.451846420717,
+                "position1_discrete": false,
+                "position2_discrete": true,
+                "range_good_discrete": true,
+                "velocity_good_discrete": true,
+                "position2_command": false,
+                "radar_test_switch": 1
+              },
+              "pgns_fdai_rpy_deg": [
+                358.73918673985634,
+                30.151783592982,
+                2.9049842292557977
+              ],
+              "gasta_powered": true,
+              "forward_window_zenith_cosine": 0.500304331612814,
+              "rotation_body_to_global": [
+                [
+                  -0.036046743081862787,
+                  0.35373230353000157,
+                  0.934651854838233
+                ],
+                [
+                  0.9983992467338918,
+                  -0.02804193880976119,
+                  0.049118161498445556
+                ],
+                [
+                  0.04358413053380722,
+                  0.9349262575771142,
+                  -0.35215524482600513
+                ]
+              ],
+              "aca_proportional_roll_pitch_yaw": [
+                0,
+                0,
+                0
+              ],
+              "aca_out_of_detent": false,
+              "lgc_output_channel_005": 0,
+              "lgc_output_channel_006": 0,
+              "atca_primary_voltage_v": -4.7,
+              "guidance_relay_k12": false,
+              "guidance_relay_k13": false,
+              "pgns_jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_driver": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "rcs_jet_levels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "lgc_cycle_counter": 124036266,
+              "crosspointer_cdu_counts": [
+                339,
+                -3
+              ],
+              "lm_cog_m": [
+                0,
+                -0.19116955391359358,
+                0
+              ],
+              "pmi_m2": [
+                2.5428,
+                2.2871,
+                2.7566
+              ],
+              "relative_position_m": [
+                1344433.021774292,
+                -12270.4310788773,
+                1099260.502456665
+              ],
+              "altitude_mean_radius_m": -1419.5172148242127,
+              "last_cog_fuel_weight_kg": 1550.9296843676132
+            },
+            "resumed": {
+              "seq": 1,
+              "event": "neutral_resume_sample",
+              "action": "resumed",
+              "checklist_yaw_enabled": true,
+              "pilot_driver_enabled": true,
+              "pilot_descent_enabled": false,
+              "pilot_aca_axis_s16": 0,
+              "lgc_altitude_ft": 1978.75656167979,
+              "lgc_rhc_yaw_raw_s32": 0,
+              "lgc_rhc_yaw_count": 0,
+              "lgc_flagword11_octal": "2770",
+              "yaw_target_driver_enabled": false,
+              "yaw_integrated_deg": 0,
+              "checklist_row": 0,
+              "area_id": 0,
+              "mouse_event": 0,
+              "sim_elapsed_s": 0.016666666666666666,
+              "mission_time_s": 370197.97373666667,
+              "agc_clock_s": 370197.42,
+              "tig_s": 369645.02,
+              "countdown_s": -552.3999999999651,
+              "lgc_tfi_s": -0.98,
+              "tfi_high_octal": "77777",
+              "tfi_low_octal": "77635",
+              "actual_ignition_elapsed_s": null,
+              "guidance_channel_011": 4354,
+              "guidance_channel_012": 1186,
+              "guidance_channel_032": 512,
+              "guidance_channel_031": 8192,
+              "keyboard_yaw_right_down": false,
+              "aca_keyboard_yaw_right": 0,
+              "guidance_channel_033": 476,
+              "dps_level": 0.42775,
+              "ground_contact": false,
+              "altitude_m": 597.360937420854,
+              "groundspeed_mps": 60.39813760071902,
+              "requested_field": "",
+              "requested_state": -1,
+              "readback": null,
+              "dsky": {
+                "PROG": "64",
+                "VERB": "06",
+                "NOUN": "64",
+                "R1": "+84 46",
+                "R2": "-00569",
+                "R3": "+02090",
+                "STATE": "536870912"
+              },
+              "radar": {
+                "RANGE": "1981.433308695473",
+                "ANTENNAANGLE": "0.000000000000",
+                "RANGEGOOD": "1",
+                "VELOCITYGOOD": "1",
+                "RATE": "-142.475210784059 -15.817393702463 136.904116578763"
+              },
+              "neutral_trace_tick": 1,
+              "crosspointers": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  18.952454,
+                  -0.16713
+                ]
+              ],
+              "dps_gimbals": [
+                {
+                  "position": 0.097407873333,
+                  "command": 0,
+                  "motor_running": 1
+                },
+                {
+                  "position": 0.040676633333,
+                  "command": 1,
+                  "motor_running": 1
+                }
+              ],
+              "controls": {
+                "ModeControlPGNSSwitch": 2,
+                "ModeControlAGSSwitch": 2,
+                "EngineArmSwitch": 0,
+                "EngineDescentCommandOverrideSwitch": 1,
+                "LandingAntSwitch": 0,
+                "PGNS_LDG_RDR_CB": 1,
+                "RateScaleSwitch": 1,
+                "AltRngMonSwitch": 0,
+                "RendezvousRadarRotary": 1,
+                "ORDEALFDAI1Switch": 0,
+                "ORDEALFDAI2Switch": 0,
+                "LeftXPointerSwitch": 1,
+                "RightXPointerSwitch": 1
+              },
+              "active_thrusters": [
+                {
+                  "index": 0,
+                  "level": 0.42775,
+                  "max_thrust_n": 44392.35150409375,
+                  "direction": [
+                    -0.0007099411802931429,
+                    1,
+                    0.0017000881070322505
+                  ]
+                }
+              ],
+              "angular_velocity_body_rad_s": [
+                -0.006141928062888744,
+                -0.001099563609694795,
+                -0.0006288904656811415
+              ],
+              "radar_geometry": {
+                "beam_nadir_cosine": 0.9846265926710955,
+                "beam_body": [
+                  -0.03640149932051852,
+                  -0.9374036069850605,
+                  -0.346337131215549
+                ],
+                "nadir_global": [
+                  -0.7741439928946217,
+                  0.007065491566459047,
+                  -0.6329701075833646
+                ],
+                "altitude_above_radar_origin_m": 594.360937420854,
+                "predicted_slant_range_ft": 1980.4493297685237,
+                "position1_discrete": false,
+                "position2_discrete": true,
+                "range_good_discrete": true,
+                "velocity_good_discrete": true,
+                "position2_command": false,
+                "radar_test_switch": 1
+              },
+              "pgns_fdai_rpy_deg": [
+                358.7392198545241,
+                30.151850326454387,
+                2.904955848272562
+              ],
+              "gasta_powered": true,
+              "forward_window_zenith_cosine": 0.5003051046181982,
+              "rotation_body_to_global": [
+                [
+                  -0.036046508071432226,
+                  0.3537314532404183,
+                  0.9346521857056121
+                ],
+                [
+                  0.9983992844029279,
+                  -0.028041440375791538,
+                  0.04911768037451014
+                ],
+                [
+                  0.04358346199624097,
+                  0.9349265942361854,
+                  -0.35215443377920086
+                ]
+              ],
+              "aca_proportional_roll_pitch_yaw": [
+                0,
+                0,
+                0
+              ],
+              "aca_out_of_detent": false,
+              "lgc_output_channel_005": 0,
+              "lgc_output_channel_006": 0,
+              "atca_primary_voltage_v": -4.7,
+              "guidance_relay_k12": false,
+              "guidance_relay_k13": false,
+              "pgns_jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_driver": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "jet_requests": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "rcs_jet_levels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "lgc_cycle_counter": 1422,
+              "crosspointer_cdu_counts": [
+                339,
+                -3
+              ],
+              "lm_cog_m": [
+                0,
+                -0.191169553914,
+                0
+              ],
+              "pmi_m2": [
+                2.5428,
+                2.2871,
+                2.7566
+              ],
+              "relative_position_m": [
+                1344433.0212249756,
+                -12270.430643808097,
+                1099260.5017852783
+              ],
+              "altitude_mean_radius_m": -1419.5180681159254,
+              "last_cog_fuel_weight_kg": 1550.929684367613
+            }
+          }
+        },
+        "faithful_neutral_resume": false,
+        "aca_pulse_executed": false,
+        "fresh_zero_step_reload": true,
+        "lgc_memory_channels_retained": true,
+        "verification_wall_seconds": 86.68809075,
+        "binary_sha256": {
+          "probe": "1a2d60afb593b5068e05536f4cffcb8f2358df266eab5c76bf8483a9572789c9",
+          "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+        },
+        "event_log_sha256": "f6faa40e0ba56e565fe918a313327d799e789e844db6e64f5be6b61bbe07fffb",
+        "limits": [
+          "Observer yaw tolerances are not Apollo flight tolerances",
+          "Crew-chart envelope applies only inside the cited altitude interval",
+          "30-second net convergence does not certify all radar or mission go/no-go criteria",
+          "Prior visual checks, communications, AGS DEDA, manual evaluation and landing remain unvalidated",
+          "Original callback inputs do not validate graphical hit testing or full human piloting"
+        ],
+        "validation_passed": false,
+        "verification_error": "AGC cycle counter was not restored; faithful processor resume requires CDU FIFO persistence"
+      },
+      "first_step_cycle_counter": {
+        "reference": 124036266,
+        "resumed": 1422
+      },
+      "late_forward_cdu_counts": {
+        "reference": [
+          336,
+          334,
+          334,
+          334
+        ],
+        "resumed": [
+          336,
+          336,
+          336,
+          336
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Short observer bounds are not Apollo flight tolerances or full trajectory parity",
+    "Both pins intentionally skip AGC CYCLECOUNTER reload pending CDU FIFO snapshots",
+    "Candidate late forward-CDU divergence is observed; exact causal link to incomplete FIFO/timing state is not isolated",
+    "Old saves lack THRUSTCOMMAND and cached MASSCG_STATE; they cannot reconstruct lost private state",
+    "Physical-controller, graphical hit-testing, AGS DEDA and manual-landing QA remain unvalidated"
+  ],
+  "best_next_step": "Implement per-AGC CDU FIFO/timing snapshot and restore together with the cycle counter; verify original multi-vessel handoff and neutral continuation before the bounded original-ACA pulse/release test",
+  "archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-persistence-20261010",
+  "verified_mirror_and_bundle": "<LOCAL_PATH>"
+}

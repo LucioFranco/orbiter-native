@@ -1,0 +1,1750 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T23:07:31.772219+00:00",
+  "baseline_commit": "b6ca4a0047a8bad0fd4b679dc2cfd3e0dfe83a8f",
+  "scope": "Sixty-second original-state production boundary comparison plus separately labeled motor-loader diagnostic. No production source/library/input/equation or tolerance changes.",
+  "upstream": {
+    "OpenOrbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "NASSP": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+    "NASSPRelease": 434
+  },
+  "stock_alignment": {
+    "freshOriginalScenario": true,
+    "initialScenarioSHA256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+    "fixedStepToken": "0.016666666666666666",
+    "targetTotalSteps": 3601,
+    "startupSteps": 1,
+    "neutralCoastSteps": 3600,
+    "observedMJDToken": "40422.8324568111",
+    "observedAGCCounters": {
+      "Columbia": "5121422",
+      "Eagle": "5121422"
+    },
+    "MJDTokenMatchesNative": true,
+    "AGCCountersMatchNative": true,
+    "actualOrbiterConfigSHA256": "d5f4f65e16c3a66925e1c8e543eee2aa5f82b737abec12e39d4c1aa7578495e3",
+    "actualD3D9ConfigSHA256": "332f9bf15f492b193fcb963fa72232ca5942e74f9d00613ca1d5a929a7540c6e",
+    "NormalExit": true,
+    "LastTaskResult": 0,
+    "ConfigsRestored": true,
+    "CurrentStateRestored": true,
+    "QuicksaveUnchanged": true,
+    "TaskRemoved": true,
+    "flightControlInput": "None. Ctrl+P resume only; no plugin, Lua, source or binary modifications.",
+    "configSerializationNote": "Post-close stock FixedStep may round to0.0166667; actual launch config and CLI override retain full precision.",
+    "captureProcessAndTaskRemaining": false
+  },
+  "windows_raw_sha256": "6a5a703638f476c3aa6407263b46a72d9608a8e6c8cf584ff36720839d5e2115",
+  "windows_complete_bundle_sha256": "e1b54140ef4365dc8e4e03092551ac3c1e5cea96f4dabf2966d96d4716440d67",
+  "windows_index_sha256": "2f0decf74ec6b673043d4811208a5c6f8a278035fd0d63415eadb543c03f919d",
+  "production_original_state": {
+    "five_second_same_native_run": {
+      "windows_raw_sha256": "1a176325ad4bcfb6ec4f9bfa83f3ce5c8f273b5437d787d113814fc77c5f7b0b",
+      "native_raw_sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274",
+      "mjd_token_equal": true,
+      "mjd_token": "MJD 40422.8318202371",
+      "vessels": {
+        "Columbia": {
+          "trajectory_serialized_fields": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true,
+              "present_both": true
+            },
+            "RPOS": {
+              "windows": "-523667.480 -11784.469 1765234.209",
+              "native": "-523667.480 -11784.469 1765234.209",
+              "equal": true,
+              "present_both": true
+            },
+            "RVEL": {
+              "windows": "1567.1040 -14.9426 465.2091",
+              "native": "1567.1040 -14.9426 465.2091",
+              "equal": true,
+              "present_both": true
+            },
+            "AROT": {
+              "windows": "74.477 -83.311 -154.832",
+              "native": "74.477 -83.311 -154.832",
+              "equal": true,
+              "present_both": true
+            },
+            "VROT": {
+              "windows": "-0.0224 -0.0176 0.0086",
+              "native": "-0.0224 -0.0176 0.0086",
+              "equal": true,
+              "present_both": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true,
+              "present_both": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_cycle_counter": "428088",
+          "mission_clocks": {
+            "windows": "368749.422916665499",
+            "native": "368749.409153566812",
+            "native_minus_windows_decimal": "-0.013763098687"
+          },
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.469174164807"
+              ],
+              "native": [
+                "-0.469174164787"
+              ],
+              "native_minus_windows_decimal": [
+                "2.0E-11"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.806161274640"
+              ],
+              "native": [
+                "0.806161274703"
+              ],
+              "native_minus_windows_decimal": [
+                "6.3E-11"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "6.3E-11",
+          "equivalent_remainder_velocity_difference_m_s": "3.6855E-12",
+          "selected_record_differences_count": 3,
+          "chemical_record_differences_count": 3,
+          "chemical_max_absolute_deltas": {
+            "mass_g": "0E-12",
+            "vapor_mass_g": "0E-12",
+            "energy_j": "2.33E-10"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_serialized_fields": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true,
+              "present_both": true
+            },
+            "RPOS": {
+              "windows": "-441121.409 -11949.412 1711599.024",
+              "native": "-441121.409 -11949.412 1711599.024",
+              "equal": true,
+              "present_both": true
+            },
+            "RVEL": {
+              "windows": "1636.2696 -14.7950 384.8484",
+              "native": "1636.2696 -14.7950 384.8484",
+              "equal": true,
+              "present_both": true
+            },
+            "AROT": {
+              "windows": "-178.933 34.437 -90.604",
+              "native": "-178.933 34.437 -90.604",
+              "equal": true,
+              "present_both": true
+            },
+            "VROT": {
+              "windows": "0.0145 -0.0012 0.0113",
+              "native": "0.0145 -0.0012 0.0113",
+              "equal": true,
+              "present_both": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.841445 2:0.816048",
+              "native": "0:0.986596 1:0.841445 2:0.816048",
+              "equal": true,
+              "present_both": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_cycle_counter": "428088",
+          "mission_clocks": {
+            "windows": "368749.454167",
+            "native": "368749.440404",
+            "native_minus_windows_decimal": "-0.013763"
+          },
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.723998178040"
+              ],
+              "native": [
+                "-0.723998177880"
+              ],
+              "native_minus_windows_decimal": [
+                "1.60E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.975398923488"
+              ],
+              "native": [
+                "0.975398923481"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.389989552871"
+              ],
+              "native": [
+                "0.389989553041"
+              ],
+              "native_minus_windows_decimal": [
+                "1.70E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.70E-10",
+          "equivalent_remainder_velocity_difference_m_s": "1.70E-12",
+          "selected_record_differences_count": 72,
+          "chemical_record_differences_count": 66,
+          "chemical_max_absolute_deltas": {
+            "mass_g": "1.0775E-8",
+            "vapor_mass_g": "1.0770E-8",
+            "energy_j": "0.005003549391"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.794964",
+                "0.001000"
+              ],
+              "native": [
+                "293.795071",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000107",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-ECA-Plate",
+              "windows": [
+                "286.975420",
+                "0.001000"
+              ],
+              "native": [
+                "286.975421",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-Plate",
+              "windows": [
+                "288.118648",
+                "0.001000"
+              ],
+              "native": [
+                "288.118649",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35852970.3189",
+                "286.7564"
+              ],
+              "native": [
+                "35852969.9306",
+                "286.7564"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3883",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35950806.0042",
+                "285.2658"
+              ],
+              "native": [
+                "35950805.8101",
+                "285.2658"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1941",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31851746.3822",
+                "275.7842"
+              ],
+              "native": [
+                "31851746.1973",
+                "275.7842"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1849",
+                "0.0000"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "sixty_second_production": {
+      "windows_raw_sha256": "6a5a703638f476c3aa6407263b46a72d9608a8e6c8cf584ff36720839d5e2115",
+      "native_raw_sha256": "859b39586ab9f419d03aa4c8b46346ad6fad959506a333633eb9e932868e8c2e",
+      "mjd_token_equal": true,
+      "mjd_token": "MJD 40422.8324568111",
+      "vessels": {
+        "Columbia": {
+          "trajectory_serialized_fields": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true,
+              "present_both": true
+            },
+            "RPOS": {
+              "windows": "-436888.548 -12592.519 1788713.737",
+              "native": "-436888.548 -12592.519 1788713.737",
+              "equal": true,
+              "present_both": true
+            },
+            "RVEL": {
+              "windows": "1587.8676 -14.4361 388.4214",
+              "native": "1587.8676 -14.4361 388.4214",
+              "equal": true,
+              "present_both": true
+            },
+            "AROT": {
+              "windows": "87.011 -82.800 -166.799",
+              "native": "87.011 -82.800 -166.799",
+              "equal": true,
+              "present_both": true
+            },
+            "VROT": {
+              "windows": "-0.0234 -0.0179 0.0087",
+              "native": "-0.0234 -0.0179 0.0087",
+              "equal": true,
+              "present_both": true
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "native": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "equal": true,
+              "present_both": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_cycle_counter": "5121422",
+          "mission_clocks": {
+            "windows": "368804.422916652693",
+            "native": "368804.409153554006",
+            "native_minus_windows_decimal": "-0.013763098687"
+          },
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.913625280341"
+              ],
+              "native": [
+                "-0.913625280218"
+              ],
+              "native_minus_windows_decimal": [
+                "1.23E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "-0.006944943495"
+              ],
+              "native": [
+                "-0.006944943494"
+              ],
+              "native_minus_windows_decimal": [
+                "1E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.122436245132"
+              ],
+              "native": [
+                "0.122436245163"
+              ],
+              "native_minus_windows_decimal": [
+                "3.1E-11"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "1.23E-10",
+          "equivalent_remainder_velocity_difference_m_s": "7.1955E-12",
+          "selected_record_differences_count": 50,
+          "chemical_record_differences_count": 50,
+          "chemical_max_absolute_deltas": {
+            "mass_g": "3.49E-10",
+            "vapor_mass_g": "3.1E-11",
+            "energy_j": "1.48585E-7"
+          },
+          "battery_radiator_differences": []
+        },
+        "Eagle": {
+          "trajectory_serialized_fields": {
+            "STATUS": {
+              "windows": "Orbiting Moon",
+              "native": "Orbiting Moon",
+              "equal": true,
+              "present_both": true
+            },
+            "RPOS": {
+              "windows": "-350573.423 -12747.843 1730454.184",
+              "native": "-350573.423 -12747.843 1730454.184",
+              "equal": true,
+              "present_both": true
+            },
+            "RVEL": {
+              "windows": "1655.6511 -14.2326 300.5920",
+              "native": "1655.6511 -14.2326 300.5920",
+              "equal": true,
+              "present_both": true
+            },
+            "AROT": {
+              "windows": "-178.854 34.740 -90.412",
+              "native": "-178.854 34.740 -90.412",
+              "equal": true,
+              "present_both": true
+            },
+            "VROT": {
+              "windows": null,
+              "native": null,
+              "equal": true,
+              "present_both": false
+            },
+            "PRPLEVEL": {
+              "windows": "0:0.986596 1:0.841430 2:0.816048",
+              "native": "0:0.986596 1:0.841430 2:0.816048",
+              "equal": true,
+              "present_both": true
+            }
+          },
+          "AGC_complete_equal_after_newline_normalization": true,
+          "DSKY_complete_equal_after_newline_normalization": true,
+          "AGC_cycle_counter": "5121422",
+          "mission_clocks": {
+            "windows": "368804.454167",
+            "native": "368804.440404",
+            "native_minus_windows_decimal": "-0.013763"
+          },
+          "IMU_differences": [
+            {
+              "field": "RPX",
+              "windows": [
+                "-0.313705645309"
+              ],
+              "native": [
+                "-0.313705644820"
+              ],
+              "native_minus_windows_decimal": [
+                "4.89E-10"
+              ]
+            },
+            {
+              "field": "RPY",
+              "windows": [
+                "0.324751504642"
+              ],
+              "native": [
+                "0.324751504635"
+              ],
+              "native_minus_windows_decimal": [
+                "-7E-12"
+              ]
+            },
+            {
+              "field": "RPZ",
+              "windows": [
+                "0.275764567847"
+              ],
+              "native": [
+                "0.275764568410"
+              ],
+              "native_minus_windows_decimal": [
+                "5.63E-10"
+              ]
+            }
+          ],
+          "max_absolute_PIPA_remainder_difference_pulses": "5.63E-10",
+          "equivalent_remainder_velocity_difference_m_s": "5.63E-12",
+          "selected_record_differences_count": 84,
+          "chemical_record_differences_count": 71,
+          "chemical_max_absolute_deltas": {
+            "mass_g": "0.009525218271",
+            "vapor_mass_g": "3.7298E-8",
+            "energy_j": "11.905594720855"
+          },
+          "battery_radiator_differences": [
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-PRIM-SEC-Plate",
+              "windows": [
+                "286.603710",
+                "0.000000"
+              ],
+              "native": [
+                "286.603715",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SBD-Plate",
+              "windows": [
+                "291.561811",
+                "0.001000"
+              ],
+              "native": [
+                "291.561816",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-AEA-VHF-Plate",
+              "windows": [
+                "291.031133",
+                "0.001000"
+              ],
+              "native": [
+                "291.031138",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ATCA-INV-Plate",
+              "windows": [
+                "293.828176",
+                "0.001000"
+              ],
+              "native": [
+                "293.828205",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000029",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-ECA-Plate",
+              "windows": [
+                "286.972246",
+                "0.001000"
+              ],
+              "native": [
+                "286.972251",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-CWEA-PCM-Plate",
+              "windows": [
+                "288.057662",
+                "0.001000"
+              ],
+              "native": [
+                "288.057667",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-SCERA-Plate",
+              "windows": [
+                "288.116350",
+                "0.001000"
+              ],
+              "native": [
+                "288.116355",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-RRE-Plate",
+              "windows": [
+                "292.802490",
+                "0.001000"
+              ],
+              "native": [
+                "292.802495",
+                "0.001000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000005",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-ASCBAT2-Plate",
+              "windows": [
+                "275.647302",
+                "0.000000"
+              ],
+              "native": [
+                "275.647303",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000001",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<RADIATOR>LM-DESBATRightPlate",
+              "windows": [
+                "281.378491",
+                "0.000000"
+              ],
+              "native": [
+                "281.378493",
+                "0.000000"
+              ],
+              "native_minus_windows_decimal": [
+                "0.000002",
+                "0.000000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_C",
+              "windows": [
+                "35826065.2106",
+                "286.8982"
+              ],
+              "native": [
+                "35826064.8223",
+                "286.8983"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.3883",
+                "0.0001"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>DSC_BATTERY_D",
+              "windows": [
+                "35937353.4500",
+                "285.2173"
+              ],
+              "native": [
+                "35937353.2559",
+                "285.2173"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1941",
+                "0.0000"
+              ]
+            },
+            {
+              "vessel": "Eagle",
+              "field": "<BATTERY>ASC_BATTERY_B",
+              "windows": [
+                "31838934.4258",
+                "275.8565"
+              ],
+              "native": [
+                "31838934.2410",
+                "275.8565"
+              ],
+              "native_minus_windows_decimal": [
+                "-0.1848",
+                "0.0000"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "inertial_numeric_differences": {
+    "five_seconds": {
+      "Columbia": {
+        "INERTIAL_DATA": [
+          {
+            "field": "LASTGLOBALVEL",
+            "windows": [
+              "27498.482125492286",
+              "-98.189181306312",
+              "13529.052537409683"
+            ],
+            "native": [
+              "27498.482125492294",
+              "-98.189181306312",
+              "13529.052537409685"
+            ],
+            "native_minus_windows_decimal": [
+              "8E-12",
+              "0E-12",
+              "2E-12"
+            ]
+          }
+        ],
+        "max_absolute_LASTGLOBALVEL_difference_m_s": "8E-12",
+        "max_absolute_LASTWEIGHT_difference_m_s2": "0"
+      },
+      "Eagle": {
+        "INERTIAL_DATA": [
+          {
+            "field": "LASTGLOBALVEL",
+            "windows": [
+              "27567.648014034890",
+              "-98.041683266348",
+              "13448.694152996923"
+            ],
+            "native": [
+              "27567.648014034898",
+              "-98.041683266348",
+              "13448.694152996924"
+            ],
+            "native_minus_windows_decimal": [
+              "8E-12",
+              "0E-12",
+              "1E-12"
+            ]
+          }
+        ],
+        "max_absolute_LASTGLOBALVEL_difference_m_s": "8E-12",
+        "max_absolute_LASTWEIGHT_difference_m_s2": "0",
+        "ASA": [
+          {
+            "field": "REMAININGDELTAVEL",
+            "windows": [
+              "-0.000502244054",
+              "-0.000583315509",
+              "0.000643228615"
+            ],
+            "native": [
+              "-0.000502244056",
+              "-0.000583315509",
+              "0.000643228614"
+            ],
+            "native_minus_windows_decimal": [
+              "-2E-12",
+              "0E-12",
+              "-1E-12"
+            ]
+          }
+        ],
+        "max_absolute_ASA_REMAININGDELTAVEL_difference_m_s": "2E-12"
+      }
+    },
+    "sixty_seconds": {
+      "Columbia": {
+        "INERTIAL_DATA": [
+          {
+            "field": "LASTGLOBALVEL",
+            "windows": [
+              "27519.240406505858",
+              "-97.679299623946",
+              "13452.564682172451"
+            ],
+            "native": [
+              "27519.240406506138",
+              "-97.679299623941",
+              "13452.564682171813"
+            ],
+            "native_minus_windows_decimal": [
+              "2.80E-10",
+              "5E-12",
+              "-6.38E-10"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "windows": [
+              "0.343196340604",
+              "0.009561470344",
+              "-1.399718847853"
+            ],
+            "native": [
+              "0.343196340621",
+              "0.009561470344",
+              "-1.399718847897"
+            ],
+            "native_minus_windows_decimal": [
+              "1.7E-11",
+              "0E-12",
+              "-4.4E-11"
+            ]
+          }
+        ],
+        "max_absolute_LASTGLOBALVEL_difference_m_s": "6.38E-10",
+        "max_absolute_LASTWEIGHT_difference_m_s2": "4.4E-11"
+      },
+      "Eagle": {
+        "INERTIAL_DATA": [
+          {
+            "field": "LASTGLOBALVEL",
+            "windows": [
+              "27587.024436628548",
+              "-97.475756716556",
+              "13364.737562105585"
+            ],
+            "native": [
+              "27587.024436627889",
+              "-97.475756716554",
+              "13364.737562105021"
+            ],
+            "native_minus_windows_decimal": [
+              "-6.59E-10",
+              "2E-12",
+              "-5.64E-10"
+            ]
+          },
+          {
+            "field": "LASTWEIGHT",
+            "windows": [
+              "0.312151354603",
+              "0.010636509013",
+              "-1.537080084071"
+            ],
+            "native": [
+              "0.312151354591",
+              "0.010636509013",
+              "-1.537080084079"
+            ],
+            "native_minus_windows_decimal": [
+              "-1.2E-11",
+              "0E-12",
+              "-8E-12"
+            ]
+          }
+        ],
+        "max_absolute_LASTGLOBALVEL_difference_m_s": "6.59E-10",
+        "max_absolute_LASTWEIGHT_difference_m_s2": "1.2E-11",
+        "ASA": [
+          {
+            "field": "REMAININGDELTAVEL",
+            "windows": [
+              "-0.000874883922",
+              "-0.000583343836",
+              "0.000643747268"
+            ],
+            "native": [
+              "-0.000874883928",
+              "-0.000583343836",
+              "0.000643747265"
+            ],
+            "native_minus_windows_decimal": [
+              "-6E-12",
+              "0E-12",
+              "-3E-12"
+            ]
+          }
+        ],
+        "max_absolute_ASA_REMAININGDELTAVEL_difference_m_s": "6E-12"
+      }
+    }
+  },
+  "comparison_precision_limits": [
+    "Exact trajectory claim is at saved token precision: RPOS 3 decimals, RVEL 4, AROT 3, Columbia VROT 4. No full-precision Windows trajectory measurements.",
+    "Eagle VROT omitted in both at angular speed squared <=1e-8 rad^2/s^2; absence does not prove zero or equal full-precision angular velocity.",
+    "MJD finite precision is alignment evidence, not a new propagation tolerance.",
+    "PIPA remainder magnitudes and pulse-to-velocity conversions are measurements, not acceptance limits."
+  ],
+  "separate_motor_loader_diagnostic": {
+    "modified_input": true,
+    "changed_records": "Two LM MOTORRUNNING 1 values replaced with 0 to reproduce stock loader rejection",
+    "used_for_production_acceptance": false,
+    "same_private_observer_binary_for_control_and_diagnostic": true,
+    "original_control_execution": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_systems_60",
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control",
+        "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+        "3601"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-11T22:58:39.394633+00:00",
+      "wall_seconds": 5.244716041999999,
+      "diagnostic_modified_motor_flags": false,
+      "binary_sha256": "f105c7186f1c21911c8e19b183dc85baf5bf936b55d71aaa0943d58955a4daa1",
+      "canonical_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "staged_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "gpu": false,
+      "vm": false
+    },
+    "diagnostic_execution": {
+      "command": [
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_systems_60",
+        "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic",
+        "ParitySeed",
+        "3601"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-11T22:58:45.097778+00:00",
+      "wall_seconds": 4.9352276250000005,
+      "diagnostic_modified_motor_flags": true,
+      "binary_sha256": "f105c7186f1c21911c8e19b183dc85baf5bf936b55d71aaa0943d58955a4daa1",
+      "canonical_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+      "staged_scenario_sha256": "4692bfd3f943e98408d5ea7fb24e73202e5d71f9ee37de8aecdd9e4ab521dded",
+      "gpu": false,
+      "vm": false
+    },
+    "case_summaries": {
+      "production_original": {
+        "raw_sha256": "859b39586ab9f419d03aa4c8b46346ad6fad959506a333633eb9e932868e8c2e",
+        "scenario_modified": false,
+        "by_vessel": {
+          "Columbia": 50,
+          "Eagle": 84
+        }
+      },
+      "systems_original_control": {
+        "raw_sha256": "abd574c1a9e96c7cef35648854ab59d41c8bbead5c862b19e99a17d8ff712c1b",
+        "scenario_modified": false,
+        "by_vessel": {
+          "Columbia": 50,
+          "Eagle": 84
+        },
+        "trajectory_guidance": {
+          "Columbia": {
+            "trajectory_serialized_equal": {
+              "STATUS": true,
+              "RPOS": true,
+              "RVEL": true,
+              "AROT": true,
+              "VROT": true,
+              "PRPLEVEL": true
+            },
+            "AGC_complete_equal": true,
+            "DSKY_complete_equal": true,
+            "IMU_differences": [
+              {
+                "field": "RPX",
+                "windows": [
+                  "-0.913625280341"
+                ],
+                "native": [
+                  "-0.913625280218"
+                ],
+                "native_minus_windows_decimal": [
+                  "1.23E-10"
+                ]
+              },
+              {
+                "field": "RPY",
+                "windows": [
+                  "-0.006944943495"
+                ],
+                "native": [
+                  "-0.006944943494"
+                ],
+                "native_minus_windows_decimal": [
+                  "1E-12"
+                ]
+              },
+              {
+                "field": "RPZ",
+                "windows": [
+                  "0.122436245132"
+                ],
+                "native": [
+                  "0.122436245163"
+                ],
+                "native_minus_windows_decimal": [
+                  "3.1E-11"
+                ]
+              }
+            ]
+          },
+          "Eagle": {
+            "trajectory_serialized_equal": {
+              "STATUS": true,
+              "RPOS": true,
+              "RVEL": true,
+              "AROT": true,
+              "VROT": true,
+              "PRPLEVEL": true
+            },
+            "AGC_complete_equal": true,
+            "DSKY_complete_equal": true,
+            "IMU_differences": [
+              {
+                "field": "RPX",
+                "windows": [
+                  "-0.313705645309"
+                ],
+                "native": [
+                  "-0.313705645191"
+                ],
+                "native_minus_windows_decimal": [
+                  "1.18E-10"
+                ]
+              },
+              {
+                "field": "RPY",
+                "windows": [
+                  "0.324751504642"
+                ],
+                "native": [
+                  "0.324751504633"
+                ],
+                "native_minus_windows_decimal": [
+                  "-9E-12"
+                ]
+              },
+              {
+                "field": "RPZ",
+                "windows": [
+                  "0.275764567847"
+                ],
+                "native": [
+                  "0.275764568304"
+                ],
+                "native_minus_windows_decimal": [
+                  "4.57E-10"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "motor_stock_loader_diagnostic": {
+        "raw_sha256": "70c9683f35506d4243c584ee649b88ba3a4113bef905ec05edb4cd6a920511cb",
+        "scenario_modified": true,
+        "by_vessel": {
+          "Columbia": 50,
+          "Eagle": 4
+        },
+        "trajectory_guidance": {
+          "Columbia": {
+            "trajectory_serialized_equal": {
+              "STATUS": true,
+              "RPOS": true,
+              "RVEL": true,
+              "AROT": true,
+              "VROT": true,
+              "PRPLEVEL": true
+            },
+            "AGC_complete_equal": true,
+            "DSKY_complete_equal": true,
+            "IMU_differences": [
+              {
+                "field": "RPX",
+                "windows": [
+                  "-0.913625280341"
+                ],
+                "native": [
+                  "-0.913625280218"
+                ],
+                "native_minus_windows_decimal": [
+                  "1.23E-10"
+                ]
+              },
+              {
+                "field": "RPY",
+                "windows": [
+                  "-0.006944943495"
+                ],
+                "native": [
+                  "-0.006944943494"
+                ],
+                "native_minus_windows_decimal": [
+                  "1E-12"
+                ]
+              },
+              {
+                "field": "RPZ",
+                "windows": [
+                  "0.122436245132"
+                ],
+                "native": [
+                  "0.122436245163"
+                ],
+                "native_minus_windows_decimal": [
+                  "3.1E-11"
+                ]
+              }
+            ]
+          },
+          "Eagle": {
+            "trajectory_serialized_equal": {
+              "STATUS": true,
+              "RPOS": true,
+              "RVEL": true,
+              "AROT": true,
+              "VROT": true,
+              "PRPLEVEL": true
+            },
+            "AGC_complete_equal": true,
+            "DSKY_complete_equal": true,
+            "IMU_differences": [
+              {
+                "field": "RPX",
+                "windows": [
+                  "-0.313705645309"
+                ],
+                "native": [
+                  "-0.313705645141"
+                ],
+                "native_minus_windows_decimal": [
+                  "1.68E-10"
+                ]
+              },
+              {
+                "field": "RPY",
+                "windows": [
+                  "0.324751504642"
+                ],
+                "native": [
+                  "0.324751504634"
+                ],
+                "native_minus_windows_decimal": [
+                  "-8E-12"
+                ]
+              },
+              {
+                "field": "RPZ",
+                "windows": [
+                  "0.275764567847"
+                ],
+                "native": [
+                  "0.275764568013"
+                ],
+                "native_minus_windows_decimal": [
+                  "1.66E-10"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "residual_eagle_records": [
+      {
+        "vessel": "Eagle",
+        "field": "TANK/PRIMGLYCOLACCUMULATOR/CHM/5",
+        "windows": [
+          "3208.499462349941",
+          "0.000000000000",
+          "3266964.535273302346"
+        ],
+        "native": [
+          "3208.499462349941",
+          "0.000000000000",
+          "3266964.535273301881"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "-4.65E-10"
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/PRIMGLYCOLPUMPMANIFOLD/CHM/5",
+        "windows": [
+          "1101.226678221659",
+          "0.000000000000",
+          "1122210.518624510383"
+        ],
+        "native": [
+          "1101.226678221659",
+          "0.000000000000",
+          "1122210.518624509685"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "-6.98E-10"
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/PRIMGLYCOLLOOP1/CHM/5",
+        "windows": [
+          "1092.303199603924",
+          "0.000000000000",
+          "1128445.171194690745"
+        ],
+        "native": [
+          "1092.303199603924",
+          "0.000000000000",
+          "1128445.171194690978"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "2.33E-10"
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/DESBATCOOLING/CHM/5",
+        "windows": [
+          "524.556010043142",
+          "0.000000000000",
+          "534961.007696602959"
+        ],
+        "native": [
+          "524.556010043142",
+          "0.000000000000",
+          "534961.007696602843"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "-1.16E-10"
+        ]
+      }
+    ],
+    "eagle_battery_and_radiator_records_all_exact_match_stock": true,
+    "eagle_chemical_mass_vapor_tokens_all_exact_match_stock": true,
+    "remaining_eagle_chemical_energy_max_absolute_difference_j": "6.98E-10",
+    "complete_comparison_file": "<NATIVE_EVIDENCE_ROOT>/coast-60s/motor-diagnostic-comparison.json"
+  },
+  "failed_exactness_assumption_retained": {
+    "differences": [
+      {
+        "vessel": "Eagle",
+        "field": "TANK/PRIMGLYCOLACCUMULATOR/CHM/5",
+        "windows": [
+          "3208.499462339204",
+          "0.000000000000",
+          "3266964.540122416336"
+        ],
+        "native": [
+          "3208.499462339204",
+          "0.000000000000",
+          "3266964.540122416802"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "4.66E-10"
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/PRIMGLYCOLLOOP1/CHM/5",
+        "windows": [
+          "1092.303199603626",
+          "0.000000000000",
+          "1128445.171313269762"
+        ],
+        "native": [
+          "1092.303199603626",
+          "0.000000000000",
+          "1128445.171313269297"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "-4.65E-10"
+        ]
+      },
+      {
+        "vessel": "Eagle",
+        "field": "TANK/DESBATCOOLING/CHM/5",
+        "windows": [
+          "524.556010042925",
+          "0.000000000000",
+          "534961.011436030385"
+        ],
+        "native": [
+          "524.556010042925",
+          "0.000000000000",
+          "534961.011436030851"
+        ],
+        "native_minus_windows_decimal": [
+          "0E-12",
+          "0E-12",
+          "4.66E-10"
+        ]
+      }
+    ],
+    "eagle_identical": false,
+    "Columbia_differences": 0,
+    "initial_exactness_assertion_passed": false,
+    "initial_assertion_failure_retained": "Expected all selected Eagle records to be identical; three energy tokens differ. This exactness assumption failed; no tolerance is substituted."
+  },
+  "known_production_differences": [
+    "Correct restoration of saved gimbal motors produces first-frame power consumption omitted by stock.",
+    "Direct double mission clocks versus stock float load quantization; saved offsets explicitly reported.",
+    "Headless display cadence and extra native state records retained in complete raw diffs."
+  ],
+  "unresolved": [
+    "50 Columbia chemical records differ at sixty seconds; their arithmetic cause is not isolated or waived.",
+    "Each vessel has three differing fractional PIPA remainders; integer guidance equality at the endpoint does not prove later equivalence.",
+    "Four Eagle chemical energy records remain in the motor diagnostic; the same-input observer control also has three differing Eagle energy decimals. No tolerance is substituted for failed exactness.",
+    "Shared AGC resume scheduling/pending CDU FIFO serialization remains incomplete; broad redesign paused.",
+    "Graphical controls, physical devices, complete flight and manual landing remain unverified."
+  ],
+  "validation": {
+    "production_serialized_trajectory": true,
+    "production_AGC_complete_blocks": true,
+    "production_DSKY_complete_blocks": true,
+    "production_scenario_unmodified": true,
+    "registered_checks_added_or_changed": false,
+    "ctest_rerun": false,
+    "reason_no_ctest_rerun": "Only external diagnostics and documentation; production source and runtime libraries unchanged.",
+    "strict_analysis_control_exactness": false,
+    "runtime_fix_added": false,
+    "gpu_launched": false,
+    "vm_operated_by_native_worker": false,
+    "stock_vm_evidence_received": true,
+    "push_or_ci": false
+  },
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/coast-60s",
+  "complete_production_numeric_comparison": "<NATIVE_EVIDENCE_ROOT>/coast-60s/production-comparison.json",
+  "artifact_index": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeCoast60.cpp",
+      "bytes": 6002,
+      "sha256": "c12a2ffc41a82871a1612bd2b59d076587b8ba2b1a648ec64a09b8d36af6860c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeCoast60.o",
+      "bytes": 487920,
+      "sha256": "dc674a23d07470ec5f4a036f8ee23c04ecf1048d131914ae7526781b8dadbed4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeSystems60.cpp",
+      "bytes": 5089,
+      "sha256": "f663c54f7dc524a4ca66223a7c3b09d03d1b897e7cb7155a1e8c8b8fcdd84c18"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/NativeSystems60.o",
+      "bytes": 1823808,
+      "sha256": "0021543bcb2bbb4bb542731a17d66de79365df70b8b364dfa9716863a83f0022"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/ParityCoast60.scn",
+      "bytes": 368071,
+      "sha256": "6a5a703638f476c3aa6407263b46a72d9608a8e6c8cf584ff36720839d5e2115"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/build_observer.py",
+      "bytes": 2408,
+      "sha256": "8322f1d4c318ac388438e18a3368988eed6b5b5477017b2ad6861c031e710cff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/build_systems_observer.py",
+      "bytes": 2135,
+      "sha256": "cdf74cd0486f57186d141e462bd069e9ed31b8073a480239d76e0dfc3164e44a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/compare_motor_diagnostic-before-exactness-assert.py",
+      "bytes": 2798,
+      "sha256": "0762b5f0c480e0bc888771443fd9fb73b8d77c2dd59a9f95758e1b0d2744bc6c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/compare_motor_diagnostic.py",
+      "bytes": 3107,
+      "sha256": "a47ed9ba66e1642df3dbaf7ba53990ef021eb2ff49d349ae92adbbcef02126e8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/compare_production.py",
+      "bytes": 5269,
+      "sha256": "9b11f0e83c80bd9715faad406465d9d6a9a58866958af508a2f9eb125a3511fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/five_second_same_native_run-complete-normalized.diff",
+      "bytes": 20711,
+      "sha256": "02718c29df2e3e160c5d5ddacb82608be08b0688c26f310068375709bc721391"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/inertial-differences.json",
+      "bytes": 4444,
+      "sha256": "ff157fcbce5cfb10970c98cfc9093a24df00dfcf3003852ffebc8ffb27142562"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/inertial-summary.log",
+      "bytes": 1311,
+      "sha256": "f38462f965ded7812d0e656f24433d32787e2bf4f340734b3c9bbffdfbe42420"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/motor-diagnostic-comparison.json",
+      "bytes": 161830,
+      "sha256": "6c0e560544698b35ba1278c07301df355deffd77275a51e0b9bd5d93b44a3339"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/motor-diagnostic-comparison.log",
+      "bytes": 1977,
+      "sha256": "7ac56c023b2c970f1011ef034d5fdb909e6d85ead7a0e67bfbea6254dadf88f2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/motor-stock-loader-diagnostic-execution.json",
+      "bytes": 720,
+      "sha256": "0371da541adc51800d45c978f985bc4c7fdf95c382555fbd80bc55d17531fd66"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/motor-stock-loader-diagnostic.log",
+      "bytes": 4287,
+      "sha256": "cfad1d75c125ae8353846f76e1148429b13675526c2630d044ecfbc57ff1cc34"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native-boundary-index.json",
+      "bytes": 17997,
+      "sha256": "497d468ebb83d52f68b3199592e2a748b6a1ff76c14627204b0933c612e2c6c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native-execution.json",
+      "bytes": 751,
+      "sha256": "4b82ea4854a89378a94a92283aa3fa479d8c6733be0e3d7bec3bbc775713510e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native.log",
+      "bytes": 3978,
+      "sha256": "ea0cae022e69f71d2284d7a8338c2ff4ae55e44b7063eaf7c75d2d6f4a1ad2bf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_coast_60",
+      "bytes": 43968,
+      "sha256": "13896265fb33a2b29a4297c7bca1bb6e4966d7bd0ce31ab6158e2904eb71bb71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/native_systems_60",
+      "bytes": 42688,
+      "sha256": "f105c7186f1c21911c8e19b183dc85baf5bf936b55d71aaa0943d58955a4daa1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/observer-build.json",
+      "bytes": 1935,
+      "sha256": "88c8d991b9e590fe3ac05a0a78a175f8971a6f711274445c7ca0ee37fc768d17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/production-comparison.json",
+      "bytes": 110961,
+      "sha256": "dc21453c1d56ac61c3ee1f649acbb299310dde3c2e06a3f6ebb2a7a9cea30be5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/quantify_inertial.py",
+      "bytes": 1672,
+      "sha256": "42e4031c3017cf69fbf0bd531baa702d9253d722c43b44c8c176849b8d79aa03"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/reference-coast60-index.json",
+      "bytes": 117056,
+      "sha256": "2f0decf74ec6b673043d4811208a5c6f8a278035fd0d63415eadb543c03f919d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/reference-coast60.zip",
+      "bytes": 328783,
+      "sha256": "e1b54140ef4365dc8e4e03092551ac3c1e5cea96f4dabf2966d96d4716440d67"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/run_motor_diagnostic.py",
+      "bytes": 1633,
+      "sha256": "59fe531e77e0c2e1bae13e0a273f1d049456c50b41c9d6c1a6b0c71d5e917370"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/run_native.py",
+      "bytes": 2427,
+      "sha256": "ee629944b487382028d257557ff739160ebd888f2e72002a34a9f34b39807743"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ParitySeed.scn",
+      "bytes": 366054,
+      "sha256": "4692bfd3f943e98408d5ea7fb24e73202e5d71f9ee37de8aecdd9e4ab521dded"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "d8db0c2629148e9c27ec9453263277ab3582044cb6cee56d0e62b5a72be56377"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep1801.scn",
+      "bytes": 349185,
+      "sha256": "9817034c636a090962ebf207beb5dc7d583a1e9783a2861e3a66ff7eab99e33b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "102645cba76c2c02769799ae41205f55ab02bb174c8c5913482da9ad54eaeced"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep3601.scn",
+      "bytes": 349159,
+      "sha256": "70c9683f35506d4243c584ee649b88ba3a4113bef905ec05edb4cd6a920511cb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/Scenarios/ThermalStep601.scn",
+      "bytes": 349192,
+      "sha256": "8114d098402373b20239303c286897894530b209b10ebcf63297392700a1334c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/ThermalTraceOrbiter.log",
+      "bytes": 1964,
+      "sha256": "7f3ea69efb385c2bb2e1f59448ec5b3b26abfffb5a1f261fd7d7dd28b30b3d42"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-motor-stock-loader-diagnostic/thermal-trace.jsonl",
+      "bytes": 98356,
+      "sha256": "fb0251897e93f83fb271fd69639babf5ab43bea7e9c2525de4617b4432eea011"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/ParityOrbiter.log",
+      "bytes": 1944,
+      "sha256": "600ab6a1575f943a848f3d7483484d356c1ea395845abadc1c371e12d380e88b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast10.scn",
+      "bytes": 349224,
+      "sha256": "54cf0186fe315983d4b03bdb6488eee67ec1d1c4807a56c1daad205d652f9d18"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityCoast30.scn",
+      "bytes": 349217,
+      "sha256": "2241d059d56cb2c37ee01b1d1b7d7ee2aef351b2b21757a99dd67e7ffa41ac25"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityFinal.scn",
+      "bytes": 349191,
+      "sha256": "859b39586ab9f419d03aa4c8b46346ad6fad959506a333633eb9e932868e8c2e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/Scenarios/ParityLoaded.scn",
+      "bytes": 348965,
+      "sha256": "de87ae3cf7ae501a6442a236d49f5c7b3cf43712f144a6e0faa1ec84cae1fdbe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-native-original/parity-state.jsonl",
+      "bytes": 89787,
+      "sha256": "e1c67bb427ea1578b342ef0c2f6a1f9188b835add5d0fb17a105dc16393b36b3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep0.scn",
+      "bytes": 348933,
+      "sha256": "2ce93a4800f7761f87638836a7973bcb16e0c8783b2dcac044826fe28f0bfd4f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep1.scn",
+      "bytes": 349057,
+      "sha256": "3f1be0a4dc9c042d00acbb2508e16ff0460f79277ba1b3a253949662b8012423"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep1801.scn",
+      "bytes": 349185,
+      "sha256": "fbc6c83e4ecc59958731c1ab0c694c87be45ce739be86df1b1a60d8fbcc46ebb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep301.scn",
+      "bytes": 349226,
+      "sha256": "42cb109ce13f24515ee8288a3cbecaccd7389128f40b41483cc23b7c81dd4073"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep3601.scn",
+      "bytes": 349159,
+      "sha256": "abd574c1a9e96c7cef35648854ab59d41c8bbead5c862b19e99a17d8ff712c1b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/Scenarios/ThermalStep601.scn",
+      "bytes": 349192,
+      "sha256": "3ec2de11464a139cfd6251c96020a669a35d251ee625a4826df0e40668583493"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/ThermalTraceOrbiter.log",
+      "bytes": 1959,
+      "sha256": "dcefb76f63f5364013e7c07aa2ee3de66b5edbb175e708d367024a285eaa868f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/mission-source.json",
+      "bytes": 53236,
+      "sha256": "9d8c3bae65aa3ea7878593044e96589f073de1285012c085a4f2804081186ee2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/runtime-systems-original-control/thermal-trace.jsonl",
+      "bytes": 98339,
+      "sha256": "142eaa1cb00fd13c5435bcfbde388cea4ff39870868b52599f745ccce2f2faea"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/sixty_second_production-complete-normalized.diff",
+      "bytes": 36425,
+      "sha256": "89a5d1cbd3968e1840ac9a15bb1161690cf76b5fa08ade7570aad882fcbe961a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/systems-build.log",
+      "bytes": 37931,
+      "sha256": "b10c1c7c2360c96e4602d42bb5b7cfef97a61607a6dea17d3a4cb12b077c706d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/systems-link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/systems-observer-build.json",
+      "bytes": 4170,
+      "sha256": "3de2a0eb9ff52aa9243e5c2a52254ff4d178ae04207dd0bf19a06bc8b47b8219"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/systems-original-control-execution.json",
+      "bytes": 768,
+      "sha256": "6e79092a1ebf2efe0934519855f9fa5a50d90c9fa496ebc174fdbf8d08ddb856"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/systems-original-control.log",
+      "bytes": 4147,
+      "sha256": "78a0c300e72f3903c90bb9c9a8e8a4e6e3486a50388f2774e7bd84ba91a74cea"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/windows-capture-request.md",
+      "bytes": 3831,
+      "sha256": "5164c2e3164c69ba4c36b36ff9be9e0f7249b0610b7640dbbd49e55b61ee9e97"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/coast-60s/write_extended_report.py",
+      "bytes": 6195,
+      "sha256": "bd1325dc113d6b0b3b133dc3399fb0ef316abb1bf97ce73f40115f24ff0359f4"
+    }
+  ]
+}

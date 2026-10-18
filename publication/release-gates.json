@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "source_push": {
+    "destination": "https://github.com/LucioFranco/orbiter-native",
+    "verified_public": true,
+    "verified_no_branch_refs": true,
+    "user_creates_repository": true,
+    "scope_review_complete": false,
+    "Architext_source_treatment": "proposed, awaiting review; no replacement or build-rule change",
+    "private_archive_changed_remotely": false
+  },
+  "binary_previews": {
+    "enabled": false,
+    "pending": [
+      "Architext loose-file packaging grant",
+      "selected embedded resource/media scope and preferred source",
+      "complete target dependency notices/SBOM and corresponding source",
+      "relocation/install and platform/runtime validation"
+    ]
+  },
+  "known_acceptance": {
+    "full_registered_suite": "103 pass / 1 strict failure / 0 skipped / 104 on historical tested source 0bd60e8",
+    "strict_AGC_resume_accepted": false,
+    "full_mission_accepted": false
+  },
+  "media": {
+    "selected_provenance_rows": 2768,
+    "all_media_classified_unlicensed": false,
+    "provenance_is_not_new_permission": true
+  }
+}

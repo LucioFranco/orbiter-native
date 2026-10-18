@@ -1,0 +1,2210 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
+index a107ab68771304120b6f280e782fbdd46edcd0f2..f83cb62e714cc6ca67428e7c2a7f378e593f3e75
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnmesh.cpp
+@@ -1202,7 +1202,7 @@
+ 	S4Config.LMDescentEmptyMassKg = LMDescentEmptyMassKg;
+ 	S4Config.LMPad = &LMPad;
+ 	S4Config.AEAPad = &AEAPad;
+-	sprintf(S4Config.LEMCheck, LEMCheck);
++	strcpy_s(S4Config.LEMCheck, LEMCheck);
+ 
+ 	S4Config.iu_pointer = iu;
+ 	S4Config.sivb_pointer = sivb;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
+index 9837699b3e5c6e890326fb24cabcefd17c9c3d15..0a3e09df34b7ffe104af8460fcca14c97b2f7149
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnpanel.cpp
+@@ -32,7 +32,13 @@
+ 
+ #include "resource.h"
+ 
+-#define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
++#include "NasspBitmapResources.h"
++
++static SURFHANDLE LOADBMP(unsigned id)
++{
++	const char *path = nassp::resources::FindBitmap(nassp::resources::csm, id);
++	return path ? oapiLoadSurfaceEx(path, OAPISURFACE_TEXTURE | OAPISURFACE_RENDERTARGET, true) : nullptr;
++}
+ 
+ #include "nasspdefs.h"
+ #include "nasspsound.h"
+@@ -295,204 +301,204 @@
+ 	// bloat the DLL.
+ 	//
+ 
+-	srf[SRF_INDICATOR]								= oapiCreateSurface (LOADBMP (IDB_INDICATOR));
+-	srf[SRF_NEEDLE]									= oapiCreateSurface (LOADBMP (IDB_NEEDLE));
+-	srf[SRF_DIGITAL]								= oapiCreateSurface (LOADBMP (IDB_DIGITAL));
+-	srf[SRF_DIGITAL2]								= oapiCreateSurface (LOADBMP (IDB_DIGITAL2));
+-	srf[SRF_SWITCHUP]								= oapiCreateSurface (LOADBMP (IDB_SWITCHUP));
+-	srf[SRF_SWITCHLEVER]							= oapiCreateSurface (LOADBMP (IDB_SWLEVER));
+-	srf[SRF_SWITCHGUARDS]							= oapiCreateSurface (LOADBMP (IDB_SWITCHGUARDS));
+-	srf[SRF_SWITCHGUARDPANEL15]						= oapiCreateSurface (LOADBMP (IDB_SWITCHGUARDPANEL15));
+-	srf[SRF_ABORT]									= oapiCreateSurface (LOADBMP (IDB_ABORT));
+-	srf[SRF_LV_ENG]									= oapiCreateSurface (LOADBMP (IDB_LV_ENG));
+-	srf[SRF_ALTIMETER]								= oapiCreateSurface (LOADBMP (IDB_ALTIMETER));
+-	srf[SRF_THRUSTMETER]							= oapiCreateSurface (LOADBMP (IDB_THRUST));
+-	srf[SRF_DCVOLTS]								= oapiCreateSurface (LOADBMP (IDB_DCVOLTS));
+-	srf[SRF_DCVOLTS_PANEL101]						= oapiCreateSurface (LOADBMP (IDB_DCVOLTS_PANEL101));
+-	srf[SRF_DCAMPS]									= oapiCreateSurface (LOADBMP (IDB_DCAMPS));
+-	srf[SRF_ACVOLTS]								= oapiCreateSurface (LOADBMP (IDB_ACVOLTS));
+-	srf[SRF_SEQUENCERSWITCHES]						= oapiCreateSurface (LOADBMP (IDB_SEQUENCERSWITCHES));
+-	srf[SRF_MASTERALARM_BRIGHT]						= oapiCreateSurface (LOADBMP (IDB_MASTER_ALARM_BRIGHT));
+-	srf[SRF_DSKY]									= oapiCreateSurface (LOADBMP (IDB_DSKY_LIGHTS));
+-	srf[SRF_THREEPOSSWITCH]							= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH));
+-	srf[SRF_MFDFRAME]								= oapiCreateSurface (LOADBMP (IDB_MFDFRAME));
+-	srf[SRF_MFDPOWER]								= oapiCreateSurface (LOADBMP (IDB_MFDPOWER));
+-	srf[SRF_SM_RCS_MODE]							= oapiCreateSurface (LOADBMP (IDB_DOCKINGSWITCHES));
+-	srf[SRF_ROTATIONALSWITCH]						= oapiCreateSurface (LOADBMP (IDB_ROTATIONALSWITCH));
+-	srf[SRF_SUITCABINDELTAPMETER]					= oapiCreateSurface (LOADBMP (IDB_SUITCABINDELTAPMETER));
+-	srf[SRF_THREEPOSSWITCH305]						= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH305));
+-	srf[SRF_THREEPOSSWITCH305LEFT]					= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH305LEFT));
+-	srf[SRF_SWITCH305LEFT]							= oapiCreateSurface (LOADBMP (IDB_SWITCH305LEFT));
+-	srf[SRF_DSKYDISP]       						= oapiCreateSurface (LOADBMP (IDB_DSKY_DISP));
+-	srf[SRF_FDAI]	        						= oapiCreateSurface (LOADBMP (IDB_FDAI));
+-	srf[SRF_FDAIROLL]       						= oapiCreateSurface (LOADBMP (IDB_FDAI_ROLL));
+-	srf[SRF_CWSLIGHTS]       						= oapiCreateSurface (LOADBMP (IDB_CWS_LIGHTS));
+-	srf[SRF_EVENT_TIMER_DIGITS]    					= oapiCreateSurface (LOADBMP (IDB_EVENT_TIMER));
+-	srf[SRF_DSKYKEY]		    					= oapiCreateSurface (LOADBMP (IDB_DSKY_KEY));
+-	srf[SRF_ECSINDICATOR]							= oapiCreateSurface (LOADBMP (IDB_ECSINDICATOR));
+-	srf[SRF_SWITCHUPSMALL]							= oapiCreateSurface (LOADBMP (IDB_SWITCHUPSMALL));
+-	srf[SRF_CMMFDFRAME]								= oapiCreateSurface (LOADBMP (IDB_CMMFDFRAME));
+-	srf[SRF_COAS]									= oapiCreateSurface (LOADBMP (IDB_COAS));
+-	srf[SRF_THUMBWHEEL_SMALLFONTS]					= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_SMALLFONTS));
+-	srf[SRF_THUMBWHEEL_SMALLFONTS_DIAGONAL]			= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL));
+-	srf[SRF_THUMBWHEEL_SMALLFONTS_DIAGONAL_LEFT]	= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL_LEFT));
+-	srf[SRF_CIRCUITBRAKER]          				= oapiCreateSurface (LOADBMP (IDB_CIRCUITBRAKER));
+-	srf[SRF_CIRCUITBRAKER_YELLOW]          			= oapiCreateSurface (LOADBMP (IDB_CIRCUITBRAKER_YELLOW));
+-	srf[SRF_THREEPOSSWITCH20]						= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH20));
+-	srf[SRF_THREEPOSSWITCH30]						= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH30));
+-	srf[SRF_THREEPOSSWITCH30LEFT]					= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH30LEFT));
+-	srf[SRF_SWITCH20]								= oapiCreateSurface (LOADBMP (IDB_SWITCH20));
+-	srf[SRF_SWITCH30]								= oapiCreateSurface (LOADBMP (IDB_SWITCH30));
+-	srf[SRF_SWITCH30LEFT]							= oapiCreateSurface (LOADBMP (IDB_SWITCH30LEFT));
+-	srf[SRF_SWITCH20LEFT]							= oapiCreateSurface (LOADBMP (IDB_SWITCH20LEFT));
+-	srf[SRF_THREEPOSSWITCH20LEFT]					= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH20LEFT));
+-	srf[SRF_GUARDEDSWITCH20]						= oapiCreateSurface (LOADBMP (IDB_GUARDEDSWITCH20));
+-	srf[SRF_FDAIPOWERROTARY]						= oapiCreateSurface (LOADBMP (IDB_FDAIPOWERROTARY));
+-	srf[SRF_DIRECTO2ROTARY]							= oapiCreateSurface (LOADBMP (IDB_DIRECTO2ROTARY));
+-	srf[SRF_ECSGLYCOLPUMPROTARY]					= oapiCreateSurface (LOADBMP (IDB_ECSGLYCOLPUMPROTARY));
+-	srf[SRF_GTACOVER]								= oapiCreateSurface (LOADBMP (IDB_GTACOVER));
+-	srf[SRF_POSTLDGVENTVLVLEVER]					= oapiCreateSurface (LOADBMP (IDB_POSTLDGVENTVLVLEVER));
+-	srf[SRF_SPSMAXINDICATOR]						= oapiCreateSurface (LOADBMP (IDB_SPSMAXINDICATOR));
+-	srf[SRF_SPSMININDICATOR]						= oapiCreateSurface (LOADBMP (IDB_SPSMININDICATOR));
+-	srf[SRF_ECSROTARY]								= oapiCreateSurface (LOADBMP (IDB_ECSROTARY));
+-	srf[SRF_CSM_MNPNL_WDW_LES]						= oapiCreateSurface (LOADBMP (IDB_CSM_MNPNL_WDW_LES));
+-	srf[SRF_CSM_RNDZ_WDW_LES]						= oapiCreateSurface (LOADBMP (IDB_CSM_RNDZ_WDW_LES));
+-	srf[SRF_CSM_RIGHT_WDW_LES]						= oapiCreateSurface (LOADBMP (IDB_CSM_RIGHT_WDW_LES));
+-	srf[SRF_CSM_LEFT_WDW_LES]						= oapiCreateSurface (LOADBMP (IDB_CSM_LEFT_WDW_LES));
+-	srf[SRF_GLYCOLLEVER]							= oapiCreateSurface (LOADBMP (IDB_GLYCOLLEVER));
+-	srf[SRF_FDAIOFFFLAG]       						= oapiCreateSurface (LOADBMP (IDB_FDAIOFFFLAG));
+-	srf[SRF_FDAINEEDLES]							= oapiCreateSurface (LOADBMP (IDB_FDAINEEDLES));
+-	srf[SRF_THUMBWHEEL_LARGEFONTS]					= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_LARGEFONTS));
+-	srf[SRF_SPS_FONT_WHITE]							= oapiCreateSurface (LOADBMP (IDB_SPS_FUEL_FONT_WHITE));
+-	srf[SRF_SPS_FONT_BLACK]							= oapiCreateSurface (LOADBMP (IDB_SPS_FUEL_FONT_BLACK));
+-	srf[SRF_THUMBWHEEL_SMALL]						= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_SMALL));
+-	srf[SRF_THUMBWHEEL_LARGEFONTSINV] 				= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_LARGEFONTSINV));
+-	srf[SRF_SWLEVERTHREEPOS] 						= oapiCreateSurface (LOADBMP (IDB_SWLEVERTHREEPOS));
+-	srf[SRF_ORDEAL_ROTARY] 							= oapiCreateSurface (LOADBMP (IDB_ORDEAL_ROTARY));
+-	srf[SRF_LV_ENG_S1B]								= oapiCreateSurface (LOADBMP (IDB_LV_ENGINE_LIGHTS_S1B));
+-	srf[SRF_THUMBWHEEL_GPI_PITCH]  					= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_GPI_PITCH));
+-	srf[SRF_THUMBWHEEL_GPI_YAW]  					= oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_GPI_YAW));
+-	srf[SRF_THC]				  					= oapiCreateSurface (LOADBMP (IDB_THC));
+-	srf[SRF_EMS_LIGHTS]			  					= oapiCreateSurface (LOADBMP (IDB_EMS_LIGHTS));
+-	srf[SRF_SUITRETURN_LEVER]	 					= oapiCreateSurface (LOADBMP (IDB_SUITRETURN_LEVER));
+-	srf[SRF_CABINRELIEFUPPERLEVER]	 				= oapiCreateSurface (LOADBMP (IDB_CABINRELIEFUPPERLEVER));
+-	srf[SRF_CABINRELIEFLOWERLEVER]	 				= oapiCreateSurface (LOADBMP (IDB_CABINRELIEFLOWERLEVER));
+-	srf[SRF_CABINRELIEFGUARDLEVER]	 				= oapiCreateSurface (LOADBMP (IDB_CABINRELIEFGUARDLEVER));
+-	srf[SRF_OPTICS_HANDCONTROLLER]	 				= oapiCreateSurface (LOADBMP (IDB_OPTICS_HANDCONTROLLER));
+-	srf[SRF_MARK_BUTTONS]	 						= oapiCreateSurface (LOADBMP (IDB_MARK_BUTTONS));
+-	srf[SRF_THREEPOSSWITCHSMALL]	 				= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCHSMALL));
+-	srf[SRF_OPTICS_DSKY]	 						= oapiCreateSurface (LOADBMP (IDB_OPTICS_DSKY));
+-	srf[SRF_MINIMPULSE_HANDCONTROLLER] 				= oapiCreateSurface (LOADBMP (IDB_MINIMPULSE_HANDCONTROLLER));
+-	srf[SRF_EMS_SCROLL_LEO]							= oapiCreateSurface (LOADBMP (IDB_EMS_SCROLL_LEO));
+-	srf[SRF_EMS_SCROLL_BORDER]						= oapiCreateSurface (LOADBMP (IDB_EMS_SCROLL_BORDER));
+-	srf[SRF_EMS_RSI_BKGRND]                         = oapiCreateSurface (LOADBMP (IDB_EMS_RSI_BKGRND));
+-	srf[SRF_EMSDVSETSWITCH]							= oapiCreateSurface (LOADBMP (IDB_EMSDVSETSWITCH));
+-	srf[SRF_ALTIMETER2]								= oapiCreateSurface (LOADBMP (IDB_ALTIMETER2));
+-	srf[SRF_OXYGEN_SURGE_TANK_VALVE]				= oapiCreateSurface (LOADBMP (IDB_OXYGEN_SURGE_TANK_VALVE));
+-	srf[SRF_GLYCOL_TO_RADIATORS_KNOB]				= oapiCreateSurface (LOADBMP (IDB_GLYCOL_TO_RADIATORS_KNOB));
+-	srf[SRF_ACCUM_ROTARY]							= oapiCreateSurface (LOADBMP (IDB_ACCUM_ROTARY));
+-	srf[SRF_GLYCOL_ROTARY]							= oapiCreateSurface (LOADBMP (IDB_GLYCOL_ROTARY));
+-	srf[SRF_PRESS_RELIEF_VALVE]						= oapiCreateSurface (LOADBMP (IDB_PRESS_RELIEF_VALVE));
+-	srf[SRF_CABIN_REPRESS_VALVE]					= oapiCreateSurface (LOADBMP (IDB_CABIN_REPRESS_VALVE));
+-	srf[SRF_SELECTOR_INLET_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_SELECTOR_INLET_ROTARY));							
+-	srf[SRF_SELECTOR_OUTLET_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_SELECTOR_OUTLET_ROTARY));
+-	srf[SRF_EMERGENCY_PRESS_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_EMERGENCY_PRESS_ROTARY));
+-	srf[SRF_SUIT_FLOW_CONTROL_LEVER]				= oapiCreateSurface (LOADBMP (IDB_CSM_SUIT_FLOW_CONTROL_LEVER));
+-	srf[SRF_CSM_SEC_CABIN_TEMP_VALVE]				= oapiCreateSurface (LOADBMP (IDB_CSM_SEC_CABIN_TEMP_VALVE));
+-	srf[SRF_CSM_FOOT_PREP_WATER_LEVER]				= oapiCreateSurface (LOADBMP (IDB_CSM_FOOT_PREP_WATER_LEVER));
+-	srf[SRF_CSM_LM_TUNNEL_VENT_VALVE]				= oapiCreateSurface (LOADBMP (IDB_CSM_LM_TUNNEL_VENT_VALVE));
+-	srf[SRF_CSM_WASTE_MGMT_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_CSM_WASTE_MGMT_ROTARY));
+-	srf[SRF_CSM_DEMAND_REG_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_CSM_DEMAND_REG_ROTARY));
+-	srf[SRF_CSM_SUIT_TEST_LEVER]					= oapiCreateSurface (LOADBMP (IDB_CSM_SUIT_TEST_LEVER));
+-	srf[SRF_CSM_GEAR_BOX_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_CSM_GEAR_BOX_ROTARY));
+-	srf[SRF_CSM_PUMP_HANDLE_ROTARY]					= oapiCreateSurface (LOADBMP (IDB_CSM_PUMP_HANDLE_ROTARY));
+-	srf[SRF_CSM_VENT_VALVE_HANDLE]					= oapiCreateSurface (LOADBMP (IDB_CSM_VENT_VALVE_HANDLE));
+-	srf[SRF_CSM_PUMP_HANDLE_ROTARY_OPEN]			= oapiCreateSurface (LOADBMP (IDB_CSM_PUMP_HANDLE_ROTARY_OPEN));
+-	srf[SRF_CSM_PANEL_351_SWITCH]					= oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_351_SWITCH));
+-	srf[SRF_CSM_PANEL_600]							= oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_600));
+-	srf[SRF_CSM_PANEL_600_SWITCH]					= oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_600_SWITCH));
+-	srf[SRF_CSM_PANEL_382_COVER]					= oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_382_COVER));
+-	srf[SRF_CSM_WASTE_DISPOSAL_ROTARY]				= oapiCreateSurface (LOADBMP (IDB_CSM_WASTE_DISPOSAL_ROTARY));
+-	srf[SRF_THREEPOSSWITCH90_LEFT]					= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH90_LEFT));
+-	srf[SRF_EMS_SCROLL_BUG]							= oapiCreateSurface (LOADBMP (IDB_EMS_SCROLL_BUG));
+-	srf[SRF_SWITCH90]								= oapiCreateSurface (LOADBMP (IDB_SWITCH90));
+-	srf[SRF_CSM_CABINPRESSTESTSWITCH]				= oapiCreateSurface (LOADBMP (IDB_CSM_CABINPRESSTESTSWITCH));
+-	srf[SRF_ORDEAL_PANEL]							= oapiCreateSurface (LOADBMP (IDB_ORDEAL_PANEL));
+-	srf[SRF_CSM_TELESCOPECOVER]						= oapiCreateSurface (LOADBMP (IDB_CSM_TELESCOPECOVER));	
+-	srf[SRF_CSM_SEXTANTCOVER]						= oapiCreateSurface (LOADBMP (IDB_CSM_SEXTANTCOVER));
+-	srf[SRF_CWS_GNLIGHTS]      						= oapiCreateSurface (LOADBMP (IDB_CWS_GNLIGHTS));
+-	srf[SRF_EVENT_TIMER_DIGITS90]					= oapiCreateSurface (LOADBMP (IDB_EVENT_TIMER90));
+-	srf[SRF_DIGITAL90]								= oapiCreateSurface (LOADBMP (IDB_DIGITAL90));
+-	srf[SRF_CSM_PRESS_EQUAL_HANDLE]                 = oapiCreateSurface (LOADBMP (IDB_CSM_PRESS_EQUAL_HANDLE));
+-	srf[SRF_CSM_PANEL_181]                          = oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_181));
+-	srf[SRF_CSM_PANEL_277]                          = oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_277));
+-	srf[SRF_CSM_PANEL_278_CSM112]                   = oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_278_CSM112));
+-	srf[SRF_CSM_PANEL_278_CSM114]                   = oapiCreateSurface (LOADBMP (IDB_CSM_PANEL_278_CSM114));
+-	srf[SRF_INDICATOR90]                            = oapiCreateSurface (LOADBMP (IDB_INDICATOR90));
+-	srf[SRF_THREEPOSSWITCH90_RIGHT]					= oapiCreateSurface (LOADBMP (IDB_THREEPOSSWITCH90_RIGHT));
+-	srf[SRF_CRYO_SWITCHES_J]                        = oapiCreateSurface (LOADBMP (IDB_CRYO_SWITCHES_J));
+-	srf[SRF_CRYO_IND_J]                             = oapiCreateSurface (LOADBMP (IDB_CRYO_IND_J));
+-	srf[SRF_SWITCHGUARDS90_RIGHT]                   = oapiCreateSurface (LOADBMP (IDB_SWITCHGUARDS90_RIGHT));
++	srf[SRF_INDICATOR]								= LOADBMP(IDB_INDICATOR);
++	srf[SRF_NEEDLE]									= LOADBMP(IDB_NEEDLE);
++	srf[SRF_DIGITAL]								= LOADBMP(IDB_DIGITAL);
++	srf[SRF_DIGITAL2]								= LOADBMP(IDB_DIGITAL2);
++	srf[SRF_SWITCHUP]								= LOADBMP(IDB_SWITCHUP);
++	srf[SRF_SWITCHLEVER]							= LOADBMP(IDB_SWLEVER);
++	srf[SRF_SWITCHGUARDS]							= LOADBMP(IDB_SWITCHGUARDS);
++	srf[SRF_SWITCHGUARDPANEL15]						= LOADBMP(IDB_SWITCHGUARDPANEL15);
++	srf[SRF_ABORT]									= LOADBMP(IDB_ABORT);
++	srf[SRF_LV_ENG]									= LOADBMP(IDB_LV_ENG);
++	srf[SRF_ALTIMETER]								= LOADBMP(IDB_ALTIMETER);
++	srf[SRF_THRUSTMETER]							= LOADBMP(IDB_THRUST);
++	srf[SRF_DCVOLTS]								= LOADBMP(IDB_DCVOLTS);
++	srf[SRF_DCVOLTS_PANEL101]						= LOADBMP(IDB_DCVOLTS_PANEL101);
++	srf[SRF_DCAMPS]									= LOADBMP(IDB_DCAMPS);
++	srf[SRF_ACVOLTS]								= LOADBMP(IDB_ACVOLTS);
++	srf[SRF_SEQUENCERSWITCHES]						= LOADBMP(IDB_SEQUENCERSWITCHES);
++	srf[SRF_MASTERALARM_BRIGHT]						= LOADBMP(IDB_MASTER_ALARM_BRIGHT);
++	srf[SRF_DSKY]									= LOADBMP(IDB_DSKY_LIGHTS);
++	srf[SRF_THREEPOSSWITCH]							= LOADBMP(IDB_THREEPOSSWITCH);
++	srf[SRF_MFDFRAME]								= LOADBMP(IDB_MFDFRAME);
++	srf[SRF_MFDPOWER]								= LOADBMP(IDB_MFDPOWER);
++	srf[SRF_SM_RCS_MODE]							= LOADBMP(IDB_DOCKINGSWITCHES);
++	srf[SRF_ROTATIONALSWITCH]						= LOADBMP(IDB_ROTATIONALSWITCH);
++	srf[SRF_SUITCABINDELTAPMETER]					= LOADBMP(IDB_SUITCABINDELTAPMETER);
++	srf[SRF_THREEPOSSWITCH305]						= LOADBMP(IDB_THREEPOSSWITCH305);
++	srf[SRF_THREEPOSSWITCH305LEFT]					= LOADBMP(IDB_THREEPOSSWITCH305LEFT);
++	srf[SRF_SWITCH305LEFT]							= LOADBMP(IDB_SWITCH305LEFT);
++	srf[SRF_DSKYDISP]       						= LOADBMP(IDB_DSKY_DISP);
++	srf[SRF_FDAI]	        						= LOADBMP(IDB_FDAI);
++	srf[SRF_FDAIROLL]       						= LOADBMP(IDB_FDAI_ROLL);
++	srf[SRF_CWSLIGHTS]       						= LOADBMP(IDB_CWS_LIGHTS);
++	srf[SRF_EVENT_TIMER_DIGITS]    					= LOADBMP(IDB_EVENT_TIMER);
++	srf[SRF_DSKYKEY]		    					= LOADBMP(IDB_DSKY_KEY);
++	srf[SRF_ECSINDICATOR]							= LOADBMP(IDB_ECSINDICATOR);
++	srf[SRF_SWITCHUPSMALL]							= LOADBMP(IDB_SWITCHUPSMALL);
++	srf[SRF_CMMFDFRAME]								= LOADBMP(IDB_CMMFDFRAME);
++	srf[SRF_COAS]									= LOADBMP(IDB_COAS);
++	srf[SRF_THUMBWHEEL_SMALLFONTS]					= LOADBMP(IDB_THUMBWHEEL_SMALLFONTS);
++	srf[SRF_THUMBWHEEL_SMALLFONTS_DIAGONAL]			= LOADBMP(IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL);
++	srf[SRF_THUMBWHEEL_SMALLFONTS_DIAGONAL_LEFT]	= LOADBMP(IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL_LEFT);
++	srf[SRF_CIRCUITBRAKER]          				= LOADBMP(IDB_CIRCUITBRAKER);
++	srf[SRF_CIRCUITBRAKER_YELLOW]          			= LOADBMP(IDB_CIRCUITBRAKER_YELLOW);
++	srf[SRF_THREEPOSSWITCH20]						= LOADBMP(IDB_THREEPOSSWITCH20);
++	srf[SRF_THREEPOSSWITCH30]						= LOADBMP(IDB_THREEPOSSWITCH30);
++	srf[SRF_THREEPOSSWITCH30LEFT]					= LOADBMP(IDB_THREEPOSSWITCH30LEFT);
++	srf[SRF_SWITCH20]								= LOADBMP(IDB_SWITCH20);
++	srf[SRF_SWITCH30]								= LOADBMP(IDB_SWITCH30);
++	srf[SRF_SWITCH30LEFT]							= LOADBMP(IDB_SWITCH30LEFT);
++	srf[SRF_SWITCH20LEFT]							= LOADBMP(IDB_SWITCH20LEFT);
++	srf[SRF_THREEPOSSWITCH20LEFT]					= LOADBMP(IDB_THREEPOSSWITCH20LEFT);
++	srf[SRF_GUARDEDSWITCH20]						= LOADBMP(IDB_GUARDEDSWITCH20);
++	srf[SRF_FDAIPOWERROTARY]						= LOADBMP(IDB_FDAIPOWERROTARY);
++	srf[SRF_DIRECTO2ROTARY]							= LOADBMP(IDB_DIRECTO2ROTARY);
++	srf[SRF_ECSGLYCOLPUMPROTARY]					= LOADBMP(IDB_ECSGLYCOLPUMPROTARY);
++	srf[SRF_GTACOVER]								= LOADBMP(IDB_GTACOVER);
++	srf[SRF_POSTLDGVENTVLVLEVER]					= LOADBMP(IDB_POSTLDGVENTVLVLEVER);
++	srf[SRF_SPSMAXINDICATOR]						= LOADBMP(IDB_SPSMAXINDICATOR);
++	srf[SRF_SPSMININDICATOR]						= LOADBMP(IDB_SPSMININDICATOR);
++	srf[SRF_ECSROTARY]								= LOADBMP(IDB_ECSROTARY);
++	srf[SRF_CSM_MNPNL_WDW_LES]						= LOADBMP(IDB_CSM_MNPNL_WDW_LES);
++	srf[SRF_CSM_RNDZ_WDW_LES]						= LOADBMP(IDB_CSM_RNDZ_WDW_LES);
++	srf[SRF_CSM_RIGHT_WDW_LES]						= LOADBMP(IDB_CSM_RIGHT_WDW_LES);
++	srf[SRF_CSM_LEFT_WDW_LES]						= LOADBMP(IDB_CSM_LEFT_WDW_LES);
++	srf[SRF_GLYCOLLEVER]							= LOADBMP(IDB_GLYCOLLEVER);
++	srf[SRF_FDAIOFFFLAG]       						= LOADBMP(IDB_FDAIOFFFLAG);
++	srf[SRF_FDAINEEDLES]							= LOADBMP(IDB_FDAINEEDLES);
++	srf[SRF_THUMBWHEEL_LARGEFONTS]					= LOADBMP(IDB_THUMBWHEEL_LARGEFONTS);
++	srf[SRF_SPS_FONT_WHITE]							= LOADBMP(IDB_SPS_FUEL_FONT_WHITE);
++	srf[SRF_SPS_FONT_BLACK]							= LOADBMP(IDB_SPS_FUEL_FONT_BLACK);
++	srf[SRF_THUMBWHEEL_SMALL]						= LOADBMP(IDB_THUMBWHEEL_SMALL);
++	srf[SRF_THUMBWHEEL_LARGEFONTSINV] 				= LOADBMP(IDB_THUMBWHEEL_LARGEFONTSINV);
++	srf[SRF_SWLEVERTHREEPOS] 						= LOADBMP(IDB_SWLEVERTHREEPOS);
++	srf[SRF_ORDEAL_ROTARY] 							= LOADBMP(IDB_ORDEAL_ROTARY);
++	srf[SRF_LV_ENG_S1B]								= LOADBMP(IDB_LV_ENGINE_LIGHTS_S1B);
++	srf[SRF_THUMBWHEEL_GPI_PITCH]  					= LOADBMP(IDB_THUMBWHEEL_GPI_PITCH);
++	srf[SRF_THUMBWHEEL_GPI_YAW]  					= LOADBMP(IDB_THUMBWHEEL_GPI_YAW);
++	srf[SRF_THC]				  					= LOADBMP(IDB_THC);
++	srf[SRF_EMS_LIGHTS]			  					= LOADBMP(IDB_EMS_LIGHTS);
++	srf[SRF_SUITRETURN_LEVER]	 					= LOADBMP(IDB_SUITRETURN_LEVER);
++	srf[SRF_CABINRELIEFUPPERLEVER]	 				= LOADBMP(IDB_CABINRELIEFUPPERLEVER);
++	srf[SRF_CABINRELIEFLOWERLEVER]	 				= LOADBMP(IDB_CABINRELIEFLOWERLEVER);
++	srf[SRF_CABINRELIEFGUARDLEVER]	 				= LOADBMP(IDB_CABINRELIEFGUARDLEVER);
++	srf[SRF_OPTICS_HANDCONTROLLER]	 				= LOADBMP(IDB_OPTICS_HANDCONTROLLER);
++	srf[SRF_MARK_BUTTONS]	 						= LOADBMP(IDB_MARK_BUTTONS);
++	srf[SRF_THREEPOSSWITCHSMALL]	 				= LOADBMP(IDB_THREEPOSSWITCHSMALL);
++	srf[SRF_OPTICS_DSKY]	 						= LOADBMP(IDB_OPTICS_DSKY);
++	srf[SRF_MINIMPULSE_HANDCONTROLLER] 				= LOADBMP(IDB_MINIMPULSE_HANDCONTROLLER);
++	srf[SRF_EMS_SCROLL_LEO]							= LOADBMP(IDB_EMS_SCROLL_LEO);
++	srf[SRF_EMS_SCROLL_BORDER]						= LOADBMP(IDB_EMS_SCROLL_BORDER);
++	srf[SRF_EMS_RSI_BKGRND]                         = LOADBMP(IDB_EMS_RSI_BKGRND);
++	srf[SRF_EMSDVSETSWITCH]							= LOADBMP(IDB_EMSDVSETSWITCH);
++	srf[SRF_ALTIMETER2]								= LOADBMP(IDB_ALTIMETER2);
++	srf[SRF_OXYGEN_SURGE_TANK_VALVE]				= LOADBMP(IDB_OXYGEN_SURGE_TANK_VALVE);
++	srf[SRF_GLYCOL_TO_RADIATORS_KNOB]				= LOADBMP(IDB_GLYCOL_TO_RADIATORS_KNOB);
++	srf[SRF_ACCUM_ROTARY]							= LOADBMP(IDB_ACCUM_ROTARY);
++	srf[SRF_GLYCOL_ROTARY]							= LOADBMP(IDB_GLYCOL_ROTARY);
++	srf[SRF_PRESS_RELIEF_VALVE]						= LOADBMP(IDB_PRESS_RELIEF_VALVE);
++	srf[SRF_CABIN_REPRESS_VALVE]					= LOADBMP(IDB_CABIN_REPRESS_VALVE);
++	srf[SRF_SELECTOR_INLET_ROTARY]					= LOADBMP(IDB_SELECTOR_INLET_ROTARY);
++	srf[SRF_SELECTOR_OUTLET_ROTARY]					= LOADBMP(IDB_SELECTOR_OUTLET_ROTARY);
++	srf[SRF_EMERGENCY_PRESS_ROTARY]					= LOADBMP(IDB_EMERGENCY_PRESS_ROTARY);
++	srf[SRF_SUIT_FLOW_CONTROL_LEVER]				= LOADBMP(IDB_CSM_SUIT_FLOW_CONTROL_LEVER);
++	srf[SRF_CSM_SEC_CABIN_TEMP_VALVE]				= LOADBMP(IDB_CSM_SEC_CABIN_TEMP_VALVE);
++	srf[SRF_CSM_FOOT_PREP_WATER_LEVER]				= LOADBMP(IDB_CSM_FOOT_PREP_WATER_LEVER);
++	srf[SRF_CSM_LM_TUNNEL_VENT_VALVE]				= LOADBMP(IDB_CSM_LM_TUNNEL_VENT_VALVE);
++	srf[SRF_CSM_WASTE_MGMT_ROTARY]					= LOADBMP(IDB_CSM_WASTE_MGMT_ROTARY);
++	srf[SRF_CSM_DEMAND_REG_ROTARY]					= LOADBMP(IDB_CSM_DEMAND_REG_ROTARY);
++	srf[SRF_CSM_SUIT_TEST_LEVER]					= LOADBMP(IDB_CSM_SUIT_TEST_LEVER);
++	srf[SRF_CSM_GEAR_BOX_ROTARY]					= LOADBMP(IDB_CSM_GEAR_BOX_ROTARY);
++	srf[SRF_CSM_PUMP_HANDLE_ROTARY]					= LOADBMP(IDB_CSM_PUMP_HANDLE_ROTARY);
++	srf[SRF_CSM_VENT_VALVE_HANDLE]					= LOADBMP(IDB_CSM_VENT_VALVE_HANDLE);
++	srf[SRF_CSM_PUMP_HANDLE_ROTARY_OPEN]			= LOADBMP(IDB_CSM_PUMP_HANDLE_ROTARY_OPEN);
++	srf[SRF_CSM_PANEL_351_SWITCH]					= LOADBMP(IDB_CSM_PANEL_351_SWITCH);
++	srf[SRF_CSM_PANEL_600]							= LOADBMP(IDB_CSM_PANEL_600);
++	srf[SRF_CSM_PANEL_600_SWITCH]					= LOADBMP(IDB_CSM_PANEL_600_SWITCH);
++	srf[SRF_CSM_PANEL_382_COVER]					= LOADBMP(IDB_CSM_PANEL_382_COVER);
++	srf[SRF_CSM_WASTE_DISPOSAL_ROTARY]				= LOADBMP(IDB_CSM_WASTE_DISPOSAL_ROTARY);
++	srf[SRF_THREEPOSSWITCH90_LEFT]					= LOADBMP(IDB_THREEPOSSWITCH90_LEFT);
++	srf[SRF_EMS_SCROLL_BUG]							= LOADBMP(IDB_EMS_SCROLL_BUG);
++	srf[SRF_SWITCH90]								= LOADBMP(IDB_SWITCH90);
++	srf[SRF_CSM_CABINPRESSTESTSWITCH]				= LOADBMP(IDB_CSM_CABINPRESSTESTSWITCH);
++	srf[SRF_ORDEAL_PANEL]							= LOADBMP(IDB_ORDEAL_PANEL);
++	srf[SRF_CSM_TELESCOPECOVER]						= LOADBMP(IDB_CSM_TELESCOPECOVER);
++	srf[SRF_CSM_SEXTANTCOVER]						= LOADBMP(IDB_CSM_SEXTANTCOVER);
++	srf[SRF_CWS_GNLIGHTS]      						= LOADBMP(IDB_CWS_GNLIGHTS);
++	srf[SRF_EVENT_TIMER_DIGITS90]					= LOADBMP(IDB_EVENT_TIMER90);
++	srf[SRF_DIGITAL90]								= LOADBMP(IDB_DIGITAL90);
++	srf[SRF_CSM_PRESS_EQUAL_HANDLE]                 = LOADBMP(IDB_CSM_PRESS_EQUAL_HANDLE);
++	srf[SRF_CSM_PANEL_181]                          = LOADBMP(IDB_CSM_PANEL_181);
++	srf[SRF_CSM_PANEL_277]                          = LOADBMP(IDB_CSM_PANEL_277);
++	srf[SRF_CSM_PANEL_278_CSM112]                   = LOADBMP(IDB_CSM_PANEL_278_CSM112);
++	srf[SRF_CSM_PANEL_278_CSM114]                   = LOADBMP(IDB_CSM_PANEL_278_CSM114);
++	srf[SRF_INDICATOR90]                            = LOADBMP(IDB_INDICATOR90);
++	srf[SRF_THREEPOSSWITCH90_RIGHT]					= LOADBMP(IDB_THREEPOSSWITCH90_RIGHT);
++	srf[SRF_CRYO_SWITCHES_J]                        = LOADBMP(IDB_CRYO_SWITCHES_J);
++	srf[SRF_CRYO_IND_J]                             = LOADBMP(IDB_CRYO_IND_J);
++	srf[SRF_SWITCHGUARDS90_RIGHT]                   = LOADBMP(IDB_SWITCHGUARDS90_RIGHT);
+ 
+ 
+ 	//
+ 	// Flashing borders.
+ 	//
+ 
+-	srf[SRF_BORDER_31x31]			= oapiCreateSurface (LOADBMP (IDB_BORDER_31x31));
+-	srf[SRF_BORDER_34x29]			= oapiCreateSurface (LOADBMP (IDB_BORDER_34x29));
+-	srf[SRF_BORDER_34x61]			= oapiCreateSurface (LOADBMP (IDB_BORDER_34x61));
+-	srf[SRF_BORDER_55x111]			= oapiCreateSurface (LOADBMP (IDB_BORDER_55x111));
+-	srf[SRF_BORDER_46x75]			= oapiCreateSurface (LOADBMP (IDB_BORDER_46x75));
+-	srf[SRF_BORDER_39x38]			= oapiCreateSurface (LOADBMP (IDB_BORDER_39x38));
+-	srf[SRF_BORDER_92x40]			= oapiCreateSurface (LOADBMP (IDB_BORDER_92x40));
+-	srf[SRF_BORDER_34x33]			= oapiCreateSurface (LOADBMP (IDB_BORDER_34x33));
+-	srf[SRF_BORDER_29x29]			= oapiCreateSurface (LOADBMP (IDB_BORDER_29x29));
+-	srf[SRF_BORDER_34x31]			= oapiCreateSurface (LOADBMP (IDB_BORDER_34x31));
+-	srf[SRF_BORDER_50x158]			= oapiCreateSurface (LOADBMP (IDB_BORDER_50x158));
+-	srf[SRF_BORDER_38x52]			= oapiCreateSurface (LOADBMP (IDB_BORDER_38x52));
+-	srf[SRF_BORDER_34x34]			= oapiCreateSurface (LOADBMP (IDB_BORDER_34x34));
+-	srf[SRF_BORDER_90x90]			= oapiCreateSurface (LOADBMP (IDB_BORDER_90x90));
+-	srf[SRF_BORDER_84x84]			= oapiCreateSurface (LOADBMP (IDB_BORDER_84x84));
+-	srf[SRF_BORDER_70x70]			= oapiCreateSurface (LOADBMP (IDB_BORDER_70x70));
+-	srf[SRF_BORDER_23x20]			= oapiCreateSurface (LOADBMP (IDB_BORDER_23x20));
+-	srf[SRF_BORDER_78x78]			= oapiCreateSurface (LOADBMP (IDB_BORDER_78x78));
+-	srf[SRF_BORDER_32x160]			= oapiCreateSurface (LOADBMP (IDB_BORDER_32x160));
+-	srf[SRF_BORDER_72x72]			= oapiCreateSurface (LOADBMP (IDB_BORDER_72x72));
+-	srf[SRF_BORDER_75x64]			= oapiCreateSurface (LOADBMP (IDB_BORDER_75x64));
+-	srf[SRF_BORDER_58x58]			= oapiCreateSurface (LOADBMP (IDB_BORDER_58x58));
+-	srf[SRF_BORDER_160x32]			= oapiCreateSurface (LOADBMP (IDB_BORDER_160x32));
+-	srf[SRF_BORDER_57x57]			= oapiCreateSurface (LOADBMP (IDB_BORDER_57x57));
+-	srf[SRF_BORDER_47x47]			= oapiCreateSurface (LOADBMP (IDB_BORDER_47x47));
+-	srf[SRF_BORDER_48x48]			= oapiCreateSurface (LOADBMP (IDB_BORDER_48x48));
+-	srf[SRF_BORDER_65x65]			= oapiCreateSurface (LOADBMP (IDB_BORDER_65x65));
+-	srf[SRF_BORDER_87x111]			= oapiCreateSurface (LOADBMP (IDB_BORDER_87x111));
+-	srf[SRF_BORDER_23x23]			= oapiCreateSurface (LOADBMP (IDB_BORDER_23x23));
+-	srf[SRF_BORDER_118x118]			= oapiCreateSurface (LOADBMP (IDB_BORDER_118x118));
+-	srf[SRF_BORDER_38x38]			= oapiCreateSurface (LOADBMP (IDB_BORDER_38x38));
+-	srf[SRF_BORDER_116x116]			= oapiCreateSurface (LOADBMP (IDB_BORDER_116x116));
+-	srf[SRF_BORDER_45x36]			= oapiCreateSurface (LOADBMP (IDB_BORDER_45x36));
+-	srf[SRF_BORDER_17x36]			= oapiCreateSurface (LOADBMP (IDB_BORDER_17x36));
+-	srf[SRF_BORDER_33x43]			= oapiCreateSurface (LOADBMP (IDB_BORDER_33x43));
+-	srf[SRF_BORDER_36x17]			= oapiCreateSurface (LOADBMP (IDB_BORDER_36x17));
+-	srf[SRF_BORDER_38x37]			= oapiCreateSurface (LOADBMP (IDB_BORDER_38x37));
+-	srf[SRF_BORDER_150x80]			= oapiCreateSurface (LOADBMP (IDB_BORDER_150x80));
+-	srf[SRF_BORDER_200x80]			= oapiCreateSurface (LOADBMP (IDB_BORDER_200x80));
+-	srf[SRF_BORDER_72x109]			= oapiCreateSurface (LOADBMP (IDB_BORDER_72x109));
+-	srf[SRF_BORDER_200x300]			= oapiCreateSurface (LOADBMP (IDB_BORDER_200x300));
+-	srf[SRF_BORDER_150x200]			= oapiCreateSurface (LOADBMP (IDB_BORDER_150x200));
+-	srf[SRF_BORDER_240x240]			= oapiCreateSurface (LOADBMP (IDB_BORDER_240x240));
+-	srf[SRF_BORDER_55x91]			= oapiCreateSurface (LOADBMP (IDB_BORDER_55x91));
+-	srf[SRF_BORDER_673x369]			= oapiCreateSurface (LOADBMP (IDB_BORDER_673x369));
+-	srf[SRF_BORDER_673x80]			= oapiCreateSurface (LOADBMP (IDB_BORDER_673x80));
+-	srf[SRF_BORDER_110x29]			= oapiCreateSurface (LOADBMP (IDB_BORDER_110x29));
+-	srf[SRF_BORDER_29x30]			= oapiCreateSurface (LOADBMP (IDB_BORDER_29x30));
+-	srf[SRF_BORDER_62x129]			= oapiCreateSurface (LOADBMP (IDB_BORDER_62x129));
+-	srf[SRF_BORDER_194x324]			= oapiCreateSurface (LOADBMP (IDB_BORDER_194x324));
+-	srf[SRF_BORDER_36x69]			= oapiCreateSurface (LOADBMP (IDB_BORDER_36x69));
+-	srf[SRF_BORDER_62x31]			= oapiCreateSurface (LOADBMP (IDB_BORDER_62x31));
+-	srf[SRF_BORDER_45x49]			= oapiCreateSurface (LOADBMP (IDB_BORDER_45x49));
+-	srf[SRF_BORDER_28x32]			= oapiCreateSurface (LOADBMP (IDB_BORDER_28x32));
++	srf[SRF_BORDER_31x31]			= LOADBMP(IDB_BORDER_31x31);
++	srf[SRF_BORDER_34x29]			= LOADBMP(IDB_BORDER_34x29);
++	srf[SRF_BORDER_34x61]			= LOADBMP(IDB_BORDER_34x61);
++	srf[SRF_BORDER_55x111]			= LOADBMP(IDB_BORDER_55x111);
++	srf[SRF_BORDER_46x75]			= LOADBMP(IDB_BORDER_46x75);
++	srf[SRF_BORDER_39x38]			= LOADBMP(IDB_BORDER_39x38);
++	srf[SRF_BORDER_92x40]			= LOADBMP(IDB_BORDER_92x40);
++	srf[SRF_BORDER_34x33]			= LOADBMP(IDB_BORDER_34x33);
++	srf[SRF_BORDER_29x29]			= LOADBMP(IDB_BORDER_29x29);
++	srf[SRF_BORDER_34x31]			= LOADBMP(IDB_BORDER_34x31);
++	srf[SRF_BORDER_50x158]			= LOADBMP(IDB_BORDER_50x158);
++	srf[SRF_BORDER_38x52]			= LOADBMP(IDB_BORDER_38x52);
++	srf[SRF_BORDER_34x34]			= LOADBMP(IDB_BORDER_34x34);
++	srf[SRF_BORDER_90x90]			= LOADBMP(IDB_BORDER_90x90);
++	srf[SRF_BORDER_84x84]			= LOADBMP(IDB_BORDER_84x84);
++	srf[SRF_BORDER_70x70]			= LOADBMP(IDB_BORDER_70x70);
++	srf[SRF_BORDER_23x20]			= LOADBMP(IDB_BORDER_23x20);
++	srf[SRF_BORDER_78x78]			= LOADBMP(IDB_BORDER_78x78);
++	srf[SRF_BORDER_32x160]			= LOADBMP(IDB_BORDER_32x160);
++	srf[SRF_BORDER_72x72]			= LOADBMP(IDB_BORDER_72x72);
++	srf[SRF_BORDER_75x64]			= LOADBMP(IDB_BORDER_75x64);
++	srf[SRF_BORDER_58x58]			= LOADBMP(IDB_BORDER_58x58);
++	srf[SRF_BORDER_160x32]			= LOADBMP(IDB_BORDER_160x32);
++	srf[SRF_BORDER_57x57]			= LOADBMP(IDB_BORDER_57x57);
++	srf[SRF_BORDER_47x47]			= LOADBMP(IDB_BORDER_47x47);
++	srf[SRF_BORDER_48x48]			= LOADBMP(IDB_BORDER_48x48);
++	srf[SRF_BORDER_65x65]			= LOADBMP(IDB_BORDER_65x65);
++	srf[SRF_BORDER_87x111]			= LOADBMP(IDB_BORDER_87x111);
++	srf[SRF_BORDER_23x23]			= LOADBMP(IDB_BORDER_23x23);
++	srf[SRF_BORDER_118x118]			= LOADBMP(IDB_BORDER_118x118);
++	srf[SRF_BORDER_38x38]			= LOADBMP(IDB_BORDER_38x38);
++	srf[SRF_BORDER_116x116]			= LOADBMP(IDB_BORDER_116x116);
++	srf[SRF_BORDER_45x36]			= LOADBMP(IDB_BORDER_45x36);
++	srf[SRF_BORDER_17x36]			= LOADBMP(IDB_BORDER_17x36);
++	srf[SRF_BORDER_33x43]			= LOADBMP(IDB_BORDER_33x43);
++	srf[SRF_BORDER_36x17]			= LOADBMP(IDB_BORDER_36x17);
++	srf[SRF_BORDER_38x37]			= LOADBMP(IDB_BORDER_38x37);
++	srf[SRF_BORDER_150x80]			= LOADBMP(IDB_BORDER_150x80);
++	srf[SRF_BORDER_200x80]			= LOADBMP(IDB_BORDER_200x80);
++	srf[SRF_BORDER_72x109]			= LOADBMP(IDB_BORDER_72x109);
++	srf[SRF_BORDER_200x300]			= LOADBMP(IDB_BORDER_200x300);
++	srf[SRF_BORDER_150x200]			= LOADBMP(IDB_BORDER_150x200);
++	srf[SRF_BORDER_240x240]			= LOADBMP(IDB_BORDER_240x240);
++	srf[SRF_BORDER_55x91]			= LOADBMP(IDB_BORDER_55x91);
++	srf[SRF_BORDER_673x369]			= LOADBMP(IDB_BORDER_673x369);
++	srf[SRF_BORDER_673x80]			= LOADBMP(IDB_BORDER_673x80);
++	srf[SRF_BORDER_110x29]			= LOADBMP(IDB_BORDER_110x29);
++	srf[SRF_BORDER_29x30]			= LOADBMP(IDB_BORDER_29x30);
++	srf[SRF_BORDER_62x129]			= LOADBMP(IDB_BORDER_62x129);
++	srf[SRF_BORDER_194x324]			= LOADBMP(IDB_BORDER_194x324);
++	srf[SRF_BORDER_36x69]			= LOADBMP(IDB_BORDER_36x69);
++	srf[SRF_BORDER_62x31]			= LOADBMP(IDB_BORDER_62x31);
++	srf[SRF_BORDER_45x49]			= LOADBMP(IDB_BORDER_45x49);
++	srf[SRF_BORDER_28x32]			= LOADBMP(IDB_BORDER_28x32);
+ 
+ 	//
+ 	// Set color keys where appropriate.
+@@ -679,7 +685,7 @@
+ // 2 = 16:9
+ 
+ int Saturn::GetRenderViewportIsWideScreen() {
+-	unsigned long w, h;
++	DWORD w, h;
+ 	oapiGetViewportSize(&w, &h);
+ 	if (((double)w) / ((double)h) < 1.47)
+ 		return 0;
+@@ -712,10 +718,10 @@
+ 	//
+ 	// Load panel background image
+ 	//
+-	HBITMAP hBmp;
++	SURFHANDLE hBmp;
+ 
+ 	if ((id == SATPANEL_GN && !GNSplit) || (id == SATPANEL_GN_LEFT && !GNSplit) || (id == SATPANEL_GN_RIGHT && !GNSplit)) { // guidance & navigation lower equipment bay (unsplit)
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LOWER_PANEL));
++		hBmp = LOADBMP(IDB_CSM_LOWER_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -737,7 +743,7 @@
+ 		SetCameraRotationRange(0.0, 0.0, 0.0, 0.0);
+ 	}
+ 	if (id == SATPANEL_GN_LEFT && GNSplit) { // guidance & navigation lower equipment bay Left third (split)
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LOWER_PANEL_LEFT));
++		hBmp = LOADBMP(IDB_CSM_LOWER_PANEL_LEFT);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -757,7 +763,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_GN_CENTER && GNSplit) { // guidance & navigation lower equipment bay Center third (split)
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LOWER_PANEL_CENTER));
++		hBmp = LOADBMP(IDB_CSM_LOWER_PANEL_CENTER);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -779,7 +785,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_GN_RIGHT && GNSplit) { // guidance & navigation lower equipment bay Right third (split)
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LOWER_PANEL_RIGHT));
++		hBmp = LOADBMP(IDB_CSM_LOWER_PANEL_RIGHT);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -799,7 +805,7 @@
+ 	}
+ 
+ 	if (MainPanelSplit && id == SATPANEL_MAIN_LEFT) {
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_MAIN_LEFT_PANEL));
++		hBmp = LOADBMP(IDB_CSM_MAIN_LEFT_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -827,7 +833,7 @@
+ 	}
+ 
+ 	if (MainPanelSplit && id == SATPANEL_MAIN_MIDDLE) {
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_MAIN_MIDDLE_PANEL));
++		hBmp = LOADBMP(IDB_CSM_MAIN_MIDDLE_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -848,7 +854,7 @@
+ 
+ 	if (MainPanelSplit && id == SATPANEL_MAIN_RIGHT) {
+ 
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_MAIN_RIGHT_PANEL));
++		hBmp = LOADBMP(IDB_CSM_MAIN_RIGHT_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -868,7 +874,7 @@
+ 	}
+ 
+ 	if (!MainPanelSplit && id == SATPANEL_MAIN) { // main instrument panel
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_MAIN_PANEL));
++		hBmp = LOADBMP(IDB_CSM_MAIN_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -896,7 +902,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_LEFT) { // left instrument panel
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LEFT_PANEL));
++		hBmp = LOADBMP(IDB_CSM_LEFT_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -968,7 +974,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_RIGHT) { // right instrument panel
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_RIGHT_PANEL));
++		hBmp = LOADBMP(IDB_CSM_RIGHT_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -1069,16 +1075,16 @@
+ 			xoffset1 = 400;
+ 			yoffset1 = 26;
+ 			yoffset2 = 19;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LEFT_RNDZ_WINDOW_WIDE));
++			hBmp = LOADBMP(IDB_CSM_LEFT_RNDZ_WINDOW_WIDE);
+ 		} else if (renderViewportIsWideScreen == 2) {
+ 			xoffset = 293;
+ 			yoffset = 5;
+ 			xoffset1 = 586;
+ 			yoffset1 = 26;
+ 			yoffset2 = 19;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LEFT_RNDZ_WINDOW_16_9));
++			hBmp = LOADBMP(IDB_CSM_LEFT_RNDZ_WINDOW_16_9);
+ 		} else {
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LEFT_RNDZ_WINDOW));
++			hBmp = LOADBMP(IDB_CSM_LEFT_RNDZ_WINDOW);
+ 		}
+ 		if (!hBmp) {
+ 			return false;
+@@ -1107,7 +1113,7 @@
+ 
+ 	if (id == SATPANEL_LEFT_317_WINDOW) { // left 31.7 degree line window
+ 
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_CSM_LEFT_317_WINDOW));
++		hBmp = LOADBMP(IDB_CSM_LEFT_317_WINDOW);
+ 
+ 		if (!hBmp) {
+ 			return false;
+@@ -1129,13 +1135,13 @@
+ 		if (renderViewportIsWideScreen == 1) {			
+ 			xoffset = 200;
+ 			yoffset = 13;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_RIGHT_RNDZ_WINDOW_WIDE));
++			hBmp = LOADBMP(IDB_CSM_RIGHT_RNDZ_WINDOW_WIDE);
+ 		} else if (renderViewportIsWideScreen == 2) {
+ 			xoffset = 293;
+ 			yoffset = 13;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_RIGHT_RNDZ_WINDOW_16_9));
++			hBmp = LOADBMP(IDB_CSM_RIGHT_RNDZ_WINDOW_16_9);
+ 		} else {
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_RIGHT_RNDZ_WINDOW));
++			hBmp = LOADBMP(IDB_CSM_RIGHT_RNDZ_WINDOW);
+ 		}
+ 		if (!hBmp) {
+ 			return false;
+@@ -1160,16 +1166,16 @@
+ 		if (SideHatch.IsOpen()) {
+ 			if (renderViewportIsWideScreen == 1) {			
+ 				xoffset = 205;
+-				hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_HATCH_WINDOW_OPEN_WIDE));
++				hBmp = LOADBMP(IDB_CSM_HATCH_WINDOW_OPEN_WIDE);
+ 			} else if (renderViewportIsWideScreen == 2) {
+ 				xoffset = 205 + 137;
+-				hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_HATCH_WINDOW_OPEN_16_9));
++				hBmp = LOADBMP(IDB_CSM_HATCH_WINDOW_OPEN_16_9);
+ 			} else {
+-				hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_HATCH_WINDOW_OPEN));
++				hBmp = LOADBMP(IDB_CSM_HATCH_WINDOW_OPEN);
+ 			}
+ 		} else {
+ 			xoffset = 360;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_HATCH_WINDOW));
++			hBmp = LOADBMP(IDB_CSM_HATCH_WINDOW);
+ 		}
+ 		if (!hBmp) {
+ 			return false;
+@@ -1204,7 +1210,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_CABIN_PRESS_PANEL) { // cabin pressurization controls panel
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_CABIN_PRESS_PANEL));
++		hBmp = LOADBMP(IDB_CSM_CABIN_PRESS_PANEL);
+ 		if (!hBmp) {
+ 			return false;
+ 		}
+@@ -1240,7 +1246,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_LOWER_LEFT) { 
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_LOWER_LEFT_PANEL));
++		hBmp = LOADBMP(IDB_CSM_LOWER_LEFT_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -1275,7 +1281,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_LOWER_MAIN) {
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_CSM_LOWER_MAIN_PANEL));
++		hBmp = LOADBMP(IDB_CSM_LOWER_MAIN_PANEL);
+ 
+ 		if (!hBmp)
+ 		{
+@@ -1313,11 +1319,11 @@
+ 	if (id == SATPANEL_TUNNEL) {
+ 		if (ForwardHatch.IsOpen())
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_CSM_TUNNEL_OPEN));
++			hBmp = LOADBMP(IDB_CSM_TUNNEL_OPEN);
+ 		}
+ 		else
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_CSM_TUNNEL));
++			hBmp = LOADBMP(IDB_CSM_TUNNEL);
+ 		}
+ 
+ 		if (!hBmp)
+@@ -1348,7 +1354,7 @@
+ 	}
+ 
+ 	if (id == SATPANEL_RIGHT_CB) { 
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_CSM_RIGHT_CB_PANEL));
++		hBmp = LOADBMP(IDB_CSM_RIGHT_CB_PANEL);
+ 
+ 		if ( !hBmp )
+ 		{
+@@ -1384,15 +1390,15 @@
+ 		if (renderViewportIsWideScreen == 1) {
+ 			offset1 = 103;
+ 			offset2 = 205;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_SEXTANT_WIDE));
++			hBmp = LOADBMP(IDB_SEXTANT_WIDE);
+ 			panelw = 1229;
+ 		} else if (renderViewportIsWideScreen == 2) {
+ 			offset1 = 171;
+ 			offset2 = 342;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_SEXTANT_16_9));
++			hBmp = LOADBMP(IDB_SEXTANT_16_9);
+ 			panelw = 1366;
+ 		} else {
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_SEXTANT));
++			hBmp = LOADBMP(IDB_SEXTANT);
+ 			panelw = 1024;
+ 		}
+ 		if ( !hBmp ) {
+@@ -1433,15 +1439,15 @@
+ 		if (renderViewportIsWideScreen == 1) {
+ 			offset1 = 103;
+ 			offset2 = 205;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_TELESCOPE_WIDE));
++			hBmp = LOADBMP(IDB_TELESCOPE_WIDE);
+ 			panelw = 1229;
+ 		} else if (renderViewportIsWideScreen == 2) {
+ 			offset1 = 171;
+ 			offset2 = 342;
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_TELESCOPE_16_9));
++			hBmp = LOADBMP(IDB_TELESCOPE_16_9);
+ 			panelw = 1366;
+ 		} else {
+-			hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_TELESCOPE));
++			hBmp = LOADBMP(IDB_TELESCOPE);
+ 			panelw = 1024;
+ 		}
+ 		if ( !hBmp ) {
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
+index 7cb9b2e82de1b93d36273df34b0a5acca1aae9de..05eed91ebae36244481b91c89014f221e72b94dc
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturnvc.cpp
+@@ -34,11 +34,7 @@
+ #include "nasspdefs.h"
+ #include "nassputils.h"
+ 
+-#ifdef _OPENORBITER
+-#include <gcCoreAPI.h>
+-#else
+-#include <gcConst.h>
+-#endif
++#include "DrawAPI.h"
+ 
+ #include "Mission.h"
+ #include "nasspsound.h"
+@@ -822,10 +818,17 @@
+ {
+ 	TRACESETUP("Saturn::clbkLoadVC");
+ 
++#ifdef ORBITER_NATIVE_CORE
++	// Native hosts distinguish restoration from an explicit seat request.
++	if (id == -1) id = viewpos <= SATVIEW_SIDEHATCH ? viewpos : SATVIEW_LEFTSEAT;
++	if (id < 0 || id > SATVIEW_SIDEHATCH) return false;
++	oapiVCSetCurrentView(id);
++#else
+ 	// Set VC view to last saved position
+ 	if (FirstTimestep || !InVC) {
+ 		id = viewpos;
+ 	}
++#endif
+ 
+ 	InVC = true;
+ 	InPanel = false;
+@@ -850,6 +853,11 @@
+ 	DelLightEmitter(flashlight);
+ 	flashlight = (::SpotLight*)AddSpotLight(flashlightPos, flashlightDirLocal, 3, 0, 0, 3, 0, RAD * 45, flashlightColor, flashlightColor, flashlightColor2);
+ 	flashlight->SetVisibility(LightEmitter::VIS_COCKPIT);
++#ifdef ORBITER_NATIVE_CORE
++	flashlight->SetCameraRelative(true);
++	flashlight->SetPosition(_V(0,0,0));
++	flashlight->SetDirection(_V(0,0,1));
++#endif
+ 	flashlight->Activate(flashlightOn);
+ 
+ 	//FloodLight Panel 5
+@@ -5978,69 +5986,34 @@
+ 
+ 
+ 
+-#ifdef _OPENORBITER
+-void Saturn::SetVCLighting(UINT meshidx, DWORD *matList, MatProp EmissionMode, double state, int cnt)
+-#else
+-void Saturn::SetVCLighting(UINT meshidx, DWORD *matList, int EmissionMode, double state, int cnt)
+-#endif
+-
++void Saturn::SetVCLighting(UINT meshidx, DWORD *matList, MatProp emissionMode, double state, int cnt)
+ {
+-	if (vis == NULL || meshidx == -1) return;
+-	DEVMESHHANDLE hMesh = GetDevMesh(vis, meshidx);
+-
+-    if (!hMesh)
+-        return;
+-
+-	for (int i = 0; i < cnt; i++)
+-	{
+-		if (matList[i] == VC_MAT_NONE) continue;
+-
+-		gcCore *pCore = gcGetCoreInterface();
+-		if (pCore) {
+-			FVECTOR4 value;
+-			value.r = (float)state;
+-			value.g = (float)state;
+-			value.b = (float)state;
+-			value.a = 1.0;
+-#ifdef _OPENORBITER
+-			pCore->SetMeshMaterial(hMesh, matList[i], EmissionMode, &value);
+-#else
+-			pCore->MeshMaterial(hMesh, matList[i], EmissionMode, &value, true);
+-#endif
+-		}
+-	}
++    if (!vis || meshidx == static_cast<UINT>(-1)) return;
++    DEVMESHHANDLE mesh = GetDevMesh(vis, meshidx);
++    if (!mesh) return;
++    oapi::FVECTOR4 value;
++    value.r = value.g = value.b = static_cast<float>(state);
++    value.a = 1.0f;
++    for (int i = 0; i < cnt; ++i) {
++        if (matList[i] != VC_MAT_NONE)
++            oapiSetMaterialEx(mesh, matList[i], emissionMode, &value);
++    }
+ }
+ 
+-#ifdef _OPENORBITER
+-void Saturn::SetVCLighting(UINT meshidx, int material, MatProp EmissionMode, double state, int cnt)
+-#else
+-void Saturn::SetVCLighting(UINT meshidx, int material, int EmissionMode, double state, int cnt)
+-#endif
+-
++void Saturn::SetVCLighting(UINT meshidx, int material, MatProp emissionMode, double state, int cnt)
+ {
+-	if (vis == NULL || meshidx == -1) return;
+-	DEVMESHHANDLE hMesh = GetDevMesh(vis, meshidx);
+-
+-    if (!hMesh)
+-        return;
+-
+-	gcCore *pCore = gcGetCoreInterface();
+-	if (pCore) {
+-		FVECTOR4 value;
+-		value.r = (float)state;
+-		value.g = (float)state;
+-		value.b = (float)state;
+-		value.a = 1.0;
+-#ifdef _OPENORBITER
+-		pCore->SetMeshMaterial(hMesh, material, EmissionMode, &value);
+-#else
+-		pCore->MeshMaterial(hMesh, material, EmissionMode, &value, true);
+-#endif
+-	}
++    const DWORD index = static_cast<DWORD>(material);
++    // This overload addresses one material; cnt was historically ignored.
++    DWORD materials[] = {index};
++    SetVCLighting(meshidx, materials, emissionMode, state, 1);
+ }
+ 
+ void Saturn::MoveFlashlight()
+ {
++#ifdef ORBITER_NATIVE_CORE
++	// Resolved against the current cockpit pose by the renderer.
++	if (flashlight && flashlight->IsCameraRelative()) return;
++#endif
+ 	if (flashlightOn) { //Only move the light emmitter if the flashlight is on
+ 		//Huge thanks the Jordan64 for helping get the direction stuff working! :)
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
+index 1b6700c7bb17eea12036b2827bf06b69de5b6e58..4cb2883bf03a58bf84af620d9a2897462acb3600
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemmesh.cpp
+@@ -68,7 +68,8 @@
+ 	2.0,    // atmslowdown 
+ 	PARTICLESTREAMSPEC::DIFFUSE,
+ 	PARTICLESTREAMSPEC::LVL_LIN, 0, 1,
+-	PARTICLESTREAMSPEC::ATM_PLOG, -0.1, 0.1
++	// Lunar dust is visible in vacuum; thrust and altitude set its level.
++	PARTICLESTREAMSPEC::ATM_FLAT, 1.0, 1.0
+ };
+ 
+ VECTOR3 mesh_asc = _V(0.00, 0.99, 0.00);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
+index 5e18d32f9d8252387884f3a3eb81cd5f8a07c048..8c5ccd7839a5040382528b892f49a2044119fe91
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lempanel.cpp
+@@ -42,7 +42,12 @@
+ 
+ #include "LEM.h"
+  
+-#define LOADBMP(id) (LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (id)))
++#include "NasspBitmapResources.h"
++static SURFHANDLE LOADBMP(unsigned id)
++{
++    const char *path=nassp::resources::FindBitmap(nassp::resources::lm,id);
++    return path?oapiLoadSurfaceEx(path,OAPISURFACE_TEXTURE|OAPISURFACE_RENDERTARGET,true):nullptr;
++}
+ 
+ extern GDIParams g_Param;
+ 
+@@ -1165,142 +1170,142 @@
+ 
+ {
+     // LEM Main Panel
+-		srf[0]						= oapiCreateSurface (LOADBMP (IDB_ECSG));
+-		srf[SRF_INDICATOR]			= oapiCreateSurface (LOADBMP (IDB_INDICATOR));
+-		srf[SRF_NEEDLE]				= oapiCreateSurface (LOADBMP (IDB_NEEDLE1));
+-		srf[SRF_DIGITAL]			= oapiCreateSurface (LOADBMP (IDB_DIGITAL));
+-		srf[SRF_SWITCHUP]			= oapiCreateSurface (LOADBMP (IDB_SWITCHUP));
++		srf[0]						= LOADBMP (IDB_ECSG);
++		srf[SRF_INDICATOR]			= LOADBMP (IDB_INDICATOR);
++		srf[SRF_NEEDLE]				= LOADBMP (IDB_NEEDLE1);
++		srf[SRF_DIGITAL]			= LOADBMP (IDB_DIGITAL);
++		srf[SRF_SWITCHUP]			= LOADBMP (IDB_SWITCHUP);
+ 		// Unused surface 5 was
+-		// srf[5]						= oapiCreateSurface (LOADBMP (IDB_FDAI));
+-		srf[SRF_LIGHTS2]			= oapiCreateSurface (LOADBMP (IDB_LIGHTS2));
+-		srf[SRF_LEMSWITCH1]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH1));
+-		srf[SRF_LEMSWTICH3]			= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH3));
++		// srf[5]						= LOADBMP (IDB_FDAI);
++		srf[SRF_LIGHTS2]			= LOADBMP (IDB_LIGHTS2);
++		srf[SRF_LEMSWITCH1]			= LOADBMP (IDB_LEMSWITCH1);
++		srf[SRF_LEMSWTICH3]			= LOADBMP (IDB_LEMSWITCH3);
+ 		// Unused surface 7 was
+-		// srf[7]						= oapiCreateSurface (LOADBMP (IDB_SWLEVER));
+-		srf[SRF_SECSWITCH]			= oapiCreateSurface (LOADBMP (IDB_SECSWITCH));
+-		// srf[9]						= oapiCreateSurface (LOADBMP (IDB_ABORT));
+-		// srf[10]						= oapiCreateSurface (LOADBMP (IDB_ANNUN));
+-		// srf[11]						= oapiCreateSurface (LOADBMP (IDB_LAUNCH));		
+-		srf[SRF_LMTWOPOSLEVER]		= oapiCreateSurface (LOADBMP (IDB_LEMSWITCH2));
+-		// srf[12]						= oapiCreateSurface (LOADBMP (IDB_LV_ENG));
++		// srf[7]						= LOADBMP (IDB_SWLEVER);
++		srf[SRF_SECSWITCH]			= LOADBMP (IDB_SECSWITCH);
++		// srf[9]						= LOADBMP (IDB_ABORT);
++		// srf[10]						= LOADBMP (IDB_ANNUN);
++		// srf[11]						= LOADBMP (IDB_LAUNCH);
++		srf[SRF_LMTWOPOSLEVER]		= LOADBMP (IDB_LEMSWITCH2);
++		// srf[12]						= LOADBMP (IDB_LV_ENG);
+ 		// There was a conflict here between hardcoded index 13 and SRF_DSKY
+ 		// Hardcoded index 13 was moved to SRF_LIGHTS2 (index 5)
+-		srf[SRF_DSKY]				= oapiCreateSurface (LOADBMP (IDB_DSKY_LIGHTS));
+-		// srf[14]						= oapiCreateSurface (LOADBMP (IDB_ALTIMETER));
+-		// srf[15]						= oapiCreateSurface (LOADBMP (IDB_ANLG_GMETER));
+-		// srf[16]						= oapiCreateSurface (LOADBMP (IDB_THRUST));
+-		// srf[17]					= oapiCreateSurface (LOADBMP (IDB_HEADING));
+-		srf[SRF_CONTACTLIGHT]		= oapiCreateSurface (LOADBMP (IDB_CONTACT));
++		srf[SRF_DSKY]				= LOADBMP (IDB_DSKY_LIGHTS);
++		// srf[14]						= LOADBMP (IDB_ALTIMETER);
++		// srf[15]						= LOADBMP (IDB_ANLG_GMETER);
++		// srf[16]						= LOADBMP (IDB_THRUST);
++		// srf[17]					= LOADBMP (IDB_HEADING);
++		srf[SRF_CONTACTLIGHT]		= LOADBMP (IDB_CONTACT);
+ 		// srf[19] (SRF_THREEPOSSWITCH305) was hardcoded in several places but never actually loaded?
+-		// srf[SRF_THREEPOSSWITCH305]	= oapiCreateSurface (LOADBMP (IDB_CONTACT));
++		// srf[SRF_THREEPOSSWITCH305]	= LOADBMP (IDB_CONTACT);
+ 		// There was a conflict here between hardcoded index 20 and SRF_LMABORTBUTTON
+ 		// Hardcoded index 20 was moved to SRF_LEMSWITCH3 (index 7)		
+-		srf[SRF_LMABORTBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMABORTBUTTON));
+-		srf[SRF_LMMFDFRAME]			= oapiCreateSurface (LOADBMP (IDB_LMMFDFRAME));
+-		srf[SRF_LMTHREEPOSLEVER]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSLEVER));
+-		srf[SRF_LMTHREEPOSSWITCH]	= oapiCreateSurface (LOADBMP (IDB_LMTHREEPOSSWITCH));
+-		srf[SRF_DSKYDISP]			= oapiCreateSurface (LOADBMP (IDB_DSKY_DISP));
+-		//srf[SRF_FDAI]	        	= oapiCreateSurface (LOADBMP (IDB_FDAI));		//The LM FDAI texture doesn't need this
+-		srf[SRF_FDAIROLL]			= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_ROLL));
+-		srf[SRF_CWSLIGHTS]			= oapiCreateSurface (LOADBMP (IDB_CWS_LIGHTS));
+-		srf[SRF_DSKYKEY]			= oapiCreateSurface (LOADBMP (IDB_DSKY_KEY));
+-		srf[SRF_LEMROTARY]			= oapiCreateSurface (LOADBMP (IDB_LEMROTARY));
+-		srf[SRF_FDAIOFFFLAG]		= oapiCreateSurface (LOADBMP (IDB_FDAIOFFFLAG));
+-		srf[SRF_FDAINEEDLES]		= oapiCreateSurface (LOADBMP (IDB_LEM_FDAI_NEEDLES));
+-		srf[SRF_CIRCUITBRAKER]		= oapiCreateSurface (LOADBMP (IDB_CIRCUITBRAKER));
+-		srf[SRF_LEM_COAS1]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS1));
+-		srf[SRF_LEM_COAS2]			= oapiCreateSurface (LOADBMP (IDB_LEM_COAS2));
+-		srf[SRF_DCVOLTS]			= oapiCreateSurface (LOADBMP (IDB_LMDCVOLTS));
+-		srf[SRF_DCAMPS]				= oapiCreateSurface (LOADBMP (IDB_LMDCAMPS));
+-		srf[SRF_LMYAWDEGS]			= oapiCreateSurface (LOADBMP (IDB_LMYAWDEGS));
+-		srf[SRF_LMPITCHDEGS]		= oapiCreateSurface (LOADBMP (IDB_LMPITCHDEGS));
+-		srf[SRF_LMSIGNALSTRENGTH]	= oapiCreateSurface (LOADBMP (IDB_LMSIGNALSTRENGTH));
+-		srf[SRF_AOTRETICLEKNOB]     = oapiCreateSurface (LOADBMP (IDB_AOT_RETICLE_KNOB));
+-		srf[SRF_AOTSHAFTKNOB]       = oapiCreateSurface (LOADBMP (IDB_AOT_SHAFT_KNOB));
+-		srf[SRF_AOT_FONT]           = oapiCreateSurface (LOADBMP (IDB_AOT_FONT));
+-		srf[SRF_THUMBWHEEL_LARGEFONTS] = oapiCreateSurface (LOADBMP (IDB_THUMBWHEEL_LARGEFONTS));
+-		srf[SRF_FIVE_POS_SWITCH]	= oapiCreateSurface (LOADBMP (IDB_FIVE_POS_SWITCH));
+-		srf[SRF_RR_NOTRACK]         = oapiCreateSurface (LOADBMP (IDB_RR_NOTRACK));
+-		srf[SRF_LEM_STAGESWITCH]	= oapiCreateSurface (LOADBMP (IDB_LEM_STAGESWITCH));
+-		srf[SRF_DIGITALDISP2]		= oapiCreateSurface (LOADBMP (IDB_DIGITALDISP2));
+-		srf[SRF_RADAR_TAPE]         = oapiCreateSurface (LOADBMP (IDB_RADAR_TAPE));
+-		srf[SRF_RADAR_TAPE2]        = oapiCreateSurface(LOADBMP(IDB_RADAR_TAPE2));
+-		srf[SRF_SEQ_LIGHT]			= oapiCreateSurface (LOADBMP (IDB_SEQ_LIGHT));
+-		srf[SRF_LMENGINE_START_STOP_BUTTONS] = oapiCreateSurface (LOADBMP (IDB_LMENGINESTARTSTOPBUTTONS));
+-		srf[SRF_LMTRANSLBUTTON]		= oapiCreateSurface (LOADBMP (IDB_LMTRANSLBUTTON));
+-		srf[SRF_LEMVENT]			= oapiCreateSurface (LOADBMP (IDB_LEMVENT));
+-		srf[SRF_LEM_ACT_OVRD]		= oapiCreateSurface (LOADBMP (IDB_LEM_ACT_OVRD));
+-		srf[SRF_LEM_CAN_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_CAN_SEL));
+-		srf[SRF_LEM_ECS_ROTARY]		= oapiCreateSurface (LOADBMP (IDB_LEM_ECS_ROTARY));
+-		srf[SRF_LEM_H20_SEL]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEL));
+-		srf[SRF_LEM_H20_SEP]		= oapiCreateSurface (LOADBMP (IDB_LEM_H20_SEP));
+-		srf[SRF_LEM_ISOL_ROTARY]	= oapiCreateSurface (LOADBMP (IDB_LEM_ISOL_ROTARY));
+-		srf[SRF_LEM_PRIM_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_PRIM_C02));
+-		srf[SRF_LEM_SEC_C02]		= oapiCreateSurface (LOADBMP (IDB_LEM_SEC_C02));
+-		srf[SRF_LEM_SGD_LEVER]		= oapiCreateSurface (LOADBMP (IDB_LEM_SGD_LEVER));
+-		srf[SRF_LEM_U_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_REL_VLV));
+-		srf[SRF_LEM_U_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_UPPER_HANDLE));
+-		srf[SRF_LEM_F_HATCH_HNDL]   = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_HANDLE));
+-		srf[SRF_LEM_F_HATCH_REL_VLV] = oapiCreateSurface(LOADBMP(IDB_LEM_FWD_REL_VLV));
+-		srf[SRF_LEM_INTLK_OVRD]     = oapiCreateSurface(LOADBMP(IDB_LEM_INTLK_OVRD));
+-		srf[SRF_RED_INDICATOR]		= oapiCreateSurface(LOADBMP(IDB_RED_INDICATOR));
+-		srf[SRF_LEM_MASTERALARM]	 = oapiCreateSurface(LOADBMP(IDB_LEM_MASTERALARM));
+-		srf[SRF_DEDA_KEY]			= oapiCreateSurface(LOADBMP(IDB_DEDA_KEY));
+-		srf[SRF_DEDA_LIGHTS]		= oapiCreateSurface(LOADBMP(IDB_DEDA_LIGHTS));
+-		srf[SRF_ORDEAL_ROTARY]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_ROTARY));
+-		srf[SRF_ORDEAL_PANEL]		= oapiCreateSurface(LOADBMP(IDB_ORDEAL_PANEL));
+-		srf[SRF_TW_NEEDLE]			= oapiCreateSurface(LOADBMP(IDB_TW_NEEDLE));
+-		srf[SRF_PWRFAIL_LIGHT]      = oapiCreateSurface(LOADBMP(IDB_LEM_PWRFAIL_LIGHT));
++		srf[SRF_LMABORTBUTTON]		= LOADBMP (IDB_LMABORTBUTTON);
++		srf[SRF_LMMFDFRAME]			= LOADBMP (IDB_LMMFDFRAME);
++		srf[SRF_LMTHREEPOSLEVER]	= LOADBMP (IDB_LMTHREEPOSLEVER);
++		srf[SRF_LMTHREEPOSSWITCH]	= LOADBMP (IDB_LMTHREEPOSSWITCH);
++		srf[SRF_DSKYDISP]			= LOADBMP (IDB_DSKY_DISP);
++		//srf[SRF_FDAI]	        	= LOADBMP (IDB_FDAI);		//The LM FDAI texture doesn't need this
++		srf[SRF_FDAIROLL]			= LOADBMP (IDB_LEM_FDAI_ROLL);
++		srf[SRF_CWSLIGHTS]			= LOADBMP (IDB_CWS_LIGHTS);
++		srf[SRF_DSKYKEY]			= LOADBMP (IDB_DSKY_KEY);
++		srf[SRF_LEMROTARY]			= LOADBMP (IDB_LEMROTARY);
++		srf[SRF_FDAIOFFFLAG]		= LOADBMP (IDB_FDAIOFFFLAG);
++		srf[SRF_FDAINEEDLES]		= LOADBMP (IDB_LEM_FDAI_NEEDLES);
++		srf[SRF_CIRCUITBRAKER]		= LOADBMP (IDB_CIRCUITBRAKER);
++		srf[SRF_LEM_COAS1]			= LOADBMP (IDB_LEM_COAS1);
++		srf[SRF_LEM_COAS2]			= LOADBMP (IDB_LEM_COAS2);
++		srf[SRF_DCVOLTS]			= LOADBMP (IDB_LMDCVOLTS);
++		srf[SRF_DCAMPS]				= LOADBMP (IDB_LMDCAMPS);
++		srf[SRF_LMYAWDEGS]			= LOADBMP (IDB_LMYAWDEGS);
++		srf[SRF_LMPITCHDEGS]		= LOADBMP (IDB_LMPITCHDEGS);
++		srf[SRF_LMSIGNALSTRENGTH]	= LOADBMP (IDB_LMSIGNALSTRENGTH);
++		srf[SRF_AOTRETICLEKNOB]     = LOADBMP (IDB_AOT_RETICLE_KNOB);
++		srf[SRF_AOTSHAFTKNOB]       = LOADBMP (IDB_AOT_SHAFT_KNOB);
++		srf[SRF_AOT_FONT]           = LOADBMP (IDB_AOT_FONT);
++		srf[SRF_THUMBWHEEL_LARGEFONTS] = LOADBMP (IDB_THUMBWHEEL_LARGEFONTS);
++		srf[SRF_FIVE_POS_SWITCH]	= LOADBMP (IDB_FIVE_POS_SWITCH);
++		srf[SRF_RR_NOTRACK]         = LOADBMP (IDB_RR_NOTRACK);
++		srf[SRF_LEM_STAGESWITCH]	= LOADBMP (IDB_LEM_STAGESWITCH);
++		srf[SRF_DIGITALDISP2]		= LOADBMP (IDB_DIGITALDISP2);
++		srf[SRF_RADAR_TAPE]         = LOADBMP (IDB_RADAR_TAPE);
++		srf[SRF_RADAR_TAPE2]        = LOADBMP(IDB_RADAR_TAPE2);
++		srf[SRF_SEQ_LIGHT]			= LOADBMP (IDB_SEQ_LIGHT);
++		srf[SRF_LMENGINE_START_STOP_BUTTONS] = LOADBMP (IDB_LMENGINESTARTSTOPBUTTONS);
++		srf[SRF_LMTRANSLBUTTON]		= LOADBMP (IDB_LMTRANSLBUTTON);
++		srf[SRF_LEMVENT]			= LOADBMP (IDB_LEMVENT);
++		srf[SRF_LEM_ACT_OVRD]		= LOADBMP (IDB_LEM_ACT_OVRD);
++		srf[SRF_LEM_CAN_SEL]		= LOADBMP (IDB_LEM_CAN_SEL);
++		srf[SRF_LEM_ECS_ROTARY]		= LOADBMP (IDB_LEM_ECS_ROTARY);
++		srf[SRF_LEM_H20_SEL]		= LOADBMP (IDB_LEM_H20_SEL);
++		srf[SRF_LEM_H20_SEP]		= LOADBMP (IDB_LEM_H20_SEP);
++		srf[SRF_LEM_ISOL_ROTARY]	= LOADBMP (IDB_LEM_ISOL_ROTARY);
++		srf[SRF_LEM_PRIM_C02]		= LOADBMP (IDB_LEM_PRIM_C02);
++		srf[SRF_LEM_SEC_C02]		= LOADBMP (IDB_LEM_SEC_C02);
++		srf[SRF_LEM_SGD_LEVER]		= LOADBMP (IDB_LEM_SGD_LEVER);
++		srf[SRF_LEM_U_HATCH_REL_VLV] = LOADBMP(IDB_LEM_UPPER_REL_VLV);
++		srf[SRF_LEM_U_HATCH_HNDL]   = LOADBMP(IDB_LEM_UPPER_HANDLE);
++		srf[SRF_LEM_F_HATCH_HNDL]   = LOADBMP(IDB_LEM_FWD_HANDLE);
++		srf[SRF_LEM_F_HATCH_REL_VLV] = LOADBMP(IDB_LEM_FWD_REL_VLV);
++		srf[SRF_LEM_INTLK_OVRD]     = LOADBMP(IDB_LEM_INTLK_OVRD);
++		srf[SRF_RED_INDICATOR]		= LOADBMP(IDB_RED_INDICATOR);
++		srf[SRF_LEM_MASTERALARM]	 = LOADBMP(IDB_LEM_MASTERALARM);
++		srf[SRF_DEDA_KEY]			= LOADBMP(IDB_DEDA_KEY);
++		srf[SRF_DEDA_LIGHTS]		= LOADBMP(IDB_DEDA_LIGHTS);
++		srf[SRF_ORDEAL_ROTARY]		= LOADBMP(IDB_ORDEAL_ROTARY);
++		srf[SRF_ORDEAL_PANEL]		= LOADBMP(IDB_ORDEAL_PANEL);
++		srf[SRF_TW_NEEDLE]			= LOADBMP(IDB_TW_NEEDLE);
++		srf[SRF_PWRFAIL_LIGHT]      = LOADBMP(IDB_LEM_PWRFAIL_LIGHT);
+ 		
+ 		//
+ 		// Flashing borders.
+ 		//
+ 
+-		srf[SRF_BORDER_34x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x29));
+-		srf[SRF_BORDER_34x61]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x61));
+-		srf[SRF_BORDER_55x111]		= oapiCreateSurface (LOADBMP (IDB_BORDER_55x111));
+-		srf[SRF_BORDER_46x75]		= oapiCreateSurface (LOADBMP (IDB_BORDER_46x75));
+-		srf[SRF_BORDER_39x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_39x38));
+-		srf[SRF_BORDER_92x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_92x40));
+-		srf[SRF_BORDER_34x33]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x33));
+-		srf[SRF_BORDER_29x29]		= oapiCreateSurface (LOADBMP (IDB_BORDER_29x29));
+-		srf[SRF_BORDER_34x31]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x31));
+-		srf[SRF_BORDER_47x43]		= oapiCreateSurface (LOADBMP(IDB_BORDER_47x43));
+-		srf[SRF_BORDER_50x158]		= oapiCreateSurface (LOADBMP (IDB_BORDER_50x158));
+-		srf[SRF_BORDER_38x52]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x52));
+-		srf[SRF_BORDER_34x34]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x34));
+-		srf[SRF_BORDER_90x90]		= oapiCreateSurface (LOADBMP (IDB_BORDER_90x90));
+-		srf[SRF_BORDER_84x84]		= oapiCreateSurface (LOADBMP (IDB_BORDER_84x84));
+-		srf[SRF_BORDER_70x70]		= oapiCreateSurface (LOADBMP (IDB_BORDER_70x70));
+-		srf[SRF_BORDER_23x20]		= oapiCreateSurface (LOADBMP (IDB_BORDER_23x20));
+-		srf[SRF_BORDER_78x78]		= oapiCreateSurface (LOADBMP (IDB_BORDER_78x78));
+-		srf[SRF_BORDER_32x160]		= oapiCreateSurface (LOADBMP (IDB_BORDER_32x160));
+-		srf[SRF_BORDER_72x72]		= oapiCreateSurface (LOADBMP (IDB_BORDER_72x72));
+-		srf[SRF_BORDER_75x64]		= oapiCreateSurface (LOADBMP (IDB_BORDER_75x64));
+-		srf[SRF_BORDER_34x39]		= oapiCreateSurface (LOADBMP (IDB_BORDER_34x39));
+-		srf[SRF_BORDER_38x38]		= oapiCreateSurface (LOADBMP (IDB_BORDER_38x38));
+-		srf[SRF_BORDER_40x40]		= oapiCreateSurface (LOADBMP (IDB_BORDER_40x40));
+-		srf[SRF_BORDER_126x131]     = oapiCreateSurface (LOADBMP (IDB_BORDER_126x131));
+-		srf[SRF_BORDER_115x115]     = oapiCreateSurface (LOADBMP (IDB_BORDER_115x115));
+-		srf[SRF_BORDER_68x68]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x68));
+-		srf[SRF_BORDER_169x168]     = oapiCreateSurface (LOADBMP (IDB_BORDER_169x168));
+-		srf[SRF_BORDER_67x64]       = oapiCreateSurface (LOADBMP (IDB_BORDER_67x64));
+-		srf[SRF_BORDER_201x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_201x205));
+-		srf[SRF_BORDER_122x265]     = oapiCreateSurface (LOADBMP (IDB_BORDER_122x265));
+-		srf[SRF_BORDER_225x224]     = oapiCreateSurface (LOADBMP (IDB_BORDER_225x224));
+-		srf[SRF_BORDER_51x54]       = oapiCreateSurface (LOADBMP (IDB_BORDER_51x54));
+-		srf[SRF_BORDER_205x205]     = oapiCreateSurface (LOADBMP (IDB_BORDER_205x205));
+-		srf[SRF_BORDER_30x144]      = oapiCreateSurface (LOADBMP (IDB_BORDER_30x144));
+-		srf[SRF_BORDER_400x400]     = oapiCreateSurface (LOADBMP (IDB_BORDER_400x400));
+-		srf[SRF_BORDER_1001x240]    = oapiCreateSurface (LOADBMP (IDB_BORDER_1001x240));
+-		srf[SRF_BORDER_360x316]     = oapiCreateSurface (LOADBMP (IDB_BORDER_360x316));
+-		srf[SRF_BORDER_178x187]     = oapiCreateSurface (LOADBMP (IDB_BORDER_178x187));
+-		srf[SRF_BORDER_55x55]       = oapiCreateSurface (LOADBMP (IDB_BORDER_55x55));
+-		srf[SRF_BORDER_109x119]     = oapiCreateSurface (LOADBMP (IDB_BORDER_109x119));
+-		srf[SRF_BORDER_68x69]       = oapiCreateSurface (LOADBMP (IDB_BORDER_68x69));
+-		srf[SRF_BORDER_210x200]     = oapiCreateSurface (LOADBMP (IDB_BORDER_210x200));
+-		srf[SRF_BORDER_104x106]     = oapiCreateSurface (LOADBMP (IDB_BORDER_104x106));
+-		srf[SRF_BORDER_286x197]     = oapiCreateSurface (LOADBMP (IDB_BORDER_286x197));
++		srf[SRF_BORDER_34x29]		= LOADBMP (IDB_BORDER_34x29);
++		srf[SRF_BORDER_34x61]		= LOADBMP (IDB_BORDER_34x61);
++		srf[SRF_BORDER_55x111]		= LOADBMP (IDB_BORDER_55x111);
++		srf[SRF_BORDER_46x75]		= LOADBMP (IDB_BORDER_46x75);
++		srf[SRF_BORDER_39x38]		= LOADBMP (IDB_BORDER_39x38);
++		srf[SRF_BORDER_92x40]		= LOADBMP (IDB_BORDER_92x40);
++		srf[SRF_BORDER_34x33]		= LOADBMP (IDB_BORDER_34x33);
++		srf[SRF_BORDER_29x29]		= LOADBMP (IDB_BORDER_29x29);
++		srf[SRF_BORDER_34x31]		= LOADBMP (IDB_BORDER_34x31);
++		srf[SRF_BORDER_47x43]		= LOADBMP(IDB_BORDER_47x43);
++		srf[SRF_BORDER_50x158]		= LOADBMP (IDB_BORDER_50x158);
++		srf[SRF_BORDER_38x52]		= LOADBMP (IDB_BORDER_38x52);
++		srf[SRF_BORDER_34x34]		= LOADBMP (IDB_BORDER_34x34);
++		srf[SRF_BORDER_90x90]		= LOADBMP (IDB_BORDER_90x90);
++		srf[SRF_BORDER_84x84]		= LOADBMP (IDB_BORDER_84x84);
++		srf[SRF_BORDER_70x70]		= LOADBMP (IDB_BORDER_70x70);
++		srf[SRF_BORDER_23x20]		= LOADBMP (IDB_BORDER_23x20);
++		srf[SRF_BORDER_78x78]		= LOADBMP (IDB_BORDER_78x78);
++		srf[SRF_BORDER_32x160]		= LOADBMP (IDB_BORDER_32x160);
++		srf[SRF_BORDER_72x72]		= LOADBMP (IDB_BORDER_72x72);
++		srf[SRF_BORDER_75x64]		= LOADBMP (IDB_BORDER_75x64);
++		srf[SRF_BORDER_34x39]		= LOADBMP (IDB_BORDER_34x39);
++		srf[SRF_BORDER_38x38]		= LOADBMP (IDB_BORDER_38x38);
++		srf[SRF_BORDER_40x40]		= LOADBMP (IDB_BORDER_40x40);
++		srf[SRF_BORDER_126x131]     = LOADBMP (IDB_BORDER_126x131);
++		srf[SRF_BORDER_115x115]     = LOADBMP (IDB_BORDER_115x115);
++		srf[SRF_BORDER_68x68]       = LOADBMP (IDB_BORDER_68x68);
++		srf[SRF_BORDER_169x168]     = LOADBMP (IDB_BORDER_169x168);
++		srf[SRF_BORDER_67x64]       = LOADBMP (IDB_BORDER_67x64);
++		srf[SRF_BORDER_201x205]     = LOADBMP (IDB_BORDER_201x205);
++		srf[SRF_BORDER_122x265]     = LOADBMP (IDB_BORDER_122x265);
++		srf[SRF_BORDER_225x224]     = LOADBMP (IDB_BORDER_225x224);
++		srf[SRF_BORDER_51x54]       = LOADBMP (IDB_BORDER_51x54);
++		srf[SRF_BORDER_205x205]     = LOADBMP (IDB_BORDER_205x205);
++		srf[SRF_BORDER_30x144]      = LOADBMP (IDB_BORDER_30x144);
++		srf[SRF_BORDER_400x400]     = LOADBMP (IDB_BORDER_400x400);
++		srf[SRF_BORDER_1001x240]    = LOADBMP (IDB_BORDER_1001x240);
++		srf[SRF_BORDER_360x316]     = LOADBMP (IDB_BORDER_360x316);
++		srf[SRF_BORDER_178x187]     = LOADBMP (IDB_BORDER_178x187);
++		srf[SRF_BORDER_55x55]       = LOADBMP (IDB_BORDER_55x55);
++		srf[SRF_BORDER_109x119]     = LOADBMP (IDB_BORDER_109x119);
++		srf[SRF_BORDER_68x69]       = LOADBMP (IDB_BORDER_68x69);
++		srf[SRF_BORDER_210x200]     = LOADBMP (IDB_BORDER_210x200);
++		srf[SRF_BORDER_104x106]     = LOADBMP (IDB_BORDER_104x106);
++		srf[SRF_BORDER_286x197]     = LOADBMP (IDB_BORDER_286x197);
+ 
+ 		//
+ 		// Set color keys where appropriate.
+@@ -1427,77 +1432,77 @@
+ 	//
+ 	// Load panel background image
+ 	//
+-	HBITMAP hBmp;
++	SURFHANDLE hBmp;
+ 
+ 	switch(id) {
+     case LMPANEL_MAIN:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_MAIN_PANEL));
++		hBmp = LOADBMP(IDB_LEM_MAIN_PANEL);
+ 		oapiSetPanelNeighbours(LMPANEL_LEFTWINDOW, LMPANEL_RIGHTWINDOW, LMPANEL_RNDZWINDOW, LMPANEL_FWDHATCH);
+ 		break;
+ 
+ 	case LMPANEL_RIGHTWINDOW:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_RIGHT_WINDOW));
++		hBmp = LOADBMP(IDB_LEM_RIGHT_WINDOW);
+ 		oapiSetPanelNeighbours(LMPANEL_MAIN, LMPANEL_RIGHTPANEL, -1, -1);
+ 		break;
+ 
+     case LMPANEL_LEFTWINDOW:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_LEFT_WINDOW));
++		hBmp = LOADBMP(IDB_LEM_LEFT_WINDOW);
+ 		oapiSetPanelNeighbours(LMPANEL_LEFTPANEL, LMPANEL_MAIN, LMPANEL_LEFTZOOM, LMPANEL_LPDWINDOW);
+ 		break;
+ 
+     case LMPANEL_LPDWINDOW:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_LPD_WINDOW));
++		hBmp = LOADBMP(IDB_LEM_LPD_WINDOW);
+ 		oapiSetPanelNeighbours(-1, LMPANEL_MAIN, LMPANEL_LEFTWINDOW, -1);
+ 		break;
+ 
+ 	case LMPANEL_RNDZWINDOW:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_RENDEZVOUS_WINDOW));
++		hBmp = LOADBMP(IDB_LEM_RENDEZVOUS_WINDOW);
+ 		oapiSetPanelNeighbours(-1, LMPANEL_AOTVIEW, LMPANEL_DOCKVIEW, LMPANEL_MAIN);
+ 		break;
+ 
+ 	case LMPANEL_LEFTPANEL:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_LEFT_PANEL));
++		hBmp = LOADBMP(IDB_LEM_LEFT_PANEL);
+ 		oapiSetPanelNeighbours(-1, LMPANEL_LEFTWINDOW, -1, -1);
+ 		break;
+ 
+ 	case LMPANEL_AOTVIEW:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_AOT_VIEW));
++		hBmp = LOADBMP(IDB_LEM_AOT_VIEW);
+ 		oapiSetPanelNeighbours(LMPANEL_RNDZWINDOW, -1, LMPANEL_AOTZOOM, LMPANEL_MAIN);
+ 		break;
+ 
+ 	case LMPANEL_RIGHTPANEL:
+-		hBmp = LoadBitmap (g_Param.hDLL, MAKEINTRESOURCE (IDB_LEM_RIGHT_PANEL));
++		hBmp = LOADBMP(IDB_LEM_RIGHT_PANEL);
+ 		oapiSetPanelNeighbours(LMPANEL_RIGHTWINDOW, LMPANEL_ECSPANEL, -1, -1);
+ 		break;
+ 
+ 	case LMPANEL_ECSPANEL:
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_ECS_PANEL));
++		hBmp = LOADBMP(IDB_LEM_ECS_PANEL);
+ 		oapiSetPanelNeighbours(LMPANEL_RIGHTPANEL, -1, LMPANEL_UPPERHATCH, -1);
+ 		break;
+ 
+ 	case LMPANEL_DOCKVIEW:
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_DOCK_VIEW));
++		hBmp = LOADBMP(IDB_LEM_DOCK_VIEW);
+ 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_RNDZWINDOW);
+ 		break;
+ 
+ 	case LMPANEL_AOTZOOM:
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_AOT_ZOOM));
++		hBmp = LOADBMP(IDB_LEM_AOT_ZOOM);
+ 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_AOTVIEW);
+ 		break;
+ 	
+ 	case LMPANEL_LEFTZOOM:
+-		hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_LEFT_ZOOM));
++		hBmp = LOADBMP(IDB_LEM_LEFT_ZOOM);
+ 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_LEFTWINDOW);
+ 		break;
+ 
+ 	case LMPANEL_UPPERHATCH:
+ 		if (OverheadHatch.IsOpen())
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_UPPER_HATCH_OPEN));
++			hBmp = LOADBMP(IDB_LEM_UPPER_HATCH_OPEN);
+ 		}
+ 		else
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_UPPER_HATCH));
++			hBmp = LOADBMP(IDB_LEM_UPPER_HATCH);
+ 		}
+ 		oapiSetPanelNeighbours(-1, -1, -1, LMPANEL_ECSPANEL);
+ 		break;
+@@ -1505,11 +1510,11 @@
+ 	case LMPANEL_FWDHATCH:
+ 		if (ForwardHatch.IsOpen())
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_FWD_HATCH_OPEN));
++			hBmp = LOADBMP(IDB_LEM_FWD_HATCH_OPEN);
+ 		}
+ 		else
+ 		{
+-			hBmp = LoadBitmap(g_Param.hDLL, MAKEINTRESOURCE(IDB_LEM_FWD_HATCH));
++			hBmp = LOADBMP(IDB_LEM_FWD_HATCH);
+ 		}
+ 		oapiSetPanelNeighbours(-1, -1, LMPANEL_MAIN, -1);
+ 		break;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
+index a2e1b6d0e5affd7f1e93c2bf07d40e214fdb623a..f53b88e4c68b41efe3b2aeb211076e5485872c46
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lemvc.cpp
+@@ -31,12 +31,6 @@
+ 
+ #include "nasspdefs.h"
+ #include "nassputils.h"
+-
+-#ifdef _OPENORBITER
+-#include <gcCoreAPI.h>
+-#else
+-#include <gcConst.h>
+-#endif
+ 
+ #include "nasspsound.h"
+ 
+@@ -718,9 +712,13 @@
+ bool LEM::clbkLoadVC (int id)
+ {
+ 	// Set VC view to last saved position
+-	if (FirstTimestep || !InVC) {
+-		id = viewpos;
+-	}
++	#ifdef ORBITER_NATIVE_CORE
++    if(id==-1)id=viewpos>=0 && viewpos<=LMVIEW_RDVZWIN?viewpos:LMVIEW_CDR;
++    if(id<0 || id>LMVIEW_RDVZWIN)return false;
++    oapiVCSetCurrentView(id);
++#else
++    if(FirstTimestep || !InVC)id=viewpos;
++#endif
+ 
+ 	//Reset Clip Radius settings
+ 	SetClipRadius(0.0);
+@@ -738,6 +736,11 @@
+ 	DelLightEmitter(flashlight);
+ 	flashlight = (::SpotLight*)AddSpotLight(flashlightPos, flashlightDirLocal, 3, 0, 0, 3, 0, RAD * 45, flashlightColor, flashlightColor, flashlightColor2);
+ 	flashlight->SetVisibility(LightEmitter::VIS_COCKPIT);
++#ifdef ORBITER_NATIVE_CORE
++    flashlight->SetCameraRelative(true);
++    flashlight->SetPosition(_V(0,0,0));
++    flashlight->SetDirection(_V(0,0,1));
++#endif
+ 	flashlight->Activate(flashlightOn);
+ 
+ 	//Get mesh offset
+@@ -3896,69 +3899,24 @@
+ 	oapiSetMaterial(vcmesh, m, mat);
+ }
+ 
+-#ifdef _OPENORBITER
+-void LEM::SetVCLighting(UINT meshidx, DWORD *matList, MatProp EmissionMode, double state, int cnt)
+-#else
+-void LEM::SetVCLighting(UINT meshidx, DWORD *matList, int EmissionMode, double state, int cnt)
+-#endif
+-
++void LEM::SetVCLighting(UINT meshidx, DWORD *matList, MatProp mode, double state, int cnt)
+ {
+-	if (vis == NULL || meshidx == -1) return;
+-	DEVMESHHANDLE hMesh = GetDevMesh(vis, meshidx);
+-
+-    if (!hMesh)
+-        return;
+-
+-	for (int i = 0; i < cnt; i++)
+-	{
+-		if (matList[i] == VC_MAT_NONE) continue;
+-
+-		gcCore *pCore = gcGetCoreInterface();
+-		if (pCore) {
+-			FVECTOR4 value;
+-			value.r = (float)state;
+-			value.g = (float)state;
+-			value.b = (float)state;
+-			value.a = 1.0;
+-#ifdef _OPENORBITER
+-			pCore->SetMeshMaterial(hMesh, matList[i], EmissionMode, &value);
+-#else
+-			pCore->MeshMaterial(hMesh, matList[i], EmissionMode, &value, true);
+-#endif
+-		}
+-	}
++    if(!vis || meshidx==UINT(-1))return;
++    auto mesh=GetDevMesh(vis,meshidx);if(!mesh)return;
++    const oapi::FVECTOR4 value{float(state),float(state),float(state),1.0f};
++    for(int i=0;i<cnt;++i)if(matList[i]!=VC_MAT_NONE)oapiSetMaterialEx(mesh,matList[i],mode,&value);
+ }
+-
+-#ifdef _OPENORBITER
+-void LEM::SetVCLighting(UINT meshidx, int material, MatProp EmissionMode, double state, int cnt)
+-#else
+-void LEM::SetVCLighting(UINT meshidx, int material, int EmissionMode, double state, int cnt)
+-#endif
+-
++void LEM::SetVCLighting(UINT meshidx, int material, MatProp mode, double state, int cnt)
+ {
+-	if (vis == NULL || meshidx == -1) return;
+-	DEVMESHHANDLE hMesh = GetDevMesh(vis, meshidx);
+-
+-    if (!hMesh)
+-        return;
+-
+-	gcCore *pCore = gcGetCoreInterface();
+-	if (pCore) {
+-		FVECTOR4 value;
+-		value.r = (float)state;
+-		value.g = (float)state;
+-		value.b = (float)state;
+-		value.a = 1.0;
+-#ifdef _OPENORBITER
+-		pCore->SetMeshMaterial(hMesh, material, EmissionMode, &value);
+-#else
+-		pCore->MeshMaterial(hMesh, material, EmissionMode, &value, true);
+-#endif
+-		}
++    const DWORD index=static_cast<DWORD>(material);
++    DWORD materials[]={index};SetVCLighting(meshidx,materials,mode,state,1);
+ }
+ 
+ void LEM::MoveFlashlight()
+ {
++#ifdef ORBITER_NATIVE_CORE
++    if(flashlight && flashlight->IsCameraRelative())return;
++#endif
+ 	if (flashlightOn) { //Only move the light emmitter if the flashlight is on
+ 		//Huge thanks the Jordan64 for helping get the direction stuff working! :)
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
+index 0db7c34b11bf34fb87245b8cd93145f2219a2fe1..13e47e91c5602e0d0e765e6cb04f3849efab2a33
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloChecklistMFD.cpp
+@@ -27,7 +27,7 @@
+ #include "Orbitersdk.h"
+ 
+ #include "math.h"
+-#include "windows.h"
++#include "win32_compat.h"
+ #include "nasspsound.h"
+ #include "soundlib.h"
+ #include "tracer.h"
+@@ -47,6 +47,9 @@
+ #include <string>
+ 
+ #include "MFDResource.h"
++#ifdef NASSP_NATIVE
++#include "NasspBitmapResources.h"
++#endif
+ #include "ProjectApolloChecklistMFD.h"
+ 
+ using namespace nassp;
+@@ -145,8 +148,12 @@
+ 		}
+ 	}
+ 
++#ifdef NASSP_NATIVE
++    hLogo = oapiLoadSurfaceEx(nassp::resources::FindBitmap(nassp::resources::mfd, IDB_LOGO), OAPISURFACE_TEXTURE);
++#else
+ 	HBITMAP hBmpLogo = LoadBitmap(g_hDLL, MAKEINTRESOURCE (IDB_LOGO));
+ 	hLogo = oapiCreateSurface(hBmpLogo);
++#endif
+ }
+ 
+ ProjectApolloChecklistMFD::~ProjectApolloChecklistMFD ()
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
+index b86b99548d10ac828a4d331d7921420e35cd39f1..b82ecfcf34daea27526dca1a352f7a9ba6eb216a
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloMFD.cpp
+@@ -27,7 +27,7 @@
+ #include "Orbitersdk.h"
+ 
+ #include "math.h"
+-#include "windows.h"
++#include "win32_compat.h"
+ #include "nasspsound.h"
+ #include "soundlib.h"
+ #include "tracer.h"
+@@ -50,6 +50,9 @@
+ #include <stdio.h>
+ 
+ #include "MFDResource.h"
++#ifdef NASSP_NATIVE
++#include "NasspBitmapResources.h"
++#endif
+ #include "ProjectApolloMFD.h"
+ 
+ #include "../src_skylab/skylab.h"
+@@ -115,10 +118,12 @@
+ 	int killrot;
+ } g_Data;
+ 
++#ifndef NASSP_NATIVE
+ static WSADATA wsaData;
+ static SOCKET m_socket;				
+ static sockaddr_in clientService;
+ static SOCKET close_Socket = INVALID_SOCKET;
++#endif
+ static char debugString[100];
+ static char debugStringBuffer[100];
+ static char debugWinsock[100];
+@@ -150,6 +155,9 @@
+ 	//Init Emem
+ 	for(int i = 0; i < 24; i++)
+ 		g_Data.emem[i] = 0;
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++#else
+ 	int iResult = WSAStartup( MAKEWORD(2,2), &wsaData );
+ 	if ( iResult != NO_ERROR ) {
+ 		sprintf(debugWinsock,"ERROR AT WSAStartup()");
+@@ -157,6 +165,7 @@
+ 	else {
+ 		sprintf(debugWinsock,"DISCONNECTED");
+ 	}
++#endif
+ 	g_Data.uplinkBufferSimt = 0;
+ 	g_Data.V42angles = _V(0, 0, 0);
+ 	g_Data.killrot = 0;
+@@ -207,7 +216,7 @@
+ 
+ void send_agc_key(char key)	{
+ 
+-	int bytesXmit = SOCKET_ERROR;
++	// Byte encoding only; transmission is handled by the timestep callback.
+ 	unsigned char cmdbuf[4];
+ 
+ 	if(g_Data.uplinkLEM > 0){
+@@ -372,6 +381,10 @@
+ 
+ void UplinkLMRTC(bool arm, bool set)
+ {
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++    g_Data.connStatus = g_Data.uplinkDataReady = 0;
++#else
+ 	if (g_Data.connStatus == 0) {
+ 		int bytesRecv = SOCKET_ERROR;
+ 		char addr[256];
+@@ -398,10 +411,15 @@
+ 		uplink_aeaa_cmd(arm, set);
+ 		g_Data.connStatus = 1;
+ 	}
++#endif
+ }
+ 
+ void UplinkData()
+ {
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++    g_Data.connStatus = g_Data.uplinkDataReady = 0;
++#else
+ 	if (g_Data.connStatus == 0) {
+ 		int bytesRecv = SOCKET_ERROR;
+ 		char addr[256];
+@@ -434,7 +452,7 @@
+ 		int cnt  = (g_Data.emem[0]-(cnt2*10)) + cnt2*8;
+ 		
+ 		while (g_Data.uplinkState < cnt && cnt<=20 && cnt>=3) {
+-			sprintf(buffer, "%ld", g_Data.emem[g_Data.uplinkState]);
++			sprintf(buffer, "%d", g_Data.emem[g_Data.uplinkState]);
+ 			uplink_word(buffer);
+ 			g_Data.uplinkState++;
+ 		}
+@@ -445,10 +463,15 @@
+ 		g_Data.connStatus = 1;
+ 		g_Data.uplinkState = 0;
+ 	}
++#endif
+ }
+ 
+ void UpdateClock()
+-{		
++{
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++    g_Data.connStatus = g_Data.uplinkDataReady = 0;
++#else
+ 	if (g_Data.connStatus == 0)
+ 	{
+ 		int bytesRecv = SOCKET_ERROR;
+@@ -544,10 +567,15 @@
+ 		// and close the socket
+ 		g_Data.connStatus = 1;
+ 	}
++#endif
+ }
+ 
+ void UplinkSunburstSuborbitalAbort()
+ {
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++    g_Data.connStatus = g_Data.uplinkDataReady = 0;
++#else
+ 	g_Data.uplinkDataReady = 2;
+ 
+ 	if (g_Data.connStatus == 0)
+@@ -579,10 +607,15 @@
+ 		g_Data.connStatus = 1;
+ 		g_Data.uplinkState = 0;
+ 	}
++#endif
+ }
+ 
+ void UplinkSunburstCOI()
+ {
++#ifdef NASSP_NATIVE
++    strcpy(debugWinsock,"NETWORK UPLINK UNAVAILABLE");
++    g_Data.connStatus = g_Data.uplinkDataReady = 0;
++#else
+ 	g_Data.uplinkDataReady = 2;
+ 
+ 	if (g_Data.connStatus == 0)
+@@ -614,10 +647,12 @@
+ 		g_Data.connStatus = 1;
+ 		g_Data.uplinkState = 0;
+ 	}
++#endif
+ }
+ 
+ void ProjectApolloMFDopcTimestep (double simt, double simdt, double mjd)
+ {
++#ifndef NASSP_NATIVE
+ 	if (g_Data.connStatus > 0 && g_Data.uplinkBuffer.size() > 0) {
+ 		if (simt > g_Data.uplinkBufferSimt + 0.1) {
+ 			unsigned char data = g_Data.uplinkBuffer.front();
+@@ -636,6 +671,8 @@
+ 			UpdateClock();
+ 		}
+ 	}
++
++#endif
+ 
+ 	if (g_Data.progVessel && g_Data.killrot && g_Data.progVessel == g_Data.vessel) {
+ 		g_Data.progVessel->SetAngularVel(_V(0, 0, 0));
+@@ -665,8 +702,12 @@
+ 	our_vessel = NULL;
+ 	width = w;
+ 	height = h;
++#ifdef NASSP_NATIVE
++    hLogo = oapiLoadSurfaceEx(nassp::resources::FindBitmap(nassp::resources::mfd, IDB_LOGO), OAPISURFACE_TEXTURE);
++#else
+ 	HBITMAP hBmpLogo = LoadBitmap(g_hDLL, MAKEINTRESOURCE (IDB_LOGO));
+ 	hLogo = oapiCreateSurface(hBmpLogo);
++#endif
+ 	screen = 0;
+ 	debug_frozen = false;
+ 
+@@ -1364,41 +1405,41 @@
+ 		else if(g_Data.uplinkDataReady == 2) {
+ 			double linepos = 0.4;
+ 			skp->SetTextAlign(oapi::Sketchpad::LEFT);
+-			sprintf(buffer, "304   %ld", g_Data.emem[0]);
++			sprintf(buffer, "304   %d", g_Data.emem[0]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "305   %ld", g_Data.emem[1]);
++			sprintf(buffer, "305   %d", g_Data.emem[1]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "306   %ld", g_Data.emem[2]);
++			sprintf(buffer, "306   %d", g_Data.emem[2]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "307   %ld", g_Data.emem[3]);
++			sprintf(buffer, "307   %d", g_Data.emem[3]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "310   %ld", g_Data.emem[4]);
++			sprintf(buffer, "310   %d", g_Data.emem[4]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "311   %ld", g_Data.emem[5]);
++			sprintf(buffer, "311   %d", g_Data.emem[5]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "312   %ld", g_Data.emem[6]);
++			sprintf(buffer, "312   %d", g_Data.emem[6]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "313   %ld", g_Data.emem[7]);
++			sprintf(buffer, "313   %d", g_Data.emem[7]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "314   %ld", g_Data.emem[8]);
++			sprintf(buffer, "314   %d", g_Data.emem[8]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "315   %ld", g_Data.emem[9]);
++			sprintf(buffer, "315   %d", g_Data.emem[9]);
+ 			skp->Text((int)(width * 0.1), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+ 			linepos = 0.4;
+-			sprintf(buffer, "316   %ld", g_Data.emem[10]);
++			sprintf(buffer, "316   %d", g_Data.emem[10]);
+ 			skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "317   %ld", g_Data.emem[11]);
++			sprintf(buffer, "317   %d", g_Data.emem[11]);
+ 			skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-			sprintf(buffer, "320   %ld", g_Data.emem[12]);
++			sprintf(buffer, "320   %d", g_Data.emem[12]);
+ 			skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+ 			if (g_Data.uplinkDataType >= UPLINK_SV) {
+-				sprintf(buffer, "321   %ld", g_Data.emem[13]);
++				sprintf(buffer, "321   %d", g_Data.emem[13]);
+ 				skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-				sprintf(buffer, "322   %ld", g_Data.emem[14]);
++				sprintf(buffer, "322   %d", g_Data.emem[14]);
+ 				skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-				sprintf(buffer, "323   %ld", g_Data.emem[15]);
++				sprintf(buffer, "323   %d", g_Data.emem[15]);
+ 				skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+-				sprintf(buffer, "324   %ld", g_Data.emem[16]);
++				sprintf(buffer, "324   %d", g_Data.emem[16]);
+ 				skp->Text((int)(width * 0.55), (int)(height* (linepos += 0.05)), buffer, strlen(buffer));
+ 			}
+ 		}
+@@ -2026,7 +2067,7 @@
+ 
+ void ProjectApolloMFD::SetRandomFailures(double FailureMultiplier)
+ {
+-	if (saturn == false) return;
++	if (saturn == nullptr) return;
+ 
+ 	saturn->Failures.SetRandomFailures(FailureMultiplier);
+ }
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp
+index 0000000000000000000000000000000000000000..22e94216f1f5eecc6155852a0dc6dc3d648f00f8
+new file mode 100644
+--- /dev/null
++++ b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.cpp
+@@ -0,0 +1,45 @@
++#include "FdaiRasterizer.h"
++#include <algorithm>
++#include <cmath>
++#include <stdexcept>
++namespace nassp {
++FdaiRasterizer::Pixels FdaiRasterizer::Render(const orbiter::platform::ImageRGBA &texture,double roll,double yaw,double pitch) {
++    if(!texture.width || !texture.height || texture.pixels.size()!=std::size_t(texture.width)*texture.height*4)
++        throw std::invalid_argument("Invalid FDAI ball texture");
++    if(!std::isfinite(roll) || !std::isfinite(yaw) || !std::isfinite(pitch))throw std::invalid_argument("Invalid FDAI attitude");
++    constexpr double pi=3.14159265358979323846;
++    // Same eye (0,-35,0), 45 degree field of view and radius 12 as the GLU ball.
++    const double tangent=std::tan(pi/8),cr=std::cos(-pi/2-roll),sr=std::sin(-pi/2-roll);
++    const double cy=std::cos(-yaw),sy=std::sin(-yaw),cp=std::cos(-pitch),sp=std::sin(-pitch);
++    Pixels pixels{};
++    for(unsigned py=0;py<size;++py)for(unsigned px=0;px<size;++px) {
++        auto *out=&pixels[(py*size+px)*4];out[3]=255;
++        double dx=(2*(px+.5)/size-1)*tangent,dz=(1-2*(py+.5)/size)*tangent;
++        const double a=dx*dx+1+dz*dz,disc=35*35-a*(35*35-12*12);
++        if(disc<0)continue;
++        const double distance=(35-std::sqrt(disc))/a;
++        const double x=dx*distance,y=-35+distance,z=dz*distance;
++        // Inverse of Ry(90deg) Ry(roll) Rx(yaw) Rz(pitch).
++        const double x1=cr*x+sr*z,z1=-sr*x+cr*z;
++        const double y2=cy*y-sy*z1,z2=sy*y+cy*z1;
++        const double x3=cp*x1-sp*y2,y3=sp*x1+cp*y2;
++        double u=std::atan2(x3,y3)/(2*pi);u-=std::floor(u);
++        const double v=std::acos(std::clamp(z2/12.0,-1.0,1.0))/pi;
++        // GLU s advances from +Y toward +X; t runs south to north.
++        // https://xorg.freedesktop.org/archive/X11R6.9.0/doc/html/gluSphere.3.html
++        // Repeat the longitude seam and clamp latitude at either pole.
++        const double tx=u*texture.width-.5,ty=std::clamp(v*texture.height-.5,0.0,double(texture.height-1));
++        const int ix=int(std::floor(tx)),iy=int(std::floor(ty));
++        const double fx=tx-std::floor(tx),fy=ty-iy;
++        auto sample=[&](int sx,int sy,unsigned channel) {
++            sx=(sx%int(texture.width)+int(texture.width))%int(texture.width);
++            sy=std::clamp(sy,0,int(texture.height)-1);
++            return texture.pixels[(std::size_t(sy)*texture.width+sx)*4+channel];
++        };
++        for(unsigned c=0;c<3;++c)out[c]=static_cast<unsigned char>(std::lround(
++            (sample(ix,iy,c)*(1-fx)+sample(ix+1,iy,c)*fx)*(1-fy)+
++            (sample(ix,iy+1,c)*(1-fx)+sample(ix+1,iy+1,c)*fx)*fy));
++    }
++    return pixels;
++}
++}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h
+index 0000000000000000000000000000000000000000..dc86bb0a1f06382c3fcc333d542ed064c5e125d8
+new file mode 100644
+--- /dev/null
++++ b/Orbitersdk/samples/ProjectApollo/src_native/FdaiRasterizer.h
+@@ -0,0 +1,12 @@
++#pragma once
++#include "Platform/Image.h"
++#include <array>
++namespace nassp {
++// CPU replacement for the legacy 180-pixel GLU FDAI sphere.
++class FdaiRasterizer {
++public:
++    static constexpr unsigned size=180;
++    using Pixels=std::array<unsigned char,size*size*4>;
++    static Pixels Render(const orbiter::platform::ImageRGBA &texture,double roll,double yaw,double pitch);
++};
++}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
+index 9dbb435c24dcd4ac1d8d0dd2d750a188bf636a80..f6374596ed1bb70c308c5aeb8419ef7edd380659
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/MFDButtonPage.hpp
+@@ -36,7 +36,7 @@
+ /// Manages MFD button pages.
+ /**
+     Allows to register many switchable MFD button pages of the MFDClass and associates handlers
+-    for the buttons. The handlers must reside in the MFDClass, and they must not have any arguments.
++    for the buttons. The handlers must reside in the MFDClass, and they must not have any arguments.
+     \tparam <MFDClass>  Your MFD class that should contain handlers
+ */
+ template <class MFDClass>
+@@ -51,64 +51,64 @@
+         /// Switches between button pages
+         /**
+             A button for this method needs to be registered through RegisterFunction(),
+-            which should call MFDClass' method, which then calls this method. Example:
+-            \code
+-            MFDButtonPageLaunchMFD::MFDButtonPageLaunchMFD()
+-            {
+-                // ... add menu first, then functions
+-                RegisterFunction("PG",  OAPI_KEY_P, &LaunchMFD::SwitchButtonsPage);
+-                // ...
+-            }
+-            \endcode
+-            \code
++            which should call MFDClass' method, which then calls this method. Example:
++            \code
++            MFDButtonPageLaunchMFD::MFDButtonPageLaunchMFD()
++            {
++                // ... add menu first, then functions
++                RegisterFunction("PG",  OAPI_KEY_P, &LaunchMFD::SwitchButtonsPage);
++                // ...
++            }
++            \endcode
++            \code
+             void LaunchMFD::SwitchButtonsPage()
+             {
+                 m_buttonPages.SwitchPage(this);
+-            }
++            }
+             \endcode
+             \param mfdInstance - Instance of your MFD class
+         */
+-        void SwitchPage( MFDClass * mfdInstance ) const;
+-
++        void SwitchPage( MFDClass * mfdInstance ) const;
++
+         /// Selects a specific buttons page
+         /**
+             Could be used instead of SwitchPage(). Example:
+-            \code
++            \code
+             void LaunchMFD::SomeFunction( int pageIndex )
+             {
+                 m_buttonPages.SelectPage(this, pageIndex);
+-            }
++            }
+             \endcode
+             \param mfdInstance - Instance of your MFD class
+             \param pageIndex - Index of page to switch to.
+-        */
+-        void SelectPage( MFDClass * mfdInstance, int pageIndex ) const;
++        */
++        void SelectPage( MFDClass * mfdInstance, int pageIndex ) const;
+ 
+         /// Reacts on mouse clicks on buttons
+         /**
+-            Call from MFD::ConsumeButton(). Example:
+-            \code
+-            bool LaunchMFD::ConsumeButton (int bt, int event)
+-            {
+-                return m_buttonPages.ConsumeButton(this, bt, event);
+-            }
++            Call from MFD::ConsumeButton(). Example:
++            \code
++            bool LaunchMFD::ConsumeButton (int bt, int event)
++            {
++                return m_buttonPages.ConsumeButton(this, bt, event);
++            }
+             \endcode
+             \param mfdInstance - Instance of your MFD class (this)
+             \param button - button number
+             \param event - Windows event
+         */
+-        bool ConsumeButton( MFDClass * mfdInstance, int button, int event ) const;
++        bool ConsumeButton( MFDClass * mfdInstance, int button, int event ) const;
+ 
+         /// Reacts on keyboard presses
+         /**
+             Searches for the provided key in a map for the selected page and fires associated function.
+             If SearchForKeysInOtherPages() returns true, then other pages are searched for as well.
+-            Call from MFD::ConsumeKeyBuffered(). Example:
+-            \code
+-            bool LaunchMFD::ConsumeKeyBuffered(DWORD key)
+-            {
+-                return m_buttonPages.ConsumeKeyBuffered(this, key);
+-            }
++            Call from MFD::ConsumeKeyBuffered(). Example:
++            \code
++            bool LaunchMFD::ConsumeKeyBuffered(DWORD key)
++            {
++                return m_buttonPages.ConsumeKeyBuffered(this, key);
++            }
+             \endcode
+             \param mfdInstance - Instance of your MFD class (this)
+             \param key - key designation, like OAPI_KEY_T
+@@ -120,26 +120,26 @@
+             Searches for the provided key in a map for the selected page and fires associated function.
+             If SearchForKeysInOtherPages() returns true, then other pages are searched for as well.
+             The function's execution is continuous.
+-            Call from MFD::ConsumeKeyImmediate(). Example:
+-            \code
+-            bool LaunchMFD::ConsumeKeyImmediate(char * kstate)
+-            {
+-                return m_buttonPages.ConsumeKeyImmediate(this, kstate);
+-            }
++            Call from MFD::ConsumeKeyImmediate(). Example:
++            \code
++            bool LaunchMFD::ConsumeKeyImmediate(char * kstate)
++            {
++                return m_buttonPages.ConsumeKeyImmediate(this, kstate);
++            }
+             \endcode
+             \param mfdInstance - Instance of your MFD class (this)
+             \param kstate - key state from Orbiter
+         */
+-        bool ConsumeKeyImmediate( MFDClass * mfdInstance, char * kstate ) const;
++        bool ConsumeKeyImmediate( MFDClass * mfdInstance, char * kstate ) const;
+ 
+         /// Returns button menu of the current page
+         /**
+-            Call from MFD::ButtonMenu(). Example:
+-            \code
+-            int LaunchMFD::ButtonMenu (const MFDBUTTONMENU **menu) const
+-            {
+-                return m_buttonPages.ButtonMenu( menu );
+-            }
++            Call from MFD::ButtonMenu(). Example:
++            \code
++            int LaunchMFD::ButtonMenu (const MFDBUTTONMENU **menu) const
++            {
++                return m_buttonPages.ButtonMenu( menu );
++            }
+             \endcode
+             \param menu - this will be initialised by internal structure
+         */
+@@ -147,16 +147,16 @@
+ 
+         /// Returns button labels of the current page
+         /**
+-            Call from MFD::ButtonLabel(). Example:
+-            \code
+-            char * LaunchMFD::ButtonLabel (int bt)
+-            {
+-                return m_buttonPages.ButtonLabel(bt);
+-            }
++            Call from MFD::ButtonLabel(). Example:
++            \code
++            char * LaunchMFD::ButtonLabel (int bt)
++            {
++                return m_buttonPages.ButtonLabel(bt);
++            }
+             \endcode
+             \param button - button number
+         */
+-        char * ButtonLabel (int button) const;
++        char * ButtonLabel (int button) const;
+ 
+     protected:
+         /// Should other pages be searched for when pressing a key?
+@@ -172,17 +172,17 @@
+         /// Registeres handler in MFD scope for buttons.
+         /**
+             Before this method has any effect, a button page needs to be registered first with
+-            RegisterPage(). The keys may be repeated in different pages.
+-            \code
+-            MFDButtonPageLaunchMFD::MFDButtonPageLaunchMFD()
+-            {
+-                // ... add menu first, then functions
+-                RegisterFunction("TGT", OAPI_KEY_T, &LaunchMFD::OpenDialogTarget);
+-                RegisterFunction("ALT", OAPI_KEY_A, &LaunchMFD::OpenDialogAltitude);
++            RegisterPage(). The keys may be repeated in different pages.
++            \code
++            MFDButtonPageLaunchMFD::MFDButtonPageLaunchMFD()
++            {
++                // ... add menu first, then functions
++                RegisterFunction("TGT", OAPI_KEY_T, &LaunchMFD::OpenDialogTarget);
++                RegisterFunction("ALT", OAPI_KEY_A, &LaunchMFD::OpenDialogAltitude);
+                 RegisterFunction("PG", OAPI_KEY_P, &LaunchMFD::SwitchButtonsPage);
+                 RegisterFuncCont("I +", OAPI_KEY_EQUALS, &LaunchMFD::IncreaseInclination, &LaunchMFD::DecreaseInclination);
+-                RegisterFuncCont("I -", OAPI_KEY_MINUS,  &LaunchMFD::DecreaseInclination, &LaunchMFD::IncreaseInclination);
+-            }
++                RegisterFuncCont("I -", OAPI_KEY_MINUS,  &LaunchMFD::DecreaseInclination, &LaunchMFD::IncreaseInclination);
++            }
+             \endcode
+             \param label - max 3 char long label of button. Example: "TGT"
+             \param key - associated key on keyboard, one of OAPI_KEY_*. Example: OAPI_KEY_T
+@@ -209,11 +209,11 @@
+             Must be called before RegisterFunction() is called.
+             The menu must be \b STATICALLY declared. For example:
+             \code
+-            static const MFDBUTTONMENU mnu1[] =
+-            {
+-                {"Select target", 0, 'T'},
+-                {"Enter altitude", "km", 'A'},
+-                {"Switch button page", 0, 'P'},
++            static const MFDBUTTONMENU mnu1[] =
++            {
++                {"Select target", 0, 'T'},
++                {"Enter altitude", "km", 'A'},
++                {"Switch button page", 0, 'P'},
+             };
+             RegisterPage(mnu1, sizeof(mnu1) / sizeof(MFDBUTTONMENU));
+             \endcode
+@@ -263,19 +263,19 @@
+ {
+     m_i = (++m_i) % m_pages.size(); // increment index, but not beyond the size
+     mfdInstance->InvalidateButtons(); // redraw buttons
+-}
+-
+-template <class MFDClass>
+-void MFDButtonPage<MFDClass>::SelectPage( MFDClass * mfdInstance, int pageIndex ) const
+-{
+-    if (pageIndex >= 0 && pageIndex < (int)m_pages.size())
+-    {
+-        m_i = pageIndex;
+-        mfdInstance->InvalidateButtons(); // redraw buttons
+-    }
+-    else
++}
++
++template <class MFDClass>
++void MFDButtonPage<MFDClass>::SelectPage( MFDClass * mfdInstance, int pageIndex ) const
++{
++    if (pageIndex >= 0 && pageIndex < (int)m_pages.size())
++    {
++        m_i = pageIndex;
++        mfdInstance->InvalidateButtons(); // redraw buttons
++    }
++    else
+         sprintf_s(oapiDebugString(), 512, "MFDButtonPage::SwitchPage():"
+-                  " Page index %d is beyond pages size %d!", pageIndex, m_pages.size());
++                  " Page index %d is beyond pages size %d!", pageIndex, m_pages.size());
+ }
+ 
+ template <class MFDClass>
+@@ -397,7 +397,7 @@
+ template <class MFDClass>
+ bool MFDButtonPage<MFDClass>::PressKey( MFDClass * mfdInstance, DWORD key ) const
+ {
+-    typedef std::map<DWORD, MFDFunctionPtr>::const_iterator MapFuncIterator;
++    typedef typename std::map<DWORD, MFDFunctionPtr>::const_iterator MapFuncIterator;
+     // First search for the key on this page
+     MapFuncIterator it = m_pages.at(m_i).m_keys.find(key);
+     if (it != m_pages.at(m_i).m_keys.end() )
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
+index 98bfa7e20d2ba4f04fe93d8ef32021a61a452e72..6fe860417df787387f570da1ca28d47a389cf074
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.cpp
+@@ -33,6 +33,10 @@
+ #include "PanelSDK/Internals/Esystems.h"
+ 
+ #include "FDAI.h"
++#ifdef NASSP_NATIVE
++#include "FdaiRasterizer.h"
++#include <stdexcept>
++#endif
+ 
+ FDAI::FDAI() {
+ 
+@@ -52,12 +56,18 @@
+ 	ACSource = NULL;
+ 	noAC = false;
+ 	vessel = NULL;
++#ifndef NASSP_NATIVE
+ 	hBallSurf = oapiCreateSurface(180, 180);
+ 
+ 	penBlack = oapiCreatePen(1, 1, 0x000000);
+ 	penWhite = oapiCreatePen(1, 1, 0xffffff);
+ 	brushBlack = oapiCreateBrush(0x000000);
+ 	brushWhite = oapiCreateBrush(0xffffff);
++#else
++	hBallSurf = nullptr;
++	penBlack = penWhite = nullptr;
++	brushBlack = brushWhite = nullptr;
++#endif
+ }
+ 
+ void FDAI::Init(VESSEL *v)
+@@ -65,7 +75,8 @@
+ 	vessel = v;
+ }
+ 
+-void FDAI::InitGL() {
++void FDAI::InitBall() {
++#ifndef NASSP_NATIVE
+ 
+ 	GLuint      PixelFormat;
+ 	BITMAPINFOHEADER BIH;
+@@ -163,9 +174,17 @@
+ 	glEndList();
+ 
+ 	init = 1;		//that's it. If we made it so far, we can use OpenGL
++#else
++    hBallSurf = oapiCreateSurface(180,180);
++    if(!hBallSurf)throw std::runtime_error("Cannot create FDAI ball surface");
++    penBlack=oapiCreatePen(1,1,0x000000);penWhite=oapiCreatePen(1,1,0xffffff);
++    brushBlack=oapiCreateBrush(0x000000);brushWhite=oapiCreateBrush(0xffffff);
++    init=1;
++#endif
+ }
+ 
+ FDAI::~FDAI() {
++#ifndef NASSP_NATIVE
+ 
+ 	if (init) {
+ 		gluDeleteQuadric(quadObj);
+@@ -177,6 +196,7 @@
+ 		DeleteDC(hDC2);
+ 		hDC2 = 0;
+ 	}
++#endif
+ 	oapiDestroySurface(hBallSurf);
+ 	oapiReleasePen(penBlack);
+ 	oapiReleasePen(penWhite);
+@@ -275,6 +295,7 @@
+ 
+ void FDAI::MoveBall2D()
+ {
++#ifndef NASSP_NATIVE
+ 	glLoadIdentity();
+ 	gluLookAt(0.0, -35.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+ 
+@@ -285,14 +306,28 @@
+ 	glRotated(now.z / PI * 180.0, 0.0, 0.0, 1.0);	//attitude.y
+ 
+ 	lastPaintAtt = now;
++#endif
+ }
+ 
+ void FDAI::PaintMe(VECTOR3 rates, VECTOR3 errors, SURFHANDLE surf, SURFHANDLE hFDAI,
+ 	SURFHANDLE hFDAIRoll, SURFHANDLE hFDAIOff, SURFHANDLE hFDAINeedles, int smooth) {
+-	if (!init) InitGL();
++	if (!surf)return;
++	if (!init) InitBall();
+ 
+ 	// Don't do the OpenGL calculations every timestep
+ 	if (smooth || lastPaintTime == -1 || ((length(lastPaintAtt - target) > 0.005 || oapiGetSysTime() > lastPaintTime + 2.0) && oapiGetSysTime() > lastPaintTime + 0.1)) {
++#ifdef NASSP_NATIVE
++        // Original assets have a BMP signature despite their .dds extension.
++        const auto &texture = [&]() -> const orbiter::platform::ImageRGBA & {
++            if(LM_FDAI) {
++                static const auto lm=orbiter::platform::LoadImageRGBA("Textures/ProjectApollo/FDAI_Ball_LM.dds");return lm;
++            }
++            static const auto csm=orbiter::platform::LoadImageRGBA("Textures/ProjectApollo/FDAI_Ball.dds");return csm;
++        }();
++        const auto pixels=nassp::FdaiRasterizer::Render(texture,now.y,now.x,now.z);
++        if(!oapiUpdateSurface(hBallSurf,pixels.data(),180*4))throw std::runtime_error("Cannot upload FDAI ball pixels");
++        lastPaintAtt=now;lastPaintTime=oapiGetSysTime();
++#else
+ 		int ret = wglMakeCurrent(hDC2, hRC);
+ 		MoveBall2D();
+ 		glCallList(list_name);	//render
+@@ -304,6 +339,7 @@
+ 		HDC hDC = oapiGetDC(hBallSurf);
+ 		BitBlt(hDC, 0, 0, 180, 180, hDC2, 0, 0, SRCCOPY);
+ 		oapiReleaseDC(hBallSurf, hDC);
++#endif
+ 	}
+ 
+ 	oapiBlt(surf, hBallSurf, 43, 43, 10, 10, 150, 150, SURF_PREDEF_CK);//then we bitblt onto the panel.
+@@ -319,29 +355,29 @@
+ 	const double radius = 70;
+ 
+ 	// Compute roll indicator vertices
+-	long xtip = 123 - (long)(radius * sin(angle));
+-	long ytip = 123 - (long)(radius * cos(angle));
+-
+-	long xbl = 123 - (long)((radius - trisize) * sin(angle - baseangle));
+-	long ybl = 123 - (long)((radius - trisize) * cos(angle - baseangle));
+-
+-	long xbr = 123 - (long)((radius - trisize) * sin(angle + baseangle));
+-	long ybr = 123 - (long)((radius - trisize) * cos(angle + baseangle));
++	int xtip = 123 - (int)(radius * sin(angle));
++	int ytip = 123 - (int)(radius * cos(angle));
++
++	int xbl = 123 - (int)((radius - trisize) * sin(angle - baseangle));
++	int ybl = 123 - (int)((radius - trisize) * cos(angle - baseangle));
++
++	int xbr = 123 - (int)((radius - trisize) * sin(angle + baseangle));
++	int ybr = 123 - (int)((radius - trisize) * cos(angle + baseangle));
+ 
+ 	// Split it in 3
+ 	oapi::IVECTOR2 tri1[3] = {
+ 		{xtip, ytip},
+ 		{xbl, ybl},
+-		{(long)(xbr * 0.3 + xbl * 0.7), (long)(ybr * 0.3 + ybl * 0.7)},
++		{(int)(xbr * 0.3 + xbl * 0.7), (int)(ybr * 0.3 + ybl * 0.7)},
+ 	};
+ 	oapi::IVECTOR2 tri2[3] = {
+ 		{xtip, ytip},
+-		{(long)(xbr * 0.3 + xbl * 0.7), (long)(ybr * 0.3 + ybl * 0.7)},
+-		{(long)(xbr * 0.7 + xbl * 0.3), (long)(ybr * 0.7 + ybl * 0.3)},
++		{(int)(xbr * 0.3 + xbl * 0.7), (int)(ybr * 0.3 + ybl * 0.7)},
++		{(int)(xbr * 0.7 + xbl * 0.3), (int)(ybr * 0.7 + ybl * 0.3)},
+ 	};
+ 	oapi::IVECTOR2 tri3[3] = {
+ 		{xtip, ytip},
+-		{(long)(xbr * 0.7 + xbl * 0.3), (long)(ybr * 0.7 + ybl * 0.3)},
++		{(int)(xbr * 0.7 + xbl * 0.3), (int)(ybr * 0.7 + ybl * 0.3)},
+ 		{xbr, ybr},
+ 	};
+ 
+@@ -474,6 +510,7 @@
+ 	// Off-flag (CSM FDAI doesn't have one... I think)
+ 	if (LM_FDAI && !IsPowered())
+ 		oapiBlt(surf, hFDAIOff, 31, 100, 0, 0, 13, 30, SURF_PREDEF_CK);
++
+ }
+ 
+ void FDAI::Timestep(double simt, double simdt)
+@@ -493,6 +530,7 @@
+ }
+ 
+ int FDAI::LoadOGLBitmap(char *filename) {
++#ifndef NASSP_NATIVE
+ 
+ 	unsigned char *l_texture;
+ 	int l_index, l_index2 = 0;
+@@ -536,6 +574,9 @@
+ 	free(l_texture);
+ 
+ 	return (num_texture);
++#else
++	return 0;
++#endif
+ }
+ 
+ // Helper function for getting the minimum of 4 floats
+@@ -621,6 +662,7 @@
+ // Returns the DI (Device Independent) bits of the Bitmap
+ // Here I use 32 bit since it's easy to adress in memory and no
+ // padding of the horizontal lines is required.
++#ifndef NASSP_NATIVE
+ pBGR MyGetDibBits(HDC hdcSrc, HBITMAP hBmpSrc, int nx, int ny)
+ {
+ 	BITMAPINFO bi;
+@@ -645,6 +687,7 @@
+ 	}
+ 	return buf;
+ }
++#endif
+ 
+ bool FDAI::IsPowered()
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
+index 2e7e84222f70a8ed3cc5c9b9c95e4e0a334e742d..fab782c295f4c062881c8dfaf158a601580c9fc9
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/FDAI.h
+@@ -25,8 +25,11 @@
+ /// \bug Avoids bug in VC++
+ #pragma once
+ 
++#ifndef NASSP_NATIVE
+ #include < GL\gl.h >                                
+ #include < GL\glu.h >
++
++#endif
+ 
+ class FDAI {
+ 
+@@ -60,12 +63,14 @@
+ 	VECTOR3 now, target, lastRates, lastErrors, lastPaintAtt;
+ 	double lastPaintTime;
+ 
++#ifndef NASSP_NATIVE
+ 	//some stuff for OpenGL
+ 	HDC hDC2;
+ 	HGLRC hRC;
+ 	HBITMAP hBMP;
+ 	HBITMAP hBMP_old;
+ 	GLUquadricObj *quadObj;
++#endif
+ 	SURFHANDLE hBallSurf;
+ 	oapi::Pen* penBlack;
+ 	oapi::Pen* penWhite;
+@@ -75,7 +80,7 @@
+ 	e_object *DCSource, *ACSource;
+ 	bool noAC;
+ 
+-	void InitGL();
++	void InitBall();
+ 	void RotateBall(double simdt);
+ 	void MoveBall2D();
+ 	int LoadOGLBitmap(char *filename);

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "scope": "Additional input requirements for the hosted subset, not disabled CTests or assertion changes. gpu/desktop labels are read from CTest.",
+  "tests": {
+    "native_audio": {
+      "requires": ["nassp-data"],
+      "evidence": "Tests/NativeAudio.cpp requires actual LMSuitFan.wav after generated PCM fixtures."
+    },
+    "native_original_descent": {
+      "requires": ["planetary-data"],
+      "evidence": "The pinned soft-contact acceptance was measured with external Moon elevation; fallback terrain does not reproduce that contact."
+    },
+    "native_pdi_protocol": {
+      "requires": ["planetary-data"],
+      "evidence": "The recorded original PDI descent/radar acceptance uses the external Moon terrain input; it is not available on this hosted foundation."
+    },
+    "native_pdi_pilot": {
+      "requires": ["planetary-data"],
+      "evidence": "The original PDI trajectory and strict AGC resume gate require the recorded terrain fixture. Historical full-suite FAIL remains published; absence of this fixture is not a passing result."
+    },
+    "native_pdi_uninterrupted_aca": {
+      "requires": ["planetary-data"],
+      "evidence": "The recorded uninterrupted P64 handoff/input-release acceptance uses the same original PDI terrain fixture."
+    }
+  }
+}

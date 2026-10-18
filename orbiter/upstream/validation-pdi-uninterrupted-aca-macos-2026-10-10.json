@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-10",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "a2120f0d778de32ac31d4d5463b3e499bdbdfc74",
+  "status": "Bounded first PDI/P64 demo and original ACA pulse/release validated in one live process on both pinned revisions; faithful resume remains blocked.",
+  "scope": "Diagnostic driver, verifiers, CTest registrations and demo documentation only; zero NASSP/physics/ROM/scenario changes.",
+  "white_x_pointer_commit": "e9cc62d96440569c8b844080ee993dfd65c753f3",
+  "protocol": {
+    "start": "Original Apollo 11 PDI T-15m with all original vessels and matching upstream data",
+    "prefix": "Existing original pilot 10/174-degree yaw, source-chart V57/V16N68, convergence and P64 procedure unchanged",
+    "mode": "Original PGNS ATT HOLD (center=1), all attitude axes MODE CONT=2, normal RateScale=1 and minimum deadband=0",
+    "sequence": "One second neutral baseline, fixed SDL axis 14823 for 0.3s (18 x 1/60s), zero axis for 4s (240 frames); 321 phase samples",
+    "timing_scope": "Early diagnostic at the existing below-2000ft P64 handoff, using the PGNS-45 manual option; not the flown nominal TIG+10m landing-control decision",
+    "no_writes": "No direct pose, angular velocity, AGC memory, throttle, jet level or snapshot restoration",
+    "safety_scope": "Stop above 1200ft; no ROD, landing-site selection, P66, P67 or ground contact"
+  },
+  "source_basis": {
+    "crew_dictionary": {
+      "reference": "PGNS-45, PDF page49: manual PGNS ATT HOLD option during P64",
+      "url": "https://www.ibiblio.org/apollo/Documents/ApolloXI_FlightCrewG%26NDictionary_5-29-1969.pdf",
+      "cached_pdf_sha256": "096855c1fc323c9dde9a0707f6bed631e8edbf1804911486d4f9392c81db6e20"
+    },
+    "timeline": {
+      "reference": "Printed page9, revision G July1; PGNS ATT HOLD near TIG+10m at roughly500ft",
+      "url": "https://www.ibiblio.org/apollo/Documents/Apollo11-LM-TimelineBook-excerpts.pdf",
+      "cached_pdf_sha256": "f9debd693de93e215d9d50614fa2613ebc8a00892bf7ce112684e3d0f68941dd"
+    },
+    "original_workbook": "Rows128-132 readiness and210-213 later manual/ROD sequence; matching workbook bytes remain unchanged",
+    "dap_source": {
+      "reference": "P-AXIS_RCS_AUTOPILOT.agc pages1430-1433: manual rate command and neutral RATEDAMP/hold",
+      "cached_source_sha256": "9da0c4520bdce3c77003a6c9378af94531459d83123526bce128ffd29331a49b"
+    },
+    "original_control_source_sha256": {
+      "baseline": {
+        "src_lm/lm_aca.cpp": "fd0939c4f992f757671a52edb11d57193063e63cfd8e65e9bf5f4f2d83c29ef8",
+        "src_lm/lm_aca.h": "7a9c8a26a8b0fa015d3e38714311d6db12169a490ffd79d333f3635ba42db27b",
+        "src_lm/lm_channels.h": "2a744380b0c00d5bfbcbe794db28665710bfd0b34e476258a2d02faa7c7f2dd9",
+        "src_lm/lmscs.cpp": "d2096b840fe4ca0eef401d1af0736c4644dcd9c4491e3107892bf76be2c5496d",
+        "src_lm/lemsystems.cpp": "a62b18ba63fc424a633d9301c3f774b00d7770546d7d8ed816850681e692eed2",
+        "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee"
+      },
+      "candidate": {
+        "src_lm/lm_aca.cpp": "fd0939c4f992f757671a52edb11d57193063e63cfd8e65e9bf5f4f2d83c29ef8",
+        "src_lm/lm_aca.h": "7a9c8a26a8b0fa015d3e38714311d6db12169a490ffd79d333f3635ba42db27b",
+        "src_lm/lm_channels.h": "2a744380b0c00d5bfbcbe794db28665710bfd0b34e476258a2d02faa7c7f2dd9",
+        "src_lm/lmscs.cpp": "d2096b840fe4ca0eef401d1af0736c4644dcd9c4491e3107892bf76be2c5496d",
+        "src_lm/lemsystems.cpp": "b6cec886d9120333c956d4f1cd5a9a05251f99434e33b99916a234ecdef1dcea",
+        "src_lm/LEMcomputer.cpp": "b61ff6bc437f56fa6645a939919c10762041656ed7beddd14ffb1f4f8fb24cee"
+      }
+    },
+    "torque_convention": "Read-only observer follows original Src/Orbiter/Vessel.cpp:4035 force x arm; core code unchanged"
+  },
+  "observer_limits": {
+    "minimum_altitude_ft": 1200,
+    "minimum_peak_above_baseline_deg_s": 0.2,
+    "quiet_yaw_rate_deg_s": 0.15,
+    "quiet_dwell_seconds": 1,
+    "rhc_read_release_limit_seconds": 0.2,
+    "not_apollo_flight_tolerances": true
+  },
+  "initial_observer_corrections": {
+    "retained_evidence": "/tmp/nassp-aca-initial-observer (copied into archive)",
+    "issues": "Verifier confused ACA fraction with RHC counts and assumed instant reads; torque logger used arm x force instead of original force x arm.",
+    "resolution": "Corrected observers, preserved failed audits, then reran both registered uninterrupted flights. Pulse/switch/physics unchanged."
+  },
+  "verification": {
+    "final_tree_registered_test_count": 98,
+    "final_tree_ctest_passes_per_profile": 9,
+    "synthetic_contract_checks": 81,
+    "new_aca_mutation_contracts": 13,
+    "coverage": "Separate stage/ACA gate (2 tests) plus native_world, three contract modules, original-class LM persistence, default stage/PDI gate (7 tests); both profiles",
+    "strict_resume_failure_reproduced_on_final_tree": true,
+    "last_full_suite": "e01b5b2:94/95 in both profiles, zero skips. Historical breadth evidence, not a new full98-test result.",
+    "full_suite_rerun": false,
+    "reason": "Only diagnostics/docs and test registration changed; core binary hashes match e01b5b2; strict gate byte-identical to a2120f0.",
+    "code_freeze_sha256": {
+      "Tests/NativePDIProtocol.cpp": "c99f00a0a8a88e4e077d6e17f575f2727f526dc2673892c446d0da2b5a566d98",
+      "Tests/NativePDIUninterruptedACA.py": "8fb768245215e2b13a59e5df94f95853c88304642941bee4d8c31b2c04487d29",
+      "Tests/NativePDIACAContract.py": "3ec872f2cfc13428bb270e2304fe4e65416899203f7b992006111afd42a7ef95",
+      "Tests/NativePDIPilot.py": "212c56522386625c3969f82fffc6ae5e39d6910890dd9f800ae592742b346fbf",
+      "Tests/NativePDIPersistence.py": "c104028f96655e93e25ad87d62d6caa67147f22e17b7c38cc6bfd7bc0577125b",
+      "CMake/NativeWgpu.cmake": "b3fe6f575fdf24bfd540623e7e51420ed03e89f83a32296eb316074581d9e7dd"
+    }
+  },
+  "profiles": {
+    "baseline": {
+      "uninterrupted_validation_passed": true,
+      "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-uninterrupted-aca",
+      "probe_sha256": "f6ce280f812569839ac6a8979fe084afbab54fc93411f572de3254b07fff9634",
+      "orbiter_sha256": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4",
+      "original_inputs": {
+        "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+        "input_sha256": {
+          "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+          "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+          "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+        },
+        "scenario_modified": false
+      },
+      "handoff_lgc_altitude_ft": 1918.061023622047,
+      "control_measurements": {
+        "same_live_simulation": true,
+        "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+        "pulse_axis_s16": 14823,
+        "raw_rhc_count": -20,
+        "decoded_rhc_count": -19,
+        "aca_proportional_yaw": -0.4880706787109375,
+        "neutral_baseline_seconds": 1,
+        "pulse_seconds": 0.3,
+        "neutral_release_seconds": 4,
+        "samples": 321,
+        "baseline_max_abs_yaw_rate_deg_s": 0.02688052852226703,
+        "peak_right_yaw_rate_deg_s": 1.6292192561159307,
+        "final_yaw_rate_deg_s": 0.043317542221948564,
+        "last_second_max_abs_yaw_rate_deg_s": 0.0433320436043426,
+        "pulse_and_release_body_yaw_deg": 0.5112810218537467,
+        "attitude_matrix_max_change": 0.030465877827086763,
+        "first_response_delay_seconds": 0.21666666666669698,
+        "minimum_lgc_altitude_ft": 1611.7125984251968,
+        "programs_observed": [
+          "64"
+        ],
+        "observer_limits": {
+          "quiet_yaw_rate_deg_s": 0.15,
+          "quiet_dwell_seconds": 1,
+          "minimum_altitude_ft": 1200
+        },
+        "manual_landing_validated": false,
+        "physical_controller_validated": false,
+        "faithful_resume_validated": false
+      },
+      "final_original_body_rates_rad_s": [
+        0.0009022163233974032,
+        -0.0007560337356446627,
+        -0.0008611115896653272
+      ],
+      "final_original_fdai_rpy_deg": [
+        358.87917908564805,
+        27.45972423597305,
+        2.1178253559397056
+      ],
+      "event_log_sha256": "9174d3ca4c9bfd137a6d7628a30827521802b0616086b50c77dc646e42ee6e5e",
+      "verification_report_sha256": "d63e618fbbf470b8ad2846ab3d4abff44f80f28627c45caefada05dd531004bb",
+      "final_tree_ctest": {
+        "uninterrupted-aca-final.xml": [
+          {
+            "name": "nassp_stage_pdi_uninterrupted_aca",
+            "seconds": 0.442692,
+            "passed": true
+          },
+          {
+            "name": "native_pdi_uninterrupted_aca",
+            "seconds": 88.5206,
+            "passed": true
+          }
+        ],
+        "uninterrupted-aca-applicable.xml": [
+          {
+            "name": "native_world",
+            "seconds": 0.06195,
+            "passed": true
+          },
+          {
+            "name": "pdi_protocol_contract",
+            "seconds": 0.243839,
+            "passed": true
+          },
+          {
+            "name": "pdi_pilot_contract",
+            "seconds": 0.0652014,
+            "passed": true
+          },
+          {
+            "name": "pdi_aca_contract",
+            "seconds": 0.0873805,
+            "passed": true
+          },
+          {
+            "name": "native_lm_persistence",
+            "seconds": 0.00488937,
+            "passed": true
+          },
+          {
+            "name": "nassp_stage_pdi_protocol",
+            "seconds": 0.49748,
+            "passed": true
+          },
+          {
+            "name": "native_pdi_protocol",
+            "seconds": 58.0027,
+            "passed": true
+          }
+        ]
+      },
+      "final_tree_passed_registered_tests": 9,
+      "strict_resume_verifier": {
+        "mode": "--verify-existing; prior descent reused, fresh zero-step load and 31-step neutral continuation with final probe",
+        "exit_code": 1,
+        "validation_passed": false,
+        "error": "AGC cycle counter was not restored; faithful processor resume requires CDU FIFO persistence",
+        "processor": {
+          "saved_cycle_counter": 124205511,
+          "reloaded_cycle_counter": 0,
+          "cycle_counter_retained": false,
+          "cdu_fifo_snapshot_supported": false,
+          "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in module-static state shared by same-class AGCs"
+        },
+        "report_sha256": "21ac57de5eaa3931e35ad4ed662fc68b6b2402e858a7c271a27f12e58b3cf25a"
+      },
+      "default_pdi_passed": true,
+      "no_new_graphics_or_full_suite_run": true
+    },
+    "candidate": {
+      "uninterrupted_validation_passed": true,
+      "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-uninterrupted-aca",
+      "probe_sha256": "0dca7a2ee58d6ed4c646734be8001cab9b7baf82e550d51513a4474fb6510778",
+      "orbiter_sha256": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1",
+      "original_inputs": {
+        "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+        "input_sha256": {
+          "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+          "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+          "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+        },
+        "scenario_modified": false
+      },
+      "handoff_lgc_altitude_ft": 1978.75656167979,
+      "control_measurements": {
+        "same_live_simulation": true,
+        "input_path": "SDL virtual stick -> native VESIM -> original ACA/LGC/DAP/ATCA -> RCS",
+        "pulse_axis_s16": 14823,
+        "raw_rhc_count": -20,
+        "decoded_rhc_count": -19,
+        "aca_proportional_yaw": -0.4880706787109375,
+        "neutral_baseline_seconds": 1,
+        "pulse_seconds": 0.3,
+        "neutral_release_seconds": 4,
+        "samples": 321,
+        "baseline_max_abs_yaw_rate_deg_s": 0.0630072694003054,
+        "peak_right_yaw_rate_deg_s": 1.6637025806469279,
+        "final_yaw_rate_deg_s": 0.009015326904888649,
+        "last_second_max_abs_yaw_rate_deg_s": 0.009076980549814678,
+        "pulse_and_release_body_yaw_deg": 0.4124984840085694,
+        "attitude_matrix_max_change": 0.015083046301612835,
+        "first_response_delay_seconds": 0.21666666666669698,
+        "minimum_lgc_altitude_ft": 1660.9251968503936,
+        "programs_observed": [
+          "64"
+        ],
+        "observer_limits": {
+          "quiet_yaw_rate_deg_s": 0.15,
+          "quiet_dwell_seconds": 1,
+          "minimum_altitude_ft": 1200
+        },
+        "manual_landing_validated": false,
+        "physical_controller_validated": false,
+        "faithful_resume_validated": false
+      },
+      "final_original_body_rates_rad_s": [
+        -0.003216914668866502,
+        -0.0001573471376339366,
+        0.0036572099712435667
+      ],
+      "final_original_fdai_rpy_deg": [
+        359.5008783587308,
+        28.669353430158147,
+        3.4538800446507327
+      ],
+      "event_log_sha256": "a38a76690b3a529e8e316b5d3750569aacd1d196b1b44e422133a0ad4e1e14ae",
+      "verification_report_sha256": "55db94d76cf0714e5571266841e96c8ba57eea32df7f3e5f860bc817fa77e54f",
+      "final_tree_ctest": {
+        "uninterrupted-aca-final.xml": [
+          {
+            "name": "nassp_stage_pdi_uninterrupted_aca",
+            "seconds": 0.463138,
+            "passed": true
+          },
+          {
+            "name": "native_pdi_uninterrupted_aca",
+            "seconds": 88.0905,
+            "passed": true
+          }
+        ],
+        "uninterrupted-aca-applicable.xml": [
+          {
+            "name": "native_world",
+            "seconds": 0.0510181,
+            "passed": true
+          },
+          {
+            "name": "pdi_protocol_contract",
+            "seconds": 0.235618,
+            "passed": true
+          },
+          {
+            "name": "pdi_pilot_contract",
+            "seconds": 0.0624005,
+            "passed": true
+          },
+          {
+            "name": "pdi_aca_contract",
+            "seconds": 0.0861667,
+            "passed": true
+          },
+          {
+            "name": "native_lm_persistence",
+            "seconds": 0.00453954,
+            "passed": true
+          },
+          {
+            "name": "nassp_stage_pdi_protocol",
+            "seconds": 0.490706,
+            "passed": true
+          },
+          {
+            "name": "native_pdi_protocol",
+            "seconds": 58.1009,
+            "passed": true
+          }
+        ]
+      },
+      "final_tree_passed_registered_tests": 9,
+      "strict_resume_verifier": {
+        "mode": "--verify-existing; prior descent reused, fresh zero-step load and 31-step neutral continuation with final probe",
+        "exit_code": 1,
+        "validation_passed": false,
+        "error": "AGC cycle counter was not restored; faithful processor resume requires CDU FIFO persistence",
+        "processor": {
+          "saved_cycle_counter": 124034844,
+          "reloaded_cycle_counter": 0,
+          "cycle_counter_retained": false,
+          "cdu_fifo_snapshot_supported": false,
+          "source_limit": "Pinned ApolloGuidance::LoadState deliberately skips CYCLECOUNTER until CDU FIFOs are saved/loaded; yaAGC stores those queues in module-static state shared by same-class AGCs"
+        },
+        "report_sha256": "936e794381a4c128d2dd6ce267bbaac8617e46c0f6ec3ad797bfe50e88adf391"
+      },
+      "default_pdi_passed": true,
+      "no_new_graphics_or_full_suite_run": true
+    }
+  },
+  "limits": {
+    "faithful_resume_validated": false,
+    "physical_controller_validated": false,
+    "graphical_hit_testing_validated": false,
+    "manual_landing_validated": false,
+    "landing_site_or_lpd_judgment_validated": false,
+    "ags_deda_validated": false,
+    "exact_historical_pilot_fidelity": false,
+    "new_graphical_capture": false
+  },
+  "smallest_manual_check": "In the same live original PDI/P64 session, confirm cockpit ATT HOLD readback, send one small mapped ACA yaw input, center it and observe rate/damping; this checks GUI/device interaction only. Do not reload the saved handoff.",
+  "constraints": {
+    "nassp_source_edits": 0,
+    "core_physics_edits": 0,
+    "broad_agc_snapshot_implementation": false,
+    "supplied_asset_changes": false,
+    "push": false,
+    "windows_comparison": false,
+    "hosted_ci": false,
+    "visibility_changes": false
+  },
+  "archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-uninterrupted-aca-20261010",
+  "mirror": "<LOCAL_PATH>"
+}

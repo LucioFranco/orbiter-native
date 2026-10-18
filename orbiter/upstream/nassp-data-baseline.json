@@ -1,0 +1,2451 @@
+{
+  "schema": 1,
+  "commit": "96b6380943c382a297f969842be9344ef969a6f4",
+  "repository": "https://github.com/CaptainSwag101/NASSP.git",
+  "critical": {
+    "Config/GC/ProjectApollo_CMBapex.cfg": {
+      "git_blob": "6c3eef3a2d992c9501661e73cf0b2a91ec95cc0b",
+      "sha256": "4167ba8086293bddf01c0c25a50dc2182965204042598a0e11d39cdfaea95bf4",
+      "lf_sha256": "c3663f6e6ca9faccfb474468ea95ed927a4aedbb6b94ec1830de340ffecf10cf"
+    },
+    "Config/GC/ProjectApollo_CMOpticsCover.cfg": {
+      "git_blob": "5e2d5c3a255f03e304d6ac978acb51334e97fc5d",
+      "sha256": "302cf58b4d2344011c78b646a71a16b0755363ab25763455b48cdee7837551ce",
+      "lf_sha256": "a5a0ecb270a9a749d92e3bd57f10d15cc42d57b7a3d5e157721a74148fb18377"
+    },
+    "Config/GC/ProjectApollo_CMapex.cfg": {
+      "git_blob": "d197fe941fa13596b2b402a2303bc2c3649433ed",
+      "sha256": "2f2e097442cfad8962f29136b34417b80e233d8089a043487e25b66ed7649634",
+      "lf_sha256": "b2783adf2b07e5b7bf202e52450351d5630991e61e7b9eda4462ddaae908749f"
+    },
+    "Config/GC/ProjectApollo_EVA.cfg": {
+      "git_blob": "27a80e755d4a5076defd142700f481afb605cb87",
+      "sha256": "c6f627dc99440806ce990bb6fb45a6e9e695edc08c6fb9b1c300de7176eb1fce",
+      "lf_sha256": "af3ad610996a0a7a364163394d2df2293abfeb99a23d3a807e97807feaad4fb3"
+    },
+    "Config/GC/ProjectApollo_LEM.cfg": {
+      "git_blob": "b2b0fb35a51e29831201a876e08980236fba3008",
+      "sha256": "8d313c1c41444569b968950e9fd8cf8ebe3825ec7f2a790c315088b1fbe95cfe",
+      "lf_sha256": "ddcf396bec0b3ad5909af367af9ea73d23062c0c85f1a698307f09155953bfac"
+    },
+    "Config/GC/ProjectApollo_LEVA.cfg": {
+      "git_blob": "478118b9949656d8b634072c50d45339e94bd3f6",
+      "sha256": "5df9c256002219e321f5424edbaaa7d56cef038e8522b9c8e99eeb79e1ca50dd",
+      "lf_sha256": "21828501eb7bdc46922f60dfca54904d3ded72a3dc6aba5a10ec30bb70d8d736"
+    },
+    "Config/GC/ProjectApollo_SM.cfg": {
+      "git_blob": "696fcd32951450d9c365482b619e49764a54b69d",
+      "sha256": "56396fba93aece49bbebd85f29d6a0d160a2d93f96b38843fefb4933c593b37a",
+      "lf_sha256": "a150eaaa0ef84825bfff426ccb0711f15a60d72706997207d735a995ff8be3b5"
+    },
+    "Config/GC/ProjectApollo_Sat5LMDSC.cfg": {
+      "git_blob": "3bd6652c42a12d303d23f4e9a029fd0d1b2bacf0",
+      "sha256": "932c78a239244f5ac3c6633ac0c31a5eec7d01453fbdaf2c3447e845e843ce39",
+      "lf_sha256": "b6f64f7efa55e290cd0d0800a9a5103904e796b32c80b35a682588e375fb9d42"
+    },
+    "Config/GC/ProjectApollo_Saturn1B.cfg": {
+      "git_blob": "a16f035dddc8c09ed4cd33932105609e7cc156fd",
+      "sha256": "9048ca5f3a2aded8e042c0d80662f7ddc961b4d0c505eb3d23fac038492b4155",
+      "lf_sha256": "d86ab2e8ecd7d0a8c4f64513b1c7e11c3ec15b3310556549b0054265b644711f"
+    },
+    "Config/GC/ProjectApollo_Saturn5.cfg": {
+      "git_blob": "d8d1a48d59204a29209399be615681975aca51f3",
+      "sha256": "61421e68deb173fddb200df129a7666594b992b3e65d4ac05d78fe01fbc45110",
+      "lf_sha256": "1be820f0b52dcd4e030d6c8e5a7c6aaad460c84ce5417429602a4c78ae86eff0"
+    },
+    "Config/MFD/AGCDECMFD.cfg": {
+      "git_blob": "dac2b6661a150192741f6c9738507ec706965946",
+      "sha256": "cd8254237a630cbc60b17dc7b201bccbed5a261c3c9fa0977d5788847d807c73",
+      "lf_sha256": "cd8254237a630cbc60b17dc7b201bccbed5a261c3c9fa0977d5788847d807c73"
+    },
+    "Config/MFD/AGCDECMFD.lua": {
+      "git_blob": "2db600bb9629dcbda75daf76cf9d916f197a092e",
+      "sha256": "2f8dd04c2181b10332815a14d105b9916856b14037c54d77e3e0cc8bffde0309",
+      "lf_sha256": "2f8dd04c2181b10332815a14d105b9916856b14037c54d77e3e0cc8bffde0309"
+    },
+    "Config/MFD/ScriptMFD.cfg": {
+      "git_blob": "90e6e94586e21c17ded37d1d596dea57c20feda3",
+      "sha256": "069f186d09c893d2685813f029d167ccc3bdde961267ea281c1b35b7ed485845",
+      "lf_sha256": "069f186d09c893d2685813f029d167ccc3bdde961267ea281c1b35b7ed485845"
+    },
+    "Config/MFD/agcerrors.csv": {
+      "git_blob": "a905b1092ab8e5e4c31c4eb158c3d96d4d78a934",
+      "sha256": "de33cdef19613e76126a02b4f7e3d5d34206ecf883343266cdf7a56aa16c0ad7",
+      "lf_sha256": "de33cdef19613e76126a02b4f7e3d5d34206ecf883343266cdf7a56aa16c0ad7"
+    },
+    "Config/MFD/dsky.csv": {
+      "git_blob": "92388b0caaa154182c8ba069c1c76df054ada35b",
+      "sha256": "fca484ca63d8a51c019dcabd13bceb0855da4ab921297cd3110b3e8c1d49bcf2",
+      "lf_sha256": "fca484ca63d8a51c019dcabd13bceb0855da4ab921297cd3110b3e8c1d49bcf2"
+    },
+    "Config/Moon/Marker/Apollo 10 Navigation Landmarks.mkr": {
+      "git_blob": "830f56729576fd1b152f7ad31550021cf366f40a",
+      "sha256": "14bbf986322c97ebeb891396cbb727f061b94c758ccd682e54c757b8e2814316",
+      "lf_sha256": "f39f6db7204f309d2b526fc0f43feefeb4330a3047fa6f3996df83e3a067f070"
+    },
+    "Config/Moon/Marker/Apollo 11 Navigation Landmarks.mkr": {
+      "git_blob": "abbdd184c60d64c3870a9d1b2f6c77de2327827e",
+      "sha256": "2209bc48b3a616a8353fca67388d60ae01631c49228eb20359d60c24ac09b95e",
+      "lf_sha256": "517548e3cad42df44634484eac1ce707c6830d6a42318e4b4e8e813866c1b896"
+    },
+    "Config/Moon/Marker/Apollo 12 Navigation Landmarks.mkr": {
+      "git_blob": "53e581c9f49aa2706a102287a273d3f396fb6d59",
+      "sha256": "a619912ed1ccce8f89bd8fe31b747ebfe0cab695516e55275e286b30602f3aee",
+      "lf_sha256": "9141e2dc06dd4c7388565bc193248e766e3406029dbd49bba59503c4d4870ec8"
+    },
+    "Config/Moon/Marker/Apollo 8 Navigation Landmarks.mkr": {
+      "git_blob": "737ff140dfd63ddea5a6720df9e9a8345ed05aa7",
+      "sha256": "e557760506f82cc46d771edf296130e0c252028e8f620ce5ac23c203fcff09fe",
+      "lf_sha256": "84d77305efbf7592edeebb0604f80eb75ccf1fe45b6eaa539abf1551098362ee"
+    },
+    "Config/Moon/Marker/Apollo Navigation Landmarks.mkr": {
+      "git_blob": "dd2d1cdb15b8b77e6996912c3e040bf8b88357d9",
+      "sha256": "afce2edd7a05da8e4ceb9461b1245d7a69b61ddc5d2037a871e1547bee5daebe",
+      "lf_sha256": "60fb361d90f29efe5dd4064d35d442631cc52e9acf45062b75c8fb5192b99231"
+    },
+    "Config/ProjectApollo/AS-203 Flight Sequence Program.txt": {
+      "git_blob": "63e84318fb652bc6e1e0498813252e6b5459b77e",
+      "sha256": "96ebb7ec8a51599a1b283af1e66cbf6f31ffe6054060c839f2926f3d0c2c4956",
+      "lf_sha256": "1dc92d19567aaa7f81cbcb04d7368c177775fd7191b654636841a9a6ccb0c490"
+    },
+    "Config/ProjectApollo/AS-204 Flight Sequence Program.txt": {
+      "git_blob": "f3e3f9246efc6c6b943c1a2f02b002c920dd519f",
+      "sha256": "a2646127641b153e64fe03f84707682cce50b8d5e046d846c48d7fb2f2c7e2b1",
+      "lf_sha256": "0885095651679265088758c56029878dd72e8c669d8931ccaaaf3603e6827307"
+    },
+    "Config/ProjectApollo/AS-206 Flight Sequence Program.txt": {
+      "git_blob": "f55766bea9ce98dde7596bc6bc33b6372b71f357",
+      "sha256": "42eaa390cd2b82c2a07371bc09ae6f960859cefeda8cfbca9dd665ad98cf6685",
+      "lf_sha256": "e4df15e1f8bcd38662b171be4ca551039730e7c3912aadf7f4cdfde57f01ece8"
+    },
+    "Config/ProjectApollo/AS-210 Flight Sequence Program.txt": {
+      "git_blob": "abfa2433174eebd69acf56316bd777a98b063734",
+      "sha256": "28fd83fff75e609072fb20288d97c37274de9a768be59e6e8c7f1c69b3985233",
+      "lf_sha256": "3429aa56e80b959334fda3af3668cff763e9c0d61d61bbaebe340be615ba7689"
+    },
+    "Config/ProjectApollo/AS-503 Flight Sequence Program.txt": {
+      "git_blob": "780f0765dd2ad10949b0a644800d560452b7309e",
+      "sha256": "cf8be651f955886957f7d13579052fab87f1aa59dcd336abfa2e22412ae2895a",
+      "lf_sha256": "1f980ac17a11b7e748c824196e45e028c0b9f1328d07b7a4487e1c8476f64ed9"
+    },
+    "Config/ProjectApollo/AS-504 Flight Sequence Program.txt": {
+      "git_blob": "adf18a76cbb808ca38815bd03090d7770862007e",
+      "sha256": "0d8c9a793cbcd66804b4e7403811a09cf81de16d851c2f7ab2c78b19f3dd9f19",
+      "lf_sha256": "4ffb93ac0c2e86dfa0b1b9d18ce42005a26eeb8d4ca1f8ae2b9c250fc5514e73"
+    },
+    "Config/ProjectApollo/AS-505 Flight Sequence Program.txt": {
+      "git_blob": "ea8cc0efb0d6fdc9b09d25cc8d87464fc85ba0c1",
+      "sha256": "19f11ba1fb58eae65e8610797711350b62aa60b6d5e283b4ec8d454eba1385dc",
+      "lf_sha256": "b8bbf248d7605c4eacd78e043e249550b73ef8b8bf13b50ded8d2bb2bcd703bb"
+    },
+    "Config/ProjectApollo/AS-506 Flight Sequence Program.txt": {
+      "git_blob": "ea8cc0efb0d6fdc9b09d25cc8d87464fc85ba0c1",
+      "sha256": "19f11ba1fb58eae65e8610797711350b62aa60b6d5e283b4ec8d454eba1385dc",
+      "lf_sha256": "b8bbf248d7605c4eacd78e043e249550b73ef8b8bf13b50ded8d2bb2bcd703bb"
+    },
+    "Config/ProjectApollo/AS-507 Flight Sequence Program.txt": {
+      "git_blob": "0f07693b6168948b9c4fdf40e7e7f8247ecbdcc3",
+      "sha256": "b4734b045b75e9fa1e1279df50d6d756e3674c8152eebcd68f79dc6189316607",
+      "lf_sha256": "d3d77b203aa5fc8136ea2b2b44ddc10bbab016923ad17c9cbfaa725b2ebb2fc7"
+    },
+    "Config/ProjectApollo/ASTP.cfg": {
+      "git_blob": "e73398a15ccaa45b35e94927aa2531da27cdaf37",
+      "sha256": "fcfb6115eee45c47030b9dfe33edda6a517d7b7b8ed002e9d65b42bbdecfc20b",
+      "lf_sha256": "fcfb6115eee45c47030b9dfe33edda6a517d7b7b8ed002e9d65b42bbdecfc20b"
+    },
+    "Config/ProjectApollo/AlsepLSM.cfg": {
+      "git_blob": "3e34873688749b4f015dcf773800cd83ea6136cb",
+      "sha256": "95ff0e87582ba07487f6d508074f4233ce657cd14e39cbb1e0fa4b6bbe52cc13",
+      "lf_sha256": "95ff0e87582ba07487f6d508074f4233ce657cd14e39cbb1e0fa4b6bbe52cc13"
+    },
+    "Config/ProjectApollo/AlsepPSE.cfg": {
+      "git_blob": "5342c7d71d84b0ea94876835c4d494e35f282189",
+      "sha256": "3ba1b4281debb1d5a113f996d6091f718a36fbb137bb708d7207138bb5766a75",
+      "lf_sha256": "3ba1b4281debb1d5a113f996d6091f718a36fbb137bb708d7207138bb5766a75"
+    },
+    "Config/ProjectApollo/AlsepRTG.cfg": {
+      "git_blob": "f662c19b56a79d2776878f3a5a2849e2d11db5b6",
+      "sha256": "30efdbe9f58680ac26c05ea0ddaf12efffe3acc93269bc0feeb06274b36f0565",
+      "lf_sha256": "30efdbe9f58680ac26c05ea0ddaf12efffe3acc93269bc0feeb06274b36f0565"
+    },
+    "Config/ProjectApollo/AlsepSBnd.cfg": {
+      "git_blob": "bbcdd3aafc2f422b566f64f8382004c68163ba70",
+      "sha256": "b62d464d9079c9a3ccd42644a8f3e11347fafdead989bb674b3586b23085a6f1",
+      "lf_sha256": "b62d464d9079c9a3ccd42644a8f3e11347fafdead989bb674b3586b23085a6f1"
+    },
+    "Config/ProjectApollo/AlsepSIDE.cfg": {
+      "git_blob": "0efd363aca7213d6d6559ec7b3ba2499ce0ab49a",
+      "sha256": "9d3e38e4561dc1be744ad92b6dc4685a87139aa298fc65132dccb3429fe316b5",
+      "lf_sha256": "9d3e38e4561dc1be744ad92b6dc4685a87139aa298fc65132dccb3429fe316b5"
+    },
+    "Config/ProjectApollo/AlsepSWS.cfg": {
+      "git_blob": "6b037e12a4bdac22dd1317c6559e42ba65cdfde6",
+      "sha256": "e6268ddb4e5d7d8c94192d83db00fce3394cea371e0d1dbb58507a269b623387",
+      "lf_sha256": "e6268ddb4e5d7d8c94192d83db00fce3394cea371e0d1dbb58507a269b623387"
+    },
+    "Config/ProjectApollo/AlsepStation.cfg": {
+      "git_blob": "51c3e08253cec0a7d2c4e97dd68b5e2b74d0a7f3",
+      "sha256": "6992a9e6cd9cfea655274004f207f89923e41d6bd618dbc91d75921d2ba24b10",
+      "lf_sha256": "6992a9e6cd9cfea655274004f207f89923e41d6bd618dbc91d75921d2ba24b10"
+    },
+    "Config/ProjectApollo/AlsepTV.cfg": {
+      "git_blob": "15ee873869d8e147bb74cc2509bf3da7597a8669",
+      "sha256": "2d63dfd235dfebbbc2fe7dedd90b7b9134e82a66b0f956dd51d952301799a9a0",
+      "lf_sha256": "2d63dfd235dfebbbc2fe7dedd90b7b9134e82a66b0f956dd51d952301799a9a0"
+    },
+    "Config/ProjectApollo/Artemis072.bin": {
+      "git_blob": "f33fba87626a8c1fbc2668fdf5549bec0eeb1e8f",
+      "sha256": "ede3a6733d36f25a27704294012642fd18b1aca7b2331ab125d9cd9deea2d60a"
+    },
+    "Config/ProjectApollo/Artemis072NBY71.bin": {
+      "git_blob": "99e366857211e65045df36c5974baf1ae3a83cfb",
+      "sha256": "cc3910ad74b4c74e88eec8a10dc7ea0c69491d1bdfbca78f16f5f10bc377e979"
+    },
+    "Config/ProjectApollo/CMBapex.cfg": {
+      "git_blob": "255e1166eb37adcb5dd2a466f99edf6b9d56eda9",
+      "sha256": "bdcd5d1caa707c73bb4660141c28c6d40a98fc5fc2f1941ba9cd88a3a11848df",
+      "lf_sha256": "bdcd5d1caa707c73bb4660141c28c6d40a98fc5fc2f1941ba9cd88a3a11848df"
+    },
+    "Config/ProjectApollo/CMOpticsCover.cfg": {
+      "git_blob": "7b0ae65415b11b5b6267890f676935014002e6bd",
+      "sha256": "e91e67db323bed012caef6d296ac2bf5d695592d02f072b29902f66b61888857",
+      "lf_sha256": "e91e67db323bed012caef6d296ac2bf5d695592d02f072b29902f66b61888857"
+    },
+    "Config/ProjectApollo/CMapex.cfg": {
+      "git_blob": "2441d6a75fd7d88f13df7d9fdac9430391f325d1",
+      "sha256": "72e845366c053a5d4888e1503878036209919cabddbf8de57b001086ce14c159",
+      "lf_sha256": "72e845366c053a5d4888e1503878036209919cabddbf8de57b001086ce14c159"
+    },
+    "Config/ProjectApollo/CMprobe.cfg": {
+      "git_blob": "1a77869089558c4407a2ab3805607e81adccae8f",
+      "sha256": "ede5ed34eee4f3fceea7822e4eb20f186a68fc3126099520f9220c4d69fe8e16",
+      "lf_sha256": "ede5ed34eee4f3fceea7822e4eb20f186a68fc3126099520f9220c4d69fe8e16"
+    },
+    "Config/ProjectApollo/Checkout/SVEDSTest.csv": {
+      "git_blob": "a0a94fcb9f8615bc70b8809315126c25325f6a3e",
+      "sha256": "a5ae2ac76b32b158957ccb4dac2bffd3ad5f0a55d2144ee1a659ab277e49e102",
+      "lf_sha256": "769314036387279597bbf1356ed7ca3872e6672f56a97f22f041e9391f6f9829"
+    },
+    "Config/ProjectApollo/Colossus237.bin": {
+      "git_blob": "03eaf3a59cff05b17a6a8cd9ad36ab070a95f10b",
+      "sha256": "6f1b907917f2850c3d33859496afa20964591c9b15660fa53bc9ea3f9d17426d"
+    },
+    "Config/ProjectApollo/Colossus249.bin": {
+      "git_blob": "88b97b114df827306379c2335029c88bc3e63285",
+      "sha256": "6153973f0438a14ee782ad38c4009dcd496ba81a9702b263c69dd165c212bb18"
+    },
+    "Config/ProjectApollo/Comanche055.bin": {
+      "git_blob": "82b6eba8cce8461d3000f8e0ba76803052c1ed77",
+      "sha256": "c822021d3c80f9687d1ef3b4c4f9c5dc673fe6a66337438c553c4f5b112e372a"
+    },
+    "Config/ProjectApollo/Comanche067.bin": {
+      "git_blob": "43c45b833ed2145058ec33a9d9a55c5235162258",
+      "sha256": "ed852287154a690e002b5dddbd2d583533347ffcf73c8c994dede13a77e17906"
+    },
+    "Config/ProjectApollo/Crawler.cfg": {
+      "git_blob": "b9d1e14fdddfdc255924e4702e52051deba4ae74",
+      "sha256": "fc4617d4ae267603b31fd34edd17a9c8c23b26d74b4908086b44754e3f6be0c0",
+      "lf_sha256": "fc4617d4ae267603b31fd34edd17a9c8c23b26d74b4908086b44754e3f6be0c0"
+    },
+    "Config/ProjectApollo/DSKYOut.cfg": {
+      "git_blob": "16c560ba4f4aa3ffe2640c0029ba2c2a40b57022",
+      "sha256": "803be428f5527125da60e83e866792cc12b0f53c99581bc5d7e7109bcf578aa5",
+      "lf_sha256": "803be428f5527125da60e83e866792cc12b0f53c99581bc5d7e7109bcf578aa5"
+    },
+    "Config/ProjectApollo/DrogueChute.cfg": {
+      "git_blob": "f1f588b1d143258fea77c67c29ddaf1366a0067e",
+      "sha256": "7c5a388fe29045487884d5e1a6382057ab16872f935240e7e9ec8387c8afb3ed",
+      "lf_sha256": "7c5a388fe29045487884d5e1a6382057ab16872f935240e7e9ec8387c8afb3ed"
+    },
+    "Config/ProjectApollo/EVA.cfg": {
+      "git_blob": "7da13fa362efa5c4253b66181dd649afd3ca7cbc",
+      "sha256": "cb7df27b6ae52f864c0d57cf8d6bf0924185fbeae336e1e803004d1a42c59c02",
+      "lf_sha256": "cb7df27b6ae52f864c0d57cf8d6bf0924185fbeae336e1e803004d1a42c59c02"
+    },
+    "Config/ProjectApollo/Earth_VirtualAGC.cfg": {
+      "git_blob": "f8d1162dbda6eba29ddf01c6e9ba3e785c7f9b64",
+      "sha256": "14ec749ded173a1eed2afe8da67e052652141e4bfac325a5e9692265deacfe6c",
+      "lf_sha256": "14ec749ded173a1eed2afe8da67e052652141e4bfac325a5e9692265deacfe6c"
+    },
+    "Config/ProjectApollo/Earth_VirtualAGC/Base/Canaveral_VirtualAGC.cfg": {
+      "git_blob": "bc7c3c5a6b2f0de583bb3801bd94a5dc70f37c5f",
+      "sha256": "4b92fe7cc721f0de5e69211fbdf0c13625bd53ab47d7c408b1526de7f87d2b94",
+      "lf_sha256": "4b92fe7cc721f0de5e69211fbdf0c13625bd53ab47d7c408b1526de7f87d2b94"
+    },
+    "Config/ProjectApollo/Earth_VirtualAGC/Label.cfg": {
+      "git_blob": "446d88b0b6ff5eedf5d329b727bdb6f9f2043195",
+      "sha256": "c3a457376edde524d0a1d673bd6d42534c53ea336816b61bd15098163cef439e",
+      "lf_sha256": "c4e1c1d64aec7f8dda8674e1eb38adaf3e020ff456c532f38a76b83d5a87b6a5"
+    },
+    "Config/ProjectApollo/EasepLR3.cfg": {
+      "git_blob": "64cc1f3610a174d6c41224b783af48a4cf91488c",
+      "sha256": "64f1f24f01efccf55938ea3ba82f4f3785fa17aef8cc01ab27621603c81be6bf",
+      "lf_sha256": "64f1f24f01efccf55938ea3ba82f4f3785fa17aef8cc01ab27621603c81be6bf"
+    },
+    "Config/ProjectApollo/EasepPSEP.cfg": {
+      "git_blob": "f1f5a0ed25ed0ba1e55e2e5bfb24146dbb14ec43",
+      "sha256": "942cc96d7867565499b7e7fcfa075eb2cedfbb1db84abe72ce8d0dc1dedeaa25",
+      "lf_sha256": "942cc96d7867565499b7e7fcfa075eb2cedfbb1db84abe72ce8d0dc1dedeaa25"
+    },
+    "Config/ProjectApollo/EasepSWC.cfg": {
+      "git_blob": "eaa9b856b7ea43830ce8b7b48a24cc02de4fa304",
+      "sha256": "c474a81fdb389a03d8a060558945a3aafca99f2c248cc0bac6d7d0db3fad09af",
+      "lf_sha256": "c474a81fdb389a03d8a060558945a3aafca99f2c248cc0bac6d7d0db3fad09af"
+    },
+    "Config/ProjectApollo/EasepTV.cfg": {
+      "git_blob": "e714693263b00c74c971bc1cef9fb8f940034b80",
+      "sha256": "7f9b11335f3f3417d30193772a108c2d76aca780038ec9fceed334c2c6c955cc",
+      "lf_sha256": "7f9b11335f3f3417d30193772a108c2d76aca780038ec9fceed334c2c6c955cc"
+    },
+    "Config/ProjectApollo/FP6.bin": {
+      "git_blob": "4044a9fdcd0b0eace3373581e81d73351c4a1c13",
+      "sha256": "5f9326c0d8bc0b1917deaed0a6c1dc3b5037d5260e7369cbfe6b10b0d8e55468"
+    },
+    "Config/ProjectApollo/FP8.bin": {
+      "git_blob": "bdf4463a3d19c561dffc411474dab4466c0aca51",
+      "sha256": "ff441d4d4e5c20ab5b3d50a7ee5fe86576563496babe288530880afb235e1806"
+    },
+    "Config/ProjectApollo/FloatBag.cfg": {
+      "git_blob": "c1a35e2d23c320eabe54d6c4f95f7c1786701f20",
+      "sha256": "05a04374618608d2e70fc380c09241a9a0718c62a243ee2930a6a9c79d1efc42",
+      "lf_sha256": "05a04374618608d2e70fc380c09241a9a0718c62a243ee2930a6a9c79d1efc42"
+    },
+    "Config/ProjectApollo/Floodlight.cfg": {
+      "git_blob": "17ae3e537aea5eb83963e8de758cf085ce6f3cf7",
+      "sha256": "ccc5f736f23d12296678260cd21fa35cb7386dfa5a63c8854dc05029cadf4dfc",
+      "lf_sha256": "ccc5f736f23d12296678260cd21fa35cb7386dfa5a63c8854dc05029cadf4dfc"
+    },
+    "Config/ProjectApollo/H-Mission Flight Sequence Program.txt": {
+      "git_blob": "c9c9579c6d1f22449cbb981d249211fdc082d338",
+      "sha256": "cf79042900c8c1efffdf13a5d372bc66f4f23ec5cf007093a0cbfbfb9ec27268",
+      "lf_sha256": "88383a5cb4fde32130b2f0bded7463adb06342d27608c0b75a679bd58f255faf"
+    },
+    "Config/ProjectApollo/J-Mission Flight Sequence Program.txt": {
+      "git_blob": "5e720c7aecf51344a0871bc3df500ffcb41c4dcf",
+      "sha256": "667f5ce2ecf85097513d7f895505f08e9e062b9961af3279aec9b3f2b7162a67",
+      "lf_sha256": "580a0528c5fcfa1f25ec50a7217c6ecd570b77370627ad8a129342a594ce898b"
+    },
+    "Config/ProjectApollo/LC34.cfg": {
+      "git_blob": "23c74e03e65999178a6bb25e9204f22481333f92",
+      "sha256": "12dc163aeb42f25067081903900bf9cb883010b374d9877df000ff3e3acabbdc",
+      "lf_sha256": "12dc163aeb42f25067081903900bf9cb883010b374d9877df000ff3e3acabbdc"
+    },
+    "Config/ProjectApollo/LC37.cfg": {
+      "git_blob": "55eb50162eb7ccda638363a09916e8e0bb6f6d52",
+      "sha256": "8a4a31ae4f7308f2ca19c66275296419a7ae2976164b63f81d37ab1f335bf2c5",
+      "lf_sha256": "8a4a31ae4f7308f2ca19c66275296419a7ae2976164b63f81d37ab1f335bf2c5"
+    },
+    "Config/ProjectApollo/LCC.cfg": {
+      "git_blob": "c8c5962c4940fa37e7d8ad1084e2cbb2ee213a01",
+      "sha256": "612ac1109b216d6cc1f9648426b782b269cfc46c8dbff88e43ab059da1dfc0f7",
+      "lf_sha256": "1daa41905d392323777c922ac509f88e0b8dbe505531c4b3755e275ce117887d"
+    },
+    "Config/ProjectApollo/LEM.cfg": {
+      "git_blob": "d248e6caa3d9927922c56a5cf55ab51c8c516d59",
+      "sha256": "93640f3617f9648b409d66e3150f1cf41ed0ab2bfd45103033dde88b9f3c5737",
+      "lf_sha256": "93640f3617f9648b409d66e3150f1cf41ed0ab2bfd45103033dde88b9f3c5737"
+    },
+    "Config/ProjectApollo/LEMSaturn.cfg": {
+      "git_blob": "e6459ad802a2a2c3de187fda8a1bb5af402ff8b3",
+      "sha256": "78d7266ad5859952a2aa331d1654128c6b11018f842c7ac734d15832e5e4e3d9",
+      "lf_sha256": "78d7266ad5859952a2aa331d1654128c6b11018f842c7ac734d15832e5e4e3d9"
+    },
+    "Config/ProjectApollo/LEMSystems.cfg": {
+      "git_blob": "c040746d770251bd163f4ddf1e6a7553485f02f4",
+      "sha256": "f18bc72e4cf6f1028f21d89e766a2cee13e1b22a1de8f79d7b1fe96736c10ded",
+      "lf_sha256": "f18bc72e4cf6f1028f21d89e766a2cee13e1b22a1de8f79d7b1fe96736c10ded"
+    },
+    "Config/ProjectApollo/LES.cfg": {
+      "git_blob": "845f93332e19eca85a0583a6cf1c431b259b6cb5",
+      "sha256": "e85d21ddbeac3d310bcc743de1fc36d84d48adc53b9b5f93c8ccb2d6af9a9d04",
+      "lf_sha256": "e85d21ddbeac3d310bcc743de1fc36d84d48adc53b9b5f93c8ccb2d6af9a9d04"
+    },
+    "Config/ProjectApollo/LEVA.cfg": {
+      "git_blob": "2f5ad1f4da8b25074ce955c207cb1f629894053b",
+      "sha256": "5b2dfb02ea3b841e3dca1313085896271c70f73266ed344f9782d7d49116d433",
+      "lf_sha256": "5b2dfb02ea3b841e3dca1313085896271c70f73266ed344f9782d7d49116d433"
+    },
+    "Config/ProjectApollo/LM131R1.bin": {
+      "git_blob": "7442194aecd0a66ccf8e89aad5e3d94ccffc59e3",
+      "sha256": "ae4f9e51ac9491c3da6462233936daeffc16277cd302c43a70b8459ebcd6cca5"
+    },
+    "Config/ProjectApollo/LRV.cfg": {
+      "git_blob": "c49819cd04ff712ab7c05e31a05336d315720f8a",
+      "sha256": "2edff7b1abc3bad307fa6e96d6291dc269f31f44dad258d826a60e1368aa7071",
+      "lf_sha256": "2edff7b1abc3bad307fa6e96d6291dc269f31f44dad258d826a60e1368aa7071"
+    },
+    "Config/ProjectApollo/LUM69R2.bin": {
+      "git_blob": "77a7364f452f4f1ebeaec495544a8c71dbb736b7",
+      "sha256": "a163ae0c4ef77ae60c54b73510ea0a145f07d82040565acbbd55d2488c76a7dd"
+    },
+    "Config/ProjectApollo/Luminary099.bin": {
+      "git_blob": "665e21ac31fc330b448b814a249012445f632229",
+      "sha256": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1"
+    },
+    "Config/ProjectApollo/Luminary116.bin": {
+      "git_blob": "6edb4b0b85026412f053f766980496ac5c11fab7",
+      "sha256": "c0a5ad746af3d399c9955a14e2fccbe6d2f4d465f36152c0c78b7bcb652310c7"
+    },
+    "Config/ProjectApollo/Luminary131.bin": {
+      "git_blob": "56a0ef245d9ea3f29e7e4e0dd8730ad13d770840",
+      "sha256": "82759b258376dd638ab7926cee654c20553033ed47e484f75c2ceff52a03977d"
+    },
+    "Config/ProjectApollo/Luminary178.bin": {
+      "git_blob": "b89462cb2971826915d7dd37de3547b85037b107",
+      "sha256": "9236fa935709d282999f33d025f31f14dd50711660c273b8924b711d0b7d17ad"
+    },
+    "Config/ProjectApollo/Luminary210.bin": {
+      "git_blob": "a0f2ddee3e1c7bfa15d8d198ca235b59da604358",
+      "sha256": "61f3077b674ecfbfbe9aced0c80952b46dbbc3d384d6fd9552495c66c3600e00"
+    },
+    "Config/ProjectApollo/MCC.cfg": {
+      "git_blob": "f44f28251c144bc9ac29c0803c90c88c92b57c49",
+      "sha256": "e1882b50fda04d9a3040d4a4658b669be7d4f868f041f8c7063f15e1041d0b02",
+      "lf_sha256": "2ada12bfcf1a8ef606b3cbddf734db124fe2661fda1373e702925bb68c086234"
+    },
+    "Config/ProjectApollo/ML.cfg": {
+      "git_blob": "6e390fc39c6d4c4c7b47ffb37bfd6fce227bd46b",
+      "sha256": "cdb1151e4a5263c0cdc53a326f28fc7bce4b792d900e0e35f62d322e024f4242",
+      "lf_sha256": "cdb1151e4a5263c0cdc53a326f28fc7bce4b792d900e0e35f62d322e024f4242"
+    },
+    "Config/ProjectApollo/ML_SaturnIB.cfg": {
+      "git_blob": "dbbaf0774b84a3c20e51120ccccac00d65e51afb",
+      "sha256": "0813395829ec9559ef8570f3fcb6731625dcc71305e135d3c785ae9f65257142",
+      "lf_sha256": "0813395829ec9559ef8570f3fcb6731625dcc71305e135d3c785ae9f65257142"
+    },
+    "Config/ProjectApollo/MSS.cfg": {
+      "git_blob": "bfdc04f1a6ce72a8617f3717b79a6735ae6379db",
+      "sha256": "0efad829399094186bc8013df9c25d50caca3bba06c2446c553e957802581111",
+      "lf_sha256": "0efad829399094186bc8013df9c25d50caca3bba06c2446c553e957802581111"
+    },
+    "Config/ProjectApollo/MainChute.cfg": {
+      "git_blob": "0dc8b0ab63f3bccdde967bfaf734b132fc65667d",
+      "sha256": "a181f9e47899eb2df7aec8b0e33b282f345399b7c9688403b75ba719f21fef00",
+      "lf_sha256": "a181f9e47899eb2df7aec8b0e33b282f345399b7c9688403b75ba719f21fef00"
+    },
+    "Config/ProjectApollo/Manche45R2.bin": {
+      "git_blob": "6744592ce334a6d8cae2decdbb46c3ad602cfa13",
+      "sha256": "3b0e87541b3b8eec5710b23f983f38a225c2042e36c84949df52416ecd51818d"
+    },
+    "Config/ProjectApollo/Manche72R3.bin": {
+      "git_blob": "b558952727099424c6a6dc2b3b87375d9ea5f214",
+      "sha256": "420548f25ce95c2ab36c4c7c0505dc17c3ab77840eb9d5f9a5aecc968bb40b02"
+    },
+    "Config/ProjectApollo/Moon.PlannedLandingSites.cfg": {
+      "git_blob": "9fc35e31ac3e9dc46d344f2fcbcda283ce4e2c42",
+      "sha256": "5de0ee32e2187b7b3044a384149659752706d3aaa27482373c450c587a00dd32",
+      "lf_sha256": "5de0ee32e2187b7b3044a384149659752706d3aaa27482373c450c587a00dd32"
+    },
+    "Config/ProjectApollo/Moon.cfg": {
+      "git_blob": "f68fb0e465d44acca99fb794a101ae0e502b232a",
+      "sha256": "5f0caf8b252c8821e1851dc534cb0029c57c722714dfc62628490e091c3483b5",
+      "lf_sha256": "5f0caf8b252c8821e1851dc534cb0029c57c722714dfc62628490e091c3483b5"
+    },
+    "Config/ProjectApollo/Moon/Base/Descartes.cfg": {
+      "git_blob": "0f966e8f716db166ffd4213b60ba9fa789359404",
+      "sha256": "03e57b5e431f1172d46d16ff7ab74d1b47d9791a88152d76729af86817878f81",
+      "lf_sha256": "03e57b5e431f1172d46d16ff7ab74d1b47d9791a88152d76729af86817878f81"
+    },
+    "Config/ProjectApollo/Moon/Base/Fra Mauro.cfg": {
+      "git_blob": "b3a605afca4cbaf5293eb5fc51e098d27f14142e",
+      "sha256": "29d87ad3f076f8bec6a9ddf8976a6c299efc2ea3c7e651df6811f3917a400d91",
+      "lf_sha256": "29d87ad3f076f8bec6a9ddf8976a6c299efc2ea3c7e651df6811f3917a400d91"
+    },
+    "Config/ProjectApollo/Moon/Base/Hadley.cfg": {
+      "git_blob": "5b51bd110d96188b86556757d6c88b38bb90b415",
+      "sha256": "fa91c7b2a39e27e0931f1e66d82fa209d566b58f426f56c0150c6d82e1f0268f",
+      "lf_sha256": "fa91c7b2a39e27e0931f1e66d82fa209d566b58f426f56c0150c6d82e1f0268f"
+    },
+    "Config/ProjectApollo/Moon/Base/Oceanus Procellarum.cfg": {
+      "git_blob": "f29bbdb6440b76d605386b407613ade2c56adf26",
+      "sha256": "b578eb2d10ba013b15b3d82fdb4f9950321bbfe375a0255c000ce0e5d53a5564",
+      "lf_sha256": "b578eb2d10ba013b15b3d82fdb4f9950321bbfe375a0255c000ce0e5d53a5564"
+    },
+    "Config/ProjectApollo/Moon/Base/Taurus-Littrow.cfg": {
+      "git_blob": "d960eaf8a44c6fc2a1cfad02ab744bb8cd853ad5",
+      "sha256": "a89808e788348a2188a133ab86cdd11092d37390c9153f633e703f82ff97f5d5",
+      "lf_sha256": "a89808e788348a2188a133ab86cdd11092d37390c9153f633e703f82ff97f5d5"
+    },
+    "Config/ProjectApollo/Moon/Base/Tranquillity.cfg": {
+      "git_blob": "aa2aaeffb8fe199bae479ddf84a861d0870c1a62",
+      "sha256": "cf6c3c98bebc946656dc034b498997558c41a0ecb6f8be4c2662f05d401e9646",
+      "lf_sha256": "cf6c3c98bebc946656dc034b498997558c41a0ecb6f8be4c2662f05d401e9646"
+    },
+    "Config/ProjectApollo/Moon/Label.cfg": {
+      "git_blob": "c5d9e10b37e1bffc4f93dccb6c8b5fb721023ff1",
+      "sha256": "d144014f5f4a545f549d36efff0619d5acfb3298e84984a0977dd07df1e8939e",
+      "lf_sha256": "1737e61d49d10aef413d256d5e6c300f7eb8d1d71b6d3ed8293118c923577747"
+    },
+    "Config/ProjectApollo/RTCC/1968-12-21 Init.txt": {
+      "git_blob": "07720a7e64d5745a780e5ebd7a295b239c4a2d4b",
+      "sha256": "39c7c7f5f249ce241b73304e03f4bc032c2dcd1b9848fb80b5d0ef5fcf43c283",
+      "lf_sha256": "6d7aa8e2145f17be98ff3c32631e1972d7f40fe0f28b6011f566b0f915e1a3e2"
+    },
+    "Config/ProjectApollo/RTCC/1969-05-18 Init.txt": {
+      "git_blob": "d238741d87449550350eef6904f65a832d81d271",
+      "sha256": "13b3b99e618f903dce321f6d210ebc85432cf5aba6afc28f5c9062baf07feb4c",
+      "lf_sha256": "aa9eff48b0cbb451e896510f0cf5e831ff802a4975b6de9a388f3f868682aee8"
+    },
+    "Config/ProjectApollo/RTCC/1969-07-16 Init.txt": {
+      "git_blob": "83808365e705595d7c66b2994a92869513d5064a",
+      "sha256": "454b30aa255fa0426d125d61e88245db50721659a5ee86f76b2303af85e1573f",
+      "lf_sha256": "7d1cf57250d61078d63412044c1cf27f2c2cf5e5ebdfb43cb80905325cdfecd8"
+    },
+    "Config/ProjectApollo/RTCC/1969-07-18 Init.txt": {
+      "git_blob": "8caf3047e4dff36978896bc37e89d37b0230f7b5",
+      "sha256": "8cee9d4053c4a981da350ac123ad57245f4be8b1e83d4558e2f35cd22c062409",
+      "lf_sha256": "6135b7a4ecf5a641e060f870c864996c5c5acc974fdc2154e9408b0b4f0619cd"
+    },
+    "Config/ProjectApollo/RTCC/1969-07-21 Init.txt": {
+      "git_blob": "bac6a17dad7c852c74d1a1e2883d023fc290e27a",
+      "sha256": "458ae65f6ebc4157edf5a08be507d181f00aa25705bdccaad40ac6960ce4e4c0",
+      "lf_sha256": "bdda7ea35aa6fa33a2eda5927d82ac4025ab7ec56c7303d24cb777d5e358fd4d"
+    },
+    "Config/ProjectApollo/RTCC/1969-11-14 Init.txt": {
+      "git_blob": "458a9190f2414c2f9e73e68975a955c0f9a92120",
+      "sha256": "594d3e74f8246dd4b22ae905c9ecaeb2483b20de4273567343c460de07b16a5f",
+      "lf_sha256": "d1f8e6c9a6333aadb45ed138ed25f60a8e000dc5fb85f6d4b396da4c86cea633"
+    },
+    "Config/ProjectApollo/RTCC/1970-04-11 Init.txt": {
+      "git_blob": "802cc0b02e32b140d4dddad539104455031849a2",
+      "sha256": "37825efb5f69e23d1f9bc0f2a2b530a58a6a7f30b133d2f468a874f1ccce89ea",
+      "lf_sha256": "bc9105af6df54e91333821612a69061d3b82391295c6a6af578b738a9d80d5a4"
+    },
+    "Config/ProjectApollo/RTCC/1971-01-31 Init.txt": {
+      "git_blob": "37d83a70c9b192c17c4577dd31ff9f5fd3328f3f",
+      "sha256": "129b4f4df6afbcd6695ac3dc701c8bbebcb3535db3d279851371ff693f161d1e",
+      "lf_sha256": "52e9fd8c40b282ca5390d476f81c5fb993fefe4552b85821324e78b770364769"
+    },
+    "Config/ProjectApollo/RTCC/1971-07-26 Init.txt": {
+      "git_blob": "ed1fe074317c92cbfc2bb042d5125366d1d46163",
+      "sha256": "4bb185aa9d4cc6de6af2307eaaae9e770d05beb7070ad9bea68f1bc9eff9b3c3",
+      "lf_sha256": "d5365e0228fd54d415a4f5c206843f0f92db1484bc33aa2fa2d7afe71fac78c7"
+    },
+    "Config/ProjectApollo/RTCC/1972-04-16 Init.txt": {
+      "git_blob": "eb0bd4a210900a2b5e045b5c2697ec64d6c580a2",
+      "sha256": "d6ab5cc4f2f61fa37f5838217aa43006dcf55bbc339ddf0f21366f14d831aca3",
+      "lf_sha256": "e8e37e13910b93756aa54ae101e4c6386afb768b404d53e4cc4367963f7c4076"
+    },
+    "Config/ProjectApollo/RTCC/1972-12-07 Init.txt": {
+      "git_blob": "e9863f49944864b8b376e0af7a1dadd4f04a36fc",
+      "sha256": "bfda2f39c1e3ce053110017d9e920876156bda7eb17dbd9be345352e8b8d6a02",
+      "lf_sha256": "df179f87b334b56dabb1120b03506d3a96671790deabe611d9f27b395203cbe3"
+    },
+    "Config/ProjectApollo/RTCC/ASTP Constants.txt": {
+      "git_blob": "bd3b7dd14f1ac67e31129b8e0c3204e44845b0ef",
+      "sha256": "19b52d7c6c11cdec02ba52904bbedaed6b81ea3049fcf8ff7f4250aa02828c32",
+      "lf_sha256": "2c273b41df2fffbe6635fdac37da37df4ff26b1e5ed23c9e8d3b50ae1236fb06"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 10 Constants.txt": {
+      "git_blob": "c68f36197c7ae4ef0e5046bd734b3fb59b13d163",
+      "sha256": "ef4a7e99a21df48472e1abc40567bbcf07efc1d826e82df53b123fe613d3091b",
+      "lf_sha256": "b97abb281fcb7c4ef31cd93a822906202381ab5b3161281cd315408661529be5"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 10 SFP.txt": {
+      "git_blob": "7d57ad79dbb6e6a5c1e771e11d5910033d20d8c0",
+      "sha256": "de4b67eb35403d01e1b949f2fd8b1a2a6cae4a90c1fef4319b0e27267f9f9ce9",
+      "lf_sha256": "750ce67d7770b9c21a242fc44389304a2b7e7d7b68fb3ded2e547a8b961d1bcb"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 10 TLI.txt": {
+      "git_blob": "a682c4ec400a5a6d5481374fd475012434dd66f8",
+      "sha256": "ab82d580a47ce7cab18e8c99e0bb167e3e9da4d8774a60a525bea6c8bddb5fd0",
+      "lf_sha256": "e53631f616f3bf2bdeea76628981bbaa8f9ac3595454c3c3e53079709ea22aad"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 11 Constants.txt": {
+      "git_blob": "ccb1972171aff5fd67ef6892f08a6793369550a2",
+      "sha256": "7feb61ef993d1e249dd94ed20ee33da94c74ea2f2109b82f6eec616dd6a785dc",
+      "lf_sha256": "e29b30e836a31d6b46ef9a13ba5f0acda0554ac09435bf0a2ec9d2d3c13d2118"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 11 SFP.txt": {
+      "git_blob": "6ca4a77af6952cd5b5b34b02478f5c6dbc43cc42",
+      "sha256": "8dbf7573fb43b886590537c93d4e7793d8d7ff820346461f1c369db9fa93d9d8",
+      "lf_sha256": "677e9beabb74df1d1f046ad69c26cb7675b1e0a3e4708fe20d365c363e0680d3"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 11 TLI.txt": {
+      "git_blob": "cf90a7e7f8aaa3608ad5ecb0121553ba9643ab96",
+      "sha256": "59b55155808c2e8cd38bf0576140defa6083b307aaea4c175ec751d35b0b87e3",
+      "lf_sha256": "65e81be63d85cd57872945bb67304bc3b897b55fb3cd0aa57e6bb7729222dd15"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 12 Constants.txt": {
+      "git_blob": "daff9604c1f742adf8fb228f3be3d1c7182551b8",
+      "sha256": "9a33d275bf06303d623fba72dd1d39d668d1e694621dd0fcbd110d7e9b682824",
+      "lf_sha256": "c5679e542b08f3dfb39381ed1e95b5afe1574c34925c7ea85e53a38c9f8969e4"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 12 SFP.txt": {
+      "git_blob": "6ff9c0a37b5f89be12d64cefb5af36c5ef755952",
+      "sha256": "c0e86a3a308d074b18569c624c97ae6ad2a0bc0642707802190949e371f5da94",
+      "lf_sha256": "3197ac9f6a79aa66069ff7212f24a1de68b7f592b711065c83a1a27bcc448494"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 12 TLI.txt": {
+      "git_blob": "1972df2d419bc97a8aeab53393bf7f7f85975fe2",
+      "sha256": "681aa210336e669548a6367410ae7d492b8e680cd9012a16b0089d47730ec7f0",
+      "lf_sha256": "0d2d735658f80a1bd176301805a69a40d89709ef7adc1ded22be19117e1b3280"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 13 Constants.txt": {
+      "git_blob": "9382ef4fce51f3d50a9d10ff200a5c2cad5ccf2f",
+      "sha256": "0f390240b1a76ec9d11041dd20550bbf64d48ef88793495d6a9e0d8f9eba2d5b",
+      "lf_sha256": "d5e6f262363724a52373484573287e9aa372c996d9e91f9233547547ee2cd84f"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 13 SFP.txt": {
+      "git_blob": "d3580a6aa7ed79b48694ee3f7f5a8a3d9c6eb576",
+      "sha256": "552ce386c7ad4c78b4cac469544e5cb9ced015b0c218aec59346ccd9df4596d6",
+      "lf_sha256": "5decbbe7c309ec3c1ef60eef776d706aede336f540a3fcd1756863178ca83505"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 13 TLI.txt": {
+      "git_blob": "51487ebb1aebc20459cdc40210a5f986f7c6302a",
+      "sha256": "8e303c48898ba61465c7dbe30a32d34986072dd2048a4cd204784640364d9d94",
+      "lf_sha256": "b01b11d7331aed4b53ac1ed9a74ec1657f5422e1115baecfc48a3873ce41d811"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 14 Constants.txt": {
+      "git_blob": "db6d6dcb707a286d77ac3088754769f5d5bb0aaf",
+      "sha256": "8edeb9dcd2af47ad6d0e7c1a699306232475883ef26199e7a0b1e103991a3ae5",
+      "lf_sha256": "0f764bf4f503c606db9d1b33e1fec9c8177ca7c0446ea699db2117d4a30fd2ef"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 14 SFP.txt": {
+      "git_blob": "83eca6ae09330bf9a9b523e47422a29d776d0fab",
+      "sha256": "9c7a1951a54604cca39b8d75cf0931675c8aa86237424653e6bd013715385a80",
+      "lf_sha256": "54d6ec19ab553d5a85ac238149a08880765ad923c8d5e0546e847ef744a23103"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 14 TLI.txt": {
+      "git_blob": "343bae4eb8cebe1fdb4ecaf7a755f063bb5b3ba9",
+      "sha256": "e0f87c00a70a57920a79c8c29d3b8a1fd579152f07d3a3c176e2c8b369cd4498",
+      "lf_sha256": "ee394f9a76e617e8b6d1fd7fe656284a512e8aefeb56c2bd8c08335359fc36c2"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 15 Constants.txt": {
+      "git_blob": "dd432bcc71fef21aa6c8683d367acf21e0294c1e",
+      "sha256": "937d2d4e5c20a4d19c2efff92c2257214834763951dd26e99a1d75340323afd7",
+      "lf_sha256": "a512cd1e3bc8bfadcb3a303a5572dab7175f56326a210fe99b35f045c7b724f4"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 15 SFP.txt": {
+      "git_blob": "d3d19cce33b6f5cdee9e57c740c992e2c1557542",
+      "sha256": "a25efde7aa55884436c62a2af5074834173a67767807399a7e9217b3bfc798b1",
+      "lf_sha256": "d7c1e20a3923ab07eff91f43d436b907144a0be619ce7180c525b829a9df8a5d"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 15 TLI.txt": {
+      "git_blob": "c58bd0b5b5439e75590e53087bc1bf3812d3301d",
+      "sha256": "01a5b785c6dd5bbb391e34f2622d9e03fab97f30931b813c48e435bf1f490b28",
+      "lf_sha256": "b204f5c1af0ecf5c5009f82ee691c603342bef506daff34e274c8a56a2519fe7"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 16 Constants.txt": {
+      "git_blob": "3aea8a86000a695c6386f2d80ae54b45fd80253a",
+      "sha256": "f1d4841fa5950f798b8ea7db2703f0c9d07f2e20396eeabf3fea5197eefc0e6d",
+      "lf_sha256": "7d78ab59eabeb97ef4735f95df21efcd9590909500edf7cde7caececeb792a82"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 16 SFP.txt": {
+      "git_blob": "eb60f510c5b1a78b6d723a4191058ebc6f32ae3f",
+      "sha256": "2338fcd6c7a5af07f8a3094921c3c8ef0245c4226b9c95f42db44f3852948a12",
+      "lf_sha256": "1a2aedb5e250984759b942b715aa767cbc1356465d90bb29c7016f69eff0f635"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 16 TLI.txt": {
+      "git_blob": "7f5b6f9633be927d46ca6e46779ffb29724864de",
+      "sha256": "589419bb9910a071d1caf7f9ce4e74746929b574c915b68c3d3f79f7a4d60e1c",
+      "lf_sha256": "019114f1e568f083159454cc1cb2b5144e2d9d543089d7dbcbe8649dca3ce448"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 17 Constants.txt": {
+      "git_blob": "5a32c29d5fd65cace55907576ea0ab4290292986",
+      "sha256": "b607092f931b03b0bc9070b24ae1e235eb2829955e8441e487487fceffe6af53",
+      "lf_sha256": "2fba51de169c2790591edaa60666994e8a2a5c66f1887b4dd6ed36d387f8ab59"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 17 SFP.txt": {
+      "git_blob": "5ac0258a3a2ebd815139876fa11a414b64039fd7",
+      "sha256": "46e5c4f9072d10c60e104ecaf8f5de7469d427a8a3a7b6ce3dd99793579d828c",
+      "lf_sha256": "0d28054415943a938be2fe8ba80664ffc3e9e7f8a70fde89fe55958788c0378c"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 17 TLI.txt": {
+      "git_blob": "0f7297101bc54a2bb06b7dd9956bf893327687aa",
+      "sha256": "d864fb02dcd039cd6e7d5c42f7ef764d7c5435c60f535c03fe2804ad570d2e4b",
+      "lf_sha256": "cf3d43f2523f3558ad858b0e58e3b43337da259a3e19ebb67ca6909891fda94f"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 5 Constants.txt": {
+      "git_blob": "f5358f8467f9b143621d4516ff5b075ea6145a97",
+      "sha256": "c78ac41190b9b8967d08ef2461eb743f9a3209f3e377e74e1ffb98df4b5ddfa8",
+      "lf_sha256": "3c0caec71cafb8d70bb09626d6c6eaa9fe497c5827e6a4d19bea9f0ced3aeeb3"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 7 Constants.txt": {
+      "git_blob": "58f0913a79a9113b59b1f4f2fcc5ac7d7a49bae4",
+      "sha256": "0c3ff66f8cb7ef64076c5fa6cfffd14cce28f584a22a82fa6eb101e88fb897dd",
+      "lf_sha256": "334dd10eb70d43c8ba536e470f8b6e863fe4d9b623ec5a4c19d5f619808a6036"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 8 Constants.txt": {
+      "git_blob": "77194d1fe87d3b2822f610c2e5251a3dbab2c5f5",
+      "sha256": "569e6713724aab1bc0fddd7117db5a18329d2f97271c46662430cf138afc9160",
+      "lf_sha256": "26e26c80f6401277759275848ae99986cbc702df78bd83ccccad05af6ccd607c"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 8 SFP.txt": {
+      "git_blob": "639c51cc7c9eeba5798318d2d968fc69a01a3713",
+      "sha256": "8a31075d432849704da7bbf00c47cc120680ff99c536a4291bd96ecde8622c66",
+      "lf_sha256": "91d2e88b01290d14906f4d0c849467fb728b7ba58d069d4ffbece462aa058d22"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 8 TLI.txt": {
+      "git_blob": "cf981adeea2ae77c101823ea83c81a9e2d4a6f0d",
+      "sha256": "f09dbe1fb903344f0ae2f9a549d705dd62655b72314be0cc52d71f22b85f70e2",
+      "lf_sha256": "f2943299819ea138a4cda04dd80119fb759cdf11644203643afdda3704ae919d"
+    },
+    "Config/ProjectApollo/RTCC/Apollo 9 Constants.txt": {
+      "git_blob": "fb3e2e4a626d6a34e0b977e778887885a198f094",
+      "sha256": "3b4934b9c6187ab2e38bae95892e4674c402ed655ffb394583a13ee5abf29c4c",
+      "lf_sha256": "ab966b3b422a116abf327593d77957350bbff4e50d6f5472d23e8abc7300ef76"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 100A.txt": {
+      "git_blob": "196f4b45db56cbbe02bbf2b32192eb8bcd991ca4",
+      "sha256": "c63b37af80aecd6b49c33e8eddd0e86771a911fa13a5971c7fd2ac0ccb496b61",
+      "lf_sha256": "86e5d9ff5798c1951ae06252778f669a78307f92652907809a253accf8a5f425"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 100B.txt": {
+      "git_blob": "c34d9b91c4c144f12a213005cf18cfe3f01476fe",
+      "sha256": "9e298fea6e1eeb77cccd59a29b8449aee2f50d0acc161722a5475241f5acf7db",
+      "lf_sha256": "133123066b80ac1595bf216bb039d5828a9bd02ba1c9eacd8703bc6bbe9c5aa5"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 103A.txt": {
+      "git_blob": "75c3baee70ddfbaeb4dd440d931e4e80844392c6",
+      "sha256": "23eff30e9e7d8876d8e43a03d6d34fdbbb2a8ae2acab31fbbebbafe324ffcafa",
+      "lf_sha256": "7944afa3631cc26cda32c6fb273261cb508b495daf592e290c3094af5e3aa0b7"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 103B.txt": {
+      "git_blob": "0ba43b9e2f6479edd01286f5b023ed3c08a53654",
+      "sha256": "a4692c739d7fc15071e143fbb80b2a9fd00c3e5761c24ca77baa1c42546e3da0",
+      "lf_sha256": "15660db4b214623954bf3a787d6e749fbc509c324f9fb7b556d29ba75a0ef1c5"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 108.txt": {
+      "git_blob": "7a671cd1e247de6f2a951f8551c39547a6f60841",
+      "sha256": "ce47f7bba2c7ebb1eb7494b4f6cba6d81bf772ff347d1dccf8f4f6acb13f2b6c",
+      "lf_sha256": "25139b974b8787cd42821df91b5633ba7dcbb24b04a98a5b5644c441e37b826a"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 500.txt": {
+      "git_blob": "bd80da3efe187d4f9165fcab3e5979bd4e15bb86",
+      "sha256": "4178438f146c3f62faceeac3c2b6d62f3fe5e17b38c322f8e9fbd26fd8b230fa",
+      "lf_sha256": "b6cf39ffc4cb651a052f2f0e386d1e1ace4a9ef8ef80e3e827fb6b024fa199cb"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 501.txt": {
+      "git_blob": "09cc0f226e22703c90e78dad3e14f26ee120b6ea",
+      "sha256": "4a73c40204ccf021a307424bd0f87dc189dfad9fdd91e0ad743d5ec33d351c5c",
+      "lf_sha256": "adec4cee06783a4d985ad55fb058c12fd2f4552d5ff08ac494a4805c9200b05a"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 512.txt": {
+      "git_blob": "bb13b039fa10c3f40a550aee84456ab1f119d3dd",
+      "sha256": "955032173f22ac2d1de9f35ca4b918ef8d3e12415050d0cc1165ab0c24bbb189",
+      "lf_sha256": "5469d728a2c4a37e83bb698f8d3673f55a8d39cbe8cc4a0f0cbc345262a508da"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 514.txt": {
+      "git_blob": "afd9c1c5e672ef711e34c397a9d783e4800cdc09",
+      "sha256": "15e072253ef68fc78fa8e066f8e79278df218218258b5ae06a89f5529c320e7e",
+      "lf_sha256": "817be23dcba3832ce82f95da9dc160b29fc64a23e01c8fa1a42efc63c9359635"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 515.txt": {
+      "git_blob": "789ab218edad21dd22aa6ef226158bfe8335e305",
+      "sha256": "89cf3951df447abd40a7eb112e46b1fee584fbc48ee59475f48443901321a5d2",
+      "lf_sha256": "aad9d567b857abd2199ef368d447727793412fb9cfeda276dd319206003ec34d"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 517.txt": {
+      "git_blob": "5482d7cc4029ffa8b657635cea555fc7908b97d3",
+      "sha256": "3b1bd4996f5fc7ccf67fc0def49285652d9585453cd00b6abdf844c2a19fa0f0",
+      "lf_sha256": "2db23311367e4002b097d9638dcb2cf52f8a1199597faf68e369271f7fbf1671"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 523.txt": {
+      "git_blob": "c5303c6d7279b3f07d8f9cbcec7b606db24cae91",
+      "sha256": "7b0e5ce32cd171ad02471cd8d9218ee19827d9ce56a649b26053bf44f0b81367",
+      "lf_sha256": "88534d45be7527b7b7bf1ae3387ccecb64996e885238d2be27e5d853d8354558"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 525A.txt": {
+      "git_blob": "94b47aedb2264aefdfcb2f1b9290322c8823e484",
+      "sha256": "7c6d6f2f22db95b392639f25224fe06431d29e5dbf63fd795f50abf855494708",
+      "lf_sha256": "005a5475f8047337ccb9f12d39e65783db0a245d6b2e30f411e1e716fbf0225d"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 526 (1 Deg).txt": {
+      "git_blob": "946487bf06a28f9bbc3e4be939ed3ff64cca5f14",
+      "sha256": "c40e05015dca6c6218fa17814af310a7aa9f0f197c98c36c47d90693eae76a17",
+      "lf_sha256": "20a671c5a885a1add09ed1e281fceaf6af2817dd2504b5c7498732e76cea01ca"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 526 (2 Deg).txt": {
+      "git_blob": "1c152756a4a480e2f77db68e8ecf5e3f6717f05f",
+      "sha256": "d2e030c24b735d0700d4202f22ebcd8a1155b42cea7a83b859793b1a6fbe90d0",
+      "lf_sha256": "721858f3f36f1b7dd096e8c949d5db6428ad69cac7fa99e055c3d6a3f4d8d4b5"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 526 (3 Deg).txt": {
+      "git_blob": "2e9533b15c2d43d4cbf5e21d9d991cc5394bc436",
+      "sha256": "1af84e2a57fdd91f23a9d87e5a5ccbd54b9810f144b0a4af38b05c675a57a54c",
+      "lf_sha256": "0f2a1e7563b1417f3023b449dcd648594b917378c02d69ee8b50562b80bf4b63"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 526 (4 Deg).txt": {
+      "git_blob": "054e61f6ea7378e90f2185dc968bfdd54f908ad9",
+      "sha256": "5139b958e028d920f71462bd12d658bb4a3a949926fe047309d0d73adb7051b7",
+      "lf_sha256": "eacd638bacf7eed9f525ffa9f3f73a081661afc2ed9af81b242e39f541e69ecf"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUX).txt": {
+      "git_blob": "892b31a6fcdfff2d844af625f0f4dc387c3ff8b6",
+      "sha256": "93d2a967ff65eaed42cfcdf4c8385f45e6ed7dfc294b37081f4a6b71370d82f7",
+      "lf_sha256": "164bba1530c3e7e0a22c7bdeeab9a368c5be288aeff946a27bb36e68eb02fb16"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUY).txt": {
+      "git_blob": "b069d20c34eb8deec5aa806fb7ecaaf1c6591712",
+      "sha256": "84415fcab56ba10e112645781f8fe93edc7d93c783f8a6268cb7cd65c83188aa",
+      "lf_sha256": "1aa31f4c821fda3bc19be984a6e396dedbcc294c7d99109921ec847427875be5"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUZ).txt": {
+      "git_blob": "20604f8e6a45b2e3cbf77a09a28c166e09cd4b4b",
+      "sha256": "d317db885800c1f6f020d72805e70e99b9159b28c9d505bd040e0d83e7e7c398",
+      "lf_sha256": "278cec7f2c741abe01694e3d96b4bcb945eaa25f4c7fd3602abafc80be6a04eb"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 528.txt": {
+      "git_blob": "3fd32c7883140897d14766bf5d503eeee4ba4771",
+      "sha256": "b7cee170a910811e6b1515b0a54d2dc6c0ce733128250f70d44a54eb9dba6a2d",
+      "lf_sha256": "78966e6c4e05adc0b8d12c3914853ecbf3daa927ac1f2564d92b63fed03d7908"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP 99.txt": {
+      "git_blob": "1a8f99b37e75966f98e9346c51fac54d7067f320",
+      "sha256": "3264ad4b8161c44cee2301e53d133115bd0ab107dfbb7f0fab6318043f715598",
+      "lf_sha256": "842238d9f8dcbac89e140caddc3e310a42c094bc26464d95614f605aa45545d9"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-75.txt": {
+      "git_blob": "38e0ba7ace147f92c3e977a3531cf9958947c5ca",
+      "sha256": "6d6b0368619cd00d58bf8ca2605e145a9d8212bd121fcee4efde2d3c51daa8a4",
+      "lf_sha256": "d108ac35efe0bc302fa8ba61cbdbc6650363c435b7fce1489665ebb1af9d2ba9"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-76.txt": {
+      "git_blob": "7038e4d49436db6d93f8cc3b9cf60c2f2ff006ab",
+      "sha256": "5ef032c6222ca16528601500670c80e966b336ed6d03acbef4afdf6fe95b7883",
+      "lf_sha256": "5ef032c6222ca16528601500670c80e966b336ed6d03acbef4afdf6fe95b7883"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP ASTP-77.txt": {
+      "git_blob": "2e74dd0295bdc1afe504f59c52a1571dcc13f846",
+      "sha256": "cbb0bec0cc4896e1b10022fecfec48effd29d66263cd2bc0b00028ab13fd562c",
+      "lf_sha256": "91ca12310ef0249e154e144087a8c8775550cbbdd8f9cbc97356ab8991707345"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-15.txt": {
+      "git_blob": "dec7bbcf012a39810992093d6c9b84da7b02e54d",
+      "sha256": "5f36bbc20c09c7f67a101adb90a67323885771f76c788c6001691afec9cd50a3",
+      "lf_sha256": "5f36bbc20c09c7f67a101adb90a67323885771f76c788c6001691afec9cd50a3"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-23.txt": {
+      "git_blob": "0269ba1f6670c5b18a2b7c9769e72066f8ff005b",
+      "sha256": "ac5a1dbedce814696ca8f9e3579d7b7e11f1eb5d45905a4c271bcecdf3a51673",
+      "lf_sha256": "ac5a1dbedce814696ca8f9e3579d7b7e11f1eb5d45905a4c271bcecdf3a51673"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 1 Deg.txt": {
+      "git_blob": "66f8b3867d1bdd33eca35bfb726e301c4908ca10",
+      "sha256": "91a92fda0d0a491eb172ee901d2ca6013c23ec1a7a1fcb839d32a92d3d484ed4",
+      "lf_sha256": "91a92fda0d0a491eb172ee901d2ca6013c23ec1a7a1fcb839d32a92d3d484ed4"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 2 Deg.txt": {
+      "git_blob": "ffa4a5a739aa607a7e8d06a768231fedaa9433de",
+      "sha256": "5c1f6b2563f1125e96362488b42de2ac6e0740489271a103e2a9c8b7db5ea4a2",
+      "lf_sha256": "5c1f6b2563f1125e96362488b42de2ac6e0740489271a103e2a9c8b7db5ea4a2"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 3 Deg.txt": {
+      "git_blob": "fb14acd430d084701c27e110a49effe9ee347ebf",
+      "sha256": "78396d28c1165d5d4d8e9d951d2258ee2ec6d42307a128798ac020850881861a",
+      "lf_sha256": "78396d28c1165d5d4d8e9d951d2258ee2ec6d42307a128798ac020850881861a"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-26 4 Deg.txt": {
+      "git_blob": "239a639e1a808e421757c8e8927bbb81918f6ee7",
+      "sha256": "b33ba222caae8a53ce7f3b308fb48d9644834cfe3c66a6e0b779fb3baba897dd",
+      "lf_sha256": "b33ba222caae8a53ce7f3b308fb48d9644834cfe3c66a6e0b779fb3baba897dd"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUX.txt": {
+      "git_blob": "270dd731646c573222d5f12fcd896502f0bdd4ba",
+      "sha256": "d1f5cfe38ad22a0edee5ef76543140074a096201d2216d809ee9272520b2ae94",
+      "lf_sha256": "d1f5cfe38ad22a0edee5ef76543140074a096201d2216d809ee9272520b2ae94"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUY.txt": {
+      "git_blob": "b078adc9a9cf1c287a25c1db4b1b67c65cdbff6a",
+      "sha256": "22a58d39528aaf53eb3855d9ceb36b30c52fd3e6558f86b7a733156f9c1ab175",
+      "lf_sha256": "22a58d39528aaf53eb3855d9ceb36b30c52fd3e6558f86b7a733156f9c1ab175"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUZ.txt": {
+      "git_blob": "0d6c06de57cb170e39c41e5f4879b73e00c020c9",
+      "sha256": "4b5fc51386d1884ad3aaac23f8a61e3867ac90c93a0648320e2c1b6d07409913",
+      "lf_sha256": "4b5fc51386d1884ad3aaac23f8a61e3867ac90c93a0648320e2c1b6d07409913"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-28.txt": {
+      "git_blob": "4c59f3562ea03bd89673bd5962f28cfd739308ff",
+      "sha256": "d75adab8a40b7200ae9dd330c4c6eb8189aa2dcc57fd724ba59c45606afb026f",
+      "lf_sha256": "d75adab8a40b7200ae9dd330c4c6eb8189aa2dcc57fd724ba59c45606afb026f"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-50.txt": {
+      "git_blob": "ea67a80c404493c6feebbd51e082f26d9c27d4a5",
+      "sha256": "a878c90e1dd9ad1f0ac8d1ea4aa4fc77ecd35597b3802056dbe707a3a3560eb0",
+      "lf_sha256": "a878c90e1dd9ad1f0ac8d1ea4aa4fc77ecd35597b3802056dbe707a3a3560eb0"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-52A.txt": {
+      "git_blob": "6b69204ddbb5d0ea6ff12cf5044e04abf59b6180",
+      "sha256": "8c834dfc4a7ce7e9bd4c25d7279f6bfa5fc6c986e7a18cdfdfc7b6abf7fcba8a",
+      "lf_sha256": "91839a7df86fc521f4a7c5a52391d3dca2ecf6a887e616f4f0c80b9c487de212"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-52B.txt": {
+      "git_blob": "060fc7d1bc8aa62c5a5f17506110c9a776986721",
+      "sha256": "a9eab00b13c45e5548d064edc7147da403655c2df57eeda3f086e1813a5d33b0",
+      "lf_sha256": "7c843e4f9b2b6ca1a206a25841b1d51625849f0dd93c273ee6df6ceb5ffa79da"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/EMP SL-55.txt": {
+      "git_blob": "a172d9b32af4c20b87d4520477420ea22f72fcdb",
+      "sha256": "673b47fdb961f0265eb677ae147ea7ac2aeb1b14477a5f9005bece35b318579f",
+      "lf_sha256": "d29f2dccb9c4f5b798c17bf566ab6ba6b996c2bb4d7ed93223489390a0a2e3e2"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/P99 L1D.txt": {
+      "git_blob": "672473e230510413077ff6e6b06ba5d2fbdce8b3",
+      "sha256": "3d663acb3f75a99b2b7cbc8b82272af48994eac492c59a66d4d9a7f108efae57",
+      "lf_sha256": "c5c33a9d64b05db54f66cfa999964aa289d8542df2201605b953cc6665053855"
+    },
+    "Config/ProjectApollo/RTCC/EMPs/Zero Cells.txt": {
+      "git_blob": "fb53fb378c3bc8bc303e71aab0e3fba5ba6e93d6",
+      "sha256": "95d0da3173d9e43eca195a855bf49b6b5a8aaeca591c479435a65719978c02c8",
+      "lf_sha256": "95d0da3173d9e43eca195a855bf49b6b5a8aaeca591c479435a65719978c02c8"
+    },
+    "Config/ProjectApollo/RTCC/Skylab 2 Constants.txt": {
+      "git_blob": "2043b48cdb1c1febb8211e16bf928a2e6a2c8734",
+      "sha256": "0b9ea514c194a59d7ae6e1c947eb6d608a59f861a8296b26e056b5cd30357438",
+      "lf_sha256": "80c2ad0afc7d2f5aa3dbf0a7b6ff51046f3bab037760eea81165cc82f8d69f37"
+    },
+    "Config/ProjectApollo/RTCC/Star Table.txt": {
+      "git_blob": "819bb1ecfa34122f484208929899e559c7a54f53",
+      "sha256": "9c4a7b567bfc831d6ab37eb9231da8423474c266321a7dba7e915df27879b30b",
+      "lf_sha256": "b118897b488e5981687a9a6cb6e2d8a423ff41e8714f38c5c43bf386ee2ccbb0"
+    },
+    "Config/ProjectApollo/SIBSystems.cfg": {
+      "git_blob": "838220c1cd142f25865d58dd428f98f3fa67eb41",
+      "sha256": "d4c60d4ed600716768039304a5203a26f42d6c8f77d50ced240bc374d0a10f4e",
+      "lf_sha256": "d4c60d4ed600716768039304a5203a26f42d6c8f77d50ced240bc374d0a10f4e"
+    },
+    "Config/ProjectApollo/SIVBSystems.cfg": {
+      "git_blob": "06fa121106e555ddc8e550917df51065b678c24a",
+      "sha256": "e943abba58ca6ebcc31954d7cf36999be51e41f256bdee17d671503534478bcd",
+      "lf_sha256": "e943abba58ca6ebcc31954d7cf36999be51e41f256bdee17d671503534478bcd"
+    },
+    "Config/ProjectApollo/SM.cfg": {
+      "git_blob": "169e1ecfb77a8542217d4dfda431434acbbf1e2b",
+      "sha256": "6230a5b9adce15d6d57fdc48807c5ab904561f4006031ab344fcab1f50ca7d5d",
+      "lf_sha256": "6230a5b9adce15d6d57fdc48807c5ab904561f4006031ab344fcab1f50ca7d5d"
+    },
+    "Config/ProjectApollo/Sat1Aerocap.cfg": {
+      "git_blob": "73aef6c417ee7b0acb55cfe1a76362277ecaf48a",
+      "sha256": "669cad5cd3041bb8ea9fcaac80fb86f3e9b8cdf59fd30944bc317524c5b2bab2",
+      "lf_sha256": "669cad5cd3041bb8ea9fcaac80fb86f3e9b8cdf59fd30944bc317524c5b2bab2"
+    },
+    "Config/ProjectApollo/Sat1probe.cfg": {
+      "git_blob": "e23e7202b2534d6b52bbfd27674ac6277c0264ea",
+      "sha256": "b5500511e9864778da5723f867bb1f8ad923140d08f9c3bc1f531255fed637cc",
+      "lf_sha256": "b5500511e9864778da5723f867bb1f8ad923140d08f9c3bc1f531255fed637cc"
+    },
+    "Config/ProjectApollo/Sat5Flag.cfg": {
+      "git_blob": "187fca9bbb3efd92a3a8b78c453764163b482272",
+      "sha256": "b1df6dc2adf7d7daff0fcf00269e66ed1e6c69d6352c204cdce952f7e12c092f",
+      "lf_sha256": "b1df6dc2adf7d7daff0fcf00269e66ed1e6c69d6352c204cdce952f7e12c092f"
+    },
+    "Config/ProjectApollo/Saturn IB Default Flight Sequence Program.txt": {
+      "git_blob": "a98d84c0f9f3d3b97659c91be5dbca07675d706a",
+      "sha256": "b2bb02ef47079bf760850f8062aa57550f9be83403a47a50b863e78bfeeffe90",
+      "lf_sha256": "83180000c8472a4e1dd343ae95425ad45ea0b73a491799a5063b006f927fbd26"
+    },
+    "Config/ProjectApollo/Saturn V Default Flight Sequence Program.txt": {
+      "git_blob": "f322329965cb35eb7a27ddd7f3bcb44d3179fcb3",
+      "sha256": "042b8da80caeda531d5bee7ae7a464587d6b73e6d4c3e0e6029618aa1fc62782",
+      "lf_sha256": "d9e00ca7bc4c6494c7472fe628d11f0c17e85d97862b7870476844d0acfd0565"
+    },
+    "Config/ProjectApollo/Saturn1b.cfg": {
+      "git_blob": "7c1a67b0afa426cef85a674725069a16bf964086",
+      "sha256": "ac39a81932754fa3b69be4eead56949f569c750d1d8029d02cb6e7f4162a6ab3",
+      "lf_sha256": "ac39a81932754fa3b69be4eead56949f569c750d1d8029d02cb6e7f4162a6ab3"
+    },
+    "Config/ProjectApollo/Saturn1bAbort1.cfg": {
+      "git_blob": "1f2b31f54c11a99797ab8eed725702dcfab5efff",
+      "sha256": "eee2e07311211d46c087eb99c4811b0923fcbc8d8ab3810b8395c3b7586efaf6",
+      "lf_sha256": "eee2e07311211d46c087eb99c4811b0923fcbc8d8ab3810b8395c3b7586efaf6"
+    },
+    "Config/ProjectApollo/Saturn1bAbort2.cfg": {
+      "git_blob": "95b7f0ea2d4beb57e9454ce4d45639ab7ce9bb57",
+      "sha256": "5a8f8fec46de204d3bd8896043dc4e6ff74b19684067f5336a3b04ca5a8dd967",
+      "lf_sha256": "5a8f8fec46de204d3bd8896043dc4e6ff74b19684067f5336a3b04ca5a8dd967"
+    },
+    "Config/ProjectApollo/Saturn5.cfg": {
+      "git_blob": "ce49090a27229cd1fb30c06204b487cbbbd14008",
+      "sha256": "de1aa2a8353654f024dc6c36af82639e207b2dff1158e83d36d62675805832c7",
+      "lf_sha256": "de1aa2a8353654f024dc6c36af82639e207b2dff1158e83d36d62675805832c7"
+    },
+    "Config/ProjectApollo/Saturn5ML.cfg": {
+      "git_blob": "604153ffcf37654be66e0428fcd3680607d00216",
+      "sha256": "09a2f73f3f75b96285246eb4317f61672f900b556f54b4d140bcb6f161f42a7d",
+      "lf_sha256": "09a2f73f3f75b96285246eb4317f61672f900b556f54b4d140bcb6f161f42a7d"
+    },
+    "Config/ProjectApollo/Saturn5lowres.cfg": {
+      "git_blob": "ebbd6843f27698c96aa0f08f991a11698070d557",
+      "sha256": "ceb3a24a8351870725d067419a3b46c4c6d6c26e49e9c9ff9175d8210b5e08c8",
+      "lf_sha256": "ceb3a24a8351870725d067419a3b46c4c6d6c26e49e9c9ff9175d8210b5e08c8"
+    },
+    "Config/ProjectApollo/SaturnINT20.cfg": {
+      "git_blob": "ee24743e76e61585fb33332e89c83e1ac2534ada",
+      "sha256": "9b9568996615aedcf0220c6a057b9667527e30272dd0f0219c160ab11728748d",
+      "lf_sha256": "9b9568996615aedcf0220c6a057b9667527e30272dd0f0219c160ab11728748d"
+    },
+    "Config/ProjectApollo/SaturnSystems.cfg": {
+      "git_blob": "aae651649e34282f1dab0fa899444edaa2135929",
+      "sha256": "6598704feba78b8ed6ef4bb258392f6bd4a43eec2787f9c87ff0acceedc61a8b",
+      "lf_sha256": "6598704feba78b8ed6ef4bb258392f6bd4a43eec2787f9c87ff0acceedc61a8b"
+    },
+    "Config/ProjectApollo/Skylab.cfg": {
+      "git_blob": "2dcf77201adee650e4fbdfb24ffbc0d818de7528",
+      "sha256": "cecf9ad2bb554858c8128d84e8cd13610b46d4338e8a82d52231b4eeabbcab07",
+      "lf_sha256": "cecf9ad2bb554858c8128d84e8cd13610b46d4338e8a82d52231b4eeabbcab07"
+    },
+    "Config/ProjectApollo/Skylark048.bin": {
+      "git_blob": "ce731fc0fe8f8b81c1e46cc70ff3a00c0fce9b8b",
+      "sha256": "4150948d4a21b69b5c3cd83aeb623b642fc4fc7ad225e165c73a451a2646178c"
+    },
+    "Config/ProjectApollo/Sol_VirtualAGC.cfg": {
+      "git_blob": "29f66ea6e7d3b6beb2f250511e9e99733869d3c8",
+      "sha256": "ae286391386e24a8e0d09e46c88f4e40b86a48aee387214dc2a38b931a71b5a3",
+      "lf_sha256": "ae286391386e24a8e0d09e46c88f4e40b86a48aee387214dc2a38b931a71b5a3"
+    },
+    "Config/ProjectApollo/Sol_VirtualAGC/Marker/Additional RTCC Stars 1970.mkr": {
+      "git_blob": "9ea56d4de3e9eb8bc0cfccc1644376d6b3709ad3",
+      "sha256": "07d1bb4412f0f29562fd8bd6b8e79a0204db0d13fdf686ea1acdaafeab79ea9f",
+      "lf_sha256": "e252387df3d418eda9660e1596982278adc7e73cc12791a108bc0437009296ed"
+    },
+    "Config/ProjectApollo/Sol_VirtualAGC/Marker/Apollo AGC navigation stars.mkr": {
+      "git_blob": "4092aa56a4173036ba71c19797c21774c4090ad0",
+      "sha256": "28ab9f3ba03760cf7d234d2ee8fafd1f14b4875a36809c13d67448525ae41f4d",
+      "lf_sha256": "28ab9f3ba03760cf7d234d2ee8fafd1f14b4875a36809c13d67448525ae41f4d"
+    },
+    "Config/ProjectApollo/Sunburst120.bin": {
+      "git_blob": "c8d577db7c92ad5a6604e0082144049f989f6526",
+      "sha256": "9204c021089ff3488447d89fd15314f52cf50754d29a3cf4e7881ec1604ebeb9"
+    },
+    "Config/ProjectApollo/Sundance306ish.bin": {
+      "git_blob": "1ea3b9926a16512dca05452eca05e9811659d0ca",
+      "sha256": "9c679afef6aceed5b28485b97efa528f807863633504d856985a15dc19f5e2f4"
+    },
+    "Config/ProjectApollo/VAB.cfg": {
+      "git_blob": "1a78087aff639f3f80bfdcb3d6be43f1c616761a",
+      "sha256": "6519023bba41a07c70cbc156ef9542b3e4e3bd3d28be8b1de18acc2407a0aa3c",
+      "lf_sha256": "6519023bba41a07c70cbc156ef9542b3e4e3bd3d28be8b1de18acc2407a0aa3c"
+    },
+    "Config/ProjectApollo/Vesim/CSM - GenericJoystick.cfg": {
+      "git_blob": "ebece3932bf68a6d99badb6623ebde599df9f770",
+      "sha256": "4d615eb6ab8bb8d1e0fe798c244c1bc7b7718ce527e4c1c3702b7a19e7117e4c",
+      "lf_sha256": "3f8357e03e0c76140e5e3e1b8f6294370b2e08ce86118e9340d0cfb857ff609c"
+    },
+    "Config/ProjectApollo/Vesim/CSM - Keyboard.cfg": {
+      "git_blob": "eee0096d7f7bec6b4f65e2e0cdfa167cd6e08868",
+      "sha256": "b72dd407862f68748be1e5b40cca43b8b71430991b916e772111915e52541599",
+      "lf_sha256": "e11fce1531c85e4e2f5e6d02689904bf7a14011b67097837507d1e6ae058013b"
+    },
+    "Config/ProjectApollo/Vesim/CSM - Logitech WingMan Extreme Digital 3D (USB).cfg": {
+      "git_blob": "9b9783bd63190a5238e13c3b96a2537febcbb520",
+      "sha256": "03bc4d627b1e4a92b8496ae7e34dc03cdb461de8fcfd88edd3c640851c83192d",
+      "lf_sha256": "bcfdf593911ae91664bdebcdb9ee5b984e5cd43a674dfe10ecbbeb90fe757af1"
+    },
+    "Config/ProjectApollo/Vesim/CSM - VKBsim Gladiator .cfg": {
+      "git_blob": "80341f784baffaeba6d0101a65ee751d5029c89c",
+      "sha256": "355184c064dc6189483b79230adfc55cd5690ad8bee511aa1302f5022ba4464c",
+      "lf_sha256": "acac438de0280aab0e421686bf0fc72c93b377500f03295718424af6e929fd72"
+    },
+    "Config/ProjectApollo/Vesim/LM - GenericJoystick.cfg": {
+      "git_blob": "c3be6e7b304feaa3d961599bfd5cbd61c0e9fc3f",
+      "sha256": "4321eedb1f484cc36d0eba88ab7ab99c62767e4b0206676cf80bd44847a79085",
+      "lf_sha256": "784cbc221f917812ddeed902d8c66af52b053ff6d23b8cf5ddd02cd9cf5cfef0"
+    },
+    "Config/ProjectApollo/Vesim/LM - Keyboard.cfg": {
+      "git_blob": "efb4e4f038fdcb9490be885f2e8316b929df7e76",
+      "sha256": "8951c663aba7ec822655b3761d4a2965d80720b7bf15f32a3a62b2637fc6e011",
+      "lf_sha256": "a7a50b97317309b8605f7a4df63794f9603c23466e7c84556eda6026a36bda5b"
+    },
+    "Config/ProjectApollo/Vesim/LM - Logitech WingMan Extreme Digital 3D (USB).cfg": {
+      "git_blob": "aa27b9e09ea112635106d378f9462319e80e9f7a",
+      "sha256": "95d0efbff55e9b13dc9c1f9258f2f248b18e768fde9e34f3bfadf557a554eef5",
+      "lf_sha256": "e2c5985d0a6b3c9f134a92b2a5665fe3bd969f3f6b55d41e4b871f29d7646734"
+    },
+    "Config/ProjectApollo/Vesim/LM - VKBsim Gladiator .cfg": {
+      "git_blob": "cc90215281ae03445d4f4d74f41f02d665d6e961",
+      "sha256": "418787cbcdc849a121af9d8180f89e95c1cae604a611756f2138deddcfd40a22",
+      "lf_sha256": "e2d2579b33df22bdeda839c7fc40a212a5d72345ce2b9d29cdc5b1a9460fbebc"
+    },
+    "Config/ProjectApollo/joystick-DEFAULT.ini": {
+      "git_blob": "7e820e68ed937a53e3a39abaadd195dff1d7c467",
+      "sha256": "9297bb4805edf63c98f00e0889fa03562c7ac1168fc27171958ffe9c8b4f480a",
+      "lf_sha256": "9297bb4805edf63c98f00e0889fa03562c7ac1168fc27171958ffe9c8b4f480a"
+    },
+    "Config/ProjectApollo/nSat1_SM.cfg": {
+      "git_blob": "c99ff1ad8e2ce64606fcc7af739d2d53afd4735f",
+      "sha256": "364f0f5900dfc047c319bac520c43b1237a65d1b8c9585a11ef01ae490ea6c39",
+      "lf_sha256": "364f0f5900dfc047c319bac520c43b1237a65d1b8c9585a11ef01ae490ea6c39"
+    },
+    "Config/ProjectApollo/nSat1astp2.cfg": {
+      "git_blob": "10d82289f5748643fc4f0302a50799e6daded97f",
+      "sha256": "738e1b07aff438ce70fa1fa815b188ebdb0086577ddd11a8ce8f1f1715573b04",
+      "lf_sha256": "738e1b07aff438ce70fa1fa815b188ebdb0086577ddd11a8ce8f1f1715573b04"
+    },
+    "Config/ProjectApollo/nSat1probe.cfg": {
+      "git_blob": "9b2aac3fda5e2ec061fced72febe555e6897cdcf",
+      "sha256": "a5da5a7e68dd6fe99ca59386c045c0ce005ef325d69948fbdc0592f139f37a0f",
+      "lf_sha256": "a5da5a7e68dd6fe99ca59386c045c0ce005ef325d69948fbdc0592f139f37a0f"
+    },
+    "Config/ProjectApollo/nSat1stg1.cfg": {
+      "git_blob": "2dad0d6047f1aa9954459f83edd87f3c02e520da",
+      "sha256": "b698be373e6820c198a309b8ff3e2e16c299d4b21c321e0438b9682c3cc47d00",
+      "lf_sha256": "b698be373e6820c198a309b8ff3e2e16c299d4b21c321e0438b9682c3cc47d00"
+    },
+    "Config/ProjectApollo/nSat1stg2.cfg": {
+      "git_blob": "6d81076041314872c0b9894976f030d562f96017",
+      "sha256": "f1a01b60962c322baf002dcc0c57c4da85f7a3a4efbd44f70d7180a11cad6cd2",
+      "lf_sha256": "f1a01b60962c322baf002dcc0c57c4da85f7a3a4efbd44f70d7180a11cad6cd2"
+    },
+    "Config/ProjectApollo/nsat1btower.cfg": {
+      "git_blob": "f3d88f4f1431f251469211607364cb5f4f8c8228",
+      "sha256": "730c149061e21e92d39f3cf03f69bd6f39d8039e74802bc2b4402e8de90b09e4",
+      "lf_sha256": "730c149061e21e92d39f3cf03f69bd6f39d8039e74802bc2b4402e8de90b09e4"
+    },
+    "Config/ProjectApollo/nsat1stg21.cfg": {
+      "git_blob": "7d400c54e0668b80f8a42e323d5b7d510ce5d050",
+      "sha256": "1a476efbf9c0ef7e97499e4a1b3623880562d915d7bd230e030f158ffa4d5331",
+      "lf_sha256": "1a476efbf9c0ef7e97499e4a1b3623880562d915d7bd230e030f158ffa4d5331"
+    },
+    "Config/ProjectApollo/nsat1stg22.cfg": {
+      "git_blob": "2751cd58bea888bdbcdb03ba9bfaff716112c80c",
+      "sha256": "ea1eda4bc5146a8df179a7217fb95cbd177a704f1d6339c1b732e7db345196d1",
+      "lf_sha256": "ea1eda4bc5146a8df179a7217fb95cbd177a704f1d6339c1b732e7db345196d1"
+    },
+    "Config/ProjectApollo/nsat1stg23.cfg": {
+      "git_blob": "6a7faed1126614087d058570a74fdc120b32236b",
+      "sha256": "63c509598de81d3b7e8e442cd8f81dad9e2e59d36a4ef9a3fb3125317b3b1a27",
+      "lf_sha256": "63c509598de81d3b7e8e442cd8f81dad9e2e59d36a4ef9a3fb3125317b3b1a27"
+    },
+    "Config/ProjectApollo/nsat1stg24.cfg": {
+      "git_blob": "66b8b40c2ba5368c3c01384d35b56090869941ef",
+      "sha256": "331f063ab4de2f9f57a3897f068674fed5efddbc5102bc3af04d9689bca04258",
+      "lf_sha256": "331f063ab4de2f9f57a3897f068674fed5efddbc5102bc3af04d9689bca04258"
+    },
+    "Config/ProjectApollo/sat5LMDSC.cfg": {
+      "git_blob": "ec9b7fa8ff2b84d2f4050b071073ee070d7d1317",
+      "sha256": "3a7f37e4f472222ee3bcfd894b2942e3bb752b7ba9b20bfec5c69fdc1a092397",
+      "lf_sha256": "3a7f37e4f472222ee3bcfd894b2942e3bb752b7ba9b20bfec5c69fdc1a092397"
+    },
+    "Config/ProjectApollo/sat5_LMPKD.cfg": {
+      "git_blob": "839e6225463ac1f7e5fdb3587259b7f832453efd",
+      "sha256": "d1882867295c270e146e12bcb3a98bcfbf4f74a160632d007adb2797abbc4999",
+      "lf_sha256": "d1882867295c270e146e12bcb3a98bcfbf4f74a160632d007adb2797abbc4999"
+    },
+    "Config/ProjectApollo/sat5btower.cfg": {
+      "git_blob": "a5ec3d7e7b9b7c869ca946cf1289092efd50535d",
+      "sha256": "912162e129a12f2039620f77dfd26439c9669a40d953fe9a5a4a31bbb6782a92",
+      "lf_sha256": "912162e129a12f2039620f77dfd26439c9669a40d953fe9a5a4a31bbb6782a92"
+    },
+    "Config/ProjectApollo/sat5intstg.cfg": {
+      "git_blob": "50072acecf6d70fcce82610b634a1762ab2a1e5e",
+      "sha256": "f9804a569f6148610aec7558d56244fcedd8f5f39ccad1a753e5c5deb4a9a513",
+      "lf_sha256": "f9804a569f6148610aec7558d56244fcedd8f5f39ccad1a753e5c5deb4a9a513"
+    },
+    "Config/ProjectApollo/sat5intstg4.cfg": {
+      "git_blob": "77f476e7efa32d3929449c154dec095eef36c154",
+      "sha256": "d7a30f9a8eeeaadb2bd34f06bd424d78f209b9cdbf0eac0dd5a0e1f4f17d44c8",
+      "lf_sha256": "d7a30f9a8eeeaadb2bd34f06bd424d78f209b9cdbf0eac0dd5a0e1f4f17d44c8"
+    },
+    "Config/ProjectApollo/sat5intstg8.cfg": {
+      "git_blob": "373c46611195a84f018e1f95efc02674e270cfbe",
+      "sha256": "03838cfee97c531bd1f523b7ac24d0b0bd75082bea23029a7d2aa1557ff0f463",
+      "lf_sha256": "03838cfee97c531bd1f523b7ac24d0b0bd75082bea23029a7d2aa1557ff0f463"
+    },
+    "Config/ProjectApollo/sat5intstglowres.cfg": {
+      "git_blob": "2c010f09cb70956d3116f1bfa4fe1cc484dd4cfe",
+      "sha256": "ebead80b7b5135c1c117b117239640b6ad0d53511b04486e2de04c9a86edfbf9",
+      "lf_sha256": "ebead80b7b5135c1c117b117239640b6ad0d53511b04486e2de04c9a86edfbf9"
+    },
+    "Config/ProjectApollo/sat5sky1.cfg": {
+      "git_blob": "15ef04ffc75d7c821908db579d9c8f7da89dd932",
+      "sha256": "13ddc5d1bbf7cbfdf7395fc41737559e8e5645c1e68270484f4d18197b99e6ec",
+      "lf_sha256": "13ddc5d1bbf7cbfdf7395fc41737559e8e5645c1e68270484f4d18197b99e6ec"
+    },
+    "Config/ProjectApollo/sat5sky2.cfg": {
+      "git_blob": "91814570adcf0029ca352fe3e8118ca87b2cebba",
+      "sha256": "1cc0fcc9ac2896f868513b633e688a8554f2557a66ea72e4ec44d3428b31891a",
+      "lf_sha256": "1cc0fcc9ac2896f868513b633e688a8554f2557a66ea72e4ec44d3428b31891a"
+    },
+    "Config/ProjectApollo/sat5stg1.cfg": {
+      "git_blob": "0a1b596d4c278ab1344b82efae76cb8d3007bd1a",
+      "sha256": "e008dfe3736bcff42f4570cde489d1586fa64f2ac6128f122bc2c04e4b7bde21",
+      "lf_sha256": "e008dfe3736bcff42f4570cde489d1586fa64f2ac6128f122bc2c04e4b7bde21"
+    },
+    "Config/ProjectApollo/sat5stg2.cfg": {
+      "git_blob": "4a8c68e58e5e6efd5735f791d5a3435441551c2c",
+      "sha256": "e6148090367d713503fc811af673cd4d284090b894d3b490831ec5123eb9c481",
+      "lf_sha256": "e6148090367d713503fc811af673cd4d284090b894d3b490831ec5123eb9c481"
+    },
+    "Config/ProjectApollo/sat5stg3.cfg": {
+      "git_blob": "9b16909a8880b17ee5df834774d567cfcbdcc440",
+      "sha256": "9b97ed47e7e098e097c0e592dbde2fbcd592ff4c9df204fb58eda18cdbd41863",
+      "lf_sha256": "9b97ed47e7e098e097c0e592dbde2fbcd592ff4c9df204fb58eda18cdbd41863"
+    },
+    "Config/ProjectApollo/sat5stg31.cfg": {
+      "git_blob": "cd23c048bee6193dafca0319e34a8dbe8f180b7d",
+      "sha256": "435200007e9aa4f7b60312325222bc30f7ad90b5ba21b9a360661216f6b2b9ab",
+      "lf_sha256": "435200007e9aa4f7b60312325222bc30f7ad90b5ba21b9a360661216f6b2b9ab"
+    },
+    "Config/ProjectApollo/sat5stg31wide.cfg": {
+      "git_blob": "0b451820ba615a2e0a7ed69b07985f2ac7cefc0e",
+      "sha256": "73703db4e34ce758e6273ac4c7439be190245a2268a9745b89f6b8bfbd8339d9",
+      "lf_sha256": "73703db4e34ce758e6273ac4c7439be190245a2268a9745b89f6b8bfbd8339d9"
+    },
+    "Config/ProjectApollo/sat5stg32.cfg": {
+      "git_blob": "d02b06d978f371decba539fc507b92b8c6f3cd78",
+      "sha256": "aefd575d2f85f38e9a169b3554ca8706816aa51c558091001bf7ada8f8ac1fb4",
+      "lf_sha256": "aefd575d2f85f38e9a169b3554ca8706816aa51c558091001bf7ada8f8ac1fb4"
+    },
+    "Config/ProjectApollo/sat5stg32wide.cfg": {
+      "git_blob": "895ba87728c19b29a42be4bd8ffa6a63605f17d5",
+      "sha256": "812d27aafa7ad7b2a63c6fe5d61b9de0db886cac5a5621c68d71b16b409015e1",
+      "lf_sha256": "812d27aafa7ad7b2a63c6fe5d61b9de0db886cac5a5621c68d71b16b409015e1"
+    },
+    "Config/ProjectApollo/sat5stg33.cfg": {
+      "git_blob": "26fc8e0c2cd244015418c676ff9cf01c6e73cfe8",
+      "sha256": "0a18f7a43d2af04e5a93a80849608e2b2f6ca15d8e6ecc25f807ae43058cbf15",
+      "lf_sha256": "0a18f7a43d2af04e5a93a80849608e2b2f6ca15d8e6ecc25f807ae43058cbf15"
+    },
+    "Config/ProjectApollo/sat5stg33wide.cfg": {
+      "git_blob": "26039dd917ba7e9757e13f80495ccaaab76037f3",
+      "sha256": "1436e817778713d4cde1615c767921dca1e7534d5dedb6fbd12dc26a5cfca07e",
+      "lf_sha256": "1436e817778713d4cde1615c767921dca1e7534d5dedb6fbd12dc26a5cfca07e"
+    },
+    "Config/ProjectApollo/sat5stg34.cfg": {
+      "git_blob": "c22247cdc6fb1c8ad80944b57729b93da0812661",
+      "sha256": "8e66484dd10832407fab02fcf513bf6baa5da7daca13cd74e0d0a422f2f49130",
+      "lf_sha256": "8e66484dd10832407fab02fcf513bf6baa5da7daca13cd74e0d0a422f2f49130"
+    },
+    "Config/ProjectApollo/sat5stg34wide.cfg": {
+      "git_blob": "97cc457178d0e7870c3327497a26c3017c3f0f2a",
+      "sha256": "15ad66ca8eaa02c73227ec9d88718093e339abb0b4536d00a0d47d04b997a4bd",
+      "lf_sha256": "15ad66ca8eaa02c73227ec9d88718093e339abb0b4536d00a0d47d04b997a4bd"
+    },
+    "Config/ProjectApollo/saturn5abort1.cfg": {
+      "git_blob": "573548e88d2b280b07f6671d8b391acf4cb35643",
+      "sha256": "0b661da9b5fa57742bc3c2014e95e3afd7cb00863515a33821069dcbf2da62c5",
+      "lf_sha256": "0b661da9b5fa57742bc3c2014e95e3afd7cb00863515a33821069dcbf2da62c5"
+    },
+    "Config/ProjectApollo/saturn5abort2.cfg": {
+      "git_blob": "7dc2ba1cb516dc5716207ec8b73a58735e39a7d9",
+      "sha256": "e0ae8fcabf5463945d46a3bc21129777fd3ab0f3e27e97ce5a084bf7b83b1d0f",
+      "lf_sha256": "e0ae8fcabf5463945d46a3bc21129777fd3ab0f3e27e97ce5a084bf7b83b1d0f"
+    },
+    "Config/ProjectApollo/saturn5abort3.cfg": {
+      "git_blob": "18207d1c255e65e93b6e3e76d4545d96d3f0b82f",
+      "sha256": "6ba88b105fb16ed19653b7edcb663cf036b38b0e5823e51ba8c9221fda2412e5",
+      "lf_sha256": "6ba88b105fb16ed19653b7edcb663cf036b38b0e5823e51ba8c9221fda2412e5"
+    },
+    "Config/ProjectApollo/sm-hga.cfg": {
+      "git_blob": "9cdbab00b7f60a0d3a9a169e405e1c7f0b3595ec",
+      "sha256": "ed8130633977e45b49e5b44053f30fc9437ea1f5249a61471fe896c26fda0017",
+      "lf_sha256": "ed8130633977e45b49e5b44053f30fc9437ea1f5249a61471fe896c26fda0017"
+    },
+    "Config/ProjectApollo/sm-panel1.cfg": {
+      "git_blob": "128ef67f54bc0655ac47bca1fb92bfe554488dc8",
+      "sha256": "7b36db729408a72dae4f1ea5580ac8dd2a74c36a8fe0457717303f55c0e66696",
+      "lf_sha256": "7b36db729408a72dae4f1ea5580ac8dd2a74c36a8fe0457717303f55c0e66696"
+    },
+    "Config/ProjectApollo/sm-panel2.cfg": {
+      "git_blob": "b403b06906e26015a97905e756890a06204b12be",
+      "sha256": "124834001d55d358eb0ab388e601961738a8eeac75caa9324e0868f6f94b7adb",
+      "lf_sha256": "124834001d55d358eb0ab388e601961738a8eeac75caa9324e0868f6f94b7adb"
+    },
+    "Config/ProjectApollo/sm-panel3.cfg": {
+      "git_blob": "37ca11af1a091c57699fe786078d3c90a3e8af45",
+      "sha256": "df9ebd0be8c5c5c1e969b61ab3eb64bba71afc797361542eb0aeec4608949db1",
+      "lf_sha256": "df9ebd0be8c5c5c1e969b61ab3eb64bba71afc797361542eb0aeec4608949db1"
+    },
+    "Config/ProjectApollo/sm-panel4.cfg": {
+      "git_blob": "91e652e32970df3343fff7a7b49568672a7dbda9",
+      "sha256": "8ce120762b34d1670074bf50e5f84e6297aed0d9f98db0b80b6e046d9475ecac",
+      "lf_sha256": "8ce120762b34d1670074bf50e5f84e6297aed0d9f98db0b80b6e046d9475ecac"
+    },
+    "Config/ProjectApollo/sm-panel5.cfg": {
+      "git_blob": "833bdc593b766c4be355aa6b52a2f14d357b31c9",
+      "sha256": "d6823d9e7fc8879b9099b3b91a070ed8d3736aabd595e4bd6ab6da19f5d15981",
+      "lf_sha256": "d6823d9e7fc8879b9099b3b91a070ed8d3736aabd595e4bd6ab6da19f5d15981"
+    },
+    "Config/ProjectApollo/sm-panel6.cfg": {
+      "git_blob": "853f0d5b06a5ec671bfe30329a8cec949ecf23bc",
+      "sha256": "9f702d63d6ff5424953d728d017d23a3b442b846ce05e23952546afd71d4df84",
+      "lf_sha256": "9f702d63d6ff5424953d728d017d23a3b442b846ce05e23952546afd71d4df84"
+    },
+    "Config/ProjectApollo/sm-sps.cfg": {
+      "git_blob": "31ea49ca23572bbf1901a4a5592076fde1dbcd45",
+      "sha256": "079be9852099ce6ade248abeb052730d1ed52b37ccc1f174c7b011aca3a1e5cb",
+      "lf_sha256": "079be9852099ce6ade248abeb052730d1ed52b37ccc1f174c7b011aca3a1e5cb"
+    },
+    "Doc/Project Apollo - NASSP/Checklists/Apollo 11 Checklists.xls": {
+      "git_blob": "4322f5b091d48470d6bb97f851309da22120a81d",
+      "sha256": "b4dd7ecdf9acfeba828d8090273b758bd2985ff81e545414d66e2577259b874d"
+    },
+    "Doc/Project Apollo - NASSP/Checklists/Apollo 11 LM Checklists.xls": {
+      "git_blob": "a65ee5c2745fdde3fd5f895384746dd5cef130d1",
+      "sha256": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+    },
+    "Missions/ProjectApollo/ASTP.cfg": {
+      "git_blob": "782127a3f68223d7116aad624f63ba581d73ae62",
+      "sha256": "a3a1b063c45c25201c029052c6d317595a24ca80b3eee28ccc6668f99726ce05",
+      "lf_sha256": "df7b286b249dccca4eb6b542b348d5971397de09bc2f4f5bd7d94200f51cacfc"
+    },
+    "Missions/ProjectApollo/Apollo 10.cfg": {
+      "git_blob": "14f60d662e4db84c401caa56d504866de672895c",
+      "sha256": "f60d1f60e30b1af6c21ce21b1a429a05aa209071097a25b9d8b6a543fd39ebfa",
+      "lf_sha256": "bb7618359a08502d0f19a33ff04cabdbd1eb3b960448f1e9509a527a81319a1c"
+    },
+    "Missions/ProjectApollo/Apollo 11.cfg": {
+      "git_blob": "40cca448dd00afe2f40822f7bf94540c4d38e8ed",
+      "sha256": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+      "lf_sha256": "deeef69ed4f040d726933d42b450dec7bd8cb0b8ef47a9edd22128d5ce5ce894"
+    },
+    "Missions/ProjectApollo/Apollo 12.cfg": {
+      "git_blob": "40291bb06bb4c90c82ab510854fd715b7c340499",
+      "sha256": "3d6ab99bc05e4679ef7597014d7c88f70fb5febd9efc46ac25946023e58f2462",
+      "lf_sha256": "c16a7ac67feea0bbcc07941b2e1cc2e4e9d589cd5ada8bbd042b4608f42f7b18"
+    },
+    "Missions/ProjectApollo/Apollo 13.cfg": {
+      "git_blob": "ce6e759fa803cbee7de7dbcb423488e41491707a",
+      "sha256": "f4c2536da1ffa3cb1323ab823174803c983db6e837ab0fba2719465bea1ee905",
+      "lf_sha256": "6ca37f6d02909dca0056d52ee7fcffd3b9330d6d32cf55327ebdadcd54bded21"
+    },
+    "Missions/ProjectApollo/Apollo 1301.cfg": {
+      "git_blob": "c3a085e7183ac0616f6d863b85a9efe2efa6505d",
+      "sha256": "998384b6b75ff078a3349b86742de1616433d5b9fd7a89bdbe8e5dd360cfd1db",
+      "lf_sha256": "2d55be7f7bb4d9debbd0c9f88b53e761e22fc75cad950abc3089c6bc8daf24c8"
+    },
+    "Missions/ProjectApollo/Apollo 14.cfg": {
+      "git_blob": "466a4a99ce0de8c9dfd1f0ca804f216d4e8bb6cd",
+      "sha256": "7d3b116cbc6acfc146270fd74070d9d6fb49013c66a9dd36af93219067856c5b",
+      "lf_sha256": "f824d0152663e748657e0a4b8cd6803411ebba98366f45cf1799eb26d7061ff1"
+    },
+    "Missions/ProjectApollo/Apollo 15.cfg": {
+      "git_blob": "9537ec3417ba9f30ed7dc83f3412f8539ee38c33",
+      "sha256": "7e485982ae6794d178f442419292158eae3afe08cbc821e3c96659968618b70f",
+      "lf_sha256": "5f5a7d4bb46d0e2777830b1d8349295f0ebd709a57f11510fef9bb591da39fca"
+    },
+    "Missions/ProjectApollo/Apollo 16.cfg": {
+      "git_blob": "f56d8b262af928ec905ec4102341c9e6127292bc",
+      "sha256": "18c7e43442291d45780cfa00e08d7c1a76a9eb75f667d271ae033a14a53f18a5",
+      "lf_sha256": "2e4ec7f46b2f6b471a8a35e3876ee09c4f9847e14146641542ba2275b23b4a11"
+    },
+    "Missions/ProjectApollo/Apollo 17.cfg": {
+      "git_blob": "12965cecac18ae0fa625bd55ce824d3731d6e70e",
+      "sha256": "aa71f6002e9ee2fe09972826dcd77b220d88b586b4a67b5234ff24dcd09fcfbd",
+      "lf_sha256": "97f22f79f44e9271499497bf0b439657d17cb189cbdb7842d492dde9c32d4fb6"
+    },
+    "Missions/ProjectApollo/Apollo 5.cfg": {
+      "git_blob": "88212e201db0f123db591c0faee94d7ce1d79839",
+      "sha256": "1b0f7d66ec17cdff06aefd6301a637949df145e84740139c28d14c1a8fd4f165",
+      "lf_sha256": "88c4d72d93e67c447fbe4665fba841a7377ca424f3dcce8c31b730c891221da0"
+    },
+    "Missions/ProjectApollo/Apollo 7.cfg": {
+      "git_blob": "178c0675027513acfe539223355280c6f596d05f",
+      "sha256": "89e56ddee1e17ad77cef02ab97c6f821a9e8030cc2e21879f3becdd47791b149",
+      "lf_sha256": "56b725d62cd2f9841b50116f79ee1179c6bd028f9d4127e7b1c026b6e5770712"
+    },
+    "Missions/ProjectApollo/Apollo 8.cfg": {
+      "git_blob": "b0e2ec22a748547d49389100decb4e303bcbb802",
+      "sha256": "5f664634e460cfb7ad1ced0b13dd245406305d4f2036ee0c0e47bef0b903923c",
+      "lf_sha256": "8468b05085625c8269b9858c9eb5a1b9f0d2e363aed390fbe7d0d9703facd55b"
+    },
+    "Missions/ProjectApollo/Apollo 9.cfg": {
+      "git_blob": "401c73a1f605fd7864f21073cbf877b09ab625c7",
+      "sha256": "fbd1ee668ec17afb0f1463196ec276914d0e095bc3b8a819f3a731914a8790ed",
+      "lf_sha256": "5a6e1b98b688ccd814c31d330dedfc8b2629fb489a1e47c38ebf64ee1f3f7743"
+    },
+    "Missions/ProjectApollo/SL-2.cfg": {
+      "git_blob": "b5db839101e2d728781ed2455e6429506fc631d4",
+      "sha256": "586a5b2ca78139d404999ee6e49b3f1ebb0731f270d7eaa87411515782ca4a4f",
+      "lf_sha256": "835ad0d0cb48ea4fed84def31f282531c14ce3d61c0c299a77ef37ea5cabf006"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 01 - Launch T-20m.scn": {
+      "git_blob": "8adb35d5d9bf9cbb3681b418fcdeb1a1fed88c7c",
+      "sha256": "af290aa0bac64c14d2f1e325d988a4d2a41bb015a9a8ca69ca1111adde358406",
+      "lf_sha256": "af290aa0bac64c14d2f1e325d988a4d2a41bb015a9a8ca69ca1111adde358406"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 02 - Insertion.scn": {
+      "git_blob": "1fffbc925526b424200234f767b61c20bcbc0a06",
+      "sha256": "b605f515baac988c1de2a38c5e94de46a01b0e7447fbe98c5412306b46a083f2",
+      "lf_sha256": "b605f515baac988c1de2a38c5e94de46a01b0e7447fbe98c5412306b46a083f2"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 05 - MCC-2 T-15m.scn": {
+      "git_blob": "6ff89ff8bd7f3adac3f1a1175d8298c61c1b9531",
+      "sha256": "c5eca4f82a479a7bccddff60bebce8e7586d596bdd81fce0078323121b3016c1",
+      "lf_sha256": "c5eca4f82a479a7bccddff60bebce8e7586d596bdd81fce0078323121b3016c1"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn": {
+      "git_blob": "3ef03dffd936b03c87037ed8f89a89a61322803a",
+      "sha256": "4468bdc721d6e6e9e07434e13a15bdd4900f09439a50381b680d2482ba9f7fb2",
+      "lf_sha256": "4468bdc721d6e6e9e07434e13a15bdd4900f09439a50381b680d2482ba9f7fb2"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 11 - Lunar Liftoff T-1m.scn": {
+      "git_blob": "bc010715e9d21193b785ee74bc2ceac820440cb8",
+      "sha256": "585c0423a7ff050549cec5a1d6b7185d2d65d8b114daff4861f51bfd6c01b35e",
+      "lf_sha256": "585c0423a7ff050549cec5a1d6b7185d2d65d8b114daff4861f51bfd6c01b35e"
+    },
+    "Scenarios/Project Apollo - NASSP/Apollo 11 - Launch.scn": {
+      "git_blob": "f80219e89a51c0506d325631fe7c4e024002334a",
+      "sha256": "904978786298523592c3420d8b0ac04b0b3226b5fbb2718209912bcbe381ea0f",
+      "lf_sha256": "904978786298523592c3420d8b0ac04b0b3226b5fbb2718209912bcbe381ea0f"
+    },
+    "Textures/ProjectApollo/FDAI_Ball.dds": {
+      "git_blob": "b79a850141850785dbd88edb6ec9848f54513655",
+      "sha256": "c5f9192d267a0c317f39d05fffdd9b99be2181fed33f85805dfd2ad5d007b512"
+    },
+    "Textures/ProjectApollo/FDAI_Ball_LM.dds": {
+      "git_blob": "04143b812426c87f64e71f4d4092e05ad0901f62",
+      "sha256": "fa5d4b65efdddbdd60396af9ce1a0534dc2354b4f88123b5d0896973c2321b3f"
+    }
+  },
+  "assets": {
+    "Meshes/ProjectApollo/ALSEP_LSM.msh": "95a15949a5eccaaa15465f784865db627ae630f3",
+    "Meshes/ProjectApollo/ALSEP_PSE.msh": "0215643d2aac5287d8eacb2187d249547a84aafa",
+    "Meshes/ProjectApollo/ALSEP_RTG.msh": "2d30579fff0ab9be07e7c6ada2d3dacffc583f21",
+    "Meshes/ProjectApollo/ALSEP_SBnd.msh": "7f5b883af9ac785fa53ef4ddcc5fcdb861e5c310",
+    "Meshes/ProjectApollo/ALSEP_SIDE.msh": "a6886a3ccd7f3841aa87a8bddeaee98e5034315d",
+    "Meshes/ProjectApollo/ALSEP_SWS.msh": "f0cda67558a5d68dfdae46ae9b954a801eaeb110",
+    "Meshes/ProjectApollo/ALSEP_Station.msh": "d4a1360a12579fa5460be0c395622eb952f8b0fb",
+    "Meshes/ProjectApollo/ALSEP_TV.msh": "1f51ce28988679de79b918b804c6f8c17f0d998c",
+    "Meshes/ProjectApollo/ApolloLC39_MSS.msh": "369e9bacdba3d921b9b207c075faa0b6bda43992",
+    "Meshes/ProjectApollo/Apollo_2chute.msh": "d658ad7698b0598b3e11adbfe7590290f7f7fd61",
+    "Meshes/ProjectApollo/Apollo_3chute.msh": "d62e698170da9260e14feac304fcd2e59fb00053",
+    "Meshes/ProjectApollo/Apollo_3chuteEX.msh": "8e06cd4e10de374cfd10b98c1f149ed38169423c",
+    "Meshes/ProjectApollo/Apollo_3chuteHD.msh": "51cf52d73cab5dcd7627262dec4051899b2d1d2e",
+    "Meshes/ProjectApollo/BoostCover.msh": "86d0668b5a10a22e9a918c6ffc097d3aa4426c1a",
+    "Meshes/ProjectApollo/CM-ApexCover.msh": "54fcce14d8f0b1239f8dce844c9d9206b0d0b002",
+    "Meshes/ProjectApollo/CM-Balloons.msh": "c500f71d5d6ffc09eea960c19de997350ffc922d",
+    "Meshes/ProjectApollo/CM-CMP.msh": "d200141824940b42d065a38cbced5a383979a843",
+    "Meshes/ProjectApollo/CM-CMPEVA-9.msh": "f6c71d3afffd2e12eb1d982d20a070454cf502e9",
+    "Meshes/ProjectApollo/CM-CMPEVA.msh": "fbbd0d83707f4b5a1aacd875bc99de4fd28ea30a",
+    "Meshes/ProjectApollo/CM-COAS-CDR.msh": "2428996acf541474aeab88cf594825e227943878",
+    "Meshes/ProjectApollo/CM-COAS-CDR_Reticle.msh": "2b1090225c0313d4b197d3c9360a24e58c0ca1e8",
+    "Meshes/ProjectApollo/CM-CREW.msh": "60529a8dfe4a912e92ef894720f52fc35771db3b",
+    "Meshes/ProjectApollo/CM-ChutesPacked.msh": "33e8763a8ffeb0e80d3ef59e0c182727d4e4c887",
+    "Meshes/ProjectApollo/CM-CrewRecovery.msh": "168a4e785469d48eaea8de6258449c02a29bc6d0",
+    "Meshes/ProjectApollo/CM-DockRing.msh": "7e081433f0ef0b72787890004b71b94d03c5cb58",
+    "Meshes/ProjectApollo/CM-Docktgt.msh": "b65ef0ddcc06965b1170bf89c2ec92fef6943736",
+    "Meshes/ProjectApollo/CM-HatchC.msh": "752fd9bc2e0916fa4346bf5c0de2cd7570e9f0e8",
+    "Meshes/ProjectApollo/CM-HatchF.msh": "d92f9efb37fb221485896ed482345b58814168e9",
+    "Meshes/ProjectApollo/CM-HatchO.msh": "7a15bc9e0d636f3695e6f173e6b6e65f3c5cdc4d",
+    "Meshes/ProjectApollo/CM-Interior.msh": "2a2da352ed9c1b798b51c5c8611c53df3b195fcc",
+    "Meshes/ProjectApollo/CM-Nohatch.msh": "59babe802e081a3f9db383627837ea20c4ca7a4d",
+    "Meshes/ProjectApollo/CM-OpticsCover.msh": "51a34bdabab8c48bd1a9f1781abdc72c9873b51a",
+    "Meshes/ProjectApollo/CM-Probe.msh": "c23c085840d82394a74e5e2d017e25f7b4693cf9",
+    "Meshes/ProjectApollo/CM-ProbeExtended.msh": "be15ac7f08c086959aa7da3c8fddf2fa15030c15",
+    "Meshes/ProjectApollo/CM-ProbeRetracted.msh": "e23197bf3c9c270a223782b760d1a7cf87515000",
+    "Meshes/ProjectApollo/CM-Recov.msh": "744b6635fe453d36b1a38baeedc60b5cb7ff947f",
+    "Meshes/ProjectApollo/CM-VC-SeatsFolded.msh": "3dc2946ddd647e4c15b2a43916829221ba784ae5",
+    "Meshes/ProjectApollo/CM-VC-SeatsUnfolded.msh": "090e8068244f9a7c288ee029bc53d8e3a2b24e39",
+    "Meshes/ProjectApollo/CM-VC.msh": "8585c064b2fb8c1a656773006ed0f16f6f758c82",
+    "Meshes/ProjectApollo/CM.msh": "83d2b93f64ba303910c6eae6296b8a51481451bc",
+    "Meshes/ProjectApollo/CMB-ApexCover.msh": "36ded5577463dd7999123926019f79b8d2a067f7",
+    "Meshes/ProjectApollo/CMB-HatchC.msh": "9eb943123ae58bd0d156535dc30c70b90fd0cd40",
+    "Meshes/ProjectApollo/CMB-HatchO.msh": "3e009725f0fc8c2f974a597afd23e7c944e74cf6",
+    "Meshes/ProjectApollo/CMB-Recov.msh": "79a99e991d24ed9624389be1071ad405fabc5529",
+    "Meshes/ProjectApollo/CMB.msh": "17c84198bc5d791f56a126ea734b92201d97aa44",
+    "Meshes/ProjectApollo/CanaveralLC34LUT.msh": "51519a923adc67ba34f6c05c0b018be39618b7e7",
+    "Meshes/ProjectApollo/CanaveralLC34MSS.msh": "e7e9c406e8bfa790df99bd9eee0ffad6fc10acb2",
+    "Meshes/ProjectApollo/CanaveralLC34Pad.msh": "0c9ea261887c98223a8dcae24fce6406e6a8ae75",
+    "Meshes/ProjectApollo/CanaveralLC37.msh": "e953d54455874e931c0197c053c889ac5b477271",
+    "Meshes/ProjectApollo/CanaveralLC39.msh": "451f7a597042b2b4639108284df4db059f18e1f2",
+    "Meshes/ProjectApollo/CanaveralLC39A.msh": "085b044e6574d4194c430066487d8ebb7c474f8a",
+    "Meshes/ProjectApollo/CanaveralRoad.msh": "0ef12597ce3d62cea705fef3c1aa5647d603aaf9",
+    "Meshes/ProjectApollo/CanaveralRoad4.msh": "4514aaa518aaebdb1f36707d1228436a8cb0a6fb",
+    "Meshes/ProjectApollo/Crawler_Mainbody.msh": "ec193e19ecc4481e3266a2e8a82393cb29c5cb47",
+    "Meshes/ProjectApollo/Crawler_centerpanel.msh": "9a0bda6fb1a8fd5f8e0a7a237ef3df53531ca554",
+    "Meshes/ProjectApollo/Crawler_centerpanel.static.msh": "8a1c05782cd7eba53c5ea432526394a239420442",
+    "Meshes/ProjectApollo/Crawler_centerpanel_reverse.msh": "9e43440ddcc4cae57a43cc2373e22c099a0aae6d",
+    "Meshes/ProjectApollo/Crawler_centerpanel_reverse.static.msh": "96039daa4e42574cb510266cdd3b76fccf7732ce",
+    "Meshes/ProjectApollo/Crawler_drivetrucks.msh": "fc7321756b6639a43f7ee0e9bc49f2c74d9d2426",
+    "Meshes/ProjectApollo/CueCards/A15LM_ABNORMAL_VEHICLE_DYNAMICS.msh": "e3d038b8045b00b1b575f6175c4997e57aee1d29",
+    "Meshes/ProjectApollo/CueCards/A15LM_ABORT_OPS_MANUAL_STAGE_A.msh": "f9845758331a860dffdcc66550f37186ce9a5712",
+    "Meshes/ProjectApollo/CueCards/A15LM_ABORT_OPS_MANUAL_STAGE_B.msh": "b95830bc1d1659132b43f93905b0d3e00f6a49fd",
+    "Meshes/ProjectApollo/CueCards/A15LM_ALARM_CODES.msh": "fd31615632a01c6bf92bbad9a8540354346f9593",
+    "Meshes/ProjectApollo/CueCards/A15LM_ASCENT_MONITOR_CHART.msh": "74487d68f109cee504ec8cbe262ac529b95401d9",
+    "Meshes/ProjectApollo/CueCards/A15LM_BUS_LOSS.msh": "f0e373763b0da8c8c55f31ffe278b1626467bc7e",
+    "Meshes/ProjectApollo/CueCards/A15LM_CDR_LMP_BUS_LOST.msh": "3c7fca7d506e024937a6524e19f07be4608b95f8",
+    "Meshes/ProjectApollo/CueCards/A15LM_COAS_BORESIGHT_LOG.msh": "7a4e3afd5a57be512913de8028e1505bc87c0b06",
+    "Meshes/ProjectApollo/CueCards/A15LM_DEDA_ADDRESSES.msh": "4c4c8ad86b0635452de4a89d7f244754e6cb7710",
+    "Meshes/ProjectApollo/CueCards/A15LM_DESCENT_H_vs_HDOT.msh": "613a941ba398020846b7012061d831464731394d",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_ABORT_INSERTION.msh": "95c9a711ed6af6cd7e650c4c1130042d611fc29a",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_APS_RCS.msh": "7b49a23ac0be01ca350c776bb8ac04770bcc3da9",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_ASCENT.msh": "775e3bcb8ac6ee8513fb6787a4db1ac1bfdd920c",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_BURN.msh": "82f80408c5831382bf86ad72c977fe1cfc97e987",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_PRE_SHe_PRESS_RNG.msh": "5b094de3aff4ff5158ff945c0f48132b68ace715",
+    "Meshes/ProjectApollo/CueCards/A15LM_DPS_PROCEDURE.msh": "413839474fbaee2be0e442fca52083fda858b78e",
+    "Meshes/ProjectApollo/CueCards/A15LM_FT_NM.msh": "71b7edc990e2369ae69f55d438a9264d18c415d5",
+    "Meshes/ProjectApollo/CueCards/A15LM_LIGHT_MEANING_IMMEDIATE.msh": "804d63077b6123e604dd63af65e104cdb52c917a",
+    "Meshes/ProjectApollo/CueCards/A15LM_LM_COMM_MODES.msh": "f56bf8b29f4d5430bec406aa7656b914c70875fe",
+    "Meshes/ProjectApollo/CueCards/A15LM_LOSS_OF_COMM.msh": "66a7dfefacf29c8920390baaf0212b26ca7d4b35",
+    "Meshes/ProjectApollo/CueCards/A15LM_MISSION_RULES_NOGO.msh": "f3cf909529b5233a29fc2444abe741c43509d4b9",
+    "Meshes/ProjectApollo/CueCards/A15LM_NO_DPI_APS_BURN.msh": "3709023e5edfa89ab7bf1ccbbccb921ab2b73372",
+    "Meshes/ProjectApollo/CueCards/A15LM_STAGING.msh": "13c2514592739ff056437c4f007939c22c67f54e",
+    "Meshes/ProjectApollo/CueCards/A15LM_S_BAND_ANTENNA_ANGLES.msh": "594b6744350bc85b7be119face3f0fd8eb6c31d1",
+    "Meshes/ProjectApollo/CueCards/AC_PWR.msh": "d5c033ba474bf84e8a6609d084f9f2330e178f66",
+    "Meshes/ProjectApollo/CueCards/ASTP_AC_ABORTS.msh": "0ee4f2834d639d711c664fb1c9bdeaaabf0ec3a9",
+    "Meshes/ProjectApollo/CueCards/ASTP_AC_BOOST.msh": "2a7335fbacf8f2fbefbc9a638a4b1c996e2542c4",
+    "Meshes/ProjectApollo/CueCards/ASTP_CUECARD_DAP.msh": "ec93b6bb68500159a5c868c8afd6c1e6b8f51e6d",
+    "Meshes/ProjectApollo/CueCards/ASTP_DEORB_ATT.msh": "937c3f75afcf8cfc48a53a667b7daf0fa980001b",
+    "Meshes/ProjectApollo/CueCards/ASTP_DEORB_ATT_CONT.msh": "8b8a759b52d4adfe85a8c64563de4de1ac882ee0",
+    "Meshes/ProjectApollo/CueCards/ASTP_DOCKED_CUECARD_DAP.msh": "d6fee96f86ef16c78cc19642784d69f5e53979a9",
+    "Meshes/ProjectApollo/CueCards/ASTP_DP_BOOST.msh": "84355f53c8a88bea48b9b44824f7c564db75edbd",
+    "Meshes/ProjectApollo/CueCards/ASTP_DV_FAILURES.msh": "65c38d17ac59eb2e520c1cc7f3edcc65b52bfcf6",
+    "Meshes/ProjectApollo/CueCards/ASTP_ECS_MON.msh": "39fc7029e9e7ecb872d73f2fd65ad94adb39694c",
+    "Meshes/ProjectApollo/CueCards/ASTP_ENTRY.msh": "88769bc487b4f68113d3f1b2c05a5b6174426aa5",
+    "Meshes/ProjectApollo/CueCards/ASTP_EPS_ECS_ABORTS.msh": "15da3f6e6176cbf30ec84200bda113f7b5d93983",
+    "Meshes/ProjectApollo/CueCards/ASTP_EXT_PHOTO.msh": "13c7a780abc57a4523d1d7e53b4e97e3d3d70b61",
+    "Meshes/ProjectApollo/CueCards/ASTP_LANDING.msh": "dd624ce63d0e89015fe56e459a5198bfc2f75a5f",
+    "Meshes/ProjectApollo/CueCards/ASTP_LAUNCH_ABORT_PAD.msh": "a84812af0ef77c4f258db252f84a6d93b1b3c20f",
+    "Meshes/ProjectApollo/CueCards/ASTP_PWR_LOSS_DV.msh": "0b6806910f8e597523b1e064691120d273d56f30",
+    "Meshes/ProjectApollo/CueCards/ASTP_PWR_LOSS_DV_PNL_3.msh": "67d1da40e4c1f5e23f8c69641f9919fade843ff6",
+    "Meshes/ProjectApollo/CueCards/ASTP_PWR_LOSS_LAUNCH.msh": "1b87bdae61c0d0a0195c02d6a1f097403a82deb5",
+    "Meshes/ProjectApollo/CueCards/ASTP_PWR_USERS.msh": "15440b24dc85e78931652d7cb87874aeadd635cb",
+    "Meshes/ProjectApollo/CueCards/ASTP_RCS_MON.msh": "0339784e52ce3c7c5cbe7ef8e9fc35da64545957",
+    "Meshes/ProjectApollo/CueCards/ASTP_RCS_TBS.msh": "beb4b29da1335dc06018486c15cf8ed048940bca",
+    "Meshes/ProjectApollo/CueCards/ASTP_SATURN_BOOST.msh": "e9f0fc6ccbb4c2c484af76654305f7c686a470cc",
+    "Meshes/ProjectApollo/CueCards/ASTP_SM_EXP.msh": "01cc57554f3b40b37a85b5c4ee7750b94abf59d5",
+    "Meshes/ProjectApollo/CueCards/ASTP_SPS_BURN_RULES.msh": "dd61b2e190833523333d276c14db03d6797cc8c3",
+    "Meshes/ProjectApollo/CueCards/ASTP_SPS_ENTRY.msh": "19f9a13f2e9eef9737593f064cd3e933aa44dd9a",
+    "Meshes/ProjectApollo/CueCards/ASTP_SPS_ENTRY_CONT.msh": "d910426ade9c23fb50c4820a936537181de2775f",
+    "Meshes/ProjectApollo/CueCards/ASTP_SPS_RNDZ.msh": "b15b5d2063d5a8e094ac399f7a75e47a3bcc0d88",
+    "Meshes/ProjectApollo/CueCards/ASTP_SPS_RNDZ_CONT.msh": "b9dd259152c622d9ad076430680d6804d0389bdb",
+    "Meshes/ProjectApollo/CueCards/ASTP_T&D.msh": "22379572b4f7afdacd4586b1922991abf6828b56",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_1000M.msh": "9f1b1141f9605a0043843d0b1fbcf1bb1949ae90",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_150M.msh": "20ccbfbf9c39071c53e6151f41ff6ddec0cc6051",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_150M_NO_EMP.msh": "ceba069291a86f3c49a1372de6d2f6627200e116",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_500M.msh": "9225266ab2569ad2416a02c4d29fb5cac46b71a3",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_500M_NO_EMP.msh": "48fa426e24bd8aed28d741b922b943ee50e07bcc",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_PREP.msh": "bf299dedc4937e97d29f189b3d2954a2ef334b65",
+    "Meshes/ProjectApollo/CueCards/ASTP_UVA_RANGE.msh": "1c0060d94a3aa2e7c3406d382fd5d8353fb6d837",
+    "Meshes/ProjectApollo/CueCards/CDR_ABORTS_III_&_IV.msh": "e99aeb642110004b94d5ebc334335759a0c63bc0",
+    "Meshes/ProjectApollo/CueCards/CDR_BOOST-ABORTS.msh": "418b56ec19360fa74539567030c83fe04f7051f4",
+    "Meshes/ProjectApollo/CueCards/CM_EVA.msh": "af8e1f2683253439929aad34e322df156b1d294b",
+    "Meshes/ProjectApollo/CueCards/CM_EVA_CONTD.msh": "59da7e13db577455086b97956b90c8d698d84b58",
+    "Meshes/ProjectApollo/CueCards/CONTINGENCY_EVA.msh": "5fe7ba0f0d32f75644555f7d62ca18228fd1a52b",
+    "Meshes/ProjectApollo/CueCards/CONTINGENCY_EVA_CONTINUED.msh": "7df5a5ba8ad3828fa7778e7941936a4c81db9fcf",
+    "Meshes/ProjectApollo/CueCards/CSM_ANTENNA_LOCATIONS.msh": "410222ebfdfb6daf5d4ef4ffad5171e0ceaae1ac",
+    "Meshes/ProjectApollo/CueCards/CueCard_DAP.msh": "d0b2b084c2036baa9cd69375f8fec7b6ffd52c89",
+    "Meshes/ProjectApollo/CueCards/EMER_CAB_REPRESS.msh": "9612e300b3ec6db57dbaca8544c1de51dd431458",
+    "Meshes/ProjectApollo/CueCards/ENTRY.msh": "087e2fda37329ab06185925395a87539159c1cae",
+    "Meshes/ProjectApollo/CueCards/EPS-ECS_ABORTS.msh": "e8e3254a9cbee3bce3b3c482ac7602ac8216f009",
+    "Meshes/ProjectApollo/CueCards/LANDING.msh": "921bdfcf5d79fc6ad05185ea613d6258c0fd8ce3",
+    "Meshes/ProjectApollo/CueCards/LMP_BOOST-ABORTS.msh": "7a8dd263032702aa3a699e33a902d9b51dedc647",
+    "Meshes/ProjectApollo/CueCards/LOI_LIMITS.msh": "8e627f95e340169ed20175e35ed0aa1df5381c7d",
+    "Meshes/ProjectApollo/CueCards/LOSS_OF_COMM.msh": "86c7c0705e240fce6080e542daed57f9a9c0ce65",
+    "Meshes/ProjectApollo/CueCards/MANUAL_SIVB_TLI_1_A15.msh": "be7dda0139f096f973319a7fae19b7140cd6adc4",
+    "Meshes/ProjectApollo/CueCards/MANUAL_SIVB_TLI_2_A15.msh": "46fa7191e3ff5372e5a82dff73c673a4766c4272",
+    "Meshes/ProjectApollo/CueCards/NOMINAL_SIVB_TLI_1_A15.msh": "42f31ae28dab1795bc63673237f150d8dae5333a",
+    "Meshes/ProjectApollo/CueCards/NOMINAL_SIVB_TLI_2_A15.msh": "254b4b162b16af1d9141a03c3ba6b2d4f3facf74",
+    "Meshes/ProjectApollo/CueCards/POWER_LOSS.msh": "3f83e27b61c676e1aeaad7d04efc738d9a57bfe8",
+    "Meshes/ProjectApollo/CueCards/SATURN_BOOST_A14.msh": "015758073a062af35478cb27c5c88138c7ba5118",
+    "Meshes/ProjectApollo/CueCards/SATURN_BOOST_A15.msh": "a893131c91cd8f99d6bfc085138da2af41bcf708",
+    "Meshes/ProjectApollo/CueCards/SPS_BURN.msh": "c5c13d751ee477772cf2bd942a4da894a1e8baf6",
+    "Meshes/ProjectApollo/CueCards/SPS_BURN_CONTINUED.msh": "456f90270b12587dc18fe3e14683a880be35bf1d",
+    "Meshes/ProjectApollo/CueCards/SPS_BURN_RULES.msh": "42274b76da586516aa02a9d1116f9a26e065d0d1",
+    "Meshes/ProjectApollo/CueCards/TLI.msh": "c8721e683f6f88cbcae14db845952b30cf7742f4",
+    "Meshes/ProjectApollo/CueCards/TPF.msh": "749b2bbbda5b975163ce877c1244fa3712debc90",
+    "Meshes/ProjectApollo/CueCards/TPF_CONTINUED.msh": "8a5365f794343aeac0bae9c520f02c3dfad46e14",
+    "Meshes/ProjectApollo/CueCards/T_AND_D.msh": "f1934a9acdda66a3a1b75f8971fe0eaacdd320fd",
+    "Meshes/ProjectApollo/CueCards/T_AND_D_CONTINUED.msh": "760b1f3c2db728f010c5028490787de57ab5282a",
+    "Meshes/ProjectApollo/CueCards/UNDOCK_SEP.msh": "603666b338f78f86c16ab97bdabaa548ea6fd48f",
+    "Meshes/ProjectApollo/CueCards/VAC_XFER_TO_ECS.msh": "e639e051aa5d07f91a2ae5af75febf8f64c87d7a",
+    "Meshes/ProjectApollo/EASEP_LR3.msh": "4d41373e72c885c02b375c3ffb8d364e1357d050",
+    "Meshes/ProjectApollo/EASEP_PSEP.msh": "71571772398398b37b4a27956e67628ea8963f87",
+    "Meshes/ProjectApollo/EASEP_SWC.msh": "57fb1745f287de82f185211b8b423d6085a0d0ae",
+    "Meshes/ProjectApollo/EASEP_TV.msh": "2b7b62b7747a1209492a51e8add9b0f9f25f0294",
+    "Meshes/ProjectApollo/Helpers/CM-CueCardsArrows.msh": "f5de4d05e2f571f33710b974493ff3ede1556f7c",
+    "Meshes/ProjectApollo/Helpers/LM-CueCardsArrows.msh": "f8d4577f324df2a4387089486e09390428d87b59",
+    "Meshes/ProjectApollo/Helpers/PointingArrow.msh": "1c7ac6e7f3082fe3c3cc34f42cacc10a8e85d06f",
+    "Meshes/ProjectApollo/KSCCrawlerway1.msh": "9be2bbfdf960b706dcae6e0e4bf1926456003d8a",
+    "Meshes/ProjectApollo/KSCCrawlerway2.msh": "12caffea017d1501ccf240c0b40cf5674481d667",
+    "Meshes/ProjectApollo/KSCCrawlerway3.msh": "cd52d1ac7a98fdce994613949b4ece8f8cca9d17",
+    "Meshes/ProjectApollo/LM-LMPEVA-9.msh": "4117eb17c7cc2fa7d1d9543c99c94f0a41b174da",
+    "Meshes/ProjectApollo/LM_1.msh": "6dfa58334c3f61a37b8249f5efb41d8a3dc0af5b",
+    "Meshes/ProjectApollo/LM_AscentStage.msh": "f47fdc4fdde4715e90477c21130eff70a53ddabf",
+    "Meshes/ProjectApollo/LM_DescentStage.msh": "0e84dce16b1cf61b057cfa4267f92fa93537ae4a",
+    "Meshes/ProjectApollo/LM_DescentStageNoLeg.msh": "1270787f35c12386b69765ed9e060f55cbfd5d2b",
+    "Meshes/ProjectApollo/LM_SLA.msh": "940be79f40957058dbf37912a7ce02fe92397782",
+    "Meshes/ProjectApollo/LM_VC.msh": "23c3ed8f139327254ba3a6a79a2f46b920abe544",
+    "Meshes/ProjectApollo/LM_Window_Shades.msh": "343367e3b642e4af5cbf27bcb853acc7591fd58e",
+    "Meshes/ProjectApollo/LM_Xpointer_Shades.msh": "fb6c16d242296164e56e2e43dbbe9c4dc7e74c62",
+    "Meshes/ProjectApollo/LRV.msh": "49ed2cc2f4cea9749dc3ad31a1a6b35ea9190789",
+    "Meshes/ProjectApollo/LRV_Astro_CDR.msh": "d6ac8a3a8f102be50ed5b60ceb727cda26ac2d61",
+    "Meshes/ProjectApollo/LRV_Astro_LMP.msh": "8e457d0fb37da49dffcd2848fc79ce4cd6f5fc9c",
+    "Meshes/ProjectApollo/LRV_console.msh": "219758bae9e63499aa96f42a0983bc63555014fe",
+    "Meshes/ProjectApollo/LTA_2R.msh": "8a8ce28cbc341facc136b40c1590d81b201bfb91",
+    "Meshes/ProjectApollo/LowRes/nsat1intstg.msh": "1efd453bd825645b4b093f5a1f16452523548ec4",
+    "Meshes/ProjectApollo/LowRes/nsat1stg1.msh": "980352df01653bbed33739ef4640e3ef84448f1a",
+    "Meshes/ProjectApollo/LowRes/nsat1stg2.msh": "d22c0fb25137dd9896eaf7981e7da02071751c61",
+    "Meshes/ProjectApollo/LowRes/sat5intstg.msh": "48020a0fb335062eebb65399119d7059beb19fb3",
+    "Meshes/ProjectApollo/LowRes/sat5stg1.msh": "c76956e6c080284275c0e61dc4d1b85178755435",
+    "Meshes/ProjectApollo/LowRes/sat5stg2.msh": "4201168532a91ca1847b5e193eb3dd8c24ca760b",
+    "Meshes/ProjectApollo/LowRes/sat5stg3.msh": "96d499db407ba68047fcdd1e13bd32c409b34989",
+    "Meshes/ProjectApollo/LowRes/sat5stg31.msh": "dba2299dcf020ae418797f2e689b150a6811ebe8",
+    "Meshes/ProjectApollo/LowRes/sat5stg32.msh": "95ebbbe33f30db64994255ae1757986b86b86a65",
+    "Meshes/ProjectApollo/LowRes/sat5stg33.msh": "ab7525b25389ea6930e8f52430485c816fb350af",
+    "Meshes/ProjectApollo/LowRes/sat5stg34.msh": "c14507570afffebaefb4ab05eb29d7cdc1ac9426",
+    "Meshes/ProjectApollo/MCC_VC.msh": "613a71149f36b2993495c75efaf853a7ad054982",
+    "Meshes/ProjectApollo/Obsolete Meshes/ApolloVAB.msh": "2e5e5b013dcaea497665938763061f8b26a8671e",
+    "Meshes/ProjectApollo/Obsolete Meshes/CM-InteriorOld.msh": "2a2da352ed9c1b798b51c5c8611c53df3b195fcc",
+    "Meshes/ProjectApollo/Obsolete Meshes/CM_Balloons.msh": "5df2e7f81d5f9a8ce4ef5bf6e2bbfde4233b1816",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralLC34.msh": "5eb6df20bee41b29cc9d3cfa0d1e7de1b7d55a1e",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralLC34MSS.msh": "7554d9ebb6c6a2e4b74a3b51bee0d65f8546132e",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralLC34New.msh": "d9834cb1a2480c46ecdd039922e0d7ad81b82c92",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralLC37.msh": "b8e7af0eb294bf0ff7fcc11b251cbb6e595e21c7",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralLC37MSS.msh": "7d0b993da851573aec48298218ed73b0d9cd1a4e",
+    "Meshes/ProjectApollo/Obsolete Meshes/CanaveralVAB.msh": "a637119fb398fd237e6f723e8c5d6880fc9833d6",
+    "Meshes/ProjectApollo/Obsolete Meshes/Crawler.msh": "456911d29b1e72b6e58d6ab46b873492c34f9d6a",
+    "Meshes/ProjectApollo/Obsolete Meshes/FraMauro1.msh": "ee9ea552085965451321d350bce97e056fe446a0",
+    "Meshes/ProjectApollo/Obsolete Meshes/FraMauro2.msh": "345977bd64991b7d9b23ac4210910c484fb2c8b9",
+    "Meshes/ProjectApollo/Obsolete Meshes/LM_1.msh": "52b7bb26bde63b3cdd114694fed7fbaeea46fe6d",
+    "Meshes/ProjectApollo/Obsolete Meshes/SAT5CM2.MSH": "19655853f7b83c9105f69682fad7915de3bf1a8b",
+    "Meshes/ProjectApollo/Obsolete Meshes/SAT5CREW-VC.msh": "c9c497aebb4ab4f449e580b8fa3a2c20eef897c0",
+    "Meshes/ProjectApollo/Obsolete Meshes/SAT5CREW.MSH": "39402482d739f0d7b790b0ba428dffb0333441e5",
+    "Meshes/ProjectApollo/Obsolete Meshes/SM.msh": "8af42e24e2e27c695f7e8e5d2084a863a24c7374",
+    "Meshes/ProjectApollo/Obsolete Meshes/SM_HGA.msh": "dcd3966f2f3661e6b07bd3f321c0b70528e571a3",
+    "Meshes/ProjectApollo/Obsolete Meshes/Sat5CM-VC.msh": "bf4c7337977422db13edbba062f23b3227a70e26",
+    "Meshes/ProjectApollo/Obsolete Meshes/Sat5CM.msh": "0688ecf1eb97df82e6163b2407c41feabe831981",
+    "Meshes/ProjectApollo/Obsolete Meshes/Sat5cm2b.msh": "d104dc219d09985d34029b3359c1721ac700ec07",
+    "Meshes/ProjectApollo/Obsolete Meshes/Sat5cmb.msh": "1fb0375d20a201504c8cc9efacaf4dabf8963f10",
+    "Meshes/ProjectApollo/Obsolete Meshes/Saturn1_CMP_EVA.msh": "a3c3f78505265b93151022e0fffae23553466de0",
+    "Meshes/ProjectApollo/Obsolete Meshes/Saturn1_SM.msh": "2e2e5256736aaaa521f17649b7d6a5d05d6307d9",
+    "Meshes/ProjectApollo/Obsolete Meshes/TRANBASE.MSH": "ac7a3da6a08590cc3ba52b617838c6392d346385",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSat1SMHGA.msh": "dcd3966f2f3661e6b07bd3f321c0b70528e571a3",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSat1probe.msh": "374bb8bb97a248cdd1ca842a7fb70855f01e7aa1",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CM.msh": "81e40654e43e7fe816f010dd775c4641a74f149b",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CM2.msh": "19655853f7b83c9105f69682fad7915de3bf1a8b",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CM2B.msh": "d104dc219d09985d34029b3359c1721ac700ec07",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CMB.msh": "1fb0375d20a201504c8cc9efacaf4dabf8963f10",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CMP.msh": "a70e223a09e269dc993544dd3b1f40f394cebc88",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CMP_EVA.msh": "a3c3f78505265b93151022e0fffae23553466de0",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_CRB.msh": "e4f6931e5728e03bdb95b5a98cfaaadb21505c1b",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_Crew.msh": "39402482d739f0d7b790b0ba428dffb0333441e5",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_FHC.msh": "b6eebcaa7b39e007b94c84c61e5566eb8d503b0c",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_FHC2.msh": "0c6a30b6f099f0cac4ae1cfb88ffa75e950c60d7",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_FHO.msh": "efe8101bfa43de344fcea8e5c6c4f0aca8bc6d8d",
+    "Meshes/ProjectApollo/Obsolete Meshes/nSaturn1_FHO2.msh": "d839951d88887c890285f3b5e874505bcb9f9d65",
+    "Meshes/ProjectApollo/Obsolete Meshes/nsat1tower.msh": "2cf36ea2248d0c009166fd2ef34a9e7e1eff4bd5",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5Cmp-VC.msh": "8fa93b4ee35ed9711fdae3ffebc44eeef92d3e48",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5Cmp.msh": "a70e223a09e269dc993544dd3b1f40f394cebc88",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5HC.msh": "1e38861d673935d1460535bab4b71eb697614383",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5HC2.msh": "4fb2e88294d7b3fb98359db84f2264b31cee4eae",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5HO.msh": "ec3e527579e52294c040219713f3e18ac6062ada",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5HO2.msh": "6f9aa884c724a9b682cd2e5fc40f2643546777f2",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5probe.msh": "1cae06136aef719473db55921a406c46fea4ca91",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5sky1.msh": "29a3ab056e279a671d17d70e1fc3505a32352a8e",
+    "Meshes/ProjectApollo/Obsolete Meshes/sat5sky2.msh": "30d611152f90eaf0233427407d53e347261dac2b",
+    "Meshes/ProjectApollo/Rocks.msh": "2db098b490fc88fdbe9590b42a2c694c68cb202b",
+    "Meshes/ProjectApollo/SM-CRYO.msh": "aa4cb6b2b7290bf4ec55ce7bd0ea494021a283a8",
+    "Meshes/ProjectApollo/SM-HGA.msh": "9bde5b70d1d0915f84a3e60610cb3428b9e4a4f1",
+    "Meshes/ProjectApollo/SM-Panel1.msh": "105e25a84555489c017d6ea0aee0b263dadfda13",
+    "Meshes/ProjectApollo/SM-Panel2.msh": "979cc97ee78cb295626a9105d87b745b5c616fc6",
+    "Meshes/ProjectApollo/SM-Panel3.msh": "2c29d9c392e8d8d48f532c79e075e891a54b934e",
+    "Meshes/ProjectApollo/SM-Panel4.msh": "8b12db9c889f4d1dda418e055e4cae27d26f9a66",
+    "Meshes/ProjectApollo/SM-Panel5.msh": "c9c154e31493a310b4de3766212de69e63888d4a",
+    "Meshes/ProjectApollo/SM-Panel6.msh": "2cda730643750bcd1679df6e46f49cac8ec1f3a1",
+    "Meshes/ProjectApollo/SM-RCS.msh": "a3d6f6ad4ac8c638da076620b20d52fc0f8cb55f",
+    "Meshes/ProjectApollo/SM-RCSHI.msh": "11b3f482e39fe5ae13687f93c5056a1541385109",
+    "Meshes/ProjectApollo/SM-RCSLO.msh": "683435e1ca45de280c753131ff0959e64525ec21",
+    "Meshes/ProjectApollo/SM-SIMBAY.msh": "249e76ca1fffb2d29601e0414a884aec36a3e17c",
+    "Meshes/ProjectApollo/SM-SPS.msh": "bc7ce1550acb398ce2107e4cb6cfddd20471beae",
+    "Meshes/ProjectApollo/SM-SPSTanks.msh": "66b5291232297883d08d89dac58f5d7bbbe82dda",
+    "Meshes/ProjectApollo/SM-core.msh": "26dc6a7d9d94a7eb30aec8e566f224ccb6aee3b5",
+    "Meshes/ProjectApollo/SM.msh": "8af42e24e2e27c695f7e8e5d2084a863a24c7374",
+    "Meshes/ProjectApollo/SM_uext.msh": "0e26f552c3a2bdf54d49f425fd62a8077d01896e",
+    "Meshes/ProjectApollo/Saturn1bML.msh": "16eb830b87bea443c7955f3c8560e78c4ef7b874",
+    "Meshes/ProjectApollo/Saturn5ML.msh": "0c2ad82f0a986b9d59fc26ff200d3118fb56325b",
+    "Meshes/ProjectApollo/Saturn5ML.static.msh": "9f4437ec3a60eb02b1b90723985dc95cbb50f7d1",
+    "Meshes/ProjectApollo/Saturn5MLPedestals.msh": "13ebaebd75eab5f3cc91fc1f99bf2480d0836f6c",
+    "Meshes/ProjectApollo/Skylab1973/Copying and GPL.txt": "587a46d9d6d8a2a83a794143b61b4b4dd3bbba77",
+    "Meshes/ProjectApollo/Skylab1973/Skylab I.msh": "a58c7811a746409b4b44e3b12965e1587f9150e6",
+    "Meshes/ProjectApollo/Skylab1973/SkylabFairing_1.msh": "21f2bdff47c7060f26778ea066868b2157876993",
+    "Meshes/ProjectApollo/Skylab1973/SkylabFairing_2.msh": "ebd3b43661f20c717b9f9f0315c1b103852d9be3",
+    "Meshes/ProjectApollo/Skylab1973/SkylabFairing_3.msh": "6bed8fca15cdb1415817720b679dd7b3d26fc3a4",
+    "Meshes/ProjectApollo/Skylab1973/SkylabFairing_4.msh": "6f28fd287d392a31ec46e4d6791fb41f86c99aee",
+    "Meshes/ProjectApollo/Skylab1973/SkylabRadiatorCover.msh": "12ba74ba8bf9199821d307be7f92c663658b8941",
+    "Meshes/ProjectApollo/SubSatellite.msh": "6c09fdc3a2b1e2970c3476d9b30af5b2ce50de6f",
+    "Meshes/ProjectApollo/Surveyor.msh": "a552e8778c136a0e1e76fca3e6e48155ab0d25aa",
+    "Meshes/ProjectApollo/VAB_exterior.msh": "61979aa23c5815f7e3c5948e8299dba834e8a8d7",
+    "Meshes/ProjectApollo/VAB_exterior.static.msh": "32b5e6acc3c5e97ec05b9b350a3c2e70eee10217",
+    "Meshes/ProjectApollo/VAB_interior.msh": "b4475743e53971554d08e28059bb85c3cad9e8f8",
+    "Meshes/ProjectApollo/apollo8_lta.msh": "f391f98d17e64580c16d8c8afc6448bf08fb9434",
+    "Meshes/ProjectApollo/littlejoe.msh": "5c37cded1b4aff7e9fe98f6a82ddff922931df68",
+    "Meshes/ProjectApollo/littlejoelauncher.msh": "4f33083830105db4754cd152f3c3653001f5b8a5",
+    "Meshes/ProjectApollo/milkstandext.msh": "16eb830b87bea443c7955f3c8560e78c4ef7b874",
+    "Meshes/ProjectApollo/nAstp2.msh": "e0c93f0a7419ae98ae5bed2ea78f1d6668cba7e9",
+    "Meshes/ProjectApollo/nAstp3.msh": "075addeac6fabf81e561596397c12a305490b385",
+    "Meshes/ProjectApollo/nsat1aerocap.msh": "551d70e6afcbe73922924f69a4e35b59815280d1",
+    "Meshes/ProjectApollo/nsat1intstg.msh": "9e2bf8ec7f87fe0fd0b1bf25ba744f1f54881143",
+    "Meshes/ProjectApollo/nsat1stg1.msh": "9d0f49112d4d2f0e06f755138af1162d28bec8e9",
+    "Meshes/ProjectApollo/nsat1stg2.msh": "621780dbc990549961954286bc6db3fecf81989a",
+    "Meshes/ProjectApollo/nsat1stg21.msh": "322c222333bd4b7f85b7e53232cc6f7bd1685eb5",
+    "Meshes/ProjectApollo/nsat1stg22.msh": "a7744d973d58aa235e65028b0cde8cc80c3e1136",
+    "Meshes/ProjectApollo/nsat1stg23.msh": "c47993b515da658162e4a57fd07a2b11ff7dd14c",
+    "Meshes/ProjectApollo/nsat1stg24.msh": "90628ee398ea60551fab3891a5e0ab7e7e47c578",
+    "Meshes/ProjectApollo/nsat1stg2cross.msh": "be5a66b2a641c97711f3caef788bcfd7d1e9547e",
+    "Meshes/ProjectApollo/sat5AstroS_CDR.msh": "c684b041d165e062a4dfbde8a4aa1418e7e4c17d",
+    "Meshes/ProjectApollo/sat5AstroS_LMP.msh": "b4f93be2d474283904889389ec828a8b2a49b706",
+    "Meshes/ProjectApollo/sat5Flag.msh": "8c75733534c97e4b5584e8b085b2ddb142e1fea0",
+    "Meshes/ProjectApollo/sat5intstg.msh": "4b6e6f22f55214f7a432ef92c840209d61c29706",
+    "Meshes/ProjectApollo/sat5intstg4.msh": "e5cd5f6665b5c760b7ce0bb7f652d5845cb5ca83",
+    "Meshes/ProjectApollo/sat5intstg8.msh": "16cb01b866c785965fb5622af92fe8d04a8ec046",
+    "Meshes/ProjectApollo/sat5skylab.msh": "0ab80523d2650005ad5a3bc322a6b6d2c2692d57",
+    "Meshes/ProjectApollo/sat5skylablaunch.msh": "d7a61d67ee1bf266315d37e089bb3847e3af06d9",
+    "Meshes/ProjectApollo/sat5stg1.msh": "65d5530529a27a1f409724e8b0626bb5452e5580",
+    "Meshes/ProjectApollo/sat5stg2.msh": "4e3c242693421bf26ac32ce7602475c702e349f4",
+    "Meshes/ProjectApollo/sat5stg2base.msh": "3a699f1694a68246c40da5dfcce99b7bd9ab105f",
+    "Meshes/ProjectApollo/sat5stg2intstg.msh": "22030c4a99241c90953517e2b90bd7802316f67f",
+    "Meshes/ProjectApollo/sat5stg3.msh": "48dd2c4378d53602b4b16d83aaf7dd39c1e1c28d",
+    "Meshes/ProjectApollo/sat5stg31.msh": "937c9e81fca981b63f6dc597a8913f143ae6511a",
+    "Meshes/ProjectApollo/sat5stg31wide.msh": "58a4203d49b9361613f4d4cf42abfa24f0d0098c",
+    "Meshes/ProjectApollo/sat5stg32.msh": "cc0ec4e59e5ea543164be7030f12eb5cb4d5bb47",
+    "Meshes/ProjectApollo/sat5stg32wide.msh": "83f07c4adc6b4896eed7a323bf1ed8eeb5841249",
+    "Meshes/ProjectApollo/sat5stg33.msh": "0491542c7832fe252b7be3aba9e8205a962bd5a5",
+    "Meshes/ProjectApollo/sat5stg33wide.msh": "50aca31406d8af6e167f03ed4f653714de43274e",
+    "Meshes/ProjectApollo/sat5stg34.msh": "319abe0956c8fd468d732e968386f312d30aea34",
+    "Meshes/ProjectApollo/sat5stg34wide.msh": "b1fe2809c5b1445486330b1b50a9d15580cbb83e",
+    "Meshes/ProjectApollo/sat5stg3base.msh": "6d5597f817bb93962311200e359ef01bf53b2b4d",
+    "Meshes/ProjectApollo/sat5stg3intstg.msh": "29b772d13ceb3636200b02e7d604427dc385df20",
+    "Meshes/ProjectApollo/sat5stg3wide.msh": "eec181e661054d98b797421f2793194bbc8e6fbd",
+    "Meshes/ProjectApollo/sat_target.msh": "e52a3526ce05d46011dc7d2f62701243ccada371",
+    "Sound/ProjectApollo/5P100.wav": "39fad8c0b3aef65c1482de043a575e154e2df86c",
+    "Sound/ProjectApollo/Abort.wav": "4051938e71106bab701e3aef976b61a176e0b1c6",
+    "Sound/ProjectApollo/Apollo10/count10.wav": "73db87050f2072f7d269a7e4fc83808680e68e8e",
+    "Sound/ProjectApollo/Apollo10/go-for-tli.wav": "328797a92e8ef9a3daf7199edc752a0367fc0bcd",
+    "Sound/ProjectApollo/Apollo10/saturn-launch.wav": "3ce29dc7dcf6763e381898ccf27c3da013d82844",
+    "Sound/ProjectApollo/Apollo10/seco.wav": "21a9ebb79cd928969dc8a880f74f3a57ca3506c3",
+    "Sound/ProjectApollo/Apollo11/Contact.wav": "8d5298e1b9e4f6a152111b88f1ba78a950e97d95",
+    "Sound/ProjectApollo/Apollo11/LEVA.wav": "8b636a7faaf3e362078fce013c3df3caa242312d",
+    "Sound/ProjectApollo/Apollo11/MSC-Good-4-Minutes.wav": "73725df766b4c503edc9f87e77ea59b7fe5b3eab",
+    "Sound/ProjectApollo/Apollo11/MSC-Guidance-Check.wav": "99114a9b127458901abd12a097cd8fede0c68ad7",
+    "Sound/ProjectApollo/Apollo11/MSC-S1-Staging-Check.wav": "966dcf0e1fa1829a1d040d5df30b6621b4e6d660",
+    "Sound/ProjectApollo/Apollo11/MSC-S1-Staging-Check2.wav": "c337b53289523c084ea12efbac23dc23c972896d",
+    "Sound/ProjectApollo/Apollo11/MSC-S2-Converged-Check.wav": "a5fedc262c2e11b9c4324d7f7d71bb7db6a2b143",
+    "Sound/ProjectApollo/Apollo11/MSC-SIVB-COI.wav": "08c83ddda998cd3ae26eb6d0c27f83be43f293c3",
+    "Sound/ProjectApollo/Apollo11/MSC-T+00-05-00.wav": "11ba77d1898053bdb29740013a8b3819717e9e95",
+    "Sound/ProjectApollo/Apollo11/T-00--04-15.wav": "29a9c52b6179092e166a058914d02ddd9a79071a",
+    "Sound/ProjectApollo/Apollo11/T-00-00-40.wav": "e69172e8f092ca549339f8b3aef7303e7dd5800a",
+    "Sound/ProjectApollo/Apollo11/T-00-01-00.wav": "4b58c818108e018d584fea83c352c6d436cbaefd",
+    "Sound/ProjectApollo/Apollo11/T-00-01-35.wav": "e1b1c6b1026665250dc41d7ff981f495d5e0de70",
+    "Sound/ProjectApollo/Apollo11/T-00-02-10.wav": "076e9cb31c5f62b2d4d59d4a744e30e0284cd227",
+    "Sound/ProjectApollo/Apollo11/T-00-02-30.wav": "3c8fae643bdbf11293ca1ef265babfb41e648aaa",
+    "Sound/ProjectApollo/Apollo11/T-00-02-50.wav": "6a59a2c47a1bc659a74e439036dd72e22fbb0d91",
+    "Sound/ProjectApollo/Apollo11/T-00-03-15.wav": "5de8251d333f062cd2df5434eb8c87248fba408c",
+    "Sound/ProjectApollo/Apollo11/T-00-03-25.wav": "4398f3f16543fe0ec8adbc0c7efe8e7057285871",
+    "Sound/ProjectApollo/Apollo11/T-00-03-45.wav": "e55753b203452e9ea0b39d3a878c3b1f8dfb8800",
+    "Sound/ProjectApollo/Apollo11/T-00-04-15.wav": "ba0f579b0e61a9958f606f91856b9bc8e3bb1dc5",
+    "Sound/ProjectApollo/Apollo11/T-00-04-50.wav": "42eb81a765bbb4d5565d05e1ec1775743d4e9701",
+    "Sound/ProjectApollo/Apollo11/T-00-05-20.wav": "1245129e2a787bead12b6c700253a73454977193",
+    "Sound/ProjectApollo/Apollo11/T-00-06.wav": "ea1b487b80220d211ea227288ba3f91a20ef7650",
+    "Sound/ProjectApollo/Apollo11/T-00-10-54.wav": "c8efc5ee7488dc112200fd68766891b3e57c619c",
+    "Sound/ProjectApollo/Apollo11/T-00-16.wav": "9aaa1f2d0e69826bab22864342b89a99b4436430",
+    "Sound/ProjectApollo/Apollo11/T-00-30-52.wav": "f2a9edbc2c6f3e5e9ddf3ffd78dfaa1be3eee470",
+    "Sound/ProjectApollo/Apollo11/T-00-40-53.wav": "139e6541a14a97ba8920e2cb553bd6a2e7d5712a",
+    "Sound/ProjectApollo/Apollo11/T-00-56.wav": "e32bad3effc7e41827950f6d473f43222085e0b2",
+    "Sound/ProjectApollo/Apollo11/T-01-07-25.wav": "0f0f2ec197821ff3e73faaacbded3575830ffe81",
+    "Sound/ProjectApollo/Apollo11/T-01-30.wav": "238223cebc425ce06c0f712161b117a6f61af897",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono02.wav": "6e73951caa820a6bb7b6ae718eaf488b2e86fccd",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono03.wav": "c22ab6bb401fe28f433577cf475deb7d2ee55ce5",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono04.wav": "4f6a92e93a9c8175514a30d13b5608683d88962f",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono05.wav": "7c80fc5a6ed7d585f09ea8694554f4eafea8016a",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono06.wav": "23b1af2a7bc37f94f2c96d341184a0fd0ba50bcc",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono07.wav": "25f9b70d6c1dc57d704832ff613cb503b81bf190",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono08.wav": "601cf0548158e4b163bda86f3625d9520ac2e7ee",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono09.wav": "da9c334739d6ff58ef15a7107d0f3a2f8199123d",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono10.wav": "1a0c55e1ae0f1b901ea37cd89a0337c644dac5dd",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono11.wav": "a0ef22f90dcc11a840ed37fc09f08036d8ba1172",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono12.wav": "d951a319b30250481b622c22cc73f87bf89d4a4c",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono13.wav": "df1ccc82faed51485d035093bdde5de459ea2447",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono14.wav": "df7557f15b04cd8210e95732aea26e987585a537",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono15.wav": "013d02deb6b0a61dd1838a8f79c8a6102478dd7f",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono16.wav": "75bd023d4f12d1e1e2cf7c69282737475f1adfb2",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono17.wav": "f9b309bfc449e4bd2bbaf3e2b2371213a235ad3c",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono18.wav": "5b5e4ba6edfec161e41c5328a7c6371332432a13",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono19.wav": "b78bc6533d3dcb5f4525d646954c3558fde75fef",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono20.wav": "a2658460812720fd26429549226f74e1d557d741",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono21.wav": "63f5c8b988f3724fd22542767c36922e59be7cb3",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono22.wav": "70b80ab03b027b2503e5abfcc534ad5cb9fb588a",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono23.wav": "5dbaa33e60d0601c81a25a1ad59c48e2269b2a25",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono24.wav": "5c90512458cb99107d3d3d4c115d0577bda05d83",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono25.wav": "5b48f0cd9c835f63f65a66eaf9e1818cab27d521",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono26.wav": "62383a40af7bcbf95d39ba91a0bdb93b2d57c4f6",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono27.wav": "3abca0cf641d3b40475dbc66213c45b1e8817b07",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono28.wav": "4c7beaa91d860323ebf39176027b6bd04d519022",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono29.wav": "81a5754f6a45c8b3ec51c2b0c6be389b61115042",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono30.wav": "9acb9b3fffcf768cd8ae5636d38c2a59e0e20ae7",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono31.wav": "0e67fa5059233b6ef7828248ff76ae511b1f7a62",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono32.wav": "5fbe4b87e1e11394e7d9cb0601907a4da498a11b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono33.wav": "34e045b1a828429fdc21d3cbe392eaf5b2464bc4",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono34.wav": "362390e6b0a441e17cf65671635254b09203e45d",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono35.wav": "c1c3f4856598d52dffeaddd9050d9f141275e874",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono36.wav": "803efc1d23baf5f38204898a127e9f6a15969385",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono37.wav": "c10df1bf56f243bae0d72ed3697ef0f9e3e2ea24",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono38.wav": "e7ac584dedad060603ee17e5e51b4adeb3dd49b0",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono39.wav": "3d9b6113d6584b721c9e3569c8761ed3178cec79",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono40.wav": "65d2f0239ea7032ab4797483dc972d40b6840289",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono41.wav": "316ab69fd476449ea1eee1bc549fb05176a4a770",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono42.wav": "9b1ec0084153fac2d3f34c39df4ed760a3cbc1a4",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono43.wav": "14f58756fd1d6c0a9938ac14728d0e03bcec89f0",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono44.wav": "c17c71c80f4327c8b28d4dfb527dd1d7f9d2bc8e",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono45.wav": "9b41d5e69b26988268135ae0ee13ec4a31bfdecb",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono46.wav": "200383ec0419723d5eb9ba088139e53f43a94e0b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono47.wav": "f6d0a708a8a7ef1006d1870b4c3f101017e0f27a",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono48.wav": "bf60e47781fe42c9bf7fab6c9ee8cadb7d50043b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono49.wav": "185f243b6fe53ca54a13aaa0805bd4ff9b0cafce",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono50.wav": "2f78d8401c89d46c4abf2e1669ad8746804a5303",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono51.wav": "81e4a8efb63fa475978aaad16523c0417f498a54",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono52.wav": "1fad00689cef84f1b5e8fa20bd7c888e48b2b7bb",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono53.wav": "021ff9897b4e1e804528d45f80847ce6c0662782",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono54.wav": "829c85f733f04a0fa2527132559e9424ad16e1cf",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono55.wav": "55b65e071b7c82611a9977aba4d30632ad52ec4f",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono56.wav": "d545787d87bdcb44a8a448b02f05c6b148499a8b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono57.wav": "363e492ec1de0d7094bdc4b2624eafbd0acba01a",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono58.wav": "557c873db28c4464ba975a9cd85420307aa85ebe",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono59.wav": "9b1ff245e33f83e1d0be70393963df2125eb3079",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono60.wav": "c127d30fa0d0323125dd13274a096eb5adf2ab9f",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono61.wav": "7ddeb084a9e3e62904e77d863e987763a5187840",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono62.wav": "76df30d6b64b61e9ed6dcd29ad5b27eab65fa7ee",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono63.wav": "8bdbb5b26c4c2bb28623f68976a3283d74b7bf10",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono64.wav": "ae315283b819cc5cdaf337b4e1e6ecdd081e642d",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono65.wav": "9a0237e18fcf83b360ca7facda242029bd29d736",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono67.wav": "d60ed35255c10afd4ded975dfc33016d7dd80aa6",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono68.wav": "4f0b6f9de2b87f166258f4371a7c0558a4f5bb88",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono71.wav": "2ab694c66fbe86948ccf050e39fd7a3bb2c2cb2b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono72.wav": "fda98c4a8f0847193d36908a3b4485295ca7dbd5",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono73.wav": "471399c87b69597df6f35cea3a0c55699cbc9fc4",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono74.wav": "ca3150bbde1dc9e0e9d799818adf704d4b130bd0",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono81.wav": "2cfd237d9872055077819c913f71b2721011249f",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono82.wav": "9f8d4bb67e04a4aefa96bd352073ceaae9db0756",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono83.wav": "3f35ec77bb4ba207dbae2188be2b5a74e283cb83",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono84.wav": "d1c8349824740fefc9571ae74fe7780eee6d019b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono85.wav": "603e3f41e19bf8a99bea964fec457c4e4c753a1b",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono86.wav": "91c5e61fbf63d4d31d7d1ad3afbca4fc6a3afc24",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono87.wav": "f628ef9b970c192965ac2eb60462bc33cca4fd73",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono88.wav": "c62d3fb9a11b319ed99682638262e1c4cda111d5",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono89.wav": "178efc6fa8396ea3bc49c3ae0dc984f578c3c73a",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono90.wav": "e5bb9e2e7c7d3a24ebb3c47bf8ed15cec104af4e",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono91.wav": "e392dc52d8fd2bcb2ab5bf8e8719ee8faa518eaf",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono92.wav": "e7100c62a1726ee1a02ca6278068bc777d883d8e",
+    "Sound/ProjectApollo/Apollo11/ap11landingmono93.wav": "65dc0414c60bf5ba28e2b434b87c9e563225a9c9",
+    "Sound/ProjectApollo/Apollo11/auto-sequence-check.wav": "0af65962716eb79d2760c5618e9c7f1067dcb54a",
+    "Sound/ProjectApollo/Apollo11/cabincloseout.wav": "4e030cd3ad4c47238d8fee6b2d7ef4c822be9b6c",
+    "Sound/ProjectApollo/Apollo11/csmsound.csv": "81329351406fb872dbc9169af9338f49d1668cfb",
+    "Sound/ProjectApollo/Apollo11/flag-speech.wav": "c09fcdc0b7bbf00ef3f9d28b0243cdd4d011bbfb",
+    "Sound/ProjectApollo/Apollo11/go-for-orbit.wav": "d3dd6c6a05548f895f163361663c296e94aa3dcd",
+    "Sound/ProjectApollo/Apollo11/go-for-tli.wav": "5a8b62e1aa5be73142e0472dda5fcf71a079e923",
+    "Sound/ProjectApollo/Apollo11/saturn-launch.wav": "33339fd12ecb3259e11c4ec8488114f8b0549132",
+    "Sound/ProjectApollo/Apollo11/sound.csv": "3af7109fcc3877dda8801e850451d36ba2cb5c81",
+    "Sound/ProjectApollo/Apollo11/tli-start.wav": "b704dd36cc5ffdc74eab86466407c1a1f511e262",
+    "Sound/ProjectApollo/Apollo11/window.wav": "f4000022f081e49af85de09698bc9bb9c513f58e",
+    "Sound/ProjectApollo/Apollo12/Contact.wav": "14740152f9a62df01bd695b6a0e9463b0afbef54",
+    "Sound/ProjectApollo/Apollo12/LEVA.wav": "98d7debb7d5f5380cb341ea0acf845c99e81fb43",
+    "Sound/ProjectApollo/Apollo12/ap12landing01.wav": "736304bc63ee837da7f91432b299166e899a425e",
+    "Sound/ProjectApollo/Apollo12/ap12landing02.wav": "43cede9754d0ed4f2e10533a2140ba32e325c823",
+    "Sound/ProjectApollo/Apollo12/ap12landing03.wav": "62836f5cbea6b36ea3f5479c6e638c3de8751289",
+    "Sound/ProjectApollo/Apollo12/count10.wav": "ca00deb4f3dccd57b607ad807cf2974f8fa89f75",
+    "Sound/ProjectApollo/Apollo12/saturn-launch.wav": "a418d62c1a6ff457eba1dea985b830adc4f5395c",
+    "Sound/ProjectApollo/Apollo12/sound.csv": "c73f32951bb8623b5ccb67fc56b44c6144405ebd",
+    "Sound/ProjectApollo/Apollo12/tli-start.wav": "b4fe2b13cd045ada5d9cba4211e922878b7a4ec4",
+    "Sound/ProjectApollo/Apollo13/count10.wav": "290d5efc731fc5db890df00269a0d1f551bd48c7",
+    "Sound/ProjectApollo/Apollo13/cryo-stir.wav": "f879dcd731bb33c2db382e8181be1abc03197060",
+    "Sound/ProjectApollo/Apollo13/kranz.wav": "8329f33c8c691a2de081773eb2e236d844a02003",
+    "Sound/ProjectApollo/Apollo13/saturn-launch.wav": "94f3cfb64b19a860ce33be0bc3085b02ecb9db8b",
+    "Sound/ProjectApollo/Apollo13/sii-cutoff.wav": "55b3ea9ebcf43ba9a42bee2365e82fab7e372c56",
+    "Sound/ProjectApollo/Apollo13/sm-sep-exploded.wav": "33959de34e0b34fd43b309f0dcb9cbde1078ea03",
+    "Sound/ProjectApollo/Apollo13/tli-start.wav": "9e659d97890210ddc60638401ca0b6c649d9f0de",
+    "Sound/ProjectApollo/Apollo13/we-have-a-problem.wav": "2075ecbcde30e6eabcb9961d5428312957166d8c",
+    "Sound/ProjectApollo/Apollo14/Contact.wav": "ebaec9669ffcdf2324a10631902785a3268f2ef4",
+    "Sound/ProjectApollo/Apollo14/LEVA.wav": "54337367b0502cab3db682aae506e621f5b2ce51",
+    "Sound/ProjectApollo/Apollo14/count10.wav": "0ac6bd93ec69edfcda705c505060fc5ab9ad639a",
+    "Sound/ProjectApollo/Apollo14/go-for-orbit.wav": "197df28589b9d9f5b9a3dfbfdb9f19b09b22851e",
+    "Sound/ProjectApollo/Apollo14/go-for-tli.wav": "351d7b68813f096e1379596e19ea6363aee8f8b4",
+    "Sound/ProjectApollo/Apollo14/saturn-launch.wav": "c5a5780d8c3d4010318489586143d339fcad4b8c",
+    "Sound/ProjectApollo/Apollo14/tli-start.wav": "bb41d7709cefbbbb41efb9d03f6432531af7d0dc",
+    "Sound/ProjectApollo/Apollo15/Contact.wav": "6c8d5a700026a0d63385a21f7fd94094298c9b9f",
+    "Sound/ProjectApollo/Apollo15/LEVA.wav": "8a01b51ddcef88a7bf8b53d0b8b1843c7ba2e93f",
+    "Sound/ProjectApollo/Apollo15/count10.wav": "05ca1485a7708a9425a8e519f37f93723f26d5f6",
+    "Sound/ProjectApollo/Apollo15/saturn-launch.wav": "669db4fac4ea75e0e91926310d8e44ee58c1236e",
+    "Sound/ProjectApollo/Apollo15/tli-start.wav": "4fbe7e3c8c36029cebc812c851ab3b857880f617",
+    "Sound/ProjectApollo/Apollo16/Contact.wav": "cc1f83b76aac839933999c8e3a7bb625138c6a33",
+    "Sound/ProjectApollo/Apollo16/LEVA.wav": "b1dfad1d40f2f71cffc011d63cfe24d6c4c51cb3",
+    "Sound/ProjectApollo/Apollo16/count10.wav": "e9b8c83bfa6478f25fdba339c3799cc2c0100680",
+    "Sound/ProjectApollo/Apollo16/go-for-tli.wav": "abeb584280b68227eaec5f470a331941fd494e76",
+    "Sound/ProjectApollo/Apollo16/saturn-launch.wav": "55dd16e9228c9164fe0c85898e541d23f53f0496",
+    "Sound/ProjectApollo/Apollo17/Contact.wav": "894e0831f1f383b18405444413f58355121cc26d",
+    "Sound/ProjectApollo/Apollo17/LEVA.wav": "702ebb12c31862a7ec0b1fce6b4eea23be4ea9f9",
+    "Sound/ProjectApollo/Apollo17/count10.wav": "cdf97eb267330b133bff71b6f452d140793a8fe8",
+    "Sound/ProjectApollo/Apollo17/post-splash.wav": "ca5598a2dc715d3e0f29a6971f05252140ef907e",
+    "Sound/ProjectApollo/Apollo17/saturn-launch.wav": "93269eac253e5522b0b8c4ad63036883c30a89d8",
+    "Sound/ProjectApollo/Apollo7/01 24 41.wav": "daede658696b7006c7010219a72c69c33db148dd",
+    "Sound/ProjectApollo/Apollo7/01 27 00.wav": "3ae9dc8d899343542517ebe42f19bdd455d66c43",
+    "Sound/ProjectApollo/Apollo7/01 32 40.wav": "e45873376c30b5cffcc70b222315905e2f5fc39b",
+    "Sound/ProjectApollo/Apollo7/01 32 47.wav": "c018587247cc078fb5a2a42dedd4bcb2ab7fad80",
+    "Sound/ProjectApollo/Apollo7/01 35 02.wav": "8f789189ea73d91c9c3df026c5578920fbc21e7a",
+    "Sound/ProjectApollo/Apollo7/01 38 42.wav": "e3691019b18b3e618af724252d295801a754ca68",
+    "Sound/ProjectApollo/Apollo7/01 42 52.wav": "df47712c4c753bcc22989ad3b239f1e45d3bf196",
+    "Sound/ProjectApollo/Apollo7/01 48 12.wav": "cf8891b62edf9db43c4d1dac8e58500cdbc61a09",
+    "Sound/ProjectApollo/Apollo7/01 48 23.wav": "8cab0500e73fbea4b702c8d6e35d921ab711bfc2",
+    "Sound/ProjectApollo/Apollo7/01 52 23.wav": "a136ae09660a1a3bdbda00e4fdb5ab6542e77b36",
+    "Sound/ProjectApollo/Apollo7/01 57 05.wav": "2c21c7020e17567a0da90dfd02aa2e7708fe0abf",
+    "Sound/ProjectApollo/Apollo7/02 12 12.wav": "20f631c6d35bb2a0817899efad8b370b4a3559d0",
+    "Sound/ProjectApollo/Apollo7/02 12 55.wav": "0f9f045db82f7655f72ed4a46e392c9ae738757b",
+    "Sound/ProjectApollo/Apollo7/02 13 07.wav": "9fbcdfaa850b4a1a5c9ea959d0493e2f9a40615e",
+    "Sound/ProjectApollo/Apollo7/02 13 25.wav": "d2d95f4846852b42429225fa75457e5c7d95c9b7",
+    "Sound/ProjectApollo/Apollo7/02 13 53.wav": "5775df5d4e0586e745995a741243ee0011276f26",
+    "Sound/ProjectApollo/Apollo7/02 14 30.wav": "ee599a9563d4aa0ab6cd2c1afd52d6c01dddb247",
+    "Sound/ProjectApollo/Apollo7/02 14 54.wav": "488d3a7563d111a34248a7d978aef852be7b46ad",
+    "Sound/ProjectApollo/Apollo7/02 18 44.wav": "5a1363a766441abfdb070467c0850fc95784eb1c",
+    "Sound/ProjectApollo/Apollo7/02 27 19.wav": "e7038b8c51e0e3b37a1ac3afd95bd951335f4578",
+    "Sound/ProjectApollo/Apollo7/02 27 37.wav": "7e599e5c8f4da9bb7ad19003b33d9803d04e4c46",
+    "Sound/ProjectApollo/Apollo7/02 33 36.wav": "ff778bdfe39315e643f08115c6e94a11a8c76291",
+    "Sound/ProjectApollo/Apollo7/02 33 52.wav": "32869c4ddd59250e198ae10f2829afa7d5dc0333",
+    "Sound/ProjectApollo/Apollo7/02 34 20.wav": "ee55c9d084cd1ad6736f5002bb10ab93f2870440",
+    "Sound/ProjectApollo/Apollo7/02 36 52.wav": "ff975776363558e089d0c8429c1539fd59b43c65",
+    "Sound/ProjectApollo/Apollo7/02 40 42.wav": "7b94e9f027fd61e8913447d321c6a5578e70586e",
+    "Sound/ProjectApollo/Apollo7/02 47 28.wav": "7c0993cdd282302a14fa73342964c5b80a9a5a21",
+    "Sound/ProjectApollo/Apollo7/02 53 55.wav": "ec2f39a355b9e391467c5fa0d4a10a433819b9db",
+    "Sound/ProjectApollo/Apollo7/03 04 29.wav": "de42418279d426490c7e09b28425712a320dfcee",
+    "Sound/ProjectApollo/Apollo7/03 04 50.wav": "33c50a51eb8d836a80fc955bf02a7101950a07ab",
+    "Sound/ProjectApollo/Apollo7/03 07 38.wav": "9cca16785e9720b2762b64d2d388188452aefe33",
+    "Sound/ProjectApollo/Apollo7/03 16 04.wav": "16d1e0adbbe6d5ac7283fa6307b46f2c168773aa",
+    "Sound/ProjectApollo/Apollo7/03 16 49.wav": "200b58b5a24657ebc789d202834bf2c1e2dfa157",
+    "Sound/ProjectApollo/Apollo7/03 18 50.wav": "22fec914ee79954d04a1c36df90e5de28765b512",
+    "Sound/ProjectApollo/Apollo7/03 18 57.wav": "43b170cc094133d7c39e55b773bd326573993def",
+    "Sound/ProjectApollo/Apollo7/03 19 29.wav": "2e7010be442bb568831f7e390eb516b48dff64c2",
+    "Sound/ProjectApollo/Apollo7/03 19 49.wav": "be41d17ff68b54f8071caba89c11dc72e696a3c1",
+    "Sound/ProjectApollo/Apollo7/03 22 56.wav": "fe305cdadca14baa1f92513d1719d260b443c991",
+    "Sound/ProjectApollo/Apollo7/1059.wav": "16ade6e848016a43a6183bcd693faf03c252f080",
+    "Sound/ProjectApollo/Apollo7/10sec.wav": "ca3801b00a1e559e8c6e494f90bb26ba3d739684",
+    "Sound/ProjectApollo/Apollo7/1125.wav": "d6f49fdd8802778bd3d5090c6b9817b0bff23106",
+    "Sound/ProjectApollo/Apollo7/1255.wav": "0d5d49a035ed653ecd0d0f9f8815ea681c55a01d",
+    "Sound/ProjectApollo/Apollo7/1631.wav": "29059edf361b3852010fec01c96fe26289093054",
+    "Sound/ProjectApollo/Apollo7/1654.wav": "b9bb91210678088e1a110ec72ce084657647c222",
+    "Sound/ProjectApollo/Apollo7/1707.wav": "83737e1b4073e7e019bbfdcdd36ab6ef8a4889a4",
+    "Sound/ProjectApollo/Apollo7/1b.wav": "4b7b12a009c88fc0dec40af91460660d246f0622",
+    "Sound/ProjectApollo/Apollo7/1c.wav": "b45703226fbe71408064a52a1e061d63462481e1",
+    "Sound/ProjectApollo/Apollo7/2250.wav": "4a4aa62bcbfbf254ec644668fadce3d38d3dbe47",
+    "Sound/ProjectApollo/Apollo7/338.wav": "835f67bffc79ff1821570df1020ea158ec77fad5",
+    "Sound/ProjectApollo/Apollo7/3min.wav": "fadbd65aa559528eab13592d42d0d386be2ca4d3",
+    "Sound/ProjectApollo/Apollo7/4028.wav": "7ba23480480d71d59074ec8a58c87cf785c876ef",
+    "Sound/ProjectApollo/Apollo7/4min.wav": "73318d634d6adaaf8e02280444fd8227d4cb3872",
+    "Sound/ProjectApollo/Apollo7/5303.wav": "3fc2c40418df5e1b487a2ac218f285aad50ac379",
+    "Sound/ProjectApollo/Apollo7/5546.wav": "7033a0ccc965fa436b480e47086e78b9172d5f91",
+    "Sound/ProjectApollo/Apollo7/5558.wav": "ddd3d7401b29857bdf53018e54732d037a6ec136",
+    "Sound/ProjectApollo/Apollo7/5947.wav": "95718d5d01301e52d52a2588746c15177a0ee00f",
+    "Sound/ProjectApollo/Apollo7/5min.wav": "59655c3c36476d94fcdba22ac490cd9dea981c2e",
+    "Sound/ProjectApollo/Apollo7/6min.wav": "5592ffc8f7d52fb61b3836add86eb128b4fbc7e6",
+    "Sound/ProjectApollo/Apollo7/7min.wav": "2ccafb808abfa054dadf1bce02f4ce6372499ddb",
+    "Sound/ProjectApollo/Apollo7/8min.wav": "842fb43363e9a3a56ca77296bd2db71ed74d668a",
+    "Sound/ProjectApollo/Apollo7/934.wav": "85b0bdf293e737a78c0e814d692bcf2a21cc9667",
+    "Sound/ProjectApollo/Apollo7/944.wav": "6b57e3ff902efcf0edd8ba501593164df975c98d",
+    "Sound/ProjectApollo/Apollo7/951.wav": "b60df0529bcb65202ba32df99aed89dd13d0d5ea",
+    "Sound/ProjectApollo/Apollo7/9min.wav": "ac283752f5242899ec4b2f2617b96dfbdad899db",
+    "Sound/ProjectApollo/Apollo7/count10.wav": "750b378f86b7a8a527044f74cfabc498dbd5dadf",
+    "Sound/ProjectApollo/Apollo7/countdown.wav": "89b54f7ddadf3cb2dd8895c614e62922c163a829",
+    "Sound/ProjectApollo/Apollo7/csmsound.csv": "8f27d0c22bca82070ebfcac013ad71e1398027dc",
+    "Sound/ProjectApollo/Apollo7/saturn-launch.wav": "750b378f86b7a8a527044f74cfabc498dbd5dadf",
+    "Sound/ProjectApollo/Apollo7/staging.wav": "30945db1c84edeab1f4aff5cc0ed4b0f9ff86816",
+    "Sound/ProjectApollo/Apollo8/count10.wav": "55a4b8f2313df588c5cc8b8b72eeea5920d8afa3",
+    "Sound/ProjectApollo/Apollo8/go-for-tli.wav": "835ca347dc9d7abd0ab496f99d34c975a6190dac",
+    "Sound/ProjectApollo/Apollo8/post-splash.wav": "7051f25b6f439f380c1904b2b952b806463a226b",
+    "Sound/ProjectApollo/Apollo8/saturn-launch.wav": "a2abd24a511d3683f0eee8aaa47a7d33bf6dedb9",
+    "Sound/ProjectApollo/Apollo9/count10.wav": "6b38735519358eeff7e8081f4abf460937d8b872",
+    "Sound/ProjectApollo/Apollo9/go-for-orbit.wav": "56fdd46c57e3e387b3969fe1bf13db5b63568646",
+    "Sound/ProjectApollo/Apollo9/saturn-launch.wav": "696749c38bf159bb96b05201f92cde4a0e0240ac",
+    "Sound/ProjectApollo/CUSTDOCKING.WAV": "d122732268b8b30e1c5cfb157fa583e3aed072c6",
+    "Sound/ProjectApollo/Click.wav": "f700ff78151442e1b17d4426561e85347280e257",
+    "Sound/ProjectApollo/Contact.wav": "8d5298e1b9e4f6a152111b88f1ba78a950e97d95",
+    "Sound/ProjectApollo/CrawlerEngine.wav": "abd5abaca5d0c6502eecd384929cb3ac454b6f3e",
+    "Sound/ProjectApollo/DockingCapture.wav": "ad3a6f41ea45336c6809e258c488e04d1f8d5c52",
+    "Sound/ProjectApollo/DockingExtend.wav": "6ac94e993ac4e9cdd0d64bb7b722102e38d51a26",
+    "Sound/ProjectApollo/DockingLatch.wav": "90b3cdbfacaa3b91e8d0cec0390245a4cd53674f",
+    "Sound/ProjectApollo/GlycolPump.wav": "8a244cea78da30b9c48500740b93e9d2205d0544",
+    "Sound/ProjectApollo/GlycolStart.wav": "25c75bb83c03d6001f98b0523e68a94d5ff64f1a",
+    "Sound/ProjectApollo/Hover_int.WAV": "f2882198885030a5b55f48757c326c0e25962d40",
+    "Sound/ProjectApollo/LEVA.wav": "8b636a7faaf3e362078fce013c3df3caa242312d",
+    "Sound/ProjectApollo/LMSuitFan.wav": "e0c9918886dfd392906822a2aa83cd4d4745af99",
+    "Sound/ProjectApollo/LRover.wav": "af8b93501e7d92fc1cc24bdb8ed056c775d9e0bc",
+    "Sound/ProjectApollo/Launch2.wav": "57b52a7cb19101fb2009fe3ae068907ad3a7bb52",
+    "Sound/ProjectApollo/Main Engines.wav": "e5e766f1309faa25318fa432ef61c07038db479d",
+    "Sound/ProjectApollo/Reentry.WAV": "6661777eb1de4167a276f40437d682c68dd6f1dd",
+    "Sound/ProjectApollo/Rotation.wav": "f62ab9a4ef417d6d4248d1bb6cf8d5c74ef84016",
+    "Sound/ProjectApollo/SIVBShutdown.wav": "83847b648a83939b61b98799a2d42708631a96da",
+    "Sound/ProjectApollo/SMJetison.wav": "e8f1caee6fc5b8dab71ff79b60753b2f4bba7f91",
+    "Sound/ProjectApollo/Separation.wav": "c2fee94dec8afa6340bd1cbc6f24c92747fc242c",
+    "Sound/ProjectApollo/Splash.wav": "68a12a8aae26d06c58086e9a532bea3692de990d",
+    "Sound/ProjectApollo/Stagesep.wav": "01f0cec11bfd98f80df619fbe1150c0892a62b5e",
+    "Sound/ProjectApollo/TowerJet.wav": "a356cc613a4ab6efa18a9cc66240f2bf64ee20d6",
+    "Sound/ProjectApollo/Translation.wav": "c2a77724b35342382b33f29ff42d1b8c9a02ef20",
+    "Sound/ProjectApollo/alarm.wav": "8f588ad92d2da12c8668fa30c2fe87620b821291",
+    "Sound/ProjectApollo/alarm_lm.wav": "f66ce4765645a14b1c8b84accff8464b57885385",
+    "Sound/ProjectApollo/attfire40stereo_mod.wav": "915fca7c9e02999318562e9617ebccd9c629ce39",
+    "Sound/ProjectApollo/attsustain40stereo1_mod.wav": "f1124d361c8a9bb9ea49dd7d1807ec1062fc0cb6",
+    "Sound/ProjectApollo/boostShut.wav": "f732801c157ff6ee33e0cb59fb2b907fe88d73e8",
+    "Sound/ProjectApollo/button.wav": "e72646e9bde777403c9f3b040f489d87122ab58c",
+    "Sound/ProjectApollo/cabin.wav": "1c5e8d802189e6ee9bbeed4525be629b42b7fb72",
+    "Sound/ProjectApollo/cabincloseout.wav": "4e030cd3ad4c47238d8fee6b2d7ef4c822be9b6c",
+    "Sound/ProjectApollo/center-shutdown.wav": "ef19aca7d8949288d5a2cc97d8497c3300a18854",
+    "Sound/ProjectApollo/circuit_breaker.wav": "81a8b3f106f32436950580381db96b4b7e07b3ac",
+    "Sound/ProjectApollo/correction.wav": "85ccfe4f9c2b0841415d160fcb5c4d0d4acf3f76",
+    "Sound/ProjectApollo/countdown.wav": "b34903b4dc710a75f63853cb76b5362269438074",
+    "Sound/ProjectApollo/countdown1.WAV": "db5a3a592692ecb1b3ca1403a710cdc3b2505183",
+    "Sound/ProjectApollo/crash.WAV": "bbea2ea86658f895e809e4ca566081c221921487",
+    "Sound/ProjectApollo/crashBump.wav": "b9085ded3359b30029cd7419fa68fecf30106add",
+    "Sound/ProjectApollo/crewdead.wav": "3e4371e0bd28ba8dfd51a3055619b143f93b67c2",
+    "Sound/ProjectApollo/des_abort.wav": "979f67ff6869b01d26d6daada505511d9e84d496",
+    "Sound/ProjectApollo/docking.wav": "d0ff6bbbb1ac832658417528eecf2279cef2c082",
+    "Sound/ProjectApollo/drogues.wav": "46095153a1eaabcb4e4df0866f9e3846ee67f384",
+    "Sound/ProjectApollo/guard.wav": "69763a5e63beaa77038f810dd6684d3ad84ce28d",
+    "Sound/ProjectApollo/hatch_close.wav": "4a758b6ec765ef6da4cf18fad42f4ee72d6861a3",
+    "Sound/ProjectApollo/hatch_open.wav": "3063fce335eac3b77c8a38f57d351340403e8a2a",
+    "Sound/ProjectApollo/inboard-cutoff.wav": "63b3caac94f291f172a3468e9635097dd4a7d3b9",
+    "Sound/ProjectApollo/lunar-ascent.wav": "a9e5dfbdea494052030fa21e6e8bd7867d7e61b7",
+    "Sound/ProjectApollo/post-tower-jet.wav": "045ad867a0f510fc3d4476d93e65a77d1acdcb8d",
+    "Sound/ProjectApollo/probe.wav": "d122732268b8b30e1c5cfb157fa583e3aed072c6",
+    "Sound/ProjectApollo/pu-shift.wav": "4ebbc59cca002cec6c5751de49e229be193bbbce",
+    "Sound/ProjectApollo/rotary.wav": "c86631ae1e4568bc8c498b860236fcafbba12284",
+    "Sound/ProjectApollo/saturn-launch.wav": "f353927207e2380cff3b19d245a9a476e102e020",
+    "Sound/ProjectApollo/suitcompr.wav": "154046a144a3aaca611eb28a2e964fd840a8d35c",
+    "Sound/ProjectApollo/thumbwheel.wav": "c49d8d37ddb933157b07156b806554e53317f34c",
+    "Sound/ProjectApollo/vox.wav": "43c7c256de55b5f2487c6ee51b2ab16e5192be7e",
+    "Sound/ProjectApollo/waterloop.wav": "2869bbd36b35e2075c7baa8ec4061e488c526b8b",
+    "Textures/Earth/Elev_mod/15/000699/001131.elv": "a4e3a001adbe4b4337245061f0f0fe89792b9cbd",
+    "Textures/Earth/Label/01/000000/000000.lab": "3ca48857e9fdf279d529258d45128a18db30031b",
+    "Textures/Moon/Label/01/000000/000000.lab": "2127cf07049a0ee8400272f93d22b8cee5c5fc15",
+    "Textures/ProjectApollo/AES_RAD.dds": "9ae94bf17215300edcc3572543586bcc091221d4",
+    "Textures/ProjectApollo/AES_RAD_norm.dds": "bc93483305fd0be5fae5a23fb911e67791190aff",
+    "Textures/ProjectApollo/ALSEP_Misc.dds": "6d6e434dcbb719cb2374a33fa98069aa0b840bbd",
+    "Textures/ProjectApollo/ALSEP_RTG.dds": "fb922d5136467565ef0cb3211fe5b07e85c9521c",
+    "Textures/ProjectApollo/AMB.DDS": "d67375b2b36e7085109334b1fa6f74dee1b024e0",
+    "Textures/ProjectApollo/BLANC.DDS": "876dc0e5dc0225ab9a2efce611ee3e89ef08d648",
+    "Textures/ProjectApollo/BOTTOM.DDS": "9ebe2fa57982c889460e8df7dba02584a0077c70",
+    "Textures/ProjectApollo/BOTTOM2.DDS": "03cdf62d81b8face78129690939a89e8a60d4295",
+    "Textures/ProjectApollo/BOTTOM2_norm.dds": "37e857f63f6ba09edcec717a61bc4ce373e6f5aa",
+    "Textures/ProjectApollo/BOTTOM3.DDS": "22f126bc03947b59e3a9912392b11128231b6f21",
+    "Textures/ProjectApollo/BOTTOM4.DDS": "9b7e62116f5aea23fac55fca3dcffe50249b6ad3",
+    "Textures/ProjectApollo/BP.DDS": "313427e068705a342582d02f4111a53e68fd5012",
+    "Textures/ProjectApollo/CMB.DDS": "d725290bab69c4473d7809f3bb03668aa1e4918b",
+    "Textures/ProjectApollo/CMB_norm.dds": "63ee82efa12d66fb449b383f11ea9287e09b83e6",
+    "Textures/ProjectApollo/CMB_refl.dds": "53c7dff65eb8c8bc66e2caf8ac98203d6a5f8976",
+    "Textures/ProjectApollo/CMInterior.dds": "93751dd159baa218190b8ea166a3ea26683109f4",
+    "Textures/ProjectApollo/CMOptics.dds": "4e211f742269182fb23b8bd872f1f8ab12d7d221",
+    "Textures/ProjectApollo/CMRCSDump.dds": "7ec39662a073bc33b09ca02f8111d4155670ee82",
+    "Textures/ProjectApollo/CM_ChuteBag.dds": "40d27f8dc6acff79ddf15207f3cfea29df93c5f3",
+    "Textures/ProjectApollo/CM_ChuteBag_norm.dds": "f6f836b456df7a48528e561a0802a12b9f20eec1",
+    "Textures/ProjectApollo/CM_DT2.DDS": "acd3ee6f1ec93471bf612607581791b23eda3801",
+    "Textures/ProjectApollo/CM_DT2_B.DDS": "1b636de420c51fb5fd697b8cc0092c52b1e06e27",
+    "Textures/ProjectApollo/CREW.DDS": "de580d439f3307fb075e8908a2f98240051b86a3",
+    "Textures/ProjectApollo/CanaveralAcross.dds": "d3da9b9d1858c1978d281d04aebb8d032f0dc123",
+    "Textures/ProjectApollo/CanaveralConcrete.dds": "fcb0092bf01d59629c7a1481d38b70e5bedb0a09",
+    "Textures/ProjectApollo/CanaveralLCCwnds.dds": "39face0f2911318b3a9f75d849e3555d2f765b64",
+    "Textures/ProjectApollo/CanaveralMetal.dds": "81183a4899c444f158394e4c34e3d6105d42869d",
+    "Textures/ProjectApollo/CanaveralMetal_bright.dds": "99844635bcfa377557f1a0c2a709655a94afbba6",
+    "Textures/ProjectApollo/CanaveralPipes.dds": "01fef8e65273bfafbc76b68397dee4e665b99976",
+    "Textures/ProjectApollo/CanaveralRoad.dds": "0e3a4325d88527d82b8eade8367f64279161764a",
+    "Textures/ProjectApollo/CanaveralRoad2.dds": "cab615ea498749c8e4c0b497a1a6c2498d8d1d94",
+    "Textures/ProjectApollo/CanaveralRoad3.dds": "59ebedadd83c79dfe14f10ac615bccebc2e33cbc",
+    "Textures/ProjectApollo/CanaveralRoad7.dds": "cab615ea498749c8e4c0b497a1a6c2498d8d1d94",
+    "Textures/ProjectApollo/CanaveralVAB3.dds": "7bd2fd5c0eae25efbc0065c16ec202a74017be39",
+    "Textures/ProjectApollo/CanaveralVABHBdoor.dds": "fdef077213c0b9c730eb2620dd010bbe61dafcb7",
+    "Textures/ProjectApollo/CanaveralVABHBdoorfrm.dds": "e87007f8efab2e82674964d6a6c2e29e3e5c5c1e",
+    "Textures/ProjectApollo/CanaveralVABWin2.dds": "208ef3860c8a11cddb571924c3bd8de692f48977",
+    "Textures/ProjectApollo/CanaveralVABhorizdoor.dds": "862c078e37046e9bede1022f20c101f62b5f949c",
+    "Textures/ProjectApollo/CanaveralVABsouthside.dds": "0b4e0d1504aa1623dd04b9659b28e3920c097c03",
+    "Textures/ProjectApollo/Concrete.dds": "104a9e4c54fb049ef6fff7b105aebf028cf34f86",
+    "Textures/ProjectApollo/Contrail_Saturn.dds": "042c8a43e69cb4ef7063f9cc4689fdcf8d465231",
+    "Textures/ProjectApollo/Contrail_Saturn2.dds": "3946314a880f766e4278ebee2156ebaf82655f4d",
+    "Textures/ProjectApollo/Contrail_SaturnVenting.dds": "8f50dca4c84962390d24b0ef9592fc1ecc8b5db0",
+    "Textures/ProjectApollo/CrawlerBrakedisc.dds": "81a5ce92fec5a13ea4f043c48ac15eab714927d1",
+    "Textures/ProjectApollo/CrawlerLight.dds": "c204a0a535fd91a746fa3bdf5e20a2294b4209da",
+    "Textures/ProjectApollo/CrawlerRadiator.dds": "a08b8d166a5c22efb8f2888eb6c42b86414f0cea",
+    "Textures/ProjectApollo/CrawlerTracksides.dds": "0cc816e57e030e05c1c0b377bd0e9916d21b9a3f",
+    "Textures/ProjectApollo/CrawlerTubing.dds": "6dfcc5b115d3aa839c9ca0815c356b66c376eea7",
+    "Textures/ProjectApollo/Crawler_emergencystop.dds": "3fe8d1a3b02b7ba10fcc77f466e77d99b9e745bb",
+    "Textures/ProjectApollo/Crawler_speedguage.dds": "1a964011bfe372bd85cdda90c36c0b05f9ff5846",
+    "Textures/ProjectApollo/Crawler_steeringbutton.dds": "7871b9d1bd7c02a8994cca3adf087103b7b9a942",
+    "Textures/ProjectApollo/DOOA_B.DDS": "363051eae454a66fe92a6ff17ce68621a956e649",
+    "Textures/ProjectApollo/DOOA_B_norm.dds": "b06e9867904890ce12b3bce3c190eb53ef93742e",
+    "Textures/ProjectApollo/DOOA_B_refl.dds": "414b7ca4813eeca0c2184ffac3a15b7ab425b7d1",
+    "Textures/ProjectApollo/DOR.DDS": "9137cf0716b6de4257502ccfb5bfa4fe1e56eb5e",
+    "Textures/ProjectApollo/DOR_norm.dds": "669c3b5723d617fe639b4514528412fd6f8987a6",
+    "Textures/ProjectApollo/DOR_refl.dds": "40fb3d1e5182d27fa0f25b96aae90f65f3d1791c",
+    "Textures/ProjectApollo/DT3.DDS": "409882be925ed92aa46ceb99ca5ba886b4cfa526",
+    "Textures/ProjectApollo/DTR.DDS": "68bd917deea677307f2983cc94d7024606d0b07a",
+    "Textures/ProjectApollo/Dyemarker.dds": "23878c5dceb41f3c964601bb8a1fca23c058967a",
+    "Textures/ProjectApollo/Exhaust2.dds": "da5e92f0b14eae933f2f9dc9fe0e1d4bedd19d7b",
+    "Textures/ProjectApollo/Exhaust_j2.dds": "9e5991f814a321495e8362a040490909fca9d832",
+    "Textures/ProjectApollo/FDAI_Ball.dds": "b79a850141850785dbd88edb6ec9848f54513655",
+    "Textures/ProjectApollo/FDAI_Ball_LM.dds": "04143b812426c87f64e71f4d4092e05ad0901f62",
+    "Textures/ProjectApollo/Floodlight.dds": "525e83f490f7d93e5ea19bd5e5aef9ea56db2801",
+    "Textures/ProjectApollo/FraMauro1.dds": "f99adfa30734595f4212fb9ad830ac84885f446d",
+    "Textures/ProjectApollo/HIGAIN_A.DDS": "7bc276f4915947ee94ae7bec1f8e550acea71b0c",
+    "Textures/ProjectApollo/HOPEN.DDS": "8f78b4e4fb152b16fd95c06bb4532fb74a6f02c5",
+    "Textures/ProjectApollo/IntGradShade.dds": "c5777452dab4c4778ef62df7136659584e398650",
+    "Textures/ProjectApollo/KSCcrawlerway_median.dds": "5cfc2fa06a4b899c5c23408e1cd147668d32cf39",
+    "Textures/ProjectApollo/KSCcrawlerway_sand.dds": "d93fca6c6be2a7e3bd4dda726ffd64867081e2ea",
+    "Textures/ProjectApollo/LC34-1.dds": "b4c6c7bbafd76c69c0450ed775d881178ca354ed",
+    "Textures/ProjectApollo/LC34-2.dds": "4d9780f83e65162176b13ba30cbe412c40beeff9",
+    "Textures/ProjectApollo/LC34-3.dds": "c07c71147f25b66b48ede258c746d4c5362d7155",
+    "Textures/ProjectApollo/LC34-4.dds": "570ba35bb11099bf3b25ac64b7945538149738cf",
+    "Textures/ProjectApollo/LC34-base.dds": "8983e16fc48a08434e69293de7abacc3b36e683d",
+    "Textures/ProjectApollo/LC37-1.dds": "3ed95b2425376728ca4795245046435586493a07",
+    "Textures/ProjectApollo/LC37-2.dds": "1f01293dc44084ed036c32780fb2f3d83ad8bd18",
+    "Textures/ProjectApollo/LC37-3.dds": "f56ad8f19e49c589d2b158b2289007a738a71c97",
+    "Textures/ProjectApollo/LC37-base.dds": "e34d244d35f690b038bdb81a489ec51379980b03",
+    "Textures/ProjectApollo/LC39a.dds": "fdfbbfefada78261e04d0781e14267f501d7c170",
+    "Textures/ProjectApollo/LIGHTBLA.dds": "61b06fe29a639bbdae62c3856e71291de29d798f",
+    "Textures/ProjectApollo/LMASC.dds": "8aedf6c09956840fd4242b21a6116b41daec9879",
+    "Textures/ProjectApollo/LMASC_emis.dds": "5a8b1c875c1af78ad5cd351f61d92061da6d588c",
+    "Textures/ProjectApollo/LMDCS.dds": "5d0fc3c5053243b25cdcbdb792254fd17fe3835d",
+    "Textures/ProjectApollo/LMDCS_norm.dds": "f876fd2aedd971fe85d89a05599cdfcc980acee4",
+    "Textures/ProjectApollo/LOX+LH2.dds": "ee8839dada458fbd7855d0393ad7136df78dd22c",
+    "Textures/ProjectApollo/LRV-Compass.dds": "b8cd7e07da63d01bcbf16730c5377ec635c2cf3f",
+    "Textures/ProjectApollo/LRV-Console.dds": "13d59739a8f128c11255648bfbdfeab4bc499de0",
+    "Textures/ProjectApollo/LUTRed.dds": "e0c93eaf5a1b4e9ca03caacb98247a6647aed2fb",
+    "Textures/ProjectApollo/LUT_ML.dds": "0e0fb09de5f2b13e97d56af7cf0286a45b9cb4a3",
+    "Textures/ProjectApollo/LUT_metalgrating.dds": "7a73c55c48bace11e97c5cff6eb108933de361b0",
+    "Textures/ProjectApollo/LUTarm1.dds": "0e3c77ca4f1bed26dc1becf366440d417aaad61e",
+    "Textures/ProjectApollo/LUTtex1.dds": "fa75064fddc593fb6a1b7adc4f94c49fb6bc33e2",
+    "Textures/ProjectApollo/LUTtex2.dds": "470ad55a9d3d1c7cc539b03426ccdbb55bc630e4",
+    "Textures/ProjectApollo/LowRes/s1c.dds": "374190c00bfbe71cf4548d497948cd6c2e996f09",
+    "Textures/ProjectApollo/LowRes/s1cinter.dds": "b3bf68dc07702ded783147cad9d8374ad1463020",
+    "Textures/ProjectApollo/LowRes/s2.dds": "076586c86874475679f21e14f0eca5ca9a3c214f",
+    "Textures/ProjectApollo/LowRes/s2inter.dds": "1cec3c8b948879039efe62c5f15e1ed12a19f19c",
+    "Textures/ProjectApollo/LowRes/s4b.dds": "d687c8e7559ebf92db90a2223c3ceb120dc85759",
+    "Textures/ProjectApollo/MetalPlatte - Kopie.dds": "ecc9ba6a3ba3f708fa2b7f80caea6aedb9ff3a16",
+    "Textures/ProjectApollo/MetalPlatte.dds": "b35c824156cd9fd00cfb2738cb165111ceb53104",
+    "Textures/ProjectApollo/MetalPlatte_norm - Kopie.dds": "99dbb68d722137b1cf10447228d6046d28cd6edf",
+    "Textures/ProjectApollo/MetalPlatte_norm.dds": "99dbb68d722137b1cf10447228d6046d28cd6edf",
+    "Textures/ProjectApollo/Moon-s1.dds": "18c1a8cdd87487f96c7e8934c6567cb12e0995e5",
+    "Textures/ProjectApollo/Moon4a.dds": "13ae18415db9c7eb7c51d81c6792cdb37bf61e66",
+    "Textures/ProjectApollo/OWS1.dds": "ba07a9c06b328a2fb233f5937a6d316887afa700",
+    "Textures/ProjectApollo/OWS2.dds": "00bc164e62e61a596b463a1b9c6725edd0b4ff0f",
+    "Textures/ProjectApollo/PANEL.DDS": "6f206fd246fba583d1f742c40299a8267863c287",
+    "Textures/ProjectApollo/ProjectApollo_Saturn5ML_Basetex1.dds": "62d37600fe0096a12780cab8fc1fb1ef601c92a5",
+    "Textures/ProjectApollo/ProjectApollo_Saturn5ML_LUTtex1.dds": "8cc79d300e37f08e7906cef25223e76702a858b6",
+    "Textures/ProjectApollo/RCSPanel.dds": "531c004e13d63c23663f15be95a7e18930e628da",
+    "Textures/ProjectApollo/RCU.DDS": "c1f39fa1a591fc99ca630a875df8d15711019faa",
+    "Textures/ProjectApollo/Rocks.dds": "973d7c54badab5c5e06ba716f1a23a0119f8edc9",
+    "Textures/ProjectApollo/S5S4Bbottom.dds": "4477ccb45dca5345741ab4d4b0b366fd9fde60d7",
+    "Textures/ProjectApollo/S5S4Btop.dds": "f827fe59c72f374ae1feb76338e243235934e519",
+    "Textures/ProjectApollo/SHUTE.DDS": "0daaf36c88d2b1f779ed8af3740d7bae0fde6e75",
+    "Textures/ProjectApollo/SHUTTE1.DDS": "f7624ef3808abd7245fb16ae6e1d87391831fa72",
+    "Textures/ProjectApollo/SM2.DDS": "199adfd5d0962583b7357adf34132742320adfa0",
+    "Textures/ProjectApollo/SM3.DDS": "5588a83e1d34957a740c24993a21e9d0f92f6856",
+    "Textures/ProjectApollo/SPS.dds": "d4dc286cd22aff2f47bcf50ed552057e3aaa6d07",
+    "Textures/ProjectApollo/SRASTER.DDS": "c200aac3f5b8a0af98d11d6a10bf4481b3c59226",
+    "Textures/ProjectApollo/SRASTER2.DDS": "98537fdac10b94ea5b316284b9f190d220f25e4b",
+    "Textures/ProjectApollo/Saturn5ML.dds": "ced3db3e9369f83ae5910d314dcd844c925549a0",
+    "Textures/ProjectApollo/Saturn5ML_Basetex1.dds": "62d37600fe0096a12780cab8fc1fb1ef601c92a5",
+    "Textures/ProjectApollo/SubSatellite.dds": "b9de8bc945efa76fce5d4f1085fba36ed2ae1a52",
+    "Textures/ProjectApollo/Surveyor.dds": "ef90c9faa04becd189e1fc27d75647fe10e6587e",
+    "Textures/ProjectApollo/Surveyor_norm.dds": "750841b4168a3ec991f0f78ea9836ce7f1d63cdc",
+    "Textures/ProjectApollo/TOMPA_CM.DDS": "e4c7a3d3413fa8cfd71546c4cc78f2e1706787eb",
+    "Textures/ProjectApollo/TOMPA_CM_norm.dds": "b98cf096dfe3b7fe180d193a669265f8d0a52f96",
+    "Textures/ProjectApollo/TOMPA_CM_refl.dds": "3399ed3384091547df5138216ffae50cd2605180",
+    "Textures/ProjectApollo/UrineDump.dds": "8a2366fe80ee0f153e052dbc10d91fb7b816be3c",
+    "Textures/ProjectApollo/VABTex.dds": "88fe841e61872afa921cf2dc1548d2b51e41ca36",
+    "Textures/ProjectApollo/VAB_transferaisle_floor.dds": "73e1e4ede2529bbd19a12f70db7cdd5247bf9b5d",
+    "Textures/ProjectApollo/VC/AccelerometerCover.dds": "b29c353fedb961ba9bd386bf54cb8229227e5144",
+    "Textures/ProjectApollo/VC/AditionalParts.dds": "48d77b6b55ea754ac6e4c7d604dc56cddf315d6e",
+    "Textures/ProjectApollo/VC/AditionalParts_norm.dds": "63d908aee2524f00180fa482ed3d8ba72cdae4de",
+    "Textures/ProjectApollo/VC/AltimeterCover.dds": "9ceb73e69c668ffa4676762f612e133810506f5e",
+    "Textures/ProjectApollo/VC/Armrest.dds": "2cce347a71383d970d422e3da422c57978b68054",
+    "Textures/ProjectApollo/VC/CB_black.dds": "225d2dca39de424ceccaa908f4435281914748e2",
+    "Textures/ProjectApollo/VC/CB_white.dds": "00b2a40d7dadc5acbb3382ca56fc6031b7f21dbb",
+    "Textures/ProjectApollo/VC/CMFloor.dds": "f7fce1ac4e14c15a210b05048ab534796c7d88bd",
+    "Textures/ProjectApollo/VC/CMVCDetTex1.dds": "7f6c51b5340a4a9dcba7af2b3ee50a0cc8073e82",
+    "Textures/ProjectApollo/VC/CMVCDetTex2.dds": "ec13db2c570395504d212200bcd70e73f2a828ed",
+    "Textures/ProjectApollo/VC/CMVCDetTex3.dds": "c1aec2b92b69c8cea0f217920773f79c0006ecba",
+    "Textures/ProjectApollo/VC/CMVCDetTex4.dds": "88ebc7ad903051e969ed9acd66bf38e376aacef0",
+    "Textures/ProjectApollo/VC/CMVCDetTex5.dds": "f6e4f89634b2c3ee98a51feb374879a49a8ba896",
+    "Textures/ProjectApollo/VC/CMVCDetTex6.dds": "be511b2c005ebae975aefd7101c67b84e20877bc",
+    "Textures/ProjectApollo/VC/CMVCPanel230_A15.dds": "06e57229e261df0c9ebf3a23d56fce100f83b6c8",
+    "Textures/ProjectApollo/VC/CMVCPanel230_A15_emis.dds": "5df8ad9b413e68c00d19830f46486ea7cddd3a50",
+    "Textures/ProjectApollo/VC/CMVCPanel230_A17.dds": "00f7a5a4eac07fb6fc4acfe4fd9fb1d63a12a491",
+    "Textures/ProjectApollo/VC/CMVCPanel230_A17_emis.dds": "9bb0b53ef49b9f4e42d6d7defe365f7fc4192ac9",
+    "Textures/ProjectApollo/VC/CMVCPanel382_Cover.dds": "f9be8fe7f93a1a7f1b849b25280638330d6ce085",
+    "Textures/ProjectApollo/VC/CMVCTex1.dds": "541a9fbb8cf9180a7524235b93781f357bfb6994",
+    "Textures/ProjectApollo/VC/CMVCTex1_emis.dds": "0ab69c1cab3abd0ccc74d388484923289741f2c5",
+    "Textures/ProjectApollo/VC/CMVCTex1_norm.dds": "e439bc54e5fe954d076a71d067627a002be9bffa",
+    "Textures/ProjectApollo/VC/CMVCTex2.dds": "347e814944d192f62fa9d0de45329c0b061c6bb7",
+    "Textures/ProjectApollo/VC/CMVCTex2_emis.dds": "37ff2dae1df80ff8f3cf2b4ed9cfffc44923b49c",
+    "Textures/ProjectApollo/VC/CMVCTex2_norm.dds": "9f4845747c7525be76f5ecfe3039e5a635ff9bf8",
+    "Textures/ProjectApollo/VC/CMVCTex3.dds": "756434c0919835a22ec171ed7d0468a30c8df2b5",
+    "Textures/ProjectApollo/VC/CMVCTex3_emis.dds": "0d86ba2cf0752efae6648b8db60f674011aa9230",
+    "Textures/ProjectApollo/VC/CMVC_Optics.dds": "3ea4d14a70e2d2937d206e2811a99120100fb287",
+    "Textures/ProjectApollo/VC/CircuitBreakers.dds": "24c0d789ddb7ec4000f823b9f2b629e4dc3cbcf2",
+    "Textures/ProjectApollo/VC/Colors.dds": "a32b08780104a58dee042f616a65a4e227489cd0",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_ABNORMAL_VEHICLE_DYNAMICS.dds": "9bd1654c06cb8f83504c5e5ae7e70998f5760e6a",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_ABORT_OPS_MANUAL_STAGE_A.dds": "a642349a8d907aeecebbed63c2493e2d093ec96d",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_ABORT_OPS_MANUAL_STAGE_B.dds": "b9ac3eef623833ee46940da2d5ece61e72ec899a",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_ALARM_CODES.dds": "bf3fc37362bcdbf5d5489cee258f06eb370db8d8",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_ASCENT_MONITOR_CHART.dds": "1f3e07fed830595e878c7b63862173428f776bf6",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_BUS_LOSS.dds": "e733b1a2ac890b953881d76b9f30c89852b4b35b",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_CDR_LMP_BUS_LOST.dds": "c7f1b6714b63f51c9f2634e4364fd5c8eb49d516",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_CDR_WARNING_LIGHTS.dds": "38fc79b16b6339395918eccfe65bf4e7d9f35993",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_COAS_BORESIGHT_LOG.dds": "03d0fb0c372b8eb1e0c747aed8c999ba325668a5",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DEDA_ADDRESSES.dds": "10e3a746a7086cb318382061258b6b21f65b2a8a",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DESCENT_H_vs_HDOT.dds": "239d07a7dda81092ebfb4e5394bfc3fee59c778e",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_ABORT_INSERTION.dds": "93d05811eb239f1943e9cc07829caae9b63e6166",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_APS_RCS.dds": "1f8727d6339c896293af6856d4303667589b9e1e",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_ASCENT.dds": "8ffab6d037a27b0e77af683d46d6f507c2366307",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_BURN.dds": "45c2f6346ce3501077a3627d7db763125faebb51",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_PRE_SHe_PRESS_RNG.dds": "6d6a66d02bbc08a55e1edd3e9bb9734c3f2e93c3",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_DPS_PROCEDURE.dds": "799bf3de0488ee633e0f794111893a3469c0dfdf",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_FT_NM.dds": "fed157d1fc6f384f32751044004e6ce5f9712d5c",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_LIGHT_MEANING_IMMEDIATE.dds": "eebe490e3d68246e1afe862bdf51ceeb13b75f3a",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_LM_COMM_MODES.dds": "02bab3cb534153906b65db8d76c5b9d06f2385f7",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_LOSS_OF_COMM.dds": "738c91e7ed82132d04ceae433ab6591ae0d95772",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_MISSION_RULES_NOGO.dds": "0d1722381a302ecdf913bdb90b99f7a24d405e09",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_NO_DPI_APS_BURN.dds": "386fd21bc392548ed500aea60778cff6b31799ba",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_STAGING.dds": "006862bf0ca81967d49fa23586b9ba42eb4dde27",
+    "Textures/ProjectApollo/VC/CueCards/A15LM_S_BAND_ANTENNA_ANGLES.dds": "1d46f5663cea3df1c76ee8b1c91badb77f0ffaf5",
+    "Textures/ProjectApollo/VC/CueCards/AC_PWR.dds": "eb1e33bebd82cf3a0134fc2fd63fc468e74836bd",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_AC_ABORTS.dds": "b8b2eef3403099cfb21fa56ddfa260a2bf525add",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_AC_BOOST.dds": "cae76388b65b5f7d3e585264a8ac8466adf687e4",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_CUECARD_DAP.dds": "31c3dfe8a3e2747be7817b01d4961a3c8483a2b1",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_DEORB_ATT.dds": "0b9a8a47a130e724d96ce9daec2fd8de1f099442",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_DEORB_ATT_CONT.dds": "a5b4dd4b293be35c9b3236047ec1fd3c57e547b2",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_DOCKED_CUECARD_DAP.dds": "c1cb85feeb4446de730b0d7b835836d27247b5df",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_DP_BOOST.dds": "895467a12cda958fd5302861d5feed630e6ac78e",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_DV_FAILURES.dds": "f66a4dd33a1b0bac7d84711f623e3911505891a4",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_ECS_MON.dds": "5296b23d708d766b7143e3df0ebc7ab23e879e52",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_ENTRY.dds": "b4136dac9c829b72f1e7289fed4cdaae64728b18",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_EPS_ECS_ABORTS.dds": "45bfb5d09a72867b461681ec2c2b6d3943834699",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_EXT_PHOTO.dds": "31c2048280cdeda441826289f82a64c26276f437",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_LANDING.dds": "e5a928c913eb2f01cdd604f2b2523599ca74120d",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_LAUNCH_ABORT_PAD.dds": "304fa9bb65b5e1ebe9f5d6f920abcc163488f7d4",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_PWR_LOSS_DV.dds": "e0208fee47beb9f77fa69d70a4e3c969d54feafd",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_PWR_LOSS_DV_PNL_3.dds": "3c9e25bf7cc82285e76f01e62d1fa0f74de53521",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_PWR_LOSS_LAUNCH.dds": "6b1dd3448fe6ed35a10d691be6cb4b2528d41243",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_PWR_USERS.dds": "46ddbcf9a3e4e5445c9f7c0caafdcd585e21768c",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_RCS_MON.dds": "30aed001e03916fbf1a14429e3764b579d7b7c00",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_RCS_TBS.dds": "471928edead28c81d19a82c0173cb265bfe5637b",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SATURN_BOOST.dds": "5811f0ed552960aa68b313ed94577dd5df2fbac2",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SM_EXP.dds": "55a4e6c7841137a669f3657e6b1cfb6491cd8693",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SPS_BURN_RULES.dds": "826ff8bcca53a9d4226246bdf2c28262d4e4d63b",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SPS_ENTRY.dds": "5a6bd0e50735f8bea17c1eeb4ea3ff6ba5f19970",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SPS_ENTRY_CONT.dds": "7541ec9df64f66413983a15e64c70982991d101b",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SPS_RNDZ.dds": "0862b7e9c368ac6b0330073ebf616aab447289f0",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_SPS_RNDZ_CONT.dds": "d5a3d09b920353391abcdbb539416d4b0dd275bc",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_T&D.dds": "3122a47e85f1e62111ca4be7d1569f002adc35a6",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_1000M.dds": "c026be64a10df37aaeef54b87af9911d1546a256",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_150M.dds": "6d3d7e2d2b082cf155770bb26cbb5fd896639468",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_150M_NO_EMP.dds": "f080d39461cf51d1240e7d896662b142adcc3798",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_500M.dds": "b0313923bf4afdee58b5950ec1d1b269a01f84c4",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_500M_NO_EMP.dds": "8a97b0b0176242dd10d507e87fafb036e4d56785",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_PREP.dds": "fef1c1956ab7ac5b27fb8649ba205d9aef690f79",
+    "Textures/ProjectApollo/VC/CueCards/ASTP_UVA_RANGE.dds": "f4bd91249919abfd8410d2793781f5fea7989963",
+    "Textures/ProjectApollo/VC/CueCards/CDR_ABORTS_III_&_IV.dds": "91a0de604d405d0efad1e111b5cdc8acb7d23c31",
+    "Textures/ProjectApollo/VC/CueCards/CDR_BOOST-ABORTS.dds": "f7c058cbc27ffc65c9cce580c48dbdbfb37d180e",
+    "Textures/ProjectApollo/VC/CueCards/CM_EVA.dds": "d99c58cee84d2b680619de15d5144b9902c81e80",
+    "Textures/ProjectApollo/VC/CueCards/CM_EVA_CONTD.dds": "77545d7d2330884bff2f4d8da7901ce00bf5abc8",
+    "Textures/ProjectApollo/VC/CueCards/CONTINGENCY_EVA.dds": "9b296c586a2a1186a2959f2dc8311f4521c00d39",
+    "Textures/ProjectApollo/VC/CueCards/CONTINGENCY_EVA_CONTINUED.dds": "cd82fce68889a220beea3374883830c9d1ccce9f",
+    "Textures/ProjectApollo/VC/CueCards/CSM_ANTENNA_LOCATIONS.dds": "a62866d65c0a2c029eae611f5c156c61db92e2be",
+    "Textures/ProjectApollo/VC/CueCards/CueCard_DAP.dds": "26fb490c562a622436373b53d901b68670bd869c",
+    "Textures/ProjectApollo/VC/CueCards/EMER_CAB_REPRESS.dds": "1969957289d5816f5d7768685acf0aa0cb3d8351",
+    "Textures/ProjectApollo/VC/CueCards/ENTRY.dds": "542d840c31673fb8aeb29537cb784100e4aa6135",
+    "Textures/ProjectApollo/VC/CueCards/EPS-ECS_ABORTS.dds": "10788c5bfa683da949179ddbdecbeff804fea051",
+    "Textures/ProjectApollo/VC/CueCards/LANDING.dds": "32c6bd402029086943adbbc24bcfd6a31cf49b20",
+    "Textures/ProjectApollo/VC/CueCards/LMP_BOOST-ABORTS.dds": "7db772b00a087dc47130805696e5ab28ea355ddf",
+    "Textures/ProjectApollo/VC/CueCards/LOI_LIMITS.dds": "d4f5886065fdc0090786b30d9d6a65a619979c82",
+    "Textures/ProjectApollo/VC/CueCards/LOSS_OF_COMM.dds": "8608c647db65e62e109690c32397a5bc851eefc8",
+    "Textures/ProjectApollo/VC/CueCards/MANUAL_SIVB_TLI_1_A15.dds": "a332a21b92665eebe1a381bbd9828fe1d53b2c2f",
+    "Textures/ProjectApollo/VC/CueCards/MANUAL_SIVB_TLI_2_A15.dds": "a04f58b6e07db77e470ba457f214e2e12d352ff7",
+    "Textures/ProjectApollo/VC/CueCards/NOMINAL_SIVB_TLI_1_A15.dds": "2844b092db819f347303ae86ab23817d67b155e9",
+    "Textures/ProjectApollo/VC/CueCards/NOMINAL_SIVB_TLI_2_A15.dds": "e482ee19b9e9337d0069c0d4f8dea9a4a21c7538",
+    "Textures/ProjectApollo/VC/CueCards/POWER_LOSS.dds": "68e434b1503065a327e7a78cfcc1261a95eada96",
+    "Textures/ProjectApollo/VC/CueCards/SATURN_BOOST_A14.dds": "bee39d124180bd4bc5ad5ee2208b9a2935663e99",
+    "Textures/ProjectApollo/VC/CueCards/SATURN_BOOST_A15.dds": "f1c084e260f3ff90b700ed128baa179598b6e904",
+    "Textures/ProjectApollo/VC/CueCards/SPS_BURN.dds": "3a953f3724860936aa7a41bc672d16428179891b",
+    "Textures/ProjectApollo/VC/CueCards/SPS_BURN_CONTINUED.dds": "e6db787f431ed91605d8f173484f751b046fba78",
+    "Textures/ProjectApollo/VC/CueCards/SPS_BURN_RULES.dds": "ecc5a767fa957c0dbbe6d9757ffc0b4910038e85",
+    "Textures/ProjectApollo/VC/CueCards/TLI.dds": "a0081f07ba988d7cacfd26e0d32e9b25c47c455a",
+    "Textures/ProjectApollo/VC/CueCards/TPF.dds": "f159ebb4b8322f23905edb01e1a9dd306ee5cdae",
+    "Textures/ProjectApollo/VC/CueCards/TPF_CONTINUED.dds": "6ff55fb45520f5b7c5afc4afa08d2dc8bf8d3800",
+    "Textures/ProjectApollo/VC/CueCards/T_AND_D.dds": "1b07c2dbc012cf6c375ca8a2160923782def7522",
+    "Textures/ProjectApollo/VC/CueCards/T_AND_D_CONTINUED.dds": "deabfea644e2c0d91e6b0519ac7adbd46967ea3b",
+    "Textures/ProjectApollo/VC/CueCards/UNDOCK_SEP.dds": "7b870f1c938e932ec1cf436219e68b561e64f8ea",
+    "Textures/ProjectApollo/VC/CueCards/VAC_XFER_TO_ECS.dds": "08881dc395391c4d90265f02dd68513bce61c48e",
+    "Textures/ProjectApollo/VC/ECSIndicator.dds": "774f93d36dc8920839ff756e65b2d60560c12535",
+    "Textures/ProjectApollo/VC/ECS_Rotary_LMVC.dds": "d11931f89a49d3f9e9254571df2a29f080073a2b",
+    "Textures/ProjectApollo/VC/EMS_Scroll.dds": "6fcf89ff8085f1e7a399a24d412aa67d279cffb4",
+    "Textures/ProjectApollo/VC/EMSscroll_LEO.dds": "7ca4f6d69d7c244d74617f8b200794ef3bce94ff",
+    "Textures/ProjectApollo/VC/EMSscroll_border.dds": "6fe8d9e1b66e8ae0d66701982158e487aea7bec8",
+    "Textures/ProjectApollo/VC/EMSscroll_bug.dds": "8a95e41e1030fce51d2875c27e4e30380b40f5be",
+    "Textures/ProjectApollo/VC/FDAIFrame.dds": "f66210e92979cb018d0df6006d7f20a06bf09062",
+    "Textures/ProjectApollo/VC/FDAIFrame_emis.dds": "d6e0dc7afcb3df61a7e7c5095e3f2f517d20b3d8",
+    "Textures/ProjectApollo/VC/FDAI_Ball_LM.dds": "cf05512cc522a3b88e70b436d384ea6205f5f3e4",
+    "Textures/ProjectApollo/VC/FDAI_LM.dds": "05c1477f5401e055793d86077040cffa325642a0",
+    "Textures/ProjectApollo/VC/FDAI_LM_emis.dds": "81cfcbcd5d3ce94e8fa5f43613037186419efa79",
+    "Textures/ProjectApollo/VC/FDAI_ball.dds": "2aa418b02e956cd1b30ebeded0dae10eceaa3cbc",
+    "Textures/ProjectApollo/VC/ForwardHatch.dds": "38044fc8f3564889a45760c845a606b1d472f9ba",
+    "Textures/ProjectApollo/VC/FwdHatch.dds": "9dfa8818cfbd8ba2b155546f2620626ad2f56a43",
+    "Textures/ProjectApollo/VC/HolderRahmen.dds": "e428c340f7dc54df0ac75bb8a08559709b2bed3a",
+    "Textures/ProjectApollo/VC/Hose.dds": "c5c08fe74aa8c50f95a1bb821d7952d08d0d4deb",
+    "Textures/ProjectApollo/VC/Indicator.dds": "7faac80ea474a4b6098411f5ce4055e1ea997735",
+    "Textures/ProjectApollo/VC/IndicatorRed.dds": "9f017ce9fa64aa50b9b1cbb9662ea55715605b1f",
+    "Textures/ProjectApollo/VC/Indicator_cm.dds": "90f95d326999b036cc2358fd6ffc01e0059c60f8",
+    "Textures/ProjectApollo/VC/Indicator_emis.dds": "ccf07136dd0b1c17ed224b375edbd69769c60c59",
+    "Textures/ProjectApollo/VC/LM11.dds": "796cfe15681740c755b6a1fda0d18bea1d3ea5c8",
+    "Textures/ProjectApollo/VC/LMEngStartStop.dds": "c2e43baef437cffe18f25f727eb59cdfaa06de3e",
+    "Textures/ProjectApollo/VC/LMVC-SideBags1.dds": "da165a2f25e8ee379bb971561a3127ddc74f14d0",
+    "Textures/ProjectApollo/VC/LMVC.dds": "8c869d15094d8628d8d1dda0292a80173a4246f4",
+    "Textures/ProjectApollo/VC/LMVC_2.dds": "21d5cc687c446b2273d95df524d88272be7243a6",
+    "Textures/ProjectApollo/VC/LMVC_2_emis.dds": "b678e1c02136e343a160d9f8ea9b3e48c8cb9704",
+    "Textures/ProjectApollo/VC/LMVC_SideBagsRight.dds": "f85f9bbb98b2622b8ecd9b7787f5f2914bc87a01",
+    "Textures/ProjectApollo/VC/LMVC_emis.dds": "1d00c4fcce5be86d34b7e4dc0d5fac9dcd9c8423",
+    "Textures/ProjectApollo/VC/LM_ACA.dds": "5cdb94594f85d87b599bd6e8574b9e1fb76a0c43",
+    "Textures/ProjectApollo/VC/LM_Clip.dds": "d358d91374cd25f9231227a18dd807edb89514c6",
+    "Textures/ProjectApollo/VC/LM_Interior.dds": "ea435ad2e8b032d57c68e976cb4d1bca7d40788b",
+    "Textures/ProjectApollo/VC/MAINVCTEX.dds": "2d3879232d06c404fde8c1153426f272fa1e1367",
+    "Textures/ProjectApollo/VC/MCCVC.dds": "00bc76481d0fd99d12cc485da541c742f44a159f",
+    "Textures/ProjectApollo/VC/MCCVC_2.dds": "e7c3d1b3e5e336231462747e391cbbf27d98b53d",
+    "Textures/ProjectApollo/VC/Ordeal.dds": "62753a9e5bae3e901df14c0618a2520ff2317411",
+    "Textures/ProjectApollo/VC/Ordeal_emis.dds": "c063cde1b37a7346fade403f765544b093d85419",
+    "Textures/ProjectApollo/VC/Panel300_305.dds": "58c5963a6c4e58ab503b8762d5bd8c357672364d",
+    "Textures/ProjectApollo/VC/PointingArrow.dds": "6a2a981bfb3c392b0fa5b312663b95a4ecf0635a",
+    "Textures/ProjectApollo/VC/Rotary.dds": "8c174a1782c59cde8e800f68941c47a912c3041d",
+    "Textures/ProjectApollo/VC/Rotary_LM.dds": "4b0e716acb9945ebe29df7b7cb8650dc0ce5d4a3",
+    "Textures/ProjectApollo/VC/Rotary_LM_emis.dds": "57faa4cfaba167a542da793c177765ba82b204f0",
+    "Textures/ProjectApollo/VC/Rotary_emis.dds": "c8e0f3c7b30d88af972577ebdb85236ff62206c4",
+    "Textures/ProjectApollo/VC/SCS_Rates_Card.dds": "18c3f2bb0a16b2a8367758857ed4b14a9bafb778",
+    "Textures/ProjectApollo/VC/SPSmax_indicator.dds": "8c3117b69b826e7d19b587959a8196a457124a00",
+    "Textures/ProjectApollo/VC/SPSmin_indicator.dds": "60b4f2db83b802dddefa9d7dda7ea430f5106358",
+    "Textures/ProjectApollo/VC/SequencerSwitches.dds": "cebdc2cdbb24b441a58d6a9503f11f03c0111f98",
+    "Textures/ProjectApollo/VC/SideHatch.dds": "231fb304914d245d45b4ce237b3fdd0bfd23675b",
+    "Textures/ProjectApollo/VC/SideHatch_new.dds": "dcd4298c8b832c00b7733e92a966c97bdd1a58be",
+    "Textures/ProjectApollo/VC/SwitchCover.dds": "5becc65dd6a67e5fb51b14bf1f5cde4792459699",
+    "Textures/ProjectApollo/VC/TTCA.dds": "e9f1edd9790095d28b37f6f5567d5200a1405bb5",
+    "Textures/ProjectApollo/VC/UpperHatch.dds": "0bd51438b96e63c9babf535fc5128b68500891ea",
+    "Textures/ProjectApollo/VC/WaterControlModule.dds": "e71880cac5caa96d7aec893e01415e4757ff3248",
+    "Textures/ProjectApollo/VC/abort.dds": "da9d1aec1208d909cb59dba43d1b43b03128ec8f",
+    "Textures/ProjectApollo/VC/ags_lights.dds": "027418cadae4edc9ceeb0e5627443e92eb24f44a",
+    "Textures/ProjectApollo/VC/aot_font.dds": "8404662b24929eaf02ff4aaba1522373a7a63c9d",
+    "Textures/ProjectApollo/VC/coas.dds": "260d0c3b4c146ce643ec69e89de49d2d30b7b132",
+    "Textures/ProjectApollo/VC/csm_cabin_press_panel.dds": "91275950683a77abf087f85cc2e2e12e6d5507e9",
+    "Textures/ProjectApollo/VC/csm_cabin_press_panel_emis.dds": "011c5e7b97c2f1a7153c412449111c0bb9d72bf5",
+    "Textures/ProjectApollo/VC/csm_lower_equip_bay.dds": "f8fd95de3cc7fbb3821f1eee10b8efe04ef2a466",
+    "Textures/ProjectApollo/VC/csm_lower_equip_bay_lights.dds": "f91dab43fb3aca21c37033f9c75ea9c57521ac1f",
+    "Textures/ProjectApollo/VC/csm_right_cb_panels.dds": "f63d567ca8f29f186c83e1ebbb48481ce4322c9e",
+    "Textures/ProjectApollo/VC/csm_right_cb_panels_emis.dds": "68c89a924353dc1ae1e17430bcea8d7e1eb775ae",
+    "Textures/ProjectApollo/VC/csm_waste_disposal_rotary.dds": "a2d3014682b3355d7feb387a8f058a25fc63ce96",
+    "Textures/ProjectApollo/VC/cw_lights.dds": "c51cd52626823e2c6e0a06d6a7bd833f5221b936",
+    "Textures/ProjectApollo/VC/digitaldisp.dds": "195313a398635db77507ed9037668dd4c4e1a64f",
+    "Textures/ProjectApollo/VC/digitaldisp90.dds": "3a19d98918a3fe2d7b85c8c6541d56a80dd2e6fd",
+    "Textures/ProjectApollo/VC/digitaldisp_2.dds": "ad1bcf0fd83028cf0928d75e68aea80e4ecdb123",
+    "Textures/ProjectApollo/VC/dsky_disp.dds": "4b93a72417e09c78641b83904b83ae112b05f060",
+    "Textures/ProjectApollo/VC/dsky_lights.dds": "9faaaca10c360b88ab8c810f2e7f8711d6e80aac",
+    "Textures/ProjectApollo/VC/ems_lights.dds": "5fd5dbc1dc4ddaf7c06c17d720bd514a4a81587f",
+    "Textures/ProjectApollo/VC/event_timer.dds": "693b122e5b84bf892696abe992a8dac987b9a36a",
+    "Textures/ProjectApollo/VC/event_timer90.dds": "e7e7ee64c36e785fdb508c54b8d722dac26b262c",
+    "Textures/ProjectApollo/VC/fonts_black.dds": "d06b44913a69ee29f65a91440b1b6f3534d88b8f",
+    "Textures/ProjectApollo/VC/fonts_white.dds": "0032c9a96b26dffcb102235b2c44bc6ddcb2bea8",
+    "Textures/ProjectApollo/VC/lem_cw_lights.dds": "2a0702c5f4046dcb4958eda5011ea95f0d930cd4",
+    "Textures/ProjectApollo/VC/lem_master_alarm.dds": "601e1941785df8b46d3fb325e113151453e048b7",
+    "Textures/ProjectApollo/VC/lm_range_rate_indicator_scales2.dds": "e506600e4ab92c603a4c01c7ae43f616b6b21b84",
+    "Textures/ProjectApollo/VC/lm_range_rate_indicator_scales_a.dds": "613bb9a6446e0e9a3808a218a2c9c2c901c7dedc",
+    "Textures/ProjectApollo/VC/lm_range_rate_indicator_scales_b.dds": "6e32f153a46dae70c74269381945830e20d38458",
+    "Textures/ProjectApollo/VC/lv_eng.dds": "06dcb2b80c0be8a02913bee968c243f0805bb940",
+    "Textures/ProjectApollo/VC/lv_eng_s1b.dds": "d8ff28a1b9638bf8e91ff156aa7c50df0ddd70ef",
+    "Textures/ProjectApollo/VC/masteralarmbright.dds": "15a2a4624324fdefc6e47a0697d4f97368f45423",
+    "Textures/ProjectApollo/VC/thumbwheel_large_fonts_inv.dds": "a43c9b5f1b0f0558c9ef94b59c89b4f0020776b9",
+    "Textures/ProjectApollo/VC/upperhatch_vc.dds": "185fdf392dffe9fe3195034f3e164fa58efe923c",
+    "Textures/ProjectApollo/VC/zzzBags.dds": "c2926612cd1a8adb060103a157987f4d6cd0c5be",
+    "Textures/ProjectApollo/VC/zzzECS.dds": "c03ea97675af4e3b3b9ad3efe8e7491b23e9bd9a",
+    "Textures/ProjectApollo/VC/zzzECSConnection.dds": "836c141dcb8b80034d9100350af73ad12dd9394a",
+    "Textures/ProjectApollo/VC/zzzECSFrontConsole2.dds": "c306e99de3d3d249d3aad5fc7406f154855ee199",
+    "Textures/ProjectApollo/VC/zzzECS_FrontParts.dds": "7741ae05f6aa3350560566026ba4ce19e746fb8d",
+    "Textures/ProjectApollo/VC/zzzMetalMantel.dds": "10dd54bbba7f4c538b1c308b8b4c85c2b658a642",
+    "Textures/ProjectApollo/VC/zzzNet.dds": "c1245da01049190371a65ad15c2091b716da0108",
+    "Textures/ProjectApollo/VC/zzzPipeRegler.dds": "9f099edc02b0f5f3689c23803dbd9d0f93093874",
+    "Textures/ProjectApollo/VC/zzzStoff.dds": "45b46427c958e93f5d382c378f56a07ca035bc34",
+    "Textures/ProjectApollo/VCMain.dds": "5d39947023ec3338395180065626d6f4c4fb7350",
+    "Textures/ProjectApollo/VCMain2.dds": "5445b7f9dc53fd8169f70c0a992c96e5b5ed9f2b",
+    "Textures/ProjectApollo/VCSidePanels.dds": "43f82a16402ff3d0dc8e3d9e34d5e3de0e755891",
+    "Textures/ProjectApollo/WaterDump.dds": "8f50dca4c84962390d24b0ef9592fc1ecc8b5db0",
+    "Textures/ProjectApollo/WhiteRoom.dds": "271d206f6214991f0bc681be41696fa79a6e4c4e",
+    "Textures/ProjectApollo/apo-chute.dds": "c6d69c53e3d9a9dedefbddba2d19e97267203a69",
+    "Textures/ProjectApollo/blackgra.dds": "e1d4c61d7dfb4f5a9c5711164cbef39774d20073",
+    "Textures/ProjectApollo/boot2.dds": "a95b187051165ffd88d18785aadcfa0e43493d36",
+    "Textures/ProjectApollo/cm_b_bottom.dds": "a9aedb47988f5079ac15fc2fa304e6a29fae2261",
+    "Textures/ProjectApollo/cm_b_bottom_norm.dds": "f1b76c1e90d3d4ce9106dc89b89a26b4f3346618",
+    "Textures/ProjectApollo/cmdocktarget.dds": "f202d04efe92fd2ff7ccbe37a4ae6017046e2a0f",
+    "Textures/ProjectApollo/dust.dds": "2343e89bca3dadeedf98cb1c437fc68c5231cb3a",
+    "Textures/ProjectApollo/exhaust_atrcs.dds": "3965df5a9d283041d68ef557e1129f7b15c4d4dc",
+    "Textures/ProjectApollo/flag.dds": "4f33cc44939f2c6e8304a583d86c0c84fa26befa",
+    "Textures/ProjectApollo/gold128.dds": "5ac6809ed30119bee1e542cba9bedd6f6c6bade1",
+    "Textures/ProjectApollo/gold256.dds": "0a497f6ca370f37e9dbeeeea6c71083f17f5eda7",
+    "Textures/ProjectApollo/goldfoil.dds": "1171076c0ed041f4db7b401c34dd7facbfe6ee98",
+    "Textures/ProjectApollo/goldfoil_norm.dds": "7077fba24ea256f128fc110892d89d2232112b19",
+    "Textures/ProjectApollo/grating.dds": "65886d1358e043065a1bb78e4f0d3f6f6e53f13b",
+    "Textures/ProjectApollo/junk.dds": "bbc28e64a80c698e9f6ae09f942ee6d83e02aab9",
+    "Textures/ProjectApollo/lrv_floo.dds": "28725cf6ae43e0e0cd6b42f19d5c5b34481fe506",
+    "Textures/ProjectApollo/lrv_rear.dds": "56760a6f05f0ada492f945693849b073b1fd34b3",
+    "Textures/ProjectApollo/lrv_rer2.dds": "7365e2d8bca750defdaad6582b604655eb94b460",
+    "Textures/ProjectApollo/lrv_side.dds": "b9d32e8decd53507f50b54556661d258b01bab8c",
+    "Textures/ProjectApollo/lrv_trea.dds": "d90a0523e5770eb6a997bffe759697c71344c974",
+    "Textures/ProjectApollo/lrvpanl.dds": "cfcbc5181d55b043173f70b1c4c84eac1b453dc1",
+    "Textures/ProjectApollo/ltaminusy.dds": "8b97b3afb4f2c95354d99daca5a05ccafa4a6a2a",
+    "Textures/ProjectApollo/ltaminusz.dds": "8e925181a7358c542befafd745897d27fdce6a55",
+    "Textures/ProjectApollo/ltaplusy.dds": "933551157d16d190e11e7be8b11f8427cefbb2e3",
+    "Textures/ProjectApollo/ltaplusz.dds": "514afcd327b227af86f82d9c34e31ea8ee483277",
+    "Textures/ProjectApollo/ltljoe.dds": "59fa0798da348e71faffa534829b87365acc6a81",
+    "Textures/ProjectApollo/moontran.dds": "bd480333de4ff743d6984e8e3322566ef1401486",
+    "Textures/ProjectApollo/myRusty.dds": "18ee21f93fa5877f8aac888558727e9a2229d05b",
+    "Textures/ProjectApollo/plaque.dds": "7e19e146de847bab7022ae8b4af723de471e1d35",
+    "Textures/ProjectApollo/plss_cdr.dds": "304299394179f895471f691044b5934baabedaf1",
+    "Textures/ProjectApollo/plss_lmp.dds": "304299394179f895471f691044b5934baabedaf1",
+    "Textures/ProjectApollo/porch.dds": "355172804c0c11cadb0883a648298a8475aa10ab",
+    "Textures/ProjectApollo/quads.dds": "3af21b93482d915d37a1461921ae7afe67b1c135",
+    "Textures/ProjectApollo/quads_norm.dds": "8a704b8948764791a72162d511dfbe00bc8129e6",
+    "Textures/ProjectApollo/rcs.dds": "ca17104451f11e1bf917e9e7b188fcf7b90393c1",
+    "Textures/ProjectApollo/rcs_norm.dds": "b5bebb7b818ef7f9cdbfced9ad3db863cc4bca14",
+    "Textures/ProjectApollo/rcu_cdr.dds": "a9e22c436262cb8f007a3fa71f91790d3401db5e",
+    "Textures/ProjectApollo/rcu_lmp.dds": "a9e22c436262cb8f007a3fa71f91790d3401db5e",
+    "Textures/ProjectApollo/redfoil.dds": "6b7b94f6f7c810a6e56f3bef058d494d9c0bcc85",
+    "Textures/ProjectApollo/redfoil_norm.dds": "dfd763c8409f6f503b58281657d9de8d1f388fbd",
+    "Textures/ProjectApollo/s1b1.dds": "010fb34d8ef8e07ec015ad5022e69ac0ecb44187",
+    "Textures/ProjectApollo/s1b2.dds": "17b6623638f025b191f6077dbeb67a0223bd97f2",
+    "Textures/ProjectApollo/s1b3.dds": "59bcf396779018370bbfaedc8a8ae0c006f811eb",
+    "Textures/ProjectApollo/s1b4.dds": "801947f841bc21d8f34f60fc2d20ea1bd09b624f",
+    "Textures/ProjectApollo/s1binter.dds": "dc5285c6adc4594f48fc0bd8dc943f7d1bf5c16f",
+    "Textures/ProjectApollo/s1bs4b.dds": "59986fc23103796805b3ba4f79a40091274d836b",
+    "Textures/ProjectApollo/s1bs4bbottom.dds": "6b470ee47af53c41f0f658d1cff30216519ec4ca",
+    "Textures/ProjectApollo/s1bs4btank.dds": "7394cd29d9a02d856fabe9fbb4c9dff2815d1777",
+    "Textures/ProjectApollo/s1bs4btop.dds": "11a58d13592c9aecb666bb35291353b0be46e8ed",
+    "Textures/ProjectApollo/s1btank.dds": "e96a595729c5990ae8253c57bf81eea56b7d9855",
+    "Textures/ProjectApollo/s1c.dds": "eac323445d9f6efa752c609f65a2ebaef992369f",
+    "Textures/ProjectApollo/s1cbottom.dds": "bc258e0c840579eecca6bfaf6d33f029dba2c222",
+    "Textures/ProjectApollo/s1ceng.dds": "b08575c7229570e7188d67f5041beb8ddf948bb7",
+    "Textures/ProjectApollo/s2.dds": "57320896fd78035ec677c2205313f2d6136cf057",
+    "Textures/ProjectApollo/s2_norm.dds": "11a5d3bc2827282e6c7fcde8e13dff43008a9e56",
+    "Textures/ProjectApollo/s4b.dds": "d03d41c15bc962af1db02964a0a9143595333801",
+    "Textures/ProjectApollo/sat1stg2a.dds": "16c04dc91930329993ca852229683a101f475929",
+    "Textures/ProjectApollo/sat1stg2b.dds": "5ead82472dd03d4ae7d66bea348f68e1fe3cab08",
+    "Textures/ProjectApollo/sicfina.dds": "915aa0bf2d1a08fed06c84b473e595863d60b46b",
+    "Textures/ProjectApollo/sicfinb.dds": "4d5117c6f756f2828ad4c69b716de8786fe13c57",
+    "Textures/ProjectApollo/sicfinc.dds": "a2f16b637f9af79c9538b683ba450a569e03fd6c",
+    "Textures/ProjectApollo/sicfind.dds": "bc4119d812609149b186e39046403b1da9523669",
+    "Textures/ProjectApollo/silverfo.dds": "653a949577b0a2fa0f4d588fde8b4fdc97c6ef58",
+    "Textures/ProjectApollo/silverfoKapton.dds": "0891c6e2cd217dec8d2d4030e6334cf07063322b",
+    "Textures/ProjectApollo/silverfoKapton_norm.dds": "60e2719145c167ed36ee13f6b20d53e06ec515a1",
+    "Textures/ProjectApollo/silverfo_norm.dds": "47c4e113d84d7ffd03d11cbc5aefc87d7093cab5",
+    "Textures/ProjectApollo/sla.dds": "96af3af1f20fb4bd54561cf228ab58f3dc873402",
+    "Textures/ProjectApollo/slaster_1b.dds": "877e03238eb2443a32481e61ad3492b263703dc3",
+    "Textures/ProjectApollo/slastereP.dds": "2d7d8749b3289690e46a65dcbe07347453a48f53",
+    "Textures/ProjectApollo/suit_tex.dds": "feaf8180a932396be17eb7cc7ea97205b5f85855",
+    "Textures/ProjectApollo/target.dds": "735e1b43adae964f6f3c8929d69ef6c7dd1b4c88",
+    "Textures/ProjectApollo/texcolors.dds": "226e02e0d8c80e28dab94cf0078f43caa31e0863",
+    "Textures/ProjectApollo/us.dds": "b7696f6177dc13c55c2d26136bf5a9a37469a6c4",
+    "Textures/ProjectApollo/usflag.dds": "d14b51c301cd4ad9a69840b115edef1099d43d1a",
+    "Textures/ProjectApollo/usflag2.dds": "d14b51c301cd4ad9a69840b115edef1099d43d1a",
+    "Textures/ProjectApollo/usflag3.dds": "facfd43f4060705b08206cfbcc95e8110fe891e4",
+    "Textures/ProjectApollo/usflag4.dds": "8dcefafae6bd6823bac863eaa203238ba2f70b74",
+    "Textures/ProjectApollo/vabWin2.dds": "19e8abd719d0ae19ccbd7017ff18480b407112db",
+    "Textures/ProjectApollo/vab_bk01.dds": "9c6526de02d22fd9de378d9bcc040a3dd218f0eb",
+    "Textures/ProjectApollo/vab_door2.dds": "b8116e23806246b28dfc24b76b9f1afaa721cc9e",
+    "Textures/ProjectApollo/vab_fr01.dds": "1a037e77207aaba1affafd07f323c066da19652a",
+    "Textures/ProjectApollo/vab_fr02.dds": "968499388f3ac7dcc5281537b41aa92d90a380d9",
+    "Textures/ProjectApollo/vab_lowbayroof.dds": "607bcc885c38915de176cca776da65b52d0ea50b",
+    "Textures/ProjectApollo/vab_tl1.dds": "42c78af770e49a4a13fa75028eccae0fa5181608",
+    "Textures/ProjectApollo/visor11.dds": "36d3f7da970514e917700bdf5aee03555abf51a1"
+  },
+  "data_root_is_external": true,
+  "normalisation": "For text critical files only, CRLF/LF conversion is accepted; scenario staging preserves supplied bytes"
+}

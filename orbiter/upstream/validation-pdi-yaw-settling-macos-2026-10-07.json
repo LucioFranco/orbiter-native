@@ -1,0 +1,1000 @@
+{
+  "platform": "macOS arm64",
+  "recorded_at_utc": "2026-10-07T22:25:02.034156+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "fbe1c7f2ae6158a201114327352f983bd741fe54",
+  "scope": "Instrumentation-only original-input yaw experiment and bounded first-N68 protocol",
+  "nassp_source_edited": false,
+  "physics_rom_scenario_changes": false,
+  "compensating_control_added": false,
+  "input_logic_or_waits_changed": false,
+  "per_release_observations": 480,
+  "post_release_window_sim_seconds": 8,
+  "simulation_step_seconds": 0.016666666666666666,
+  "synthetic_contract_checks": 34,
+  "historical_contract_checks_preserved": 25,
+  "new_settling_regressions": 9,
+  "profiles": {
+    "baseline": {
+      "build": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol",
+      "bounded_ctest": {
+        "passed": 3,
+        "total": 3,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 56.77,
+        "junit_sha256": "bff8ad1fda21a64a99f982577b6d2160dea767afa97576284af34e6e25c0852c",
+        "console_log_sha256": "8c58ce96d2b0923f134e4e3cb95162bf6bc11facc6635bad027f82757041e697"
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "0e190125654190c5214088ba04ea80c5ff5a6f2fd2f42439f3f032d0032ab352",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "1e2c8d8c67ee61a3635953f2378c8104e0fdf89cf2fb505dfa19bd63bfb93880",
+          "wall_seconds": 56.142690667000004,
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-protocol",
+          "verification_report_sha256": "b8225cf9d754b9285791b832b9f1d493dd1f4c1e77b087337431f5f733a49a70",
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.46584793250592677,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427030637830586,
+              0.008936612574123674,
+              -0.6695612712836354
+            ],
+            "altitude_above_radar_origin_m": 9793.369357808368,
+            "predicted_slant_range_ft": -68972.02853913698,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "checkpoint_rotation_body_to_global": [
+            [
+              0.034466887694429515,
+              -0.4368015600528153,
+              -0.8988973416292241
+            ],
+            [
+              -0.9993472758416511,
+              -0.005326306224527788,
+              -0.03573027749505042
+            ],
+            [
+              0.010819238445026635,
+              0.8995421210801798,
+              -0.4367000303206312
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2474.991834124022 24.212157234265 458.678443123312"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            0.0016354798896441895,
+            -5.500195228274753e-05,
+            0.001097458359765244
+          ],
+          "range_good_records": 0,
+          "velocity_good_records": 0
+        },
+        "instrumented_yaw": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "0e190125654190c5214088ba04ea80c5ff5a6f2fd2f42439f3f032d0032ab352",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.05,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "405cbace869a243bded8444d0d2eea58ecf46f333f937b6f5bd14499c96e1bb7",
+          "wall_seconds": 58.298052333,
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-settling",
+          "verification_report_sha256": "e56d176258b1aee82b6c56c679dc7daf493d3d1ed7878e1424dc6a662957d975",
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.5413790376453761,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427086834444193,
+              0.00895467741477782,
+              -0.6695547963301096
+            ],
+            "altitude_above_radar_origin_m": 9782.704895420105,
+            "predicted_slant_range_ft": 59284.69015281348,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.7196425375717593,
+              -0.43535797194379383,
+              0.5409048478080646
+            ],
+            [
+              0.6024375587319952,
+              -0.004166013963993742,
+              0.798155142911881
+            ],
+            [
+              -0.3452297871654652,
+              0.9002477884408483,
+              0.26527403465293964
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "59288.530878127727",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2088.366963117244 -472.916026583634 1320.271224045023"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.0007353390197869228,
+            -2.143327527020606e-05,
+            -0.000546180478040233
+          ],
+          "range_good_records": 0,
+          "velocity_good_records": 0,
+          "analysis_reverification": {
+            "verifier_sha256": "9854921c3c26229710d3d93824cd5415f9331da672e345fd181d4d82179aa580",
+            "simulator_log_modified": false,
+            "event_log_sha256": "405cbace869a243bded8444d0d2eea58ecf46f333f937b6f5bd14499c96e1bb7",
+            "reason": "Corrected only the matrix-angle sign against original right-yaw input and body-rate telemetry; reapplied final independent verifier to the unchanged simulator log.",
+            "initial_analysis_preserved": "pdi-protocol-verification-initial-matrix-sign.json"
+          },
+          "input_timeline_comparison": {
+            "historical_commit": "fbe1c7f2ae6158a201114327352f983bd741fe54",
+            "historical_event_log_sha256": "96dc3d4448252ac5e850094aca4caef55b327fff4125e3e42b1cbe6b9d7aa66c",
+            "input_records": 52,
+            "all_input_event_fields_and_timestamps_identical": true
+          },
+          "yaw": {
+            "checklist_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "held_gyro_integral_deg": 10.105955341627075,
+              "post_release_eight_second_gyro_integral_deg": 12.292688993719281,
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "settled_commanded_attitude_certified": false,
+              "first_post_release_pgns_jet_request_s": 0.01666666666666572,
+              "first_post_release_rcs_level_s": 0.01666666666666572,
+              "subsequent_orientation_change_to_n68_deg": 151.12163242220322,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed.",
+              "observations": {
+                "release": {
+                  "sim_elapsed_s": 15.083333333333334,
+                  "after_release_s": 0.0,
+                  "yaw_rate_deg_s": 9.63407484984275,
+                  "relative_right_yaw_projection_unwrapped_deg": 10.105314589116432,
+                  "orientation_error_to_fixed_start_frame_target_deg": 0.1132512241544659,
+                  "rotation_body_to_global": [
+                    [
+                      0.09271362831809918,
+                      -0.8232712299711462,
+                      -0.5600255931882837
+                    ],
+                    [
+                      -0.9814732358670617,
+                      0.019151846897608772,
+                      -0.19063969690767227
+                    ],
+                    [
+                      0.16767370217399027,
+                      0.5673250291166486,
+                      -0.8062430408611666
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.0957821602627956
+                },
+                "release_verified_0_2s": {
+                  "sim_elapsed_s": 15.283333333333333,
+                  "after_release_s": 0.1999999999999993,
+                  "yaw_rate_deg_s": 9.637134680266264,
+                  "relative_right_yaw_projection_unwrapped_deg": 12.07948094623714,
+                  "orientation_error_to_fixed_start_frame_target_deg": 2.079973241883925,
+                  "rotation_body_to_global": [
+                    [
+                      0.11198474838989292,
+                      -0.823239833194489,
+                      -0.5565389412879951
+                    ],
+                    [
+                      -0.9743241565841259,
+                      0.019122532414615027,
+                      -0.22433628028182168
+                    ],
+                    [
+                      0.19532499590345426,
+                      0.5673715764787324,
+                      -0.7999610241626487
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.10106410782212044
+                },
+                "first_low_rate_observation": {
+                  "sim_elapsed_s": 17.65,
+                  "after_release_s": 2.5666666666666647,
+                  "yaw_rate_deg_s": 0.07300892791461468,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.396204267795497,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.396510268115156,
+                  "rotation_body_to_global": [
+                    [
+                      0.21026820270944027,
+                      -0.8228483130659114,
+                      -0.5279279653645238
+                    ],
+                    [
+                      -0.9184056305368684,
+                      0.018861895211137368,
+                      -0.3951902411588901
+                    ],
+                    [
+                      0.3351393452394381,
+                      0.5679479576454416,
+                      -0.7517424669917573
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.13606303247338972
+                },
+                "rate_dwell_verified": {
+                  "sim_elapsed_s": 18.65,
+                  "after_release_s": 3.5666666666666647,
+                  "yaw_rate_deg_s": 0.0002895781117646272,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.3973571766239,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.39780044118568,
+                  "rotation_body_to_global": [
+                    [
+                      0.21044835951451843,
+                      -0.8226799474537402,
+                      -0.5281185397570887
+                    ],
+                    [
+                      -0.9184015714261385,
+                      0.018766200347195422,
+                      -0.3952042298945303
+                    ],
+                    [
+                      0.3350373734072779,
+                      0.5681949786666903,
+                      -0.7516012404449
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.13543635874885113
+                },
+                "eight_second_observation": {
+                  "sim_elapsed_s": 23.083333333333332,
+                  "after_release_s": 7.999999999999998,
+                  "yaw_rate_deg_s": 0.0002907366690741636,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.398653773455152,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.400018495079683,
+                  "rotation_body_to_global": [
+                    [
+                      0.2112115011206534,
+                      -0.8219325479339887,
+                      -0.5289769261896984
+                    ],
+                    [
+                      -0.9184096499289898,
+                      0.018341947104646483,
+                      -0.39520537432292174
+                    ],
+                    [
+                      0.3345346270741948,
+                      0.5692894339640879,
+                      -0.7509967534318492
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.132641358742655
+                }
+              }
+            },
+            "checklist_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "held_gyro_integral_deg": 174.01975690121589,
+              "post_release_eight_second_gyro_integral_deg": 35.301133818432696,
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "settled_commanded_attitude_certified": false,
+              "first_post_release_pgns_jet_request_s": 0.08333333333325754,
+              "first_post_release_rcs_level_s": 0.09999999999990905,
+              "subsequent_orientation_change_to_n68_deg": 8.174691771392485,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed.",
+              "observations": {
+                "release": {
+                  "sim_elapsed_s": 1092.15,
+                  "after_release_s": 0.0,
+                  "yaw_rate_deg_s": 19.26743443475041,
+                  "relative_right_yaw_projection_unwrapped_deg": 174.019679978563,
+                  "orientation_error_to_fixed_start_frame_target_deg": 0.9544930311856501,
+                  "rotation_body_to_global": [
+                    [
+                      -0.2479862687194655,
+                      -0.5696489021461283,
+                      0.7835833962063685
+                    ],
+                    [
+                      0.94841414615173,
+                      0.02215668894213174,
+                      0.3162588947593502
+                    ],
+                    [
+                      -0.19751814576357535,
+                      0.8215894409124497,
+                      0.5347685225172543
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.7573191357204008
+                },
+                "release_verified_0_2s": {
+                  "sim_elapsed_s": 1092.35,
+                  "after_release_s": 0.1999999999998181,
+                  "yaw_rate_deg_s": 18.6408023521671,
+                  "relative_right_yaw_projection_unwrapped_deg": 177.83737578973665,
+                  "orientation_error_to_fixed_start_frame_target_deg": 3.954457370473355,
+                  "rotation_body_to_global": [
+                    [
+                      -0.2996883823572125,
+                      -0.5696082593709726,
+                      0.7653321529483053
+                    ],
+                    [
+                      0.9252550257862628,
+                      0.022028052461540826,
+                      0.37870556130325533
+                    ],
+                    [
+                      -0.2325725924037037,
+                      0.821621077967893,
+                      0.5204313533036786
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.7363761414036989
+                },
+                "first_low_rate_observation": {
+                  "sim_elapsed_s": 1095.9333333333334,
+                  "after_release_s": 3.783333333333303,
+                  "yaw_rate_deg_s": 0.0625936780774278,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.61121392711374,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.6294180206088,
+                  "rotation_body_to_global": [
+                    [
+                      -0.6618507495504649,
+                      -0.566510683791874,
+                      0.4909370942077526
+                    ],
+                    [
+                      0.5872575801711412,
+                      0.015211517075457315,
+                      0.8092571558409596
+                    ],
+                    [
+                      -0.46592072271044566,
+                      0.8239139851331125,
+                      0.3226199393265231
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.47242278219051265
+                },
+                "rate_dwell_verified": {
+                  "sim_elapsed_s": 1096.9333333333334,
+                  "after_release_s": 4.783333333333303,
+                  "yaw_rate_deg_s": -0.07047479235424293,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.54189499534823,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.56566860204458,
+                  "rotation_body_to_global": [
+                    [
+                      -0.6633926316577988,
+                      -0.5646830516382064,
+                      0.4909615743158546
+                    ],
+                    [
+                      0.5882629991205501,
+                      0.011923919386209625,
+                      0.8085817608703318
+                    ],
+                    [
+                      -0.4624466024611223,
+                      0.8252217104142581,
+                      0.324271905247943
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.4745578833446357
+                },
+                "eight_second_observation": {
+                  "sim_elapsed_s": 1100.15,
+                  "after_release_s": 8.0,
+                  "yaw_rate_deg_s": -0.0704411994542215,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.31538608861402,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.3607090723856,
+                  "rotation_body_to_global": [
+                    [
+                      -0.666116455386607,
+                      -0.557905248495007,
+                      0.49500565811403424
+                    ],
+                    [
+                      0.5915364663675527,
+                      0.009060531983141162,
+                      0.8062273350101523
+                    ],
+                    [
+                      -0.45428347627948445,
+                      0.8298551924654733,
+                      0.3239859298141201
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.48115397522368714
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "candidate": {
+      "build": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol",
+      "bounded_ctest": {
+        "passed": 3,
+        "total": 3,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 57.03,
+        "junit_sha256": "f4255273206f83e482017175d2762fb019f3f961312049d3eae4dd970a979353",
+        "console_log_sha256": "ecdd641cf7322c89acdb90d3bf681063276b47b4c5704a9c9a520cdfb8988d73"
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "0a82b233aa37c0fa417e481ebd9f7e8be0364c7fb278d8c3adab2378e1e56dae",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "82c36494cd8f8e07ffde89adb98f6cf5b6f41af399f9ca481efc719af27d3910",
+          "wall_seconds": 56.428027791,
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-protocol",
+          "verification_report_sha256": "e451f59d10104fc00a9f462f9df253b074354abb3ec7674d79f4966bd0434c8f",
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.4652870926534778,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.742697343716745,
+              0.008938736058853177,
+              -0.6695675878010833
+            ],
+            "altitude_above_radar_origin_m": 9935.273892681393,
+            "predicted_slant_range_ft": -70055.76442944082,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "checkpoint_rotation_body_to_global": [
+            [
+              0.03250351221243858,
+              -0.4362158131016491,
+              -0.8992548504700565
+            ],
+            [
+              -0.9993879804393053,
+              -0.002545145284131578,
+              -0.03488820415168725
+            ],
+            [
+              0.012930052099778488,
+              0.8998384780812334,
+              -0.4360315666521718
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2475.633480730628 17.421814462135 453.966654187810"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            0.0023452322631523324,
+            -5.2024404016665286e-05,
+            3.8109598705562446e-05
+          ],
+          "range_good_records": 0,
+          "velocity_good_records": 0
+        },
+        "instrumented_yaw": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "0a82b233aa37c0fa417e481ebd9f7e8be0364c7fb278d8c3adab2378e1e56dae",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0166666666667,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "ad4296f2e02f76c13acf25041cb206a4b7cf7e86666d73e316682c9a9ea02118",
+          "wall_seconds": 59.185480833,
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-settling",
+          "verification_report_sha256": "c5f2b3181c599cb17d5a03464c46fbce9c5280fe3057c948846c8c50584c3497",
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.5389562064819248,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7426936502596155,
+              0.00895290418883688,
+              -0.6695714953390963
+            ],
+            "altitude_above_radar_origin_m": 9924.139752696283,
+            "predicted_slant_range_ft": 60412.169361340486,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.7224988059814853,
+              -0.43500931117638947,
+              0.5373661457006491
+            ],
+            [
+              0.5986193107865727,
+              -0.004737591865405677,
+              0.8010196476845779
+            ],
+            [
+              -0.34590518369740675,
+              0.9004134907991772,
+              0.26382787850813516
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "60416.355422688881",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2088.559779659987 -478.469563600578 1318.449938103460"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.0010374453352698337,
+            -9.141650485915491e-06,
+            -0.0008506740948498391
+          ],
+          "range_good_records": 0,
+          "velocity_good_records": 0,
+          "analysis_reverification": {
+            "verifier_sha256": "9854921c3c26229710d3d93824cd5415f9331da672e345fd181d4d82179aa580",
+            "simulator_log_modified": false,
+            "event_log_sha256": "ad4296f2e02f76c13acf25041cb206a4b7cf7e86666d73e316682c9a9ea02118",
+            "reason": "Corrected only the matrix-angle sign against original right-yaw input and body-rate telemetry; reapplied final independent verifier to the unchanged simulator log.",
+            "initial_analysis_preserved": "pdi-protocol-verification-initial-matrix-sign.json"
+          },
+          "input_timeline_comparison": {
+            "historical_commit": "fbe1c7f2ae6158a201114327352f983bd741fe54",
+            "historical_event_log_sha256": "aef13bb292d56ec5d86685350308ed8a99f82a589d7393462f449ce69a7ecad7",
+            "input_records": 52,
+            "all_input_event_fields_and_timestamps_identical": true
+          },
+          "yaw": {
+            "checklist_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "held_gyro_integral_deg": 10.105955341627075,
+              "post_release_eight_second_gyro_integral_deg": 12.292688993719281,
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "settled_commanded_attitude_certified": false,
+              "first_post_release_pgns_jet_request_s": 0.01666666666666572,
+              "first_post_release_rcs_level_s": 0.01666666666666572,
+              "subsequent_orientation_change_to_n68_deg": 150.8675456785817,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed.",
+              "observations": {
+                "release": {
+                  "sim_elapsed_s": 15.083333333333334,
+                  "after_release_s": 0.0,
+                  "yaw_rate_deg_s": 9.63407484984275,
+                  "relative_right_yaw_projection_unwrapped_deg": 10.105314589116432,
+                  "orientation_error_to_fixed_start_frame_target_deg": 0.1132512241544659,
+                  "rotation_body_to_global": [
+                    [
+                      0.09271362831809918,
+                      -0.8232712299711462,
+                      -0.5600255931882837
+                    ],
+                    [
+                      -0.9814732358670617,
+                      0.019151846897608772,
+                      -0.19063969690767227
+                    ],
+                    [
+                      0.16767370217399027,
+                      0.5673250291166486,
+                      -0.8062430408611666
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.09578216027098235
+                },
+                "release_verified_0_2s": {
+                  "sim_elapsed_s": 15.283333333333333,
+                  "after_release_s": 0.1999999999999993,
+                  "yaw_rate_deg_s": 9.637134680266264,
+                  "relative_right_yaw_projection_unwrapped_deg": 12.07948094623714,
+                  "orientation_error_to_fixed_start_frame_target_deg": 2.079973241883925,
+                  "rotation_body_to_global": [
+                    [
+                      0.11198474838989292,
+                      -0.823239833194489,
+                      -0.5565389412879951
+                    ],
+                    [
+                      -0.9743241565841259,
+                      0.019122532414615027,
+                      -0.22433628028182168
+                    ],
+                    [
+                      0.19532499590345426,
+                      0.5673715764787324,
+                      -0.7999610241626487
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.10106410783026315
+                },
+                "first_low_rate_observation": {
+                  "sim_elapsed_s": 17.65,
+                  "after_release_s": 2.5666666666666647,
+                  "yaw_rate_deg_s": 0.07300892791461468,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.396204267795497,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.396510268115156,
+                  "rotation_body_to_global": [
+                    [
+                      0.21026820270944027,
+                      -0.8228483130659114,
+                      -0.5279279653645238
+                    ],
+                    [
+                      -0.9184056305368684,
+                      0.018861895211137368,
+                      -0.3951902411588901
+                    ],
+                    [
+                      0.3351393452394381,
+                      0.5679479576454416,
+                      -0.7517424669917573
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.1360630324812265
+                },
+                "rate_dwell_verified": {
+                  "sim_elapsed_s": 18.65,
+                  "after_release_s": 3.5666666666666647,
+                  "yaw_rate_deg_s": 0.0002895781117646272,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.3973571766239,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.39780044118568,
+                  "rotation_body_to_global": [
+                    [
+                      0.21044835951451843,
+                      -0.8226799474537402,
+                      -0.5281185397570887
+                    ],
+                    [
+                      -0.9184015714261385,
+                      0.018766200347195422,
+                      -0.3952042298945303
+                    ],
+                    [
+                      0.3350373734072779,
+                      0.5681949786666903,
+                      -0.7516012404449
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.1354363587566904
+                },
+                "eight_second_observation": {
+                  "sim_elapsed_s": 23.083333333333332,
+                  "after_release_s": 7.999999999999998,
+                  "yaw_rate_deg_s": 0.0002907366690741636,
+                  "relative_right_yaw_projection_unwrapped_deg": 22.398653773455152,
+                  "orientation_error_to_fixed_start_frame_target_deg": 12.400018495079683,
+                  "rotation_body_to_global": [
+                    [
+                      0.2112115011206534,
+                      -0.8219325479339887,
+                      -0.5289769261896984
+                    ],
+                    [
+                      -0.9184096499289898,
+                      0.018341947104646483,
+                      -0.39520537432292174
+                    ],
+                    [
+                      0.3345346270741948,
+                      0.5692894339640879,
+                      -0.7509967534318492
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.13264135875050542
+                }
+              }
+            },
+            "checklist_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "held_gyro_integral_deg": 174.22463872178074,
+              "post_release_eight_second_gyro_integral_deg": 35.41666341392605,
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "settled_commanded_attitude_certified": false,
+              "first_post_release_pgns_jet_request_s": 0.11666666666656056,
+              "first_post_release_rcs_level_s": 0.13333333333321207,
+              "subsequent_orientation_change_to_n68_deg": 8.1313547106752,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed.",
+              "observations": {
+                "release": {
+                  "sim_elapsed_s": 1092.2166666666667,
+                  "after_release_s": 0.0,
+                  "yaw_rate_deg_s": 19.131379877145424,
+                  "relative_right_yaw_projection_unwrapped_deg": 174.22187521200914,
+                  "orientation_error_to_fixed_start_frame_target_deg": 0.8576674299694045,
+                  "rotation_body_to_global": [
+                    [
+                      -0.25324192763210285,
+                      -0.5681264349620951,
+                      0.7830075861614856
+                    ],
+                    [
+                      0.9472787286787367,
+                      0.01860501769806666,
+                      0.3198700728565433
+                    ],
+                    [
+                      -0.19629451414130833,
+                      0.8227309446068709,
+                      0.5334625164941893
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.7575038795828615
+                },
+                "release_verified_0_2s": {
+                  "sim_elapsed_s": 1092.4166666666667,
+                  "after_release_s": 0.20000000000004547,
+                  "yaw_rate_deg_s": 18.687399277897768,
+                  "relative_right_yaw_projection_unwrapped_deg": 178.03014902116087,
+                  "orientation_error_to_fixed_start_frame_target_deg": 4.117862783158894,
+                  "rotation_body_to_global": [
+                    [
+                      -0.3048954512719463,
+                      -0.5678685458566946,
+                      0.7645679030800863
+                    ],
+                    [
+                      0.9239477993871896,
+                      0.018344789320854815,
+                      0.3820784379055482
+                    ],
+                    [
+                      -0.2309961640401132,
+                      0.8229148092794158,
+                      0.5190876504670249
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.736660391586144
+                },
+                "first_low_rate_observation": {
+                  "sim_elapsed_s": 1095.9833333333333,
+                  "after_release_s": 3.7666666666666515,
+                  "yaw_rate_deg_s": 0.06200514661460482,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.93518453433475,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.95168723787805,
+                  "rotation_body_to_global": [
+                    [
+                      -0.6654529965146084,
+                      -0.564094188838774,
+                      0.48884563570523293
+                    ],
+                    [
+                      0.5824992278346488,
+                      0.01708120640591837,
+                      0.8126517593408359
+                    ],
+                    [
+                      -0.4667622081978849,
+                      0.8255337537048643,
+                      0.3172176894376961
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.4704701188853537
+                },
+                "rate_dwell_verified": {
+                  "sim_elapsed_s": 1096.9833333333333,
+                  "after_release_s": 4.7666666666666515,
+                  "yaw_rate_deg_s": -0.07105055508022666,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.86600393555295,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.88581009298026,
+                  "rotation_body_to_global": [
+                    [
+                      -0.6662550322327127,
+                      -0.5626975393684792,
+                      0.4893625559983581
+                    ],
+                    [
+                      0.5835056717085398,
+                      0.015251686154878374,
+                      0.8119658349668408
+                    ],
+                    [
+                      -0.46435478150715004,
+                      0.8265221504945237,
+                      0.31817569302722515
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.4720944497215439
+                },
+                "eight_second_observation": {
+                  "sim_elapsed_s": 1100.2166666666667,
+                  "after_release_s": 8.0,
+                  "yaw_rate_deg_s": -0.07101679308198312,
+                  "relative_right_yaw_projection_unwrapped_deg": 209.6358930087701,
+                  "orientation_error_to_fixed_start_frame_target_deg": 35.673172755871114,
+                  "rotation_body_to_global": [
+                    [
+                      -0.6683273094379724,
+                      -0.5564062628695239,
+                      0.4937111281903336
+                    ],
+                    [
+                      0.58685712551876,
+                      0.013453096189070424,
+                      0.8095787351646451
+                    ],
+                    [
+                      -0.4570966218287552,
+                      0.8308014713771867,
+                      0.31753990846859204
+                    ]
+                  ],
+                  "beam_nadir_cosine": 0.4782190996304652
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unchanged_source_sha256": {
+    "orbiter/Tests/NativeDescent.cpp": "7b46a60997684401973a95aa6ff3772f0f6c165b7f0b57866a4575b7944e4218",
+    "orbiter/Tests/NativeOriginalDescent.py": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6",
+    "orbiter/cmake/NativeWgpu.cmake": "4a0ba057b83b5ca30757f979ee140b699e231196b0413d3553f821df0993d95d"
+  },
+  "source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "54ff7c06161754eea99942d6db22401a0e574e52a8fab8e0535879956e89ec24",
+    "orbiter/Tests/NativePDIProtocol.py": "9854921c3c26229710d3d93824cd5415f9331da672e345fd181d4d82179aa580",
+    "orbiter/Tests/NativePDIProtocolContract.py": "b064c6c14b2293b226cda21599fa6d42f03aa375f742bd1f055d4b4c268b5646",
+    "orbiter/docs/macos-pdi-protocol.md": "3e743418b210b91c22156e8044f08277db64ef1f3252b34b7822d2d8dbccad01"
+  },
+  "historical_full_suites": {
+    "commit": "fbe1c7f2ae6158a201114327352f983bd741fe54",
+    "baseline": {
+      "passed": 91,
+      "total": 91,
+      "wall_seconds": 502.79
+    },
+    "candidate": {
+      "passed": 91,
+      "total": 91,
+      "wall_seconds": 510.97
+    },
+    "rerun_for_instrumentation_commit": false,
+    "evidence_report": "orbiter/upstream/validation-pdi-protocol-followup-macos-2026-10-07.json"
+  },
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-yaw-settling-20261007",
+  "causal_conclusion": "Original input release clears and LGC/ATCA commands automatic braking. The 0.2-second rate sample is an early transient. Holding maximum proportional-rate input until the held gyro integral reaches the angle produces approximately 12-degree / 35-degree terminal yaw overshoot. The current harness stop rule, rather than absent braking, prevents settled-angle fidelity.",
+  "radar_conclusion": "Beam/nadir cosine falls during braking overshoot; first N68 still has original invalid radar flags and +99999 dH. Correlation does not establish that correcting yaw alone will acquire radar or calibrated flight parity.",
+  "next_minimal_harness_correction": "Define the intended original pilot attitude frame/terminal tolerance, measure the terminal matrix attitude, and release the same original ACA input earlier using observed automatic-braking distance; no counter-thrust or direct pose/physics writes.",
+  "limits": [
+    "Yaw-rate threshold/dwell are observer criteria, not flight requirements or an operational dH envelope",
+    "Matrix yaw projection is unwrapped in the input-start frame; full rotation error uses a pure fixed-start-frame yaw target and retains ongoing PGNS pitch/roll motion",
+    "Initial matrix-sign analysis is preserved; final analysis reverified the immutable recorded JSONL after correcting the convention",
+    "No V57, landing, Windows comparison, CI work or broad full-suite rerun"
+  ]
+}

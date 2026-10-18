@@ -1,0 +1,572 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
+index 3d098f7b883529a70bb53ac3d0a6225a27609c85..0c99979170dd5bdb3e3fbc06512be4d7f4113c35
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp
+@@ -55,12 +55,14 @@
+ 
+ #include "eva.h"
+ 
++#ifdef _MSC_VER
+ #include <crtdbg.h>
++#endif
+ 
+ extern "C" {
+-#include <lua\lua.h>
+-#include <lua\lualib.h>
+-#include <lua\lauxlib.h>
++#include <Lua/lua.h>
++#include <Lua/lualib.h>
++#include <Lua/lauxlib.h>
+ }
+ 
+ //
+@@ -301,6 +303,7 @@
+ 	}
+ }
+ 
++#ifndef NASSP_NATIVE
+ // DX8 callback for enumerating joysticks
+ BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE* pdidInstance, VOID* pSaturn)
+ {
+@@ -351,6 +354,7 @@
+     return DIENUM_CONTINUE;
+ }
+ 
++#endif
+ //
+ // CAUTION: This disables the warning, which is triggered by the use of the "this" pointer in the 
+ // initializations of iuCommandConnector, sivbControlConnector and sivbCommandConnector below. 
+@@ -581,6 +585,7 @@
+ 	//Initialize the link to the MFD's debug function.
+ 	debugString = 0;
+ 	debugConnected = false;
++#ifndef NASSP_NATIVE
+ 	HMODULE hdbg = GetModuleHandle("modules//plugin//ProjectApolloMFD.dll");
+ 	if (hdbg)
+ 	{
+@@ -588,6 +593,7 @@
+ 		if (debugString != 0)
+ 			debugConnected = true;
+ 	}
++#endif
+ 	if (!debugConnected)
+ 	{
+ 		debugString = &oapiDebugString;
+@@ -625,6 +631,7 @@
+ 
+ 	ClearMissionManagementMemory();
+ 
++#ifndef NASSP_NATIVE
+ 	// Release DirectX joystick stuff
+ 	if(enableVESIM || js_enabled > 0){
+ 		// Release joysticks
+@@ -637,6 +644,7 @@
+ 		dx8ppv = NULL;
+ 	}
+ 
++#endif
+ 	for (int i = 0; i < 2; i++) {
+ 		delete[] ReticleLineLen[i];
+ 		for (int k = 0; k < 2; k++)
+@@ -1140,6 +1148,7 @@
+ 	KEY9=false;
+ 
+ 	viewpos = SATVIEW_LEFTSEAT;
++	viewposExplicit = false;
+ 
+ 	dockringidx = -1;
+ 	probeidx = -1;
+@@ -1328,7 +1337,7 @@
+ 
+ 	char MissionName[24];
+ 
+-	_snprintf(MissionName, 23, "Apollo%d", ApolloNo);
++	snprintf(MissionName, 23, "Apollo%d", ApolloNo);
+ 	soundlib.SetSoundLibMissionPath(MissionName);
+ 
+ 	timedSounds.LoadFromFile("csmsound.csv", MissionTime);
+@@ -1580,7 +1589,7 @@
+ {
+ 	char buffer[100];
+ 	TRACESETUP("Saturn::clbkPreStep");
+-	sprintf(buffer, "MissionTime %f, simt %f, simdt %f, time(0) %lld", MissionTime, simt, simdt, time(0)); 
++	sprintf(buffer, "MissionTime %f, simt %f, simdt %f, time(0) %lld", MissionTime, simt, simdt, static_cast<long long>(time(0)));
+ 	TRACE(buffer);
+ 
+ 	SetAnimations(simdt);
+@@ -1654,7 +1663,7 @@
+ 	// Autosave (checks focus internally, reads config from file)
+ 	NASSPAutosave::Update(GetHandle(), GetName(), pMission->GetMissionName().c_str(), MissionTime);
+ 
+-	sprintf(buffer, "End time(0) %lld", time(0)); 
++	sprintf(buffer, "End time(0) %lld", static_cast<long long>(time(0)));
+ 	TRACE(buffer);
+ }
+ 
+@@ -1663,7 +1672,7 @@
+ {
+ 	char buffer[100];
+ 	TRACESETUP("Saturn::clbkPostStep");
+-	sprintf(buffer, "MissionTime %f, simt %f, simdt %f, time(0) %lld", MissionTime, simt, simdt, time(0));
++	sprintf(buffer, "MissionTime %f, simt %f, simdt %f, time(0) %lld", MissionTime, simt, simdt, static_cast<long long>(time(0)));
+ 	TRACE(buffer);
+ 
+ 	if (debugConnected == false)
+@@ -1710,7 +1719,7 @@
+ 		sprintf(oapiDebugString(), "The scenario you are using is too old (Scenario: %d, NASSP: %d). Please go here for more info: https://nassp.space/index.php/Scenario_File_Updates", nasspver, NASSP_VERSION);
+ 	}
+ 
+-	sprintf(buffer, "End time(0) %lld", time(0)); 
++	sprintf(buffer, "End time(0) %lld", static_cast<long long>(time(0)));
+ 	TRACE(buffer);
+ }
+ 
+@@ -2300,7 +2309,11 @@
+ 		sscanf (line+8, "%d", &PanelId);
+ 	}
+ 	else if (!strnicmp(line, "VIEWPOS", 7)) {
+-		sscanf(line + 7, "%d", &viewpos);
++		unsigned int savedView;
++		if (sscanf(line + 7, "%u", &savedView) == 1) {
++			viewpos = savedView;
++			viewposExplicit = true;
++		}
+ 	}
+ 	else if (!strnicmp (line, "STAGESTATUS", 11)) {
+ 		sscanf (line+11, "%d", &StageState);
+@@ -2342,7 +2355,9 @@
+ 	else if (!strnicmp (line, "MAINSTATE", 9)) {
+         SwitchState = 0;
+ 		sscanf (line+9, "%d", &SwitchState);
++		const unsigned int savedView = viewpos;
+ 		SetMainState(SwitchState);
++		if (viewposExplicit) viewpos = savedView;
+ 	}
+ 	else if (!strnicmp (line, "ATTACHSTATE", 11)) {
+         SwitchState = 0;
+@@ -2429,8 +2444,7 @@
+ 		SimulatedTime = ftcp;
+ 	}
+ 	else if (!strnicmp(line, "MISSNTIME", 9)) {
+-        sscanf (line+9, "%f", &ftcp);
+-		MissionTime = ftcp;
++        sscanf(line + 9, "%lf", &MissionTime);
+ 	}
+ 	else if (!strnicmp(line, "NMISSNTIME", 10)) {
+         sscanf (line + 10, "%f", &ftcp);
+@@ -2976,7 +2990,7 @@
+ 	// find.
+ 	//
+ 
+-	srandom(VehicleNo + (int) vstatus + (int) time(0));
++	srandom(VehicleNo + (size_t) vstatus + (int) time(0));
+ 
+ 	//
+ 	// At some point we should reorder these checks by length, to minimise the chances
+@@ -3673,6 +3687,10 @@
+ 			//return 1;
+ 		}
+ 	}
++
++	// Keyboard deflections are momentary. Recenter even when mode or modifiers
++	// prevent the RHC from consuming this frame's keys.
++	for (double &deflection : rhc_keyboard_deflection) deflection = 0.0;
+ 
+ 	// Override attitude controls, but only if that wouldn't interfere with our DSKY shortcuts.
+ 	// I'm using the Orbiter thruster group enum for this but the attitude thruster group
+@@ -4530,6 +4548,11 @@
+ 	// Set up joysticks.
+ 	//
+ 
++#ifdef NASSP_NATIVE
++	js_enabled = 0;
++	for (int i = 0; i < CSM_AXIS_INPUT_CNT; ++i) vesim.addInput(&vesim_csm_inputs[i]);
++	enableVESIM = vesim.loadConfig("Config/ProjectApollo/Vesim/CSM.native.cfg");
++#else
+ 	HRESULT hr;
+ 	// Having read the configuration file, set up DirectX...	
+ 	hr = DirectInput8Create(dllhandle, DIRECTINPUT_VERSION, IID_IDirectInput8, (void **)&dx8ppv, NULL); // Give us a DirectInput context
+@@ -4571,6 +4594,7 @@
+ 		// We can't print an error message this early in initialization, so save this reason for later investigation.
+ 		dx8_failure = hr;
+ 	}
++#endif
+ }
+ 
+ void Saturn::SetGenericStageState()
+@@ -5404,14 +5428,14 @@
+ }
+ 
+ 
+-int LuaCall_GetPanelSwitch(lua_State *L);
+-int LuaCall_SetPanelSwitch(lua_State *L);
+-int LuaCall_GetPanelSwitchFlashing(lua_State *L);
+-int LuaCall_SetPanelSwitchFlashing(lua_State *L);
+-int LuaCall_GetAGCErasable(lua_State *L);
+-int LuaCall_GetAGCChannel(lua_State *L);
+-int LuaCall_SetAGCErasable(lua_State *L);
+-int LuaCall_GetAGCUplinkStatus(lua_State *L);
++static int LuaCall_GetPanelSwitch(lua_State *L);
++static int LuaCall_SetPanelSwitch(lua_State *L);
++static int LuaCall_GetPanelSwitchFlashing(lua_State *L);
++static int LuaCall_SetPanelSwitchFlashing(lua_State *L);
++static int LuaCall_GetAGCErasable(lua_State *L);
++static int LuaCall_GetAGCChannel(lua_State *L);
++static int LuaCall_SetAGCErasable(lua_State *L);
++static int LuaCall_GetAGCUplinkStatus(lua_State *L);
+ 
+ 
+ int Saturn::Lua_InitInstance (void *context)
+@@ -5573,3 +5597,11 @@
+ 	lua_pushnumber(L, uplinkstatus);
+ 	return 1;
+ }
++
++#ifdef NASSP_NATIVE
++void Saturn::clbkFocusChanged(bool getfocus, OBJHANDLE, OBJHANDLE)
++{
++	// The native host clears keyboard and manual-control levels before this callback.
++	if (!getfocus) JoystickTimestep(true);
++}
++#endif
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
+index 586370423a50e11dd8850dd454472c43206dce73..eea8fec047c09dcfe5f367e9a5511451761f554f
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/saturn.h
+@@ -70,7 +70,9 @@
+ #include "CSMMalfunctionSimulation.h"
+ 
+ #define DIRECTINPUT_VERSION 0x0800
++#ifndef NASSP_NATIVE
+ #include "dinput.h"
++#endif
+ #include "vesim.h"
+ 
+ class MCC;
+@@ -867,14 +869,18 @@
+ 	/// Handle to DLL instance
+ 	HINSTANCE dllhandle;
+ 	/// pointer to DirectInput class itself
++#ifndef NASSP_NATIVE
+ 	LPDIRECTINPUT8 dx8ppv;
++#endif
+ 	/// Joysticks-Enabled flag / counter - Zero if we aren't using DirectInput, nonzero is the number of joysticks we have.
+ 	int js_enabled;
+ 	/// Pointers to DirectInput joystick devices
++#ifndef NASSP_NATIVE
+ 	LPDIRECTINPUTDEVICE8 dx8_joystick[2]; ///< One for THC, one for RHC, ignore extras
+ 	DIDEVCAPS			 dx8_jscaps[2];   ///< Joystick capabilities
+ 	DIJOYSTATE2			 dx8_jstate[2];   ///< Joystick state
+ 	HRESULT				 dx8_failure;     ///< DX failure reason
++#endif
+ 	Vesim vesim;                          ///< Vessel Specific Input Mngr
+ 	int rhc_id;							  ///< Joystick # for the RHC
+ 	int rhc_rot_id;						  ///< ID of ROTATOR axis to use for RHC Z-axis
+@@ -940,6 +946,9 @@
+ 	bool clbkVCMouseEvent (int id, int event, VECTOR3 &p);
+ 	bool clbkVCRedrawEvent (int id, int event, SURFHANDLE surf);
+ 	void clbkPostCreation();
++#ifdef NASSP_NATIVE
++	void clbkFocusChanged(bool getfocus, OBJHANDLE hNewVessel, OBJHANDLE hOldVessel) override;
++#endif
+ 	void clbkVisualCreated (VISHANDLE vis, int refcount);
+ 	void clbkVisualDestroyed (VISHANDLE vis, int refcount);
+ 
+@@ -3566,7 +3575,7 @@
+ 	// And state that doesn't need to be saved.
+ 	//
+ 
+-	boolean StageUnloadState = 0;
++	bool StageUnloadState = 0;
+ 	double LastVPAccelTime = -10000.0, StageUnloadTime = -1.0;
+ 	double VibrationVisualizationMultiplier = 1.0;
+ 
+@@ -4058,6 +4067,7 @@
+ 	#define SATVIEW_SIDEHATCH       11
+ 
+ 	unsigned int	viewpos;
++	bool viewposExplicit = false; // Explicit scenario VIEWPOS takes precedence over MAINSTATE.
+ 
+ 	// Mesh indexes
+ 	int dockringidx;
+@@ -4277,7 +4287,7 @@
+ 	void SystemsInit();
+ 	void SystemsTimestep(double simt, double simdt, double mjd);
+ 	void SystemsInternalTimestep(double simdt);
+-	void JoystickTimestep();
++	void JoystickTimestep(bool releaseControls = false);
+ 	void LimitSetThrusterDir (THRUSTER_HANDLE th, const VECTOR3 &dir);
+ 	void FireLaunchEscapeMotor();
+ 	void FireTowerJettisonMotor();
+@@ -4310,13 +4320,8 @@
+ 	//
+ 	// Integral Lights
+ 	//
+-#ifdef _OPENORBITER
+ 	void SetVCLighting(UINT meshidx, DWORD *matList, MatProp EmissionMode, double state, int cnt);
+ 	void SetVCLighting(UINT meshidx, int material, MatProp EmissionMode, double state, int cnt);
+-#else
+-	void SetVCLighting(UINT meshidx, DWORD *matList, int EmissionMode, double state, int cnt);
+-	void SetVCLighting(UINT meshidx, int material, int EmissionMode, double state, int cnt);
+-#endif
+ 
+ //	CAMERAHANDLE hFDAICam = NULL;
+ //	SURFHANDLE srfFDAICamTexture;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+index 75b1c54043ed69ccb3ebd442f5b82e2a7bee63ba..abe58684198200d4dc3d574f29bf082368e45e1a
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp
+@@ -34,6 +34,9 @@
+ #include "nasspsound.h"
+ 
+ #include "soundlib.h"
++#ifdef NASSP_NATIVE
++#include "soundevents.h"
++#endif
+ #include "toggleswitch.h"
+ #include "apolloguidance.h"
+ #include "lm_channels.h"
+@@ -318,6 +321,7 @@
+ }
+ 
+ 
++#ifndef NASSP_NATIVE
+ // DS20060302 DX8 callback for enumerating joysticks
+ BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE* pdidInstance, VOID* pLEM)
+ {
+@@ -368,6 +372,7 @@
+     return DIENUM_CONTINUE;
+ }
+ 
++#endif
+ // Constructor
+ LEM::LEM(OBJHANDLE hObj, int fmodel) : Payload (hObj, fmodel), 
+ 	
+@@ -502,6 +507,7 @@
+ 	sevent.Done();
+ #endif
+ 
++#ifndef NASSP_NATIVE
+ 	// DS20060413 release DirectX stuff
+ 	if (enableVESIM || js_enabled > 0) {
+ 		// Release joysticks
+@@ -514,6 +520,7 @@
+ 		dx8ppv = NULL;
+ 	}
+ 
++#endif
+ 	if (aeaa)
+ 	{
+ 		delete aeaa;
+@@ -795,6 +802,15 @@
+ 	GlycolPumpSound.setFadeTime(3);
+ 	GlycolPumpSound.setFrequencyShift(3000, 11025);
+ 
++#ifdef NASSP_NATIVE
++    nativeLandingAudio = std::make_unique<SoundEvent>();
++    char landingTable[] = "sound.csv";
++    nativeLandingAudio->LoadMissionLandingSoundArray(soundlib, landingTable);
++    if (!nativeLandingAudioState.empty()) {
++        nativeLandingAudio->RestoreNativeState(nativeLandingAudioState, this);
++        nativeLandingAudioState.clear();
++    }
++#endif
+ // MODIF X15 manage landing sound
+ #ifdef DIRECTSOUNDENABLED
+     sevent.LoadMissionLandingSoundArray(soundlib,"sound.csv");
+@@ -857,6 +873,9 @@
+ 			//return 1;
+ 		}
+ 	}
++
++	// Keyboard ACA deflections are momentary, including mode/modifier changes.
++	for (double &deflection : aca_keyboard_deflection) deflection = 0.0;
+ 
+ 	// Override attitude controls, but only if that wouldn't interfere with our DSKY/DEDA shortcuts.
+ 	// I'm using the Orbiter thruster group enum for this but the attitude thruster group
+@@ -1546,6 +1565,17 @@
+ 
+ 		if (stage < 2 && thg_dust) {
+ 			if (vsAlt < 15.0) {
++                // Dust originates on the surface, not at a fixed offset below the LM.
++                // Horizon coordinates keep the plume tangent to the ground when tilted.
++                VECTOR3 source;
++                HorizonInvRot(_V(0, 0.1 - vsAlt, 0), source);
++                const VECTOR3 directions[4] = {_V(-1,0,1), _V(1,0,1), _V(1,0,-1), _V(-1,0,-1)};
++                for (int i = 0; i < 4; ++i) {
++                    VECTOR3 direction;
++                    HorizonInvRot(directions[i], direction);
++                    SetThrusterRef(th_dust[i], source);
++                    SetThrusterDir(th_dust[i], direction);
++                }
+ 				SetThrusterGroupLevel(thg_dust, dustlvl);
+ 			}
+ 			else {
+@@ -1645,6 +1675,11 @@
+ 	MainPanel.timestep(MissionTime);
+ 	checkControl.timestep(MissionTime, DummyEvents);
+ 
++#ifdef NASSP_NATIVE
++    if (nativeLandingAudio)
++        nativeLandingAudio->UpdateLandingApproach(soundlib, this, dsky.GetProg(),
++            MissionTime, stage, dsky.GetDSKYPower());
++#endif
+     // x15 landing sound management
+ #ifdef DIRECTSOUNDENABLED
+ 
+@@ -1754,6 +1789,11 @@
+ 		DockingLightSwitchConnector.WireTo(NULL);
+ 	}
+ 
++#ifdef NASSP_NATIVE
++	js_enabled = 0;
++	for (int i = 0; i < LM_AXIS_INPUT_CNT; ++i) vesim.addInput(&vesim_lm_inputs[i]);
++	enableVESIM = vesim.loadConfig("Config/ProjectApollo/Vesim/LM.native.cfg");
++#else
+ 	HRESULT         hr;
+ 	// Having read the configuration file, set up DirectX...	
+ 	hr = DirectInput8Create(dllhandle, DIRECTINPUT_VERSION, IID_IDirectInput8, (void **)&dx8ppv, NULL); // Give us a DirectInput context
+@@ -1791,6 +1831,8 @@
+ 		// We can't print an error message this early in initialization, so save this reason for later investigation.
+ 		dx8_failure = hr;
+ 	}
++#endif
++
+ }
+ 
+ void LEM::GetScenarioState(FILEHANDLE scn, void *vs)
+@@ -1800,6 +1842,12 @@
+ 	float ftcp;
+ 
+ 	while (oapiReadScenario_nextline(scn, line)) {
++#ifdef NASSP_NATIVE
++        if (!strnicmp(line, "NATIVE_LANDING_AUDIO ", 21)) {
++            nativeLandingAudioState = line + 21;
++            continue;
++        }
++#endif
+ 		if (!strnicmp(line, "CONFIGURATION", 13)) {
+ 			sscanf(line + 13, "%d", &status);
+ 		}
+@@ -1815,8 +1863,7 @@
+ 			SetCSwitchState(SwitchState);
+ 		}
+ 		else if (!strnicmp(line, "MISSNTIME", 9)) {
+-			sscanf(line + 9, "%f", &ftcp);
+-			MissionTime = ftcp;
++			sscanf(line + 9, "%lf", &MissionTime);
+ 		}
+ 		else if (!strnicmp(line, "UNMANNED", 8)) {
+ 			int i;
+@@ -2260,6 +2307,10 @@
+ 
+ void LEM::clbkFocusChanged(bool getfocus, OBJHANDLE hNewVessel, OBJHANDLE hOldVessel)
+ {
++#ifdef NASSP_NATIVE
++	// Refresh the ACA/TTCA after the native host releases all input, even while paused.
++	if (!getfocus) JoystickTimestep(0.0, true);
++#endif
+ 	OBJHANDLE hLM = GetHandle();
+ 	if (hNewVessel == hLM) { //LM gains focus
+ 
+@@ -2450,6 +2501,11 @@
+ 
+ 	oapiWriteScenario_int (scn, "CSWITCH",  GetCSwitchState());
+ 	oapiWriteScenario_float (scn, "MISSNTIME", MissionTime);
++#ifdef NASSP_NATIVE
++    const std::string landingAudio = nativeLandingAudio ? nativeLandingAudio->SaveNativeState() : nativeLandingAudioState;
++    if (!landingAudio.empty())
++        oapiWriteScenario_string(scn, "NATIVE_LANDING_AUDIO", const_cast<char *>(landingAudio.c_str()));
++#endif
+ 	oapiWriteScenario_string (scn, "LANG", AudioLanguage);
+ 	oapiWriteScenario_int (scn, "PANEL_ID", PanelId);
+ 	oapiWriteScenario_int(scn, "VIEWPOS", viewpos);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+index f1377528c07cab689b13618fd7e9e38cda5d1806..bc2abdaaefc3ad6d6ba2d5cbcdbfc8632202755f
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/LEM.h
+@@ -25,12 +25,20 @@
+ #if !defined(_PA_LEM_H)
+ #define _PA_LEM_H
+ 
++class MCC;
++
++#ifdef NASSP_NATIVE
++#include <memory>
++class SoundEvent;
++#endif
+ #include "FDAI.h"
+ #include "ORDEAL.h"
+ 
+ // DS20060413 Include DirectInput
+ #define DIRECTINPUT_VERSION 0x0800
++#ifndef NASSP_NATIVE
+ #include "dinput.h"
++#endif
+ #include "vesim.h"
+ #include "dsky.h"
+ #include "IMU.h"
+@@ -724,6 +732,9 @@
+ 	///
+ 	/// \brief Triggers Virtual AGC core dump
+ 	///
++#ifdef NASSP_NATIVE
++    unsigned NativeGuidanceInput(int channel) { return channel>=0 && channel<=034 ? agc.GetInputChannel(channel) : 0; }
++#endif
+ 	virtual void VirtualAGCCoreDump() { agc.VirtualAGCCoreDump("ProjectApollo LGC.core"); }
+ 
+ 	PROPELLANT_HANDLE ph_RCSA,ph_RCSB;   // RCS Fuel A and B, replaces ph_rcslm0
+@@ -741,14 +752,18 @@
+ 	// Handle to DLL instance
+ 	HINSTANCE dllhandle;
+ 	// pointer to DirectInput class itself
++#ifndef NASSP_NATIVE
+ 	LPDIRECTINPUT8 dx8ppv;
++#endif
+ 	// Joysticks-Enabled flag / counter - Zero if we aren't using DirectInput, nonzero is the number of joysticks we have.
+ 	int js_enabled;
+ 	// Pointers to DirectInput joystick devices
++#ifndef NASSP_NATIVE
+ 	LPDIRECTINPUTDEVICE8 dx8_joystick[2]; // One for THC, one for RHC, ignore extras
+ 	DIDEVCAPS			 dx8_jscaps[2];   // Joystick capabilities
+ 	DIJOYSTATE2			 dx8_jstate[2];   // Joystick state
+ 	HRESULT				 dx8_failure;     // DX failure reason
++#endif
+ 	Vesim vesim;                          ///< Vessel Specific Input Mngr
+ 	int rhc_id;							  // Joystick # for the RHC
+ 	int rhc_rot_id;						  // ID of ROTATOR axis to use for RHC Z-axis
+@@ -857,13 +872,9 @@
+ 
+ 	OBJHANDLE hSPACEEVA;
+ 
+-#ifdef _OPENORBITER
+ 	void SetVCLighting(UINT meshidx, DWORD *matList, MatProp EmissionMode, double state, int cnt);
+ 	void SetVCLighting(UINT meshidx, int material, MatProp EmissionMode, double state, int cnt);
+-#else
+-	void SetVCLighting(UINT meshidx, DWORD *matList, int EmissionMode, double state, int cnt);
+-	void SetVCLighting(UINT meshidx, int material, int EmissionMode, double state, int cnt);
+-#endif
++
+ 
+ 	void InitFDAI(UINT mesh);
+ 
+@@ -879,7 +890,7 @@
+ 	void SystemsTimestep(double simt, double simdt);
+ 	void SystemsInit();
+ 	void SystemsInternalTimestep(double simdt);
+-	void JoystickTimestep(double simdt);
++	void JoystickTimestep(double simdt, bool releaseControls = false);
+ 	bool ProcessConfigFileLine (FILEHANDLE scn, char *line);
+ 	//
+ 	// Save/Load support functions.
+@@ -1944,6 +1955,10 @@
+ 	//Dummy events, not functional
+ 	SaturnEvents DummyEvents;
+ 
++#ifdef NASSP_NATIVE
++    std::unique_ptr<SoundEvent> nativeLandingAudio;
++    std::string nativeLandingAudioState;
++#endif
+ 	SoundLib soundlib;
+ 
+ 	Sound Sclick;

@@ -1,0 +1,1946 @@
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h b/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
+index d335d73fac46085215af34f0838712d3a9bb8f7e..bb4de558586f4ed60318421a7f589f4ce8e4c4ce
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/Autosave.h
+@@ -28,7 +28,12 @@
+ #include <chrono>
+ #include <cstdio>
+ #include <cstring>
++#ifdef NASSP_NATIVE
++#include "Platform/Vfs.h"
++#include <filesystem>
++#else
+ #include <direct.h>
++#endif
+ 
+ // Reads config from Saturn5.launchpad.cfg. Call Update() from clbkPreStep.
+ class NASSPAutosave {
+@@ -121,9 +126,17 @@
+ 		// oapiSaveScenario won't create directories
+ 		char scenarioDir[512];
+ 		sprintf(scenarioDir, "Scenarios\\Autosave");
++#ifdef NASSP_NATIVE
++		std::filesystem::create_directories(orbiter::platform::ResolvePath(scenarioDir));
++#else
+ 		_mkdir(scenarioDir);
++#endif
+ 		sprintf(scenarioDir, "Scenarios\\Autosave\\%s", folderName);
++#ifdef NASSP_NATIVE
++		std::filesystem::create_directories(orbiter::platform::ResolvePath(scenarioDir));
++#else
+ 		_mkdir(scenarioDir);
++#endif
+ 
+ 		char fullPath[512];
+ 		sprintf(fullPath, "Autosave/%s/%s", folderName, getStr);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
+index 826d99afdcf56625c8f5f7406034604b97723f09..6446498fcc4515de95deae56e267205428f4bd49
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.cpp
+@@ -1,3 +1,8 @@
++#include <cstdint>
++#include <cstring>
++#ifdef NASSP_NATIVE
++#include "Platform/Vfs.h"
++#endif
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2004-2008 Yap Chun Wei 
+@@ -3694,7 +3699,7 @@
+ 	LittleEndian::Read(data_, rowIndex_, 0, 2);
+ 	LittleEndian::Read(data_, colIndex_, 2, 2);
+ 	LittleEndian::Read(data_, XFRecordIndex_, 4, 2);
+-	__int64 value;
++	long long value;
+ 	LittleEndian::Read(data_, value, 6, 8);
+ 	intdouble_.intvalue_ = value;
+ 	value_ = intdouble_.doublevalue_;
+@@ -3707,7 +3712,7 @@
+ 	LittleEndian::Write(data_, colIndex_, 2, 2);
+ 	LittleEndian::Write(data_, XFRecordIndex_, 4, 2);
+ 	intdouble_.doublevalue_ = value_;
+-	__int64 value = intdouble_.intvalue_;
++	long long value = intdouble_.intvalue_;
+ 	LittleEndian::Write(data_, value, 6, 8);
+ 	return Record::Write(data);
+ }
+@@ -4444,18 +4449,12 @@
+ // Convert a rk value to a double.
+ double GetDoubleFromRKValue(int rkValue)
+ {
+-	union 
+-	{
+-		__int64 intvalue_;
+-		double doublevalue_;
+-	} intdouble;
+-
+-	bool isMultiplied = rkValue & 1;
+-	rkValue >>= 2;
+-	intdouble.intvalue_ = rkValue;
+-	intdouble.intvalue_ <<= 34;
+-	if (isMultiplied) intdouble.doublevalue_ *= 0.01;
+-	return intdouble.doublevalue_;
++    // BIFF RK stores the upper 30 IEEE-754 bits with two flag bits.
++    const std::uint64_t bits = static_cast<std::uint64_t>(
++        static_cast<std::uint32_t>(rkValue) & 0xfffffffcU) << 32;
++    double value;
++    std::memcpy(&value, &bits, sizeof value);
++    return (rkValue & 1) ? value * 0.01 : value;
+ }
+ 
+ // Convert a rk value to an integer.
+@@ -4472,7 +4471,7 @@
+ {
+ 	union 
+ 	{
+-		__int64 intvalue_;
++		long long intvalue_;
+ 		double doublevalue_;
+ 	} intdouble;
+ 
+@@ -4547,6 +4546,10 @@
+ bool BasicExcel::Load(const char* filename)
+ {
+ 	if (file_.IsOpen()) file_.Close();
++#ifdef NASSP_NATIVE
++	const auto resolvedFilename = orbiter::platform::ResolvePath(filename).string();
++	filename = resolvedFilename.c_str();
++#endif
+ 	if (file_.Open(filename, ios_base::in))
+ 	{
+ 		workbook_ = Workbook();
+@@ -4652,7 +4655,7 @@
+ 	do
+ 	{
+ 		char sname[50];
+-		sprintf(sname, "Sheet%d", sheetNo++);
++		sprintf(sname, "Sheet%zu", sheetNo++);
+ 		yesheet = AddWorksheet(sname, sheetIndex);
+ 	} while (!yesheet);
+ 	return yesheet;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
+index 724014138d0b0cbec199e1e7838c24d18993c7e6..b95a5cc512b14f8f59cb5403608cf24db04b7dc5
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/BasicExcelVC6.hpp
+@@ -133,7 +133,7 @@
+ 	#define READWRITE(Type) \
+ 	static void Read(const char* buffer, Type& retVal, int pos=0, int bytes=0)	\
+ 	{	\
+-		retVal = Type(0);	\
++		retVal = static_cast<Type>(0);	\
+ 		if (bytes == 0) bytes = sizeof(Type);	\
+ 		for (size_t i=0; i<bytes; ++i)	\
+ 		{	\
+@@ -159,7 +159,7 @@
+ 	}	\
+ 	static void Read(const vector<char>& buffer, Type& retVal, int pos=0, int bytes=0)	\
+ 	{	\
+-		retVal = Type(0);	\
++		retVal = static_cast<Type>(0);	\
+ 		if (bytes == 0) bytes = sizeof(Type);	\
+ 		for (size_t i=0; i<bytes; ++i)	\
+ 		{	\
+@@ -191,8 +191,8 @@
+ 	READWRITE(unsigned int)
+ 	READWRITE(long)
+ 	READWRITE(unsigned long)
+-	READWRITE(__int64)
+-	READWRITE(unsigned __int64)
++	READWRITE(long long)
++	READWRITE(unsigned long long)
+ 
+ 	#undef READWRITE
+ 
+@@ -333,7 +333,7 @@
+ 		void Write(char* block);
+ 		void Read(char* block);
+ 
+-		__int64 fileType_;		// Magic number identifying this as a compound file system (0x0000)
++		long long fileType_;		// Magic number identifying this as a compound file system (0x0000)
+ 		int uk1_;					// Unknown constant (0x0008)
+ 		int uk2_;					// Unknown constant (0x000C)
+ 		int uk3_;					// Unknown constant (0x0010)
+@@ -922,7 +922,7 @@
+ 				private:
+ 					union 
+ 					{
+-						__int64 intvalue_;
++						long long intvalue_;
+ 						double doublevalue_;
+ 					} intdouble_;
+ 				};
+diff --git a/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp b/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
+index 987722341386a2e1f0b8c9f2788e0b2f53070c12..799f5b6b08d6f4ef03746456e24d34b72cc5b8b7
+--- a/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_aux/Mission.cpp
+@@ -1,3 +1,6 @@
++#ifdef NASSP_NATIVE
++#include "Platform/Vfs.h"
++#endif
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2020
+@@ -203,7 +206,11 @@
+ 			strMission.c_str(), filename.c_str());
+ 		oapiWriteLog(buffer);
+ 
++#ifdef NASSP_NATIVE
++		std::ifstream hFile(orbiter::platform::ResolvePath(filename));
++#else
+ 		std::ifstream hFile(filename.c_str());
++#endif
+ 
+ 		if (!hFile.is_open())
+ 		{
+@@ -219,6 +226,8 @@
+ 
+ 		while (hFile.getline(line, sizeof line))
+ 		{
++			const size_t length = strlen(line);
++			if (length && line[length - 1] == '\r') line[length - 1] = '\0';
+ 			if (!_strnicmp(line, "Name=", 5)) {
+ 				strncpy(buffer, line + 5, 255);
+ 				strMissionName.assign(buffer);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
+index f362dc3d56ff4764945dc404f71dc76ccf2be4db..58b30ae3411efed9dde25f8650cb1d2e36521503
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.cpp
+@@ -26,7 +26,9 @@
+ #include "Orbitersdk.h"
+ #include <stdio.h>
+ #include <math.h>
+-#include <winsock.h> // TODO: Replace with winsock2 after yaAGC updates
++#ifndef NASSP_NATIVE
++#include <winsock.h>
++#endif // TODO: Replace with winsock2 after yaAGC updates
+ #include "soundlib.h"
+ #include "resource.h"
+ #include "nasspdefs.h"
+@@ -1997,15 +1999,19 @@
+ 	last_rx = 0;
+ 	frame_addr = 0;
+ 	frame_count = 0;
++#ifndef NASSP_NATIVE
+ 	m_socket = INVALID_SOCKET;
++#endif
+ }
+ 
+ PCM::~PCM()
+ {
++#ifndef NASSP_NATIVE
+ 	if (m_socket != INVALID_SOCKET) {
+ 		shutdown(m_socket, 2); // Shutdown both streams
+ 		closesocket(m_socket);
+ 	}
++#endif
+ }
+ 
+ void PCM::Init(Saturn *vessel){
+@@ -2017,6 +2023,7 @@
+ 	last_update = 0;
+ 	last_rx = MINUS_INFINITY;
+ 	word_addr = 0;
++#ifndef NASSP_NATIVE
+ 	int iResult = WSAStartup( MAKEWORD(2,2), &wsaData );
+ 	if ( iResult != NO_ERROR ){
+ 		sprintf(wsk_emsg,"TELECOM: Error at WSAStartup()");
+@@ -2060,6 +2067,8 @@
+ 		return;
+ 	}
+ 
++#endif
++	// Native L1 still accepts in-process MCC uplinks.
+ 	conn_state = 1; // INITIALIZED, LISTENING
+ 	uplink_state = 0; rx_offset = 0;
+ }
+@@ -4960,15 +4969,18 @@
+ 					mcc_offset = mcc_size = 0;
+ 				}
+ 			}else{
++#ifndef NASSP_NATIVE
+ 				// Try to accept
+ 				AcceptSocket = accept( m_socket, NULL, NULL );
+ 				if(AcceptSocket != INVALID_SOCKET){
+ 					conn_state = 2; // Accept this!
+ 					wsk_error = 0; // For now
+ 				}
++#endif
+ 			}
+ 			// Otherwise loop and try again.
+ 			break;
++#ifndef NASSP_NATIVE
+ 		case 2: // CONNECTED			
+ 			int bytesSent,bytesRecv;
+ 
+@@ -5068,6 +5080,7 @@
+ 				}
+ 			}
+ 			break;			
++#endif
+ 	}
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
+index f11022c3733e6df69c7d5c1e6edb411d804549c5..01c19bb80e33580e20669901913f70cbbc4103f8
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csm_telecom.h
+@@ -342,10 +342,12 @@
+ 	void SystemTimestep(double simdt); // System Timestep (consume power)
+ 
+ 	// Winsock2
++#ifndef NASSP_NATIVE
+ 	WSADATA wsaData;				// Winsock subsystem data
+ 	SOCKET m_socket;				// TCP socket
+ 	sockaddr_in service;			// SOCKADDR_IN
+ 	SOCKET AcceptSocket;			// Accept Socket
++#endif
+ 	int conn_state;                 // Connection State
+ 	int uplink_state;               // Uplink State
+ 	void perform_io(double simt);   // Get data from here to there
+@@ -374,7 +376,9 @@
+ 	unsigned char rx_data[1024];    // Characters recieved
+ 	unsigned char mcc_data[2048];	// MCC-provided incoming data
+ 
++#ifndef NASSP_NATIVE
+ 	bool registerSocket(SOCKET sock);
++#endif
+ 	bool LowBitrateLogic();
+ 
+ 	Saturn *sat;					// Ship we're installed in
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
+index 26fe76786cf10332787097466cb91b11b6af22f3..af3ec542835892939a6002592bf0aaddf6ddfb66
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/csmrcs.cpp
+@@ -171,7 +171,7 @@
+ 			}
+ 		}
+ 		lastPropellantMass = p;
+-		primPropellantMass = max(0, primPropellantMass);
++		primPropellantMass = std::max<double>(0, primPropellantMass);
+ 
+ 		// propellant/thruster handling
+ 		//
+@@ -499,7 +499,7 @@
+ 			our_vessel->SetPropellantMass(source_prop, PropMass);
+ 
+ 			if (heliumValvesOpen && purgeValvesOpen && heliumQuantity > 0) {
+-				heliumQuantity = max(0, heliumQuantity - (simdt / 15.));
++				heliumQuantity = std::max<double>(0, heliumQuantity - (simdt / 15.));
+ 			}
+ 		}
+ 	}
+@@ -539,7 +539,7 @@
+ 			if (our_vessel->GetCMRCSStateCommanded(thrusters[i])) {
+ 				purgeLevel[i] = 1;
+ 				// Purging takes 15s with 5 thrusters active per system
+-				heliumQuantity = max(0, heliumQuantity - (simdt / 75.));
++				heliumQuantity = std::max<double>(0, heliumQuantity - (simdt / 75.));
+ 			} else {
+ 				purgeLevel[i] = 0;
+ 			}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/eps.h b/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
+index 1bffb428c8cf64af10392b71ec0608e5ff053fa4..04e868f2eb8f83752ba148791b9d6aa253ba17b4
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/eps.h
+@@ -58,7 +58,7 @@
+ public:
+ 	FloodLights();
+ 	virtual ~FloodLights();
+-	void FloodLights::Init(Saturn *s, e_object *flood_rty_src, e_object *fixed, ToggleSwitch *dim, ContinuousRotationalSwitch *rty);
++	void Init(Saturn *s, e_object *flood_rty_src, e_object *fixed, ToggleSwitch *dim, ContinuousRotationalSwitch *rty);
+ 	double GetPrimVoltage();
+ 	double GetSecVoltage();
+ 	double GetPrimOutput();
+@@ -80,7 +80,7 @@
+ public:
+ 	TunnelLights();
+ 	virtual ~TunnelLights();
+-	void TunnelLights::Init(Saturn *s, e_object *cb, ToggleSwitch *lt_sw);
++	void Init(Saturn *s, e_object *cb, ToggleSwitch *lt_sw);
+ 	double GetOutput();
+ 	void SystemTimestep(double simdt);
+ 
+@@ -96,7 +96,7 @@
+ public:
+ 	IntegralLights(PanelSDK& p, double watts);
+ 	virtual ~IntegralLights();
+-	void IntegralLights::Init(Saturn *s, e_object *cb, ContinuousRotationalSwitch *rty);
++	void Init(Saturn *s, e_object *cb, ContinuousRotationalSwitch *rty);
+ 	double GetOutput();
+ 	void SystemTimestep(double simdt);
+ 
+@@ -116,7 +116,7 @@
+ public:
+ 	NumericLights(PanelSDK& p);
+ 	virtual ~NumericLights();
+-	void NumericLights::Init(Saturn *s, e_object *cb, ContinuousRotationalSwitch *rty);
++	void Init(Saturn *s, e_object *cb, ContinuousRotationalSwitch *rty);
+ 	double GetOutput();
+ 	void SystemTimestep(double simdt);
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
+index 1374eb5f3424718328f664a22fef89d535c3ff33..f0d057befc2b85cedc66abc8d8a1221e4eeb735b
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/scs.cpp
+@@ -4057,10 +4057,10 @@
+ 			} else {
+ 				if (pseudorate.x > 0) {
+ 					pseudorate.x -= 0.02 * simdt; 
+-					pseudorate.x = max(0, pseudorate.x);
++					pseudorate.x = std::max<double>(0, pseudorate.x);
+ 				} else {
+ 					pseudorate.x += 0.02 * simdt; 
+-					pseudorate.x = min(0, pseudorate.x);
++					pseudorate.x = std::min<double>(0, pseudorate.x);
+ 				}
+ 			}
+ 		} else {
+@@ -4074,10 +4074,10 @@
+ 			} else {
+ 				if (pseudorate.y > 0) {
+ 					pseudorate.y -= 0.02 * simdt; 
+-					pseudorate.y = max(0, pseudorate.y);
++					pseudorate.y = std::max<double>(0, pseudorate.y);
+ 				} else {
+ 					pseudorate.y += 0.02 * simdt; 
+-					pseudorate.y = min(0, pseudorate.y);
++					pseudorate.y = std::min<double>(0, pseudorate.y);
+ 				}
+ 			}
+ 		} else {
+@@ -4091,10 +4091,10 @@
+ 			} else {
+ 				if (pseudorate.z > 0) {
+ 					pseudorate.z -= 0.02 * simdt; 
+-					pseudorate.z = max(0, pseudorate.z);
++					pseudorate.z = std::max<double>(0, pseudorate.z);
+ 				} else {
+ 					pseudorate.z += 0.02 * simdt; 
+-					pseudorate.z = min(0, pseudorate.z);
++					pseudorate.z = std::min<double>(0, pseudorate.z);
+ 				}
+ 			}
+ 		} else {
+@@ -5463,6 +5463,7 @@
+ }
+ 
+ bool EMS::WriteScrollToFile() {
++#ifdef _WIN32
+ 	char sdate[9];
+ 	char stime[9];
+ 	char buffer[100];
+@@ -5514,6 +5515,9 @@
+ 	DeleteObject(hBitmap);
+ 	DeleteDC(hMemDC);
+ 	return ret;
++#else
++	return false; // legacy GDI diagnostic is unavailable on native POSIX builds
++#endif
+ }
+ 
+ void EMS::SetReference(const VECTOR3& ref, const VECTOR3& _dir)
+@@ -5550,6 +5554,7 @@
+ }
+ 
+ // The following code was found and supplied by computerex at orbiter-forum.  The code is from the MSDN sample code library.
++#ifdef _WIN32
+ PBITMAPINFO CreateBitmapInfoStruct(HBITMAP hBmp)
+ { 
+ 	BITMAP      bmp; 
+@@ -5675,3 +5680,5 @@
+ 	GlobalFree((HGLOBAL)lpBits);
+ 	return true;
+ }
++
++#endif
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/scs.h b/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
+index 6895057dabd1484f1e0eb7749e720a59f706f079..501e53eff2544f728f113cb2bab4c70a77c3e205
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/scs.h
+@@ -921,5 +921,8 @@
+ 	friend class SaturnEMSScrollDisplay;
+ };
+ 
++#ifdef _WIN32
+ PBITMAPINFO CreateBitmapInfoStruct(HBITMAP hBmp);
+ bool CreateBMPFile(LPTSTR pszFile, PBITMAPINFO pbi, HBITMAP hBMP, HDC hDC);
++
++#endif
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
+index 4656510895725825ff3268bd6af83f602f7bfeef..685535d0643aec43337e9a517342a271f4486f22
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/secs.cpp
+@@ -2290,10 +2290,10 @@
+ 	if (cb->Voltage() > SP_MIN_DCVOLTAGE) {
+ 		if (sw->IsDown()) {
+ 			size -= simdt / (7. * 60.);	// same as fill? 
+-			size = max(0, size);
++			size = std::max<double>(0, size);
+ 		} else if (sw->IsUp() && (Sat->UprightingSystemCompressor1CircuitBraker.IsPowered() || Sat->UprightingSystemCompressor1CircuitBraker.IsPowered())) {
+ 			size += simdt / (7. * 60.);	// Apollo 15 entry checklist
+-			size = min(1, size);
++			size = std::min<double>(1, size);
+ 		}
+ 	}
+ 	return size;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp b/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
+index 0be1e79b0ee9ae311f3caae945c82eb3a56100dc..f5375831c9ede10018f95511c02c6339d2564771
+--- a/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_csm/sps.cpp
+@@ -122,7 +122,7 @@
+ 				// Oxidizer consumption
+ 				double of = SPS_NORM_OXIDIZER_FLOW * (1.0 + primOxidFlowValve + secOxidFlowValve);
+ 				oxidMass -= (lastPropellantMass - p) * of;
+-				oxidMass = max(oxidMass, 0);
++				oxidMass = std::max<double>(oxidMass, 0);
+ 
+ 				lastPropellantMass = p;
+ 			}
+@@ -223,10 +223,10 @@
+ 				if (our_vessel->SPSOxidFlowValveSwitch.IsCenter()) {
+ 					if (primOxidFlowValve > 0) {
+ 						primOxidFlowValve -= 0.03 * simdt / 3.5;
+-						primOxidFlowValve = max(primOxidFlowValve, 0);
++						primOxidFlowValve = std::max<double>(primOxidFlowValve, 0);
+ 					} else if (primOxidFlowValve < 0) {
+ 						primOxidFlowValve += 0.035 * simdt / 3.5;
+-						primOxidFlowValve = min(primOxidFlowValve, 0);
++						primOxidFlowValve = std::min<double>(primOxidFlowValve, 0);
+ 					}
+ 				
+ 				} else if (our_vessel->SPSOxidFlowValveSwitch.IsUp()) {
+@@ -247,10 +247,10 @@
+ 				if (our_vessel->SPSOxidFlowValveSwitch.IsCenter()) {
+ 					if (secOxidFlowValve > 0) {
+ 						secOxidFlowValve -= 0.06 * simdt / 3.5;
+-						secOxidFlowValve = max(secOxidFlowValve, 0);
++						secOxidFlowValve = std::max<double>(secOxidFlowValve, 0);
+ 					} else if (secOxidFlowValve < 0) {
+ 						secOxidFlowValve += 0.07 * simdt / 3.5;
+-						secOxidFlowValve = min(secOxidFlowValve, 0);
++						secOxidFlowValve = std::min<double>(secOxidFlowValve, 0);
+ 					}
+ 				
+ 				} else if (our_vessel->SPSOxidFlowValveSwitch.IsUp()) {
+@@ -707,7 +707,7 @@
+ 			// Burn engine
+ 			saturn->SetThrusterResource(spsThruster, saturn->GetSPSPropellant()->Handle());
+ 			// Thrust decay if propellant pressure below 170 psi 
+-			double thrust = min(1, saturn->GetSPSPropellant()->GetPropellantPressurePSI() / 170.0);
++			double thrust = std::min<double>(1, saturn->GetSPSPropellant()->GetPropellantPressurePSI() / 170.0);
+ 			saturn->SetThrusterLevel(spsThruster, T_SPS*thrust);
+ 
+ 		} else {
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h b/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
+index 37f7f8dd8003ae94114faebe01df08dcb6317357..409ee65188902a70973c54b1813a92cdb57a576d
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/MCCPADForms.h
+@@ -72,7 +72,7 @@
+ // APOLLO 7 - TERMINAL PHASE INITIATE
+ // (The form doesn't match the field list?)
+ struct AP7TPI {
+-	AP7TPI::AP7TPI()
++	AP7TPI()
+ 	{
+ 		GETI = 0.0;
+ 		Vg = _V(0, 0, 0);
+@@ -124,7 +124,7 @@
+ 
+ // SKYLAB - TERMINAL PHASE INITIATE
+ struct SLTPI {
+-	SLTPI::SLTPI()
++	SLTPI()
+ 	{
+ 		GETI = 0.0;
+ 		Vg = _V(0, 0, 0);
+@@ -336,7 +336,7 @@
+ 
+ // APOLLO 11 LM - MANEUVER
+ struct AP11LMMNV {
+-	AP11LMMNV::AP11LMMNV()
++	AP11LMMNV()
+ 	{
+ 		type = 0;
+ 		Att = _V(0, 0, 0);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
+index f6b2f141b42ae7fb7ac10c7a46bc828defac2310..dc160baafa2bbba870b1527ccc1ae0d49eb3fb63
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/ML.cpp
+@@ -398,7 +398,7 @@
+ 	case STATE_ROLLOUT:
+ 
+ 		if (craneProc > 0) {
+-			craneProc = max(0, craneProc - simdt / 600.0);
++			craneProc = std::max<double>(0, craneProc - simdt / 600.0);
+ 			SetAnimation(craneAnim, craneProc);
+ 		}
+ 		if (cmarmProc > 0.00001) {
+@@ -1709,4 +1709,4 @@
+ void ML::IssueSwitchSelectorCmd(int stage, int chan)
+ {
+ 	IuUmb->SwitchSelector(stage, chan);
+-}
+\ No newline at end of file
++}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
+index ac8823d97b82e77dc42847c2a66f3872ed11d9f2..998c2c5fdf70433095e9b3368a62d674d50cf497
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_C_PRIME.cpp
+@@ -386,7 +386,7 @@
+ 		opt.WeightsTable = GetWeightsTable(calcParams.src, true, false);
+ 
+ 		AP11ManeuverPAD(opt, *form);
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+ 		form->RTGO = res.RTGO;
+@@ -541,7 +541,7 @@
+ 				manopt.PrefGDCStars = 3; //Sirius,Rigel
+ 
+ 				AP11ManeuverPAD(manopt, *form);
+-				sprintf(form->purpose, manname);
++				sprintf(form->purpose, "%s", manname);
+ 
+ 				char buffer2[1000];
+ 				CMCExternalDeltaVUpdate(buffer2, P30TIG, dV_LVLH);
+@@ -675,8 +675,8 @@
+ 				}
+ 
+ 				AP11ManeuverPAD(manopt, *form);
+-				sprintf(form->purpose, manname);
+-				sprintf(form->remarks, ullage);
++				sprintf(form->purpose, "%s", manname);
++				sprintf(form->remarks, "%s", ullage);
+ 
+ 				char buffer3[1000];
+ 
+@@ -964,7 +964,7 @@
+ 			sprintf(alignment, " Uses %s REFSMMAT", prevrefs);
+ 		}
+ 
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+ 		form->RTGO = res.RTGO;
+@@ -1048,7 +1048,7 @@
+ 		opt.PrefGDCStars = 3; //Sirius,Rigel
+ 
+ 		AP11ManeuverPAD(opt, *form);
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+ 		form->RTGO = res.RTGO;
+@@ -1628,7 +1628,7 @@
+ 		opt.PrefGDCStars = 3; //Sirius,Rigel
+ 
+ 		AP11ManeuverPAD(opt, *form);
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+ 		form->RTGO = res.RTGO;
+@@ -1887,7 +1887,7 @@
+ 			}
+ 
+ 			AP11ManeuverPAD(opt, *form);
+-			sprintf(form->purpose, manname);
++			sprintf(form->purpose, "%s", manname);
+ 			form->lat = res.latitude*DEG;
+ 			form->lng = res.longitude*DEG;
+ 			form->RTGO = res.RTGO;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
+index 6bb450cb4aaada2906a1dedd98dae3caf91cabaa..f3517a07599a3ccd3a84d1ef3c2ba76883330f61
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_D.cpp
+@@ -1563,7 +1563,7 @@
+ 		if (upString != NULL) {
+ 			// give to mcc
+ 			strncpy(upString, uplinkdata, 1024 * 3);
+-			sprintf(upDesc, updesc);
++			sprintf(upDesc, "%s", updesc);
+ 		}
+ 	}
+ 	break;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
+index a8cf4c307a4c5f2e4fcb93797c2209093aaece25..c4308dd3914df4fb2e797dce209a7f2b150ce035
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_F.cpp
+@@ -507,7 +507,7 @@
+ 				manopt.RV_MCC = sv;
+ 
+ 				AP11ManeuverPAD(manopt, *form);
+-				sprintf(form->purpose, manname);
++				sprintf(form->purpose, "%s", manname);
+ 				if (manopt.enginetype == RTCC_ENGINETYPE_CSMSPS) sprintf(form->remarks, "No ullage");
+ 
+ 				AGCStateVectorUpdate(buffer1, RTCC_MPT_CSM, RTCC_MPT_CSM, sv, true);
+@@ -1139,7 +1139,7 @@
+ 
+ 		AP11ManeuverPAD(opt, *form);
+ 
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		sprintf(form->remarks, "Ullage: 2 jet, 14 seconds");
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+@@ -2236,7 +2236,7 @@
+ 			opt.RV_MCC = ConvertSVtoEphemData(sv);
+ 
+ 			AP11ManeuverPAD(opt, *form);
+-			sprintf(form->purpose, manname);
++			sprintf(form->purpose, "%s", manname);
+ 			if (opt.enginetype == RTCC_ENGINETYPE_CSMSPS) sprintf(form->remarks, "Ullage: 2 jet, 14 seconds");
+ 			form->lat = res.latitude*DEG;
+ 			form->lng = res.longitude*DEG;
+@@ -2687,7 +2687,7 @@
+ 		if (upString != NULL) {
+ 			// give to mcc
+ 			strncpy(upString, uplinkdata, 1024 * 3);
+-			sprintf(upDesc, updesc);
++			sprintf(upDesc, "%s", updesc);
+ 		}
+ 	}
+ 	break;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
+index b4a5b2627b572fa60b2bd2cf5f1741598fafa34b..93e2c9496b0d51eed81992eb90bc5d9b40c05ee1
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_G.cpp
+@@ -1492,7 +1492,7 @@
+ 		opt.WeightsTable.ConfigWeight = opt.WeightsTable.CSMWeight = sv1.mass;
+ 
+ 		AP11ManeuverPAD(opt, *form);
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = res.latitude*DEG;
+ 		form->lng = res.longitude*DEG;
+ 		form->RTGO = res.RTGO;
+@@ -2632,7 +2632,7 @@
+ 				opt.RV_MCC = ConvertSVtoEphemData(sv);
+ 
+ 				AP11ManeuverPAD(opt, *form);
+-				sprintf(form->purpose, manname);
++				sprintf(form->purpose, "%s", manname);
+ 				form->lat = res.latitude*DEG;
+ 				form->lng = res.longitude*DEG;
+ 				form->RTGO = res.RTGO;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
+index 0e8fd55a51de9ab660760125c81b3bccf9ad6f0e..6e7a34ca9b9564eb3be025b5ab8dbdce3aee3f0d
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/RTCC_Mission_H1.cpp
+@@ -1638,7 +1638,7 @@
+ 
+ 		RMMYNI(entin, entout);
+ 
+-		sprintf(form->purpose, manname);
++		sprintf(form->purpose, "%s", manname);
+ 		form->lat = PZREAP.RTEDTable[0].lat_imp_tgt * DEG;
+ 		form->lng = PZREAP.RTEDTable[0].lng_imp_tgt * DEG;
+ 		form->RTGO = entout.R_EMS / 1852.0;
+@@ -2797,7 +2797,7 @@
+ 		if (upString != NULL) {
+ 			// give to mcc
+ 			strncpy(upString, uplinkdata, 1024 * 3);
+-			sprintf(upDesc, updesc);
++			sprintf(upDesc, "%s", updesc);
+ 		}
+ 	}
+ 	break;
+@@ -3228,7 +3228,7 @@
+ 		if (upString != NULL) {
+ 			// give to mcc
+ 			strncpy(upString, uplinkdata, 1024 * 3);
+-			sprintf(upDesc, updesc);
++			sprintf(upDesc, "%s", updesc);
+ 		}
+ 	}
+ 	break;
+@@ -3490,7 +3490,7 @@
+ 					opt.RV_MCC = ConvertSVtoEphemData(sv);
+ 
+ 					AP11ManeuverPAD(opt, *form);
+-					sprintf(form->purpose, manname);
++					sprintf(form->purpose, "%s", manname);
+ 					form->lat = res.latitude * DEG;
+ 					form->lng = res.longitude * DEG;
+ 					form->RTGO = res.RTGO;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
+index e29694942559a9db324b8b8add13a939973f6d88..ff5ee152c80314154d08e4e811b1aae9b888c256
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/mcc.cpp
+@@ -3922,7 +3922,7 @@
+ 		if (form->type == 0)
+ 		{
+ 			sprintf(buffer, "SCT STAR COUNT");
+-			sprintf(mode, form->Mode);
++			sprintf(mode, "%s", form->Mode);
+ 
+ 			sprintf(buffer, "%s\nMode %s\nXX%03d HR GET\nXXX%02d MIN ALIGN\nX%05.2f SEC\nXX%03d HR GET\nXXX%02d MIN SR\nX%05.2f SEC\n%+06.1f R CDU\n%+06.1f P\n%+06.1f Y\nXX%03d HR GET\nXXX%02d MIN SS-12\nX%05.2f SEC\n%+06.1f R CDU\n%+06.1f P\n%+06.1f Y\n",
+ 				buffer, mode, hh, mm, ss, hh2, mm2, ss2, form->AttSR.x, form->AttSR.y, form->AttSR.z, hh3, mm3, ss3, form->AttSS_12.x, form->AttSS_12.y, form->AttSS_12.z);
+@@ -4051,7 +4051,7 @@
+ 	case PT_GENERIC:
+ 	{
+ 		GENERICPAD * form = (GENERICPAD *)padForm;
+-		sprintf(buffer, form->paddata);
++		sprintf(buffer, "%s", form->paddata);
+ 		oapiAnnotationSetText(NHpad, buffer);
+ 	}
+ 	break;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
+index 7f227eb61ce294c12460a908c4edd2ccb3e8b650..6d287ea8c936eb4ffc46817647ee3b20abe4bfa2
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.cpp
+@@ -1760,7 +1760,7 @@
+ 		}
+ 
+ 		if (!_strnicmp(line, "G41_Instrument", 14)) {
+-			sscanf_s(line + 14, "%d %s %lf %lf", &iTemp, inst_temp.ID, (unsigned)_countof(inst_temp.ID), &inst_temp.RX, &inst_temp.RY);
++			sscanf(line + 14, "%d %6s %lf %lf", &iTemp, inst_temp.ID, &inst_temp.RX, &inst_temp.RY);
+ 			if (iTemp >= 0 && iTemp <= 11)
+ 			{
+ 				G41_Instruments[iTemp] = inst_temp;
+@@ -1793,7 +1793,7 @@
+ 		if (!strnicmp(line, end_str, sizeof(end_str))) {
+ 			break;
+ 		}
+-		if (sscanf_s(line + 5, "%lf %lf %d", &temp.GET, &temp.WeightLoss, &temp.Veh) == 3)
++		if (sscanf(line + 5, "%lf %lf %d", &temp.GET, &temp.WeightLoss, &temp.Veh) == 3)
+ 		{
+ 			data.push_back(temp);
+ 		}
+@@ -2873,8 +2873,8 @@
+ 		m1 = calcParams.src->GetMass()*exp(-length(res.dV_LVLH) / v_e);
+ 		Vc = length(res.dV_LVLH) - 60832.18 / m1; //TBD
+ 
+-		sprintf(pad.Area[i], opt->area[i].c_str());
+-		sprintf(pad.Wx[i], weather);
++		sprintf(pad.Area[i], "%s", opt->area[i].c_str());
++		sprintf(pad.Wx[i], "%s", weather);
+ 
+ 		pad.dVC[i] = Vc/0.3048;
+ 		pad.GETI[i] = res.P30TIG;
+@@ -17495,6 +17495,8 @@
+ 
+ int RTCC::PMMMPT(PMMMPTInput &in, MPTManeuver &man)
+ {
++	// POD declarations precede upstream goto paths; assignments stay in place.
++	double TG;
+ 	//The weights in the input table will be set to the weights after the maneuver in PMMMPT. This is done so that repeated calls of PMMMPT, with multiple maneuvers in a sequence,
+ 	//use the correct weight to simulate each maneuver.
+ 
+@@ -17697,7 +17699,7 @@
+ 	}
+ 	MASS = in.VehicleWeight;
+ 	DELVB = dv - SystemParameters.MCTAK4 / MASS;
+-	double TG = (DELVB / SystemParameters.MCTLT2)*MASS;
++	TG = (DELVB / SystemParameters.MCTLT2)*MASS;
+ 	if (TG <= SystemParameters.MCTDD6)
+ 	{
+ 		NPHASE = 4;
+@@ -19488,6 +19490,9 @@
+ 
+ int RTCC::PMMWTC(int med)
+ {
++	// POD declarations precede upstream goto paths; assignments stay in place.
++	double t_aw;
++	int I;
+ 	MPTVehicleDataBlock CommonBlock;
+ 	MissionPlanTable *table;
+ 	PLAWDTInput pin;
+@@ -19763,7 +19768,7 @@
+ 		RTCC_PMMWTC_17A:
+ 			goto RTCC_PMMWTC_17B;
+ 		}
+-		double t_aw = table->SIVBVentingBeginGET;
++		t_aw = table->SIVBVentingBeginGET;
+ 		if (t_aw >= med_m50.WeightGET)
+ 		{
+ 			goto RTCC_PMMWTC_19;
+@@ -19816,7 +19821,7 @@
+ 		{
+ 			goto RTCC_PMMWTC_19;
+ 		}
+-		int I = MPTGetPrimaryThruster(table->mantable[IBLK - 2].Thruster);
++		I = MPTGetPrimaryThruster(table->mantable[IBLK - 2].Thruster);
+ 		FuelR[0] = CommonBlock.CSMRCSFuelRemaining;
+ 		FuelR[1] = CommonBlock.SPSFuelRemaining;
+ 		FuelR[2] = CommonBlock.SIVBFuelRemaining;
+@@ -29517,7 +29522,7 @@
+ 					if (str == "")
+ 					{
+ 						//Found mpty slot
+-						sprintf(EZGSTMED.G41_Instruments[i].ID, data[0].c_str());
++						sprintf(EZGSTMED.G41_Instruments[i].ID, "%s", data[0].c_str());
+ 						EZGSTMED.G41_Instruments[i].RX = out.Values[2].d;
+ 						EZGSTMED.G41_Instruments[i].RY = out.Values[3].d;
+ 						return;
+@@ -29548,7 +29553,7 @@
+ 					str.assign(EZGSTMED.G41_Instruments[i].ID);
+ 					if (str == data[0])
+ 					{
+-						sprintf(EZGSTMED.G41_Instruments[i].ID, data[0].c_str());
++						sprintf(EZGSTMED.G41_Instruments[i].ID, "%s", data[0].c_str());
+ 						EZGSTMED.G41_Instruments[i].RX = out.Values[2].d;
+ 						EZGSTMED.G41_Instruments[i].RY = out.Values[3].d;
+ 						return;
+@@ -35615,6 +35620,8 @@
+ 
+ void RTCC::PMMDAB(EphemerisData2 XIN, ASTInput ARIN, ASTSettings IRIN, ASTData &AST, int &IER, int IPRT)
+ {
++	// POD declarations precede upstream goto paths; assignments stay in place.
++	VECTOR3 h;
+ 	EphemerisData2 sv_r_ECT, sv_r_ECI;
+ 
+ 	//Set up inputs for forward iterator
+@@ -35721,7 +35728,7 @@
+ 	double r_r, v_r, lat_r, lng_r, gamma_r, azi_r;
+ 	PICSSC(true, outarray.R_r, outarray.V_r, r_r, v_r, lat_r, lng_r, gamma_r, azi_r);
+ 
+-	VECTOR3 h = crossp(outarray.R_r, outarray.V_r);
++	h = crossp(outarray.R_r, outarray.V_r);
+ 	AST.incl_EI = acos(h.z / length(h));
+ 
+ 	AST.AbortGMT = XIN.GMT;
+@@ -35770,6 +35777,9 @@
+ 
+ bool RTCC::PCMATC(std::vector<double> &var, void *varPtr, std::vector<double>& arr, bool mode)
+ {
++	// POD declarations precede upstream goto paths; assignments stay in place.
++	VECTOR3 R_r_equ, V_r_equ;
++	double h_r, T_ar, a, E;
+ 	//Independent variables:
+ 	//0: dgamma_a, R_tx or DVX
+ 	//1: dpsi_a, R_ty or DVY
+@@ -35855,7 +35865,7 @@
+ 		goto PCMATC_3A;
+ 	}
+ 	coe = OrbMech::coe_from_sv(sv2.R, sv2.V, OrbMech::mu_Earth);
+-	double a = OrbMech::GetSemiMajorAxis(sv2.R, sv2.V, OrbMech::mu_Earth);
++	a = OrbMech::GetSemiMajorAxis(sv2.R, sv2.V, OrbMech::mu_Earth);
+ 	double gamma_min;
+ 	if (coe.e > 1.0)
+ 	{
+@@ -35874,7 +35884,7 @@
+ 	{
+ 		goto PCMATC_4C;
+ 	}
+-	double E = OrbMech::TrueToEccentricAnomaly(coe.TA, coe.e);
++	E = OrbMech::TrueToEccentricAnomaly(coe.TA, coe.e);
+ 	if (E >= 3.0*PI05)
+ 	{
+ 		if (gamma_p > vars->gamma_stop)
+@@ -35951,12 +35961,12 @@
+ 	MATRIX3 Rot;
+ 	ELVCNV(sv_r.GMT, 1, 0, Rot);
+ 
+-	VECTOR3 R_r_equ = tmul(Rot, sv_r.R);
+-	VECTOR3 V_r_equ = tmul(Rot, sv_r.V);
+-	double h_r = length(sv_r.R) - OrbMech::R_Earth;
++	R_r_equ = tmul(Rot, sv_r.R);
++	V_r_equ = tmul(Rot, sv_r.V);
++	h_r = length(sv_r.R) - OrbMech::R_Earth;
+ 	double r_r, v_r, lat_r, ra_r, gamma_r, azi_r, lng_r, lambda_G;
+ 	PICSSC(true, R_r_equ, V_r_equ, r_r, v_r, lat_r, ra_r, gamma_r, azi_r);
+-	double T_ar = sv_r.GMT - t_a;
++	T_ar = sv_r.GMT - t_a;
+ 
+ 	lambda_G = PIBSHA(sv_r.GMT / 3600.0);
+ 	lng_r = ra_r - lambda_G;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
+index c5edf96e7d0465bc4b07a4b3e963a37ad706455c..50ccf9901f6c6d10bf8437a913bf9cdf3a5fbfa5
+--- a/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
++++ b/Orbitersdk/samples/ProjectApollo/src_launch/rtcc.h
+@@ -49,6 +49,7 @@
+ #include "MCCPADForms.h"
+ 
+ class Saturn;
++class MCC;
+ 
+ #define RTCC_START_STRING	"RTCC_BEGIN"
+ #define RTCC_END_STRING	    "RTCC_END"
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h b/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
+index 49ae2a08d3502345bdfb21c73b266f385430df27..bc774c6c4da8b62bdd509eb20721d54c60a6efb8
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_eps.h
+@@ -262,7 +262,7 @@
+ class LEM_BusCrossTie : public e_object {
+ public:
+ 	LEM_BusCrossTie();	// Cons
+-	void LEM_BusCrossTie::Init(LEM *s, DCbus *sra, DCbus *srb, CircuitBrakerSwitch *cb1, CircuitBrakerSwitch *cb2, CircuitBrakerSwitch *cb3, CircuitBrakerSwitch *cb4);
++	void Init(LEM *s, DCbus *sra, DCbus *srb, CircuitBrakerSwitch *cb1, CircuitBrakerSwitch *cb2, CircuitBrakerSwitch *cb3, CircuitBrakerSwitch *cb4);
+ 	void UpdateFlow(double dt);
+ 	void DrawPower(double watts);
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
+index e9f550251fc083ccdc9b51f880c2e870ad7e3b72..154e4bd78fd6ead9df8341e29233a1ca9cee46c2
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.cpp
+@@ -27,7 +27,9 @@
+ #include "Orbitersdk.h"
+ #include <stdio.h>
+ #include <math.h>
+-#include <winsock.h> // TODO: Replace with winsock2 when yaAGC updates
++#ifndef NASSP_NATIVE
++#include <winsock.h>
++#endif // TODO: Replace with winsock2 when yaAGC updates
+ #include "lmresource.h"
+ 
+ #include "nasspdefs.h"
+@@ -376,16 +378,22 @@
+ 	last_rx = 0;
+ 	frame_addr = 0;
+ 	frame_count = 0;
++
++#ifndef NASSP_NATIVE
+ 	m_socket = INVALID_SOCKET;
++#endif
+ }
+ 
+ LM_PCM::~LM_PCM()
+ {
++#ifndef NASSP_NATIVE
+ 	// Close telemetry socket
+ 	if (m_socket != INVALID_SOCKET) {
+ 		shutdown(m_socket, 2); // Shutdown both streams
+ 		closesocket(m_socket);
+ 	}
++#endif
++
+ }
+ 
+ void LM_PCM::Init(LEM *vessel, h_HeatLoad *pcmh)
+@@ -399,6 +407,7 @@
+ 	last_update = 0;
+ 	last_rx = MINUS_INFINITY;
+ 	word_addr = 0;
++#ifndef NASSP_NATIVE
+ 	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+ 	if (iResult != NO_ERROR) {
+ 		sprintf(wsk_emsg, "LM-TELECOM: Error at WSAStartup()");
+@@ -441,6 +450,7 @@
+ 		WSACleanup();
+ 		return;
+ 	}
++#endif
+ 	conn_state = 1; // INITIALIZED, LISTENING
+ 	uplink_state = 0; rx_offset = 0;
+ }
+@@ -605,15 +615,19 @@
+ 				}
+ 			}
+ 			else {
++#ifndef NASSP_NATIVE
+ 				// Try to accept
+ 				AcceptSocket = accept(m_socket, NULL, NULL);
+ 				if (AcceptSocket != INVALID_SOCKET) {
+ 					conn_state = 2; // Accept this!
+ 					wsk_error = 0; // For now
+ 				}
++#endif
++
+ 			}
+ 			// Otherwise loop and try again.
+ 			break;
++#ifndef NASSP_NATIVE
+ 		case 2: // CONNECTED			
+ 			int bytesSent,bytesRecv;
+ 
+@@ -716,6 +730,8 @@
+ 				}
+ 			}
+ 			break;			
++#endif
++
+ 	}
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
+index c906519569930c8834595062f8c8e87e34dc5440..f14fb0b76fb102659dc7b1b5fcd2544c0a15d19d
+--- a/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
++++ b/Orbitersdk/samples/ProjectApollo/src_lm/lm_telecom.h
+@@ -260,10 +260,12 @@
+ 	h_HeatLoad *PCMHeat;			//PCM Heat Load
+ 
+ 	// Winsock2
++#ifndef NASSP_NATIVE
+ 	WSADATA wsaData;				// Winsock subsystem data
+ 	SOCKET m_socket;				// TCP socket
+ 	sockaddr_in service;			// SOCKADDR_IN
+ 	SOCKET AcceptSocket;			// Accept Socket
++#endif
+ 	int conn_state;                 // Connection State
+ 	int uplink_state;               // Uplink State
+ 	void perform_io(double simt);   // Get data from here to there
+@@ -290,7 +292,9 @@
+ 	unsigned char rx_data[1024];    // Characters recieved
+ 	unsigned char mcc_data[2048];	// MCC-provided incoming data
+ 
++#ifndef NASSP_NATIVE
+ 	bool registerSocket(SOCKET sock);
++#endif
+ 
+ 	friend class MCC;				// Allow MCC to write directly to buffer
+ };
+diff --git a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
+index 7d09f121079e428f13b380fc9c7d1427f77b2353..14ad07f0a2520bee953a2fa11f4230fe1b5e5f1f
+--- a/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_mfd/ProjectApolloPlugin.cpp
+@@ -30,7 +30,7 @@
+ #include "Orbitersdk.h"
+ 
+ #include "math.h"
+-#include "windows.h"
++#include "win32_compat.h"
+ #include "nasspsound.h"
+ #include "soundlib.h"
+ #include "tracer.h"
+@@ -50,13 +50,13 @@
+ #include "ProjectApolloChecklistMFD.h"
+ #include "ProjectApolloPlugin.h"
+ 
+-DLLCLBK void opcDLLInit(HINSTANCE hDLL)
++DLLCLBK void InitModule(HINSTANCE hDLL)
+ {
+ 	ProjectApolloMFDopcDLLInit (hDLL);
+ 	ProjectApolloChecklistMFDopcDLLInit (hDLL);
+ }
+ 
+-DLLCLBK void opcDLLExit(HINSTANCE hDLL)
++DLLCLBK void ExitModule(HINSTANCE hDLL)
+ {
+ 	ProjectApolloMFDopcDLLExit (hDLL);
+ 	ProjectApolloChecklistMFDopcDLLExit (hDLL);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp b/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
+index d336655f022dca218614cbcf59551525d94f8ba5..dbbbd55951e9d4f4090ba4ec4078c51ad5e753a1
+--- a/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_moon/flag.cpp
+@@ -284,7 +284,7 @@
+ void Flag::MoveFlagFallAnimation(double simdt)
+ {
+ 	double da = simdt * 1.25;
+-	if (flagFallProc < 1) { flagFallProc = min(1, flagFallProc + da); }
++	if (flagFallProc < 1) { flagFallProc = std::min(1.0, flagFallProc + da); }
+ 	SetAnimation(animFlagFall, flagFallProc);
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
+index 3caf4ef8a92f45af8f0add0d4f0cf6fdf20c1f64..2e08bf127b396f4264c4c7c15def38761ccc7499
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/AnalyticEphemerisGenerator.cpp
+@@ -59,6 +59,7 @@
+ 
+ void PMMAEG::CALL(AEGHeader &header, AEGDataBlock &in, AEGDataBlock &out)
+ {
++	bool firstpass; // assigned at the original execution point
+ 	AEGDataBlock tempblock;
+ 
+ 	header.ErrorInd = 0;
+@@ -126,7 +127,7 @@
+ 	CurrentBlock = in;
+ 
+ 	double dt, theta_R;
+-	bool firstpass = true;
++	firstpass = true;
+ 
+ 	if (in.TIMA == 0 || in.TIMA >= 4)
+ 	{
+@@ -343,6 +344,7 @@
+ 
+ void PMMLAEG::CALL(AEGHeader &header, AEGDataBlock &in, AEGDataBlock &out)
+ {
++	bool firstpass; // assigned at the original execution point
+ 	AEGDataBlock tempblock;
+ 	CELEMENTS coe_osc0, coe_osc1, coe_mean1;
+ 	MATRIX3 Rot;
+@@ -433,7 +435,7 @@
+ 	coe_mean1 = in.coe_mean;
+ 
+ 	double dt, theta_R;
+-	bool firstpass = true;
++	firstpass = true;
+ 
+ 	if (in.TIMA == 0 || in.TIMA >= 4)
+ 	{
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
+index be2c6da863cf6c88e19d25b905c9992ed53c2ba5..c99727a0b0afe56c3fa3dd3883440571087ebfe9
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/CSMLMGuidanceSim.cpp
+@@ -942,6 +942,8 @@
+ 
+ void CSMLMPoweredFlightIntegration::PCRDD()
+ {
++	double a_T;
++	MATRIX3 MATTEMP;
+ 	double TL, WDOT;
+ 
+ 	//Computing K3?
+@@ -1102,7 +1104,7 @@
+ 			TPREV = T;
+ 		}
+ 	}
+-	double a_T = THRUST / WT;
++	a_T = THRUST / WT;
+ 	RDDT = A_T * a_T;
+ 	if (KTHSWT > 0)
+ 	{
+@@ -1145,7 +1147,7 @@
+ 	}
+ 	goto PCRDD_LABEL_7B;
+ PCRDD_LABEL_7A:
+-	MATRIX3 MATTEMP = mul(OrbMech::_MRz(Y_G), mul(OrbMech::_MRy(P_G), _M(X_B.x, X_B.y, X_B.z, Y_B.x, Y_B.y, Y_B.z, Z_B.x, Z_B.y, Z_B.z)));
++	MATTEMP = mul(OrbMech::_MRz(Y_G), mul(OrbMech::_MRy(P_G), _M(X_B.x, X_B.y, X_B.z, Y_B.x, Y_B.y, Y_B.z, Z_B.x, Z_B.y, Z_B.z)));
+ 	A_T = _V(MATTEMP.m11, MATTEMP.m12, MATTEMP.m13);
+ 	goto PCRDD_LABEL_3C;
+ PCRDD_LABEL_7B:
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
+index a6f6113347d3017ec4a0e60b766338352ca3b552..58805df4b5d894f3cff48f7ee248e56efe0ab2c0
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/EntryCalculations.cpp
+@@ -4655,7 +4655,7 @@
+ 			dx = (x - xapo) / (theta_long - dlngapo)*dlng;
+ 			if (length(V2 - sv_ig.V) > dv_max && dx < 0)
+ 			{
+-				dx = 0.5*max(1.0, revcor);
++				dx = 0.5*std::max(1.0, static_cast<double>(revcor));
+ 				revcor++;
+ 			}
+ 			else if (abs(dx) > dxmax)
+@@ -4934,6 +4934,7 @@
+ 
+ void ConicRTEEarthNew::INITAL()
+ {
++	double eps;
+ 	VECTOR3 R4, R5, R_p, U0_apo;
+ 	double SAZ, CAZ, T1, T2, A_m, beta_r, p, R_a, AINV, DV, e, V_a, beta_a, T_1i, T_s, delta_0, Am1, Am2, beta_r_apo, A_Z;
+ 	double theta_mu, theta_md, K1, K2, U_rmin, T_apo, DNDT, I_0, T, delta, U_r, VR_a, VT_a, eta_ar;
+@@ -5128,7 +5129,7 @@
+ 
+ 	DNDT = PRTIAL(FLAG, r0, U_rmax);
+ 	delta = asin(cos(eta_ar + eta_rz_avg))*dotp(R0, _V(0, 0, 1)) + sin(eta_ar + eta_rz_avg)*dotp(R2, _V(0, 0, 1));
+-	double eps = 0.005; //TBD
++	eps = 0.005; //TBD
+ 	if (DNDT > w_E*pow(cos(delta), 2) / cos(I_0) + eps)
+ 	{
+ 		T1 = TSW6;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
+index ca26754f60e4749246050087a4f06064803b357d..6bc9e3847518aef50814442ae8803bfbaf28a860
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/LOITargeting.cpp
+@@ -764,6 +764,7 @@
+ 
+ 	void LOITargeting::INTER(VECTOR3 R_N, VECTOR3 V_N, double T_N, VECTOR3 U_L, VECTOR3 U_S, bool soln)
+ 	{
++		double dh2;
+ 		VECTOR3 R_N_u;
+ 		double r_N, dw_a, R_p, dw, dh, SGN;
+ 
+@@ -852,7 +853,7 @@
+ 			goto LOI_INTER_B3;
+ 		}
+ 		R_p = (R[2] + R[3]) / 2.0;
+-		double dh2 = DELTAH(R_p, r_N, dw_a, U_L, R_N_u, U_S, SGN);
++		dh2 = DELTAH(R_p, r_N, dw_a, U_L, R_N_u, U_S, SGN);
+ 		if (abs(dh2 - opt.dh_bias) < 0.1)
+ 		{
+ 			goto LOI_INTER_B3;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
+index 4a040a62ecbafc352caaefbaa16b2a0724717252..885d6e44d08a6a58c94cbbebcdcd3da48cc05d2e
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/OrbMech.cpp
+@@ -1,3 +1,6 @@
++#include <algorithm>
++using std::min;
++using std::max;
+ #include "OrbMech.h"
+ #include <limits>
+ #include <vector>
+@@ -3510,6 +3513,8 @@
+ template <typename T> int sign(T val) {
+ 	return (T(0) < val) - (val < T(0));
+ }
++// Emit the specialization called from other RTCC translation units.
++template int sign<double>(double);
+ 
+ void AGCSignedValue(int &val)
+ {
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
+index 1756c3a6c2ab6bb29af15fe85e2c8fc286f223a3..d7e736acf563418ebeda61fecc4ae23269202e92
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/RTCCTables.h
+@@ -759,7 +759,7 @@
+ //State vector and more
+ struct VehicleDataBlock
+ {
+-	VehicleDataBlock::VehicleDataBlock()
++	VehicleDataBlock()
+ 	{
+ 		KFactor = 0.0;
+ 		Area = 0.0;
+@@ -773,7 +773,7 @@
+ 
+ struct StationContact
+ {
+-	StationContact::StationContact()
++	StationContact()
+ 	{
+ 		GMTAOS = 0.0;
+ 		GMTLOS = 0.0;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
+index 11f3fd4ede98ac6f63d078a28072c3a096f47de8..3eb9f06a8816735062b62b1b6dda7f71cd7208a4
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.cpp
+@@ -495,7 +495,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	outtab.GMT_pc1 = outtab.GMT_pc2 = outarray.GMT_pl;
+@@ -661,7 +664,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	outtab.GMT_pc1 = outtab.GMT_pc2 = outarray.GMT_pl;
+@@ -880,7 +886,10 @@
+ 	S_apo = S2C;
+ 	S_apo.V = S2C.V - DV_temp;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 	outarray.LOIOffset = S3I.V - S3C.V;
+ 
+@@ -893,7 +902,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	//Step 6
+@@ -1104,7 +1116,10 @@
+ 	S_apo = S2C;
+ 	S_apo.V = S2C.V - DV_temp;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 	outarray.LOIOffset = S3I.V - S3C.V;
+ 
+@@ -1117,7 +1132,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	//Step 6
+@@ -1418,7 +1436,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	//Step 9
+@@ -1553,7 +1574,10 @@
+ 	S2C.V = VF;
+ 	DV_temp = S2C.V - S_apo.V;
+ 	RVIO(true, S_apo.R, S1.V, r, v1, theta, phi, gamma1, psi1);
+-	RVIO(true, S1.R, S1.V + DV_temp, r, v2, theta, phi, gamma2, psi2);
++	{
++		VECTOR3 velocity = S1.V + DV_temp;
++		RVIO(true, S1.R, velocity, r, v2, theta, phi, gamma2, psi2);
++	}
+ 	NewGuess = _V((v2 - v1)*3600.0 / R_E, gamma2 - gamma1, psi2 - psi1);
+ 
+ 	//Step 8
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
+index e674ec49ed18b25d3e9e454082946b1a9b794242..8d224970a422647fdac1e4f3b2dbc9b4ca70cb7b
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLMCC.h
+@@ -27,7 +27,7 @@
+ 
+ struct TLMCCDataTable
+ {
+-	TLMCCDataTable::TLMCCDataTable()
++	TLMCCDataTable()
+ 	{
+ 		for (int i = 0;i < 25; i++)
+ 		{
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
+index a5f5333c545927f57456370d67518a7b3666ca8d..c95831464d14fa462865218d11c96e3890709563
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/TLTrajectoryComputers.cpp
+@@ -170,6 +170,8 @@
+ 
+ bool TLTrajectoryComputers::ConicMissionComputer(std::vector<double> &var, void *varPtr, std::vector<double>& arr, bool mode)
+ {
++	VECTOR3 Rtemp, Vtemp;
++	double DV_DOI;
+ 	//Independent variables:
+ 	//0: MCC delta velocity in Er/hr
+ 	//1: MCC delta flight-path angle in rad
+@@ -412,8 +414,8 @@
+ 		}
+ 	}
+ 
+-	VECTOR3 Rtemp = vars->SGSLOI.R;
+-	VECTOR3 Vtemp = vars->SGSLOI.V;
++	Rtemp = vars->SGSLOI.R;
++	Vtemp = vars->SGSLOI.V;
+ 	LIBRAT(Rtemp, Vtemp, vars->GMT_nd, 6);
+ 	U_DS = unit(crossp(Rtemp, Vtemp));
+ 
+@@ -433,7 +435,7 @@
+ 	outarray.M_loi = MCOMP(DV_LOI, vars->Config, vars->useSPS, outarray.M_mcc);
+ 
+ 	gamma = vars->gamma_L - vars->gamma1;
+-	double DV_DOI = sqrt(vars->V2*vars->V2 + vars->V_L * vars->V_L - 2.0*vars->V_L*vars->V2*cos(gamma));
++	DV_DOI = sqrt(vars->V2*vars->V2 + vars->V_L * vars->V_L - 2.0*vars->V_L*vars->V2*cos(gamma));
+ 	outarray.M_cir = MCOMP(DV_DOI, vars->Config, vars->useSPS, outarray.M_loi);
+ 
+ 	LIBRAT(vars->sv_lls1.R, vars->sv_lls1.V, vars->sv_lls1.GMT, 5);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
+index c4abb531745ef5d08e7409c21e1dce606329c731..4e394567b5b7d5616ba9fa456b486fc9db17e91b
+--- a/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_rtccmfd/rtcc_library_programs.cpp
+@@ -181,6 +181,7 @@
+ //Vector Count Routine
+ int RTCC::ELNMVC(double &TL, double TR, int L, unsigned &NumVec, int &TUP)
+ {
++	bool firstpass;
+ 	//Error returns:
+ 	//0 = all ok
+ 	//8 = on if TL < ephemeris begin time
+@@ -242,7 +243,7 @@
+ 	//Set up counters and flags to find location of TL in ephemeris table
+ 	double TREQ, T_Mid;
+ 	unsigned LB, UB, Mid;
+-	bool firstpass = true;
++	firstpass = true;
+ 	LB = 0;
+ 	UB = tab->EPHEM.table.size() - 1;
+ 	TREQ = TL;
+@@ -792,6 +793,7 @@
+ 
+ void RTCC::ELVCTR(const ELVCTRInputTable &in, ELVCTROutputTable2 &out, EphemerisDataTable2 &EPH, ManeuverTimesTable &mantimes, LunarStayTimesTable *LUNRSTAY)
+ {
++	unsigned E;
+ 	//Is order of interpolation correct?
+ 	if (in.ORER == 0 || in.ORER > 8)
+ 	{
+@@ -880,7 +882,7 @@
+ 		goto RTCC_ELVCTR_H;
+ 	RTCC_ELVCTR_3:
+ 		ORER = 1;
+-		unsigned E = 0;
++		E = 0;
+ 		while (EPH.table[E].GMT <= in.GMT)
+ 		{
+ 			//Direct hit
+@@ -1711,6 +1713,7 @@
+ //Weight Access Routine
+ void RTCC::PLAWDT(const PLAWDTInput &in, PLAWDTOutput &out)
+ {
++	bool tli;
+ 	//Time of area and weights in GET
+ 	double T_AW;
+ 	//Update time for weights, can be changed internally, so make it an internal variable, in GMT
+@@ -1783,7 +1786,7 @@
+ 		out.KFactor = mpt->KFactor;
+ 	}
+ 	//Search for TLI
+-	bool tli = false;
++	tli = false;
+ 	unsigned tlinum;
+ 	for (unsigned i = 0;i < mpt->ManeuverNum;i++)
+ 	{
+@@ -2082,6 +2085,7 @@
+ //Sun/Moon Ephemeris Interpolation Program
+ bool RTCC::PLEFEM(int IND, double HOUR, int YEAR, VECTOR3 *R_EM, VECTOR3 *V_EM, VECTOR3 *R_ES, MATRIX3 *PNL)
+ {
++	bool des[4];
+ 	//INPUTS:
+ 	//IND: 1 = Sun and Moon ephemerides. 2 = all data. 3 = all Moon data. 4 = Moon ephemerides. 5 = libration matrix only
+ 	double T, C[6];
+@@ -2111,7 +2115,7 @@
+ 	if (j < 0 || j > 65) goto RTCC_PLEFEM_A;
+ 
+ 	double x[18];
+-	bool des[4] = {false, false, false, false};
++	des[0] = des[1] = des[2] = des[3] = false;
+ 
+ 	//Which data to get?
+ 	switch (abs(IND))
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
+index 499e5c1cfc69fd1b3d07fb2ac8eec996be02eb05..d3e87a0c4bc00097ad2c1e03062a0b18929c8f16
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/LVDC.cpp
+@@ -26,6 +26,10 @@
+ #include <string>
+ #include <iostream>
+ #include <fstream>
++#ifdef NASSP_NATIVE
++#include "Platform/Vfs.h"
++#include <stdexcept>
++#endif
+ 
+ #include "Orbitersdk.h"
+ 
+@@ -2375,11 +2379,18 @@
+ 	int tb, tbtemp;
+ 
+ 	string line;
++#ifdef NASSP_NATIVE
++	ifstream file(orbiter::platform::ResolvePath(fspfile));
++	if (!file.is_open()) throw std::runtime_error(std::string("Cannot load LVDC flight sequence: ") + fspfile);
++#else
+ 	ifstream file(fspfile);
++#endif
+ 	if (file.is_open())
+ 	{
+ 		while (getline(file, line))
+ 		{
++			// Match Windows text-mode line endings on native hosts.
++			if (!line.empty() && line.back() == '\r') line.pop_back();
+ 			if (sscanf(line.c_str(), "TB%d", &tbtemp) == 1 || line.compare("END") == 0)
+ 			{
+ 				if (first == false)
+@@ -3509,9 +3520,9 @@
+ 		for(y=0; y < 5; y++){
+ 			Fx[x][y] = 0;
+ 		}
+-		hx[0][y] = 0;
+-		hx[1][y] = 0;
+-		hx[2][y] = 0;
++		hx[0][x] = 0;
++		hx[1][x] = 0;
++		hx[2][x] = 0;
+ 		Drag_Area[x] = 0;
+ 	}
+ 	for(x=0; x < 7; x++){
+@@ -5919,7 +5930,12 @@
+ 
+ 	SwitchSelectorSet ssset;
+ 	string line;
++#ifdef NASSP_NATIVE
++	ifstream file(orbiter::platform::ResolvePath(fspfile));
++	if (!file.is_open()) throw std::runtime_error(std::string("Cannot load LVDC flight sequence: ") + fspfile);
++#else
+ 	ifstream file(fspfile);
++#endif
+ 
+ 	SSTABLE.clear();
+ 
+@@ -5927,6 +5943,8 @@
+ 	{
+ 		while (getline(file, line))
+ 		{
++			// Match Windows text-mode line endings on native hosts.
++			if (!line.empty() && line.back() == '\r') line.pop_back();
+ 			if (line.compare("END") == 0)
+ 			{
+ 				break;
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
+index 3e72be39aa969b2099b70fad5b35e54b2bda9630..09e43639f67c81f4b695e06247a0085ab61c713e
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/lvimu.cpp
+@@ -380,7 +380,7 @@
+ 		unsigned Caged:1;
+ 		unsigned Failed:1;
+ 	} u;
+-	unsigned long word;
++	DWORD word;
+ } IMUState;
+ 
+ void LVIMU::LoadState(FILEHANDLE scn)
+@@ -458,7 +458,7 @@
+ 		}
+ 		else if (!strnicmp (line, "STATE", 5)) {
+ 			IMUState state;
+-			sscanf (line+5, "%d", &state.word);
++			sscanf (line+5, "%u", &state.word);
+ 
+ 			Operate = (state.u.Operate != 0);
+ 			Initialized = (state.u.Initialized != 0);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
+index 0959e1d676d289bf99740f2eb721c948d6fe9a11..7edc2eec7c78eb52150d17e0124f4b733c26f7ca
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/s1csystems.cpp
+@@ -146,7 +146,7 @@
+ 			}
+ 			else
+ 			{
+-				ThrustLevel = min(ThrustLevel, 1);
++				ThrustLevel = std::min<double>(ThrustLevel, 1);
+ 			}
+ 
+ 			vessel->SetThrusterLevel(th_f1, ThrustLevel);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
+index c9a00c925abcfb1c522b3181d62915db166292ab..9cd7288c4f3cd1d9b49b62c9ab41ff55fda72c0b
+--- a/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_saturn/sivbsystems.cpp
+@@ -212,6 +212,7 @@
+ 	AuxHydPumpFlightMode = true;
+ 	//Switched on at T-TBD minutes
+ 	EngineControlBusMotorSwitch = true;
++	EDSCutoffDisabled = false;
+ 	EDSCutoffNo2DisableInhibit = false;
+ 
+ 	for (int i = 0; i < 2; i++)
+@@ -841,7 +842,7 @@
+ 		{
+ 			double of = (MixtureRatio / (1.0 + MixtureRatio));
+ 			oxidMass -= (lastPropellantMass - p) * of;
+-			oxidMass = max(oxidMass, 0);
++			oxidMass = std::max<double>(oxidMass, 0);
+ 
+ 		}
+ 	}
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
+index 9750c3d8c974f4de1ff190bc4608281cf5eece46..3649c2157bb10d47911d3ec54ea236051ff3c470
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.CPP
+@@ -1,3 +1,8 @@
++#include <stdexcept>
++#include <string>
++#ifdef ORBITER_NATIVE_CORE
++#include "Platform/Vfs.h"
++#endif
+ /***************************************************************************
+   This file is part of Project Apollo - NASSP
+   Copyright 2003-2005 Radu Poenaru
+@@ -111,7 +116,13 @@
+ 	int stage;
+ 	sprintf(name, "Config\\\\%s.cfg", FileName);
+ 
++#ifdef ORBITER_NATIVE_CORE
++	const auto path = orbiter::platform::ResolvePath(name).string();
++	config_file = fopen(path.c_str(), "rt");
++#else
+ 	config_file = fopen(name, "rt");
++#endif
++	if (!config_file) throw std::runtime_error(std::string("Missing PanelSDK configuration: ") + name);
+ 
+ #ifdef _DEBUG
+ 	debug = fopen("ProjectApollo PanelSDK.log", "wt");
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
+index 7d59fd9f61fdcaa34384a61cfca6f1ac352e6c1b..ed22d48be24cd2731963ae46af7d908181b5eae3
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/BUILD.H
+@@ -22,13 +22,7 @@
+ 
+   **************************************************************************/
+ 
+-// DS20060223 Try to do the right thing based on which compiler the user has.
+-// 13xx is VS .Net 2003, 14xx is VS .Net 2005
+-#if _MSC_VER > 1300 
+ #include <fstream>
+-#else
+-#include <fstream.h>
+-#endif
+ 
+ char* ReadConfigLine();
+ void BuildError(int err);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
+index ef5eef475de86b9cf81ec6c304600bc06fded5e9..2b5aaf10a3eb150cfc6f25d1dc2096d2694ec7d5
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/DataTables.h
+@@ -1,4 +1,4 @@
+-#ifndef __SPSDK_DeATA_TABLES_H
++#ifndef __SPSDK_DATA_TABLES_H
+ #define __SPSDK_DATA_TABLES_H
+ 
+ //this is quite commonly used, so better name them
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
+index fe8d7a4e3ccd33c48f83d0b5f252387b89b0ea4e..ddcf9053f3b257e35c89ed5866b68bf48dd2df43
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Esystems.cpp
+@@ -353,13 +353,13 @@
+ 	// purging
+ 	if (purge_handle == 1)
+ 	{
+-		H2_flow += __min(0.67 / 7.93665 * dt, H2_maxflow - H2_flow);
++		H2_flow += std::min(0.67 / 7.93665 * dt, H2_maxflow - H2_flow);
+ 		H2_clogging -= H2_clogging * 0.05 * dt; //take approximately 2 minutes to purge
+ 	}
+ 
+ 	if (purge_handle == 2)
+ 	{
+-		O2_flow += __min(0.67 / 7.93665 * dt, O2_maxflow - O2_flow);
++		O2_flow += std::min(0.67 / 7.93665 * dt, O2_maxflow - O2_flow);
+ 		O2_clogging -= O2_clogging * 0.05 * dt; //take approximately 2 minutes to purge
+ 	}
+ 
+@@ -609,7 +609,7 @@
+ void FCell::Save(FILEHANDLE scn)
+ {
+ 	char cbuf[1000];
+-	sprintf(cbuf, "%s %i %0.10f %0.4f %0.4f %0.10f", name, NULL, H2_clogging, Temp, power_load, O2_clogging);
++	sprintf(cbuf, "%s %i %0.10f %0.4f %0.4f %0.10f", name, 0, H2_clogging, Temp, power_load, O2_clogging);
+ 	oapiWriteScenario_string(scn, "    <FCELL> ", cbuf);
+ }
+ 
+@@ -1886,7 +1886,7 @@
+ {
+ 	if (SRC)
+ 	{
+-		Volts = min(SRC->Voltage(), output_voltage);
++		Volts = std::min(SRC->Voltage(), output_voltage);
+ 	}
+ 	else
+ 	{
+@@ -1913,7 +1913,7 @@
+ 	double DesVolts = min_output_voltage + (max_output_voltage - min_output_voltage) * GetValue();
+ 	if (SRC && !DCtoAC)
+ 	{
+-		Volts = min(SRC->Voltage(), DesVolts);
++		Volts = std::min(SRC->Voltage(), DesVolts);
+ 	}
+ 	else if (SRC && DCtoAC && SRC->Voltage() > SP_MIN_DCVOLTAGE)
+ 	{
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
+index 7731d276da96ad5f6c92055427b12b4ec0e74e01..5b3b673cd32119b09ad424a35012484ed07a3c00
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/Hsystems.cpp
+@@ -996,7 +996,7 @@
+ 		// as a "quick hack" it's proportional to the minimum size,
+ 		// but this has to be improved
+ 
+-		double minSize = __min(in->size, out->size);
++		double minSize = std::min(in->size, out->size);
+ 		trQ = trQ * minSize;
+ 
+ 		if (in->parent->space.Q < trQ)
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
+index acafc2cd7195ac24494172ca3dd11a9c623ac0e6..50f41adccba7a9043059090e4bdb99828b8a8244
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/Internals/esysparse.cpp
+@@ -224,8 +224,8 @@
+ 	double powerDraw = 0;
+ 	double nomVoltage = 0;
+ 
+-	sscanf(line + 7, "%s %s %d %lf %lf <%lf %lf %lf> <%lf %lf %lf> %lf %lf %lf %lf %lf %lf <%f %f %f %f> <%f %f %f %f> <%f %f %f %f> %lf %lf",
+-		&name, &sourceName, &flashing, &onTime, &offTime,
++	sscanf(line + 7, "%99s %99s %d %lf %lf <%lf %lf %lf> <%lf %lf %lf> %lf %lf %lf %lf %lf %lf <%f %f %f %f> <%f %f %f %f> <%f %f %f %f> %lf %lf",
++		name, sourceName, &flashing, &onTime, &offTime,
+ 		&pos.x, &pos.y, &pos.z,
+ 		&dir.x, &dir.y, &dir.z,
+ 		&range, &att0, &att1, &att2, &umbra, &penumbra, 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
+index 9dd0e812b420377f10c62809068800004dddda0a..5b0ac1858d72f77c12e59666e2314d6365b71499
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/PanelSDK/PanelSDK.cpp
+@@ -114,15 +114,15 @@
+ 	double dt = time - lastTime;
+ 	lastTime = time;
+ 
+-	double mintFactor = __max(dt / 100.0, 0.5);
+-	double tFactor = __min(mintFactor, dt);
++	double mintFactor = std::max(dt / 100.0, 0.5);
++	double tFactor = std::min(mintFactor, dt);
+ 	while (dt > 0) {
+ 		THERMAL->Radiative(tFactor);
+ 		HYDRAULIC->Refresh(tFactor);
+ 		ELECTRIC->Refresh(tFactor);
+ 
+ 		dt -= tFactor;
+-		tFactor = __min(mintFactor, dt);
++		tFactor = std::min(mintFactor, dt);
+ 	}
+ }
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
+index 7096890369c6ff75f32abddc1f8ce887e194d089..a89b679f8961ab0a870d46c1b4b08e3920045d37
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/cautionwarning.cpp
+@@ -330,7 +330,7 @@
+ 		unsigned PowerBus:2;
+ 		unsigned InhibitNextMasterAlarm:1;
+ 	} u;
+-	unsigned long word;
++	DWORD word;
+ } CWSState;
+ 
+ //
+@@ -503,7 +503,7 @@
+ 	else if (!strnicmp (line, "STATE", 5))
+ 	{
+ 		CWSState state;
+-		sscanf (line+5, "%d", &state.word);
++		sscanf (line+5, "%u", &state.word);
+ 
+ 		MasterAlarm = (state.u.MasterAlarm != 0);
+ 		MasterAlarmLightEnabled = (state.u.MasterAlarmLightEnabled != 0);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
+index 89fd7deb8bfc19a94c746e2f3cbf9a71c9126ee1..759f0025e7c45dbd510dd7f9dd8b3b285ebb6cae
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp
+@@ -135,7 +135,7 @@
+ 	if (cells[3].GetString())
+ 		strncpy(panel, cells[3].GetString(),100);
+ 	else if (cells[3].GetInteger() != 0) 
+-		_snprintf(panel, 100, "%d", cells[3].GetInteger()); 
++		snprintf(panel, 100, "%d", cells[3].GetInteger());
+ 	
+ 	if (cells[4].GetString())
+ 		strncpy(heading1, cells[4].GetString(),100);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
+index 5b9356da5711e001458ab76a6b9fc98bd5392bf4..ce3de6b52afbfb67f9469e8e56db7d0540b61c83
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/imulog.cpp
+@@ -28,7 +28,7 @@
+ #include <string.h>
+ #include <time.h>
+ #include <sys/timeb.h>
+-#include <windows.h>
++#include "win32_compat.h"
+ #include <stdio.h>
+ #include <math.h>
+ #include "soundlib.h"
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
+index c4abb07d39b4e0db66fab845e7d87c448552b0a5..c823d67f5d6f1d345c9e7fdf7d10ae99a499c976
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/powersource.cpp
+@@ -25,6 +25,9 @@
+ 
+ // To force Orbitersdk.h to use <fstream> in any compiler version
+ #pragma include_alias( <fstream.h>, <fstream> )
++#include <algorithm>
++using std::min;
++using std::max;
+ #include "Orbitersdk.h"
+ #include <stdio.h>
+ 
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
+index 14439e87b1f1d254c1aa2ae611918e43e300ed57..5601786b49e7e1cc278a0c132e0ab5cc8ea533b6
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.cpp
+@@ -325,10 +325,10 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
+ 
+ 	if (IsSpringLoaded())
+-		SetHeld((ctrlState & 0x8000) != 0);
++		SetHeld(shiftHeld);
+ 
+ 	//
+ 	// Yes, so now we just need to check whether it's an on or
+@@ -556,10 +556,10 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
+ 
+ 	if (IsSpringLoaded())
+-		SetHeld((ctrlState & 0x8000) != 0);
++		SetHeld(shiftHeld);
+ 
+ 	//
+ 	// Yes, so now we just need to check whether it's an on or
+@@ -692,10 +692,10 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
+ 
+ 	if (IsSpringLoaded())
+-		SetHeld((ctrlState & 0x8000) != 0);
++		SetHeld(shiftHeld);
+ 
+ 	//
+ 	// Yes, so now we just need to check whether it's an on or
+@@ -761,10 +761,10 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
+ 
+ 	if (IsSpringLoaded())
+-		SetHeld((ctrlState & 0x8000) != 0);
++		SetHeld(shiftHeld);
+ 
+ 	//
+ 	// Yes, so now we just need to check whether it's an on or
+@@ -990,8 +990,8 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
+-	SetHeld((ctrlState & 0x8000) != 0);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
++	SetHeld(shiftHeld);
+ 
+ 	if (event & PANEL_MOUSE_LBDOWN) {
+ 		SwitchTo(1, true);
+@@ -1011,8 +1011,8 @@
+ 	///
+ 	/// \todo Get CTRL state properly if and when Orbiter supports it.
+ 	///
+-	SHORT ctrlState = GetKeyState(VK_SHIFT);
+-	SetHeld((ctrlState & 0x8000) != 0);
++	const bool shiftHeld = KEYMOD_SHIFT(oapiGetKeyState());
++	SetHeld(shiftHeld);
+ 
+ 	if (event & PANEL_MOUSE_LBDOWN) {
+ 		SwitchTo(1, true);
+diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
+index de9d59f6666781fa8e889dea2d556f15208ae863..e955ede93c956f806a5acdb2b15d82e0f0e34be4
+--- a/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
++++ b/Orbitersdk/samples/ProjectApollo/src_sys/toggleswitch.h
+@@ -469,7 +469,6 @@
+ 
+ public:
+ 	void DrawSwitch(SURFHANDLE DrawSurface);
+-	bool CheckMouseClick(int event, int mx, int my);
+ 	void Init(int xp, int yp, int w, int h, SURFHANDLE surf, SURFHANDLE bsurf, SwitchRow &row, int mode, SoundLib &s);
+ 	virtual bool SwitchTo(int newState,bool dontspring = false);
+ 
+@@ -1653,7 +1652,7 @@
+ 	void OnPostCreation();
+ 	void AddSwitch(PanelSwitchItem *s, int area = -1);
+ 	void ClearSwitches();
+-	PanelSwitchItem* PanelSwitchesVC::GetFlashingItem();
++	PanelSwitchItem* GetFlashingItem();
+ 
+ protected:
+ 	std::vector<PanelSwitchItem*>SwitchList;

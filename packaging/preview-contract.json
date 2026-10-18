@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "release_enabled": false,
+  "target": "macos-arm64",
+  "profile": "v9",
+  "minimum_macos": "15.0",
+  "openorbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+  "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+  "combined_application_terms": "GPLv3-compatible with original component grants/exceptions preserved; MIT only independent original code",
+  "binary_candidates": [
+    "orbiter",
+    "liborbiter.dylib",
+    "Extern/Lua/liblua.dylib",
+    "runtime/Modules/Celbody/Callisto.dylib",
+    "runtime/Modules/Celbody/Dione.dylib",
+    "runtime/Modules/Celbody/Earth.dylib",
+    "runtime/Modules/Celbody/Earth/Atmosphere/EarthAtmJ71G.dylib",
+    "runtime/Modules/Celbody/Enceladus.dylib",
+    "runtime/Modules/Celbody/Europa.dylib",
+    "runtime/Modules/Celbody/Ganymede.dylib",
+    "runtime/Modules/Celbody/Io.dylib",
+    "runtime/Modules/Celbody/Jupiter.dylib",
+    "runtime/Modules/Celbody/Mars.dylib",
+    "runtime/Modules/Celbody/Mars/Atmosphere/MarsAtm2006.dylib",
+    "runtime/Modules/Celbody/Mercury.dylib",
+    "runtime/Modules/Celbody/Mimas.dylib",
+    "runtime/Modules/Celbody/Moon.dylib",
+    "runtime/Modules/Celbody/Neptune.dylib",
+    "runtime/Modules/Celbody/Rhea.dylib",
+    "runtime/Modules/Celbody/Saturn.dylib",
+    "runtime/Modules/Celbody/Sun.dylib",
+    "runtime/Modules/Celbody/Tethys.dylib",
+    "runtime/Modules/Celbody/Titan.dylib",
+    "runtime/Modules/Celbody/Uranus.dylib",
+    "runtime/Modules/Celbody/Venus.dylib",
+    "runtime/Modules/Celbody/Venus/Atmosphere/VenusAtm2006.dylib",
+    "runtime/Modules/Plugin/ProjectApolloMFD.dylib",
+    "runtime/Modules/Plugin/WgpuClient.dylib",
+    "runtime/Modules/ProjectApollo/EasepLR3.dylib",
+    "runtime/Modules/ProjectApollo/EasepPSEP.dylib",
+    "runtime/Modules/ProjectApollo/EasepSWC.dylib",
+    "runtime/Modules/ProjectApollo/Flag.dylib",
+    "runtime/Modules/ProjectApollo/Floodlight.dylib",
+    "runtime/Modules/ProjectApollo/LEM.dylib",
+    "runtime/Modules/ProjectApollo/MCC.dylib",
+    "runtime/Modules/ProjectApollo/ML.dylib",
+    "runtime/Modules/ProjectApollo/SII.dylib",
+    "runtime/Modules/ProjectApollo/SIVB.dylib",
+    "runtime/Modules/ProjectApollo/Sat5LMDSC.dylib",
+    "runtime/Modules/ProjectApollo/Saturn5.dylib",
+    "runtime/Modules/libGalsat.dylib",
+    "runtime/Modules/libSatsat.dylib"
+  ],
+  "intentional_test_only_omission": "runtime/Modules/Plugin/StepInputParity.dylib is a differential-test fixture, not an original mission launcher dependency. No source/resource input is removed.",
+  "resource_and_staging_inventory": "packaging/v9-input-review.json",
+  "notices": [
+    {
+      "component": "OpenOrbiter engine",
+      "repo_paths": "orbiter/Src;orbiter/Orbitersdk",
+      "version_or_pin": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+      "license_expression_or_terms": "MIT except per-file/vendor exceptions",
+      "obligations": "Keep copyright permission and warranty text; do not extend grant to third-party media",
+      "release_decision": "Retain original grant; publish audited source subset"
+    },
+    {
+      "component": "NASSP v9 main/PanelSDK",
+      "repo_paths": "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo",
+      "version_or_pin": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "license_expression_or_terms": "GPL-2.0-or-later with Project Apollo Orbiter SDK/associated-library exception; GPLv3 files separate",
+      "obligations": "GPL source/notices/change dates; preserve exception; covered combined distribution terms",
+      "release_decision": "Use GPLv3-compatible combined preview; keep original file grants"
+    },
+    {
+      "component": "Shuttle FDO processors in NASSP",
+      "repo_paths": "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_rtccmfd/{LDPP,LWP}.{cpp,h}",
+      "version_or_pin": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "license_expression_or_terms": "GPL-3.0-or-later",
+      "obligations": "GPLv3 covered-source and notice duties",
+      "release_decision": "Do not describe NASSP or combined preview as GPLv2-only"
+    },
+    {
+      "component": "yaAGC emulator",
+      "repo_paths": "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC",
+      "version_or_pin": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "license_expression_or_terms": "GPL-2.0-or-later with per-file Orbiter SDK linking exception",
+      "obligations": "Keep code license copyright exception; provide covered source",
+      "release_decision": "Retain code/source; ROM rights are distinct"
+    },
+    {
+      "component": "CDK/OrbiterMath actual code",
+      "repo_paths": "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_aux/{CDK,OrbiterMath}.{cpp,h}",
+      "version_or_pin": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9",
+      "license_expression_or_terms": "GPL-2.0-or-later in actual files",
+      "obligations": "Keep file-specific GPL and Chris Knestrick notices",
+      "release_decision": "Use observed file-specific grant; do not claim all CDK artifacts relicensed"
+    },
+    {
+      "component": "SDL3",
+      "repo_paths": "orbiter/cmake/NativeSDL.cmake",
+      "version_or_pin": "535d80badefc83c5c527ec5748f2a20d6a9310fe",
+      "license_expression_or_terms": "Zlib",
+      "obligations": "Keep notice in source; mark source changes and origin",
+      "release_decision": "Bundle notice and exact corresponding dependency source"
+    },
+    {
+      "component": "Dear ImGui",
+      "repo_paths": "orbiter/cmake/NativeImGui.cmake;orbiter/Extern/imgui/CMakeLists.txt",
+      "version_or_pin": "3912b3d9a9c1b3f17431aebafd86d2f40ee6e59c; stock v1.92.5-docking",
+      "license_expression_or_terms": "MIT",
+      "obligations": "Keep license/copyright text; font grants independent",
+      "release_decision": "Retain notice and exact source"
+    },
+    {
+      "component": "stb",
+      "repo_paths": "orbiter/cmake/NativeImage.cmake",
+      "version_or_pin": "2c980bb59875b0d32144a71867fbdebb2f77cd20",
+      "license_expression_or_terms": "MIT OR Unlicense",
+      "obligations": "Choose permissible alternative and keep notices; check included header notices",
+      "release_decision": "Prefer explicit MIT alternative in notices"
+    },
+    {
+      "component": "miniaudio",
+      "repo_paths": "orbiter/cmake/NativeAudio.cmake;orbiter/cmake/PatchMiniaudio.cmake",
+      "version_or_pin": "9634bedb5b5a2ca38c1ee7108a9358a4e233f14d",
+      "license_expression_or_terms": "MIT-0 OR Unlicense",
+      "obligations": "Preserve selected license and local patch/source in corresponding source; embedded decoder notices separately",
+      "release_decision": "Prefer MIT No Attribution alternative; no irrKlang SDK bundling"
+    },
+    {
+      "component": "Lua",
+      "repo_paths": "orbiter/Extern/Lua/CMakeLists.txt",
+      "version_or_pin": "69ea087dff1daba25a2000dfb8f1883c17545b7a",
+      "license_expression_or_terms": "MIT",
+      "obligations": "Keep full copyright/permission/warranty text including Lua.org PUC-Rio",
+      "release_decision": "Include source and notice"
+    },
+    {
+      "component": "Corrosion",
+      "repo_paths": "orbiter/cmake/NativeWgpu.cmake",
+      "version_or_pin": "a1a1aaa057a5da656c06c3d8505b767a4e941709",
+      "license_expression_or_terms": "MIT",
+      "obligations": "Retain license; include build tooling needed for exact source recipe",
+      "release_decision": "Include source/notice with recipe"
+    },
+    {
+      "component": "wgpu and Rust transitive dependencies",
+      "repo_paths": "orbiter/Src/WgpuClient/rust/Cargo.lock",
+      "version_or_pin": "wgpu 24.0.5;127 locked packages including local crate",
+      "license_expression_or_terms": "multiple permissive expressions; Apache-only packages; Unicode-3.0 conjunction",
+      "obligations": "Resolve actual target graph; keep per-crate license/NOTICE/copyright; exact source/checksums; Apache compatibility",
+      "release_decision": "Generate target SBOM and all notices; do not treat six top-level notices as sufficient"
+    },
+    {
+      "component": "Roboto native embedded fonts",
+      "repo_paths": "orbiter/Extern/NativeFonts/Roboto-*.ttf",
+      "version_or_pin": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
+      "license_expression_or_terms": "Apache-2.0",
+      "obligations": "Retain Apache text and Google copyright/applicable notices; modified files notices if changed",
+      "release_decision": "Keep verified bytes and notices; compatible combined GPLv3 policy"
+    },
+    {
+      "component": "JetBrains Mono native fonts",
+      "repo_paths": "orbiter/Extern/NativeFonts/JetBrainsMono-*.ttf",
+      "version_or_pin": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
+      "license_expression_or_terms": "OFL-1.1",
+      "obligations": "Retain OFL and copyright; reserved name/no font-only sale requirements; font stays OFL",
+      "release_decision": "Keep verified bytes and notices"
+    }
+  ],
+  "blocked_on": [
+    "Selected public source/history review; restricted Architext and prebuilt/material rights cannot be cleared by a suffix filter",
+    "Per-asset grant/preferred-source review for every included NASSP bitmap and stager dataset; compiled resources are not excused by external mission textures",
+    "Exact complete corresponding source/build/install/resource inputs, six source dependencies with local patches, Cargo vendor/lock and offline clean rebuild proof",
+    "Resolved target dependency SBOM with full per-crate license/NOTICE text including Apache-only and Unicode-3.0 terms; audited native font notices unchanged",
+    "Required source modification/date notices and applicable GPL/MIT/Apache/OFL warranty/copyright/exception texts",
+    "Relocated v9 archive fresh install/data preflight/save/reload and bounded graphics validation; no full-suite pass while strict native_pdi_pilot is red"
+  ],
+  "external_only": [
+    "Original v9 Config/ROM/scenarios/checklists/meshes/textures/sounds from separately lawfully acquired exact pinned data, with complete existing manifest preflight",
+    "Planetary archives: no automatic acquisition or inclusion; authoritative package checksum/grants remain unresolved",
+    "Windows/macOS SDKs, VM/OS/installers, DirectX and proprietary irrKlang files: never sweep into artifacts"
+  ],
+  "unsupported_targets": [
+    "windows-x64",
+    "linux-x64",
+    "macos-x64",
+    "linux-arm64"
+  ]
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "path": "orbiter/Extern/NativeFonts/JetBrainsMono-Bold.ttf",
+    "sha256": "5590990c82e097397517f275f430af4546e1c45cff408bde4255dad142479dcb",
+    "name_records": {
+      "0": [
+        "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)"
+      ],
+      "1": [
+        "JetBrains Mono"
+      ],
+      "2": [
+        "Bold"
+      ],
+      "13": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+      ],
+      "14": [
+        "https://scripts.sil.org/OFL"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/JetBrainsMono-BoldItalic.ttf",
+    "sha256": "4039d5ce0ed225bf9c8b2c8c6436290ae2f356b7e90d70fa666227238324aa3b",
+    "name_records": {
+      "0": [
+        "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)"
+      ],
+      "1": [
+        "JetBrains Mono"
+      ],
+      "2": [
+        "Bold Italic"
+      ],
+      "13": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+      ],
+      "14": [
+        "https://scripts.sil.org/OFL"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/JetBrainsMono-Italic.ttf",
+    "sha256": "9d0a1f7a708e6af183f1193b7e81d40da294f5c67682c085d8401c60aac8ded4",
+    "name_records": {
+      "0": [
+        "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)"
+      ],
+      "1": [
+        "JetBrains Mono"
+      ],
+      "2": [
+        "Italic"
+      ],
+      "13": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+      ],
+      "14": [
+        "https://scripts.sil.org/OFL"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/JetBrainsMono-Regular.ttf",
+    "sha256": "a0bf60ef0f83c5ed4d7a75d45838548b1f6873372dfac88f71804491898d138f",
+    "name_records": {
+      "0": [
+        "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)"
+      ],
+      "1": [
+        "JetBrains Mono"
+      ],
+      "2": [
+        "Regular"
+      ],
+      "13": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL"
+      ],
+      "14": [
+        "https://scripts.sil.org/OFL"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/Roboto-Bold.ttf",
+    "sha256": "baf44ce81636cc927fc27768437e5da853bac699e8aaf832d042f0dfed29b4b4",
+    "name_records": {
+      "0": [
+        "Copyright 2011 Google Inc. All Rights Reserved."
+      ],
+      "1": [
+        "Roboto"
+      ],
+      "2": [
+        "Bold"
+      ],
+      "13": [
+        "Licensed under the Apache License, Version 2.0"
+      ],
+      "14": [
+        "http://www.apache.org/licenses/LICENSE-2.0"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/Roboto-BoldItalic.ttf",
+    "sha256": "467a9ef7b54c91eb8be98b2ef13f385729302d2295fab5101f800f1c8453b170",
+    "name_records": {
+      "0": [
+        "Copyright 2011 Google Inc. All Rights Reserved."
+      ],
+      "1": [
+        "Roboto"
+      ],
+      "2": [
+        "Bold Italic"
+      ],
+      "13": [
+        "Licensed under the Apache License, Version 2.0"
+      ],
+      "14": [
+        "http://www.apache.org/licenses/LICENSE-2.0"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/Roboto-Italic.ttf",
+    "sha256": "8aaf23ac2ee9b3ef1b61c2390b3e6e02c0aa6a409d591c7fd7f3d4d7cf51e00b",
+    "name_records": {
+      "0": [
+        "Copyright 2011 Google Inc. All Rights Reserved."
+      ],
+      "1": [
+        "Roboto"
+      ],
+      "2": [
+        "Italic"
+      ],
+      "13": [
+        "Licensed under the Apache License, Version 2.0"
+      ],
+      "14": [
+        "http://www.apache.org/licenses/LICENSE-2.0"
+      ]
+    }
+  },
+  {
+    "path": "orbiter/Extern/NativeFonts/Roboto-Regular.ttf",
+    "sha256": "319cff6e7a31f0f2a41c475dca42890aa5d19fe16017e2290f8c1d4e14f76481",
+    "name_records": {
+      "0": [
+        "Copyright 2011 Google Inc. All Rights Reserved."
+      ],
+      "1": [
+        "Roboto"
+      ],
+      "2": [
+        "Regular"
+      ],
+      "13": [
+        "Licensed under the Apache License, Version 2.0"
+      ],
+      "14": [
+        "http://www.apache.org/licenses/LICENSE-2.0"
+      ]
+    }
+  }
+]

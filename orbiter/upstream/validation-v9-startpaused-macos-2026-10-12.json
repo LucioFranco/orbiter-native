@@ -1,0 +1,3456 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-12T03:42:55.547481+00:00",
+  "baseline_commit": "31879ff687a91609f2a63f4de86ebeebe7f65198",
+  "preserved_branch": "macos-v9-before-startpaused",
+  "source_pins": {
+    "orbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "production_change": "NativeHost.cpp nine-line opt-in StartPaused branch; one existing StepSimulation call then existing Pause request",
+  "upstream_semantics": {
+    "initial_world_steps": 1,
+    "default_startup_step_seconds": 0.01,
+    "fixed_step_priority": [
+      "CfgCmdlinePrm.FixedStep",
+      "CfgDebugPrm.FixedStep",
+      "0.01"
+    ],
+    "pause_transition": "Requested after initialization; callback/effective pause at the next caller tick without simulation advance",
+    "normal_false_or_missing_config_behavior_changed": false
+  },
+  "red_coverage": {
+    "true-unfixed": "failed before",
+    "true-fixed": "failed before",
+    "true-command-fixed": "failed before",
+    "false": "passed before",
+    "default": "passed before",
+    "log": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-ctest.log"
+  },
+  "green_coverage": {
+    "headless_invocation": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "graphics_invocation": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "later_main_loop_cap_check": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "distinct_ctest_checks": 13,
+    "test_results": {
+      "native_world": {
+        "status": "passed",
+        "seconds": 0.0662807,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "native_core": {
+        "status": "passed",
+        "seconds": 0.260074,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "module_lifecycle": {
+        "status": "passed",
+        "seconds": 0.00858583,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "native_cli": {
+        "status": "passed",
+        "seconds": 4.61109,
+        "source_xml": "cli-paused-cap-junit.xml"
+      },
+      "realtime_steps": {
+        "status": "passed",
+        "seconds": 0.00308221,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "nassp_stage_csm": {
+        "status": "passed",
+        "seconds": 0.24889,
+        "source_xml": "green-graphics-junit.xml"
+      },
+      "native_pause": {
+        "status": "passed",
+        "seconds": 1.0346,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "native_startup_pause": {
+        "status": "passed",
+        "seconds": 6.19703,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "native_scenario_compatibility": {
+        "status": "passed",
+        "seconds": 3.86103,
+        "source_xml": "green-headless-corrected-junit.xml"
+      },
+      "native_startup_pause_graphics": {
+        "status": "passed",
+        "seconds": 10.5465,
+        "source_xml": "green-graphics-junit.xml"
+      },
+      "native_ui": {
+        "status": "passed",
+        "seconds": 3.62482,
+        "source_xml": "green-graphics-junit.xml"
+      },
+      "nassp_stage_original_liftoff": {
+        "status": "passed",
+        "seconds": 0.550783,
+        "source_xml": "green-graphics-junit.xml"
+      },
+      "native_original_liftoff": {
+        "status": "passed",
+        "seconds": 60.7154,
+        "source_xml": "green-graphics-junit.xml"
+      }
+    },
+    "registered_suite_size": 102,
+    "entire_102_suite_rerun": false,
+    "headless_idle_simulated_system_seconds": 600,
+    "graphical_idle_frames_per_case": 120,
+    "normal_running_complete_saves": {
+      "green_run": "<POC_CHECKOUT>/orbiter/build/native-v9/startup-pause-evidence/run-6ztrk147",
+      "cases": {
+        "false": {
+          "before_sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3",
+          "after_sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3",
+          "complete_save_bytes_equal": true
+        },
+        "default": {
+          "before_sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3",
+          "after_sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3",
+          "complete_save_bytes_equal": true
+        }
+      }
+    }
+  },
+  "semantic_fixture_correction": {
+    "intermediate_failure": "native_scenario_compatibility zero-step clock assertion after the host first honored StartPaused TRUE",
+    "old_failure_preserved_log": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-headless.log",
+    "correction": "Generated headless manual-step fixture explicitly selects StartPaused FALSE; raw reference cfg/scenario and all zero-step assertions remain intact",
+    "physics_or_reference_values_changed": false
+  },
+  "stock_original_PDI_boundary": {
+    "command": [
+      "<POC_CHECKOUT>/orbiter/build/native-v9/native_parity_probe",
+      "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test",
+      "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m",
+      "0",
+      "--pause-after"
+    ],
+    "returncode": 0,
+    "initial_world_steps": 1,
+    "initialization_seconds": 0.016666666666666666,
+    "idle_pause_advances_simulation": false,
+    "AGC_counters": {
+      "Columbia": "1422",
+      "Eagle": "1422"
+    },
+    "MJD_token": "40422.8317623667",
+    "stock_baseline": {
+      "file": "evidence/ParityBaseline.scn",
+      "mjdToken": "40422.8317623667",
+      "ColumbiaCycleCounter": "1422",
+      "EagleCycleCounter": "1422"
+    },
+    "rounded_MJD_and_counters_match_stock": true,
+    "full_state_parity_claimed": false,
+    "GUI_or_Astra_QA_runtime_staged": false,
+    "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+  },
+  "inventory": {
+    "unchanged_files": 4002,
+    "differences": 319,
+    "omitted_upstream_files": 8,
+    "focused_inventory_tests_passed": 2
+  },
+  "GPU_release": {
+    "checked_utc": "2026-10-12T03:39:06.653663+00:00",
+    "active_native_simulator_or_test_processes": [],
+    "native_GPU_test_window_clear": true,
+    "interactive_Astra_QA_launched": false
+  },
+  "paused_Astra_QA_runtime_staged": false,
+  "interactive_Astra_launch": false,
+  "remaining_limits": [
+    "Historical full100 suite was99 pass/one strict AGC resume failure. This phase verifies13 affected current checks; it does not claim full102 completion.",
+    "Shared AGC scheduling/CDU FIFO resume and external native60-second repeatability failures remain open.",
+    "Human cockpit controls, complete mission and manual landing remain unverified.",
+    "Old QA manifests/binaries must be refreshed before using the new paused configuration."
+  ],
+  "no_NASSP_equations_mission_state_RNG_push_or_CI_change": true,
+  "artifacts": [
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/GPU-release.json",
+      "bytes": 189,
+      "sha256": "62d0276e55bbca47acbe33ad90504e20c60ee4adf9695a77bdb3437a581a1a69"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/NativeHost-before.cpp",
+      "bytes": 22653,
+      "sha256": "41efbc131bf5e98e6685531046d6ce38998dfc907e18ece4006678ec31301819"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/before-runtime-binaries.json",
+      "bytes": 516,
+      "sha256": "a42f24532bdeae1db060123c4b3d9ac8b8592c2c34f0a02fc7793e6dc973dd4e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/build-green.log",
+      "bytes": 8357,
+      "sha256": "aca5d6e2abd18b67d00c7c7bd49fb6c0dace7d79c9cb39059e46ea4b90497ca5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/build-red.log",
+      "bytes": 343,
+      "sha256": "a780c713d369580de872f966dd21b41391080484b0e5a5230fb6033540855819"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/cli-paused-cap-junit.xml",
+      "bytes": 417,
+      "sha256": "3686452cd29ed695e4dd88bf5d206f1090957a20582c5a30e0af67a6a5c0826b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/cli-paused-cap.log",
+      "bytes": 259,
+      "sha256": "fe2aa7cb53dfbb79e76c0c8ebebd4b60695f65c731944fe87a68abf7563bf67d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/configure-red.log",
+      "bytes": 6123,
+      "sha256": "6a31bb28c2cd7075dfcb3910e412558315da29762b069943d5ebacf02acb0d01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-graphics-junit.xml",
+      "bytes": 2918,
+      "sha256": "b938c4875f2227ae017b204b5d4fb59ccc47458bbcf5ea64d09ff867d40577f7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-graphics.log",
+      "bytes": 792,
+      "sha256": "6b7a0a3dc1bba3c840612061182418578caa03e0ee0ed9d57f79b939bafdbd65"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-headless-corrected-junit.xml",
+      "bytes": 4485,
+      "sha256": "2cbe9d227e96225f75db49ec8a72ad41ced419641bf2bc1df83affed4aa34715"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-headless-corrected.log",
+      "bytes": 1148,
+      "sha256": "9858cc4b09c223bf2c8a1cf9793e5a6dc542203c12779a8b2bc237a49be83165"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-headless-junit.xml",
+      "bytes": 5117,
+      "sha256": "79a4728a933c681573d1ba38a95509f3984cba7d05b2770b1c63545b524255b6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/green-headless.log",
+      "bytes": 2409,
+      "sha256": "bd11b2e7041789ef01e5f7fb83e93fba22176bd02772983da9884c0c446c666b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/inventory-before.json",
+      "bytes": 84084,
+      "sha256": "99f9b9df548eac38c5d37cdab9e287a05ac5bc00b184736ce1c95ecc462c451e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/inventory-export.log",
+      "bytes": 123,
+      "sha256": "e0f92e229c01dec760d1139b3290c114047901de7e03babcd92cf9a5e5bbd1d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/inventory-test.log",
+      "bytes": 100,
+      "sha256": "2c4af0b5f30d3b6d3c0a652f11800f644046b640312cbd74051383404109860f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast-ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast-ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast-ParityFinal.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast-ParityLoaded.scn",
+      "bytes": 348965,
+      "sha256": "de87ae3cf7ae501a6442a236d49f5c7b3cf43712f144a6e0faa1ec84cae1fdbe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast-trace.jsonl",
+      "bytes": 446141,
+      "sha256": "ac4d49620fe19e0e4f4fac8b601352412f11bfb564765ea3d278d71e9150925b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/coast.log",
+      "bytes": 5349,
+      "sha256": "7d6bb86a1b6f9864b2a5d9e62a1e98b5ddcd9b206950429310fab2ba1f18d9f9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload-ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload-ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload-ParityFinal.scn",
+      "bytes": 349241,
+      "sha256": "77e39bf0de7d2ba71ab44a272aad90aa7e654255f02fbc399ed431ccbdb5f7f6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload-ParityLoaded.scn",
+      "bytes": 349241,
+      "sha256": "77e39bf0de7d2ba71ab44a272aad90aa7e654255f02fbc399ed431ccbdb5f7f6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload-trace.jsonl",
+      "bytes": 2846,
+      "sha256": "a98bcfa6289756e41ccc2132fce88e772fc4c3f72055c8e6a145fd5eac99abe6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/reload.log",
+      "bytes": 5330,
+      "sha256": "c55004ce654a5a8f1e6944bfa7098c0fd7ab14a455f761b037497c760d88918a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/result.json",
+      "bytes": 3363,
+      "sha256": "b563f90ec55c3f7582a778f98286e77bfb03057a4394a76bb9a3d74336b1dde5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Orbiter.cfg",
+      "bytes": 799,
+      "sha256": "882f67aee788752f5756babf23c4f81e0628454c0f021cdf8c7bec3994c64253"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/ParityOrbiter.log",
+      "bytes": 1993,
+      "sha256": "5eebc9fc85360dcc4e4ac7e38bf4aac9e0d6b85d20821ff5037566c5ef9b72ac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/ParityCoast.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/ParityFinal.scn",
+      "bytes": 349241,
+      "sha256": "77e39bf0de7d2ba71ab44a272aad90aa7e654255f02fbc399ed431ccbdb5f7f6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/ParityLoaded.scn",
+      "bytes": 349241,
+      "sha256": "77e39bf0de7d2ba71ab44a272aad90aa7e654255f02fbc399ed431ccbdb5f7f6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/Scenarios/ReloadSeed.scn",
+      "bytes": 349258,
+      "sha256": "d12c217451948a6746e78028417f1e87e63e46aa079995bb02a45eb2cda45274"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-08svbdx9/runtime/parity-state.jsonl",
+      "bytes": 2846,
+      "sha256": "a98bcfa6289756e41ccc2132fce88e772fc4c3f72055c8e6a145fd5eac99abe6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast-ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast-ParityCoast.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast-ParityFinal.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast-ParityLoaded.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast-trace.jsonl",
+      "bytes": 440774,
+      "sha256": "ee69c2366a8416fb6a909e580d6902d05af89a031a7b76b7213a7180eb70cb50"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/coast.log",
+      "bytes": 5351,
+      "sha256": "1107d57f08bb08ad0159efe225474614ca260e0f286a48fe7319566c4b36f857"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/result.json",
+      "bytes": 2691,
+      "sha256": "f7afa8e84bce99451480e9d4e82f1a5ac21e6893719d2f7cdfc9af1d0bcdb758"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/ParityOrbiter.log",
+      "bytes": 1993,
+      "sha256": "bda6f92606fe496f4fc51a2ecf893ae01ba055ae4c0e8cad7f4ade76b3d961c7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Scenarios/ParityBaseline.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Scenarios/ParityCoast.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Scenarios/ParityFinal.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/Scenarios/ParityLoaded.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/scenario-compatibility-evidence/run-ekcvz4df/runtime/parity-state.jsonl",
+      "bytes": 440774,
+      "sha256": "ee69c2366a8416fb6a909e580d6902d05af89a031a7b76b7213a7180eb70cb50"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/Orbiter.log",
+      "bytes": 2065,
+      "sha256": "17b75de56351ba4103f4a33308e7f29e64582dae9f116df99a111f04eca92f0f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/execution.log",
+      "bytes": 6735,
+      "sha256": "142787caeb0fe9c106251f1a8a7bcfce159999fbd166f233e30ccb1c4703478c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/default/startup-pause-result.json",
+      "bytes": 191,
+      "sha256": "ca9e8069980f6ad0cba7e60a3e354c3f0ff64f485a07c22cba94cab5ecad691a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/Orbiter.cfg",
+      "bytes": 20,
+      "sha256": "926234c9200b8a9b491b5b82e5a8695635cc193aa15497662b13dc309e6c482f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/Orbiter.log",
+      "bytes": 2063,
+      "sha256": "4ec61058be90266c94632f049c74bdcd15a20f1f2a2089530b4372167055ab83"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/execution.log",
+      "bytes": 6651,
+      "sha256": "169e91e8411364548989094fb05b3414bdb142b1bf09bb5d55d4c9af07ec5aa7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/false/startup-pause-result.json",
+      "bytes": 189,
+      "sha256": "d346aadf7fdcde81ba64ea12ab6cf786ec8e2002c4dbf4e076bfa95630fe9fb5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/result.json",
+      "bytes": 39060,
+      "sha256": "7a42830a3c3d15ac2c53b3623d1a1bbc5b1600812da9d29d9499cfec1260f599"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/Orbiter.log",
+      "bytes": 2076,
+      "sha256": "917f247e72bbbf75cd327441ab94b444ad6e1f37e77113e619a0bdcfe1be58de"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162578,
+      "sha256": "0b82c2f770cefdddb2a28145affc03ff0fa8f0a1eadf0b6374f27943ef94d4c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/execution.log",
+      "bytes": 7200,
+      "sha256": "6c3dbe82a22a5633fb78dab318ebe0a4fe539b43d2e51d1bd702c6bc2a744df6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-command-fixed/startup-pause-result.json",
+      "bytes": 205,
+      "sha256": "4c16f14718e09b259528d58bbd5e6695257799fac7cb44748baa1a7ae808f9c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/Orbiter.log",
+      "bytes": 2068,
+      "sha256": "55d09c98b8cf8d25f0b28fcf48f72751ad78df04e56b1a1614c02ef402355f23"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/execution.log",
+      "bytes": 6869,
+      "sha256": "570e437afa3f7dfa89af7bc9aaf66623b2b2c97b340d34e361e8e4822cb65319"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-fixed/startup-pause-result.json",
+      "bytes": 202,
+      "sha256": "92792541a1492b48694dbb2aad6c09dfa25432f7c1e0f6c22fd0bf4d4208eb86"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/Orbiter.cfg",
+      "bytes": 19,
+      "sha256": "de3b0362c5924d46bc48a1f81c87ff80315c4d40c012524fe2fdf8d16ac7de01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/Orbiter.log",
+      "bytes": 2070,
+      "sha256": "092590f17e3003e4afd9d193e7f3597b8a781836c067edd8ed7b9b1c410f60ee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162609,
+      "sha256": "70a2dda5f5fe0284b46e01027c001e0092039f1c39c823fa4362fdf8ef19f6f3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/execution.log",
+      "bytes": 6948,
+      "sha256": "4c78a7809f057fffc21144e933fb97c7d4ba70f19b0878fe065b6e02d365a8d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-43rqa9td/true-unfixed/startup-pause-result.json",
+      "bytes": 199,
+      "sha256": "1df0454ba9a5853b643430026227470098d7f52b3098d5af3efbc3f5a5fc5442"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/Orbiter.log",
+      "bytes": 2737,
+      "sha256": "bcf1b800532e62e6a18546a3f63cba8e4626ba3266f215c2091ebabbaccedf44"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/execution.log",
+      "bytes": 6735,
+      "sha256": "bcc6376d18fe53e970989824cdeb933181260833a45b445f69b36622d0367eaa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/default/startup-pause-result.json",
+      "bytes": 191,
+      "sha256": "ca9e8069980f6ad0cba7e60a3e354c3f0ff64f485a07c22cba94cab5ecad691a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/Orbiter.cfg",
+      "bytes": 20,
+      "sha256": "926234c9200b8a9b491b5b82e5a8695635cc193aa15497662b13dc309e6c482f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/Orbiter.log",
+      "bytes": 2735,
+      "sha256": "dcad803c9a0ae40b2ad49817d10dc2cb07638452063fab0659454363f8abc78d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/execution.log",
+      "bytes": 6651,
+      "sha256": "7b1b67fc98e8ab1fea7271f943d7fcc0677346a5d5ee9a0788462cd4bc4ef6dc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/false/startup-pause-result.json",
+      "bytes": 189,
+      "sha256": "d346aadf7fdcde81ba64ea12ab6cf786ec8e2002c4dbf4e076bfa95630fe9fb5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/result.json",
+      "bytes": 39060,
+      "sha256": "547ef49c2e3af111f9319f640196b351933714981ec7da883bb500dfd0c3f387"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/Orbiter.log",
+      "bytes": 2748,
+      "sha256": "b36f4e5c99d6e0b946f95fe0b089eb859db9da42b54a534bc994fc932c38af47"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162578,
+      "sha256": "0b82c2f770cefdddb2a28145affc03ff0fa8f0a1eadf0b6374f27943ef94d4c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/execution.log",
+      "bytes": 7200,
+      "sha256": "079349d671b1d4baff279c3725e99d400866bcbd86891a80bafd42b0883f2f4a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-command-fixed/startup-pause-result.json",
+      "bytes": 205,
+      "sha256": "4c16f14718e09b259528d58bbd5e6695257799fac7cb44748baa1a7ae808f9c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/Orbiter.log",
+      "bytes": 2740,
+      "sha256": "3b7a49416f88d9410288c14b4bbb9b3ce777fd97ba40f8dd396d65fc860aa794"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/execution.log",
+      "bytes": 6869,
+      "sha256": "32a45a451b771a894f3e4514925ba9c0c629cb4d05f309896f37ae79e75e9a7d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-fixed/startup-pause-result.json",
+      "bytes": 202,
+      "sha256": "92792541a1492b48694dbb2aad6c09dfa25432f7c1e0f6c22fd0bf4d4208eb86"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/Orbiter.cfg",
+      "bytes": 19,
+      "sha256": "de3b0362c5924d46bc48a1f81c87ff80315c4d40c012524fe2fdf8d16ac7de01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/Orbiter.log",
+      "bytes": 2742,
+      "sha256": "1cd329bc0698a76a61497c660d719bc6ddfd69d0adb77b694a3c1cb1b7f41095"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162609,
+      "sha256": "70a2dda5f5fe0284b46e01027c001e0092039f1c39c823fa4362fdf8ef19f6f3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/execution.log",
+      "bytes": 6948,
+      "sha256": "8a1b4afdcecb124245d1720fd7c7226a78434158b96ce9669acf097d661ce27c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-6ztrk147/true-unfixed/startup-pause-result.json",
+      "bytes": 199,
+      "sha256": "1df0454ba9a5853b643430026227470098d7f52b3098d5af3efbc3f5a5fc5442"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/Orbiter.log",
+      "bytes": 1393,
+      "sha256": "1a1ea79bd35363d58cb9044e5e20af8639db0659efae2bc24345974ce11235ef"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/execution.log",
+      "bytes": 6735,
+      "sha256": "6d3c93b9be06b1b2a33005519c5aab9ffd31eeeeb8ca166f200a79be4fdc01fb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/default/startup-pause-result.json",
+      "bytes": 191,
+      "sha256": "ca9e8069980f6ad0cba7e60a3e354c3f0ff64f485a07c22cba94cab5ecad691a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/Orbiter.cfg",
+      "bytes": 20,
+      "sha256": "926234c9200b8a9b491b5b82e5a8695635cc193aa15497662b13dc309e6c482f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/Orbiter.log",
+      "bytes": 1391,
+      "sha256": "759132f0294eb3eb541b62ca3190a6e34e2ffd22726c38fcfb1652ebfa477c73"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/execution.log",
+      "bytes": 6651,
+      "sha256": "8cbf31a04cb784d25c7afa0b285ec5d7f7155cc8fed57d82996689f88dc32369"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/false/startup-pause-result.json",
+      "bytes": 189,
+      "sha256": "d346aadf7fdcde81ba64ea12ab6cf786ec8e2002c4dbf4e076bfa95630fe9fb5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/result.json",
+      "bytes": 38071,
+      "sha256": "b4eef1f1641f93d4b9062ac1a3811f1ad830e42cc6c3cd7666ea71c6b30c0d53"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-command-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-command-fixed/Orbiter.log",
+      "bytes": 1404,
+      "sha256": "85517ac0772f790b1000669bc1a5736e03ee24460c6f7e228c0d5f62b5cdb0cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-command-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-command-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-command-fixed/execution.log",
+      "bytes": 7183,
+      "sha256": "d23338b8ed2e18098ae19f224f2e4ea365eef0a5c90887a915233d54acac71cf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-fixed/Orbiter.log",
+      "bytes": 1396,
+      "sha256": "c98b86a44e997bff5e9f2f86d4a6de9db46942374040c7bf8c39d6f23113ed93"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-fixed/execution.log",
+      "bytes": 6855,
+      "sha256": "6a36007c9ee0963cd8b1f5a1e4e2fcd87264173b9f28126d884ad37471d30b91"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-unfixed/Orbiter.cfg",
+      "bytes": 19,
+      "sha256": "de3b0362c5924d46bc48a1f81c87ff80315c4d40c012524fe2fdf8d16ac7de01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-unfixed/Orbiter.log",
+      "bytes": 1398,
+      "sha256": "c52217433c107b099352e4cf1338c76c862c00c856338991dc8e93c283e518c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-unfixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-unfixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-evidence/run-hnqnl4h_/true-unfixed/execution.log",
+      "bytes": 6937,
+      "sha256": "9d68bf0f6718e055b0b5a6672800914f87bbe042570a31036df4c79fd89ee154"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/Orbiter.cfg",
+      "bytes": 20,
+      "sha256": "926234c9200b8a9b491b5b82e5a8695635cc193aa15497662b13dc309e6c482f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/Orbiter.log",
+      "bytes": 2744,
+      "sha256": "c692f524f982d754e630e23dd57394d9b2c3e64ff3f5afeed147d97f5e1788bc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162627,
+      "sha256": "a70bba9daf009b0b8e165c45bf9267eb4a72298f0ce66a297f82fa7347a8af0c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/execution.log",
+      "bytes": 7018,
+      "sha256": "ffb7fb9569b5c9bf7bdd55c99c6a26e260bc0a940afcedcc3938b5aa4ac2d55d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/false/startup-pause-result.json",
+      "bytes": 186,
+      "sha256": "7925bf0ccef42f4372d0602892459423e4bde3da88ecf362e53ded83350e80dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/result.json",
+      "bytes": 16585,
+      "sha256": "ce5d068f9c3de0efeb0741a58995e3f2aa0900987fbb8cf7b6a9dfdf0fd6e4bb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/Orbiter.log",
+      "bytes": 2749,
+      "sha256": "5deff304aa8d6b934427f6daf36f0bda2955d67a97861634ab78131d0dff7839"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/Scenarios/NasspCSM.scn",
+      "bytes": 162204,
+      "sha256": "e863f1b37cc1b0aeeeebd120f54f1c5ec859ab2f4ac694b18ac7120fdca7862c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/Scenarios/Orbit.scn",
+      "bytes": 302,
+      "sha256": "a5050f68cf31f8e9fddb52136317c88c9d2492386f530cbc9d059cd2c1ff089e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162627,
+      "sha256": "20a58ce256aaff06da84c687564710576248df258040498339aea16a8f31b081"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/execution.log",
+      "bytes": 7236,
+      "sha256": "1e976708f0fb79444afefa80c220571832154af5638b129fc6487971af8f60c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/new-regression-runtime/startup-pause-graphics-evidence/run-9egdx2kl/true-fixed/startup-pause-result.json",
+      "bytes": 199,
+      "sha256": "f67f82cf4642811ddc897155ad23ad79b279ffbeb8489f755bcf81907a47c7a7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/normal-running-before-after.json",
+      "bytes": 648,
+      "sha256": "096f8a04df95ca2f246a3d92f56927bd6d7b7c7da70cc921390e275324e9d84b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-stage.log",
+      "bytes": 107,
+      "sha256": "6ca0fcd76c599949281841a11866d5d0af532e6152cb68a412757772239aca22"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ariel.cfg",
+      "bytes": 1174,
+      "sha256": "dc216d178dae7a7d9d63e6d5d51de3c6d5ce4ec5986caca68098eed35c3639f8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Base.cfg",
+      "bytes": 423,
+      "sha256": "9aa9cff57ac72d7fcabeea7cf8386155f78e45033648e484608a58731b1d702a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/CSphere/Data/const_bnd.bin",
+      "bytes": 104384,
+      "sha256": "b4d31be397ee296bd6e75b55299fbe26a9923c54337035e6c9f6fe111aee44ff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/CSphere/Data/const_labels.bin",
+      "bytes": 2685,
+      "sha256": "f587fae2494aacd1d9ab7026f583a8029b4f4412ac28c2e2fc929d851eff627a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/CSphere/Data/const_lines.bin",
+      "bytes": 7184,
+      "sha256": "997d95fb552db143f446862e1b5cccd638f2aaab15fabeb999cced4ac76660d4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/CSphere/Data/star.bin",
+      "bytes": 1651370,
+      "sha256": "2f9c822c4710cd855e25305dbcb6e53e1a3a8797712b8bb43772e40668e87185"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/CSphere/bkgimage.cfg",
+      "bytes": 368,
+      "sha256": "0b7df0dcf6f89a5bfcfc1411b2a8c40576d1bd7924bf2f21a3a26ed4da937f5f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Callisto/Marker/Catenae.mkr",
+      "bytes": 308,
+      "sha256": "8cc06c7d481b2d3177ca8291946952bc19a77a586c78823940a62bd6540c9727"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Callisto/Marker/Craters.mkr",
+      "bytes": 3333,
+      "sha256": "6293005f6664ac31363f8eb4f80a509f3a170ababd6a9e964bc52af92b6516aa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Callisto/Marker/Faculae.mkr",
+      "bytes": 90,
+      "sha256": "9e0b38ffa2f0ad8b32c2b7d449a9076c9ef2ecdb62fc9ca3a4753bed34127270"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Callisto/Marker/Large Ringed Features.mkr",
+      "bytes": 175,
+      "sha256": "732d01ebf5cc4e6c8d04b03820b05d6493d330dbbecb4f5c69cd06885923a2d0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Callisto.cfg",
+      "bytes": 1049,
+      "sha256": "3919903246285f0d23e03c54fa41e7465bd7526b94f99774c0fc644b0e8d5d8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Deimos.cfg",
+      "bytes": 1412,
+      "sha256": "efa91373ba9b45a700fe918831029ee00624ab69619fd9cd367c3d946b657e2d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Dione.cfg",
+      "bytes": 1338,
+      "sha256": "b1711c4ceddcb7cef6a56e6e802285f9e748e57a4b212159e0fc1b3ef747818a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Atmosphere.cfg",
+      "bytes": 26,
+      "sha256": "085cb7f4597f3648e3c986190694be1d4e76646a4952d3eda848185d04a753c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Al_Anbar.cfg",
+      "bytes": 158,
+      "sha256": "3d7a80be602d82d0aa7c8b782031e436ef676362f98db8758d8b56f9022cdb46"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Alcantara.cfg",
+      "bytes": 160,
+      "sha256": "2942de5fec94d77b936ed1b95e436d592d371712636982031fde41e2afe66310"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Baikonur.cfg",
+      "bytes": 7252,
+      "sha256": "9be130a0f0cb517c6338835461c90505e94504b2d89df00bb66bd198ff3fa759"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Barent_Sea.cfg",
+      "bytes": 162,
+      "sha256": "f0a3ca00ecd65292be2c50739e1ae729184fb48bc7b60cc8edf2844678e11ea3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Canaveral.cfg",
+      "bytes": 12027,
+      "sha256": "9228c5da731ded2398bf8475d61a1886d9586c121abd77a34549fc22fa3297e0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/China_Lake.cfg",
+      "bytes": 163,
+      "sha256": "45d4d0c51a4efadeeb6341be0af3b4db102901d8b1c14a2567d26f328e2744ee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Doberai.cfg",
+      "bytes": 858,
+      "sha256": "2c7d3d227922edd3b23edfcf4e926ed006c1289f8fecfc486dbb361be314e40b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Edwards.cfg",
+      "bytes": 8052,
+      "sha256": "ca8ee41d812e924880f6d3f029fc37f2899a7d0bdbcbb28a162efc094d631dc0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Gran_canaria.cfg",
+      "bytes": 163,
+      "sha256": "9af707824bb7cc022e75ff358f13ba31ab68e6a3e4e28a4847e8ead5dd8a3f15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Habana.cfg",
+      "bytes": 4419,
+      "sha256": "f92704778ba3ce82b1387bf534578bdc97d30b3872b4401f35411f170d0acb8d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Hammaguira.cfg",
+      "bytes": 160,
+      "sha256": "b3f84255b72c003a4eedf26bb6da7f4b9332b53495c5fe52ca1ed539e9981e1a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Inyokern.cfg",
+      "bytes": 161,
+      "sha256": "ff5b6430db17804362fc48314114d09891204b58d3adbb1dcad7cc2939947d64"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Jingyu.cfg",
+      "bytes": 157,
+      "sha256": "2288d62f66e214db3e9f49ecd731a8af6e0346616c422b07fb676d30a24943e2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Jiuquan.cfg",
+      "bytes": 160,
+      "sha256": "71efbc66907aceffb960810934113c5e8f1e47a67f20fdf0908a9da10825180d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Kagoshima.cfg",
+      "bytes": 161,
+      "sha256": "1b277e3ff21fd631cc3f7e3de34fdbd657595f8432f28fa6a0a0f6cb9794667a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Kapustin_Yar.cfg",
+      "bytes": 163,
+      "sha256": "ea60b9721738a9011bba7dfef7ccef09fc3cb485db8bd50a89982e879432c5ad"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Kourou.cfg",
+      "bytes": 5498,
+      "sha256": "e3f89a060ac5c8077da8d3ac1a6eac40104bedceba2c3cc176cd6c384746351e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Matagorda.cfg",
+      "bytes": 159,
+      "sha256": "6100a581c0f7314a823e087ad137accd33b879cb2e87521ef3dcc919b7b547af"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Mojave.cfg",
+      "bytes": 4869,
+      "sha256": "6359746ecd435abdc2704fe8e2af0f39a0ba9341d15c9de5a2f8d312e25817c7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Musudan.cfg",
+      "bytes": 159,
+      "sha256": "e14034700d47ea575b188412c12cadebf26fee69f7b2874be82469725b33579f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Overberg.cfg",
+      "bytes": 160,
+      "sha256": "543a5dfb96f3e7da8fe0bcfeacf19880dbcc089e6edab5fa12d9cecce7092481"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Palmachim.cfg",
+      "bytes": 161,
+      "sha256": "b574c58653b734d74719d6935afeb97d81b988ed9a6544f3c141e42247aec682"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Palmdale.cfg",
+      "bytes": 3770,
+      "sha256": "77ca534fc3ed7210d49f07c00b8e19e14ad53eedf7c50f77557fbef3aa8c335b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Peenemunde.cfg",
+      "bytes": 161,
+      "sha256": "9c8c445c779863e26e845f9c5bbe2dc0d379d776e37b0aacfe13f738c3d91050"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Plesetsk.cfg",
+      "bytes": 159,
+      "sha256": "c5865150f2b16252d737917279faa880cb135c4a0a02145199fbe28fd78cf7d4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Salto_di_Quirra.cfg",
+      "bytes": 1209,
+      "sha256": "5edf5d20da686de003bddc842775c702c276ae85a65d5ac811ce4dd7bb9f29f2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/San_Marco.cfg",
+      "bytes": 160,
+      "sha256": "1afae6c4d4ff00ca2045949770cf42ee1e0103b91deb08ff0e0257dd6a90a42d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Sriharikota.cfg",
+      "bytes": 162,
+      "sha256": "b667565a372c683c1236b854bdb3b6f42953e036396de8b7af4e7f17961fbf8d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Svobodniy.cfg",
+      "bytes": 160,
+      "sha256": "d95c67378c7121a4c8c2e2b0e579ea4a1b8766cb92846c8e54ae26051ec80b18"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Taiyuan.cfg",
+      "bytes": 160,
+      "sha256": "8f3423efc91fc184f8e053417776963f24ac907b58397f7121e8749b3df4fc31"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Tanegashima.cfg",
+      "bytes": 163,
+      "sha256": "2eef40b446f3fd2d5fa0b6045df2491e88bb54dcb6d37db92218ebdf9a664fd1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Vandenberg.cfg",
+      "bytes": 163,
+      "sha256": "5ad96eaf9682aa13331883770deedd4945e621f072d2863b5f2ce033f5d8baee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Wallops_Island.cfg",
+      "bytes": 166,
+      "sha256": "438e44df8d38d747b2d8ae8f6a69d6efe4b1a3b8b3eb4318ed0b1fab49e5ef30"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/White_Sands.cfg",
+      "bytes": 3089,
+      "sha256": "6a0f36960ad44ded31f7d1fb59de2b6fc8bb5767c4e112dce383b49201782b2e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Woomera.cfg",
+      "bytes": 3323,
+      "sha256": "ed4877d6c97f879b0230156830ea6dcc21fb2e98cefbe1bd80ec3650b44abb6d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Wuzhai.cfg",
+      "bytes": 157,
+      "sha256": "2da476b533b7e9bed862baecf072a2a45b137b2deef81929dd0566de409a5478"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Base/Xichang.cfg",
+      "bytes": 159,
+      "sha256": "972e05af2e580c6284a60ba45f9dee29b213b6afbd42a3cad638f8d49370d016"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Data/Vsop87B.dat",
+      "bytes": 116257,
+      "sha256": "74560b927f80934121199719c103fc12613f028e5cc339cccb447f9ca5dde576"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Data/coast.vec",
+      "bytes": 196463,
+      "sha256": "9b33031ebfc88ade6daabd1d3ec6a7ce5d91b61daaf5211bf2cdde9f98bc79b3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Label.cfg",
+      "bytes": 129,
+      "sha256": "8145b9b7f73b7a4b417110465072e70aeec05a32eebc18e3892c5908de002046"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth/Marker/City.mkr",
+      "bytes": 15955,
+      "sha256": "80cd3a70cd841cdf5bb9968936ec8cb321b80918a27adee30c544eecad9416a1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Earth.cfg",
+      "bytes": 162927,
+      "sha256": "feae08123c91a1259e7368bf46475caa5e02547c2107d6573be9692f03826dfd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Enceladus.cfg",
+      "bytes": 1349,
+      "sha256": "cbcd5346daaa015137ba2699974c6abd5af6f7f34de48717cafcc77475e124e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Chaos.mkr",
+      "bytes": 124,
+      "sha256": "a228884a02ac4c455daa5a281ce59a225a78aecf3035563529d7a2853648cc32"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Craters.mkr",
+      "bytes": 1048,
+      "sha256": "94da85f0c093113a17fb6a8e907f0e00ca32f9b071e3f3758aa6c486959a1a9a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Flexus.mkr",
+      "bytes": 235,
+      "sha256": "b82f805dc01bc64af97f709e9f7c1cc9561c26e114921e6499df50bbd234d0cf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Large ringed features.mkr",
+      "bytes": 112,
+      "sha256": "cc544f3c37c04afe4af90b917190bebb43dc058c5a6daf87826645c57fb3ad8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Lineae.mkr",
+      "bytes": 1593,
+      "sha256": "2b2530944279d64ba4d538a0cf98cee5ef292e64931cb4506303e65ea9a1156b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Maculae.mkr",
+      "bytes": 253,
+      "sha256": "a6a9aa1545c4acca2bd730bb52ef32ff990ee2ca84873627fe3e2da6c0163780"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa/Marker/Regiones.mkr",
+      "bytes": 132,
+      "sha256": "354f9abd9ecea4f038d30f3e9bad216336516d1d530fe263d9a1bd90a97eeb9b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Europa.cfg",
+      "bytes": 1046,
+      "sha256": "09d1047a627cd22b5eb3341b21b17fb45374c6e9c1753571c2340ae38444764a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Callisto.atm.cfg",
+      "bytes": 1067,
+      "sha256": "3404576d173a85b1092e2e2eb8cce464b10ee4c79ac86588e75c3bb629247465"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/DG-S.cfg",
+      "bytes": 350,
+      "sha256": "daeb4909bb95226af61e7a49dd69a2ac252333471bccdf3f3211e914c5d9e950"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/DeltaGlider.cfg",
+      "bytes": 1111,
+      "sha256": "f5c878e6b30d050d761ca08ff209a34828dae1b870e3d1a86bc5db5eefcc0716"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Earth.atm.cfg",
+      "bytes": 1533,
+      "sha256": "d3ef929f359fc5c70de47876e10054c5ea95e63bfd196cb17fec338653b99c8e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Earth_A_atm.cfg",
+      "bytes": 1361,
+      "sha256": "8deac10876911ecae77018ce71ce116da36b9e55d981b41154dd69d05df53400"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Earth_B_atm.cfg",
+      "bytes": 1360,
+      "sha256": "b8a3ec40a636df5c1e3d634f516b0cff37ec70765aa00b643c62487555fe209c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Enceladus.atm.cfg",
+      "bytes": 1107,
+      "sha256": "639e79149ef07ab6e0eee849bf30ebfef25adf7a51cea2be1a24fd70f028ebbc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Europa.atm.cfg",
+      "bytes": 1068,
+      "sha256": "75b41c22003e0aa9f131ce29b465065e74e4079394497ed8804f8e1b8ca488e2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Ganymede.atm.cfg",
+      "bytes": 1067,
+      "sha256": "d6ccae067916435fd2a89a59035c4edf9d3f1dfe630f646368fdecde79e1f9db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Io.atm.cfg",
+      "bytes": 1194,
+      "sha256": "dd7f596d74bdcf9c4e8c8021d11c8ea9cc05ce15c388e5b5201fcb2881d459d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Jupiter.atm.cfg",
+      "bytes": 1252,
+      "sha256": "c6cce35396c27f117f9b01d03d94e258848bf995ab8cb2df87fad1f207b40f5d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Mars.atm.cfg",
+      "bytes": 1308,
+      "sha256": "4b3048af5e4875974f98e90b72d06a9cca5bbf6dc775adb0ab70111d93360a85"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Mercury.atm.cfg",
+      "bytes": 1105,
+      "sha256": "917c750e4c6a198bff962fdf97225ff7301e108ad11ed9daa89412d57cb6b732"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Moon.atm.cfg",
+      "bytes": 1068,
+      "sha256": "93439428a118e649092916a6fda0fd5c8eb4f96295bfcc184301a93a5739c4f7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Phobos.atm.cfg",
+      "bytes": 1104,
+      "sha256": "1c77c77d0c33eeda337bb5fed8f3a747e48e046338ecc14d81fd65bd2738e6c1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_CMBapex.cfg",
+      "bytes": 183,
+      "sha256": "4167ba8086293bddf01c0c25a50dc2182965204042598a0e11d39cdfaea95bf4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_CMOpticsCover.cfg",
+      "bytes": 216,
+      "sha256": "302cf58b4d2344011c78b646a71a16b0755363ab25763455b48cdee7837551ce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_CMapex.cfg",
+      "bytes": 214,
+      "sha256": "2f2e097442cfad8962f29136b34417b80e233d8089a043487e25b66ed7649634"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_EVA.cfg",
+      "bytes": 1051,
+      "sha256": "c6f627dc99440806ce990bb6fb45a6e9e695edc08c6fb9b1c300de7176eb1fce"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_LEM.cfg",
+      "bytes": 4316,
+      "sha256": "8d313c1c41444569b968950e9fd8cf8ebe3825ec7f2a790c315088b1fbe95cfe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_LEVA.cfg",
+      "bytes": 896,
+      "sha256": "5df9c256002219e321f5424edbaaa7d56cef038e8522b9c8e99eeb79e1ca50dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_SM.cfg",
+      "bytes": 7315,
+      "sha256": "56396fba93aece49bbebd85f29d6a0d160a2d93f96b38843fefb4933c593b37a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_Sat5LMDSC.cfg",
+      "bytes": 1211,
+      "sha256": "932c78a239244f5ac3c6633ac0c31a5eec7d01453fbdaf2c3447e845e843ce39"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_Saturn1B.cfg",
+      "bytes": 10043,
+      "sha256": "9048ca5f3a2aded8e042c0d80662f7ddc961b4d0c505eb3d23fac038492b4155"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/ProjectApollo_Saturn5.cfg",
+      "bytes": 10133,
+      "sha256": "61421e68deb173fddb200df129a7666594b992b3e65d4ac05d78fe01fbc45110"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/Titan.atm.cfg",
+      "bytes": 1298,
+      "sha256": "448227544ec61d230ee3d6f697dd4892f1f07f2e8463826c92c03d5702d09925"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/GC/XR2Ravenstar.cfg",
+      "bytes": 256,
+      "sha256": "581deec2a4d15d9f6ef9c7a9ae17b29178317e1e2bb86b368dc43d7e71c8a3b3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Catenae.mkr",
+      "bytes": 179,
+      "sha256": "3102948603c220a54710ba1dbdba7563fd92397e619d36c4d8915fa7862a3bf1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Craters.mkr",
+      "bytes": 3055,
+      "sha256": "45332721ebb2d8533c87b1866f8ff6bddc5eeb45d719add8ee410da2bc67831c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Faculae.mkr",
+      "bytes": 591,
+      "sha256": "e6279f98a583ed9650183435549697fb9c7186476f7c51609d82c43d8b5e244d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Fossae.mkr",
+      "bytes": 153,
+      "sha256": "172a0b2951b780e3214c321fd2447b0aad4c68775a3e8d6a940c208ebb34736a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Regiones.mkr",
+      "bytes": 234,
+      "sha256": "2eb2ec31cd49e8c923ee1f144cc0810739e66e8d4b110abd561404c7f3e5c916"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede/Marker/Sulci.mkr",
+      "bytes": 1128,
+      "sha256": "d77a0719c9e4951cf051c2636f4f748b98bd166b8473bf4ac71fd0a8f4ea61d1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Ganymede.cfg",
+      "bytes": 1049,
+      "sha256": "83f31e6cbf3dd485a1c018c6099405b34159bd169c7b0466868d86fb40320711"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Hyperion/Label.cfg",
+      "bytes": 56,
+      "sha256": "c08b9045866acf25e8acab53166ace98a5778bbdd9e7d6f30827958c31657b82"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Hyperion.cfg",
+      "bytes": 858,
+      "sha256": "dccbe3bb0a98cc78ddb10724377ab32829002b88ff5b89d59ce97333ba73187f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Iapetus.cfg",
+      "bytes": 905,
+      "sha256": "345e6dd6d3195a6b874f48a944625afcdfbf492f17e55d83a67a56a55468c852"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Catenae.mkr",
+      "bytes": 160,
+      "sha256": "6b26a1e665bc837e53a90c9b81a7e66652b6e7f367f739575d3157170a59a8f1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Eruptive Center.mkr",
+      "bytes": 348,
+      "sha256": "1c5814a69611c49f80add88da87a1dc7de9bca297fd3fd480602b0f3bddf1c2e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Fluctus.mkr",
+      "bytes": 508,
+      "sha256": "a852fe1020c4ee9c510ea59f72cbe90d01500b31ab4069b109fea4cc8262066e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Mensae.mkr",
+      "bytes": 337,
+      "sha256": "cb68acc15818fc35182d7bb5998e775d2c99ca9a0da6530e8b6d310e05d4b17a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Montes.mkr",
+      "bytes": 746,
+      "sha256": "ff99ada771d303fdbcc9ec9e1b00850ada7f9d96b25d9001a18e2faaf66e0310"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Paterae.mkr",
+      "bytes": 4375,
+      "sha256": "86ac2ee023227efce715d124f81568256112f5f8315da300653f8e61b4b24ac9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Plana.mkr",
+      "bytes": 311,
+      "sha256": "89d2bb17664cad914182eed5086b49db6ed4b011126fd2b6200740c6a165a138"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Regiones.mkr",
+      "bytes": 401,
+      "sha256": "1f30051aae738dc43d1ec1f2ddc9d33eda3b99138decd38f0bc92ab89a9a3eff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Tholi.mkr",
+      "bytes": 156,
+      "sha256": "db63906ffe4fbbf12409a0fcb7f1f6c97e6f17a3222adda6fc706171fcc302cf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io/Marker/Valles.mkr",
+      "bytes": 95,
+      "sha256": "706b9bdf575bf359bde77f35581fa0e63394c59576b22e8565484bdf3c8a20f8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Io.cfg",
+      "bytes": 1427,
+      "sha256": "29e421c89fb99ba256fd32e4cc70ce8d88f4248dd6fd27e393aeba44e603055e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Jupiter/Data/Vsop87B.dat",
+      "bytes": 167974,
+      "sha256": "bd6d74a1e1e239f32f1074d3a13ab5d09d83a5fde3148a24c6c6c3b96188cda1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Jupiter/Data/ephem_e15.dat",
+      "bytes": 51855,
+      "sha256": "37c08b7337530bb640b53a015701f7dc650ec789c783e8bf7927e1d8d48e2e8b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Jupiter.cfg",
+      "bytes": 2346,
+      "sha256": "5e355f78891cd15778bfb01b53abd9ef36a3263c9a4b773e53665dd12e5d46b1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/AGCDECMFD.cfg",
+      "bytes": 73,
+      "sha256": "cd8254237a630cbc60b17dc7b201bccbed5a261c3c9fa0977d5788847d807c73"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/AGCDECMFD.lua",
+      "bytes": 17182,
+      "sha256": "2f8dd04c2181b10332815a14d105b9916856b14037c54d77e3e0cc8bffde0309"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/Attitude.cfg",
+      "bytes": 27569,
+      "sha256": "507c6324f41098c097878d4e9c7b6aef6a8f0e506cc73b2231ce45a25d5459e9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/Default.cfg",
+      "bytes": 402,
+      "sha256": "f07a38455f56af37f96f875eff7434f0d3691e599de181d7fc601f22d9372a59"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/ScriptMFD.cfg",
+      "bytes": 70,
+      "sha256": "069f186d09c893d2685813f029d167ccc3bdde961267ea281c1b35b7ed485845"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/TestMFD1.cfg",
+      "bytes": 1920,
+      "sha256": "04a1e5983d659db05fc38ba43639093e6c9c78435620b9c790bd38c25b5f49c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/TestMFD2.cfg",
+      "bytes": 109,
+      "sha256": "73a822658a59288f4d7624f22b4bf7d7d7d8e7e2f19921dd3a92526bfb99396c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/Tests/MFDScriptAPI.cfg",
+      "bytes": 92,
+      "sha256": "769fe2cefc05a868b71a2bb5122243851d42cbbd5f71ff19b0eeb02bad72f6fd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/Tests/MFDScriptAPI.lua",
+      "bytes": 6559,
+      "sha256": "8115ecbc7583bbe7100c95c3610837b609134b13a845cbcc6f17af6f648a12e8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/agcerrors.csv",
+      "bytes": 3606,
+      "sha256": "de33cdef19613e76126a02b4f7e3d5d34206ecf883343266cdf7a56aa16c0ad7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MFD/dsky.csv",
+      "bytes": 6198,
+      "sha256": "fca484ca63d8a51c019dcabd13bceb0855da4ab921297cd3110b3e8c1d49bcf2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars/Atmosphere.cfg",
+      "bytes": 25,
+      "sha256": "ca3fb695a1e665c8db59c22bbb58a5f2f45b2ec45b2f40e1ba37145e302353b4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars/Base/Olympus.cfg",
+      "bytes": 947,
+      "sha256": "c249fefed69416bd4b20f1656eb471a76c6af72ed56a464fbd4d70b78491fb92"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars/Data/Vsop87B.dat",
+      "bytes": 288918,
+      "sha256": "09c09dbe9d66f6237d076488db3643b6f2e354626b5b0569b7e92ba247604a84"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars/Data/contour.vec",
+      "bytes": 140357,
+      "sha256": "4d23789cc586c792e4418e89e835346f5e537442a2dc0617a05a404888daac9e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars/Label.cfg",
+      "bytes": 735,
+      "sha256": "a15cf33ca63ecf756c72fc33e2312a667612b5e50d5dbb84c94430753fdb23f1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mars.cfg",
+      "bytes": 2241,
+      "sha256": "893d42a61dcef2824423db7f2198ae67655c60bcf09872585d2dc36382a21e9b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mercury/Data/Vsop87B.dat",
+      "bytes": 328504,
+      "sha256": "bf83d284e2d46562cf12c0680a01c9115e6b7172e3da07df5489ff245a69bb46"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mercury/Label.cfg",
+      "bytes": 303,
+      "sha256": "61beda70247f0a3335e91ea980b0d06b5a1f9ce878e0fab51ff7a67bb106db29"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mercury.cfg",
+      "bytes": 1610,
+      "sha256": "feb82197b688656c30732243b75e759e0d4b09410a0717d0dc18758884b6d98a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/MicroTex.cfg",
+      "bytes": 1176,
+      "sha256": "4d21d29ee3081edcda11f75b7e294353a107c3c0a1d8a755ba9888d1105d415d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Mimas.cfg",
+      "bytes": 1331,
+      "sha256": "fa921c4ff9da55bd7f22e84e6f7fcebbc428352b912f1e41203df47a1ee7813b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Miranda.cfg",
+      "bytes": 1177,
+      "sha256": "249438588d700c3701f4437c7a763bca6d6f706cf63624d203af6d274b28d305"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Modules/Console.cfg",
+      "bytes": 11,
+      "sha256": "b0d3f8272c684c98cd33813a4fdce03319506d62b3e9398f223c7619acb262b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Base/Brighton.cfg",
+      "bytes": 2127,
+      "sha256": "8487ac92d5ae6f6b8dd2b9fe3362503690d7d97e32fe3fe0351ba0984cd07d7c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Data/ELP82.dat",
+      "bytes": 42723,
+      "sha256": "f7cc016963c1ea490ac35ea11849930d90a8002875b7b7c83b49f01d909a5b29"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Data/contour.vec",
+      "bytes": 171038,
+      "sha256": "53974db6857a59929cec85fb1afbce8a3e6169637587a7d6b77cfabf4c071995"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Label.cfg",
+      "bytes": 403,
+      "sha256": "6f060a874ab0aa59518376fe39c82c1c7726f8c5b480b23d75fd5d66bde115c6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Marker/Apollo 10 Navigation Landmarks.mkr",
+      "bytes": 1004,
+      "sha256": "14bbf986322c97ebeb891396cbb727f061b94c758ccd682e54c757b8e2814316"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Marker/Apollo 11 Navigation Landmarks.mkr",
+      "bytes": 660,
+      "sha256": "2209bc48b3a616a8353fca67388d60ae01631c49228eb20359d60c24ac09b95e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Marker/Apollo 12 Navigation Landmarks.mkr",
+      "bytes": 984,
+      "sha256": "a619912ed1ccce8f89bd8fe31b747ebfe0cab695516e55275e286b30602f3aee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Marker/Apollo 8 Navigation Landmarks.mkr",
+      "bytes": 632,
+      "sha256": "e557760506f82cc46d771edf296130e0c252028e8f620ce5ac23c203fcff09fe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon/Marker/Apollo Navigation Landmarks.mkr",
+      "bytes": 2296,
+      "sha256": "afce2edd7a05da8e4ceb9461b1245d7a69b61ddc5d2037a871e1547bee5daebe"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Moon.cfg",
+      "bytes": 1611,
+      "sha256": "946fa98f61cd772789a0d0b5cf1fedda38095edd815a5a9c81ef049c9612c1ab"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Neptune/Data/Vsop87B.dat",
+      "bytes": 88590,
+      "sha256": "d98cec351ea79efb17da1c31a1828b7f05b06d51a821f31ba7ac0c33e1a67948"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Neptune.cfg",
+      "bytes": 1204,
+      "sha256": "f603492f0db9053820aeb8ab783ef17b40feff8485795ec530f0d7abc4303e89"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Nereid.cfg",
+      "bytes": 860,
+      "sha256": "c2892cfe40e2264c0ba8745354779f6d022ca7a12bd8886ab0b4ffc271e1545c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Oberon.cfg",
+      "bytes": 1174,
+      "sha256": "4ce409a7bb4069306ec0a3f19713b12334f480259b736572cee838c25da351ee"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Phobos.cfg",
+      "bytes": 1394,
+      "sha256": "1f9ea0f70b2a5242be96e85bdcc38f6b7e7c68a0e89dd4fad6585e386d2f6b83"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-203 Flight Sequence Program.txt",
+      "bytes": 741,
+      "sha256": "96ebb7ec8a51599a1b283af1e66cbf6f31ffe6054060c839f2926f3d0c2c4956"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-204 Flight Sequence Program.txt",
+      "bytes": 1517,
+      "sha256": "a2646127641b153e64fe03f84707682cce50b8d5e046d846c48d7fb2f2c7e2b1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-206 Flight Sequence Program.txt",
+      "bytes": 973,
+      "sha256": "42eaa390cd2b82c2a07371bc09ae6f960859cefeda8cfbca9dd665ad98cf6685"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-210 Flight Sequence Program.txt",
+      "bytes": 1028,
+      "sha256": "28fd83fff75e609072fb20288d97c37274de9a768be59e6e8c7f1c69b3985233"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-503 Flight Sequence Program.txt",
+      "bytes": 5193,
+      "sha256": "cf8be651f955886957f7d13579052fab87f1aa59dcd336abfa2e22412ae2895a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-504 Flight Sequence Program.txt",
+      "bytes": 4988,
+      "sha256": "0d8c9a793cbcd66804b4e7403811a09cf81de16d851c2f7ab2c78b19f3dd9f19"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-505 Flight Sequence Program.txt",
+      "bytes": 5057,
+      "sha256": "19f11ba1fb58eae65e8610797711350b62aa60b6d5e283b4ec8d454eba1385dc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-506 Flight Sequence Program.txt",
+      "bytes": 5057,
+      "sha256": "19f11ba1fb58eae65e8610797711350b62aa60b6d5e283b4ec8d454eba1385dc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AS-507 Flight Sequence Program.txt",
+      "bytes": 4760,
+      "sha256": "b4734b045b75e9fa1e1279df50d6d756e3674c8152eebcd68f79dc6189316607"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/ASTP.cfg",
+      "bytes": 168,
+      "sha256": "fcfb6115eee45c47030b9dfe33edda6a517d7b7b8ed002e9d65b42bbdecfc20b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepLSM.cfg",
+      "bytes": 73,
+      "sha256": "95ff0e87582ba07487f6d508074f4233ce657cd14e39cbb1e0fa4b6bbe52cc13"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepPSE.cfg",
+      "bytes": 73,
+      "sha256": "3ba1b4281debb1d5a113f996d6091f718a36fbb137bb708d7207138bb5766a75"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepRTG.cfg",
+      "bytes": 73,
+      "sha256": "30efdbe9f58680ac26c05ea0ddaf12efffe3acc93269bc0feeb06274b36f0565"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepSBnd.cfg",
+      "bytes": 75,
+      "sha256": "b62d464d9079c9a3ccd42644a8f3e11347fafdead989bb674b3586b23085a6f1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepSIDE.cfg",
+      "bytes": 75,
+      "sha256": "9d3e38e4561dc1be744ad92b6dc4685a87139aa298fc65132dccb3429fe316b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepSWS.cfg",
+      "bytes": 73,
+      "sha256": "e6268ddb4e5d7d8c94192d83db00fce3394cea371e0d1dbb58507a269b623387"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepStation.cfg",
+      "bytes": 81,
+      "sha256": "6992a9e6cd9cfea655274004f207f89923e41d6bd618dbc91d75921d2ba24b10"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/AlsepTV.cfg",
+      "bytes": 111,
+      "sha256": "2d63dfd235dfebbbc2fe7dedd90b7b9134e82a66b0f956dd51d952301799a9a0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Artemis072.bin",
+      "bytes": 73728,
+      "sha256": "ede3a6733d36f25a27704294012642fd18b1aca7b2331ab125d9cd9deea2d60a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Artemis072NBY71.bin",
+      "bytes": 73728,
+      "sha256": "cc3910ad74b4c74e88eec8a10dc7ea0c69491d1bdfbca78f16f5f10bc377e979"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/CMBapex.cfg",
+      "bytes": 329,
+      "sha256": "bdcd5d1caa707c73bb4660141c28c6d40a98fc5fc2f1941ba9cd88a3a11848df"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/CMOpticsCover.cfg",
+      "bytes": 105,
+      "sha256": "e91e67db323bed012caef6d296ac2bf5d695592d02f072b29902f66b61888857"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/CMapex.cfg",
+      "bytes": 327,
+      "sha256": "72e845366c053a5d4888e1503878036209919cabddbf8de57b001086ce14c159"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/CMprobe.cfg",
+      "bytes": 93,
+      "sha256": "ede5ed34eee4f3fceea7822e4eb20f186a68fc3126099520f9220c4d69fe8e16"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Checkout/SVEDSTest.csv",
+      "bytes": 5600,
+      "sha256": "a5ae2ac76b32b158957ccb4dac2bffd3ad5f0a55d2144ee1a659ab277e49e102"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Colossus237.bin",
+      "bytes": 73728,
+      "sha256": "6f1b907917f2850c3d33859496afa20964591c9b15660fa53bc9ea3f9d17426d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Colossus249.bin",
+      "bytes": 73728,
+      "sha256": "6153973f0438a14ee782ad38c4009dcd496ba81a9702b263c69dd165c212bb18"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Comanche055.bin",
+      "bytes": 73728,
+      "sha256": "c822021d3c80f9687d1ef3b4c4f9c5dc673fe6a66337438c553c4f5b112e372a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Comanche067.bin",
+      "bytes": 73728,
+      "sha256": "ed852287154a690e002b5dddbd2d583533347ffcf73c8c994dede13a77e17906"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Crawler.cfg",
+      "bytes": 161,
+      "sha256": "fc4617d4ae267603b31fd34edd17a9c8c23b26d74b4908086b44754e3f6be0c0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/DSKYOut.cfg",
+      "bytes": 47,
+      "sha256": "803be428f5527125da60e83e866792cc12b0f53c99581bc5d7e7109bcf578aa5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/DrogueChute.cfg",
+      "bytes": 236,
+      "sha256": "7c5a388fe29045487884d5e1a6382057ab16872f935240e7e9ec8387c8afb3ed"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/EVA.cfg",
+      "bytes": 62,
+      "sha256": "cb7df27b6ae52f864c0d57cf8d6bf0924185fbeae336e1e803004d1a42c59c02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Earth_VirtualAGC/Base/Canaveral_VirtualAGC.cfg",
+      "bytes": 1862,
+      "sha256": "4b92fe7cc721f0de5e69211fbdf0c13625bd53ab47d7c408b1526de7f87d2b94"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Earth_VirtualAGC/Label.cfg",
+      "bytes": 171,
+      "sha256": "c3a457376edde524d0a1d673bd6d42534c53ea336816b61bd15098163cef439e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Earth_VirtualAGC.cfg",
+      "bytes": 3679,
+      "sha256": "14ec749ded173a1eed2afe8da67e052652141e4bfac325a5e9692265deacfe6c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/EasepLR3.cfg",
+      "bytes": 73,
+      "sha256": "64f1f24f01efccf55938ea3ba82f4f3785fa17aef8cc01ab27621603c81be6bf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/EasepPSEP.cfg",
+      "bytes": 75,
+      "sha256": "942cc96d7867565499b7e7fcfa075eb2cedfbb1db84abe72ce8d0dc1dedeaa25"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/EasepSWC.cfg",
+      "bytes": 73,
+      "sha256": "c474a81fdb389a03d8a060558945a3aafca99f2c248cc0bac6d7d0db3fad09af"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/EasepTV.cfg",
+      "bytes": 111,
+      "sha256": "7f9b11335f3f3417d30193772a108c2d76aca780038ec9fceed334c2c6c955cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/FP6.bin",
+      "bytes": 16384,
+      "sha256": "5f9326c0d8bc0b1917deaed0a6c1dc3b5037d5260e7369cbfe6b10b0d8e55468"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/FP8.bin",
+      "bytes": 16384,
+      "sha256": "ff441d4d4e5c20ab5b3d50a7ee5fe86576563496babe288530880afb235e1806"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/FloatBag.cfg",
+      "bytes": 234,
+      "sha256": "05a04374618608d2e70fc380c09241a9a0718c62a243ee2930a6a9c79d1efc42"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Floodlight.cfg",
+      "bytes": 134,
+      "sha256": "ccc5f736f23d12296678260cd21fa35cb7386dfa5a63c8854dc05029cadf4dfc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/H-Mission Flight Sequence Program.txt",
+      "bytes": 4931,
+      "sha256": "cf79042900c8c1efffdf13a5d372bc66f4f23ec5cf007093a0cbfbfb9ec27268"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/J-Mission Flight Sequence Program.txt",
+      "bytes": 4905,
+      "sha256": "667f5ce2ecf85097513d7f895505f08e9e062b9961af3279aec9b3f2b7162a67"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LC34.cfg",
+      "bytes": 153,
+      "sha256": "12dc163aeb42f25067081903900bf9cb883010b374d9877df000ff3e3acabbdc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LC37.cfg",
+      "bytes": 153,
+      "sha256": "8a4a31ae4f7308f2ca19c66275296419a7ae2976164b63f81d37ab1f335bf2c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LCC.cfg",
+      "bytes": 94,
+      "sha256": "612ac1109b216d6cc1f9648426b782b269cfc46c8dbff88e43ab059da1dfc0f7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LEM.cfg",
+      "bytes": 149,
+      "sha256": "93640f3617f9648b409d66e3150f1cf41ed0ab2bfd45103033dde88b9f3c5737"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LEMSaturn.cfg",
+      "bytes": 155,
+      "sha256": "78d7266ad5859952a2aa331d1654128c6b11018f842c7ac734d15832e5e4e3d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LEMSystems.cfg",
+      "bytes": 47006,
+      "sha256": "ad140e02ee6791040f4dbe7484d5598e39e5898bff5501c08a5af0abb5190833"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LES.cfg",
+      "bytes": 96,
+      "sha256": "e85d21ddbeac3d310bcc743de1fc36d84d48adc53b9b5f93c8ccb2d6af9a9d04"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LEVA.cfg",
+      "bytes": 64,
+      "sha256": "5b2dfb02ea3b841e3dca1313085896271c70f73266ed344f9782d7d49116d433"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LM131R1.bin",
+      "bytes": 73728,
+      "sha256": "ae4f9e51ac9491c3da6462233936daeffc16277cd302c43a70b8459ebcd6cca5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LRV.cfg",
+      "bytes": 62,
+      "sha256": "2edff7b1abc3bad307fa6e96d6291dc269f31f44dad258d826a60e1368aa7071"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/LUM69R2.bin",
+      "bytes": 73728,
+      "sha256": "a163ae0c4ef77ae60c54b73510ea0a145f07d82040565acbbd55d2488c76a7dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Luminary099.bin",
+      "bytes": 73728,
+      "sha256": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Luminary116.bin",
+      "bytes": 73728,
+      "sha256": "c0a5ad746af3d399c9955a14e2fccbe6d2f4d465f36152c0c78b7bcb652310c7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Luminary131.bin",
+      "bytes": 73728,
+      "sha256": "82759b258376dd638ab7926cee654c20553033ed47e484f75c2ceff52a03977d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Luminary178.bin",
+      "bytes": 73728,
+      "sha256": "9236fa935709d282999f33d025f31f14dd50711660c273b8924b711d0b7d17ad"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Luminary210.bin",
+      "bytes": 73728,
+      "sha256": "61f3077b674ecfbfbe9aced0c80952b46dbbc3d384d6fd9552495c66c3600e00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/MCC.cfg",
+      "bytes": 105,
+      "sha256": "e1882b50fda04d9a3040d4a4658b669be7d4f868f041f8c7063f15e1041d0b02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/ML.cfg",
+      "bytes": 286,
+      "sha256": "cdb1151e4a5263c0cdc53a326f28fc7bce4b792d900e0e35f62d322e024f4242"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/ML_SaturnIB.cfg",
+      "bytes": 288,
+      "sha256": "0813395829ec9559ef8570f3fcb6731625dcc71305e135d3c785ae9f65257142"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/MSS.cfg",
+      "bytes": 226,
+      "sha256": "0efad829399094186bc8013df9c25d50caca3bba06c2446c553e957802581111"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/MainChute.cfg",
+      "bytes": 232,
+      "sha256": "a181f9e47899eb2df7aec8b0e33b282f345399b7c9688403b75ba719f21fef00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Manche45R2.bin",
+      "bytes": 73728,
+      "sha256": "3b0e87541b3b8eec5710b23f983f38a225c2042e36c84949df52416ecd51818d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Manche72R3.bin",
+      "bytes": 73728,
+      "sha256": "420548f25ce95c2ab36c4c7c0505dc17c3ab77840eb9d5f9a5aecc968bb40b02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Descartes.cfg",
+      "bytes": 157,
+      "sha256": "03e57b5e431f1172d46d16ff7ab74d1b47d9791a88152d76729af86817878f81"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Fra Mauro.cfg",
+      "bytes": 157,
+      "sha256": "29d87ad3f076f8bec6a9ddf8976a6c299efc2ea3c7e651df6811f3917a400d91"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Hadley.cfg",
+      "bytes": 152,
+      "sha256": "fa91c7b2a39e27e0931f1e66d82fa209d566b58f426f56c0150c6d82e1f0268f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Oceanus Procellarum.cfg",
+      "bytes": 343,
+      "sha256": "b578eb2d10ba013b15b3d82fdb4f9950321bbfe375a0255c000ce0e5d53a5564"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Taurus-Littrow.cfg",
+      "bytes": 168,
+      "sha256": "a89808e788348a2188a133ab86cdd11092d37390c9153f633e703f82ff97f5d5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Base/Tranquillity.cfg",
+      "bytes": 170,
+      "sha256": "cf6c3c98bebc946656dc034b498997558c41a0ecb6f8be4c2662f05d401e9646"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon/Label.cfg",
+      "bytes": 885,
+      "sha256": "d144014f5f4a545f549d36efff0619d5acfb3298e84984a0977dd07df1e8939e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon.PlannedLandingSites.cfg",
+      "bytes": 7467,
+      "sha256": "5de0ee32e2187b7b3044a384149659752706d3aaa27482373c450c587a00dd32"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Moon.cfg",
+      "bytes": 2428,
+      "sha256": "5f0caf8b252c8821e1851dc534cb0029c57c722714dfc62628490e091c3483b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1968-12-21 Init.txt",
+      "bytes": 124,
+      "sha256": "39c7c7f5f249ce241b73304e03f4bc032c2dcd1b9848fb80b5d0ef5fcf43c283"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1969-05-18 Init.txt",
+      "bytes": 125,
+      "sha256": "13b3b99e618f903dce321f6d210ebc85432cf5aba6afc28f5c9062baf07feb4c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1969-07-16 Init.txt",
+      "bytes": 95,
+      "sha256": "454b30aa255fa0426d125d61e88245db50721659a5ee86f76b2303af85e1573f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1969-07-18 Init.txt",
+      "bytes": 95,
+      "sha256": "8cee9d4053c4a981da350ac123ad57245f4be8b1e83d4558e2f35cd22c062409"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1969-07-21 Init.txt",
+      "bytes": 95,
+      "sha256": "458ae65f6ebc4157edf5a08be507d181f00aa25705bdccaad40ac6960ce4e4c0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1969-11-14 Init.txt",
+      "bytes": 95,
+      "sha256": "594d3e74f8246dd4b22ae905c9ecaeb2483b20de4273567343c460de07b16a5f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1970-04-11 Init.txt",
+      "bytes": 145,
+      "sha256": "37825efb5f69e23d1f9bc0f2a2b530a58a6a7f30b133d2f468a874f1ccce89ea"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1971-01-31 Init.txt",
+      "bytes": 123,
+      "sha256": "129b4f4df6afbcd6695ac3dc701c8bbebcb3535db3d279851371ff693f161d1e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1971-07-26 Init.txt",
+      "bytes": 155,
+      "sha256": "4bb185aa9d4cc6de6af2307eaaae9e770d05beb7070ad9bea68f1bc9eff9b3c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1972-04-16 Init.txt",
+      "bytes": 215,
+      "sha256": "d6ab5cc4f2f61fa37f5838217aa43006dcf55bbc339ddf0f21366f14d831aca3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/1972-12-07 Init.txt",
+      "bytes": 185,
+      "sha256": "bfda2f39c1e3ce053110017d9e920876156bda7eb17dbd9be345352e8b8d6a02"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/ASTP Constants.txt",
+      "bytes": 234,
+      "sha256": "19b52d7c6c11cdec02ba52904bbedaed6b81ea3049fcf8ff7f4250aa02828c32"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 10 Constants.txt",
+      "bytes": 1245,
+      "sha256": "ef4a7e99a21df48472e1abc40567bbcf07efc1d826e82df53b123fe613d3091b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 10 SFP.txt",
+      "bytes": 2624,
+      "sha256": "de4b67eb35403d01e1b949f2fd8b1a2a6cae4a90c1fef4319b0e27267f9f9ce9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 10 TLI.txt",
+      "bytes": 5084,
+      "sha256": "ab82d580a47ce7cab18e8c99e0bb167e3e9da4d8774a60a525bea6c8bddb5fd0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 11 Constants.txt",
+      "bytes": 1094,
+      "sha256": "7feb61ef993d1e249dd94ed20ee33da94c74ea2f2109b82f6eec616dd6a785dc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 11 SFP.txt",
+      "bytes": 7872,
+      "sha256": "8dbf7573fb43b886590537c93d4e7793d8d7ff820346461f1c369db9fa93d9d8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 11 TLI.txt",
+      "bytes": 15252,
+      "sha256": "59b55155808c2e8cd38bf0576140defa6083b307aaea4c175ec751d35b0b87e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 12 Constants.txt",
+      "bytes": 429,
+      "sha256": "9a33d275bf06303d623fba72dd1d39d668d1e694621dd0fcbd110d7e9b682824"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 12 SFP.txt",
+      "bytes": 2624,
+      "sha256": "c0e86a3a308d074b18569c624c97ae6ad2a0bc0642707802190949e371f5da94"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 12 TLI.txt",
+      "bytes": 5084,
+      "sha256": "681aa210336e669548a6367410ae7d492b8e680cd9012a16b0089d47730ec7f0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 13 Constants.txt",
+      "bytes": 427,
+      "sha256": "0f390240b1a76ec9d11041dd20550bbf64d48ef88793495d6a9e0d8f9eba2d5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 13 SFP.txt",
+      "bytes": 2624,
+      "sha256": "552ce386c7ad4c78b4cac469544e5cb9ced015b0c218aec59346ccd9df4596d6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 13 TLI.txt",
+      "bytes": 5084,
+      "sha256": "8e303c48898ba61465c7dbe30a32d34986072dd2048a4cd204784640364d9d94"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 14 Constants.txt",
+      "bytes": 503,
+      "sha256": "8edeb9dcd2af47ad6d0e7c1a699306232475883ef26199e7a0b1e103991a3ae5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 14 SFP.txt",
+      "bytes": 2624,
+      "sha256": "9c7a1951a54604cca39b8d75cf0931675c8aa86237424653e6bd013715385a80"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 14 TLI.txt",
+      "bytes": 5084,
+      "sha256": "e0f87c00a70a57920a79c8c29d3b8a1fd579152f07d3a3c176e2c8b369cd4498"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 15 Constants.txt",
+      "bytes": 1600,
+      "sha256": "937d2d4e5c20a4d19c2efff92c2257214834763951dd26e99a1d75340323afd7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 15 SFP.txt",
+      "bytes": 2624,
+      "sha256": "a25efde7aa55884436c62a2af5074834173a67767807399a7e9217b3bfc798b1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 15 TLI.txt",
+      "bytes": 5084,
+      "sha256": "01a5b785c6dd5bbb391e34f2622d9e03fab97f30931b813c48e435bf1f490b28"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 16 Constants.txt",
+      "bytes": 1614,
+      "sha256": "f1d4841fa5950f798b8ea7db2703f0c9d07f2e20396eeabf3fea5197eefc0e6d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 16 SFP.txt",
+      "bytes": 2624,
+      "sha256": "2338fcd6c7a5af07f8a3094921c3c8ef0245c4226b9c95f42db44f3852948a12"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 16 TLI.txt",
+      "bytes": 5084,
+      "sha256": "589419bb9910a071d1caf7f9ce4e74746929b574c915b68c3d3f79f7a4d60e1c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 17 Constants.txt",
+      "bytes": 1614,
+      "sha256": "b607092f931b03b0bc9070b24ae1e235eb2829955e8441e487487fceffe6af53"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 17 SFP.txt",
+      "bytes": 2624,
+      "sha256": "46e5c4f9072d10c60e104ecaf8f5de7469d427a8a3a7b6ce3dd99793579d828c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 17 TLI.txt",
+      "bytes": 5084,
+      "sha256": "d864fb02dcd039cd6e7d5c42f7ef764d7c5435c60f535c03fe2804ad570d2e4b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 5 Constants.txt",
+      "bytes": 65,
+      "sha256": "c78ac41190b9b8967d08ef2461eb743f9a3209f3e377e74e1ffb98df4b5ddfa8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 7 Constants.txt",
+      "bytes": 1208,
+      "sha256": "0c3ff66f8cb7ef64076c5fa6cfffd14cce28f584a22a82fa6eb101e88fb897dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 8 Constants.txt",
+      "bytes": 1162,
+      "sha256": "569e6713724aab1bc0fddd7117db5a18329d2f97271c46662430cf138afc9160"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 8 SFP.txt",
+      "bytes": 2624,
+      "sha256": "8a31075d432849704da7bbf00c47cc120680ff99c536a4291bd96ecde8622c66"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 8 TLI.txt",
+      "bytes": 5084,
+      "sha256": "f09dbe1fb903344f0ae2f9a549d705dd62655b72314be0cc52d71f22b85f70e2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Apollo 9 Constants.txt",
+      "bytes": 1118,
+      "sha256": "3b4934b9c6187ab2e38bae95892e4674c402ed655ffb394583a13ee5abf29c4c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 100A.txt",
+      "bytes": 307,
+      "sha256": "c63b37af80aecd6b49c33e8eddd0e86771a911fa13a5971c7fd2ac0ccb496b61"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 100B.txt",
+      "bytes": 305,
+      "sha256": "9e298fea6e1eeb77cccd59a29b8449aee2f50d0acc161722a5475241f5acf7db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 103A.txt",
+      "bytes": 497,
+      "sha256": "23eff30e9e7d8876d8e43a03d6d34fdbbb2a8ae2acab31fbbebbafe324ffcafa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 103B.txt",
+      "bytes": 252,
+      "sha256": "a4692c739d7fc15071e143fbb80b2a9fd00c3e5761c24ca77baa1c42546e3da0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 108.txt",
+      "bytes": 187,
+      "sha256": "ce47f7bba2c7ebb1eb7494b4f6cba6d81bf772ff347d1dccf8f4f6acb13f2b6c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 500.txt",
+      "bytes": 378,
+      "sha256": "4178438f146c3f62faceeac3c2b6d62f3fe5e17b38c322f8e9fbd26fd8b230fa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 501.txt",
+      "bytes": 370,
+      "sha256": "4a73c40204ccf021a307424bd0f87dc189dfad9fdd91e0ad743d5ec33d351c5c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 512.txt",
+      "bytes": 168,
+      "sha256": "955032173f22ac2d1de9f35ca4b918ef8d3e12415050d0cc1165ab0c24bbb189"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 514.txt",
+      "bytes": 161,
+      "sha256": "15e072253ef68fc78fa8e066f8e79278df218218258b5ae06a89f5529c320e7e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 515.txt",
+      "bytes": 122,
+      "sha256": "89cf3951df447abd40a7eb112e46b1fee584fbc48ee59475f48443901321a5d2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 517.txt",
+      "bytes": 188,
+      "sha256": "3b1bd4996f5fc7ccf67fc0def49285652d9585453cd00b6abdf844c2a19fa0f0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 523.txt",
+      "bytes": 238,
+      "sha256": "7b0e5ce32cd171ad02471cd8d9218ee19827d9ce56a649b26053bf44f0b81367"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 525A.txt",
+      "bytes": 158,
+      "sha256": "7c6d6f2f22db95b392639f25224fe06431d29e5dbf63fd795f50abf855494708"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 526 (1 Deg).txt",
+      "bytes": 586,
+      "sha256": "c40e05015dca6c6218fa17814af310a7aa9f0f197c98c36c47d90693eae76a17"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 526 (2 Deg).txt",
+      "bytes": 586,
+      "sha256": "d2e030c24b735d0700d4202f22ebcd8a1155b42cea7a83b859793b1a6fbe90d0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 526 (3 Deg).txt",
+      "bytes": 586,
+      "sha256": "1af84e2a57fdd91f23a9d87e5a5ccbd54b9810f144b0a4af38b05c675a57a54c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 526 (4 Deg).txt",
+      "bytes": 586,
+      "sha256": "5139b958e028d920f71462bd12d658bb4a3a949926fe047309d0d73adb7051b7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUX).txt",
+      "bytes": 376,
+      "sha256": "93d2a967ff65eaed42cfcdf4c8385f45e6ed7dfc294b37081f4a6b71370d82f7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUY).txt",
+      "bytes": 376,
+      "sha256": "84415fcab56ba10e112645781f8fe93edc7d93c783f8a6268cb7cd65c83188aa"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 527 (CDUZ).txt",
+      "bytes": 376,
+      "sha256": "d317db885800c1f6f020d72805e70e99b9159b28c9d505bd040e0d83e7e7c398"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 528.txt",
+      "bytes": 336,
+      "sha256": "b7cee170a910811e6b1515b0a54d2dc6c0ce733128250f70d44a54eb9dba6a2d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP 99.txt",
+      "bytes": 330,
+      "sha256": "3264ad4b8161c44cee2301e53d133115bd0ab107dfbb7f0fab6318043f715598"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP ASTP-75.txt",
+      "bytes": 573,
+      "sha256": "6d6b0368619cd00d58bf8ca2605e145a9d8212bd121fcee4efde2d3c51daa8a4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP ASTP-76.txt",
+      "bytes": 1387,
+      "sha256": "5ef032c6222ca16528601500670c80e966b336ed6d03acbef4afdf6fe95b7883"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP ASTP-77.txt",
+      "bytes": 628,
+      "sha256": "cbb0bec0cc4896e1b10022fecfec48effd29d66263cd2bc0b00028ab13fd562c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-15.txt",
+      "bytes": 136,
+      "sha256": "5f36bbc20c09c7f67a101adb90a67323885771f76c788c6001691afec9cd50a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-23.txt",
+      "bytes": 232,
+      "sha256": "ac5a1dbedce814696ca8f9e3579d7b7e11f1eb5d45905a4c271bcecdf3a51673"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-26 1 Deg.txt",
+      "bytes": 601,
+      "sha256": "91a92fda0d0a491eb172ee901d2ca6013c23ec1a7a1fcb839d32a92d3d484ed4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-26 2 Deg.txt",
+      "bytes": 601,
+      "sha256": "5c1f6b2563f1125e96362488b42de2ac6e0740489271a103e2a9c8b7db5ea4a2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-26 3 Deg.txt",
+      "bytes": 601,
+      "sha256": "78396d28c1165d5d4d8e9d951d2258ee2ec6d42307a128798ac020850881861a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-26 4 Deg.txt",
+      "bytes": 601,
+      "sha256": "b33ba222caae8a53ce7f3b308fb48d9644834cfe3c66a6e0b779fb3baba897dd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUX.txt",
+      "bytes": 413,
+      "sha256": "d1f5cfe38ad22a0edee5ef76543140074a096201d2216d809ee9272520b2ae94"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUY.txt",
+      "bytes": 413,
+      "sha256": "22a58d39528aaf53eb3855d9ceb36b30c52fd3e6558f86b7a733156f9c1ab175"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-27 CDUZ.txt",
+      "bytes": 413,
+      "sha256": "4b5fc51386d1884ad3aaac23f8a61e3867ac90c93a0648320e2c1b6d07409913"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-28.txt",
+      "bytes": 338,
+      "sha256": "d75adab8a40b7200ae9dd330c4c6eb8189aa2dcc57fd724ba59c45606afb026f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-50.txt",
+      "bytes": 306,
+      "sha256": "a878c90e1dd9ad1f0ac8d1ea4aa4fc77ecd35597b3802056dbe707a3a3560eb0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-52A.txt",
+      "bytes": 232,
+      "sha256": "8c834dfc4a7ce7e9bd4c25d7279f6bfa5fc6c986e7a18cdfdfc7b6abf7fcba8a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-52B.txt",
+      "bytes": 232,
+      "sha256": "a9eab00b13c45e5548d064edc7147da403655c2df57eeda3f086e1813a5d33b0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/EMP SL-55.txt",
+      "bytes": 606,
+      "sha256": "673b47fdb961f0265eb677ae147ea7ac2aeb1b14477a5f9005bece35b318579f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/P99 L1D.txt",
+      "bytes": 274,
+      "sha256": "3d663acb3f75a99b2b7cbc8b82272af48994eac492c59a66d4d9a7f108efae57"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/EMPs/Zero Cells.txt",
+      "bytes": 47,
+      "sha256": "95d0da3173d9e43eca195a855bf49b6b5a8aaeca591c479435a65719978c02c8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Skylab 2 Constants.txt",
+      "bytes": 242,
+      "sha256": "0b9ea514c194a59d7ae6e1c947eb6d608a59f861a8296b26e056b5cd30357438"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/RTCC/Star Table.txt",
+      "bytes": 6115,
+      "sha256": "9c4a7b567bfc831d6ab37eb9231da8423474c266321a7dba7e915df27879b30b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/SIBSystems.cfg",
+      "bytes": 799,
+      "sha256": "d4c60d4ed600716768039304a5203a26f42d6c8f77d50ced240bc374d0a10f4e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/SIVBSystems.cfg",
+      "bytes": 636,
+      "sha256": "e943abba58ca6ebcc31954d7cf36999be51e41f256bdee17d671503534478bcd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/SM.cfg",
+      "bytes": 97,
+      "sha256": "6230a5b9adce15d6d57fdc48807c5ab904561f4006031ab344fcab1f50ca7d5d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sat1Aerocap.cfg",
+      "bytes": 259,
+      "sha256": "669cad5cd3041bb8ea9fcaac80fb86f3e9b8cdf59fd30944bc317524c5b2bab2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sat1probe.cfg",
+      "bytes": 96,
+      "sha256": "b5500511e9864778da5723f867bb1f8ad923140d08f9c3bc1f531255fed637cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sat5Flag.cfg",
+      "bytes": 48,
+      "sha256": "b1df6dc2adf7d7daff0fcf00269e66ed1e6c69d6352c204cdce952f7e12c092f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn IB Default Flight Sequence Program.txt",
+      "bytes": 1068,
+      "sha256": "b2bb02ef47079bf760850f8062aa57550f9be83403a47a50b863e78bfeeffe90"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn V Default Flight Sequence Program.txt",
+      "bytes": 4808,
+      "sha256": "042b8da80caeda531d5bee7ae7a464587d6b73e6d4c3e0e6029618aa1fc62782"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn1b.cfg",
+      "bytes": 361,
+      "sha256": "ac39a81932754fa3b69be4eead56949f569c750d1d8029d02cb6e7f4162a6ab3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn1bAbort1.cfg",
+      "bytes": 151,
+      "sha256": "eee2e07311211d46c087eb99c4811b0923fcbc8d8ab3810b8395c3b7586efaf6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn1bAbort2.cfg",
+      "bytes": 153,
+      "sha256": "5a8f8fec46de204d3bd8896043dc4e6ff74b19684067f5336a3b04ca5a8dd967"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn5.cfg",
+      "bytes": 356,
+      "sha256": "de1aa2a8353654f024dc6c36af82639e207b2dff1158e83d36d62675805832c7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn5ML.cfg",
+      "bytes": 366,
+      "sha256": "09a2f73f3f75b96285246eb4317f61672f900b556f54b4d140bcb6f161f42a7d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Saturn5lowres.cfg",
+      "bytes": 241,
+      "sha256": "ceb3a24a8351870725d067419a3b46c4c6d6c26e49e9c9ff9175d8210b5e08c8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/SaturnINT20.cfg",
+      "bytes": 851,
+      "sha256": "9b9568996615aedcf0220c6a057b9667527e30272dd0f0219c160ab11728748d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/SaturnSystems.cfg",
+      "bytes": 46567,
+      "sha256": "4453dae88cbf88a1a09173e6de50b67b9f5a1f990d69ea1ca4e250ba09a9d234"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Skylab.cfg",
+      "bytes": 214,
+      "sha256": "cecf9ad2bb554858c8128d84e8cd13610b46d4338e8a82d52231b4eeabbcab07"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Skylark048.bin",
+      "bytes": 73728,
+      "sha256": "4150948d4a21b69b5c3cd83aeb623b642fc4fc7ad225e165c73a451a2646178c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sol_VirtualAGC/Marker/Additional RTCC Stars 1970.mkr",
+      "bytes": 10026,
+      "sha256": "07d1bb4412f0f29562fd8bd6b8e79a0204db0d13fdf686ea1acdaafeab79ea9f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sol_VirtualAGC/Marker/Apollo AGC navigation stars.mkr",
+      "bytes": 2562,
+      "sha256": "28ab9f3ba03760cf7d234d2ee8fafd1f14b4875a36809c13d67448525ae41f4d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sol_VirtualAGC.cfg",
+      "bytes": 741,
+      "sha256": "ae286391386e24a8e0d09e46c88f4e40b86a48aee387214dc2a38b931a71b5a3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sunburst120.bin",
+      "bytes": 73728,
+      "sha256": "9204c021089ff3488447d89fd15314f52cf50754d29a3cf4e7881ec1604ebeb9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Sundance306ish.bin",
+      "bytes": 73728,
+      "sha256": "9c679afef6aceed5b28485b97efa528f807863633504d856985a15dc19f5e2f4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/VAB.cfg",
+      "bytes": 150,
+      "sha256": "6519023bba41a07c70cbc156ef9542b3e4e3bd3d28be8b1de18acc2407a0aa3c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/CSM - GenericJoystick.cfg",
+      "bytes": 1469,
+      "sha256": "4d615eb6ab8bb8d1e0fe798c244c1bc7b7718ce527e4c1c3702b7a19e7117e4c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/CSM - Keyboard.cfg",
+      "bytes": 263,
+      "sha256": "b72dd407862f68748be1e5b40cca43b8b71430991b916e772111915e52541599"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/CSM - Logitech WingMan Extreme Digital 3D (USB).cfg",
+      "bytes": 1529,
+      "sha256": "03bc4d627b1e4a92b8496ae7e34dc03cdb461de8fcfd88edd3c640851c83192d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/CSM - VKBsim Gladiator .cfg",
+      "bytes": 1689,
+      "sha256": "355184c064dc6189483b79230adfc55cd5690ad8bee511aa1302f5022ba4464c"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/LM - GenericJoystick.cfg",
+      "bytes": 1103,
+      "sha256": "4321eedb1f484cc36d0eba88ab7ab99c62767e4b0206676cf80bd44847a79085"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/LM - Keyboard.cfg",
+      "bytes": 269,
+      "sha256": "8951c663aba7ec822655b3761d4a2965d80720b7bf15f32a3a62b2637fc6e011"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/LM - Logitech WingMan Extreme Digital 3D (USB).cfg",
+      "bytes": 1144,
+      "sha256": "95d0efbff55e9b13dc9c1f9258f2f248b18e768fde9e34f3bfadf557a554eef5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/Vesim/LM - VKBsim Gladiator .cfg",
+      "bytes": 1351,
+      "sha256": "418787cbcdc849a121af9d8180f89e95c1cae604a611756f2138deddcfd40a22"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/joystick-DEFAULT.ini",
+      "bytes": 1643,
+      "sha256": "9297bb4805edf63c98f00e0889fa03562c7ac1168fc27171958ffe9c8b4f480a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nSat1_SM.cfg",
+      "bytes": 27,
+      "sha256": "364f0f5900dfc047c319bac520c43b1237a65d1b8c9585a11ef01ae490ea6c39"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nSat1astp2.cfg",
+      "bytes": 193,
+      "sha256": "738e1b07aff438ce70fa1fa815b188ebdb0086577ddd11a8ce8f1f1715573b04"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nSat1probe.cfg",
+      "bytes": 79,
+      "sha256": "a5da5a7e68dd6fe99ca59386c045c0ce005ef325d69948fbdc0592f139f37a0f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nSat1stg1.cfg",
+      "bytes": 137,
+      "sha256": "b698be373e6820c198a309b8ff3e2e16c299d4b21c321e0438b9682c3cc47d00"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nSat1stg2.cfg",
+      "bytes": 190,
+      "sha256": "f1a01b60962c322baf002dcc0c57c4da85f7a3a4efbd44f70d7180a11cad6cd2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nsat1btower.cfg",
+      "bytes": 139,
+      "sha256": "730c149061e21e92d39f3cf03f69bd6f39d8039e74802bc2b4402e8de90b09e4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nsat1stg21.cfg",
+      "bytes": 346,
+      "sha256": "1a476efbf9c0ef7e97499e4a1b3623880562d915d7bd230e030f158ffa4d5331"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nsat1stg22.cfg",
+      "bytes": 345,
+      "sha256": "ea1eda4bc5146a8df179a7217fb95cbd177a704f1d6339c1b732e7db345196d1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nsat1stg23.cfg",
+      "bytes": 344,
+      "sha256": "63c509598de81d3b7e8e442cd8f81dad9e2e59d36a4ef9a3fb3125317b3b1a27"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/nsat1stg24.cfg",
+      "bytes": 345,
+      "sha256": "331f063ab4de2f9f57a3897f068674fed5efddbc5102bc3af04d9689bca04258"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5LMDSC.cfg",
+      "bytes": 137,
+      "sha256": "3a7f37e4f472222ee3bcfd894b2942e3bb752b7ba9b20bfec5c69fdc1a092397"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5_LMPKD.cfg",
+      "bytes": 161,
+      "sha256": "d1882867295c270e146e12bcb3a98bcfbf4f74a160632d007adb2797abbc4999"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5btower.cfg",
+      "bytes": 145,
+      "sha256": "912162e129a12f2039620f77dfd26439c9669a40d953fe9a5a4a31bbb6782a92"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5intstg.cfg",
+      "bytes": 358,
+      "sha256": "f9804a569f6148610aec7558d56244fcedd8f5f39ccad1a753e5c5deb4a9a513"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5intstg4.cfg",
+      "bytes": 359,
+      "sha256": "d7a30f9a8eeeaadb2bd34f06bd424d78f209b9cdbf0eac0dd5a0e1f4f17d44c8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5intstg8.cfg",
+      "bytes": 359,
+      "sha256": "03838cfee97c531bd1f523b7ac24d0b0bd75082bea23029a7d2aa1557ff0f463"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5intstglowres.cfg",
+      "bytes": 371,
+      "sha256": "ebead80b7b5135c1c117b117239640b6ad0d53511b04486e2de04c9a86edfbf9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5sky1.cfg",
+      "bytes": 321,
+      "sha256": "13ddc5d1bbf7cbfdf7395fc41737559e8e5645c1e68270484f4d18197b99e6ec"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5sky2.cfg",
+      "bytes": 325,
+      "sha256": "1cc0fcc9ac2896f868513b633e688a8554f2557a66ea72e4ec44d3428b31891a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg1.cfg",
+      "bytes": 134,
+      "sha256": "e008dfe3736bcff42f4570cde489d1586fa64f2ac6128f122bc2c04e4b7bde21"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg2.cfg",
+      "bytes": 135,
+      "sha256": "e6148090367d713503fc811af673cd4d284090b894d3b490831ec5123eb9c481"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg3.cfg",
+      "bytes": 396,
+      "sha256": "9b97ed47e7e098e097c0e592dbde2fbcd592ff4c9df204fb58eda18cdbd41863"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg31.cfg",
+      "bytes": 337,
+      "sha256": "435200007e9aa4f7b60312325222bc30f7ad90b5ba21b9a360661216f6b2b9ab"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg31wide.cfg",
+      "bytes": 345,
+      "sha256": "73703db4e34ce758e6273ac4c7439be190245a2268a9745b89f6b8bfbd8339d9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg32.cfg",
+      "bytes": 341,
+      "sha256": "aefd575d2f85f38e9a169b3554ca8706816aa51c558091001bf7ada8f8ac1fb4"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg32wide.cfg",
+      "bytes": 349,
+      "sha256": "812d27aafa7ad7b2a63c6fe5d61b9de0db886cac5a5621c68d71b16b409015e1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg33.cfg",
+      "bytes": 342,
+      "sha256": "0a18f7a43d2af04e5a93a80849608e2b2f6ca15d8e6ecc25f807ae43058cbf15"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg33wide.cfg",
+      "bytes": 350,
+      "sha256": "1436e817778713d4cde1615c767921dca1e7534d5dedb6fbd12dc26a5cfca07e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg34.cfg",
+      "bytes": 341,
+      "sha256": "8e66484dd10832407fab02fcf513bf6baa5da7daca13cd74e0d0a422f2f49130"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sat5stg34wide.cfg",
+      "bytes": 349,
+      "sha256": "15ad66ca8eaa02c73227ec9d88718093e339abb0b4536d00a0d47d04b997a4bd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/saturn5abort1.cfg",
+      "bytes": 135,
+      "sha256": "0b661da9b5fa57742bc3c2014e95e3afd7cb00863515a33821069dcbf2da62c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/saturn5abort2.cfg",
+      "bytes": 135,
+      "sha256": "e0ae8fcabf5463945d46a3bc21129777fd3ab0f3e27e97ce5a084bf7b83b1d0f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/saturn5abort3.cfg",
+      "bytes": 135,
+      "sha256": "6ba88b105fb16ed19653b7edcb663cf036b38b0e5823e51ba8c9221fda2412e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-hga.cfg",
+      "bytes": 269,
+      "sha256": "ed8130633977e45b49e5b44053f30fc9437ea1f5249a61471fe896c26fda0017"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel1.cfg",
+      "bytes": 278,
+      "sha256": "7b36db729408a72dae4f1ea5580ac8dd2a74c36a8fe0457717303f55c0e66696"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel2.cfg",
+      "bytes": 278,
+      "sha256": "124834001d55d358eb0ab388e601961738a8eeac75caa9324e0868f6f94b7adb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel3.cfg",
+      "bytes": 278,
+      "sha256": "df9ebd0be8c5c5c1e969b61ab3eb64bba71afc797361542eb0aeec4608949db1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel4.cfg",
+      "bytes": 278,
+      "sha256": "8ce120762b34d1670074bf50e5f84e6297aed0d9f98db0b80b6e046d9475ecac"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel5.cfg",
+      "bytes": 278,
+      "sha256": "d6823d9e7fc8879b9099b3b91a070ed8d3736aabd595e4bd6ab6da19f5d15981"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-panel6.cfg",
+      "bytes": 278,
+      "sha256": "9f702d63d6ff5424953d728d017d23a3b442b846ce05e23952546afd71d4df84"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/ProjectApollo/sm-sps.cfg",
+      "bytes": 269,
+      "sha256": "079be9852099ce6ade248abeb052730d1ed52b37ccc1f174c7b011aca3a1e5cb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Proteus.cfg",
+      "bytes": 876,
+      "sha256": "55a75f04c184890d19845210c57d294a17134242d0beac2fc7ff62958a516047"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Rhea.cfg",
+      "bytes": 1329,
+      "sha256": "408f57888a29f491e1c5055528bb1e0e9017e06473bb441b9ead9391018c82db"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Saturn/Data/Vsop87B.dat",
+      "bytes": 280591,
+      "sha256": "60e0cdb4fba2783b23e56a7419f0a8c8d0fedc7f36a68104b7d05d12a05a0894"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Saturn/Data/tass17.dat",
+      "bytes": 160008,
+      "sha256": "81484425d8506f887787822cd1da7d55fdba73ab0d733bf494d6fe3d2e32a6b9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Saturn.cfg",
+      "bytes": 1746,
+      "sha256": "bc83212dbab8c0c8233d423914cd64570ceafc79e7c799a413f38d236ceb25ab"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sol/Marker/Apollo AGC navigation stars.mkr",
+      "bytes": 2416,
+      "sha256": "825af366c76342a149aec49145a9d069bf2d4918742d895ccf3d83dcb5d21662"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sol/Marker/Common star names.mkr",
+      "bytes": 5426,
+      "sha256": "e316332eda61c7f59a75a8a28951e708634c729caf514cbf0d52ea919799e629"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sol/Marker/Galactic.mkr",
+      "bytes": 264,
+      "sha256": "f2f1b40327879aea7055cd48e4ea6e38b5913caa90cf90998f9b59eb5ccd3a47"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sol/Marker/Messier objects.mkr",
+      "bytes": 2499,
+      "sha256": "b07d429065de1cd9049c5bfabc327d6bc5c855faf16249a71aa43a310fcbaf5b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sol.cfg",
+      "bytes": 731,
+      "sha256": "d48a3c7ccca7d05656e66f8abc6898cab51452f9318404519b327c395a499106"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sun/Data/Vsop87E.dat",
+      "bytes": 291916,
+      "sha256": "d0b14864fe33f918e89cfe960a714bf832622ce38feb828cbe95fe8af84382c5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Sun.cfg",
+      "bytes": 268,
+      "sha256": "c6293f20fd68d3ba61eb2b8dbfaebda26d452b440be1fa8c2c18d258eea766e3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Tethys.cfg",
+      "bytes": 1332,
+      "sha256": "789e056865c2872b96c2a00c8b61847d45cca8fe69f1cc8de6cb4bcf17cff12a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Titan/Label.cfg",
+      "bytes": 591,
+      "sha256": "676f5159528f494f59c8391d2946449c30e3cd8bfc86aa01ff927c6e75ec5df0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Titan/Marker/Titan Probes.mkr",
+      "bytes": 163,
+      "sha256": "3b7b563c10c3aa3f5b25de7f72b88a9b9e898e4feeb467b380d00a9dfb298a48"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Titan.cfg",
+      "bytes": 2327,
+      "sha256": "5874423abedcb3f3d5a4b57aa0f9ee728f604d4db09b1a5e0937a36392c50cdf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Titan_v2.cfg",
+      "bytes": 2324,
+      "sha256": "65a8223ff4f1acbab70c558960d8aaf22b5acd2176faddf523873aab2fe8cfad"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Titania.cfg",
+      "bytes": 1180,
+      "sha256": "068eab6cebd18fa8ec7c876ac51f1654be0ef5564fff4fa9397099cc3781b59f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Triton.cfg",
+      "bytes": 1602,
+      "sha256": "d6a2f9294dde21ac17b7c111eac0bf07e6036481e6857df7279f9983cf3b5864"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Umbriel.cfg",
+      "bytes": 1180,
+      "sha256": "2f2813f23fea7b77544ab4f38d815ce1b447398ea7324ae258a838845df06b7d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Uranus/Data/Vsop87B.dat",
+      "bytes": 230596,
+      "sha256": "86f5d8bf5f41178e855e961febf2649bccf6428718ffe75ff393e0d9ee2753ae"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Uranus.cfg",
+      "bytes": 1344,
+      "sha256": "f53537909c0d35164a3b457b6048f50aa98a6f822305b75c916094024c1b5af8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Atmosphere.cfg",
+      "bytes": 26,
+      "sha256": "ecde5a8ae852e3fcae5228712b300b7d820c74d9cc23f6ef06ce2e3495018ba9"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Data/Vsop87B.dat",
+      "bytes": 77827,
+      "sha256": "49d11113e327dedeb0114b7c423f3b5aab8a22653bc166c594cd17aa3f3827e5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Data/contour.vec",
+      "bytes": 157527,
+      "sha256": "c017bdee85674bb26225a53216f8448b3b8384be3e746cefb6c0ce679ba60cc7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Chasmata.mkr",
+      "bytes": 2009,
+      "sha256": "0ac354ac1c1ff4742460b9b4aa0c6c77c59a16b103f769be18c2177a33c0d91b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Colles.mkr",
+      "bytes": 561,
+      "sha256": "e027871a2eebe28b62040f8a31f2698f71652f4c1374f595b449cbf5e681c82a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Coronae.mkr",
+      "bytes": 10623,
+      "sha256": "2e062b560ebec25ac05b4953da26be119be3e4e6a3ad7d4c47bd676df7a39b9a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Craters.mkr",
+      "bytes": 21591,
+      "sha256": "9b60185821ff06eacd9848c70d7bb16e2801abb021ba4c033a70eaf69b4926f7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Dorsa.mkr",
+      "bytes": 3178,
+      "sha256": "d5322628efe5ae597208dd464f57e93b752d53ae47d97ef98226eaad4915ec73"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Farra.mkr",
+      "bytes": 363,
+      "sha256": "d8a695f80f169af4d7ac9732aa3dc4feeee6699b7e431f02f370248b70b49bd8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Fluctus.mkr",
+      "bytes": 1678,
+      "sha256": "0a35b55e879d21cb893dd38c8f327c6b9f89bf23ac00f729e5e7216f7b61c8b8"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Fossae.mkr",
+      "bytes": 1141,
+      "sha256": "235494a258026ff2da8ea0045e7dfc30fa17ccac971a98c8cd6c61f1e94c1250"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Labyrinthi.mkr",
+      "bytes": 102,
+      "sha256": "c8438dba95a44fc78cb0ae8d26e96ba958cbf35c672fe7060a2f2ebdc59c363a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Lineae.mkr",
+      "bytes": 709,
+      "sha256": "d244558cd396725e8421b35fa2d0c50c446c0a15ba9e4c8db32aaf46d3539d6e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Miscellaneous.mkr",
+      "bytes": 174,
+      "sha256": "3e4f9cbdeb7537f310adcf084b1331e371e1ced4b2fdbf46c06aad10b9ab2fb5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Montes.mkr",
+      "bytes": 3542,
+      "sha256": "f1a022b8804894c5fc6259e94e7e06ea501daec43f68fc80f96cfa0e4315bd61"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Paterae.mkr",
+      "bytes": 2884,
+      "sha256": "0b6c0c8c4fefef901189f859884549c04ecfec03c36f3beccf4d6bf5c57f7bf6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Plana.mkr",
+      "bytes": 191,
+      "sha256": "72f50a6324a4687a40ce0cd8ba1cacbbc67d511de0f2fd6d63f1344e4660df68"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Planitiae.mkr",
+      "bytes": 1441,
+      "sha256": "76b95fbcf05a88a88a97b1e5b5da6acfe52f54223b14373d99f2bcffa92204f0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Regiones.mkr",
+      "bytes": 710,
+      "sha256": "15a94d1a4d712af1d5c1b53c85e54c66d73376a335541816b295cd01c12f03f6"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Rupes.mkr",
+      "bytes": 268,
+      "sha256": "43ac1f4558fb968fe1b23e7dabb846787111d256f4bf43f62e425f0d7c9949c0"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Terrae.mkr",
+      "bytes": 152,
+      "sha256": "b49186c4d675952e09115ea7545b4021f71e6dfb53cf2d0f08a779349d8f8b9e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Tesserae.mkr",
+      "bytes": 2167,
+      "sha256": "5c8107370801b3469b78cdb203c07651a219cc5abd2c805bbec67ddf60164f8b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Tholi.mkr",
+      "bytes": 1654,
+      "sha256": "d3f7dd81b8709f013df51b389bc44ce3dd24d760480472ca6848620b759044bd"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Undae.mkr",
+      "bytes": 151,
+      "sha256": "0c0de8e7e8f6860904088e10ef00fb9de0f3c4030e8a51df786cc15d7318a870"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Valles.mkr",
+      "bytes": 2342,
+      "sha256": "333592289c94228cbb2a0401fc095e9e0b73d120205ea042839a45f5f9998add"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus/Marker/Venus Probes.mkr",
+      "bytes": 1002,
+      "sha256": "9df6c6ad265a3327e89555e258359dcace232209eb08b6defddc9830c9608e7a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Venus.cfg",
+      "bytes": 1897,
+      "sha256": "4f2332baa07f24938ccfdf710d18f1e8947e562d1373cf453fce0238505ff16d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/ISS.cfg",
+      "bytes": 391,
+      "sha256": "cccb840e6cca110f73b6f64735e2aa2e169e11709010c9c433d2a760f812ec3b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/MaterialTestSphere.cfg",
+      "bytes": 158,
+      "sha256": "001839efbe15a9b5252fcf6c892ceda477fd622ef03f8d130750e7be1132ac69"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/Mir.cfg",
+      "bytes": 356,
+      "sha256": "91efb778a451c45f8b3830b45720711cd1d9504877bacadd3dc1b6796db77f0e"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/Module1.cfg",
+      "bytes": 232,
+      "sha256": "8b82f6d6d3e198e3c449717de772306c81f6024604e6ad5da981efd83d1a7870"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/Module2.cfg",
+      "bytes": 387,
+      "sha256": "ff836fc53a93af7678209eb4ddf2f37322cfcc2de37fa8650d78fff67623e030"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/ScriptPB.cfg",
+      "bytes": 12222,
+      "sha256": "77d5c4d84299f6152b2218f3624327040f66677862b0725fe84a1c27382f82b5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/Wheel.cfg",
+      "bytes": 475,
+      "sha256": "0b0d93aeaa28724444cd1f7110a864fecf4d3276cc5b627bfabd0b835be84e3a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vessels/mplm.cfg",
+      "bytes": 231,
+      "sha256": "4f3650a7571f190aa373816ba468c5c0d9de2734e2685696ccd080a99138f47b"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/Vesta.cfg",
+      "bytes": 1167,
+      "sha256": "40473bc3e57775c90a56a8460631db1b5304e58a8b88ecc3fab5539bd8e39460"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Config/gcGUI.cfg",
+      "bytes": 2106,
+      "sha256": "4f5623108fe47d75d328457c4993cd257aa8ba4168ce207e892d3cd7f025e90d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Orbiter.cfg",
+      "bytes": 798,
+      "sha256": "8ac49cef44465fcfc86b5867bbaf0fb964a43ce06ebcc4aef1a80a1b371bf366"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/ParityOrbiter.log",
+      "bytes": 1961,
+      "sha256": "fb0a7960a72e71dcf3c65127303bf8fc14f2ba6487e582a9e8cd0552ad7e50c3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Scenarios/Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 10 - PDI T-15m.scn",
+      "bytes": 366054,
+      "sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Scenarios/ParityFinal.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/Scenarios/ParityLoaded.scn",
+      "bytes": 349089,
+      "sha256": "ced63b8fe96af20e45b1d126976ce12a029a5421cc31449227b9309608b9c5ca"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/lvlog.txt",
+      "bytes": 35,
+      "sha256": "b61ed9c19dedc57ac5c219c42cfe198e5e692437cc2f25b7f885f50781f682cc"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/mission-source.json",
+      "bytes": 53352,
+      "sha256": "e58c201ee55d0b123cafb2ff2c2229bc99717d20e121df5f57ddbd56851b2cf7"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-test/parity-state.jsonl",
+      "bytes": 2914,
+      "sha256": "ea426f252209c0ea5d2aeec339af71a1f2e325fa7a78d20ae58c23ba1c5f0dba"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup-verification.json",
+      "bytes": 995,
+      "sha256": "23b6a50189300ed498f2edc9201aba6d54b9afb069909a89f0b157b4bdad394f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/original-pdi-startup.log",
+      "bytes": 4453,
+      "sha256": "0901054b9aef44788d8710d2833092bab44c51c9fa1db5b89cd0299f44e8104d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/pinned-Windows-Orbiter.cpp",
+      "bytes": 95572,
+      "sha256": "82ea3bbffede2cde66e2134b9ecf3d2acf4cc7608b94b99c7b73d485a234cdff"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-ctest.log",
+      "bytes": 1330,
+      "sha256": "52b1f57cf4a0526c6ddcd785d9d4d30de2ca7a9288437a6acea1948c74c026b2"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-junit.xml",
+      "bytes": 1482,
+      "sha256": "bb48a3c61f22b454ffac1ace52f3208332120642d51e12fe41e737f3829e4490"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/default/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/default/execution.log",
+      "bytes": 6735,
+      "sha256": "6d3c93b9be06b1b2a33005519c5aab9ffd31eeeeb8ca166f200a79be4fdc01fb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/default/startup-pause-result.json",
+      "bytes": 191,
+      "sha256": "ca9e8069980f6ad0cba7e60a3e354c3f0ff64f485a07c22cba94cab5ecad691a"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/false/Orbiter.cfg",
+      "bytes": 20,
+      "sha256": "926234c9200b8a9b491b5b82e5a8695635cc193aa15497662b13dc309e6c482f"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/false/Scenarios/StartupPauseClosed.scn",
+      "bytes": 162630,
+      "sha256": "e7cd226a3c0a59113fa0e499702758404465eaf028da6083d323bbbcc0e14ed3"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/false/execution.log",
+      "bytes": 6651,
+      "sha256": "8cbf31a04cb784d25c7afa0b285ec5d7f7155cc8fed57d82996689f88dc32369"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/false/startup-pause-result.json",
+      "bytes": 189,
+      "sha256": "d346aadf7fdcde81ba64ea12ab6cf786ec8e2002c4dbf4e076bfa95630fe9fb5"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/result.json",
+      "bytes": 38071,
+      "sha256": "b4eef1f1641f93d4b9062ac1a3811f1ad830e42cc6c3cd7666ea71c6b30c0d53"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-command-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-command-fixed/execution.log",
+      "bytes": 7183,
+      "sha256": "d23338b8ed2e18098ae19f224f2e4ea365eef0a5c90887a915233d54acac71cf"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-fixed/Orbiter.cfg",
+      "bytes": 52,
+      "sha256": "b74741251d41a49294f4de9aaad3788579bdc88d6923b499144a20daf03cef71"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-fixed/execution.log",
+      "bytes": 6855,
+      "sha256": "6a36007c9ee0963cd8b1f5a1e4e2fcd87264173b9f28126d884ad37471d30b91"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-unfixed/Orbiter.cfg",
+      "bytes": 19,
+      "sha256": "de3b0362c5924d46bc48a1f81c87ff80315c4d40c012524fe2fdf8d16ac7de01"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/red-runtime/true-unfixed/execution.log",
+      "bytes": 6937,
+      "sha256": "9d68bf0f6718e055b0b5a6672800914f87bbe042570a31036df4c79fd89ee154"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/reference-active-Orbiter.cfg",
+      "bytes": 762,
+      "sha256": "77dfbd191b7a228ea8b4edecc6e0efba9a3caa3022031c5d0ac0dcb7a7f122bb"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/reference-bundle-index.json",
+      "bytes": 1824,
+      "sha256": "afc562b49750c9ac693d2000aec8861a050e36b90095df6f62845694b1cedee1"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/reference-coast60-index.json",
+      "bytes": 117056,
+      "sha256": "2f0decf74ec6b673043d4811208a5c6f8a278035fd0d63415eadb543c03f919d"
+    },
+    {
+      "path": "<NATIVE_EVIDENCE_ROOT>/startpaused-fix-20261012/reference-early-step-index.json",
+      "bytes": 386660,
+      "sha256": "3a1f93e0b5a1c00d98ad48fc101df7d8c0f8320826c83c625e463e7cc42e7536"
+    }
+  ]
+}

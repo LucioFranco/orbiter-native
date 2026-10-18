@@ -1,0 +1,895 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-11T21:13:27.594741+00:00",
+  "baseline_native_commit": "a12ae78f7300f7c3db951cf481cabac9cf814f9f",
+  "upstream": {
+    "openorbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",
+    "nassp": "e731c28c0ebc1a4fe3b63f99e2006a1a8a2b42a9"
+  },
+  "scope": "Headless bounded matched-configuration startup, 5-second coast, fresh-process reload and native keyboard pulse; no full mission or complete systems parity claim",
+  "source_changes": [
+    "Tests/NativeParity.cpp: standalone observer/input driver, no NASSP headers or state mutation APIs",
+    "cmake/NativeWorld.cmake: three-line manual executable registration"
+  ],
+  "physics_or_mission_source_changed": false,
+  "gpu_used": false,
+  "vm_operated": false,
+  "original_scenario_sha256": "cef66d6824503ccc6c36a6cad46fcc967d33c53323565a3857dd6e7d238e7203",
+  "reference_bundle": {
+    "index": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/reference-bundle-index.json",
+    "archive_sha256": "31d2583718dde299afe6c36bc50f8b8026ff60b8ef7001d330d761d67a6241be",
+    "archive_entries": 111,
+    "crc_verified": true,
+    "raw_scenario_hashes_verified": 5,
+    "asset_hash_comparisons_reported": 21,
+    "native_asset_hash_comparisons_verified": 21,
+    "native_asset_hash_mismatches": [
+      {
+        "path": "Config/ProjectApollo/Sol_VirtualAGC.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/ProjectApollo/Sol_VirtualAGC.cfg",
+        "windows_sha256": "d197b978b9283b7d8c5399f6acfa045221e9ecde48a688984df5f67f9e160cad",
+        "native_sha256": "ae286391386e24a8e0d09e46c88f4e40b86a48aee387214dc2a38b931a71b5a3",
+        "equal": false
+      },
+      {
+        "path": "Config/Earth.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Earth.cfg",
+        "windows_sha256": "628e36b62b1e456e881c825871de7f94aef1e32d9543b3fe1adf0c76a5407a77",
+        "native_sha256": "feae08123c91a1259e7368bf46475caa5e02547c2107d6573be9692f03826dfd",
+        "equal": false
+      },
+      {
+        "path": "Config/Moon.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Moon.cfg",
+        "windows_sha256": "4195c87b3c38aec6729979f7fd6be1accf1688b38f5f7a905902db14cef1bf85",
+        "native_sha256": "946fa98f61cd772789a0d0b5cf1fedda38095edd815a5a9c81ef049c9612c1ab",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/egm96_to360.tab",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/egm96_to360.tab",
+        "windows_sha256": "bc6cefca4569f47873a142e282b1befc9415752f71251499997a64b086e1de19",
+        "native_sha256": "a2a24189f84a7dfe42c99fd8eb6cf5369f8796015f8ef5909eb59678a5a626ee",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/JGDWN_VES20H_SHA.TAB",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/JGDWN_VES20H_SHA.TAB",
+        "windows_sha256": "389bb30882b43b36877e9ff8bf54c55a210d7ba98cab88e9c4a1fa83ad8484b7",
+        "native_sha256": "bfb9883bd5efb57fbc32cda67862214e2a7f893b026e7002d6fcdb6f4164d5df",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/jgl165p1.sha",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/jgl165p1.sha",
+        "windows_sha256": "b75a40be56f9b58bd00536a65c7773db3b6ed17de78fba26b945837fd0d049ee",
+        "native_sha256": "96cc6612574d0689d8b437dfbc9d430e0c8e23a26ce76d6da82e13c23ea5ca3b",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/jgmess_160a_sha.tab",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/jgmess_160a_sha.tab",
+        "windows_sha256": "14fa0129c4b5ef655e08a883a05a476a836a806349da607f84b3c2b2e3d899ca",
+        "native_sha256": "06ec012fd601cc3d1ec51e3c3e069da3e1aafededa9d60f13b1d61abb72ba8e3",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/jgmro_120f_sha.tab",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/jgmro_120f_sha.tab",
+        "windows_sha256": "ddd3de9c30d75879fe37aa17a1149e7c96c141c095962954cb7ea865a2c025b6",
+        "native_sha256": "e4d2895fd226ff96940781bf9c5d1b7e7b76169e9671049b198778b44d462e22",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/mod_shgj120p.a01",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/mod_shgj120p.a01",
+        "windows_sha256": "aff74edd05db65a52a852a46155b6530cdf7ff176e080f72691f24ae288601fb",
+        "native_sha256": "08bd900cfe3eedae994cf2e8058d05dec0fcb173a0967ac6e38b77b859e59ed1",
+        "equal": false
+      },
+      {
+        "path": "GravityModels/Notes on Gravity Models.txt",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/GravityModels/Notes on Gravity Models.txt",
+        "windows_sha256": "9fdf442ce97e8dcbd988718d50c80b3af332ab711b98090558ddaf173cf6ee99",
+        "native_sha256": "dc725752bf13b7f3d32b9e66f498655c6409ffb13ad0998c66452abeadf79797",
+        "equal": false
+      },
+      {
+        "path": "Config/Mars.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Mars.cfg",
+        "windows_sha256": "1ded85e168b971672623d32eba6b1fd962ba19a6dfe62d07a6be2bc7249fef52",
+        "native_sha256": "893d42a61dcef2824423db7f2198ae67655c60bcf09872585d2dc36382a21e9b",
+        "equal": false
+      },
+      {
+        "path": "Config/Mercury.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Mercury.cfg",
+        "windows_sha256": "200aee98c88017b53bfd061bda0bd47f6d99c105911b4be7a4892cec67da179d",
+        "native_sha256": "feb82197b688656c30732243b75e759e0d4b09410a0717d0dc18758884b6d98a",
+        "equal": false
+      },
+      {
+        "path": "Config/Venus.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Venus.cfg",
+        "windows_sha256": "c41c59c918042ddc4daf9d09e46067cd2e32f6bd3ba01bfed50f9578d1ca2baa",
+        "native_sha256": "4f2332baa07f24938ccfdf710d18f1e8947e562d1373cf453fce0238505ff16d",
+        "equal": false
+      },
+      {
+        "path": "Config/Vesta.cfg",
+        "native_path": "<NATIVE_EVIDENCE_ROOT>/matched-parity/final/runtime-coast/Config/Vesta.cfg",
+        "windows_sha256": "0c523c0bb7420fdd7e7a4b6447dd6ac6f67f47de8cc1fcfcf9b2d19973663920",
+        "native_sha256": "40473bc3e57775c90a56a8460631db1b5304e58a8b88ecc3fab5539bd8e39460",
+        "equal": false
+      }
+    ],
+    "native_asset_raw_equal_count": 7,
+    "native_asset_content_equal_count": 21,
+    "native_asset_content_mismatches": []
+  },
+  "effective_native_configuration": {
+    "NonsphericalGravitySources": true,
+    "DistributedVesselMass": true,
+    "RadiationPressure": true,
+    "StabiliseOrbits": true,
+    "AtmosphericWind": false,
+    "RefuelOnPad": false,
+    "UnlimitedFuel": false,
+    "ElevationMode": 1,
+    "StartPaused_config": true
+  },
+  "coast": {
+    "returncode": 0,
+    "wall_seconds": 2.1313785,
+    "running_steps": 301,
+    "dt_min_s": 0.016666666666666607,
+    "dt_max_s": 0.01666666666666705,
+    "stabilised_steps": 0,
+    "all_observed_values_finite": true
+  },
+  "comparisons": {
+    "startup-baseline": {
+      "native": {
+        "sha256": "8368b2a038e2ad2091487585c3326754035ab81cfd2f55eae911d4d4d90351b2",
+        "mjd_token": "40422.8317623667",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-531497.826 -11709.646 1762890.843",
+              "RVEL": "1565.0310 -14.9871 472.1370",
+              "AROT": "73.282 -83.342 -153.688",
+              "VROT": "-0.0223 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368744.409153567976",
+              "SIMULATEDTIME": "368744.422916666663"
+            },
+            "agc_cycle_counter": "1422"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671074729.716 -15025394.505 -133814607007.594",
+              "RVEL": "24939.9723 -62.8555 13407.4064",
+              "AROT": "7.753 -34.721 -101.669",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368744.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-449297.820 -11875.312 1709655.786",
+              "RVEL": "1634.2905 -14.8444 392.4457",
+              "AROT": "-178.939 34.365 -90.664",
+              "VROT": "0.0144 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368744.440404"
+            },
+            "agc_cycle_counter": "1422"
+          }
+        }
+      },
+      "windows": {
+        "sha256": "099239c29962384e395ef7e2f508d77d0ecc81ada387e10dbf314d359ef5a861",
+        "mjd_token": "40422.8317623667",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-531497.826 -11709.646 1762890.843",
+              "RVEL": "1565.0310 -14.9871 472.1370",
+              "AROT": "73.282 -83.342 -153.688",
+              "VROT": "-0.0223 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368744.422916666663",
+              "SIMULATEDTIME": "368744.422916666663"
+            },
+            "agc_cycle_counter": "1422"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671074729.716 -15025394.505 -133814607007.594",
+              "RVEL": "24939.9723 -62.8555 13407.4064",
+              "AROT": "7.753 -34.721 -101.669",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368744.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-449297.820 -11875.312 1709655.786",
+              "RVEL": "1634.2905 -14.8444 392.4457",
+              "AROT": "-178.939 34.365 -90.664",
+              "VROT": "0.0144 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368744.454167"
+            },
+            "agc_cycle_counter": "1422"
+          }
+        }
+      },
+      "windows_original_path": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/ParityBaseline.scn",
+      "tolerances_chosen": false,
+      "vessels": {
+        "Columbia": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1653,
+            "native_records": 1653,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 2,
+            "native_records": 2,
+            "differences": {}
+          },
+          "imu": {
+            "equal": false,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {
+              "RPY": {
+                "windows": "-0.673611491309",
+                "native": "-0.673611491310"
+              }
+            }
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 17
+        },
+        "Eagle": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1580,
+            "native_records": 1580,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 7,
+            "native_records": 7,
+            "differences": {}
+          },
+          "imu": {
+            "equal": true,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {}
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 20
+        }
+      }
+    },
+    "five-second-coast": {
+      "native": {
+        "sha256": "120a65912fe493df9995204fef23a11f342f69ad023f70efd2f8dae86af60ff3",
+        "mjd_token": "40422.8318202371",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-523667.480 -11784.469 1765234.209",
+              "RVEL": "1567.1040 -14.9426 465.2091",
+              "AROT": "74.477 -83.311 -154.832",
+              "VROT": "-0.0224 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368749.409153566812",
+              "SIMULATEDTIME": "368749.422916665499"
+            },
+            "agc_cycle_counter": "428088"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671199429.575 -15025708.782 -133814539970.503",
+              "RVEL": "24939.9713 -62.8555 13407.4303",
+              "AROT": "7.755 -34.631 -101.688",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368749.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-441121.409 -11949.412 1711599.024",
+              "RVEL": "1636.2696 -14.7950 384.8484",
+              "AROT": "-178.933 34.437 -90.604",
+              "VROT": "0.0145 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368749.440404"
+            },
+            "agc_cycle_counter": "428088"
+          }
+        }
+      },
+      "windows": {
+        "sha256": "1a176325ad4bcfb6ec4f9bfa83f3ce5c8f273b5437d787d113814fc77c5f7b0b",
+        "mjd_token": "40422.8318202371",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-523667.480 -11784.469 1765234.209",
+              "RVEL": "1567.1040 -14.9426 465.2091",
+              "AROT": "74.477 -83.311 -154.832",
+              "VROT": "-0.0224 -0.0176 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368749.422916665499",
+              "SIMULATEDTIME": "368749.422916665499"
+            },
+            "agc_cycle_counter": "428088"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671199429.575 -15025708.782 -133814539970.503",
+              "RVEL": "24939.9713 -62.8555 13407.4303",
+              "AROT": "7.755 -34.631 -101.688",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368749.422917"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-441121.409 -11949.412 1711599.024",
+              "RVEL": "1636.2696 -14.7950 384.8484",
+              "AROT": "-178.933 34.437 -90.604",
+              "VROT": "0.0145 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368749.454167"
+            },
+            "agc_cycle_counter": "428088"
+          }
+        }
+      },
+      "windows_original_path": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/ParityCoast.scn",
+      "tolerances_chosen": false,
+      "vessels": {
+        "Columbia": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1660,
+            "native_records": 1660,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 2,
+            "native_records": 2,
+            "differences": {}
+          },
+          "imu": {
+            "equal": false,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {
+              "RPX": {
+                "windows": "-0.469174164807",
+                "native": "-0.469174164787"
+              },
+              "RPZ": {
+                "windows": "0.806161274640",
+                "native": "0.806161274703"
+              }
+            }
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 125
+        },
+        "Eagle": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1582,
+            "native_records": 1582,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 7,
+            "native_records": 7,
+            "differences": {}
+          },
+          "imu": {
+            "equal": false,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {
+              "RPX": {
+                "windows": "-0.723998178040",
+                "native": "-0.723998177880"
+              },
+              "RPY": {
+                "windows": "0.975398923488",
+                "native": "0.975398923481"
+              },
+              "RPZ": {
+                "windows": "0.389989552871",
+                "native": "0.389989553041"
+              }
+            }
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 264
+        }
+      }
+    },
+    "windows25-paused-reload": {
+      "native": {
+        "sha256": "9e328511e39548ecedfca7a76170d482fff61e0deb0af906dad8b1b6f6613822",
+        "mjd_token": "40422.8320501134",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-492463.158 -12079.472 1774199.922",
+              "RVEL": "1575.0348 -14.7633 437.5993",
+              "AROT": "79.150 -83.163 -159.301",
+              "VROT": "-0.0228 -0.0177 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368769.284235747415",
+              "SIMULATEDTIME": "368769.291250000009"
+            },
+            "agc_cycle_counter": "853"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671694770.262 -15026957.174 -133814273680.310",
+              "RVEL": "24939.9672 -62.8554 13407.5251",
+              "AROT": "7.765 -34.277 -101.765",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368769.29125"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-408547.452 -12241.296 1718942.152",
+              "RVEL": "1643.7752 -14.5962 354.5631",
+              "AROT": "-178.907 34.728 -90.364",
+              "VROT": "0.0147 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368769.315486"
+            },
+            "agc_cycle_counter": "853"
+          }
+        }
+      },
+      "windows": {
+        "sha256": "3cd48e6e01df31fd376344cd84da47a4c74e959026e81309da09a891bdcaca42",
+        "mjd_token": "40422.8320501134",
+        "vessels": {
+          "Columbia": {
+            "class": "ProjectApollo/Saturn5",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-492463.158 -12079.472 1774199.922",
+              "RVEL": "1575.0348 -14.7633 437.5993",
+              "AROT": "79.150 -83.163 -159.301",
+              "VROT": "-0.0228 -0.0177 0.0086",
+              "PRPLEVEL": "0:0.369281 1:0.664133 2:0.753484 3:0.726461 4:0.726993 5:1.000000 6:1.000000",
+              "MISSNTIME": "368769.291250000009",
+              "SIMULATEDTIME": "368769.291250000009"
+            },
+            "agc_cycle_counter": "853"
+          },
+          "Floodlight": {
+            "class": "ProjectApollo/Floodlight",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "61.367 4.534 8.238",
+              "PRPLEVEL": "0:1.000000"
+            }
+          },
+          "MCC": {
+            "class": "ProjectApollo/MCC",
+            "fields": {
+              "STATUS": "Landed Earth",
+              "AROT": "-0.000 84.912 -60.442"
+            }
+          },
+          "AS-506-S4BSTG": {
+            "class": "ProjectApollo/sat5stg3",
+            "fields": {
+              "STATUS": "Orbiting Sun",
+              "RPOS": "71671694770.262 -15026957.174 -133814273680.310",
+              "RVEL": "24939.9672 -62.8554 13407.5251",
+              "AROT": "7.765 -34.277 -101.765",
+              "VROT": "0.0174 -0.0040 -0.0036",
+              "PRPLEVEL": "0:0.511388 1:0.510117 2:0.003041 3:1.000000",
+              "MISSNTIME": "368769.29125"
+            }
+          },
+          "Eagle": {
+            "class": "ProjectApollo/LEM",
+            "fields": {
+              "STATUS": "Orbiting Moon",
+              "RPOS": "-408547.452 -12241.296 1718942.152",
+              "RVEL": "1643.7752 -14.5962 354.5631",
+              "AROT": "-178.907 34.728 -90.364",
+              "VROT": "0.0147 -0.0012 0.0113",
+              "PRPLEVEL": "0:0.986596 1:0.841445 2:0.816048",
+              "MISSNTIME": "368769.3225"
+            },
+            "agc_cycle_counter": "853"
+          }
+        }
+      },
+      "windows_original_path": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/paused25-resave.scn",
+      "tolerances_chosen": false,
+      "vessels": {
+        "Columbia": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1648,
+            "native_records": 1648,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 2,
+            "native_records": 2,
+            "differences": {}
+          },
+          "imu": {
+            "equal": false,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {
+              "RPX": {
+                "windows": "-0.355135470581",
+                "native": "-0.355135470561"
+              },
+              "RPY": {
+                "windows": "-0.226156617033",
+                "native": "-0.226156617032"
+              },
+              "RPZ": {
+                "windows": "0.280930517564",
+                "native": "0.280930517540"
+              }
+            }
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 21
+        },
+        "Eagle": {
+          "agc": {
+            "equal": true,
+            "windows_records": 1590,
+            "native_records": 1590,
+            "differences": {}
+          },
+          "dsky": {
+            "equal": true,
+            "windows_records": 7,
+            "native_records": 7,
+            "differences": {}
+          },
+          "imu": {
+            "equal": true,
+            "windows_records": 32,
+            "native_records": 32,
+            "differences": {}
+          },
+          "RPOS_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "RVEL_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "AROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "VROT_native_minus_windows": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "raw_diff_lines": 25
+        }
+      }
+    }
+  },
+  "reload": {
+    "coast-reload-zero": {
+      "running_steps": 0,
+      "dt_min_s": null,
+      "final_mjd": 40422.8318202371,
+      "final_lgc_cycle": "0"
+    },
+    "coast-reload-one": {
+      "running_steps": 1,
+      "dt_min_s": 0.016666666666666666,
+      "final_mjd": 40422.83182043,
+      "final_lgc_cycle": "1422"
+    },
+    "windows25-reload-zero": {
+      "running_steps": 0,
+      "dt_min_s": null,
+      "final_mjd": 40422.8320499977,
+      "final_lgc_cycle": "0"
+    },
+    "windows25-reload-10ms": {
+      "running_steps": 1,
+      "dt_min_s": 0.01,
+      "final_mjd": 40422.83205011344,
+      "final_lgc_cycle": "853"
+    }
+  },
+  "known_resume_limitation": "Stock Windows also resets the saved AGC cycle counter. Pending CDU FIFO and faithful AGC schedule resume remain unsupported; the previous strict failure is unchanged and broad redesign is paused.",
+  "native_keyboard_aca": {
+    "protocol_completed": true,
+    "physical_controller_tested": false,
+    "manual_landing_tested": false,
+    "windows_pulse_reference_available": false,
+    "comparison_tolerances_chosen": false,
+    "running_steps": 559,
+    "pulse_steps": 18,
+    "release_steps": 240,
+    "stabilised_steps": 0,
+    "baseline_plus_coast_seconds": 5.016666666666667,
+    "total_sim_time_s": 9.316666666666709,
+    "peak_right_yaw_rate_deg_s": 0.9012357630512802,
+    "final_body_y_rate_deg_s": 0.007986107082812735,
+    "final_thrusters_all_zero": true,
+    "all_observed_values_finite": true
+  },
+  "mission_clock_difference": {
+    "native_minus_windows_seconds_original_start": -0.013763098686467856,
+    "cause": "Existing 02-mission-integration.patch parses MISSNTIME directly as double; pinned upstream parses through float32. Float32 conversion of original scenario tokens predicts the observed offset.",
+    "source_locations": [
+      "Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_csm/saturn.cpp:2446",
+      "Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp:1866",
+      "upstream/nassp-v9/02-mission-integration.patch:147"
+    ],
+    "changed_in_this_experiment": false
+  },
+  "remaining_differences": [
+    "Complete raw scenario blocks are not identical. Recorder state, instruments and small systems fields differ; native runs headless and Windows runs a rendered cockpit. Causes remain open.",
+    "Native MASSCG_STATE/NATIVE_LANDING_AUDIO serialization remains additional to stock.",
+    "Full-precision Windows per-frame telemetry and matched Windows ACA pulse unavailable; compiler/SDK inventory found no available toolchain.",
+    "No full mission, enabled-physics long-run parity, physical controls or manual landing validation."
+  ],
+  "tolerances_chosen": false,
+  "build": {
+    "new_probe_build_passed": true,
+    "probe_sha256": "94ffc7f57195ffe70d66231dc2e34c6e68b2d04f40f075773f5f7f83f4d2f947",
+    "previous_runtime_binaries_checked": 41,
+    "previous_runtime_binary_mismatches": []
+  },
+  "checks": {
+    "six_final_experiment_runs_exit0": true,
+    "per_frame_aca_protocol_assertions_passed": true,
+    "native_world_ctest_passed": true,
+    "two_engine_inventory_regressions_passed": true,
+    "previous_99_check_record_unchanged": true
+  },
+  "evidence_root": "<NATIVE_EVIDENCE_ROOT>/matched-parity",
+  "removal_paths": [
+    "Remove Tests/NativeParity.cpp and its three-line native_parity_probe registration once equivalent upstream comparison coverage exists.",
+    "Retain raw saves, per-frame traces and SHA256 ledger before deleting the separate evidence runtimes."
+  ]
+}

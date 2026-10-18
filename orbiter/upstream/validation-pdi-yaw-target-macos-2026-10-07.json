@@ -1,0 +1,4313 @@
+{
+  "platform": "macOS arm64",
+  "recorded_at_utc": "2026-10-07T22:46:15.020625+00:00",
+  "checkout": "<PRESERVED_POC>",
+  "branch": "macos-pdi-protocol",
+  "tested_parent_commit": "9b6d4846c25d78cd257cd0c4693d1362258549c3",
+  "scope": "Separate diagnostic relative-yaw target driver, preserved exact-input regression and original first-N68 radar observations",
+  "nassp_source_edited": false,
+  "physics_rom_scenario_changes": false,
+  "pose_or_rate_writes": false,
+  "left_yaw_or_counter_thrust_commands": false,
+  "operational_dh_envelope": null,
+  "v57_sent": false,
+  "ci_run": false,
+  "windows_comparison": false,
+  "push_performed": false,
+  "target_frame_evidence": {
+    "conclusion": "Primary workbook distinguishes relative yaw actions from explicit FDAI RPY goals; original keyboard/RGA path identifies body Y as yaw/thrust axis. Quaternion twist and tolerance are explicit diagnostic definitions, not encoded operational checklist requirements.",
+    "checklists": {
+      "baseline": {
+        "path": "<EXTERNAL_ASSETS>/nassp-baseline/Doc/Project Apollo - NASSP/Checklists/Apollo 11 LM Checklists.xls",
+        "sha256": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6",
+        "primary_rows": [
+          "32:   F 50 18 Manual Trim To PDI Attitude (180, 287, 0) | -1 | 0 | ",
+          "33: MODE CONT PGNS - ATT HOLD | ModeControlPGNSSwitch | 1 | 1 | ",
+          "50: MODE CONT PGNS - AUTO | ModeControlPGNSSwitch | 2 | 1 | ",
+          "51: PRO | DSKY P | 1 | 1 | ",
+          "52:   06 18 Auto MNVR to FDAI RPY Angles | -1 | 1 | ",
+          "53:   F 50 18 Request MNVR to FDAI RPY Angles | -1 | 0 | ",
+          "54: Altitude, Attitude, Position Checks | -1 | 0 | ",
+          "55: Yaw 10 deg right for SBD | -1 | 0 | ",
+          "166: At TIG +3m | -1 | 0 | ",
+          "167: LPD POS CHECK | -1 | 1 | ",
+          "168: OHW <19 deg | -1 | 1 | ",
+          "169: Yaw Right 174 deg | -1 | 0 | ",
+          "170: TRACK MODE - SLEW | Panel12AntTrackModeSwitch | 0 | 1 | ",
+          "171: S-BD ANT PITCH - (-9) | Panel12AntPitchKnob | -140 | 0 | ",
+          "172: S-BD ANT YAW - (+18) | Panel12AntYawKnob | 120 | 0 | ",
+          "175: At TIG +5m | -1 | 0 | ",
+          "176: Check ED Bats | -1 | 1 | ",
+          "177: V16 N68E | DSKY V 1 6 N 6 8 E | 1 | 1 | ",
+          "178:   F 06 68 Slant Range, TG, dH(LR-LGC) | 5 | HIDDEN_DELAY | -1 | 1 | ",
+          "179: When dH Within Limits | -1 | 0 | "
+        ]
+      },
+      "candidate": {
+        "path": "<EXTERNAL_ASSETS>/nassp-candidate/Doc/Project Apollo - NASSP/Checklists/Apollo 11 LM Checklists.xls",
+        "sha256": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c",
+        "primary_rows": [
+          "32:   F 50 18 Manual Trim To PDI Attitude (180, 287, 0) | -1 | 0 | ",
+          "33: MODE CONT PGNS - ATT HOLD | ModeControlPGNSSwitch | 1 | 1 | ",
+          "50: MODE CONT PGNS - AUTO | ModeControlPGNSSwitch | 2 | 1 | ",
+          "51: PRO | DSKY P | 1 | 1 | ",
+          "52:   06 18 Auto MNVR to FDAI RPY Angles | -1 | 1 | ",
+          "53:   F 50 18 Request MNVR to FDAI RPY Angles | -1 | 0 | ",
+          "54: Altitude, Attitude, Position Checks | -1 | 0 | ",
+          "55: Yaw 10 deg right for SBD | -1 | 0 | ",
+          "166: At TIG +3m | -1 | 0 | ",
+          "167: LPD POS CHECK | -1 | 1 | ",
+          "168: OHW <19 deg | -1 | 1 | ",
+          "169: Yaw Right 174 deg | -1 | 0 | ",
+          "170: TRACK MODE - SLEW | Panel12AntTrackModeSwitch | 0 | 1 | ",
+          "171: S-BD ANT PITCH - (-9) | Panel12AntPitchKnob | -140 | 0 | ",
+          "172: S-BD ANT YAW - (+18) | Panel12AntYawKnob | 120 | 0 | ",
+          "175: At TIG +5m | -1 | 0 | ",
+          "176: Check ED Bats | -1 | 1 | ",
+          "177: V16 N68E | DSKY V 1 6 N 6 8 E | 1 | 1 | ",
+          "178:   F 06 68 Slant Range, TG, dH(LR-LGC) | 5 | HIDDEN_DELAY | -1 | 1 | ",
+          "179: When dH Within Limits | -1 | 0 | "
+        ]
+      }
+    },
+    "original_source_references": [
+      "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_sys/checklistControllerHelpers.cpp:332",
+      "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/LEM.cpp:876",
+      "orbiter/Addons/NASSP/Orbitersdk/samples/ProjectApollo/src_lm/lmscs.cpp:434"
+    ],
+    "primary_mission_report": {
+      "url": "https://apollojournals.org/alsj/a11/a11MIssionReport_1971015566.pdf",
+      "printed_page": 108,
+      "finding": "Manual proportional-rate hand-controller yaw-around; rate display selection affected execution."
+    }
+  },
+  "diagnostic_criterion": {
+    "yaw_target_tolerance_deg": 1.0,
+    "yaw_rate_threshold_deg_s": 0.1,
+    "continuous_neutral_dwell_s": 1.0,
+    "additional_verified_neutral_observation_s": 8,
+    "operational_flight_requirement": false,
+    "full_fixed_frame_attitude_certified": false
+  },
+  "simulation_step_seconds": 0.016666666666666666,
+  "synthetic_contract_checks": 42,
+  "previous_contract_checks_preserved": 34,
+  "new_independent_quaternion_dwell_input_checks": 8,
+  "profiles": {
+    "baseline": {
+      "build": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol",
+      "bounded_ctest": {
+        "passed": 3,
+        "total": 3,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 56.8,
+        "junit_sha256": "d857084cee12cb2f74df8a03d7439adf252ace8e3f66d71d21aeaab965c05f13",
+        "console_log_sha256": "3a2a83e86622006f5a6b2de77eb906148975f94319e749ffaae174fcb5a60a1a"
+      },
+      "exact_input_comparison": {
+        "historical_commit": "9b6d4846c25d78cd257cd0c4693d1362258549c3",
+        "historical_event_log_sha256": "405cbace869a243bded8444d0d2eea58ecf46f333f937b6f5bd14499c96e1bb7",
+        "current_event_log_sha256": "37fb2cc02f69aaf4047db14d96b94ab7fbf5868574fe84ded4bee28827332626",
+        "event_records": 2288,
+        "input_records": 52,
+        "input_fields": [
+          "event",
+          "action",
+          "area_id",
+          "mouse_event",
+          "checklist_row",
+          "sim_elapsed_s",
+          "requested_field",
+          "requested_state",
+          "readback"
+        ],
+        "all_input_fields_and_times_identical": true,
+        "exact_telemetry_fields": [
+          "seq",
+          "event",
+          "action",
+          "sim_elapsed_s",
+          "mission_time_s",
+          "agc_clock_s",
+          "tig_s",
+          "countdown_s",
+          "lgc_tfi_s",
+          "dsky",
+          "controls",
+          "guidance_channel_031",
+          "lgc_output_channel_005",
+          "lgc_output_channel_006",
+          "aca_out_of_detent",
+          "aca_proportional_roll_pitch_yaw",
+          "pgns_jet_requests",
+          "jet_requests",
+          "rcs_jet_levels",
+          "rotation_body_to_global",
+          "angular_velocity_body_rad_s"
+        ],
+        "all_listed_telemetry_and_radar_validity_flags_identical": true,
+        "max_altitude_difference_m": 0.00017485768330516294,
+        "whole_json_record_identity_claimed": false
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "e6720fbc86422876ed8bf9abe7455d22a0a1513aa5fb83970a485b8d081ecd40",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "95c6e24cf90176e9255262e6c7180cba0b4636f2960024baffc0b272581cf6ba",
+          "wall_seconds": 56.041683041,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.4658479324756529,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427030637599783,
+              0.008936612574044375,
+              -0.669561271309238
+            ],
+            "altitude_above_radar_origin_m": 9793.36926801319,
+            "predicted_slant_range_ft": -68972.02791121631,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": false,
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-protocol",
+          "verification_report_sha256": "99217edc22df26aa5f30279a09f76dadb0971071b83ed471b8c70e1b3a38c44f",
+          "checkpoint_rotation_body_to_global": [
+            [
+              0.034466887694429515,
+              -0.4368015600528153,
+              -0.8988973416292241
+            ],
+            [
+              -0.9993472758416511,
+              -0.005326306224527788,
+              -0.03573027749505042
+            ],
+            [
+              0.010819238445026635,
+              0.8995421210801798,
+              -0.4367000303206312
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2474.991834494409 24.212157204688 458.678443488249"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            0.0016354798896441895,
+            -5.500195228274753e-05,
+            0.001097458359765244
+          ],
+          "range_and_velocity_good_records": 0
+        },
+        "exact_input": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "e6720fbc86422876ed8bf9abe7455d22a0a1513aa5fb83970a485b8d081ecd40",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.05,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "37fb2cc02f69aaf4047db14d96b94ab7fbf5868574fe84ded4bee28827332626",
+          "wall_seconds": 57.989675667,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.5413790376810322,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427086834040215,
+              0.008954677414465378,
+              -0.6695547963749254
+            ],
+            "altitude_above_radar_origin_m": 9782.705051695182,
+            "predicted_slant_range_ft": 59284.691095959795,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": false,
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-exact-regression",
+          "verification_report_sha256": "2db7e277d63c136f73839a0081186c9af14ddcfcce6de48035e425612ffb8110",
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.7196425375717593,
+              -0.43535797194379383,
+              0.5409048478080646
+            ],
+            [
+              0.6024375587319952,
+              -0.004166013963993742,
+              0.798155142911881
+            ],
+            [
+              -0.3452297871654652,
+              0.9002477884408483,
+              0.26527403465293964
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "59288.531821206110",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2088.366962935043 -472.916027027006 1320.271224247924"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.0007353390197869228,
+            -2.143327527020606e-05,
+            -0.000546180478040233
+          ],
+          "range_and_velocity_good_records": 0,
+          "manual_yaw_release_and_settling": {
+            "checklist_yaw_right_10": {
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "commanded_yaw_deg": 10,
+              "held_gyro_integral_deg": 10.105955341627075,
+              "post_release_eight_second_gyro_integral_deg": 12.292688993719281,
+              "rotation_at_input_start": [
+                [
+                  -0.007332669638966574,
+                  -0.8236042535177847,
+                  -0.5671175059397995
+                ],
+                [
+                  -0.9996886628426259,
+                  0.01956398564042454,
+                  -0.015486376263795842
+                ],
+                [
+                  0.02384972410507874,
+                  0.5668273847065559,
+                  -0.8234912911542159
+                ]
+              ],
+              "fixed_start_frame_target_rotation": [
+                [
+                  0.09125765151872921,
+                  -0.8236042535177847,
+                  -0.5597750214387016
+                ],
+                [
+                  -0.9818119647489527,
+                  0.01956398564042454,
+                  -0.1888452179475627
+                ],
+                [
+                  0.16648515523940083,
+                  0.5668273847065559,
+                  -0.8068391469379994
+                ]
+              ],
+              "release": {
+                "sim_elapsed_s": 15.083333333333334,
+                "after_release_s": 0.0,
+                "yaw_rate_deg_s": 9.63407484984275,
+                "relative_right_yaw_projection_unwrapped_deg": 10.105314589116432,
+                "orientation_error_to_fixed_start_frame_target_deg": 0.1132512241544659,
+                "rotation_body_to_global": [
+                  [
+                    0.09271362831809918,
+                    -0.8232712299711462,
+                    -0.5600255931882837
+                  ],
+                  [
+                    -0.9814732358670617,
+                    0.019151846897608772,
+                    -0.19063969690767227
+                  ],
+                  [
+                    0.16767370217399027,
+                    0.5673250291166486,
+                    -0.8062430408611666
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09578216027098235,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.24028209826370917,
+                    0.006845686166666509,
+                    -0.9706789633214973
+                  ],
+                  "altitude_above_radar_origin_m": 33012.01711856312,
+                  "predicted_slant_range_ft": 1130765.2956565253,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 170,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "release_verified_0_2s": {
+                "sim_elapsed_s": 15.283333333333333,
+                "after_release_s": 0.1999999999999993,
+                "yaw_rate_deg_s": 9.637134680266264,
+                "relative_right_yaw_projection_unwrapped_deg": 12.07948094623714,
+                "orientation_error_to_fixed_start_frame_target_deg": 2.079973241883925,
+                "rotation_body_to_global": [
+                  [
+                    0.11198474838989292,
+                    -0.823239833194489,
+                    -0.5565389412879951
+                  ],
+                  [
+                    -0.9743241565841259,
+                    0.019122532414615027,
+                    -0.22433628028182168
+                  ],
+                  [
+                    0.19532499590345426,
+                    0.5673715764787324,
+                    -0.7999610241626487
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.10106410783026315,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2400974334068051,
+                    0.0068473752260861335,
+                    -0.9707246447494666
+                  ],
+                  "altitude_above_radar_origin_m": 33006.10734424438,
+                  "predicted_slant_range_ft": 1071475.878814975,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 85,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "first_low_rate_observation": {
+                "sim_elapsed_s": 17.65,
+                "after_release_s": 2.5666666666666647,
+                "yaw_rate_deg_s": 0.07300892791461468,
+                "relative_right_yaw_projection_unwrapped_deg": 22.396204267795497,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.396510268115156,
+                "rotation_body_to_global": [
+                  [
+                    0.21026820270944027,
+                    -0.8228483130659114,
+                    -0.5279279653645238
+                  ],
+                  [
+                    -0.9184056305368684,
+                    0.018861895211137368,
+                    -0.3951902411588901
+                  ],
+                  [
+                    0.3351393452394381,
+                    0.5679479576454416,
+                    -0.7517424669917573
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.1360630324812265,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.23791147660334186,
+                    0.0068673446483028715,
+                    -0.9712625643346391
+                  ],
+                  "altitude_above_radar_origin_m": 32925.986190437354,
+                  "predicted_slant_range_ft": 793932.6877132695,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 5,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "rate_dwell_verified": {
+                "sim_elapsed_s": 18.65,
+                "after_release_s": 3.5666666666666647,
+                "yaw_rate_deg_s": 0.0002895781117646272,
+                "relative_right_yaw_projection_unwrapped_deg": 22.3973571766239,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.39780044118568,
+                "rotation_body_to_global": [
+                  [
+                    0.21044835951451843,
+                    -0.8226799474537402,
+                    -0.5281185397570887
+                  ],
+                  [
+                    -0.9184015714261385,
+                    0.018766200347195422,
+                    -0.3952042298945303
+                  ],
+                  [
+                    0.3350373734072779,
+                    0.5681949786666903,
+                    -0.7516012404449
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.1354363587566904,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.236987406445348,
+                    0.006875772541639618,
+                    -0.971488390531901
+                  ],
+                  "altitude_above_radar_origin_m": 32884.92864362067,
+                  "predicted_slant_range_ft": 796611.6841082071,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 23.083333333333332,
+                "after_release_s": 7.999999999999998,
+                "yaw_rate_deg_s": 0.0002907366690741636,
+                "relative_right_yaw_projection_unwrapped_deg": 22.398653773455152,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.400018495079683,
+                "rotation_body_to_global": [
+                  [
+                    0.2112115011206534,
+                    -0.8219325479339887,
+                    -0.5289769261896984
+                  ],
+                  [
+                    -0.9184096499289898,
+                    0.018341947104646483,
+                    -0.39520537432292174
+                  ],
+                  [
+                    0.3345346270741948,
+                    0.5692894339640879,
+                    -0.7509967534318492
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.13264135875050542,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.23288768705425741,
+                    0.006913065193680446,
+                    -0.9724790664832565
+                  ],
+                  "altitude_above_radar_origin_m": 32719.69330617404,
+                  "predicted_slant_range_ft": 809310.7320576251,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "settled_commanded_attitude_certified": false,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed."
+            },
+            "checklist_yaw_right_174": {
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "commanded_yaw_deg": 174,
+              "held_gyro_integral_deg": 174.01975690121589,
+              "post_release_eight_second_gyro_integral_deg": 35.301133818432696,
+              "rotation_at_input_start": [
+                [
+                  0.3266427045617061,
+                  -0.5828661944605928,
+                  -0.7440238859819224
+                ],
+                [
+                  -0.9102457813415006,
+                  0.017949276665419206,
+                  -0.41367915226318797
+                ],
+                [
+                  0.2544742837824985,
+                  0.8123698805483959,
+                  -0.5246884943194104
+                ]
+              ],
+              "fixed_start_frame_target_rotation": [
+                [
+                  -0.24708164821280848,
+                  -0.5828661944605928,
+                  0.7740915052314349
+                ],
+                [
+                  0.9485006057826608,
+                  0.017949276665419206,
+                  0.31626638186363437
+                ],
+                [
+                  -0.19823536502442718,
+                  0.8123698805483959,
+                  0.5484140016733869
+                ]
+              ],
+              "release": {
+                "sim_elapsed_s": 1092.15,
+                "after_release_s": 0.0,
+                "yaw_rate_deg_s": 19.26743443475041,
+                "relative_right_yaw_projection_unwrapped_deg": 174.019679978563,
+                "orientation_error_to_fixed_start_frame_target_deg": 0.9544930311856501,
+                "rotation_body_to_global": [
+                  [
+                    -0.2479862687194655,
+                    -0.5696489021461283,
+                    0.7835833962063685
+                  ],
+                  [
+                    0.94841414615173,
+                    0.02215668894213174,
+                    0.3162588947593502
+                  ],
+                  [
+                    -0.19751814576357535,
+                    0.8215894409124497,
+                    0.5347685225172543
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.7573191357588727,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6974966812869479,
+                    0.010306777588130986,
+                    -0.7165138867666436
+                  ],
+                  "altitude_above_radar_origin_m": 12889.730416144654,
+                  "predicted_slant_range_ft": 55840.58264007233,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "55721.611611516229",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3212.327010906087 -150.434197805543 2181.999804369410"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "release_verified_0_2s": {
+                "sim_elapsed_s": 1092.35,
+                "after_release_s": 0.1999999999998181,
+                "yaw_rate_deg_s": 18.6408023521671,
+                "relative_right_yaw_projection_unwrapped_deg": 177.83737578973665,
+                "orientation_error_to_fixed_start_frame_target_deg": 3.954457370473355,
+                "rotation_body_to_global": [
+                  [
+                    -0.2996883823572125,
+                    -0.5696082593709726,
+                    0.7653321529483053
+                  ],
+                  [
+                    0.9252550257862628,
+                    0.022028052461540826,
+                    0.37870556130325533
+                  ],
+                  [
+                    -0.2325725924037037,
+                    0.821621077967893,
+                    0.5204313533036786
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.7363761414424017,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6975933054089237,
+                    0.010304763009027912,
+                    -0.7164198434633002
+                  ],
+                  "altitude_above_radar_origin_m": 12886.255902588919,
+                  "predicted_slant_range_ft": 57413.243155527976,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "57273.650441767546",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3215.521214406005 -195.949202279504 2169.729006222461"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 85,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "first_low_rate_observation": {
+                "sim_elapsed_s": 1095.9333333333334,
+                "after_release_s": 3.783333333333303,
+                "yaw_rate_deg_s": 0.0625936780774278,
+                "relative_right_yaw_projection_unwrapped_deg": 209.61121392711374,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.6294180206088,
+                "rotation_body_to_global": [
+                  [
+                    -0.6618507495504649,
+                    -0.566510683791874,
+                    0.4909370942077526
+                  ],
+                  [
+                    0.5872575801711412,
+                    0.015211517075457315,
+                    0.8092571558409596
+                  ],
+                  [
+                    -0.46592072271044566,
+                    0.8239139851331125,
+                    0.3226199393265231
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.4724227822326554,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6993130603022926,
+                    0.010268335987543639,
+                    -0.7147417750255605
+                  ],
+                  "altitude_above_radar_origin_m": 12660.52250265775,
+                  "predicted_slant_range_ft": 87923.67531922925,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "87905.544986186724",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3274.314179972856 -533.418893287178 1942.789346635818"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 5,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "rate_dwell_verified": {
+                "sim_elapsed_s": 1096.9333333333334,
+                "after_release_s": 4.783333333333303,
+                "yaw_rate_deg_s": -0.07047479235424293,
+                "relative_right_yaw_projection_unwrapped_deg": 209.54189499534823,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.56566860204458,
+                "rotation_body_to_global": [
+                  [
+                    -0.6633926316577988,
+                    -0.5646830516382064,
+                    0.4909615743158546
+                  ],
+                  [
+                    0.5882629991205501,
+                    0.011923919386209625,
+                    0.8085817608703318
+                  ],
+                  [
+                    -0.4624466024611223,
+                    0.8252217104142581,
+                    0.324271905247943
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.47455788338687915,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6997891279638212,
+                    0.010258072528961321,
+                    -0.7142758209064796
+                  ],
+                  "altitude_above_radar_origin_m": 12835.917685231958,
+                  "predicted_slant_range_ft": 88740.68328664047,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "88728.350778963257",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3267.213998713577 -541.965188006505 1930.481915077136"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1100.15,
+                "after_release_s": 8.0,
+                "yaw_rate_deg_s": -0.0704411994542215,
+                "relative_right_yaw_projection_unwrapped_deg": 209.31538608861402,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.3607090723856,
+                "rotation_body_to_global": [
+                  [
+                    -0.666116455386607,
+                    -0.557905248495007,
+                    0.49500565811403424
+                  ],
+                  [
+                    0.5915364663675527,
+                    0.009060531983141162,
+                    0.8062273350101523
+                  ],
+                  [
+                    -0.45428347627948445,
+                    0.8298551924654733,
+                    0.3239859298141201
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.48115397526590187,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7013090663370842,
+                    0.010224868741955558,
+                    -0.7127840104355716
+                  ],
+                  "altitude_above_radar_origin_m": 12875.201200522817,
+                  "predicted_slant_range_ft": 87792.00822699648,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "87801.076545536169",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3232.010976267874 -557.924808469407 1914.654425935302"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "settled_commanded_attitude_certified": false,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed."
+            }
+          }
+        },
+        "yaw_target": {
+          "scenario_sha256": "266b81fc49e85f2f3f377a1a975f657327ce2df9a4a8dab7e62cc8db1bb507a4",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "63582cd97fd8fd4efacce963644286c61927b2e555446a284473d9d825b0aaf6"
+          },
+          "binary_sha256": {
+            "probe": "e6720fbc86422876ed8bf9abe7455d22a0a1513aa5fb83970a485b8d081ecd40",
+            "orbiter": "1f5ff4ed4396696ab657d629b207e4bbae57f6d1a0c19262d006382508626df4"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0333333333333,
+          "observed_dh_ft": -1832.0,
+          "radar_valid": true,
+          "radar_measurement_available": true,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "731e87cc4877e576299a138417e579719b36cb598619ac5b5d058471831e4a57",
+          "wall_seconds": 65.863083709,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.8617411205897111,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7427017475173325,
+              0.008933813740843741,
+              -0.6695627686832238
+            ],
+            "altitude_above_radar_origin_m": 9786.76107855281,
+            "predicted_slant_range_ft": 37260.373704233665,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": true,
+          "runtime": "<PRESERVED_POC>/orbiter/build/native-pdi-protocol/runtime-pdi-target-v2",
+          "verification_report_sha256": "e8a9d99b19a6314119e3247dd964c6149fdd9f765b258517e0ac43a2c0ded139",
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.045212297560813686,
+              -0.4372062159874506,
+              0.8982241217264247
+            ],
+            [
+              0.9988611960468852,
+              -0.006070961680468612,
+              0.04732287455407019
+            ],
+            [
+              -0.0152367706899601,
+              0.8993407964315914,
+              0.4369828059463354
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "37263.365166983582",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-1996.224836724506 -32.831530414746 1529.804229180010"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.0028876200561064554,
+            0.00026610885498080635,
+            5.491536337153955e-05
+          ],
+          "range_and_velocity_good_records": 422,
+          "diagnostic_relative_yaw_targets": {
+            "target_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "original_right_yaw_pulses": 2,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "start": {
+                "sim_elapsed_s": 12.8,
+                "relative_quaternion_wxyz": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 0.0,
+                "yaw_target_error_deg": -10.0,
+                "yaw_rate_deg_s": 0.0012033982025747875,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 9.999999999999975,
+                "rotation_body_to_global": [
+                  [
+                    -0.007332669638966574,
+                    -0.8236042535177847,
+                    -0.5671175059397995
+                  ],
+                  [
+                    -0.9996886628426259,
+                    0.01956398564042454,
+                    -0.015486376263795842
+                  ],
+                  [
+                    0.02384972410507874,
+                    0.5668273847065559,
+                    -0.8234912911542159
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.07791637859179243,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.24238962129029235,
+                    0.006826386127208701,
+                    -0.9701549731579954
+                  ],
+                  "altitude_above_radar_origin_m": 33112.18006204904,
+                  "predicted_slant_range_ft": 1394260.915635934,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 19.85,
+                "relative_quaternion_wxyz": [
+                  0.9966186349145398,
+                  -0.0008976895329548063,
+                  0.08215866176776067,
+                  -0.0006670765417635582
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.425318946624344,
+                "yaw_target_error_deg": -0.5746810533756559,
+                "yaw_rate_deg_s": -0.03745243871440808,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.5887981087356761,
+                "rotation_body_to_global": [
+                  [
+                    0.086854365227339,
+                    -0.8225339503008162,
+                    -0.5620446778001649
+                  ],
+                  [
+                    -0.9836847268484914,
+                    0.018411576253888645,
+                    -0.17895634111385023
+                  ],
+                  [
+                    0.15754579463116572,
+                    0.568417904769354,
+                    -0.8075149584569027
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09079505328719178,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2358781919560565,
+                    0.0068858782444521606,
+                    -0.9717582329161634
+                  ],
+                  "altitude_above_radar_origin_m": 32833.66622279059,
+                  "predicted_slant_range_ft": 1186430.2970619246,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 27.849999999999998,
+                "relative_quaternion_wxyz": [
+                  0.9968271709171892,
+                  -0.0024816572812926363,
+                  0.07955369909185135,
+                  -0.0008010363126739563
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.125856724638737,
+                "yaw_target_error_deg": -0.8741432753612628,
+                "yaw_rate_deg_s": -0.037451904666038545,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.9238078655048576,
+                "rotation_body_to_global": [
+                  [
+                    0.084344684672628,
+                    -0.8207237355933468,
+                    -0.5650650617417228
+                  ],
+                  [
+                    -0.9846165893190078,
+                    0.018440547972724194,
+                    -0.1737530380404037
+                  ],
+                  [
+                    0.15302335182997157,
+                    0.5710275790398986,
+                    -0.8065428431091264
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.08570664716635845,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.22847429204958355,
+                    0.0069530318914469355,
+                    -0.973525116892193
+                  ],
+                  "altitude_above_radar_origin_m": 32560.885275152934,
+                  "predicted_slant_range_ft": 1246426.677038404,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 903,
+              "original_input_events": [
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 12.8,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 14.283333333333333,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 16.95,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 17.266666666666666,
+                  "checklist_row": 55
+                }
+              ],
+              "first_observed_original_radar_data_good_after_start": {
+                "sim_elapsed_s": 1120.9166666666667,
+                "event": "yaw_target_sample",
+                "radar": {
+                  "RANGE": "49998.441568937502",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2896.045055703079 -11.679782750154 2078.805140596516"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8305071674837513,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7107060386499405,
+                    0.009979915852319275,
+                    -0.7034183164419945
+                  ],
+                  "altitude_above_radar_origin_m": 12655.922377118099,
+                  "predicted_slant_range_ft": 49996.02251337674,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              }
+            },
+            "target_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "original_right_yaw_pulses": 11,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "start": {
+                "sim_elapsed_s": 1081.25,
+                "relative_quaternion_wxyz": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 0.0,
+                "yaw_target_error_deg": -174.0,
+                "yaw_rate_deg_s": 0.020795385717238515,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 174.00000000000009,
+                "rotation_body_to_global": [
+                  [
+                    0.11645244667458829,
+                    -0.581389057703452,
+                    -0.8052487759979488
+                  ],
+                  [
+                    -0.9875222877613827,
+                    0.018761126937364953,
+                    -0.15635776696590747
+                  ],
+                  [
+                    0.10601206930358026,
+                    0.8134093580103026,
+                    -0.5719498732085189
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "1000000.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3887.169056952032 52.239191039620 965.266513060916"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": -0.5295994756121176,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6921290637060793,
+                    0.01039440732756098,
+                    -0.7216989091509387
+                  ],
+                  "altitude_above_radar_origin_m": 13089.551129222169,
+                  "predicted_slant_range_ft": -81089.05603225934,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 1118.1333333333332,
+                "relative_quaternion_wxyz": [
+                  0.0561300337973291,
+                  0.007456820116372418,
+                  0.9979839319806536,
+                  -0.028668565504693017
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.56176134202653,
+                "yaw_target_error_deg": -0.4382386579734714,
+                "yaw_rate_deg_s": 0.02239533361422195,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.423141609555016,
+                "rotation_body_to_global": [
+                  [
+                    -0.031928431166747484,
+                    -0.5328572239495741,
+                    0.8456025982504922
+                  ],
+                  [
+                    0.9989929799247637,
+                    0.009668307417139421,
+                    0.04381266817631646
+                  ],
+                  [
+                    -0.03152144261087331,
+                    0.8461499292184812,
+                    0.5320119321399555
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "50237.829889777808",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-2923.957479384646 -8.918539354191 2093.987535146124"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8296230460091383,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7094884021644426,
+                    0.010010704443196074,
+                    -0.704646005445782
+                  ],
+                  "altitude_above_radar_origin_m": 12703.381207976592,
+                  "predicted_slant_range_ft": 50236.984217324316,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1126.1333333333332,
+                "relative_quaternion_wxyz": [
+                  0.05453078092344091,
+                  0.00819895261699705,
+                  0.9978723287933379,
+                  -0.034784860736027184
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.74413147791796,
+                "yaw_target_error_deg": -0.25586852208203936,
+                "yaw_rate_deg_s": 0.022401873461468384,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 4.104133263020475,
+                "rotation_body_to_global": [
+                  [
+                    -0.03495774407378949,
+                    -0.5223749556816176,
+                    0.8519990386179435
+                  ],
+                  [
+                    0.9988578560372555,
+                    0.009522813976643785,
+                    0.046821997465124554
+                  ],
+                  [
+                    -0.03257206720380745,
+                    0.8526627244641312,
+                    0.5214454321858388
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "49343.309139322759",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2838.212547199872 -11.437706409104 2057.619760575875"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8333270851913087,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7129535954651371,
+                    0.009921638517338462,
+                    -0.7011410213376942
+                  ],
+                  "altitude_above_radar_origin_m": 12532.52998907359,
+                  "predicted_slant_range_ft": 49341.03919610586,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 2693,
+              "original_input_events": [
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1081.25,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1089.6166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1094.4333333333334,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1095.05,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1096.8,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1097.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1099.1,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1099.7,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1101.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1102.0166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1103.9,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1104.5166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1106.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1107.0166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1108.9166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1109.5333333333333,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1111.3166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1111.8166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1113.5166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1113.8833333333332,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1115.3166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1115.6166666666666,
+                  "checklist_row": 169
+                }
+              ],
+              "first_observed_original_radar_data_good_after_start": {
+                "sim_elapsed_s": 1120.9166666666667,
+                "event": "yaw_target_sample",
+                "radar": {
+                  "RANGE": "49998.441568937502",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2896.045055703079 -11.679782750154 2078.805140596516"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8305071674837513,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7107060386499405,
+                    0.009979915852319275,
+                    -0.7034183164419945
+                  ],
+                  "altitude_above_radar_origin_m": 12655.922377118099,
+                  "predicted_slant_range_ft": 49996.02251337674,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              }
+            }
+          },
+          "diagnostic_driver_release_predictor": {
+            "deceleration_estimate_deg_s2": 4.0,
+            "release_lag_allowance_s": 0.25,
+            "release_target_margin_deg": 0.35,
+            "acquisition_margin_deg": 0.75,
+            "max_pulses_per_maneuver": 12,
+            "max_trim_pulse_seconds": 0.6,
+            "no_left_yaw_or_counter_thrust_command": true,
+            "fixed_before_candidate_run": true,
+            "not_a_physics_parameter": true,
+            "not_tuned_to_radar_validity": true
+          },
+          "analysis_reverification": {
+            "verifier_sha256": "11c3be2ddfe96c07c4f8ddaa919fa6c5192b5ac9c90b43e7d3272283491aedd9",
+            "simulator_log_modified": false,
+            "event_log_sha256": "731e87cc4877e576299a138417e579719b36cb598619ac5b5d058471831e4a57",
+            "reason": "Final verifier additionally audits all post-acquisition per-step neutral angle/rate observations and pulse holds; immutable successful simulation log rechecked.",
+            "initial_runner_report_preserved": "pdi-protocol-verification-initial-runner.json"
+          }
+        }
+      }
+    },
+    "candidate": {
+      "build": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol",
+      "bounded_ctest": {
+        "passed": 3,
+        "total": 3,
+        "failures": 0,
+        "skipped": 0,
+        "parallelism": 1,
+        "wall_seconds": 56.69,
+        "junit_sha256": "8168eabe6602c5e4f9721f63fda1663b96a7a719371d4268f3a8ead03053e931",
+        "console_log_sha256": "661a4638aff97d6cfd5653f77c211bd20cfd4c2e930a462e8315efbbadd9c8de"
+      },
+      "exact_input_comparison": {
+        "historical_commit": "9b6d4846c25d78cd257cd0c4693d1362258549c3",
+        "historical_event_log_sha256": "ad4296f2e02f76c13acf25041cb206a4b7cf7e86666d73e316682c9a9ea02118",
+        "current_event_log_sha256": "0875fb1ce5c9b3aa7fc51ba86144f4e29bf8bb33b2023f27e894e4d8c1f3f2d4",
+        "event_records": 2288,
+        "input_records": 52,
+        "input_fields": [
+          "event",
+          "action",
+          "area_id",
+          "mouse_event",
+          "checklist_row",
+          "sim_elapsed_s",
+          "requested_field",
+          "requested_state",
+          "readback"
+        ],
+        "all_input_fields_and_times_identical": true,
+        "exact_telemetry_fields": [
+          "seq",
+          "event",
+          "action",
+          "sim_elapsed_s",
+          "mission_time_s",
+          "agc_clock_s",
+          "tig_s",
+          "countdown_s",
+          "lgc_tfi_s",
+          "dsky",
+          "controls",
+          "guidance_channel_031",
+          "lgc_output_channel_005",
+          "lgc_output_channel_006",
+          "aca_out_of_detent",
+          "aca_proportional_roll_pitch_yaw",
+          "pgns_jet_requests",
+          "jet_requests",
+          "rcs_jet_levels",
+          "rotation_body_to_global",
+          "angular_velocity_body_rad_s"
+        ],
+        "all_listed_telemetry_and_radar_validity_flags_identical": true,
+        "max_altitude_difference_m": 9.424397467228118e-05,
+        "whole_json_record_identity_claimed": false
+      },
+      "runs": {
+        "default": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "56bf9e8e37406e7404eef9985f8af34e9d305c9c35d352cb3fd94fcfab326659",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "2428849e90d78068a27f78405c5236de75b149d069f665e2233064e0c7abb726",
+          "wall_seconds": 55.945580792,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": -0.4652870926582164,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.742697343720306,
+              0.008938736058184403,
+              -0.6695675877971421
+            ],
+            "altitude_above_radar_origin_m": 9935.27413087607,
+            "predicted_slant_range_ft": -70055.76610828954,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": false,
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-protocol",
+          "verification_report_sha256": "bb0020c05f582420b2d106a977a09c9c4b55c2cae14fee6404d12ca465d0756b",
+          "checkpoint_rotation_body_to_global": [
+            [
+              0.03250351221243858,
+              -0.4362158131016491,
+              -0.8992548504700565
+            ],
+            [
+              -0.9993879804393053,
+              -0.002545145284131578,
+              -0.03488820415168725
+            ],
+            [
+              0.012930052099778488,
+              0.8998384780812334,
+              -0.4360315666521718
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "1000000.000000000000",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2475.633480621344 17.421814534134 453.966653633897"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            0.0023452322631523324,
+            -5.2024404016665286e-05,
+            3.8109598705562446e-05
+          ],
+          "range_and_velocity_good_records": 0
+        },
+        "exact_input": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "56bf9e8e37406e7404eef9985f8af34e9d305c9c35d352cb3fd94fcfab326659",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0166666666667,
+          "observed_dh_ft": 99999.0,
+          "radar_valid": false,
+          "radar_measurement_available": false,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "0875fb1ce5c9b3aa7fc51ba86144f4e29bf8bb33b2023f27e894e4d8c1f3f2d4",
+          "wall_seconds": 58.40943275,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.538956206530954,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.7426936502039764,
+              0.00895290418866059,
+              -0.6695714954008141
+            ],
+            "altitude_above_radar_origin_m": 9924.139841909584,
+            "predicted_slant_range_ft": 60412.16989892145,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": false,
+            "velocity_good_discrete": false,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": false,
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-exact-regression",
+          "verification_report_sha256": "6ebe8bda40abb6b098e02cc19bfaca3117e6a375356eb83b5d776ee68aa901ca",
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.7224988059814853,
+              -0.43500931117638947,
+              0.5373661457006491
+            ],
+            [
+              0.5986193107865727,
+              -0.004737591865405677,
+              0.8010196476845779
+            ],
+            [
+              -0.34590518369740675,
+              0.9004134907991772,
+              0.26382787850813516
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "60416.355960224333",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "0",
+            "VELOCITYGOOD": "0",
+            "RATE": "-2088.559779650950 -478.469563849162 1318.449938257050"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.0010374453352698337,
+            -9.141650485915491e-06,
+            -0.0008506740948498391
+          ],
+          "range_and_velocity_good_records": 0,
+          "manual_yaw_release_and_settling": {
+            "checklist_yaw_right_10": {
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "commanded_yaw_deg": 10,
+              "held_gyro_integral_deg": 10.105955341627075,
+              "post_release_eight_second_gyro_integral_deg": 12.292688993719281,
+              "rotation_at_input_start": [
+                [
+                  -0.007332669638966574,
+                  -0.8236042535177847,
+                  -0.5671175059397995
+                ],
+                [
+                  -0.9996886628426259,
+                  0.01956398564042454,
+                  -0.015486376263795842
+                ],
+                [
+                  0.02384972410507874,
+                  0.5668273847065559,
+                  -0.8234912911542159
+                ]
+              ],
+              "fixed_start_frame_target_rotation": [
+                [
+                  0.09125765151872921,
+                  -0.8236042535177847,
+                  -0.5597750214387016
+                ],
+                [
+                  -0.9818119647489527,
+                  0.01956398564042454,
+                  -0.1888452179475627
+                ],
+                [
+                  0.16648515523940083,
+                  0.5668273847065559,
+                  -0.8068391469379994
+                ]
+              ],
+              "release": {
+                "sim_elapsed_s": 15.083333333333334,
+                "after_release_s": 0.0,
+                "yaw_rate_deg_s": 9.63407484984275,
+                "relative_right_yaw_projection_unwrapped_deg": 10.105314589116432,
+                "orientation_error_to_fixed_start_frame_target_deg": 0.1132512241544659,
+                "rotation_body_to_global": [
+                  [
+                    0.09271362831809918,
+                    -0.8232712299711462,
+                    -0.5600255931882837
+                  ],
+                  [
+                    -0.9814732358670617,
+                    0.019151846897608772,
+                    -0.19063969690767227
+                  ],
+                  [
+                    0.16767370217399027,
+                    0.5673250291166486,
+                    -0.8062430408611666
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09578216027098235,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.24028209826370917,
+                    0.006845686166666509,
+                    -0.9706789633214973
+                  ],
+                  "altitude_above_radar_origin_m": 33012.01711856312,
+                  "predicted_slant_range_ft": 1130765.2956565253,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 170,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "release_verified_0_2s": {
+                "sim_elapsed_s": 15.283333333333333,
+                "after_release_s": 0.1999999999999993,
+                "yaw_rate_deg_s": 9.637134680266264,
+                "relative_right_yaw_projection_unwrapped_deg": 12.07948094623714,
+                "orientation_error_to_fixed_start_frame_target_deg": 2.079973241883925,
+                "rotation_body_to_global": [
+                  [
+                    0.11198474838989292,
+                    -0.823239833194489,
+                    -0.5565389412879951
+                  ],
+                  [
+                    -0.9743241565841259,
+                    0.019122532414615027,
+                    -0.22433628028182168
+                  ],
+                  [
+                    0.19532499590345426,
+                    0.5673715764787324,
+                    -0.7999610241626487
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.10106410783026315,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2400974334068051,
+                    0.0068473752260861335,
+                    -0.9707246447494666
+                  ],
+                  "altitude_above_radar_origin_m": 33006.10734424438,
+                  "predicted_slant_range_ft": 1071475.878814975,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 85,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "first_low_rate_observation": {
+                "sim_elapsed_s": 17.65,
+                "after_release_s": 2.5666666666666647,
+                "yaw_rate_deg_s": 0.07300892791461468,
+                "relative_right_yaw_projection_unwrapped_deg": 22.396204267795497,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.396510268115156,
+                "rotation_body_to_global": [
+                  [
+                    0.21026820270944027,
+                    -0.8228483130659114,
+                    -0.5279279653645238
+                  ],
+                  [
+                    -0.9184056305368684,
+                    0.018861895211137368,
+                    -0.3951902411588901
+                  ],
+                  [
+                    0.3351393452394381,
+                    0.5679479576454416,
+                    -0.7517424669917573
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.1360630324812265,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.23791147660334186,
+                    0.0068673446483028715,
+                    -0.9712625643346391
+                  ],
+                  "altitude_above_radar_origin_m": 32925.986190437354,
+                  "predicted_slant_range_ft": 793932.6877132695,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 5,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "rate_dwell_verified": {
+                "sim_elapsed_s": 18.65,
+                "after_release_s": 3.5666666666666647,
+                "yaw_rate_deg_s": 0.0002895781117646272,
+                "relative_right_yaw_projection_unwrapped_deg": 22.3973571766239,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.39780044118568,
+                "rotation_body_to_global": [
+                  [
+                    0.21044835951451843,
+                    -0.8226799474537402,
+                    -0.5281185397570887
+                  ],
+                  [
+                    -0.9184015714261385,
+                    0.018766200347195422,
+                    -0.3952042298945303
+                  ],
+                  [
+                    0.3350373734072779,
+                    0.5681949786666903,
+                    -0.7516012404449
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.1354363587566904,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.236987406445348,
+                    0.006875772541639618,
+                    -0.971488390531901
+                  ],
+                  "altitude_above_radar_origin_m": 32884.92864362067,
+                  "predicted_slant_range_ft": 796611.6841082071,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 23.083333333333332,
+                "after_release_s": 7.999999999999998,
+                "yaw_rate_deg_s": 0.0002907366690741636,
+                "relative_right_yaw_projection_unwrapped_deg": 22.398653773455152,
+                "orientation_error_to_fixed_start_frame_target_deg": 12.400018495079683,
+                "rotation_body_to_global": [
+                  [
+                    0.2112115011206534,
+                    -0.8219325479339887,
+                    -0.5289769261896984
+                  ],
+                  [
+                    -0.9184096499289898,
+                    0.018341947104646483,
+                    -0.39520537432292174
+                  ],
+                  [
+                    0.3345346270741948,
+                    0.5692894339640879,
+                    -0.7509967534318492
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.13264135875050542,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.23288768705425741,
+                    0.006913065193680446,
+                    -0.9724790664832565
+                  ],
+                  "altitude_above_radar_origin_m": 32719.69330617404,
+                  "predicted_slant_range_ft": 809310.7320576251,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "settled_commanded_attitude_certified": false,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed."
+            },
+            "checklist_yaw_right_174": {
+              "input_release_verified": true,
+              "rate_settling_observed": true,
+              "rate_criterion": {
+                "axis": "Orbiter body Y (LM yaw)",
+                "absolute_rate_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "diagnostic_only": true
+              },
+              "commanded_yaw_deg": 174,
+              "held_gyro_integral_deg": 174.22463872178074,
+              "post_release_eight_second_gyro_integral_deg": 35.41666341392605,
+              "rotation_at_input_start": [
+                [
+                  0.3279447881661256,
+                  -0.5799413870438892,
+                  -0.7457346736663686
+                ],
+                [
+                  -0.9101731162195843,
+                  0.017488454953181867,
+                  -0.41385873490175606
+                ],
+                [
+                  0.25305555600659385,
+                  0.8144704669519706,
+                  -0.5221118118154706
+                ]
+              ],
+              "fixed_start_frame_target_rotation": [
+                [
+                  -0.24819777285937134,
+                  -0.5799413870438892,
+                  0.775929025840159
+                ],
+                [
+                  0.9484471102251245,
+                  0.017488454953181867,
+                  0.31645257630324547
+                ],
+                [
+                  -0.1970937458501884,
+                  0.8144704669519706,
+                  0.545703137071596
+                ]
+              ],
+              "release": {
+                "sim_elapsed_s": 1092.2166666666667,
+                "after_release_s": 0.0,
+                "yaw_rate_deg_s": 19.131379877145424,
+                "relative_right_yaw_projection_unwrapped_deg": 174.22187521200914,
+                "orientation_error_to_fixed_start_frame_target_deg": 0.8576674299694045,
+                "rotation_body_to_global": [
+                  [
+                    -0.25324192763210285,
+                    -0.5681264349620951,
+                    0.7830075861614856
+                  ],
+                  [
+                    0.9472787286787367,
+                    0.01860501769806666,
+                    0.3198700728565433
+                  ],
+                  [
+                    -0.19629451414130833,
+                    0.8227309446068709,
+                    0.5334625164941893
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.757503879628602,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6975268690652083,
+                    0.010311834039524757,
+                    -0.7164844262165291
+                  ],
+                  "altitude_above_radar_origin_m": 12949.75137590969,
+                  "predicted_slant_range_ft": 56086.921911761245,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "55968.280233804893",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3209.733607226468 -168.964785903275 2183.079442352068"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "release_verified_0_2s": {
+                "sim_elapsed_s": 1092.4166666666667,
+                "after_release_s": 0.20000000000004547,
+                "yaw_rate_deg_s": 18.687399277897768,
+                "relative_right_yaw_projection_unwrapped_deg": 178.03014902116087,
+                "orientation_error_to_fixed_start_frame_target_deg": 4.117862783158894,
+                "rotation_body_to_global": [
+                  [
+                    -0.3048954512719463,
+                    -0.5678685458566946,
+                    0.7645679030800863
+                  ],
+                  [
+                    0.9239477993871896,
+                    0.018344789320854815,
+                    0.3820784379055482
+                  ],
+                  [
+                    -0.2309961640401132,
+                    0.8229148092794158,
+                    0.5190876504670249
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.7366603916321479,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6976234683085117,
+                    0.010309813436996421,
+                    -0.7163903993020128
+                  ],
+                  "altitude_above_radar_origin_m": 12946.622375152758,
+                  "predicted_slant_range_ft": 57659.941645513434,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "57519.816476112384",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3213.012123454292 -215.358411471884 2170.217881009070"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 85,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "first_low_rate_observation": {
+                "sim_elapsed_s": 1095.9833333333333,
+                "after_release_s": 3.7666666666666515,
+                "yaw_rate_deg_s": 0.06200514661460482,
+                "relative_right_yaw_projection_unwrapped_deg": 209.93518453433475,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.95168723787805,
+                "rotation_body_to_global": [
+                  [
+                    -0.6654529965146084,
+                    -0.564094188838774,
+                    0.48884563570523293
+                  ],
+                  [
+                    0.5824992278346488,
+                    0.01708120640591837,
+                    0.8126517593408359
+                  ],
+                  [
+                    -0.4667622081978849,
+                    0.8255337537048643,
+                    0.3172176894376961
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.47047011893516866,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6993348158596999,
+                    0.010273495176365988,
+                    -0.7147204143043214
+                  ],
+                  "altitude_above_radar_origin_m": 12733.68464544577,
+                  "predicted_slant_range_ft": 88798.79701998984,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "88777.242354806862",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3267.581155248276 -543.892291169726 1950.071096677192"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 5,
+                "pgns_jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "rate_dwell_verified": {
+                "sim_elapsed_s": 1096.9833333333333,
+                "after_release_s": 4.7666666666666515,
+                "yaw_rate_deg_s": -0.07105055508022666,
+                "relative_right_yaw_projection_unwrapped_deg": 209.86600393555295,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.88581009298026,
+                "rotation_body_to_global": [
+                  [
+                    -0.6662550322327127,
+                    -0.5626975393684792,
+                    0.4893625559983581
+                  ],
+                  [
+                    0.5835056717085398,
+                    0.015251686154878374,
+                    0.8119658349668408
+                  ],
+                  [
+                    -0.46435478150715004,
+                    0.8265221504945237,
+                    0.31817569302722515
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.4720944497714096,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6998107849376096,
+                    0.010263213850724864,
+                    -0.7142545286706
+                  ],
+                  "altitude_above_radar_origin_m": 12908.395630614057,
+                  "predicted_slant_range_ft": 89707.42906644622,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "89694.654554695386",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3259.159916182685 -547.813065703981 1941.279443853427"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1100.2166666666667,
+                "after_release_s": 8.0,
+                "yaw_rate_deg_s": -0.07101679308198312,
+                "relative_right_yaw_projection_unwrapped_deg": 209.6358930087701,
+                "orientation_error_to_fixed_start_frame_target_deg": 35.673172755871114,
+                "rotation_body_to_global": [
+                  [
+                    -0.6683273094379724,
+                    -0.5564062628695239,
+                    0.4937111281903336
+                  ],
+                  [
+                    0.58685712551876,
+                    0.013453096189070424,
+                    0.8095787351646451
+                  ],
+                  [
+                    -0.4570966218287552,
+                    0.8308014713771867,
+                    0.31753990846859204
+                  ]
+                ],
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.4782190996802109,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7013382383885007,
+                    0.010229719990276885,
+                    -0.7127552372329754
+                  ],
+                  "altitude_above_radar_origin_m": 12940.142042463514,
+                  "predicted_slant_range_ft": 88776.32509542299,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                },
+                "original_radar": {
+                  "RANGE": "88784.740770406002",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3223.069138527384 -559.584008559275 1927.724343323637"
+                },
+                "lgc_output_channel_005": 0,
+                "lgc_output_channel_006": 0,
+                "pgns_jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "jet_requests": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "rcs_jet_levels": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "settled_commanded_attitude_certified": false,
+              "orientation_measurement": "Relative matrix rotation from input start; yaw projection is unwrapped, target is a fixed-start-frame original right-yaw rotation (negative body-Y rate, positive matrix angle). Ongoing PGNS pitch/roll guidance is not removed."
+            }
+          }
+        },
+        "yaw_target": {
+          "scenario_sha256": "741dafd46fb7e453d348c000ba0603517308a7a085d66f6dcca4d747a097971b",
+          "input_sha256": {
+            "mission": "03dd9049cec981ddf46f1f3f42b7ff8aa38a390f0bab99665125ff96471f4c26",
+            "rom": "b7a2abb432df5d4ce242c238e25fd2cf6711f72fb88b888a4b972afb3dea41c1",
+            "checklist": "51056ee8013ab11f58bbc3dfa72a1768a42f8982ae21173602581a6931b30b4c"
+          },
+          "binary_sha256": {
+            "probe": "56bf9e8e37406e7404eef9985f8af34e9d305c9c35d352cb3fd94fcfab326659",
+            "orbiter": "9a6869d03df916dec4ce3e3584af9a64acfac59fef96c298a96443324cc62cc1"
+          },
+          "actual_ignition_elapsed_s": 901.1833333333333,
+          "checkpoint_elapsed_s": 1209.0333333333333,
+          "observed_dh_ft": -1171.0,
+          "radar_valid": true,
+          "radar_measurement_available": true,
+          "manual_yaw_settled_attitude_validated": false,
+          "fresh_zero_step_reload": true,
+          "lgc_memory_channels_retained": true,
+          "event_log_sha256": "ad6fdc417d85de56773f7a5b641615e5d0b30d8c793907ce4cbd7e3d85d56ffa",
+          "wall_seconds": 66.53835454200001,
+          "checkpoint_radar_geometry": {
+            "beam_nadir_cosine": 0.86203410957641,
+            "beam_body": [
+              -0.07310866014238826,
+              -0.7147168646786284,
+              -0.6955824373545783
+            ],
+            "nadir_global": [
+              -0.742697146464824,
+              0.008934435611356923,
+              -0.6695678639938706
+            ],
+            "altitude_above_radar_origin_m": 9927.209413424864,
+            "predicted_slant_range_ft": 37782.245885511766,
+            "position1_discrete": true,
+            "position2_discrete": false,
+            "range_good_discrete": true,
+            "velocity_good_discrete": true,
+            "position2_command": false,
+            "radar_test_switch": 1
+          },
+          "yaw_target_driver_enabled": true,
+          "runtime": "<PRESERVED_POC>/orbiter/build/candidate-pdi-protocol/runtime-pdi-target",
+          "verification_report_sha256": "5e829fc540bf947904e696bd582a5c8f41440c4028dbf72eb4a0b75ea543d298",
+          "checkpoint_rotation_body_to_global": [
+            [
+              -0.04844888601326769,
+              -0.43571103199054095,
+              0.8987817321495868
+            ],
+            [
+              0.9986528192234038,
+              -0.004391355267326036,
+              0.05170360389822115
+            ],
+            [
+              -0.018580960718472594,
+              0.9000758926894189,
+              0.4353368067348826
+            ]
+          ],
+          "checkpoint_original_radar": {
+            "RANGE": "37784.640150424319",
+            "ANTENNAANGLE": "24.000000000000",
+            "RANGEGOOD": "1",
+            "VELOCITYGOOD": "1",
+            "RATE": "-1991.746492385580 -32.678869482770 1535.375671578999"
+          },
+          "checkpoint_body_angular_velocity_rad_s": [
+            -0.001383910544755894,
+            6.162303027925167e-05,
+            8.78317388017018e-05
+          ],
+          "range_and_velocity_good_records": 120,
+          "diagnostic_relative_yaw_targets": {
+            "target_yaw_right_10": {
+              "commanded_yaw_deg": 10,
+              "original_right_yaw_pulses": 2,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "start": {
+                "sim_elapsed_s": 12.8,
+                "relative_quaternion_wxyz": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 0.0,
+                "yaw_target_error_deg": -10.0,
+                "yaw_rate_deg_s": 0.0012033982025747875,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 9.999999999999975,
+                "rotation_body_to_global": [
+                  [
+                    -0.007332669638966574,
+                    -0.8236042535177847,
+                    -0.5671175059397995
+                  ],
+                  [
+                    -0.9996886628426259,
+                    0.01956398564042454,
+                    -0.015486376263795842
+                  ],
+                  [
+                    0.02384972410507874,
+                    0.5668273847065559,
+                    -0.8234912911542159
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.07791637859179243,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.24238962129029235,
+                    0.006826386127208701,
+                    -0.9701549731579954
+                  ],
+                  "altitude_above_radar_origin_m": 33112.18006204904,
+                  "predicted_slant_range_ft": 1394260.915635934,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 19.85,
+                "relative_quaternion_wxyz": [
+                  0.9966186349145398,
+                  -0.0008976895329548063,
+                  0.08215866176776067,
+                  -0.0006670765417635582
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.425318946624344,
+                "yaw_target_error_deg": -0.5746810533756559,
+                "yaw_rate_deg_s": -0.03745243871440808,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.5887981087356761,
+                "rotation_body_to_global": [
+                  [
+                    0.086854365227339,
+                    -0.8225339503008162,
+                    -0.5620446778001649
+                  ],
+                  [
+                    -0.9836847268484914,
+                    0.018411576253888645,
+                    -0.17895634111385023
+                  ],
+                  [
+                    0.15754579463116572,
+                    0.568417904769354,
+                    -0.8075149584569027
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.09079505328719178,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.2358781919560565,
+                    0.0068858782444521606,
+                    -0.9717582329161634
+                  ],
+                  "altitude_above_radar_origin_m": 32833.66622279059,
+                  "predicted_slant_range_ft": 1186430.2970619246,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 27.849999999999998,
+                "relative_quaternion_wxyz": [
+                  0.9968271709171892,
+                  -0.0024816572812926363,
+                  0.07955369909185135,
+                  -0.0008010363126739563
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 9.125856724638737,
+                "yaw_target_error_deg": -0.8741432753612628,
+                "yaw_rate_deg_s": -0.037451904666038545,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 0.9238078655048576,
+                "rotation_body_to_global": [
+                  [
+                    0.084344684672628,
+                    -0.8207237355933468,
+                    -0.5650650617417228
+                  ],
+                  [
+                    -0.9846165893190078,
+                    0.018440547972724194,
+                    -0.1737530380404037
+                  ],
+                  [
+                    0.15302335182997157,
+                    0.5710275790398986,
+                    -0.8065428431091264
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "24.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "5173.311182754063 -397.719827677264 1365.334784246013"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.08570664716635845,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    0.22847429204958355,
+                    0.0069530318914469355,
+                    -0.973525116892193
+                  ],
+                  "altitude_above_radar_origin_m": 32560.885275152934,
+                  "predicted_slant_range_ft": 1246426.677038404,
+                  "position1_discrete": false,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 903,
+              "original_input_events": [
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 12.8,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 14.283333333333333,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 16.95,
+                  "checklist_row": 55
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 17.266666666666666,
+                  "checklist_row": 55
+                }
+              ],
+              "first_observed_original_radar_data_good_after_start": {
+                "sim_elapsed_s": 1124.0833333333333,
+                "event": "yaw_target_sample",
+                "radar": {
+                  "RANGE": "49999.999301051423",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2864.104124609610 -11.623652508183 2061.511392503498"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8313124598067829,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.712073286367685,
+                    0.009945523441075918,
+                    -0.7020347009977554
+                  ],
+                  "altitude_above_radar_origin_m": 12668.596301602021,
+                  "predicted_slant_range_ft": 49997.6100078808,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              }
+            },
+            "target_yaw_right_174": {
+              "commanded_yaw_deg": 174,
+              "original_right_yaw_pulses": 10,
+              "target_frame": "Relative quaternion twist about input-start body Y (LM thrust/yaw axis); PGNS pitch/roll swing remains observed",
+              "diagnostic_yaw_target_validated": true,
+              "full_fixed_frame_attitude_certified": false,
+              "diagnostic_criterion": {
+                "yaw_angle_tolerance_deg": 1.0,
+                "yaw_rate_threshold_deg_s": 0.1,
+                "continuous_dwell_s": 1.0,
+                "operational_flight_requirement": false
+              },
+              "start": {
+                "sim_elapsed_s": 1081.25,
+                "relative_quaternion_wxyz": [
+                  1.0000000000000002,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 0.0,
+                "yaw_target_error_deg": -174.0,
+                "yaw_rate_deg_s": 0.020276237171319093,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 174.00000000000009,
+                "rotation_body_to_global": [
+                  [
+                    0.11759644062228913,
+                    -0.5804031295351777,
+                    -0.8057935742972517
+                  ],
+                  [
+                    -0.9874154524870769,
+                    0.018063256107974435,
+                    -0.15711283514888047
+                  ],
+                  [
+                    0.10574403691324613,
+                    0.8141289369654845,
+                    -0.5709748441505463
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "1000000.000000000000",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-3888.428122883656 57.299004269428 959.631462453720"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": -0.5284569189517303,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.6921275496180377,
+                    0.010397077394096784,
+                    -0.721700322738872
+                  ],
+                  "altitude_above_radar_origin_m": 13144.456782591393,
+                  "predicted_slant_range_ft": -81605.24853406403,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "terminal_dwell": {
+                "sim_elapsed_s": 1116.3333333333333,
+                "relative_quaternion_wxyz": [
+                  0.05853986550659278,
+                  0.005920291254271118,
+                  0.9979017934162199,
+                  -0.027019344822306265
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.28541615339628,
+                "yaw_target_error_deg": -0.7145838466037162,
+                "yaw_rate_deg_s": 0.033345234111793125,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.2495685713333056,
+                "rotation_body_to_global": [
+                  [
+                    -0.027402106000562254,
+                    -0.5348593753748907,
+                    0.844496638927779
+                  ],
+                  [
+                    0.999141341541995,
+                    0.011608421111088285,
+                    0.03977215333584694
+                  ],
+                  [
+                    -0.031075781702097904,
+                    0.8448613455075864,
+                    0.5340820186625965
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "50678.816789003860",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "0",
+                  "VELOCITYGOOD": "0",
+                  "RATE": "-2940.621055810499 0.750934402068 2105.512941177911"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8293146882336953,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7086918096288236,
+                    0.010031995084954032,
+                    -0.7054468640795271
+                  ],
+                  "altitude_above_radar_origin_m": 12809.613447588452,
+                  "predicted_slant_range_ft": 50675.92728648508,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": false,
+                  "velocity_good_discrete": false,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "eight_second_observation": {
+                "sim_elapsed_s": 1124.3333333333333,
+                "relative_quaternion_wxyz": [
+                  0.056230878721231344,
+                  0.007942141377450161,
+                  0.9978855713160363,
+                  -0.03161324450047525
+                ],
+                "relative_right_yaw_twist_unwrapped_deg": 173.5495841923551,
+                "yaw_target_error_deg": -0.45041580764490163,
+                "yaw_rate_deg_s": 0.033378674036219774,
+                "full_rotation_error_to_pure_start_frame_yaw_deg": 3.7628902412767,
+                "rotation_body_to_global": [
+                  [
+                    -0.03314026156860983,
+                    -0.5267676789783385,
+                    0.8493630174707033
+                  ],
+                  [
+                    0.9989794592455729,
+                    0.008635468126633405,
+                    0.04433360684240478
+                  ],
+                  [
+                    -0.03068815844242123,
+                    0.8499654352231083,
+                    0.5259439094213421
+                  ]
+                ],
+                "original_radar": {
+                  "RANGE": "49965.396803322277",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2861.348825063292 -11.445379620676 2060.468701926425"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8314343766030701,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.7121807076299442,
+                    0.009942707913793243,
+                    -0.7019257669006409
+                  ],
+                  "altitude_above_radar_origin_m": 12661.74622282447,
+                  "predicted_slant_range_ft": 49963.24823384846,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              },
+              "per_step_samples": 2585,
+              "original_input_events": [
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1081.25,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1089.6166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1094.4333333333334,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1095.05,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1096.8,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1097.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1099.1,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1099.7,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1101.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1102.0166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1103.9,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1104.5166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1106.4,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1107.0166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1108.9166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1109.5333333333333,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1111.3333333333333,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1111.8166666666666,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_down",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1113.5166666666667,
+                  "checklist_row": 169
+                },
+                {
+                  "event": "keyboard_up",
+                  "area_id": 81,
+                  "sim_elapsed_s": 1113.8666666666666,
+                  "checklist_row": 169
+                }
+              ],
+              "first_observed_original_radar_data_good_after_start": {
+                "sim_elapsed_s": 1124.0833333333333,
+                "event": "yaw_target_sample",
+                "radar": {
+                  "RANGE": "49999.999301051423",
+                  "ANTENNAANGLE": "24.000000000000",
+                  "RANGEGOOD": "1",
+                  "VELOCITYGOOD": "1",
+                  "RATE": "-2864.104124609610 -11.623652508183 2061.511392503498"
+                },
+                "radar_geometry": {
+                  "beam_nadir_cosine": 0.8313124598067829,
+                  "beam_body": [
+                    -0.07310866014238826,
+                    -0.7147168646786284,
+                    -0.6955824373545783
+                  ],
+                  "nadir_global": [
+                    -0.712073286367685,
+                    0.009945523441075918,
+                    -0.7020347009977554
+                  ],
+                  "altitude_above_radar_origin_m": 12668.596301602021,
+                  "predicted_slant_range_ft": 49997.6100078808,
+                  "position1_discrete": true,
+                  "position2_discrete": false,
+                  "range_good_discrete": true,
+                  "velocity_good_discrete": true,
+                  "position2_command": false,
+                  "radar_test_switch": 1
+                }
+              }
+            }
+          },
+          "diagnostic_driver_release_predictor": {
+            "deceleration_estimate_deg_s2": 4.0,
+            "release_lag_allowance_s": 0.25,
+            "release_target_margin_deg": 0.35,
+            "acquisition_margin_deg": 0.75,
+            "max_pulses_per_maneuver": 12,
+            "max_trim_pulse_seconds": 0.6,
+            "no_left_yaw_or_counter_thrust_command": true,
+            "fixed_before_candidate_run": true,
+            "not_a_physics_parameter": true,
+            "not_tuned_to_radar_validity": true
+          },
+          "analysis_reverification": {
+            "verifier_sha256": "11c3be2ddfe96c07c4f8ddaa919fa6c5192b5ac9c90b43e7d3272283491aedd9",
+            "simulator_log_modified": false,
+            "event_log_sha256": "ad6fdc417d85de56773f7a5b641615e5d0b30d8c793907ce4cbd7e3d85d56ffa",
+            "reason": "Final verifier additionally audits all post-acquisition per-step neutral angle/rate observations and pulse holds; immutable successful simulation log rechecked.",
+            "initial_runner_report_preserved": "pdi-protocol-verification-initial-runner.json"
+          }
+        }
+      }
+    }
+  },
+  "exact_input_function_unchanged_sha256": "be8214c8a2870a824c484885b30b8b59f636ae5f7da7abb80e6aa6d721e13584",
+  "unchanged_source_sha256": {
+    "orbiter/Tests/NativeDescent.cpp": "7b46a60997684401973a95aa6ff3772f0f6c165b7f0b57866a4575b7944e4218",
+    "orbiter/Tests/NativeOriginalDescent.py": "fc00d17b06796b0b83c8ecb15d0f6ef16a17526ef50415ea7a2e8e0b174ef6d6",
+    "orbiter/cmake/NativeWgpu.cmake": "4a0ba057b83b5ca30757f979ee140b699e231196b0413d3553f821df0993d95d"
+  },
+  "source_sha256": {
+    "orbiter/Tests/NativePDIProtocol.cpp": "cbf471b512aed77904d05aa62c9d1ed1a9ef28d81cad82bc9f0eb9d63ae743ec",
+    "orbiter/Tests/NativePDIProtocol.py": "11c3be2ddfe96c07c4f8ddaa919fa6c5192b5ac9c90b43e7d3272283491aedd9",
+    "orbiter/Tests/NativePDIProtocolContract.py": "17519894e2f8564a5345aa516c1f43a32a6d68a32f95e45293f44f61ff7774b7",
+    "orbiter/docs/macos-pdi-protocol.md": "c1b0963c529a008f01969ab966fef4632123809e96bde9b78bdf41cdcd626b8a"
+  },
+  "initial_attempt": {
+    "profile": "baseline",
+    "failed_at_elapsed_s": 17.866666666666667,
+    "reason": "Initial one-degree acquisition margin allowed low-rate drift from 9.034250 degrees to 8.999934 during dwell. Driver margin tightened to 0.75 degrees; independent one-degree criterion unchanged.",
+    "raw_evidence_preserved": true,
+    "initial_binary_retained": false,
+    "no_radar_or_plant_parameters_adjusted": true
+  },
+  "causal_conclusion": "The separate diagnostic yaw-input policy (earlier original ACA release, bounded right-only trim pulses and added neutral dwells) obtains both relative-yaw targets and original range/velocity data-good with nonsentinel dH at first N68 in both profiles. The previous exact-input policy reproduces its original overshoot and invalid-radar result. The policy intervention is sufficient to change the observed outcome with unchanged models/data; release timing alone is not isolated. Non-yaw input semantics are preserved but some timestamps differ. This does not certify full pilot attitude, historical flight parity or an operational V57 decision.",
+  "historical_full_suites": {
+    "commit": "fbe1c7f2ae6158a201114327352f983bd741fe54",
+    "baseline_passed_total": [
+      91,
+      91
+    ],
+    "candidate_passed_total": [
+      91,
+      91
+    ],
+    "rerun_for_current_change": false
+  },
+  "evidence_archive": "<DEPENDENCY_CACHE>/demo-validation/pdi-yaw-target-20261007",
+  "next_step": "Review the focused causal result before authorizing a broader or new validation scope; keep CI and Windows comparisons deferred.",
+  "causal_scope_correction": {
+    "reviewed_against_commit": "bd010cd95c9f90a6ef949ba6cddb9912f20ab044",
+    "non_yaw_input_events": 48,
+    "non_yaw_input_semantics_preserved": true,
+    "all_non_yaw_timestamps_identical": false,
+    "final_trim_enter_shift_s": 0.16666666666666666,
+    "ignition_pro_shift_s": 0.06666666666666667,
+    "n68_input_shift_s_approximately": [
+      -0.016666666666666666,
+      0.016666666666666666
+    ],
+    "exact_input_regression_role": "Prior-policy reproducibility; not a single-factor causal control.",
+    "source_sha256_scope": "Original bd010cd tested source snapshot; this report receives an editorial causal-scope correction."
+  }
+}

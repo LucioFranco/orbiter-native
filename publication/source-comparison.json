@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "private_POC_commit": "49c0046ab581a78296edfa92ae5cf45c71be2b14",
+  "NASSP_paths": 92,
+  "body_after_removing_exact_comment_notice_matches_private_baseline": true,
+  "other_production_source_changed": false,
+  "renderer_Cargo_metadata_change": "license = MIT for independent original crate",
+  "runtime_equation_scenario_ROM_or_tolerance_changes": false,
+  "notice_patch": "orbiter/upstream/nassp-v9/09-publication-notices.patch",
+  "CI_build_policy_delta": "orbiter/nix/flake.nix adds Linux zlib for hosted headless CI; simulation/runtime source unchanged"
+}

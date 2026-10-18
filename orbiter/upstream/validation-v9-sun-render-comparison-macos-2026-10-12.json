@@ -1,0 +1,420 @@
+{
+  "recorded_utc": "2026-10-12T05:22:21.290736+00:00",
+  "implementation_commit": "d4a3ea4d75b5c2345c37a73be203c142559b0831",
+  "coordinated_GPU_runs_complete": true,
+  "capture_pass": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z",
+  "capture_process_exit_codes": {
+    "before": 0,
+    "after": 0
+  },
+  "bounded_sunlight_restoration_accepted": true,
+  "fixed_camera_actual_distances_m": [
+    28.000001138698796,
+    10.703976649577108
+  ],
+  "MJD": 40423.7519591566,
+  "simulation_seconds": 0.016666666666666666,
+  "same_camera_and_epoch_metadata": true,
+  "saved_scenarios_byte_identical": true,
+  "saved_scenario_sha256": [
+    "893f7199f1f1ead36c06565fd0d7fdcce0ca08f54385d26c3370f71490b6cd76",
+    "893f7199f1f1ead36c06565fd0d7fdcce0ca08f54385d26c3370f71490b6cd76"
+  ],
+  "prepared_input_hashes_verified": 1732,
+  "terrain_trace_byte_identical": true,
+  "site_tiles": [
+    {
+      "requested_level": 17,
+      "requested_latitude": 4065,
+      "requested_longitude": 9271,
+      "source_level": 9,
+      "source_latitude": 15,
+      "source_longitude": 36,
+      "texture_UV": [
+        0.357421875,
+        0.689453125,
+        0.001953125
+      ]
+    }
+  ],
+  "images": {
+    "before-default": {
+      "raw_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/before-default.ppm",
+      "raw_sha256": "5e9c922f200435892d235e588d0f263047d30e20d6f318f294355ad1725f030f",
+      "PNG_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/before-default.png",
+      "PNG_sha256": "0f20c9103cd8082962dd417a5de3acfdd92b04cabb60b5ef38280785b9a477d1",
+      "width": 1280,
+      "height": 720,
+      "RGB_sha256": "814b57d994541ebbe09db12f5467d035f36da1a0fb1862c5ca86bb7c854daa40",
+      "PNG_conversion_preserves_all_RGB_bytes": true,
+      "no_brightness_or_pixel_adjustment": true
+    },
+    "before-close": {
+      "raw_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/before-close.ppm",
+      "raw_sha256": "9c74ed1ce40d58daa04237fe557d853187a20c29455efe58147f42622a182324",
+      "PNG_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/before-close.png",
+      "PNG_sha256": "826a130546dc105116505b9fac4e9b72d84123e534836082b2a2588acd41605f",
+      "width": 1280,
+      "height": 720,
+      "RGB_sha256": "42fffb4667740db448222c54998417452dd43f8d70766490ae37eec3c127f9c8",
+      "PNG_conversion_preserves_all_RGB_bytes": true,
+      "no_brightness_or_pixel_adjustment": true
+    },
+    "after-default": {
+      "raw_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/after-default.ppm",
+      "raw_sha256": "dce1770897d2258727b1c3a91fc76ae28d560e2490fcadaf44df77c11dbc7acb",
+      "PNG_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/after-default.png",
+      "PNG_sha256": "7250a860bb315b900e99ae4b54d2b8b9e7603efc3303b336c4f33ab1470b5377",
+      "width": 1280,
+      "height": 720,
+      "RGB_sha256": "5d169bf37d6660be686f4a0fe6eafee6004b5f1978a3176880686dec02d5243e",
+      "PNG_conversion_preserves_all_RGB_bytes": true,
+      "no_brightness_or_pixel_adjustment": true
+    },
+    "after-close": {
+      "raw_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/after-close.ppm",
+      "raw_sha256": "dca1425f1dcd779c33bae88786551f28955eb144c5b9b420ea471f19da4eb97c",
+      "PNG_path": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/after-close.png",
+      "PNG_sha256": "245588033ef4176e4306d24b88b833eac0c5d7972849abe37b060947a49a5059",
+      "width": 1280,
+      "height": 720,
+      "RGB_sha256": "5ad6cd84b33a73ff58dccfebc25690cc975bd0171798d84f387964d915f3b69b",
+      "PNG_conversion_preserves_all_RGB_bytes": true,
+      "no_brightness_or_pixel_adjustment": true
+    }
+  },
+  "pixel_regions": {
+    "pale_face": {
+      "box": [
+        590,
+        290,
+        685,
+        330
+      ],
+      "before": {
+        "RGB_mean": [
+          5.968421052631579,
+          5.966052631578948,
+          4.996052631578947
+        ],
+        "dominant_RGB": [
+          [
+            [
+              6,
+              6,
+              5
+            ],
+            3677
+          ],
+          [
+            [
+              5,
+              5,
+              5
+            ],
+            120
+          ],
+          [
+            [
+              6,
+              3,
+              0
+            ],
+            3
+          ]
+        ]
+      },
+      "after": {
+        "RGB_mean": [
+          180.015,
+          181.47552631578947,
+          162.66052631578947
+        ],
+        "dominant_RGB": [
+          [
+            [
+              181,
+              183,
+              163
+            ],
+            1309
+          ],
+          [
+            [
+              181,
+              183,
+              164
+            ],
+            772
+          ],
+          [
+            [
+              182,
+              183,
+              164
+            ],
+            621
+          ]
+        ]
+      },
+      "RGB_bytes_identical": false
+    },
+    "gold_foil": {
+      "box": [
+        608,
+        407,
+        665,
+        466
+      ],
+      "before": {
+        "RGB_mean": [
+          3.687481415402914,
+          2.951234017246506,
+          0.9851323223312518
+        ],
+        "dominant_RGB": [
+          [
+            [
+              4,
+              3,
+              1
+            ],
+            933
+          ],
+          [
+            [
+              3,
+              2,
+              0
+            ],
+            883
+          ],
+          [
+            [
+              5,
+              4,
+              2
+            ],
+            201
+          ]
+        ]
+      },
+      "after": {
+        "RGB_mean": [
+          82.11269699672911,
+          65.68034493012192,
+          22.722271781147786
+        ],
+        "dominant_RGB": [
+          [
+            [
+              4,
+              3,
+              1
+            ],
+            90
+          ],
+          [
+            [
+              3,
+              2,
+              0
+            ],
+            57
+          ],
+          [
+            [
+              5,
+              4,
+              2
+            ],
+            25
+          ]
+        ]
+      },
+      "RGB_bytes_identical": false
+    },
+    "ground": {
+      "box": [
+        100,
+        590,
+        300,
+        680
+      ],
+      "before": {
+        "RGB_mean": [
+          36.789611111111114,
+          38.0,
+          36.789611111111114
+        ],
+        "dominant_RGB": [
+          [
+            [
+              37,
+              38,
+              37
+            ],
+            14213
+          ],
+          [
+            [
+              36,
+              38,
+              36
+            ],
+            3787
+          ]
+        ]
+      },
+      "after": {
+        "RGB_mean": [
+          36.789611111111114,
+          38.0,
+          36.789611111111114
+        ],
+        "dominant_RGB": [
+          [
+            [
+              37,
+              38,
+              37
+            ],
+            14213
+          ],
+          [
+            [
+              36,
+              38,
+              36
+            ],
+            3787
+          ]
+        ]
+      },
+      "RGB_bytes_identical": true
+    },
+    "sky": {
+      "box": [
+        20,
+        80,
+        300,
+        260
+      ],
+      "before": {
+        "RGB_mean": [
+          0.321765873015873,
+          0.4049404761904762,
+          0.2961309523809524
+        ],
+        "dominant_RGB": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            42922
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            2907
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            1876
+          ]
+        ]
+      },
+      "after": {
+        "RGB_mean": [
+          0.321765873015873,
+          0.4049404761904762,
+          0.2961309523809524
+        ],
+        "dominant_RGB": [
+          [
+            [
+              0,
+              0,
+              0
+            ],
+            42922
+          ],
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            2907
+          ],
+          [
+            [
+              1,
+              1,
+              1
+            ],
+            1876
+          ]
+        ]
+      },
+      "RGB_bytes_identical": true
+    }
+  },
+  "Windows_reference": {
+    "report": "<NATIVE_EVIDENCE_ROOT>/windows-liftoff-visual-completed.json",
+    "scenario_sha256": "16b02ad534ee76dd07d98eb1e1b6c3c949d8a0346a03a305dbb8c420edb20f5b",
+    "epoch": 40423.7519591566,
+    "platform": "UTM ARM64 Windows11, x64 guest application emulation; software Microsoft Basic Render Driver native D3D9; not native Intel/AMD Windows or hardware acceleration",
+    "observed_vessel": "Lit pale ascent face and gold foil in actual inspected captures",
+    "observed_ground": "Black; no terrain-detail acceptance",
+    "warnings": [
+      "Could not load vessel module ProjectApollo/EasepPSEP, code126",
+      "Could not load vessel module ProjectApollo/EasepLR3, code126",
+      "Could not load vessel module ProjectApollo/EasepSWC, code126",
+      "D3D9 MatMgr material index out of range ProjectApollo/LM_AscentStage.msh",
+      "Shutdown reports144 undeleted surfaces and Failed to Reset DirectX Device, despite normal task exit0 and module unloading"
+    ],
+    "exact_pixel_parity_claimed": false,
+    "preserved_images": [
+      {
+        "source": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/liftoff-visual-20261012/windows-liftoff-01-default-cockpit.png",
+        "local_copy": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/windows-reference/windows-liftoff-01-default-cockpit.png",
+        "sha256": "cde775e7e20bf1c6840d03a62e5116b8de5cec1d4f7f9e9fa4fe482978cdeed8"
+      },
+      {
+        "source": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/liftoff-visual-20261012/windows-liftoff-02-default-exterior.png",
+        "local_copy": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/windows-reference/windows-liftoff-02-default-exterior.png",
+        "sha256": "59cc9f5b5b241b6cead247e784fb7c9d6eebfcf616e3a0fea0ec9580b70788ea"
+      },
+      {
+        "source": "<WINDOWS_REFERENCE_WORKSPACE>/evidence/liftoff-visual-20261012/windows-liftoff-03-exterior-zoom.png",
+        "local_copy": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/windows-reference/windows-liftoff-03-exterior-zoom.png",
+        "sha256": "062621df7cda3375c6453083bf31a9cc947ce181d6f4fd81ce10b072bb3b51a8"
+      }
+    ]
+  },
+  "Moon_archives_match_Windows": true,
+  "capture_harness_correction": "Existing Camera AddPhi(0) rebuilds rpos after SetDistance; measure global camera distance. Initial pass with unrealized distance labels retained, no production camera edits",
+  "historical_limited_pass": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051052Z",
+  "renderer_equations_assets_brightness_changes_in_this_phase": false,
+  "full_renderer_material_parity_accepted": false,
+  "full104_ctest_rerun": false,
+  "limits": [
+    "Native terrain remains flat darkgray while Windows ground is black",
+    "Only installed level9 surface detail at site; terrain trace proves source fallback, no asset changes",
+    "Binary spherical Sun visibility omits partial-disc/terrain-horizon/atmospheric parity",
+    "Windows software D3D9 reference retains three experiment module-load failures plus material and shutdown warnings",
+    "First capture pass preserved with unrealized distance labels; corrected pass measures actual pose",
+    "Manual flight/PDI/physical-control/strict-resume limits unchanged"
+  ],
+  "analysis": "<NATIVE_EVIDENCE_ROOT>/sun-occlusion-fix-20261012/render-comparison/capture-20261012T051455Z/analysis.json"
+}
