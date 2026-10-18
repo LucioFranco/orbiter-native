@@ -8,7 +8,7 @@
   },
   "scope": "Union of both tracked engine trees excluding Addons/, docs/ and upstream/",
   "normalisation": "CRLF to LF for text; binary bytes unchanged",
-  "unchanged_files": 3973,
+  "unchanged_files": 3967,
   "groups": {
     "build": {
       "removal_path": "Replace external native CMake policy with equivalent upstream targets; preserve source selection and matching-data preflight.",
@@ -342,6 +342,13 @@
       "native_lf_sha256": null
     },
     {
+      "path": "Src/Celbody/Galsat/Galsat.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "6d5302bc44ab152d378289421f14dff1dc6bacbd4c10c51f8ae9812bdb8c7ea5",
+      "native_lf_sha256": "4a6447b73d2c89f931dd91b0cd7a8b39384bd24221e47d9b84c9b743b77b5e7f"
+    },
+    {
       "path": "Src/Celbody/Galsat/Lieske.cpp",
       "group": "sdk-core",
       "status": "modified",
@@ -398,6 +405,13 @@
       "native_lf_sha256": "4f9be1176f3f50fd83b539df915a9685434468aa21e5921d46e7443fa43036b9"
     },
     {
+      "path": "Src/Celbody/Satsat/Satsat.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "4afb5346cd0b86f9711f9169cabbafccf6202cc2a8b33919391605669573e7df",
+      "native_lf_sha256": "ddc8f5edf59f0c579d711dd6b60e51e003ff21b6d58ba2cd9fa0aa9b5ce85b76"
+    },
+    {
       "path": "Src/Celbody/Satsat/Tass17.cpp",
       "group": "sdk-core",
       "status": "modified",
@@ -433,11 +447,25 @@
       "native_lf_sha256": null
     },
     {
+      "path": "Src/Celbody/Vsop87/Earth/Atmosphere/EarthAtm2006/EarthAtm2006.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "8e3a1663681afa1891b02235b27bdb9b6ec11a6e3957bd348594070b4dd8a924",
+      "native_lf_sha256": "3efc92c1ed90b6f166e43e034671907e69be17cf4559d0d9cc9cdce92ac6b1b3"
+    },
+    {
       "path": "Src/Celbody/Vsop87/Earth/Atmosphere/EarthAtmJ71G/EarthAtmJ71G.h",
       "group": "sdk-core",
       "status": "modified",
       "upstream_lf_sha256": "2182c500b511242c265f5b9c2cc995b3fac1e2be0fe5dad2394d56847f29c126",
       "native_lf_sha256": "fb3fd3d7256facec48d072dbca80a6eac1d552a2d4201845bd05ca409405f3fb"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Earth/Atmosphere/EarthAtmNRLMSISE00/EarthAtmNRLMSISE00.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "cb0b70f9e3799ddbfaa037432a410c0078c83b610eb2158fee65720ab4101d7c",
+      "native_lf_sha256": "b6179524270b89ea0b72296234452daf91c355a29a616d856173ff00d4f10031"
     },
     {
       "path": "Src/Celbody/Vsop87/Jupiter/Jupiter.cpp",
@@ -447,11 +475,25 @@
       "native_lf_sha256": "3e8ef0d9631ff6343e41dc5e13f76021f2322012cdefaa35c6a4919132446841"
     },
     {
+      "path": "Src/Celbody/Vsop87/Mars/Atmosphere/MarsAtm2006/MarsAtm2006.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "60425437646deb9fecbffa5378033e12451a564b400ed54583286fa1549ead0a",
+      "native_lf_sha256": "682cc32146234444a73957082eedf669c851979427cdd9163710ba4d80083a67"
+    },
+    {
       "path": "Src/Celbody/Vsop87/Saturn/Saturn.cpp",
       "group": "sdk-core",
       "status": "modified",
       "upstream_lf_sha256": "ac7ef5c67db13a68e5b16f6ca74863610da7d312dc0affce2df974ed849cd365",
       "native_lf_sha256": "3742ee69f2957a162c2f6bc9a95d29cdb28379dba3cfb6d0355d62d8afbd6c55"
+    },
+    {
+      "path": "Src/Celbody/Vsop87/Venus/Atmosphere/VenusAtm2006/VenusAtm2006.h",
+      "group": "sdk-core",
+      "status": "modified",
+      "upstream_lf_sha256": "16435768d7932970388848d1020e526474df226899dd6213790405bb7f164874",
+      "native_lf_sha256": "53e330eaa6059a3c10bda0532e59fc2fab27e2af665e95a918bee33eea546002"
     },
     {
       "path": "Src/Celbody/Vsop87/Vsop87.cpp",

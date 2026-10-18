@@ -79,6 +79,10 @@ Linux omits both NASSP flags and additionally executes the workflow's locked
 Cargo check. Windows uses `ci/sdk/CMakeLists.txt`; it does not invoke stock
 Windows/irrKlang/DirectX packaging. Configure/build failures are fatal and
 unsupported targets are rejected. Use a fresh checkout-specific CMake cache.
+The source overlay corrects six upstream celestial-module includes from
+`CelbodyAPI.h` to the actual SDK filename `CelBodyAPI.h`; case-sensitive Linux
+builds need that spelling. The engine ledger records the six source differences
+and their upstream adoption gate.
 
 Integrate only the overlay paths. Append `/.ci-cache/` and `/ci-reports/` to the
 final root ignore file if absent; do not replace it. Re-run policy/actionlint

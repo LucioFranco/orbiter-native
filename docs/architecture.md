@@ -108,8 +108,8 @@ are retained as evidence rather than removed through tuning.
 
 ## Patch removal and packaging
 
-The [engine ledger](../orbiter/upstream/openorbiter-native.json) records 3973
-unchanged files and 351 added/modified/omitted paths in this selected source
+The [engine ledger](../orbiter/upstream/openorbiter-native.json) records 3967
+unchanged files and 357 added/modified/omitted paths in this selected source
 candidate, including 37 upstream omissions. The [NASSP ledger](../orbiter/upstream/nassp-v9/manifest.json)
 records 92 adapted paths in eight behavioral groups plus a separate
 publication-notice group. Each group names adoption/removal conditions. Reconstruct only against the exact pin; apply all nonempty numbered
