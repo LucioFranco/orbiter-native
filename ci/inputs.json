@@ -24,6 +24,10 @@
     "CORROSION": {
       "repository": "https://github.com/corrosion-rs/corrosion.git",
       "commit": "a1a1aaa057a5da656c06c3d8505b767a4e941709"
+    },
+    "ZLIB": {
+      "repository": "https://github.com/madler/zlib.git",
+      "commit": "cacf7f1d4e3d44d871b605da3b647f07d718623f"
     }
   },
   "openorbiter": "bd1d101f348da66e8c5b986633127c05e18d42c8",

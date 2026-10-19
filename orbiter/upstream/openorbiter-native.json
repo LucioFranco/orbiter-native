@@ -2411,7 +2411,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "1fa1679c623c14ead6d8a7c10f584fa55c50cbbd91dc40eff436d76c496dde40"
+      "native_lf_sha256": "de4c549d2e6af36364a69c606a6bb5c51e0cc8b5b4c5a71c5c88c6941af755e9"
     },
     {
       "path": "cmake/PatchMiniaudio.cmake",

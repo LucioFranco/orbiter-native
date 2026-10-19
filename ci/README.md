@@ -93,6 +93,8 @@ DLLs. Windows mission staging copies and verifies assets into a fresh runtime
 directory without symlink privileges. These are build/test inputs only, not a
 redistribution approval or an installable package. The stock Windows reference
 still validates a separate upstream application, not this native host.
+Windows builds zlib statically from OpenOrbiter's v1.2.11 source pin because the
+hosted MSVC image has no zlib development package; Unix retains system zlib.
 Configure/build failures are fatal and
 unsupported targets are rejected. Use a fresh checkout-specific CMake cache.
 The source overlay corrects six upstream celestial-module includes from

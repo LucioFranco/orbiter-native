@@ -13,7 +13,26 @@ target_compile_definitions(OrbiterWorld PRIVATE ORBITER_NATIVE_CORE NOGRAPHICS O
 set_target_properties(OrbiterWorld PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_sources(OrbiterCore PRIVATE $<TARGET_OBJECTS:OrbiterWorld>)
 target_compile_definitions(OrbiterCore PUBLIC ORBITER_NATIVE_CORE NOGRAPHICS)
-find_package(ZLIB REQUIRED)
+if(WIN32)
+  # The standard Windows runner has no zlib development package. Use the
+  # stock v1.2.11 source pin and build only the static library: upstream's
+  # CMakeLists renames its tracked zconf.h in the source checkout.
+  include(FetchContent)
+  FetchContent_Declare(zlib
+    GIT_REPOSITORY https://github.com/madler/zlib.git
+    GIT_TAG cacf7f1d4e3d44d871b605da3b647f07d718623f
+    SOURCE_SUBDIR orbiter-no-upstream-cmake)
+  FetchContent_MakeAvailable(zlib)
+  set(native_zlib_sources
+    adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c gzread.c
+    gzwrite.c inflate.c infback.c inftrees.c inffast.c trees.c uncompr.c zutil.c)
+  list(TRANSFORM native_zlib_sources PREPEND "${zlib_SOURCE_DIR}/")
+  add_library(orbiter_native_zlib STATIC ${native_zlib_sources})
+  target_include_directories(orbiter_native_zlib PUBLIC "${zlib_SOURCE_DIR}")
+  add_library(ZLIB::ZLIB ALIAS orbiter_native_zlib)
+else()
+  find_package(ZLIB REQUIRED)
+endif()
 target_link_libraries(OrbiterCore PRIVATE ZLIB::ZLIB)
 add_executable(orbiter "${PROJECT_SOURCE_DIR}/Src/Orbiter/NativeMain.cpp")
 target_link_libraries(orbiter PRIVATE OrbiterCore)
