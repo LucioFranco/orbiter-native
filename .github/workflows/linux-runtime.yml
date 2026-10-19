@@ -40,7 +40,7 @@ jobs:
       - name: Install Ubuntu build and desktop development libraries
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build pkg-config clang binutils zlib1g-dev \
+          sudo apt-get install -y ninja-build pkg-config clang binutils gdb zlib1g-dev \
             libasound2-dev libpulse-dev libudev-dev libdbus-1-dev \
             libx11-dev libxext-dev libxrandr-dev libxrender-dev libxfixes-dev \
             libxcursor-dev libxi-dev libxinerama-dev libxkbcommon-dev \
@@ -64,6 +64,9 @@ jobs:
         run: python3 ci/fetch_inputs.py --nassp-data
       - name: Build host, NASSP modules and wgpu; run selected headless tests
         run: python3 ci/build_native.py --nassp
+      - name: Capture bounded stacks for a failed Linux runtime test
+        if: failure()
+        run: python3 ci/diagnose_linux_runtime.py --build orbiter/build/ci
       - name: Collect bounded test reports
         id: collect_reports
         if: always()

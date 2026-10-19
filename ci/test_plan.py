@@ -68,7 +68,8 @@ def main():
     (build / "ctest.xml").unlink(missing_ok=True)
     # Full mode has no name/label/fixture exclusions and preserves the failure.
     command = ["ctest", "--test-dir", str(build), "--output-on-failure", "--no-tests=error",
-               "--parallel", "1", "--timeout", "180", "--output-junit", str(build / "ctest.xml")]
+               "--parallel", "1", "--timeout", "180", "--output-junit", str(build / "ctest.xml"),
+               "--test-output-size-failed", "32768", "--test-output-truncation", "middle"]
     if args.suite == "hosted":
         command += ["--fixture-exclude-any", ".*",
                     "-R", "^(" + "|".join(re.escape(name) for name in selected) + ")$"]
