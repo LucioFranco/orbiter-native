@@ -227,8 +227,12 @@ def assemble(args):
         sbom = json.loads((notices / "SBOM.json").read_text())
         if sbom.get("target") != "aarch64-apple-darwin" or sbom.get("cargo_resolved_packages") != 77:
             raise PreviewError("Expected the resolved macOS dependency notice inventory")
+        if sbom.get("missing_notice_texts") != []:
+            raise PreviewError("Target dependency notice inventory has missing texts")
         notices_info = {"target_packages": 77,
-                        "root_license_file_gaps": sbom["root_license_file_gaps"]}
+                        "recovered_missing_packaged_notices": sbom["packaged_root_license_absent"],
+                        "canonical_text_author_attribution_caveats":
+                            sbom["canonical_text_author_attribution_caveats"]}
         for file in notices.rglob("*"):
             if file.is_file():
                 copy_regular(file, output / "notices" / "dependencies" / file.relative_to(notices))
@@ -255,7 +259,7 @@ def assemble(args):
         "lockfiles_sha256": {"nix/flake.lock": sha256(source / "orbiter/nix/flake.lock"),
                             "Cargo.lock": sha256(source / "orbiter/Src/WgpuClient/rust/Cargo.lock")},
         "unresolved": ["Preferred source/redistribution review for included fonts and compiled code",
-                       "License text and attribution review for crates without root notices",
+                       "Review canonical-license attribution for three crates with no upstream license file",
                        "Graphical/manual and second-machine validation"],
     }
     if source_archive:

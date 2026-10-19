@@ -168,12 +168,11 @@
     }
   ],
   "blocked_on": [
-    "Final source/history review of unchanged Architext raw-font publication permission and selected media/prebuilt scope; upstream identity alone is not clearance",
     "Executable-only preview must keep 397 NASSP bitmap bytes external and generate local resources from user-acquired pinned data; any separately distributed artwork or corresponding-source inclusion still needs grant/preferred-source review",
-    "Exact complete corresponding source/build/install/resource inputs, six source dependencies with local patches, Cargo vendor/lock and offline clean rebuild proof",
-    "Resolved target dependency SBOM with full per-crate license/NOTICE text including Apache-only and Unicode-3.0 terms; audited native font notices unchanged",
+    "Review the locally assembled matching corresponding-source archive and external resource-input boundary before public distribution; six pinned native sources, Cargo vendor/lock and offline clean rebuild are demonstrated",
+    "Review derived attribution for three crates whose upstream revision has no standalone license file, plus nested native decoder notices; resolved target SBOM and canonical/upstream license texts are present",
     "Required source modification/date notices and applicable GPL/MIT/Apache/OFL warranty/copyright/exception texts",
-    "Relocated v9 archive fresh install/data preflight/save/reload and bounded graphics validation; no full-suite pass while strict native_pdi_pilot is red"
+    "Relocated v9 archive passed external-data preflight and headless original-scenario load/save; bounded graphical/Metal, independent-machine install, faithful reload and strict native_pdi_pilot remain unverified or red"
   ],
   "external_only": [
     "Original v9 Config/ROM/scenarios/checklists/meshes/textures/sounds from separately lawfully acquired exact pinned data, with complete existing manifest preflight",
@@ -181,6 +180,7 @@
     "Planetary archives: no automatic acquisition or inclusion; authoritative package checksum/grants remain unresolved",
     "Windows/macOS SDKs, VM/OS/installers, DirectX and proprietary irrKlang files: never sweep into artifacts"
   ],
+  "excluded_repo_history_issue": "The raw Architext font remains in the upstream repository/history and needs separate permission review if that broader repository or history is published. This executable preview and its selected corresponding-source archive do not include the raw font.",
   "unsupported_targets": [
     "windows-x64",
     "linux-x64",

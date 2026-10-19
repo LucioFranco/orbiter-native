@@ -64,12 +64,15 @@ JetBrains Mono OFL-1.1 bytes and notices; no fonts are replaced.
 
 ## Release blockers and external setup
 
-The audit has not cleared embedded NASSP panel artwork/preferred-source scope,
-all selected engine datasets, the complete public history or proprietary/prebuilt
-files. Architext is retained unchanged in the source tree under the user's
-upstream-treatment choice, with its FFC notice. Raw-font publication permission
-has not been verified; any loose-file app package remains blocked by grant and
-installation review. Do not infer grants from upstream hashes.
+The executable-only local preview contains no NASSP panel bitmap bytes, raw
+Architext font or planetary media. Its matching source archive also excludes
+these assets while recording external original-data preflight requirements.
+Distribution review still covers selected compiled code/fonts, modification
+notices, three canonical-license attribution fallbacks, native embedded decoder
+notices and the installation experience. Architext is retained unchanged in the
+broader source repository under the user's upstream-treatment choice, with its
+FFC notice; its raw-file publication in that repository/history needs a separate
+grant review. Do not infer grants from upstream hashes.
 
 Original NASSP Config/ROM/scenarios/checklists/meshes/textures/sounds remain
 separately lawfully acquired pinned inputs, using the existing v9 manifest and

@@ -1,0 +1,307 @@
+{
+  "schema": 1,
+  "scope": "aarch64-apple-darwin locked registry packages lacking packaged root license text",
+  "packages": [
+    {
+      "name": "block",
+      "version": "0.1.6",
+      "license_expression": "MIT",
+      "package_sha256": "0d8c1fef690941d3e7788d328517591fecc684c084084702d6ff1641e993699a",
+      "authors_from_package": [
+        "Steven Sheldon"
+      ],
+      "official_repo": "https://github.com/SSheldon/rust-block",
+      "upstream_revision": "47178790cfc9d4a8b092051d8b413b78bd31254a",
+      "revision_evidence": "official GitHub release tag matching package version",
+      "upstream_license_files": [],
+      "upstream_metadata_file": {
+        "path": "Cargo.toml",
+        "git_blob_sha1": "f414e7ef2458b35fd72cebc3014ab4a977808aa3",
+        "sha256": "24df2f33b48c9e756a4f864f882c1ab07a159b6c2b790f45af2e8162499b6719"
+      },
+      "canonical_fallback": {
+        "id": "MIT",
+        "path": "standard-MIT.txt",
+        "sha256": "c3b1b78bc8bd3ea13aa4bc9778442d16560270afa235006d816e5e88cef24db4",
+        "official_url": "https://spdx.org/licenses/MIT.txt",
+        "attribution_basis": "package Cargo authors; upstream tag has no standalone license text or copyright year"
+      },
+      "release_tag_source_blobs": [
+        {
+          "path": "src/lib.rs",
+          "git_blob_sha1": "b9c5d1d77479727e0c5fa3ddbe018e060684f8f9"
+        },
+        {
+          "path": "src/test_utils.rs",
+          "git_blob_sha1": "940a3d22720618ca42752f890a00fd2b9ce8d2ee"
+        }
+      ]
+    },
+    {
+      "name": "codespan-reporting",
+      "version": "0.11.1",
+      "license_expression": "Apache-2.0",
+      "package_sha256": "3538270d33cc669650c4b093848450d380def10c331d38c768e34cac80576e6e",
+      "authors_from_package": [
+        "Brendan Zabarauskas <bjzaba@yahoo.com.au>"
+      ],
+      "official_repo": "https://github.com/brendanzab/codespan",
+      "upstream_revision": "fd389a13f5bb6d625b71e2e4694b26e127f393f9",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "gpu-alloc",
+      "version": "0.6.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "45cf04b2726f02df5508c6de726acdc90cdf97ac771a9a0ffd8ba10a6e696bf9",
+      "authors_from_package": [
+        "Zakarum <roman@barykin.me>"
+      ],
+      "official_repo": "https://github.com/zakarumych/gpu-alloc",
+      "upstream_revision": "61020bdcb4eb04fca6bbf748aeb9570e859236e0",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "COPYING",
+          "git_blob_sha1": "1787983c037783b8855a688f5d9c0b6a2ec30b40",
+          "sha256": "12121dfa588677007848ab922a45a1e3248868f6ff063598fceb3141d7897314"
+        },
+        {
+          "path": "license/APACHE",
+          "git_blob_sha1": "690245e2787c89e4332ff4c674112bea22dc41e3",
+          "sha256": "58317934bf818c379e4215fad7e8dfb6812edff32c9557b8b039343f69711e08"
+        },
+        {
+          "path": "license/MIT",
+          "git_blob_sha1": "3746e3bb20fc30b6f07688c561b87ee1eb7a439d",
+          "sha256": "f774bf68151714985324d90adbd59e8f271b7ba518608d871b6ba16464692879"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "gpu-alloc-types",
+      "version": "0.3.1",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "b2bbed164dd10ed526c2e4fe3e721ca4a71c61730e5aafac6844b417b3227058",
+      "authors_from_package": [
+        "Zakarum <roman@barykin.me>"
+      ],
+      "official_repo": "https://github.com/zakarumych/gpu-alloc",
+      "upstream_revision": "7ddd1fe576fcfc503347eb97e476a47581479f22",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "COPYING",
+          "git_blob_sha1": "1787983c037783b8855a688f5d9c0b6a2ec30b40",
+          "sha256": "12121dfa588677007848ab922a45a1e3248868f6ff063598fceb3141d7897314"
+        },
+        {
+          "path": "license/APACHE",
+          "git_blob_sha1": "690245e2787c89e4332ff4c674112bea22dc41e3",
+          "sha256": "58317934bf818c379e4215fad7e8dfb6812edff32c9557b8b039343f69711e08"
+        },
+        {
+          "path": "license/MIT",
+          "git_blob_sha1": "3746e3bb20fc30b6f07688c561b87ee1eb7a439d",
+          "sha256": "f774bf68151714985324d90adbd59e8f271b7ba518608d871b6ba16464692879"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "gpu-descriptor",
+      "version": "0.3.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "b89c83349105e3732062a895becfc71a8f921bb71ecbbdd8ff99263e3b53a0ca",
+      "authors_from_package": [
+        "Zakarum <zakarumych@ya.ru>"
+      ],
+      "official_repo": "https://github.com/zakarumych/gpu-descriptor",
+      "upstream_revision": "bb28b4e55b742e0ea3e7a0968e7ee6287ba0e06a",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "COPYING",
+          "git_blob_sha1": "9eca5fed017db6917cc476f67dcff36b0364bd48",
+          "sha256": "f72143f7e9d9fb8bd336b139fa22f825a299591c29f2f7338c5566347b137613"
+        },
+        {
+          "path": "license/APACHE",
+          "git_blob_sha1": "cfaf4615fc4eafe17df4df25b135ae82a73f142d",
+          "sha256": "6bec8c944a6d4251be50ac86bb4ca360bcce5aea472505dee2800e160bf1cdbf"
+        },
+        {
+          "path": "license/MIT",
+          "git_blob_sha1": "6fb305333b5577c09ea210cdf2e1fcf6793e9b01",
+          "sha256": "5226e27d5fbc683db56c52853cdb9d15b69abadb525a60f95c862c2dbd77cdc8"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "gpu-descriptor-types",
+      "version": "0.2.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "fdf242682df893b86f33a73828fb09ca4b2d3bb6cc95249707fc684d27484b91",
+      "authors_from_package": [
+        "Zakarum <zakarumych@ya.ru>"
+      ],
+      "official_repo": "https://github.com/zakarumych/gpu-descriptor",
+      "upstream_revision": "9f2fb9546591322e7b77ee1e79385e01effd85e4",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "COPYING",
+          "git_blob_sha1": "9eca5fed017db6917cc476f67dcff36b0364bd48",
+          "sha256": "f72143f7e9d9fb8bd336b139fa22f825a299591c29f2f7338c5566347b137613"
+        },
+        {
+          "path": "license/APACHE",
+          "git_blob_sha1": "cfaf4615fc4eafe17df4df25b135ae82a73f142d",
+          "sha256": "6bec8c944a6d4251be50ac86bb4ca360bcce5aea472505dee2800e160bf1cdbf"
+        },
+        {
+          "path": "license/MIT",
+          "git_blob_sha1": "6fb305333b5577c09ea210cdf2e1fcf6793e9b01",
+          "sha256": "5226e27d5fbc683db56c52853cdb9d15b69abadb525a60f95c862c2dbd77cdc8"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "hexf-parse",
+      "version": "0.2.1",
+      "license_expression": "CC0-1.0",
+      "package_sha256": "dfa686283ad6dd069f105e5ab091b04c62850d3e4cf5d67debad1933f55023df",
+      "authors_from_package": [
+        "Kang Seonghoon <public+rust@mearie.org>"
+      ],
+      "official_repo": "https://github.com/lifthrasiir/hexf",
+      "upstream_revision": "4225763d744183d720f575ae96d04161b4d08ea0",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [],
+      "upstream_metadata_file": {
+        "path": "parse/Cargo.toml",
+        "git_blob_sha1": "2833f557b25322ab20cc78254e057f132c6e6a0e",
+        "sha256": "4a56dbdbc12054fd33b7a2634a45cbbe6fe12f5e6f4081002cbfa527f7220c70"
+      },
+      "canonical_fallback": {
+        "id": "CC0-1.0",
+        "path": "standard-CC0-1.0.txt",
+        "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+        "official_url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
+        "attribution_basis": "package Cargo authors; upstream tag has no standalone license text or copyright year"
+      }
+    },
+    {
+      "name": "malloc_buf",
+      "version": "0.0.6",
+      "license_expression": "MIT",
+      "package_sha256": "62bb907fe88d54d8d9ce32a3cceab4218ed2f6b7d35617cafe9adf84e43919cb",
+      "authors_from_package": [
+        "Steven Sheldon"
+      ],
+      "official_repo": "https://github.com/SSheldon/malloc_buf",
+      "upstream_revision": "a7811e5f4c6f9685dd57ad9bfe34e9bf6b0ba4f9",
+      "revision_evidence": "official GitHub release tag matching package version",
+      "upstream_license_files": [],
+      "upstream_metadata_file": {
+        "path": "Cargo.toml",
+        "git_blob_sha1": "90e1270e6bf68f9ee3aa2f394426f69051ae62a8",
+        "sha256": "1c70c91688d9850272e43cee9b189ffe3fe667151d7caf576a36a720f8b28194"
+      },
+      "canonical_fallback": {
+        "id": "MIT",
+        "path": "standard-MIT.txt",
+        "sha256": "c3b1b78bc8bd3ea13aa4bc9778442d16560270afa235006d816e5e88cef24db4",
+        "official_url": "https://spdx.org/licenses/MIT.txt",
+        "attribution_basis": "package Cargo authors; upstream tag has no standalone license text or copyright year"
+      },
+      "release_tag_source_blobs": [
+        {
+          "path": "src/lib.rs",
+          "git_blob_sha1": "24066b69d418d50a507fb91c0db3d4f607590680"
+        }
+      ]
+    },
+    {
+      "name": "naga",
+      "version": "24.0.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "e380993072e52eef724eddfcde0ed013b0c023c3f0417336ed041aa9f076994e",
+      "authors_from_package": [
+        "gfx-rs developers"
+      ],
+      "official_repo": "https://github.com/gfx-rs/wgpu",
+      "upstream_revision": "dc1e50e08cd4a5c8d6c3e8a180e93535d40bec4a",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "LICENSE.APACHE",
+          "git_blob_sha1": "d9a10c0d8e868ebf8da0b3dc95bb0be634c34bfe",
+          "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9"
+        },
+        {
+          "path": "LICENSE.MIT",
+          "git_blob_sha1": "4699691b8ed37738afcbcd591c91f7759472c3d0",
+          "sha256": "c7fea58d1cfe49634cd92e54fc10a9d871f4b275321a4cd8c09e449122caaeb4"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "profiling",
+      "version": "1.0.18",
+      "license_expression": "MIT OR Apache-2.0",
+      "package_sha256": "3d595e54a326bc53c1c197b32d295e14b169e3cfeaa8dc82b529f947fba6bcf5",
+      "authors_from_package": [
+        "Philip Degarmo <aclysma@gmail.com>"
+      ],
+      "official_repo": "https://github.com/aclysma/profiling",
+      "upstream_revision": "8271551172eb6fa4cba47369aedd93790c623df9",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "LICENSE-APACHE",
+          "git_blob_sha1": "139dce95d473c201a8561ef17536314d8b8cda65",
+          "sha256": "10d30a673cd5e9349bdc02aeb48f14b3386d27d0da32df8f0a555d4aa16aa551"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "git_blob_sha1": "6a84e059ad8b43e03c2b06bc2af4dc1d8442808d",
+          "sha256": "c8167fdeeed46d3f244d3f85c5bf998ce889343691c32be2c61a8bc4b5c08333"
+        }
+      ],
+      "upstream_metadata_file": null
+    },
+    {
+      "name": "spirv",
+      "version": "0.3.0+sdk-1.3.268.0",
+      "license_expression": "Apache-2.0",
+      "package_sha256": "eda41003dc44290527a59b13432d4a0379379fa074b70174882adfbdfd917844",
+      "authors_from_package": [
+        "Lei Zhang <antiagainst@gmail.com>"
+      ],
+      "official_repo": "https://github.com/gfx-rs/rspirv",
+      "upstream_revision": "e91a5debc10c395b36db7721dfff6326d697a1e2",
+      "revision_evidence": "Cargo package .cargo_vcs_info.json",
+      "upstream_license_files": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "upstream_metadata_file": null
+    }
+  ]
+}

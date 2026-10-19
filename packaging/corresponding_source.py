@@ -50,6 +50,8 @@ def selected(path):
                            'LICENSES/MIT-original.txt', 'orbiter/LICENSE',
                            'orbiter/Addons/NASSP/NASSP-LICENSE.txt'}:
         return True
+    if p[:2] == ('packaging', 'license-evidence'):
+        return True
     if p[0] in {'packaging', 'ci'}:
         return path.suffix.lower() in EXT or path.name in TOP
     if p[0] != 'orbiter':

@@ -98,9 +98,20 @@ extra = ["--build", build]
 if args.orbiter_textures:
     extra += ["--orbiter-textures", args.orbiter_textures]
 report = run("check", extra=extra)
-assert not Path(report["launch_argv"][0]).is_absolute(), report["launch_command"]
-assert not Path(report["launch_argv"][2]).is_absolute(), report["launch_command"]
-checks.append("checkout-relative executable and runtime in launch command")
+for displayed, expected in ((report["launch_argv"][0], build / ("orbiter.exe" if sys.platform == "win32" else "orbiter")),
+                            (report["launch_argv"][2], build / "runtime-original-insertion")):
+    # In-checkout builds display paths relative to the source. A clean
+    # corresponding-source rebuild may use an external build directory, which
+    # must display an absolute path to that *same* build/runtime instead.
+    if expected.is_relative_to(root):
+        assert not Path(displayed).is_absolute(), report["launch_command"]
+        assert (root / displayed).resolve() == expected, report["launch_command"]
+    else:
+        assert Path(displayed).is_absolute(), report["launch_command"]
+        assert Path(displayed).resolve() == expected, report["launch_command"]
+    assert not expected.is_relative_to(data), report["launch_command"]
+    assert not expected.is_relative_to(source), report["launch_command"]
+checks.append("launch executable/runtime resolve to this build, independent of source and data")
 run("stage", extra=(*extra, "--output", data), expected="Runtime output must be a separate directory")
 run("stage", extra=(*extra, "--output", data / "runtime"), expected="Runtime output must not be inside a NASSP data")
 run("stage", extra=(*extra, "--source-addon", root), expected="--source-addon differs")

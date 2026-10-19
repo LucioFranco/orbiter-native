@@ -30,9 +30,10 @@ python3 packaging/macos_preview.py verify --output /absolute/fresh/relocated-pre
 The assembler copies only the exact contract binary paths, seven existing
 license/notice texts, an inventory and the first-run helper. The separate
 [corresponding-source recipe](CORRESPONDING-SOURCE.md) now stages the pinned
-dependency source and an offline-buildable local archive; the target SBOM
-records eleven Rust crates without a root license file for further notice
-review. The assembler rewrites each
+dependency source and an offline-buildable local archive. The target SBOM
+recovers notice text for eleven Rust crates without a packaged root license:
+eight from exact official upstream revisions and three from canonical MIT/CC0
+texts plus package author metadata. The assembler rewrites each
 absolute build `LC_RPATH` to `@loader_path` relative to the copied binary,
 ad-hoc signs the locally modified Mach-O files, checks every dependency against
 the package or a system framework/library, records architecture/minimum macOS,
@@ -78,8 +79,8 @@ save/reload failure. Full ascent/landing and faithful save resume are unverified
 
 - Review the local corresponding-source archive and offline rebuild result for
   completeness, including local patches and the external bitmap input boundary.
-- Resolve the eleven target crates without a root license file and any nested
-  native notices before binary distribution. Preserve source modifications,
+- Review attribution for the three canonical-text fallback crates, nested
+  native notices and source modifications before binary distribution. Preserve
   GPL exceptions and the existing native font notices.
 - Review rights for any source/media included with a public binary; retaining
   the upstream Architext font in the source tree does not establish permission

@@ -28,6 +28,14 @@ vendored `.cargo-checksum.json` files keep registry-package checksums. The
 archive contains `SOURCE-MANIFEST.json` with per-file SHA-256 hashes and pins.
 The archive is a review artifact until the source/media rights review finishes.
 
+The target notice inventory includes 11 Rust crates whose published package
+lacks a root license file. Eight carry license texts retrieved from their
+official upstream Git revision, with verified Git blob and SHA-256 hashes.
+For `block`, `malloc_buf` and `hexf-parse`, the matching upstream revision
+has no license file. Their package and upstream manifests declare MIT or CC0;
+the inventory uses official canonical license text and records the Cargo author
+metadata separately. No copyright year is inferred for those three crates.
+
 With Xcode Command Line Tools and the pinned `orbiter/nix/flake.lock` toolchain
 already installed, extract the source archive and build with network disabled.
 Point `NASSP_DATA_DIR` at a separately acquired pristine NASSP v9 checkout and
@@ -64,6 +72,18 @@ aarch64-apple-darwin` in `orbiter/Src/WgpuClient/rust`, then call
 vendored root has no standalone license file; inspect its source headers and
 upstream license before treating a public binary as cleared.
 
-This recipe reproduces the 42 candidate binary targets and tests using external
-original data. A graphical Metal run, second-machine install, licensing review,
-and distribution signing remain separate from an offline compile proof.
+This recipe reproduces the 42 candidate binary targets. The source-only archive
+does not include Orbiter `Config`, Celbody ephemeris data, or test fixtures;
+tests that stage a runtime need those inputs from a compatible original checkout.
+The observed external test inputs include `orbiter/Config/**` (including
+`Config/CSphere/Data/star.bin`), `orbiter/Src/Celbody/**/Config/**`,
+`Src/Celbody/Vsop87/Data/*.dat`, `Galsat/ephem_e15.dat`,
+`Satsat/tass17.dat`, and `orbiter/Tests/Fixtures/**`. Original NASSP data and
+Orbiter planetary textures remain under the separate preflight. The full hosted
+suite is therefore run against the complete, rights-reviewed checkout, while
+source-only rebuild validation uses tests independent of those runtime files.
+The native data preflight checks both in-checkout and external build paths while
+requiring its displayed executable and runtime to resolve to the selected build,
+independent of source and NASSP data. A graphical Metal run, second-machine
+install, licensing review, and distribution signing remain separate from an
+offline compile proof.
