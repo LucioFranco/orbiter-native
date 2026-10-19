@@ -1,13 +1,24 @@
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
+set(nassp_bitmap_source_root "${NASSP_SOURCE_ROOT}")
+if(_native_data_profile STREQUAL "v9")
+  set(nassp_bitmap_source_root "${NASSP_DATA_DIR}/Orbitersdk/samples/ProjectApollo")
+  execute_process(COMMAND "${Python3_EXECUTABLE}"
+    "${PROJECT_SOURCE_DIR}/tools/check_nassp_bitmap_inputs.py"
+    --data-root "${NASSP_DATA_DIR}" --adapted-root "${NASSP_SOURCE_ROOT}"
+    RESULT_VARIABLE _bitmap_result ERROR_VARIABLE _bitmap_error)
+  if(NOT _bitmap_result EQUAL 0)
+    message(FATAL_ERROR "${_bitmap_error}")
+  endif()
+endif()
 set(nassp_resource_inputs
-  "${NASSP_SOURCE_ROOT}/src_csm/Resources.rc"
-  "${NASSP_SOURCE_ROOT}/src_csm/resource.h"
-  "${NASSP_SOURCE_ROOT}/src_lm/LEMResources.rc"
-  "${NASSP_SOURCE_ROOT}/src_lm/lmresource.h"
-  "${NASSP_SOURCE_ROOT}/src_mfd/MFDResources.rc"
-  "${NASSP_SOURCE_ROOT}/src_mfd/MFDResource.h")
+  "${nassp_bitmap_source_root}/src_csm/Resources.rc"
+  "${nassp_bitmap_source_root}/src_csm/resource.h"
+  "${nassp_bitmap_source_root}/src_lm/LEMResources.rc"
+  "${nassp_bitmap_source_root}/src_lm/lmresource.h"
+  "${nassp_bitmap_source_root}/src_mfd/MFDResources.rc"
+  "${nassp_bitmap_source_root}/src_mfd/MFDResource.h")
 file(GLOB_RECURSE nassp_bitmap_inputs CONFIGURE_DEPENDS
-  "${NASSP_SOURCE_ROOT}/Bitmaps/*.[bB][mM][pP]")
+  "${nassp_bitmap_source_root}/Bitmaps/*.[bB][mM][pP]")
 set(nassp_resource_header "${PROJECT_BINARY_DIR}/generated/NasspBitmapResources.h")
 set(nassp_resource_manifest "${PROJECT_BINARY_DIR}/generated/nassp-bitmaps.json")
 # Expanded resources live outside the source tree; runtime loading uses stb_image.
@@ -15,14 +26,14 @@ set(nassp_bitmap_prefix "Resources/NASSP")
 set(nassp_bitmap_output "${PROJECT_BINARY_DIR}/runtime/${nassp_bitmap_prefix}")
 set(nassp_bitmap_outputs)
 foreach(input IN LISTS nassp_bitmap_inputs)
-  file(RELATIVE_PATH relative "${NASSP_SOURCE_ROOT}/Bitmaps" "${input}")
+  file(RELATIVE_PATH relative "${nassp_bitmap_source_root}/Bitmaps" "${input}")
   list(APPEND nassp_bitmap_outputs "${nassp_bitmap_output}/${relative}")
 endforeach()
 add_custom_command(
   OUTPUT "${nassp_resource_header}" "${nassp_resource_manifest}"
   BYPRODUCTS ${nassp_bitmap_outputs}
   COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/nassp_bitmap_resources.py"
-    --source-root "${NASSP_SOURCE_ROOT}"
+    --source-root "${nassp_bitmap_source_root}"
     --asset-prefix "${nassp_bitmap_prefix}" --output-bitmaps "${nassp_bitmap_output}"
     --header "${nassp_resource_header}" --manifest "${nassp_resource_manifest}"
   DEPENDS "${PROJECT_SOURCE_DIR}/tools/nassp_bitmap_resources.py" "${PROJECT_SOURCE_DIR}/tools/bmp_normalize.py"

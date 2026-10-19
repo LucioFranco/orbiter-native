@@ -46,7 +46,7 @@ if(ORBITER_BUILD_NASSP)
   add_dependencies(wgpu_client_test WgpuClient nassp_bitmap_resources)
   add_test(NAME wgpu_client COMMAND wgpu_client_test "$<TARGET_FILE:WgpuClient>"
     "${PROJECT_BINARY_DIR}/runtime/Resources/NASSP/masteralarmbright.bmp"
-    "${NASSP_SOURCE_ROOT}/Bitmaps/masteralarmbright.bmp")
+    "${nassp_bitmap_source_root}/Bitmaps/masteralarmbright.bmp")
   set_tests_properties(wgpu_client PROPERTIES LABELS "gpu")
 endif()
 

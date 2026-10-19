@@ -1,0 +1,2216 @@
+{
+  "csm": [
+    {
+      "id": 60,
+      "symbol": "IDB_SPS_FUEL_FONT_WHITE",
+      "source": "Bitmaps/fonts_white.bmp",
+      "path": "Resources/NASSP/fonts_white.bmp"
+    },
+    {
+      "id": 61,
+      "symbol": "IDB_SPS_FUEL_FONT_BLACK",
+      "source": "Bitmaps/fonts_black.bmp",
+      "path": "Resources/NASSP/fonts_black.bmp"
+    },
+    {
+      "id": 64,
+      "symbol": "IDB_BORDER_34x29",
+      "source": "Bitmaps/border34x29.bmp",
+      "path": "Resources/NASSP/border34x29.bmp"
+    },
+    {
+      "id": 65,
+      "symbol": "IDB_BORDER_34x61",
+      "source": "Bitmaps/border34x61.bmp",
+      "path": "Resources/NASSP/border34x61.bmp"
+    },
+    {
+      "id": 67,
+      "symbol": "IDB_BORDER_55x111",
+      "source": "Bitmaps/border55x111.bmp",
+      "path": "Resources/NASSP/border55x111.bmp"
+    },
+    {
+      "id": 68,
+      "symbol": "IDB_BORDER_46x75",
+      "source": "Bitmaps/border46x75.bmp",
+      "path": "Resources/NASSP/border46x75.bmp"
+    },
+    {
+      "id": 69,
+      "symbol": "IDB_BORDER_39x38",
+      "source": "Bitmaps/border39x38.bmp",
+      "path": "Resources/NASSP/border39x38.bmp"
+    },
+    {
+      "id": 76,
+      "symbol": "IDB_BORDER_92x40",
+      "source": "Bitmaps/border92x40.bmp",
+      "path": "Resources/NASSP/border92x40.bmp"
+    },
+    {
+      "id": 80,
+      "symbol": "IDB_BORDER_34x33",
+      "source": "Bitmaps/border34x33.bmp",
+      "path": "Resources/NASSP/border34x33.bmp"
+    },
+    {
+      "id": 81,
+      "symbol": "IDB_BORDER_29x29",
+      "source": "Bitmaps/border29x29.bmp",
+      "path": "Resources/NASSP/border29x29.bmp"
+    },
+    {
+      "id": 82,
+      "symbol": "IDB_BORDER_34x31",
+      "source": "Bitmaps/border34x31.bmp",
+      "path": "Resources/NASSP/border34x31.bmp"
+    },
+    {
+      "id": 85,
+      "symbol": "IDB_BORDER_50x158",
+      "source": "Bitmaps/border50x158.bmp",
+      "path": "Resources/NASSP/border50x158.bmp"
+    },
+    {
+      "id": 88,
+      "symbol": "IDB_BORDER_38x52",
+      "source": "Bitmaps/border38x52.bmp",
+      "path": "Resources/NASSP/border38x52.bmp"
+    },
+    {
+      "id": 90,
+      "symbol": "IDB_BORDER_34x34",
+      "source": "Bitmaps/border34x34.bmp",
+      "path": "Resources/NASSP/border34x34.bmp"
+    },
+    {
+      "id": 91,
+      "symbol": "IDB_BORDER_90x90",
+      "source": "Bitmaps/border90x90.bmp",
+      "path": "Resources/NASSP/border90x90.bmp"
+    },
+    {
+      "id": 94,
+      "symbol": "IDB_BORDER_84x84",
+      "source": "Bitmaps/border84x84.bmp",
+      "path": "Resources/NASSP/border84x84.bmp"
+    },
+    {
+      "id": 95,
+      "symbol": "IDB_BORDER_70x70",
+      "source": "Bitmaps/border70x70.bmp",
+      "path": "Resources/NASSP/border70x70.bmp"
+    },
+    {
+      "id": 97,
+      "symbol": "IDB_BORDER_23x20",
+      "source": "Bitmaps/border23x20.bmp",
+      "path": "Resources/NASSP/border23x20.bmp"
+    },
+    {
+      "id": 98,
+      "symbol": "IDB_BORDER_78x78",
+      "source": "Bitmaps/border78x78.bmp",
+      "path": "Resources/NASSP/border78x78.bmp"
+    },
+    {
+      "id": 100,
+      "symbol": "IDB_DCVOLTS",
+      "source": "Bitmaps/dcvolts.bmp",
+      "path": "Resources/NASSP/dcvolts.bmp"
+    },
+    {
+      "id": 107,
+      "symbol": "IDB_INDICATOR",
+      "source": "Bitmaps/Indicator.bmp",
+      "path": "Resources/NASSP/Indicator.bmp"
+    },
+    {
+      "id": 110,
+      "symbol": "IDB_DCAMPS",
+      "source": "Bitmaps/DCAmps.bmp",
+      "path": "Resources/NASSP/DCAmps.bmp"
+    },
+    {
+      "id": 111,
+      "symbol": "IDB_ACVOLTS",
+      "source": "Bitmaps/ACVolts.bmp",
+      "path": "Resources/NASSP/ACVolts.bmp"
+    },
+    {
+      "id": 112,
+      "symbol": "IDB_BORDER_32x160",
+      "source": "Bitmaps/border32x160.bmp",
+      "path": "Resources/NASSP/border32x160.bmp"
+    },
+    {
+      "id": 113,
+      "symbol": "IDB_BORDER_72x72",
+      "source": "Bitmaps/border72x72.bmp",
+      "path": "Resources/NASSP/border72x72.bmp"
+    },
+    {
+      "id": 114,
+      "symbol": "IDB_BORDER_75x64",
+      "source": "Bitmaps/border75x64.bmp",
+      "path": "Resources/NASSP/border75x64.bmp"
+    },
+    {
+      "id": 115,
+      "symbol": "IDB_BORDER_34x39",
+      "source": "Bitmaps/border34x39.bmp",
+      "path": "Resources/NASSP/border34x39.bmp"
+    },
+    {
+      "id": 116,
+      "symbol": "IDB_LV_ENGINE_LIGHTS_S1B",
+      "source": "Bitmaps/lv_eng_s1b.bmp",
+      "path": "Resources/NASSP/lv_eng_s1b.bmp"
+    },
+    {
+      "id": 117,
+      "symbol": "IDB_DCVOLTS_PANEL101",
+      "source": "Bitmaps/csm_panel_101_dcvolts.bmp",
+      "path": "Resources/NASSP/csm_panel_101_dcvolts.bmp"
+    },
+    {
+      "id": 165,
+      "symbol": "IDB_NEEDLE",
+      "source": "Bitmaps/needle.bmp",
+      "path": "Resources/NASSP/needle.bmp"
+    },
+    {
+      "id": 166,
+      "symbol": "IDB_DIGITAL",
+      "source": "Bitmaps/digitaldisp.bmp",
+      "path": "Resources/NASSP/digitaldisp.bmp"
+    },
+    {
+      "id": 171,
+      "symbol": "IDB_SWITCHUP",
+      "source": "Bitmaps/switchup.bmp",
+      "path": "Resources/NASSP/switchup.bmp"
+    },
+    {
+      "id": 172,
+      "symbol": "IDB_SWLEVER",
+      "source": "Bitmaps/switch_lever.bmp",
+      "path": "Resources/NASSP/switch_lever.bmp"
+    },
+    {
+      "id": 174,
+      "symbol": "IDB_LV_ENG",
+      "source": "Bitmaps/lv_eng.bmp",
+      "path": "Resources/NASSP/lv_eng.bmp"
+    },
+    {
+      "id": 176,
+      "symbol": "IDB_ABORT",
+      "source": "Bitmaps/abort.bmp",
+      "path": "Resources/NASSP/abort.bmp"
+    },
+    {
+      "id": 180,
+      "symbol": "IDB_ALTIMETER",
+      "source": "Bitmaps/Altimeter.bmp",
+      "path": "Resources/NASSP/Altimeter.bmp"
+    },
+    {
+      "id": 182,
+      "symbol": "IDB_THRUST",
+      "source": "Bitmaps/Thrustmeter.bmp",
+      "path": "Resources/NASSP/Thrustmeter.bmp"
+    },
+    {
+      "id": 204,
+      "symbol": "IDB_MASTER_ALARM_BRIGHT",
+      "source": "Bitmaps/masteralarmbright.bmp",
+      "path": "Resources/NASSP/masteralarmbright.bmp"
+    },
+    {
+      "id": 205,
+      "symbol": "IDB_DSKY_LIGHTS",
+      "source": "Bitmaps/dsky_lights.bmp",
+      "path": "Resources/NASSP/dsky_lights.bmp"
+    },
+    {
+      "id": 223,
+      "symbol": "IDB_SEQUENCERSWITCHES",
+      "source": "Bitmaps/SequencerSwitches.bmp",
+      "path": "Resources/NASSP/SequencerSwitches.bmp"
+    },
+    {
+      "id": 244,
+      "symbol": "IDB_THREEPOSSWITCH",
+      "source": "Bitmaps/threeposswitch.bmp",
+      "path": "Resources/NASSP/threeposswitch.bmp"
+    },
+    {
+      "id": 255,
+      "symbol": "IDB_FDAI",
+      "source": "Bitmaps/FDAI.bmp",
+      "path": "Resources/NASSP/FDAI.bmp"
+    },
+    {
+      "id": 270,
+      "symbol": "IDB_MFDFRAME",
+      "source": "Bitmaps/MFDFrame.bmp",
+      "path": "Resources/NASSP/MFDFrame.bmp"
+    },
+    {
+      "id": 271,
+      "symbol": "IDB_MFDPOWER",
+      "source": "Bitmaps/MFDPower.bmp",
+      "path": "Resources/NASSP/MFDPower.bmp"
+    },
+    {
+      "id": 272,
+      "symbol": "IDB_DOCKINGSWITCHES",
+      "source": "Bitmaps/docking_switches.bmp",
+      "path": "Resources/NASSP/docking_switches.bmp"
+    },
+    {
+      "id": 280,
+      "symbol": "IDB_ROTATIONALSWITCH",
+      "source": "Bitmaps/RotationalSwitch.bmp",
+      "path": "Resources/NASSP/RotationalSwitch.bmp"
+    },
+    {
+      "id": 281,
+      "symbol": "IDB_SWITCHGUARDS",
+      "source": "Bitmaps/SwitchGuards.bmp",
+      "path": "Resources/NASSP/SwitchGuards.bmp"
+    },
+    {
+      "id": 294,
+      "symbol": "IDB_THREEPOSSWITCH20",
+      "source": "Bitmaps/threeposswitch20.bmp",
+      "path": "Resources/NASSP/threeposswitch20.bmp"
+    },
+    {
+      "id": 295,
+      "symbol": "IDB_TELESCOPE",
+      "source": "Bitmaps/csm_telescope_panel.bmp",
+      "path": "Resources/NASSP/csm_telescope_panel.bmp"
+    },
+    {
+      "id": 296,
+      "symbol": "IDB_SEXTANT",
+      "source": "Bitmaps/csm_sextant_panel.bmp",
+      "path": "Resources/NASSP/csm_sextant_panel.bmp"
+    },
+    {
+      "id": 299,
+      "symbol": "IDB_FDAINEEDLES",
+      "source": "Bitmaps/FDAI_needles.bmp",
+      "path": "Resources/NASSP/FDAI_needles.bmp"
+    },
+    {
+      "id": 300,
+      "symbol": "IDB_THUMBWHEEL_LARGEFONTS",
+      "source": "Bitmaps/thumbwheel_large_fonts.bmp",
+      "path": "Resources/NASSP/thumbwheel_large_fonts.bmp"
+    },
+    {
+      "id": 487,
+      "symbol": "IDB_CSM_MAIN_PANEL",
+      "source": "Bitmaps/csm_main_panel.bmp",
+      "path": "Resources/NASSP/csm_main_panel.bmp"
+    },
+    {
+      "id": 488,
+      "symbol": "IDB_CSM_LEFT_PANEL",
+      "source": "Bitmaps/csm_left_panel.bmp",
+      "path": "Resources/NASSP/csm_left_panel.bmp"
+    },
+    {
+      "id": 489,
+      "symbol": "IDB_CSM_RIGHT_PANEL",
+      "source": "Bitmaps/csm_right_panel.bmp",
+      "path": "Resources/NASSP/csm_right_panel.bmp"
+    },
+    {
+      "id": 490,
+      "symbol": "IDB_CSM_LEFT_RNDZ_WINDOW",
+      "source": "Bitmaps/csm_left_rndz_window.bmp",
+      "path": "Resources/NASSP/csm_left_rndz_window.bmp"
+    },
+    {
+      "id": 491,
+      "symbol": "IDB_CSM_RIGHT_RNDZ_WINDOW",
+      "source": "Bitmaps/csm_right_rndz_window.bmp",
+      "path": "Resources/NASSP/csm_right_rndz_window.bmp"
+    },
+    {
+      "id": 492,
+      "symbol": "IDB_CSM_HATCH_WINDOW",
+      "source": "Bitmaps/csm_hatch_window.bmp",
+      "path": "Resources/NASSP/csm_hatch_window.bmp"
+    },
+    {
+      "id": 493,
+      "symbol": "IDB_CSM_LOWER_PANEL",
+      "source": "Bitmaps/csm_lower_equip_bay.bmp",
+      "path": "Resources/NASSP/csm_lower_equip_bay.bmp"
+    },
+    {
+      "id": 511,
+      "symbol": "IDB_SUITCABINDELTAPMETER",
+      "source": "Bitmaps/SuitCabinDeltaPMeter.bmp",
+      "path": "Resources/NASSP/SuitCabinDeltaPMeter.bmp"
+    },
+    {
+      "id": 516,
+      "symbol": "IDB_THREEPOSSWITCH305",
+      "source": "Bitmaps/threeposswitch305.bmp",
+      "path": "Resources/NASSP/threeposswitch305.bmp"
+    },
+    {
+      "id": 529,
+      "symbol": "IDB_DSKY_DISP",
+      "source": "Bitmaps/dsky_disp.bmp",
+      "path": "Resources/NASSP/dsky_disp.bmp"
+    },
+    {
+      "id": 532,
+      "symbol": "IDB_FDAI_ROLL",
+      "source": "Bitmaps/FDAIRoll.bmp",
+      "path": "Resources/NASSP/FDAIRoll.bmp"
+    },
+    {
+      "id": 533,
+      "symbol": "IDB_CWS_LIGHTS",
+      "source": "Bitmaps/cw_lights.bmp",
+      "path": "Resources/NASSP/cw_lights.bmp"
+    },
+    {
+      "id": 534,
+      "symbol": "IDB_EVENT_TIMER",
+      "source": "Bitmaps/event_timer.bmp",
+      "path": "Resources/NASSP/event_timer.bmp"
+    },
+    {
+      "id": 535,
+      "symbol": "IDB_DSKY_KEY",
+      "source": "Bitmaps/dsky_keys.bmp",
+      "path": "Resources/NASSP/dsky_keys.bmp"
+    },
+    {
+      "id": 545,
+      "symbol": "IDB_ECSINDICATOR",
+      "source": "Bitmaps/ECSIndicator.bmp",
+      "path": "Resources/NASSP/ECSIndicator.bmp"
+    },
+    {
+      "id": 549,
+      "symbol": "IDB_SWITCHUPSMALL",
+      "source": "Bitmaps/switchupsmall.bmp",
+      "path": "Resources/NASSP/switchupsmall.bmp"
+    },
+    {
+      "id": 555,
+      "symbol": "IDB_CMMFDFRAME",
+      "source": "Bitmaps/CMMFDFrame.bmp",
+      "path": "Resources/NASSP/CMMFDFrame.bmp"
+    },
+    {
+      "id": 556,
+      "symbol": "IDB_COAS",
+      "source": "Bitmaps/coas.bmp",
+      "path": "Resources/NASSP/coas.bmp"
+    },
+    {
+      "id": 559,
+      "symbol": "IDB_THUMBWHEEL_SMALLFONTS",
+      "source": "Bitmaps/thumbwheel_small_fonts.bmp",
+      "path": "Resources/NASSP/thumbwheel_small_fonts.bmp"
+    },
+    {
+      "id": 561,
+      "symbol": "IDB_CIRCUITBRAKER",
+      "source": "Bitmaps/circuit_breaker.bmp",
+      "path": "Resources/NASSP/circuit_breaker.bmp"
+    },
+    {
+      "id": 588,
+      "symbol": "IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL",
+      "source": "Bitmaps/thumbwheel_small_fonts_diagonal.bmp",
+      "path": "Resources/NASSP/thumbwheel_small_fonts_diagonal.bmp"
+    },
+    {
+      "id": 595,
+      "symbol": "IDB_THREEPOSSWITCH30",
+      "source": "Bitmaps/threeposswitch30.bmp",
+      "path": "Resources/NASSP/threeposswitch30.bmp"
+    },
+    {
+      "id": 597,
+      "symbol": "IDB_SWITCH20",
+      "source": "Bitmaps/switch20.bmp",
+      "path": "Resources/NASSP/switch20.bmp"
+    },
+    {
+      "id": 598,
+      "symbol": "IDB_SWITCH30",
+      "source": "Bitmaps/switch30.bmp",
+      "path": "Resources/NASSP/switch30.bmp"
+    },
+    {
+      "id": 626,
+      "symbol": "IDB_SWITCH20LEFT",
+      "source": "Bitmaps/switch20_left.bmp",
+      "path": "Resources/NASSP/switch20_left.bmp"
+    },
+    {
+      "id": 629,
+      "symbol": "IDB_THREEPOSSWITCH20LEFT",
+      "source": "Bitmaps/threeposswitch20_left.bmp",
+      "path": "Resources/NASSP/threeposswitch20_left.bmp"
+    },
+    {
+      "id": 631,
+      "symbol": "IDB_GUARDEDSWITCH20",
+      "source": "Bitmaps/guarded_switch20.bmp",
+      "path": "Resources/NASSP/guarded_switch20.bmp"
+    },
+    {
+      "id": 632,
+      "symbol": "IDB_SWITCHGUARDPANEL15",
+      "source": "Bitmaps/SwitchGuardPanel15.bmp",
+      "path": "Resources/NASSP/SwitchGuardPanel15.bmp"
+    },
+    {
+      "id": 635,
+      "symbol": "IDB_THUMBWHEEL_SMALLFONTS_DIAGONAL_LEFT",
+      "source": "Bitmaps/thumbwheel_small_fonts_diagonal_left.bmp",
+      "path": "Resources/NASSP/thumbwheel_small_fonts_diagonal_left.bmp"
+    },
+    {
+      "id": 642,
+      "symbol": "IDB_THREEPOSSWITCH30LEFT",
+      "source": "Bitmaps/threeposswitch30_left.bmp",
+      "path": "Resources/NASSP/threeposswitch30_left.bmp"
+    },
+    {
+      "id": 649,
+      "symbol": "IDB_SWITCH30LEFT",
+      "source": "Bitmaps/switch30_left.bmp",
+      "path": "Resources/NASSP/switch30_left.bmp"
+    },
+    {
+      "id": 714,
+      "symbol": "IDB_THREEPOSSWITCH305LEFT",
+      "source": "Bitmaps/threeposswitch305_left.bmp",
+      "path": "Resources/NASSP/threeposswitch305_left.bmp"
+    },
+    {
+      "id": 715,
+      "symbol": "IDB_SWITCH305LEFT",
+      "source": "Bitmaps/switch305_left.bmp",
+      "path": "Resources/NASSP/switch305_left.bmp"
+    },
+    {
+      "id": 722,
+      "symbol": "IDB_FDAIPOWERROTARY",
+      "source": "Bitmaps/FDAIPower_rotary.bmp",
+      "path": "Resources/NASSP/FDAIPower_rotary.bmp"
+    },
+    {
+      "id": 728,
+      "symbol": "IDB_DIRECTO2ROTARY",
+      "source": "Bitmaps/direct_o2_rotary.bmp",
+      "path": "Resources/NASSP/direct_o2_rotary.bmp"
+    },
+    {
+      "id": 730,
+      "symbol": "IDB_ECSGLYCOLPUMPROTARY",
+      "source": "Bitmaps/ECSGlycolpump_rotary.bmp",
+      "path": "Resources/NASSP/ECSGlycolpump_rotary.bmp"
+    },
+    {
+      "id": 734,
+      "symbol": "IDB_GTACOVER",
+      "source": "Bitmaps/gta_cover.bmp",
+      "path": "Resources/NASSP/gta_cover.bmp"
+    },
+    {
+      "id": 745,
+      "symbol": "IDB_POSTLDGVENTVLVLEVER",
+      "source": "Bitmaps/post_lndg_vlv_lever.bmp",
+      "path": "Resources/NASSP/post_lndg_vlv_lever.bmp"
+    },
+    {
+      "id": 754,
+      "symbol": "IDB_SPSMAXINDICATOR",
+      "source": "Bitmaps/SPSmax_indicator.bmp",
+      "path": "Resources/NASSP/SPSmax_indicator.bmp"
+    },
+    {
+      "id": 770,
+      "symbol": "IDB_CSM_CABIN_PRESS_PANEL",
+      "source": "Bitmaps/csm_cabin_press_panel.bmp",
+      "path": "Resources/NASSP/csm_cabin_press_panel.bmp"
+    },
+    {
+      "id": 771,
+      "symbol": "IDB_ECSROTARY",
+      "source": "Bitmaps/ECSRotary.bmp",
+      "path": "Resources/NASSP/ECSRotary.bmp"
+    },
+    {
+      "id": 775,
+      "symbol": "IDB_GLYCOLLEVER",
+      "source": "Bitmaps/glycol_lever.bmp",
+      "path": "Resources/NASSP/glycol_lever.bmp"
+    },
+    {
+      "id": 793,
+      "symbol": "IDB_FDAIOFFFLAG",
+      "source": "Bitmaps/FDAI_off_flag.bmp",
+      "path": "Resources/NASSP/FDAI_off_flag.bmp"
+    },
+    {
+      "id": 823,
+      "symbol": "IDB_THUMBWHEEL_SMALL",
+      "source": "Bitmaps/thumbwheel_small.bmp",
+      "path": "Resources/NASSP/thumbwheel_small.bmp"
+    },
+    {
+      "id": 824,
+      "symbol": "IDB_THUMBWHEEL_LARGEFONTSINV",
+      "source": "Bitmaps/thumbwheel_large_fonts_inv.bmp",
+      "path": "Resources/NASSP/thumbwheel_large_fonts_inv.bmp"
+    },
+    {
+      "id": 825,
+      "symbol": "IDB_SWLEVERTHREEPOS",
+      "source": "Bitmaps/switch_lever_threepos.bmp",
+      "path": "Resources/NASSP/switch_lever_threepos.bmp"
+    },
+    {
+      "id": 831,
+      "symbol": "IDB_ORDEAL_ROTARY",
+      "source": "Bitmaps/ORDEAL_rotary.bmp",
+      "path": "Resources/NASSP/ORDEAL_rotary.bmp"
+    },
+    {
+      "id": 847,
+      "symbol": "IDB_SPSMININDICATOR",
+      "source": "Bitmaps/SPSmin_indicator.bmp",
+      "path": "Resources/NASSP/SPSmin_indicator.bmp"
+    },
+    {
+      "id": 851,
+      "symbol": "IDB_CSM_MAIN_LEFT_PANEL",
+      "source": "Bitmaps/csm_main_left_panel.bmp",
+      "path": "Resources/NASSP/csm_main_left_panel.bmp"
+    },
+    {
+      "id": 852,
+      "symbol": "IDB_CSM_MAIN_RIGHT_PANEL",
+      "source": "Bitmaps/csm_main_right_panel.bmp",
+      "path": "Resources/NASSP/csm_main_right_panel.bmp"
+    },
+    {
+      "id": 853,
+      "symbol": "IDB_CSM_MAIN_MIDDLE_PANEL",
+      "source": "Bitmaps/csm_main_middle_panel.bmp",
+      "path": "Resources/NASSP/csm_main_middle_panel.bmp"
+    },
+    {
+      "id": 855,
+      "symbol": "IDB_TELESCOPE_WIDE",
+      "source": "Bitmaps/csm_telescope_panel_wide.bmp",
+      "path": "Resources/NASSP/csm_telescope_panel_wide.bmp"
+    },
+    {
+      "id": 856,
+      "symbol": "IDB_SEXTANT_WIDE",
+      "source": "Bitmaps/csm_sextant_panel_wide.bmp",
+      "path": "Resources/NASSP/csm_sextant_panel_wide.bmp"
+    },
+    {
+      "id": 857,
+      "symbol": "IDB_THUMBWHEEL_GPI_PITCH",
+      "source": "Bitmaps/thumbwheel_gpi_pitch.bmp",
+      "path": "Resources/NASSP/thumbwheel_gpi_pitch.bmp"
+    },
+    {
+      "id": 860,
+      "symbol": "IDB_THUMBWHEEL_GPI_YAW",
+      "source": "Bitmaps/thumbwheel_gpi_yaw.bmp",
+      "path": "Resources/NASSP/thumbwheel_gpi_yaw.bmp"
+    },
+    {
+      "id": 862,
+      "symbol": "IDB_THC",
+      "source": "Bitmaps/thc.bmp",
+      "path": "Resources/NASSP/thc.bmp"
+    },
+    {
+      "id": 869,
+      "symbol": "IDB_EMS_LIGHTS",
+      "source": "Bitmaps/ems_lights.bmp",
+      "path": "Resources/NASSP/ems_lights.bmp"
+    },
+    {
+      "id": 870,
+      "symbol": "IDB_SUITRETURN_LEVER",
+      "source": "Bitmaps/suitreturn_lever.bmp",
+      "path": "Resources/NASSP/suitreturn_lever.bmp"
+    },
+    {
+      "id": 872,
+      "symbol": "IDB_CABINRELIEFUPPERLEVER",
+      "source": "Bitmaps/cabin_press_upper_lever.bmp",
+      "path": "Resources/NASSP/cabin_press_upper_lever.bmp"
+    },
+    {
+      "id": 873,
+      "symbol": "IDB_CABINRELIEFLOWERLEVER",
+      "source": "Bitmaps/cabin_press_lower_lever.bmp",
+      "path": "Resources/NASSP/cabin_press_lower_lever.bmp"
+    },
+    {
+      "id": 876,
+      "symbol": "IDB_CABINRELIEFGUARDLEVER",
+      "source": "Bitmaps/cabin_press_guard_lever.bmp",
+      "path": "Resources/NASSP/cabin_press_guard_lever.bmp"
+    },
+    {
+      "id": 878,
+      "symbol": "IDB_OPTICS_HANDCONTROLLER",
+      "source": "Bitmaps/optics_handcontroller.bmp",
+      "path": "Resources/NASSP/optics_handcontroller.bmp"
+    },
+    {
+      "id": 880,
+      "symbol": "IDB_MARK_BUTTONS",
+      "source": "Bitmaps/mark_buttons.bmp",
+      "path": "Resources/NASSP/mark_buttons.bmp"
+    },
+    {
+      "id": 881,
+      "symbol": "IDB_THREEPOSSWITCHSMALL",
+      "source": "Bitmaps/threeposswitchsmall.bmp",
+      "path": "Resources/NASSP/threeposswitchsmall.bmp"
+    },
+    {
+      "id": 882,
+      "symbol": "IDB_OPTICS_DSKY",
+      "source": "Bitmaps/optics_dsky.bmp",
+      "path": "Resources/NASSP/optics_dsky.bmp"
+    },
+    {
+      "id": 884,
+      "symbol": "IDB_MINIMPULSE_HANDCONTROLLER",
+      "source": "Bitmaps/minimpulse_handcontroller.bmp",
+      "path": "Resources/NASSP/minimpulse_handcontroller.bmp"
+    },
+    {
+      "id": 890,
+      "symbol": "IDB_CSM_LOWER_PANEL_LEFT",
+      "source": "Bitmaps/csm_lower_equip_bay_left.bmp",
+      "path": "Resources/NASSP/csm_lower_equip_bay_left.bmp"
+    },
+    {
+      "id": 891,
+      "symbol": "IDB_CSM_LOWER_PANEL_CENTER",
+      "source": "Bitmaps/csm_lower_equip_bay_center.bmp",
+      "path": "Resources/NASSP/csm_lower_equip_bay_center.bmp"
+    },
+    {
+      "id": 892,
+      "symbol": "IDB_CSM_LOWER_PANEL_RIGHT",
+      "source": "Bitmaps/csm_lower_equip_bay_right.bmp",
+      "path": "Resources/NASSP/csm_lower_equip_bay_right.bmp"
+    },
+    {
+      "id": 894,
+      "symbol": "IDB_EMS_SCROLL_LEO",
+      "source": "Bitmaps/EMSscroll_LEO.bmp",
+      "path": "Resources/NASSP/EMSscroll_LEO.bmp"
+    },
+    {
+      "id": 896,
+      "symbol": "IDB_EMS_SCROLL_BORDER",
+      "source": "Bitmaps/EMSscroll_border.bmp",
+      "path": "Resources/NASSP/EMSscroll_border.bmp"
+    },
+    {
+      "id": 897,
+      "symbol": "IDB_EMSDVSETSWITCH",
+      "source": "Bitmaps/ems_button.bmp",
+      "path": "Resources/NASSP/ems_button.bmp"
+    },
+    {
+      "id": 899,
+      "symbol": "IDB_ALTIMETER2",
+      "source": "Bitmaps/altimeter_2.bmp",
+      "path": "Resources/NASSP/altimeter_2.bmp"
+    },
+    {
+      "id": 901,
+      "symbol": "IDB_OXYGEN_SURGE_TANK_VALVE",
+      "source": "Bitmaps/csm_oxygen_surge_tank_valve.bmp",
+      "path": "Resources/NASSP/csm_oxygen_surge_tank_valve.bmp"
+    },
+    {
+      "id": 903,
+      "symbol": "IDB_GLYCOL_TO_RADIATORS_KNOB",
+      "source": "Bitmaps/csm_glycol_to_radiators_knob.bmp",
+      "path": "Resources/NASSP/csm_glycol_to_radiators_knob.bmp"
+    },
+    {
+      "id": 905,
+      "symbol": "IDB_BORDER_31x31",
+      "source": "Bitmaps/border31x31.bmp",
+      "path": "Resources/NASSP/border31x31.bmp"
+    },
+    {
+      "id": 906,
+      "symbol": "IDB_ACCUM_ROTARY",
+      "source": "Bitmaps/csm_accum_rotary.bmp",
+      "path": "Resources/NASSP/csm_accum_rotary.bmp"
+    },
+    {
+      "id": 907,
+      "symbol": "IDB_GLYCOL_ROTARY",
+      "source": "Bitmaps/csm_glycol_rotary.bmp",
+      "path": "Resources/NASSP/csm_glycol_rotary.bmp"
+    },
+    {
+      "id": 908,
+      "symbol": "IDB_BORDER_58x58",
+      "source": "Bitmaps/border58x58.bmp",
+      "path": "Resources/NASSP/border58x58.bmp"
+    },
+    {
+      "id": 909,
+      "symbol": "IDB_BORDER_160x32",
+      "source": "Bitmaps/border160x32.bmp",
+      "path": "Resources/NASSP/border160x32.bmp"
+    },
+    {
+      "id": 913,
+      "symbol": "IDB_PRESS_RELIEF_VALVE",
+      "source": "Bitmaps/csm_press_relief_valve.bmp",
+      "path": "Resources/NASSP/csm_press_relief_valve.bmp"
+    },
+    {
+      "id": 914,
+      "symbol": "IDB_BORDER_57x57",
+      "source": "Bitmaps/border57x57.bmp",
+      "path": "Resources/NASSP/border57x57.bmp"
+    },
+    {
+      "id": 915,
+      "symbol": "IDB_BORDER_47x47",
+      "source": "Bitmaps/border47x47.bmp",
+      "path": "Resources/NASSP/border47x47.bmp"
+    },
+    {
+      "id": 917,
+      "symbol": "IDB_BORDER_48x48",
+      "source": "Bitmaps/border48x48.bmp",
+      "path": "Resources/NASSP/border48x48.bmp"
+    },
+    {
+      "id": 918,
+      "symbol": "IDB_CABIN_REPRESS_VALVE",
+      "source": "Bitmaps/csm_cabin_repress_valve.bmp",
+      "path": "Resources/NASSP/csm_cabin_repress_valve.bmp"
+    },
+    {
+      "id": 920,
+      "symbol": "IDB_SELECTOR_INLET_ROTARY",
+      "source": "Bitmaps/csm_selector_inlet_rotary.bmp",
+      "path": "Resources/NASSP/csm_selector_inlet_rotary.bmp"
+    },
+    {
+      "id": 921,
+      "symbol": "IDB_SELECTOR_OUTLET_ROTARY",
+      "source": "Bitmaps/csm_selector_outlet_rotary.bmp",
+      "path": "Resources/NASSP/csm_selector_outlet_rotary.bmp"
+    },
+    {
+      "id": 923,
+      "symbol": "IDB_BORDER_65x65",
+      "source": "Bitmaps/border65x65.bmp",
+      "path": "Resources/NASSP/border65x65.bmp"
+    },
+    {
+      "id": 924,
+      "symbol": "IDB_EMERGENCY_PRESS_ROTARY",
+      "source": "Bitmaps/csm_emergency_cabin_press_rotary.bmp",
+      "path": "Resources/NASSP/csm_emergency_cabin_press_rotary.bmp"
+    },
+    {
+      "id": 926,
+      "symbol": "IDB_CSM_LOWER_LEFT_PANEL",
+      "source": "Bitmaps/csm_lower_left_panel.bmp",
+      "path": "Resources/NASSP/csm_lower_left_panel.bmp"
+    },
+    {
+      "id": 927,
+      "symbol": "IDB_CSM_LOWER_MAIN_PANEL",
+      "source": "Bitmaps/csm_lower_main_panel.bmp",
+      "path": "Resources/NASSP/csm_lower_main_panel.bmp"
+    },
+    {
+      "id": 928,
+      "symbol": "IDB_CSM_RIGHT_CB_PANEL",
+      "source": "Bitmaps/csm_right_cb_panels.bmp",
+      "path": "Resources/NASSP/csm_right_cb_panels.bmp"
+    },
+    {
+      "id": 929,
+      "symbol": "IDB_EMS_RSI_BKGRND",
+      "source": "Bitmaps/EMS_RSIbkgrnd.bmp",
+      "path": "Resources/NASSP/EMS_RSIbkgrnd.bmp"
+    },
+    {
+      "id": 931,
+      "symbol": "IDB_CSM_MNPNL_WDW_LES",
+      "source": "Bitmaps/csm_main_panel_les_window_cover.bmp",
+      "path": "Resources/NASSP/csm_main_panel_les_window_cover.bmp"
+    },
+    {
+      "id": 933,
+      "symbol": "IDB_CSM_RNDZ_WDW_LES",
+      "source": "Bitmaps/csm_right_rndz_les_window_cover.bmp",
+      "path": "Resources/NASSP/csm_right_rndz_les_window_cover.bmp"
+    },
+    {
+      "id": 935,
+      "symbol": "IDB_CSM_RIGHT_WDW_LES",
+      "source": "Bitmaps/csm_right_les_window_cover.bmp",
+      "path": "Resources/NASSP/csm_right_les_window_cover.bmp"
+    },
+    {
+      "id": 937,
+      "symbol": "IDB_CSM_LEFT_WDW_LES",
+      "source": "Bitmaps/csm_left_les_window_cover.bmp",
+      "path": "Resources/NASSP/csm_left_les_window_cover.bmp"
+    },
+    {
+      "id": 939,
+      "symbol": "IDB_CSM_SUIT_FLOW_CONTROL_LEVER",
+      "source": "Bitmaps/csm_suit_flow_control_lever.bmp",
+      "path": "Resources/NASSP/csm_suit_flow_control_lever.bmp"
+    },
+    {
+      "id": 940,
+      "symbol": "IDB_BORDER_87x111",
+      "source": "Bitmaps/border87x111.bmp",
+      "path": "Resources/NASSP/border87x111.bmp"
+    },
+    {
+      "id": 944,
+      "symbol": "IDB_CSM_SEC_CABIN_TEMP_VALVE",
+      "source": "Bitmaps/csm_secondary_cabin_temp_valve.bmp",
+      "path": "Resources/NASSP/csm_secondary_cabin_temp_valve.bmp"
+    },
+    {
+      "id": 946,
+      "symbol": "IDB_BORDER_23x23",
+      "source": "Bitmaps/border23x23.bmp",
+      "path": "Resources/NASSP/border23x23.bmp"
+    },
+    {
+      "id": 947,
+      "symbol": "IDB_CSM_FOOT_PREP_WATER_LEVER",
+      "source": "Bitmaps/csm_FootPrepWater_lever.bmp",
+      "path": "Resources/NASSP/csm_FootPrepWater_lever.bmp"
+    },
+    {
+      "id": 948,
+      "symbol": "IDB_BORDER_118x118",
+      "source": "Bitmaps/border118x118.bmp",
+      "path": "Resources/NASSP/border118x118.bmp"
+    },
+    {
+      "id": 958,
+      "symbol": "IDB_BORDER_38x38",
+      "source": "Bitmaps/border38x38.bmp",
+      "path": "Resources/NASSP/border38x38.bmp"
+    },
+    {
+      "id": 959,
+      "symbol": "IDB_CSM_LM_TUNNEL_VENT_VALVE",
+      "source": "Bitmaps/csm_lm_tunnel_vent_valve.bmp",
+      "path": "Resources/NASSP/csm_lm_tunnel_vent_valve.bmp"
+    },
+    {
+      "id": 965,
+      "symbol": "IDB_CSM_WASTE_MGMT_ROTARY",
+      "source": "Bitmaps/csm_waste_mgmt_rotary.bmp",
+      "path": "Resources/NASSP/csm_waste_mgmt_rotary.bmp"
+    },
+    {
+      "id": 966,
+      "symbol": "IDB_BORDER_116x116",
+      "source": "Bitmaps/border116x116.bmp",
+      "path": "Resources/NASSP/border116x116.bmp"
+    },
+    {
+      "id": 970,
+      "symbol": "IDB_BORDER_45x36",
+      "source": "Bitmaps/border45x36.bmp",
+      "path": "Resources/NASSP/border45x36.bmp"
+    },
+    {
+      "id": 971,
+      "symbol": "IDB_BORDER_17x36",
+      "source": "Bitmaps/border17x36.bmp",
+      "path": "Resources/NASSP/border17x36.bmp"
+    },
+    {
+      "id": 972,
+      "symbol": "IDB_BORDER_33x43",
+      "source": "Bitmaps/border33x43.bmp",
+      "path": "Resources/NASSP/border33x43.bmp"
+    },
+    {
+      "id": 973,
+      "symbol": "IDB_BORDER_36x17",
+      "source": "Bitmaps/border36x17.bmp",
+      "path": "Resources/NASSP/border36x17.bmp"
+    },
+    {
+      "id": 974,
+      "symbol": "IDB_BORDER_150x80",
+      "source": "Bitmaps/border150x80.bmp",
+      "path": "Resources/NASSP/border150x80.bmp"
+    },
+    {
+      "id": 975,
+      "symbol": "IDB_BORDER_200x80",
+      "source": "Bitmaps/border200x80.bmp",
+      "path": "Resources/NASSP/border200x80.bmp"
+    },
+    {
+      "id": 976,
+      "symbol": "IDB_CIRCUITBRAKER_YELLOW",
+      "source": "Bitmaps/circuit_breaker_yellow.bmp",
+      "path": "Resources/NASSP/circuit_breaker_yellow.bmp"
+    },
+    {
+      "id": 977,
+      "symbol": "IDB_BORDER_72x109",
+      "source": "Bitmaps/border72x109.bmp",
+      "path": "Resources/NASSP/border72x109.bmp"
+    },
+    {
+      "id": 978,
+      "symbol": "IDB_CSM_DEMAND_REG_ROTARY",
+      "source": "Bitmaps/csm_demand_reg_rotary.bmp",
+      "path": "Resources/NASSP/csm_demand_reg_rotary.bmp"
+    },
+    {
+      "id": 980,
+      "symbol": "IDB_CSM_SUIT_TEST_LEVER",
+      "source": "Bitmaps/csm_suit_test_lever.bmp",
+      "path": "Resources/NASSP/csm_suit_test_lever.bmp"
+    },
+    {
+      "id": 982,
+      "symbol": "IDB_CSM_GEAR_BOX_ROTARY",
+      "source": "Bitmaps/csm_gear_box_rotary.bmp",
+      "path": "Resources/NASSP/csm_gear_box_rotary.bmp"
+    },
+    {
+      "id": 984,
+      "symbol": "IDB_CSM_PUMP_HANDLE_ROTARY",
+      "source": "Bitmaps/csm_pump_handle_rotary.bmp",
+      "path": "Resources/NASSP/csm_pump_handle_rotary.bmp"
+    },
+    {
+      "id": 986,
+      "symbol": "IDB_CSM_VENT_VALVE_HANDLE",
+      "source": "Bitmaps/csm_vent_valve_handle.bmp",
+      "path": "Resources/NASSP/csm_vent_valve_handle.bmp"
+    },
+    {
+      "id": 988,
+      "symbol": "IDB_CSM_HATCH_WINDOW_OPEN",
+      "source": "Bitmaps/csm_hatch_window_open.bmp",
+      "path": "Resources/NASSP/csm_hatch_window_open.bmp"
+    },
+    {
+      "id": 991,
+      "symbol": "IDB_CSM_LEFT_RNDZ_WINDOW_WIDE",
+      "source": "Bitmaps/csm_left_rndz_window_wide.bmp",
+      "path": "Resources/NASSP/csm_left_rndz_window_wide.bmp"
+    },
+    {
+      "id": 992,
+      "symbol": "IDB_CSM_RIGHT_RNDZ_WINDOW_WIDE",
+      "source": "Bitmaps/csm_right_rndz_window_wide.bmp",
+      "path": "Resources/NASSP/csm_right_rndz_window_wide.bmp"
+    },
+    {
+      "id": 993,
+      "symbol": "IDB_CSM_PUMP_HANDLE_ROTARY_OPEN",
+      "source": "Bitmaps/csm_pump_handle_rotary_open.bmp",
+      "path": "Resources/NASSP/csm_pump_handle_rotary_open.bmp"
+    },
+    {
+      "id": 995,
+      "symbol": "IDB_CSM_HATCH_WINDOW_OPEN_WIDE",
+      "source": "Bitmaps/csm_hatch_window_open_wide.bmp",
+      "path": "Resources/NASSP/csm_hatch_window_open_wide.bmp"
+    },
+    {
+      "id": 996,
+      "symbol": "IDB_BORDER_200x300",
+      "source": "Bitmaps/border200x300.bmp",
+      "path": "Resources/NASSP/border200x300.bmp"
+    },
+    {
+      "id": 997,
+      "symbol": "IDB_BORDER_150x200",
+      "source": "Bitmaps/border150x200.bmp",
+      "path": "Resources/NASSP/border150x200.bmp"
+    },
+    {
+      "id": 998,
+      "symbol": "IDB_BORDER_240x240",
+      "source": "Bitmaps/border240x240.bmp",
+      "path": "Resources/NASSP/border240x240.bmp"
+    },
+    {
+      "id": 999,
+      "symbol": "IDB_CSM_PANEL_351_SWITCH",
+      "source": "Bitmaps/csm_panel_351_switch.bmp",
+      "path": "Resources/NASSP/csm_panel_351_switch.bmp"
+    },
+    {
+      "id": 1001,
+      "symbol": "IDB_CSM_PANEL_600",
+      "source": "Bitmaps/csm_panel_600.bmp",
+      "path": "Resources/NASSP/csm_panel_600.bmp"
+    },
+    {
+      "id": 1002,
+      "symbol": "IDB_CSM_PANEL_600_SWITCH",
+      "source": "Bitmaps/csm_panel_600_switch.bmp",
+      "path": "Resources/NASSP/csm_panel_600_switch.bmp"
+    },
+    {
+      "id": 1006,
+      "symbol": "IDB_CSM_PANEL_382_COVER",
+      "source": "Bitmaps/csm_panel_382_cover.bmp",
+      "path": "Resources/NASSP/csm_panel_382_cover.bmp"
+    },
+    {
+      "id": 1007,
+      "symbol": "IDB_CSM_WASTE_DISPOSAL_ROTARY",
+      "source": "Bitmaps/csm_waste_disposal_rotary.bmp",
+      "path": "Resources/NASSP/csm_waste_disposal_rotary.bmp"
+    },
+    {
+      "id": 1010,
+      "symbol": "IDB_THREEPOSSWITCH90_LEFT",
+      "source": "Bitmaps/threeposswitch90_left.bmp",
+      "path": "Resources/NASSP/threeposswitch90_left.bmp"
+    },
+    {
+      "id": 1011,
+      "symbol": "IDB_BORDER_38x37",
+      "source": "Bitmaps/border38x37.bmp",
+      "path": "Resources/NASSP/border38x37.bmp"
+    },
+    {
+      "id": 1012,
+      "symbol": "IDB_EMS_SCROLL_BUG",
+      "source": "Bitmaps/EMSscroll_bug.bmp",
+      "path": "Resources/NASSP/EMSscroll_bug.bmp"
+    },
+    {
+      "id": 1013,
+      "symbol": "IDB_BORDER_55x91",
+      "source": "Bitmaps/border55x91.bmp",
+      "path": "Resources/NASSP/border55x91.bmp"
+    },
+    {
+      "id": 1016,
+      "symbol": "IDB_SWITCH90",
+      "source": "Bitmaps/switch90.bmp",
+      "path": "Resources/NASSP/switch90.bmp"
+    },
+    {
+      "id": 1017,
+      "symbol": "IDB_BORDER_673x369",
+      "source": "Bitmaps/border673x369.bmp",
+      "path": "Resources/NASSP/border673x369.bmp"
+    },
+    {
+      "id": 1018,
+      "symbol": "IDB_BORDER_673x80",
+      "source": "Bitmaps/border673x80.bmp",
+      "path": "Resources/NASSP/border673x80.bmp"
+    },
+    {
+      "id": 1019,
+      "symbol": "IDB_BORDER_110x29",
+      "source": "Bitmaps/border110x29.bmp",
+      "path": "Resources/NASSP/border110x29.bmp"
+    },
+    {
+      "id": 1020,
+      "symbol": "IDB_BORDER_29x30",
+      "source": "Bitmaps/border29x30.bmp",
+      "path": "Resources/NASSP/border29x30.bmp"
+    },
+    {
+      "id": 1021,
+      "symbol": "IDB_BORDER_62x129",
+      "source": "Bitmaps/border62x129.bmp",
+      "path": "Resources/NASSP/border62x129.bmp"
+    },
+    {
+      "id": 1022,
+      "symbol": "IDB_BORDER_194x324",
+      "source": "Bitmaps/border194x324.bmp",
+      "path": "Resources/NASSP/border194x324.bmp"
+    },
+    {
+      "id": 1023,
+      "symbol": "IDB_BORDER_36x69",
+      "source": "Bitmaps/border36x69.bmp",
+      "path": "Resources/NASSP/border36x69.bmp"
+    },
+    {
+      "id": 1024,
+      "symbol": "IDB_BORDER_62x31",
+      "source": "Bitmaps/border62x31.bmp",
+      "path": "Resources/NASSP/border62x31.bmp"
+    },
+    {
+      "id": 1025,
+      "symbol": "IDB_CSM_CABINPRESSTESTSWITCH",
+      "source": "Bitmaps/csm_cabinpresstestswitch.bmp",
+      "path": "Resources/NASSP/csm_cabinpresstestswitch.bmp"
+    },
+    {
+      "id": 1027,
+      "symbol": "IDB_ORDEAL_PANEL",
+      "source": "Bitmaps/csm_ORDEAL.bmp",
+      "path": "Resources/NASSP/csm_ORDEAL.bmp"
+    },
+    {
+      "id": 1028,
+      "symbol": "IDB_DIGITAL2",
+      "source": "Bitmaps/digitaldisp_2.bmp",
+      "path": "Resources/NASSP/digitaldisp_2.bmp"
+    },
+    {
+      "id": 1030,
+      "symbol": "IDB_CSM_TELESCOPECOVER",
+      "source": "Bitmaps/csm_telescope_panel_cover.bmp",
+      "path": "Resources/NASSP/csm_telescope_panel_cover.bmp"
+    },
+    {
+      "id": 1032,
+      "symbol": "IDB_CSM_SEXTANTCOVER",
+      "source": "Bitmaps/csm_sextant_panel_cover.bmp",
+      "path": "Resources/NASSP/csm_sextant_panel_cover.bmp"
+    },
+    {
+      "id": 1034,
+      "symbol": "IDB_CWS_GNLIGHTS",
+      "source": "Bitmaps/csm_lower_equip_bay_lights.bmp",
+      "path": "Resources/NASSP/csm_lower_equip_bay_lights.bmp"
+    },
+    {
+      "id": 1036,
+      "symbol": "IDB_BORDER_45x49",
+      "source": "Bitmaps/border45x49.bmp",
+      "path": "Resources/NASSP/border45x49.bmp"
+    },
+    {
+      "id": 1037,
+      "symbol": "IDB_BORDER_28x32",
+      "source": "Bitmaps/border28x32.bmp",
+      "path": "Resources/NASSP/border28x32.bmp"
+    },
+    {
+      "id": 1038,
+      "symbol": "IDB_TELESCOPE_16_9",
+      "source": "Bitmaps/csm_telescope_panel_16_9.bmp",
+      "path": "Resources/NASSP/csm_telescope_panel_16_9.bmp"
+    },
+    {
+      "id": 1039,
+      "symbol": "IDB_SEXTANT_16_9",
+      "source": "Bitmaps/csm_sextant_panel_16_9.bmp",
+      "path": "Resources/NASSP/csm_sextant_panel_16_9.bmp"
+    },
+    {
+      "id": 1040,
+      "symbol": "IDB_CSM_LEFT_RNDZ_WINDOW_16_9",
+      "source": "Bitmaps/csm_left_rndz_window_16_9.bmp",
+      "path": "Resources/NASSP/csm_left_rndz_window_16_9.bmp"
+    },
+    {
+      "id": 1041,
+      "symbol": "IDB_CSM_RIGHT_RNDZ_WINDOW_16_9",
+      "source": "Bitmaps/csm_right_rndz_window_16_9.bmp",
+      "path": "Resources/NASSP/csm_right_rndz_window_16_9.bmp"
+    },
+    {
+      "id": 1042,
+      "symbol": "IDB_CSM_HATCH_WINDOW_OPEN_16_9",
+      "source": "Bitmaps/csm_hatch_window_open_16_9.bmp",
+      "path": "Resources/NASSP/csm_hatch_window_open_16_9.bmp"
+    },
+    {
+      "id": 1047,
+      "symbol": "IDB_EVENT_TIMER90",
+      "source": "Bitmaps/event_timer90.bmp",
+      "path": "Resources/NASSP/event_timer90.bmp"
+    },
+    {
+      "id": 1048,
+      "symbol": "IDB_DIGITAL90",
+      "source": "Bitmaps/digitaldisp90.bmp",
+      "path": "Resources/NASSP/digitaldisp90.bmp"
+    },
+    {
+      "id": 1052,
+      "symbol": "IDB_CSM_TUNNEL",
+      "source": "Bitmaps/csm_tunnel.bmp",
+      "path": "Resources/NASSP/csm_tunnel.bmp"
+    },
+    {
+      "id": 1053,
+      "symbol": "IDB_CSM_TUNNEL_OPEN",
+      "source": "Bitmaps/csm_tunnel_open.bmp",
+      "path": "Resources/NASSP/csm_tunnel_open.bmp"
+    },
+    {
+      "id": 1055,
+      "symbol": "IDB_CSM_LEFT_317_WINDOW",
+      "source": "Bitmaps/csm_left_317_window.bmp",
+      "path": "Resources/NASSP/csm_left_317_window.bmp"
+    },
+    {
+      "id": 1056,
+      "symbol": "IDB_CSM_PRESS_EQUAL_HANDLE",
+      "source": "Bitmaps/csm_press_equal_valve.bmp",
+      "path": "Resources/NASSP/csm_press_equal_valve.bmp"
+    },
+    {
+      "id": 1058,
+      "symbol": "IDB_CSM_PANEL_181",
+      "source": "Bitmaps/csm_panel_181.bmp",
+      "path": "Resources/NASSP/csm_panel_181.bmp"
+    },
+    {
+      "id": 1060,
+      "symbol": "IDB_CSM_PANEL_277",
+      "source": "Bitmaps/csm_panel_277.bmp",
+      "path": "Resources/NASSP/csm_panel_277.bmp"
+    },
+    {
+      "id": 1062,
+      "symbol": "IDB_CSM_PANEL_278_CSM112",
+      "source": "Bitmaps/csm_panel_278_CSM112.bmp",
+      "path": "Resources/NASSP/csm_panel_278_CSM112.bmp"
+    },
+    {
+      "id": 1063,
+      "symbol": "IDB_CSM_PANEL_278_CSM114",
+      "source": "Bitmaps/csm_panel_278_CSM114.bmp",
+      "path": "Resources/NASSP/csm_panel_278_CSM114.bmp"
+    },
+    {
+      "id": 1064,
+      "symbol": "IDB_INDICATOR90",
+      "source": "Bitmaps/Indicator90.bmp",
+      "path": "Resources/NASSP/Indicator90.bmp"
+    },
+    {
+      "id": 1065,
+      "symbol": "IDB_THREEPOSSWITCH90_RIGHT",
+      "source": "Bitmaps/threeposswitch90_right.bmp",
+      "path": "Resources/NASSP/threeposswitch90_right.bmp"
+    },
+    {
+      "id": 1066,
+      "symbol": "IDB_CRYO_SWITCHES_J",
+      "source": "Bitmaps/csm_cryo_switches_J.bmp",
+      "path": "Resources/NASSP/csm_cryo_switches_J.bmp"
+    },
+    {
+      "id": 1067,
+      "symbol": "IDB_CRYO_IND_J",
+      "source": "Bitmaps/csm_cryo_indicators_J.bmp",
+      "path": "Resources/NASSP/csm_cryo_indicators_J.bmp"
+    },
+    {
+      "id": 1068,
+      "symbol": "IDB_SWITCHGUARDS90_RIGHT",
+      "source": "Bitmaps/SwitchGuards90_right.bmp",
+      "path": "Resources/NASSP/SwitchGuards90_right.bmp"
+    }
+  ],
+  "lm": [
+    {
+      "id": 64,
+      "symbol": "IDB_BORDER_34x29",
+      "source": "Bitmaps/border34x29.bmp",
+      "path": "Resources/NASSP/border34x29.bmp"
+    },
+    {
+      "id": 65,
+      "symbol": "IDB_BORDER_34x61",
+      "source": "Bitmaps/border34x61.bmp",
+      "path": "Resources/NASSP/border34x61.bmp"
+    },
+    {
+      "id": 67,
+      "symbol": "IDB_BORDER_55x111",
+      "source": "Bitmaps/border55x111.bmp",
+      "path": "Resources/NASSP/border55x111.bmp"
+    },
+    {
+      "id": 68,
+      "symbol": "IDB_BORDER_46x75",
+      "source": "Bitmaps/border46x75.bmp",
+      "path": "Resources/NASSP/border46x75.bmp"
+    },
+    {
+      "id": 69,
+      "symbol": "IDB_BORDER_39x38",
+      "source": "Bitmaps/border39x38.bmp",
+      "path": "Resources/NASSP/border39x38.bmp"
+    },
+    {
+      "id": 76,
+      "symbol": "IDB_BORDER_92x40",
+      "source": "Bitmaps/border92x40.bmp",
+      "path": "Resources/NASSP/border92x40.bmp"
+    },
+    {
+      "id": 80,
+      "symbol": "IDB_BORDER_34x33",
+      "source": "Bitmaps/border34x33.bmp",
+      "path": "Resources/NASSP/border34x33.bmp"
+    },
+    {
+      "id": 81,
+      "symbol": "IDB_BORDER_29x29",
+      "source": "Bitmaps/border29x29.bmp",
+      "path": "Resources/NASSP/border29x29.bmp"
+    },
+    {
+      "id": 82,
+      "symbol": "IDB_BORDER_34x31",
+      "source": "Bitmaps/border34x31.bmp",
+      "path": "Resources/NASSP/border34x31.bmp"
+    },
+    {
+      "id": 85,
+      "symbol": "IDB_BORDER_50x158",
+      "source": "Bitmaps/border50x158.bmp",
+      "path": "Resources/NASSP/border50x158.bmp"
+    },
+    {
+      "id": 88,
+      "symbol": "IDB_BORDER_38x52",
+      "source": "Bitmaps/border38x52.bmp",
+      "path": "Resources/NASSP/border38x52.bmp"
+    },
+    {
+      "id": 90,
+      "symbol": "IDB_BORDER_34x34",
+      "source": "Bitmaps/border34x34.bmp",
+      "path": "Resources/NASSP/border34x34.bmp"
+    },
+    {
+      "id": 91,
+      "symbol": "IDB_BORDER_90x90",
+      "source": "Bitmaps/border90x90.bmp",
+      "path": "Resources/NASSP/border90x90.bmp"
+    },
+    {
+      "id": 94,
+      "symbol": "IDB_BORDER_84x84",
+      "source": "Bitmaps/border84x84.bmp",
+      "path": "Resources/NASSP/border84x84.bmp"
+    },
+    {
+      "id": 95,
+      "symbol": "IDB_BORDER_70x70",
+      "source": "Bitmaps/border70x70.bmp",
+      "path": "Resources/NASSP/border70x70.bmp"
+    },
+    {
+      "id": 97,
+      "symbol": "IDB_BORDER_23x20",
+      "source": "Bitmaps/border23x20.bmp",
+      "path": "Resources/NASSP/border23x20.bmp"
+    },
+    {
+      "id": 98,
+      "symbol": "IDB_BORDER_78x78",
+      "source": "Bitmaps/border78x78.bmp",
+      "path": "Resources/NASSP/border78x78.bmp"
+    },
+    {
+      "id": 107,
+      "symbol": "IDB_INDICATOR",
+      "source": "Bitmaps/Indicator.bmp",
+      "path": "Resources/NASSP/Indicator.bmp"
+    },
+    {
+      "id": 108,
+      "symbol": "IDB_HORIZON",
+      "source": "Bitmaps/Horizon.bmp",
+      "path": "Resources/NASSP/Horizon.bmp"
+    },
+    {
+      "id": 112,
+      "symbol": "IDB_BORDER_32x160",
+      "source": "Bitmaps/border32x160.bmp",
+      "path": "Resources/NASSP/border32x160.bmp"
+    },
+    {
+      "id": 113,
+      "symbol": "IDB_BORDER_72x72",
+      "source": "Bitmaps/border72x72.bmp",
+      "path": "Resources/NASSP/border72x72.bmp"
+    },
+    {
+      "id": 114,
+      "symbol": "IDB_BORDER_75x64",
+      "source": "Bitmaps/border75x64.bmp",
+      "path": "Resources/NASSP/border75x64.bmp"
+    },
+    {
+      "id": 115,
+      "symbol": "IDB_BORDER_34x39",
+      "source": "Bitmaps/border34x39.bmp",
+      "path": "Resources/NASSP/border34x39.bmp"
+    },
+    {
+      "id": 118,
+      "symbol": "IDB_LMYAWDEGS",
+      "source": "Bitmaps/lem_yaw_degs.bmp",
+      "path": "Resources/NASSP/lem_yaw_degs.bmp"
+    },
+    {
+      "id": 119,
+      "symbol": "IDB_LMPITCHDEGS",
+      "source": "Bitmaps/lem_pitch_degs.bmp",
+      "path": "Resources/NASSP/lem_pitch_degs.bmp"
+    },
+    {
+      "id": 120,
+      "symbol": "IDB_LMSIGNALSTRENGTH",
+      "source": "Bitmaps/lem_signal_strength.bmp",
+      "path": "Resources/NASSP/lem_signal_strength.bmp"
+    },
+    {
+      "id": 166,
+      "symbol": "IDB_DIGITAL",
+      "source": "Bitmaps/digitaldisp.bmp",
+      "path": "Resources/NASSP/digitaldisp.bmp"
+    },
+    {
+      "id": 171,
+      "symbol": "IDB_SWITCHUP",
+      "source": "Bitmaps/lem_switchup.bmp",
+      "path": "Resources/NASSP/lem_switchup.bmp"
+    },
+    {
+      "id": 172,
+      "symbol": "IDB_SWLEVER",
+      "source": "Bitmaps/switch_lever.bmp",
+      "path": "Resources/NASSP/switch_lever.bmp"
+    },
+    {
+      "id": 173,
+      "symbol": "IDB_SECSWITCH",
+      "source": "Bitmaps/Pswitch.bmp",
+      "path": "Resources/NASSP/Pswitch.bmp"
+    },
+    {
+      "id": 174,
+      "symbol": "IDB_LV_ENG",
+      "source": "Bitmaps/lv_eng.bmp",
+      "path": "Resources/NASSP/lv_eng.bmp"
+    },
+    {
+      "id": 175,
+      "symbol": "IDB_LAUNCH",
+      "source": "Bitmaps/launchlight.bmp",
+      "path": "Resources/NASSP/launchlight.bmp"
+    },
+    {
+      "id": 176,
+      "symbol": "IDB_ABORT",
+      "source": "Bitmaps/abort.bmp",
+      "path": "Resources/NASSP/abort.bmp"
+    },
+    {
+      "id": 177,
+      "symbol": "IDB_ANNUN",
+      "source": "Bitmaps/Annonciators.bmp",
+      "path": "Resources/NASSP/Annonciators.bmp"
+    },
+    {
+      "id": 178,
+      "symbol": "IDB_LIGHTS2",
+      "source": "Bitmaps/lights2.bmp",
+      "path": "Resources/NASSP/lights2.bmp"
+    },
+    {
+      "id": 180,
+      "symbol": "IDB_ALTIMETER",
+      "source": "Bitmaps/Altimeter.bmp",
+      "path": "Resources/NASSP/Altimeter.bmp"
+    },
+    {
+      "id": 181,
+      "symbol": "IDB_ANLG_GMETER",
+      "source": "Bitmaps/Gmeter.bmp",
+      "path": "Resources/NASSP/Gmeter.bmp"
+    },
+    {
+      "id": 182,
+      "symbol": "IDB_THRUST",
+      "source": "Bitmaps/Thrustmeter.bmp",
+      "path": "Resources/NASSP/Thrustmeter.bmp"
+    },
+    {
+      "id": 183,
+      "symbol": "IDB_LEM_MAIN_PANEL",
+      "source": "Bitmaps/lem_main_panel.bmp",
+      "path": "Resources/NASSP/lem_main_panel.bmp"
+    },
+    {
+      "id": 184,
+      "symbol": "IDB_CONTACT",
+      "source": "Bitmaps/contact.bmp",
+      "path": "Resources/NASSP/contact.bmp"
+    },
+    {
+      "id": 204,
+      "symbol": "IDB_MASTER_ALARM_BRIGHT",
+      "source": "Bitmaps/masteralarmbright.bmp",
+      "path": "Resources/NASSP/masteralarmbright.bmp"
+    },
+    {
+      "id": 205,
+      "symbol": "IDB_DSKY_LIGHTS",
+      "source": "Bitmaps/dsky_lights.bmp",
+      "path": "Resources/NASSP/dsky_lights.bmp"
+    },
+    {
+      "id": 248,
+      "symbol": "IDB_LEMSWITCH1",
+      "source": "Bitmaps/switch1.bmp",
+      "path": "Resources/NASSP/switch1.bmp"
+    },
+    {
+      "id": 252,
+      "symbol": "IDB_LEMSWITCH2",
+      "source": "Bitmaps/lemswitch2.bmp",
+      "path": "Resources/NASSP/lemswitch2.bmp"
+    },
+    {
+      "id": 253,
+      "symbol": "IDB_LEMSWITCH3",
+      "source": "Bitmaps/switchup3.bmp",
+      "path": "Resources/NASSP/switchup3.bmp"
+    },
+    {
+      "id": 255,
+      "symbol": "IDB_FDAI",
+      "source": "Bitmaps/FDAI.bmp",
+      "path": "Resources/NASSP/FDAI.bmp"
+    },
+    {
+      "id": 256,
+      "symbol": "IDB_ECSG",
+      "source": "Bitmaps/ecs.bmp",
+      "path": "Resources/NASSP/ecs.bmp"
+    },
+    {
+      "id": 287,
+      "symbol": "IDB_LMTHREEPOSLEVER",
+      "source": "Bitmaps/lemswitch3.bmp",
+      "path": "Resources/NASSP/lemswitch3.bmp"
+    },
+    {
+      "id": 289,
+      "symbol": "IDB_LMTHREEPOSSWITCH",
+      "source": "Bitmaps/lem_threeposswitch.bmp",
+      "path": "Resources/NASSP/lem_threeposswitch.bmp"
+    },
+    {
+      "id": 299,
+      "symbol": "IDB_FDAINEEDLES",
+      "source": "Bitmaps/FDAI_needles.bmp",
+      "path": "Resources/NASSP/FDAI_needles.bmp"
+    },
+    {
+      "id": 300,
+      "symbol": "IDB_THUMBWHEEL_LARGEFONTS",
+      "source": "Bitmaps/thumbwheel_large_fonts.bmp",
+      "path": "Resources/NASSP/thumbwheel_large_fonts.bmp"
+    },
+    {
+      "id": 305,
+      "symbol": "IDB_LMDCVOLTS",
+      "source": "Bitmaps/LMDCVolts.bmp",
+      "path": "Resources/NASSP/LMDCVolts.bmp"
+    },
+    {
+      "id": 306,
+      "symbol": "IDB_LMDCAMPS",
+      "source": "Bitmaps/LMDCAmps.bmp",
+      "path": "Resources/NASSP/LMDCAmps.bmp"
+    },
+    {
+      "id": 308,
+      "symbol": "IDB_DEDA_KEY",
+      "source": "Bitmaps/ags_keys.bmp",
+      "path": "Resources/NASSP/ags_keys.bmp"
+    },
+    {
+      "id": 320,
+      "symbol": "IDB_AOT_RETICLE_KNOB",
+      "source": "Bitmaps/aot_reticle_knob.bmp",
+      "path": "Resources/NASSP/aot_reticle_knob.bmp"
+    },
+    {
+      "id": 321,
+      "symbol": "IDB_AOT_SHAFT_KNOB",
+      "source": "Bitmaps/aot_shaft_knob.bmp",
+      "path": "Resources/NASSP/aot_shaft_knob.bmp"
+    },
+    {
+      "id": 323,
+      "symbol": "IDB_DEDA_LIGHTS",
+      "source": "Bitmaps/ags_lights.bmp",
+      "path": "Resources/NASSP/ags_lights.bmp"
+    },
+    {
+      "id": 327,
+      "symbol": "IDB_LEM_FDAI_NEEDLES",
+      "source": "Bitmaps/LEMFDAI_needles.bmp",
+      "path": "Resources/NASSP/LEMFDAI_needles.bmp"
+    },
+    {
+      "id": 495,
+      "symbol": "IDB_NEEDLE1",
+      "source": "Bitmaps/needle1.bmp",
+      "path": "Resources/NASSP/needle1.bmp"
+    },
+    {
+      "id": 518,
+      "symbol": "IDB_LEM_RIGHT_WINDOW",
+      "source": "Bitmaps/lem_right_window.bmp",
+      "path": "Resources/NASSP/lem_right_window.bmp"
+    },
+    {
+      "id": 519,
+      "symbol": "IDB_LEM_LEFT_WINDOW",
+      "source": "Bitmaps/lem_left_window.bmp",
+      "path": "Resources/NASSP/lem_left_window.bmp"
+    },
+    {
+      "id": 521,
+      "symbol": "IDB_LMABORTBUTTON",
+      "source": "Bitmaps/LMAbortButton.bmp",
+      "path": "Resources/NASSP/LMAbortButton.bmp"
+    },
+    {
+      "id": 522,
+      "symbol": "IDB_LMMFDFRAME",
+      "source": "Bitmaps/LMMFDFrame.bmp",
+      "path": "Resources/NASSP/LMMFDFrame.bmp"
+    },
+    {
+      "id": 525,
+      "symbol": "IDB_LEM_LPD_WINDOW",
+      "source": "Bitmaps/lem_lpd_window.bmp",
+      "path": "Resources/NASSP/lem_lpd_window.bmp"
+    },
+    {
+      "id": 529,
+      "symbol": "IDB_DSKY_DISP",
+      "source": "Bitmaps/dsky_disp.bmp",
+      "path": "Resources/NASSP/dsky_disp.bmp"
+    },
+    {
+      "id": 532,
+      "symbol": "IDB_FDAI_ROLL",
+      "source": "Bitmaps/FDAIRoll.bmp",
+      "path": "Resources/NASSP/FDAIRoll.bmp"
+    },
+    {
+      "id": 533,
+      "symbol": "IDB_CWS_LIGHTS",
+      "source": "Bitmaps/lem_cw_lights.bmp",
+      "path": "Resources/NASSP/lem_cw_lights.bmp"
+    },
+    {
+      "id": 535,
+      "symbol": "IDB_DSKY_KEY",
+      "source": "Bitmaps/dsky_keys.bmp",
+      "path": "Resources/NASSP/dsky_keys.bmp"
+    },
+    {
+      "id": 536,
+      "symbol": "IDB_LEM_RENDEZVOUS_WINDOW",
+      "source": "Bitmaps/lem_rendezvous_window.bmp",
+      "path": "Resources/NASSP/lem_rendezvous_window.bmp"
+    },
+    {
+      "id": 543,
+      "symbol": "IDB_LEM_LEFT_PANEL",
+      "source": "Bitmaps/lem_left_panel.bmp",
+      "path": "Resources/NASSP/lem_left_panel.bmp"
+    },
+    {
+      "id": 544,
+      "symbol": "IDB_LEM_AOT_VIEW",
+      "source": "Bitmaps/lem_aot_panel_wide.bmp",
+      "path": "Resources/NASSP/lem_aot_panel_wide.bmp"
+    },
+    {
+      "id": 561,
+      "symbol": "IDB_CIRCUITBRAKER",
+      "source": "Bitmaps/circuit_breaker.bmp",
+      "path": "Resources/NASSP/circuit_breaker.bmp"
+    },
+    {
+      "id": 625,
+      "symbol": "IDB_LEM_RIGHT_PANEL",
+      "source": "Bitmaps/lem_right_panel.bmp",
+      "path": "Resources/NASSP/lem_right_panel.bmp"
+    },
+    {
+      "id": 786,
+      "symbol": "IDB_LEMROTARY",
+      "source": "Bitmaps/LemRotationalSwitch.bmp",
+      "path": "Resources/NASSP/LemRotationalSwitch.bmp"
+    },
+    {
+      "id": 793,
+      "symbol": "IDB_FDAIOFFFLAG",
+      "source": "Bitmaps/FDAI_off_flag.bmp",
+      "path": "Resources/NASSP/FDAI_off_flag.bmp"
+    },
+    {
+      "id": 828,
+      "symbol": "IDB_LEM_COAS1",
+      "source": "Bitmaps/coas_lem1.bmp",
+      "path": "Resources/NASSP/coas_lem1.bmp"
+    },
+    {
+      "id": 831,
+      "symbol": "IDB_ORDEAL_ROTARY",
+      "source": "Bitmaps/ORDEAL_rotary.bmp",
+      "path": "Resources/NASSP/ORDEAL_rotary.bmp"
+    },
+    {
+      "id": 837,
+      "symbol": "IDB_LEM_COAS2",
+      "source": "Bitmaps/coas_lem2.bmp",
+      "path": "Resources/NASSP/coas_lem2.bmp"
+    },
+    {
+      "id": 958,
+      "symbol": "IDB_BORDER_38x38",
+      "source": "Bitmaps/border38x38.bmp",
+      "path": "Resources/NASSP/border38x38.bmp"
+    },
+    {
+      "id": 992,
+      "symbol": "IDB_FIVE_POS_SWITCH",
+      "source": "Bitmaps/fiveposswitch.bmp",
+      "path": "Resources/NASSP/fiveposswitch.bmp"
+    },
+    {
+      "id": 1013,
+      "symbol": "IDB_LEM_STAGESWITCH",
+      "source": "Bitmaps/lem_stage_switch.bmp",
+      "path": "Resources/NASSP/lem_stage_switch.bmp"
+    },
+    {
+      "id": 1014,
+      "symbol": "IDB_DIGITALDISP2",
+      "source": "Bitmaps/digitaldisp_2.bmp",
+      "path": "Resources/NASSP/digitaldisp_2.bmp"
+    },
+    {
+      "id": 1024,
+      "symbol": "IDB_RR_NOTRACK",
+      "source": "Bitmaps/lem_notrack.bmp",
+      "path": "Resources/NASSP/lem_notrack.bmp"
+    },
+    {
+      "id": 1026,
+      "symbol": "IDB_RADAR_TAPE",
+      "source": "Bitmaps/lm_range_rate_indicator_scales.bmp",
+      "path": "Resources/NASSP/lm_range_rate_indicator_scales.bmp"
+    },
+    {
+      "id": 1029,
+      "symbol": "IDB_ORDEAL_PANEL",
+      "source": "Bitmaps/lem_ordeal.bmp",
+      "path": "Resources/NASSP/lem_ordeal.bmp"
+    },
+    {
+      "id": 1030,
+      "symbol": "IDB_TW_NEEDLE",
+      "source": "Bitmaps/lm_tw_needle.bmp",
+      "path": "Resources/NASSP/lm_tw_needle.bmp"
+    },
+    {
+      "id": 1032,
+      "symbol": "IDB_SEQ_LIGHT",
+      "source": "Bitmaps/lem_seq_light.bmp",
+      "path": "Resources/NASSP/lem_seq_light.bmp"
+    },
+    {
+      "id": 1038,
+      "symbol": "IDB_LMENGINESTARTSTOPBUTTONS",
+      "source": "Bitmaps/LMEngStartStop.bmp",
+      "path": "Resources/NASSP/LMEngStartStop.bmp"
+    },
+    {
+      "id": 1040,
+      "symbol": "IDB_LMTRANSLBUTTON",
+      "source": "Bitmaps/LMTranslButton.bmp",
+      "path": "Resources/NASSP/LMTranslButton.bmp"
+    },
+    {
+      "id": 1041,
+      "symbol": "IDB_BORDER_40x40",
+      "source": "Bitmaps/border40x40.bmp",
+      "path": "Resources/NASSP/border40x40.bmp"
+    },
+    {
+      "id": 1042,
+      "symbol": "IDB_LEMVENT",
+      "source": "Bitmaps/LemVent.bmp",
+      "path": "Resources/NASSP/LemVent.bmp"
+    },
+    {
+      "id": 1043,
+      "symbol": "IDB_LEM_ACT_OVRD",
+      "source": "Bitmaps/Lem_Act_Ovrd.bmp",
+      "path": "Resources/NASSP/Lem_Act_Ovrd.bmp"
+    },
+    {
+      "id": 1044,
+      "symbol": "IDB_LEM_CAN_SEL",
+      "source": "Bitmaps/Lem_Can_Sel.bmp",
+      "path": "Resources/NASSP/Lem_Can_Sel.bmp"
+    },
+    {
+      "id": 1045,
+      "symbol": "IDB_LEM_ECS_ROTARY",
+      "source": "Bitmaps/Lem_ECS_Rotary.bmp",
+      "path": "Resources/NASSP/Lem_ECS_Rotary.bmp"
+    },
+    {
+      "id": 1050,
+      "symbol": "IDB_LEM_H20_SEL",
+      "source": "Bitmaps/Lem_H20_Sel.bmp",
+      "path": "Resources/NASSP/Lem_H20_Sel.bmp"
+    },
+    {
+      "id": 1051,
+      "symbol": "IDB_LEM_H20_SEP",
+      "source": "Bitmaps/Lem_H20_Sep.bmp",
+      "path": "Resources/NASSP/Lem_H20_Sep.bmp"
+    },
+    {
+      "id": 1052,
+      "symbol": "IDB_LEM_ISOL_ROTARY",
+      "source": "Bitmaps/Lem_Isol_Rotary.bmp",
+      "path": "Resources/NASSP/Lem_Isol_Rotary.bmp"
+    },
+    {
+      "id": 1053,
+      "symbol": "IDB_LEM_PRIM_C02",
+      "source": "Bitmaps/Lem_Prim_C02.bmp",
+      "path": "Resources/NASSP/Lem_Prim_C02.bmp"
+    },
+    {
+      "id": 1054,
+      "symbol": "IDB_LEM_SEC_C02",
+      "source": "Bitmaps/Lem_Sec_C02.bmp",
+      "path": "Resources/NASSP/Lem_Sec_C02.bmp"
+    },
+    {
+      "id": 1055,
+      "symbol": "IDB_LEM_SGD_LEVER",
+      "source": "Bitmaps/Lem_SGD_Lever.bmp",
+      "path": "Resources/NASSP/Lem_SGD_Lever.bmp"
+    },
+    {
+      "id": 1056,
+      "symbol": "IDB_LEM_ECS_PANEL",
+      "source": "Bitmaps/lem_ecs_panel.bmp",
+      "path": "Resources/NASSP/lem_ecs_panel.bmp"
+    },
+    {
+      "id": 1058,
+      "symbol": "IDB_LEM_DOCK_VIEW",
+      "source": "Bitmaps/lem_dock_view.bmp",
+      "path": "Resources/NASSP/lem_dock_view.bmp"
+    },
+    {
+      "id": 1059,
+      "symbol": "IDB_LEM_AOT_ZOOM",
+      "source": "Bitmaps/lem_aot_panel_zoom.bmp",
+      "path": "Resources/NASSP/lem_aot_panel_zoom.bmp"
+    },
+    {
+      "id": 1061,
+      "symbol": "IDB_AOT_FONT",
+      "source": "Bitmaps/aot_font.bmp",
+      "path": "Resources/NASSP/aot_font.bmp"
+    },
+    {
+      "id": 1062,
+      "symbol": "IDB_LEM_LEFT_ZOOM",
+      "source": "Bitmaps/lem_left_zoom.bmp",
+      "path": "Resources/NASSP/lem_left_zoom.bmp"
+    },
+    {
+      "id": 1063,
+      "symbol": "IDB_LEM_UPPER_HATCH",
+      "source": "Bitmaps/lem_upper_hatch.bmp",
+      "path": "Resources/NASSP/lem_upper_hatch.bmp"
+    },
+    {
+      "id": 1065,
+      "symbol": "IDB_LEM_UPPER_REL_VLV",
+      "source": "Bitmaps/lem_upper_rel_valve.bmp",
+      "path": "Resources/NASSP/lem_upper_rel_valve.bmp"
+    },
+    {
+      "id": 1066,
+      "symbol": "IDB_LEM_UPPER_HANDLE",
+      "source": "Bitmaps/lem_upper_handle.bmp",
+      "path": "Resources/NASSP/lem_upper_handle.bmp"
+    },
+    {
+      "id": 1067,
+      "symbol": "IDB_LEM_FWD_HATCH",
+      "source": "Bitmaps/lem_forward_hatch.bmp",
+      "path": "Resources/NASSP/lem_forward_hatch.bmp"
+    },
+    {
+      "id": 1069,
+      "symbol": "IDB_LEM_FWD_HANDLE",
+      "source": "Bitmaps/lem_fwd_handle.bmp",
+      "path": "Resources/NASSP/lem_fwd_handle.bmp"
+    },
+    {
+      "id": 1070,
+      "symbol": "IDB_LEM_FWD_REL_VLV",
+      "source": "Bitmaps/lem_fwd_rel_valve.bmp",
+      "path": "Resources/NASSP/lem_fwd_rel_valve.bmp"
+    },
+    {
+      "id": 1071,
+      "symbol": "IDB_LEM_INTLK_OVRD",
+      "source": "Bitmaps/lem_intlk_ovrd.bmp",
+      "path": "Resources/NASSP/lem_intlk_ovrd.bmp"
+    },
+    {
+      "id": 1072,
+      "symbol": "IDB_BORDER_126x131",
+      "source": "Bitmaps/border126x131.bmp",
+      "path": "Resources/NASSP/border126x131.bmp"
+    },
+    {
+      "id": 1073,
+      "symbol": "IDB_BORDER_115x115",
+      "source": "Bitmaps/border115x115.bmp",
+      "path": "Resources/NASSP/border115x115.bmp"
+    },
+    {
+      "id": 1074,
+      "symbol": "IDB_BORDER_68x68",
+      "source": "Bitmaps/border68x68.bmp",
+      "path": "Resources/NASSP/border68x68.bmp"
+    },
+    {
+      "id": 1075,
+      "symbol": "IDB_BORDER_169x168",
+      "source": "Bitmaps/border169x168.bmp",
+      "path": "Resources/NASSP/border169x168.bmp"
+    },
+    {
+      "id": 1076,
+      "symbol": "IDB_BORDER_67x64",
+      "source": "Bitmaps/border67x64.bmp",
+      "path": "Resources/NASSP/border67x64.bmp"
+    },
+    {
+      "id": 1077,
+      "symbol": "IDB_BORDER_201x205",
+      "source": "Bitmaps/border201x205.bmp",
+      "path": "Resources/NASSP/border201x205.bmp"
+    },
+    {
+      "id": 1078,
+      "symbol": "IDB_BORDER_122x265",
+      "source": "Bitmaps/border122x265.bmp",
+      "path": "Resources/NASSP/border122x265.bmp"
+    },
+    {
+      "id": 1079,
+      "symbol": "IDB_BORDER_225x224",
+      "source": "Bitmaps/border225x224.bmp",
+      "path": "Resources/NASSP/border225x224.bmp"
+    },
+    {
+      "id": 1080,
+      "symbol": "IDB_BORDER_51x54",
+      "source": "Bitmaps/border51x54.bmp",
+      "path": "Resources/NASSP/border51x54.bmp"
+    },
+    {
+      "id": 1081,
+      "symbol": "IDB_BORDER_205x205",
+      "source": "Bitmaps/border205x205.bmp",
+      "path": "Resources/NASSP/border205x205.bmp"
+    },
+    {
+      "id": 1082,
+      "symbol": "IDB_BORDER_30x144",
+      "source": "Bitmaps/border30x144.bmp",
+      "path": "Resources/NASSP/border30x144.bmp"
+    },
+    {
+      "id": 1083,
+      "symbol": "IDB_BORDER_400x400",
+      "source": "Bitmaps/border400x400.bmp",
+      "path": "Resources/NASSP/border400x400.bmp"
+    },
+    {
+      "id": 1084,
+      "symbol": "IDB_BORDER_1001x240",
+      "source": "Bitmaps/border1001x240.bmp",
+      "path": "Resources/NASSP/border1001x240.bmp"
+    },
+    {
+      "id": 1085,
+      "symbol": "IDB_BORDER_360x316",
+      "source": "Bitmaps/border360x316.bmp",
+      "path": "Resources/NASSP/border360x316.bmp"
+    },
+    {
+      "id": 1086,
+      "symbol": "IDB_BORDER_178x187",
+      "source": "Bitmaps/border178x187.bmp",
+      "path": "Resources/NASSP/border178x187.bmp"
+    },
+    {
+      "id": 1087,
+      "symbol": "IDB_RED_INDICATOR",
+      "source": "Bitmaps/IndicatorRed.bmp",
+      "path": "Resources/NASSP/IndicatorRed.bmp"
+    },
+    {
+      "id": 1088,
+      "symbol": "IDB_LEM_FWD_HATCH_OPEN",
+      "source": "Bitmaps/lem_forward_hatch_open.bmp",
+      "path": "Resources/NASSP/lem_forward_hatch_open.bmp"
+    },
+    {
+      "id": 1091,
+      "symbol": "IDB_LEM_UPPER_HATCH_OPEN",
+      "source": "Bitmaps/lem_upper_hatch_open.bmp",
+      "path": "Resources/NASSP/lem_upper_hatch_open.bmp"
+    },
+    {
+      "id": 2000,
+      "symbol": "IDB_LEM_MASTERALARM",
+      "source": "Bitmaps/lem_master_alarm.bmp",
+      "path": "Resources/NASSP/lem_master_alarm.bmp"
+    },
+    {
+      "id": 2003,
+      "symbol": "IDB_BORDER_47x43",
+      "source": "Bitmaps/border47x43.bmp",
+      "path": "Resources/NASSP/border47x43.bmp"
+    },
+    {
+      "id": 2006,
+      "symbol": "IDB_LEM_PWRFAIL_LIGHT",
+      "source": "Bitmaps/lem_pwrfail_light.bmp",
+      "path": "Resources/NASSP/lem_pwrfail_light.bmp"
+    },
+    {
+      "id": 2016,
+      "symbol": "IDB_RADAR_TAPE2",
+      "source": "Bitmaps/lm_range_rate_indicator_scales2.bmp",
+      "path": "Resources/NASSP/lm_range_rate_indicator_scales2.bmp"
+    },
+    {
+      "id": 2017,
+      "symbol": "IDB_BORDER_55x55",
+      "source": "Bitmaps/border55x55.bmp",
+      "path": "Resources/NASSP/border55x55.bmp"
+    },
+    {
+      "id": 2018,
+      "symbol": "IDB_BORDER_109x119",
+      "source": "Bitmaps/border109x119.bmp",
+      "path": "Resources/NASSP/border109x119.bmp"
+    },
+    {
+      "id": 2019,
+      "symbol": "IDB_BORDER_68x69",
+      "source": "Bitmaps/border68x69.bmp",
+      "path": "Resources/NASSP/border68x69.bmp"
+    },
+    {
+      "id": 2020,
+      "symbol": "IDB_BORDER_210x200",
+      "source": "Bitmaps/border210x200.bmp",
+      "path": "Resources/NASSP/border210x200.bmp"
+    },
+    {
+      "id": 2021,
+      "symbol": "IDB_BORDER_104x106",
+      "source": "Bitmaps/border104x106.bmp",
+      "path": "Resources/NASSP/border104x106.bmp"
+    },
+    {
+      "id": 2022,
+      "symbol": "IDB_BORDER_286x197",
+      "source": "Bitmaps/border286x197.bmp",
+      "path": "Resources/NASSP/border286x197.bmp"
+    },
+    {
+      "id": 10006,
+      "symbol": "IDB_LEM_FDAI_ROLL",
+      "source": "Bitmaps/lem_FDAIRoll.bmp",
+      "path": "Resources/NASSP/lem_FDAIRoll.bmp"
+    }
+  ],
+  "mfd": [
+    {
+      "id": 101,
+      "symbol": "IDB_LOGO",
+      "source": "Bitmaps/Logo.bmp",
+      "path": "Resources/NASSP/Logo.bmp"
+    }
+  ]
+}

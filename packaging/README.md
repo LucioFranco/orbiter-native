@@ -1,5 +1,13 @@
 # v9 preview packaging preparation
 
+The [local Apple Silicon preview workflow](MACOS-LOCAL-PREVIEW.md) now assembles
+and verifies a relocated **executable-only private validation directory**. It
+does not produce a downloadable binary. The 397 NASSP panel bitmaps are runtime
+files, absent from the selected binaries; first-run setup generates them from
+user-acquired pinned NASSP data after hash and resource-map preflight. The native
+Roboto/JetBrains fonts remain compiled into the renderer with their notices.
+All release gates below remain in force.
+
 No binary artifact is enabled by this overlay. The old `bafd021` prototype's
 baseline-only launcher and broad source/resource copies are not carried forward.
 This is preparation for a validated macOS arm64 bounded preview, not a cross-OS
@@ -15,7 +23,8 @@ file is removed or rewritten.
 and SHA-256 hashes under the current rules: all bitmap inputs selected by
 `NasspResources.cmake`, its six RC/header inputs, unchanged native fonts/notices,
 and exact engine/celestial/gravity/ephemeris inputs copied by the existing stager.
-This is a review inventory, **not an approved redistribution allowlist**. An
+This is a review inventory, **not an approved redistribution allowlist**. The
+397 bitmap bytes are external to the executable-only local preview. An
 unresolved entry must block a package; silently deleting it would break
 reproducibility or change runtime behavior. Broader runtime datasets should remain
 external only after the stager supports that boundary and tests it explicitly.
@@ -55,12 +64,15 @@ JetBrains Mono OFL-1.1 bytes and notices; no fonts are replaced.
 
 ## Release blockers and external setup
 
-The audit has not cleared embedded NASSP panel artwork/preferred-source scope,
-all selected engine datasets, the complete public history or proprietary/prebuilt
-files. Architext is retained unchanged in the source tree under the user's
-upstream-treatment choice, with its FFC notice. Raw-font publication permission
-has not been verified; any loose-file app package remains blocked by grant and
-installation review. Do not infer grants from upstream hashes.
+The executable-only local preview contains no NASSP panel bitmap bytes, raw
+Architext font or planetary media. Its matching source archive also excludes
+these assets while recording external original-data preflight requirements.
+Distribution review still covers selected compiled code/fonts, modification
+notices, the two unresolved MIT copyright notices, native embedded decoder
+notices and the installation experience. Architext is retained unchanged in the
+broader source repository under the user's upstream-treatment choice, with its
+FFC notice; its raw-file publication in that repository/history needs a separate
+grant review. Do not infer grants from upstream hashes.
 
 Original NASSP Config/ROM/scenarios/checklists/meshes/textures/sounds remain
 separately lawfully acquired pinned inputs, using the existing v9 manifest and

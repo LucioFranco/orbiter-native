@@ -1816,7 +1816,7 @@
       "group": "regression-tools",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "c1079c97e2a23c796cf11aed68c3516769906d2376fd0bd6cfd8287f9fca9561"
+      "native_lf_sha256": "e6b1b81e8e515185a081c60c1b17960d55647998e9eaabd5828f7b60d623bb6f"
     },
     {
       "path": "Tests/NativeDemoLaunch.py",
@@ -2341,7 +2341,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "3f376bb25136ce26af6e2c832d5c96fa4060f9b325212d30f866d5cfb3b1f3b2"
+      "native_lf_sha256": "82b3859ab4badb52400b80edbc3f82e66edaaa47fe9be1d63ff83aac08d76ca6"
     },
     {
       "path": "cmake/NativeAudio.cmake",
@@ -2411,7 +2411,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "95290d860d2e0abe2d9d783f55664c751165bc61efd73ceafb2d843a02b5f76d"
+      "native_lf_sha256": "c0bbbfd8bd1d3a5d784236ec6d1f031b3cf731586dfea807b18e5b20dcf067ee"
     },
     {
       "path": "cmake/NativeWorld.cmake",
@@ -2461,6 +2461,13 @@
       "status": "added",
       "upstream_lf_sha256": null,
       "native_lf_sha256": "51c5cb0216a4b9ee273994a2afebc6511d8ffc5095be8bb7699a4f3e44fb0df6"
+    },
+    {
+      "path": "tools/check_nassp_bitmap_inputs.py",
+      "group": "regression-tools",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "9ebae5f8c47bce024ef1bb55de4ea89e47be5d4274457c2fab64ca88a97fb330"
     },
     {
       "path": "tools/embed_native_fonts.py",
@@ -2537,7 +2544,7 @@
       "group": "regression-tools",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "7e176e34d45bbb049ddcce5a2e634a23418c9956b093e1a57488bb36ed056231"
+      "native_lf_sha256": "9ca7cba82f93cedeaf10f3540e3c45b6aec535916186d4a5d3d8bf6324c03455"
     },
     {
       "path": "tools/stage_nassp_smoke.py",

@@ -81,7 +81,11 @@ def stage(args,root):
             raise DataError("Runtime output must be a separate directory")
     if out.is_relative_to(addon) or out.is_relative_to(asset_addon):
         raise DataError("Runtime output must not be inside NASSP source/data")
-    bindings={"Modules":build/"runtime/Modules","Resources":build/"runtime/Resources"}
+    bindings={"Modules":build/"runtime/Modules"}
+    if not getattr(args,"resources_in_output",False):
+        bindings["Resources"]=build/"runtime/Resources"
+    elif not (out/"Resources/NASSP/csm_main_panel.bmp").is_file():
+        raise DataError("Preview runtime needs preflighted NASSP bitmaps in Resources/NASSP")
     for name in ("GravityModels","Missions","Doc","Sound"):
         bindings[name]=next((p/name for p in (addon,asset_addon,root) if (p/name).exists()),root/name)
     plan=asset_plan(root,addon,args.textures)
@@ -137,6 +141,8 @@ def main():
     parser.add_argument("--addon", type=Path, help="External original NASSP data root")
     parser.add_argument("--profile", choices=("auto", *PROFILES), default="auto")
     parser.add_argument("--textures", type=Path, help="Explicit external Orbiter Textures directory")
+    parser.add_argument("--resources-in-output", action="store_true",
+                        help="Keep caller-generated bitmap resources in this fresh runtime")
     args=parser.parse_args()
     root=Path(__file__).resolve().parents[1]
     try:stage(args,root)
