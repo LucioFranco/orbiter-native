@@ -34,6 +34,7 @@
 */
 
 #include <stdio.h>
+#include <inttypes.h>
 #include "aea_engine.h"
 FILE *rfopen (const char *Filename, const char *mode);
 
@@ -163,7 +164,7 @@ aea_engine_init (ags_t * State, const char *RomImage, const char *CoreDump)
 	    }
 
 	  // Set up the CPU state variables that aren't part of normal memory.
-	  if (1 != fscanf (cd, "%llo", &lli))
+	  if (1 != fscanf (cd, "%" SCNo64, &lli))
 	    goto Done;
 	  State->CycleCounter = lli;
 	  if (1 != fscanf (cd, "%o", &i))
@@ -221,7 +222,7 @@ MakeCoreDumpAGS (ags_t * State, const char *CoreDump)
     fprintf (cd, "%06o\n", State->Memory[i]);
 
   // Write out CPU state variables that aren't part of normal memory.
-  fprintf (cd, "%llo\n", State->CycleCounter);
+  fprintf (cd, "%" PRIo64 "\n", State->CycleCounter);
   fprintf (cd, "%o\n", State->ProgramCounter);
   fprintf (cd, "%o\n", State->Accumulator);
   fprintf (cd, "%o\n", State->Quotient);

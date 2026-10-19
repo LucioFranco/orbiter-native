@@ -164,13 +164,15 @@ def main(args):
     native = []
     for key, name in NAMES.items():
         source = stage / 'vendor/cmake' / name
-        root_notices = sorted(p for p in source.iterdir() if p.is_file() and
-                              p.name.lower().startswith(('license', 'notice', 'copying', 'copyright')))
+        root_notices = sorted(p for p in source.rglob('*') if p.is_file() and
+                              (p.name.lower().startswith(('license', 'notice', 'copying', 'copyright'))
+                               or p.name.lower().endswith(('-license.txt', '.license'))))
         outputs = []
         for path in root_notices:
-            out = dest / 'cmake' / name / path.name
+            relative = path.relative_to(source)
+            out = dest / 'cmake' / name / relative
             copy_notice(path, out)
-            outputs.append({'name': path.name, 'sha256': sha(out)})
+            outputs.append({'name': str(relative), 'sha256': sha(out)})
         if name == 'lua':
             header = (source / 'lua.h').read_text()
             start = header.rfind('/******************************************************************************')

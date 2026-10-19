@@ -31,6 +31,9 @@ The archive is a review artifact until the source/media rights review finishes.
 The target notice inventory includes 11 Rust crates whose published package
 lacks a root license file. Eight carry license texts retrieved from their
 official upstream Git revision, with verified Git blob and SHA-256 hashes.
+For the six pinned C/C++ dependencies, the inventory also copies eleven
+nested license files (SDL, ImGui and stb), retaining their paths so a reviewer
+can distinguish included source/test material from compiled runtime code.
 For `block`, `malloc_buf` and `hexf-parse`, the matching upstream revision
 has no license file. Their published packages and upstream manifests declare
 MIT or CC0. For the two MIT packages, the inventory includes the standard MIT

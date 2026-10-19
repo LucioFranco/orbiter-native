@@ -42,6 +42,9 @@ the package or a system framework/library, records architecture/minimum macOS,
 and hashes every copied file. Ad-hoc signatures are not distribution signing.
 `verify` checks hashes, unexpected files, runpaths and library closure after
 the move. It refuses any absolute non-system dependency or escaped runpath.
+The notice inventory keeps eleven nested SDL, ImGui and stb license files with
+their source-relative paths; applicability to compiled code remains part of
+the release review.
 
 The first run requires Python 3, Git, the same complete public source checkout,
 a pristine pinned NASSP v9 data checkout, and a separately acquired Orbiter 2024

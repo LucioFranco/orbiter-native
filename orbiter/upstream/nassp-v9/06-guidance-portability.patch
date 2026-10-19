@@ -51,10 +51,18 @@ index 26720d47f2efc93bea78c55a2dfc0319f7212c87..6b76e26e8f0c2e785d37628526f2679e
  
  //----------------------------------------------------------------------------
 diff --git a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
-index 4be3ac1186d442de133cd1f912adda47bf06b46f..49de3e710b27800d6aadd9f7d17162def7e6a3b4
+index 4be3ac1186d442de133cd1f912adda47bf06b46f..159fa14ed9d724b3507138d693e99294f8438272
 --- a/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
 +++ b/Orbitersdk/samples/ProjectApollo/src_lm/yaAGS/aea_engine_init.c
-@@ -55,7 +55,7 @@
+@@ -30,6 +30,7 @@
+ */
+ 
+ #include <stdio.h>
++#include <inttypes.h>
+ #include "aea_engine.h"
+ FILE *rfopen (const char *Filename, const char *mode);
+ 
+@@ -55,7 +56,7 @@
    FILE *cd = NULL;
    int m, n;
  
@@ -63,6 +71,24 @@ index 4be3ac1186d442de133cd1f912adda47bf06b46f..49de3e710b27800d6aadd9f7d17162de
    // The purpose of this is to make sure that getchar doesn't halt the program
    // when there's no keystroke immediately available.
    UnblockSocket (fileno (stdin));
+@@ -159,7 +160,7 @@
+ 	    }
+ 
+ 	  // Set up the CPU state variables that aren't part of normal memory.
+-	  if (1 != fscanf (cd, "%llo", &lli))
++	  if (1 != fscanf (cd, "%" SCNo64, &lli))
+ 	    goto Done;
+ 	  State->CycleCounter = lli;
+ 	  if (1 != fscanf (cd, "%o", &i))
+@@ -217,7 +218,7 @@
+     fprintf (cd, "%06o\n", State->Memory[i]);
+ 
+   // Write out CPU state variables that aren't part of normal memory.
+-  fprintf (cd, "%llo\n", State->CycleCounter);
++  fprintf (cd, "%" PRIo64 "\n", State->CycleCounter);
+   fprintf (cd, "%o\n", State->ProgramCounter);
+   fprintf (cd, "%o\n", State->Accumulator);
+   fprintf (cd, "%o\n", State->Quotient);
 diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp b/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
 index dad8a941206d13c47aa5751ff41f20d8db9bac2d..4c7afbdaeee9646b13a085bb5de36546e32a72e9
 --- a/Orbitersdk/samples/ProjectApollo/src_sys/apolloguidance.cpp
