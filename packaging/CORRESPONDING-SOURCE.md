@@ -1,9 +1,10 @@
 # Mac preview corresponding source (local experimental bundle)
 
 The source-bundle script stages the native Mac v9 build sources, build scripts,
-eight embedded native font inputs, exact six pinned C/C++ dependency snapshots,
+eight embedded native font inputs, six pinned C/C++ dependency code snapshots,
 and all locked Rust crates. It excludes 397 NASSP panel bitmap bytes, other
-original NASSP/Orbiter media and the raw Architext font. The original media
+original NASSP/Orbiter media, unused native-dependency test images/fonts/audio,
+and the raw Architext font. The original media
 remains separately user acquired and is checked by the native data and bitmap
 preflights. Nothing here uploads or publishes a release.
 

@@ -28,6 +28,8 @@ NATIVE_FONTS = {'Roboto-Regular.ttf', 'Roboto-Bold.ttf', 'Roboto-Italic.ttf',
                 'JetBrainsMono-BoldItalic.ttf'}
 NAMES = {'SDL3': 'SDL', 'IMGUI': 'imgui', 'STB': 'stb',
          'MINIAUDIO': 'miniaudio', 'LUA': 'lua', 'CORROSION': 'corrosion'}
+UNUSED_VENDOR_MEDIA = {'.bmp', '.png', '.jpg', '.jpeg', '.gif', '.ttf',
+                       '.woff', '.wav', '.ogg', '.mp3', '.dds', '.webp', '.ico'}
 
 
 def sha(path):
@@ -101,6 +103,9 @@ def stage(args):
                     raise ValueError(f'Unsafe archived source path: {member.name}')
                 stream.extract(member, output)
         (dest / f'{name}.tar').unlink()
+        for path in output.rglob('*'):
+            if path.is_file() and path.suffix.lower() in UNUSED_VENDOR_MEDIA:
+                path.unlink()
     if not args.cargo_vendor.is_dir():
         raise ValueError('Use a completed cargo vendor --locked --versioned-dirs directory')
     shutil.copytree(args.cargo_vendor, dest / 'vendor/cargo', symlinks=False)
