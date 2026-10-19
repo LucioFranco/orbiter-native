@@ -1,3 +1,4 @@
+#include <cstddef>
 extern "C" {
 #include "agc_engine.h"
 }
