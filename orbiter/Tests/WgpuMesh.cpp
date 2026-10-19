@@ -5,6 +5,8 @@
 #include <iostream>
 #include <memory>
 #include <stdexcept>
+#include <string>
+#include <vector>
 static void require(bool ok,const char *message) {if(!ok)throw std::runtime_error(std::string(message)+": "+orb_gpu_error());}
 int main() {
     try {
