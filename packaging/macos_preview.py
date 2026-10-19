@@ -15,6 +15,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tarfile
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
@@ -220,6 +221,29 @@ def assemble(args):
         copy_regular(build / relative, output / relative)
     for name in NOTICE_FILES:
         copy_regular(source / safe_name(name), output / "notices" / safe_name(name))
+    notices_info = None
+    if args.dependency_notices:
+        notices = args.dependency_notices.resolve(strict=True)
+        sbom = json.loads((notices / "SBOM.json").read_text())
+        if sbom.get("target") != "aarch64-apple-darwin" or sbom.get("cargo_resolved_packages") != 77:
+            raise PreviewError("Expected the resolved macOS dependency notice inventory")
+        notices_info = {"target_packages": 77,
+                        "root_license_file_gaps": sbom["root_license_file_gaps"]}
+        for file in notices.rglob("*"):
+            if file.is_file():
+                copy_regular(file, output / "notices" / "dependencies" / file.relative_to(notices))
+    source_archive = None
+    if args.source_archive:
+        archive = args.source_archive.resolve(strict=True)
+        with tarfile.open(archive, "r:gz") as stream:
+            member = stream.extractfile("nassp-preview-source/SOURCE-MANIFEST.json")
+            if member is None:
+                raise PreviewError("Missing source archive manifest")
+            bundle = json.load(member)
+        if bundle.get("repo_revision") != source_info["revision"]:
+            raise PreviewError("Source archive revision differs from executable source")
+        source_archive = {"file": archive.name, "sha256": sha256(archive),
+                          "source_files": len(bundle["files_sha256"])}
     copy_regular(HERE / "run_preview.py", output / "run-preview.py")
     copy_regular(HERE / "v9-input-review.json", output / "v9-input-review.json")
     source_plan = {
@@ -230,11 +254,19 @@ def assemble(args):
         "build_recipe": "orbiter/CMakePresets.json native-v9 and docs/native-reproduction.md",
         "lockfiles_sha256": {"nix/flake.lock": sha256(source / "orbiter/nix/flake.lock"),
                             "Cargo.lock": sha256(source / "orbiter/Src/WgpuClient/rust/Cargo.lock")},
-        "unresolved": ["Exact six dependency source snapshots/local patches and Cargo vendor graph",
-                       "Full per-component and per-crate notices and resolved target SBOM",
-                       "Preferred source/redistribution review for included fonts and compiled code",
-                       "Clean offline rebuild from the proposed source archive"],
+        "unresolved": ["Preferred source/redistribution review for included fonts and compiled code",
+                       "License text and attribution review for crates without root notices",
+                       "Graphical/manual and second-machine validation"],
     }
+    if source_archive:
+        source_plan["matching_local_source_archive"] = source_archive
+        source_plan["status"] = "matching local source archive supplied; rights and notices under review"
+    if notices_info:
+        source_plan["target_notices"] = notices_info
+    else:
+        source_plan["unresolved"].append("Resolved target SBOM and dependency notices not supplied")
+    if not source_archive:
+        source_plan["unresolved"].append("Matching corresponding-source archive not supplied")
     (output / "source-plan.json").write_text(json.dumps(source_plan, indent=2) + "\n")
     (output / "DO-NOT-DISTRIBUTE.txt").write_text(
         "Local technical validation only. NASSP artwork and original mission assets are external. "
@@ -296,6 +328,10 @@ def main():
     new.add_argument("--build", required=True, type=Path)
     new.add_argument("--source-root", required=True, type=Path)
     new.add_argument("--output", required=True, type=Path)
+    new.add_argument("--dependency-notices", type=Path,
+                     help="Local target SBOM and copied dependency notices")
+    new.add_argument("--source-archive", type=Path,
+                     help="Matching local corresponding-source .tar.gz")
     check = sub.add_parser("verify", help="Hash and Mach-O closure audit after relocation")
     check.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()

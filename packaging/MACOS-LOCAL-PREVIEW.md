@@ -20,13 +20,19 @@ On Apple Silicon, with a complete v9 build and the same source revision:
 python3 packaging/macos_preview.py assemble \
   --source-root /absolute/path/to/source-checkout \
   --build /absolute/path/to/source-checkout/orbiter/build/native-v9 \
+  --dependency-notices /absolute/fresh/notices \
+  --source-archive /absolute/fresh/nassp-preview-source.tar.gz \
   --output /absolute/fresh/local-preview
 mv /absolute/fresh/local-preview /absolute/fresh/relocated-preview
 python3 packaging/macos_preview.py verify --output /absolute/fresh/relocated-preview
 ```
 
 The assembler copies only the exact contract binary paths, seven existing
-license/notice texts, an inventory and the first-run helper. It rewrites each
+license/notice texts, an inventory and the first-run helper. The separate
+[corresponding-source recipe](CORRESPONDING-SOURCE.md) now stages the pinned
+dependency source and an offline-buildable local archive; the target SBOM
+records eleven Rust crates without a root license file for further notice
+review. The assembler rewrites each
 absolute build `LC_RPATH` to `@loader_path` relative to the copied binary,
 ad-hoc signs the locally modified Mach-O files, checks every dependency against
 the package or a system framework/library, records architecture/minimum macOS,
@@ -70,12 +76,11 @@ save/reload failure. Full ascent/landing and faithful save resume are unverified
 
 ## Remaining release gates
 
-- A clean build from an exact complete corresponding-source archive, including
-  selected resource inputs, six pinned dependency sources/local patches, Cargo
-  vendor graph, build/install scripts and an offline rebuild demonstration.
-- A resolved target dependency SBOM and complete per-dependency license/NOTICE
-  texts, including Apache-only and Unicode-3.0 crate terms. Preserve source
-  modifications, GPL exceptions and the existing native font notices.
+- Review the local corresponding-source archive and offline rebuild result for
+  completeness, including local patches and the external bitmap input boundary.
+- Resolve the eleven target crates without a root license file and any nested
+  native notices before binary distribution. Preserve source modifications,
+  GPL exceptions and the existing native font notices.
 - Review rights for any source/media included with a public binary; retaining
   the upstream Architext font in the source tree does not establish permission
   to ship its raw file in an executable package. External planetary packages
