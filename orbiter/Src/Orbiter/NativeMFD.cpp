@@ -10,6 +10,7 @@
 #include <array>
 #include <fstream>
 #include <memory>
+#include <string>
 #include <unordered_map>
 #include <vector>
 extern Orbiter *g_pOrbiter;

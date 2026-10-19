@@ -12,6 +12,7 @@
 #include <cstring>
 #include <limits>
 #include <memory>
+#include <string>
 using Bytes=std::vector<std::uint8_t>;
 using Tile=orbiter::terrain::ElevationTile;
 static void require(bool ok,const char *why) {if(!ok)throw std::runtime_error(why);}

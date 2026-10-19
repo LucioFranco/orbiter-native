@@ -14,6 +14,7 @@
 #include "Terrain/TileGeometry.h"
 #include "Terrain/TileSelection.h"
 #include <cstring>
+#include <string>
 #include "AnimationPose.h"
 #include "StarCatalog.h"
 #include "LocalLights.h"

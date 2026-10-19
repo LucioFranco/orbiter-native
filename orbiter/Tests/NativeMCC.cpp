@@ -14,6 +14,7 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 #include <sstream>
 #include <set>
 #include <vector>

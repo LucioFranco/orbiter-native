@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 
 extern PlanetarySystem *g_psys;
 extern Vessel *g_focusobj;
