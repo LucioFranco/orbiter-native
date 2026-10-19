@@ -73,7 +73,7 @@ int main(int argc,char **argv) {
                 auto focus=reinterpret_cast<Vessel *>(oapiGetFocusObject());
                 auto visual=focus->GetVishandle();require(visual!=nullptr,"native vessel visual registered");
                 auto graphics=host.GetGraphicsClient();size_t hiddenChanges=0;
-                auto interface=oapiGetVesselInterface(oapiGetFocusObject());
+                auto vesselInterface=oapiGetVesselInterface(oapiGetFocusObject());
                 using OutputMesh=uint64_t (*)();
                 auto outputMesh=reinterpret_cast<OutputMesh>(orbiter::platform::LibrarySymbol(module,"orb_wgpu_output_mesh"));
                 require(outputMesh && outputMesh(),"cockpit mesh identity");
@@ -86,8 +86,8 @@ int main(int argc,char **argv) {
                     require(outputMesh()==stableMesh,"steady cockpit updates preserve mesh allocation");
                 }
 
-                for(UINT meshIndex=0;meshIndex<interface->GetMeshCount();++meshIndex) {
-                    auto source=static_cast<Mesh *>(interface->GetMeshTemplate(meshIndex));
+                for(UINT meshIndex=0;meshIndex<vesselInterface->GetMeshCount();++meshIndex) {
+                    auto source=static_cast<Mesh *>(vesselInterface->GetMeshTemplate(meshIndex));
                     auto owned=static_cast<Mesh *>(graphics->clbkGetMesh(visual,meshIndex));
                     if(!source)continue;
                     require(owned && owned!=source,"visual owns independent mesh copy");
@@ -178,7 +178,7 @@ int main(int argc,char **argv) {
                 const auto count=requested.redraws;
                 oapiVCTriggerRedrawArea(99,4942);host.RenderNativeFrame();
                 require(requested.redraws==count,"redraw request for inactive cockpit ignored");
-                interface->TriggerRedrawArea(-1,-1,4942);host.RenderNativeFrame();
+                vesselInterface->TriggerRedrawArea(-1,-1,4942);host.RenderNativeFrame();
                 require(requested.redraws==count+1,"vessel requests one cockpit redraw");
                 host.RenderNativeFrame();require(requested.redraws==count+1,"user redraw consumed once");
                 requested.draw=savedDraw;
@@ -209,8 +209,8 @@ int main(int argc,char **argv) {
                 for(auto &[id,area]:areas.areas) {drawMasks.emplace_back(id,area.draw);area.draw=0;}
                 // Exercise real NASSP emitters without a simulation step overwriting intensity.
                 std::vector<std::pair<LightEmitter *,double>> emitters;
-                for(DWORD i=0;i<interface->LightEmitterCount();++i) {
-                    auto emitter=const_cast<LightEmitter *>(interface->GetLightEmitter(i));
+                for(DWORD i=0;i<vesselInterface->LightEmitterCount();++i) {
+                    auto emitter=const_cast<LightEmitter *>(vesselInterface->GetLightEmitter(i));
                     if(emitter->GetType()==LightEmitter::LT_POINT && emitter->IsActive() &&
                        (emitter->GetVisibility() & LightEmitter::VIS_COCKPIT)) {
                         emitters.emplace_back(emitter,emitter->GetIntensity());emitter->SetIntensity(0);
@@ -246,7 +246,7 @@ int main(int argc,char **argv) {
                 struct SavedLight {DEVMESHHANDLE mesh;DWORD index;oapi::FVECTOR4 value;};
                 std::vector<SavedLight> savedLights;
                 const oapi::FVECTOR4 redLight{2.0f,0.0f,0.0f,1.0f};
-                for(UINT i=0;i<interface->GetMeshCount();++i) {
+                for(UINT i=0;i<vesselInterface->GetMeshCount();++i) {
                     auto owned=static_cast<Mesh *>(graphics->clbkGetMesh(visual,i));
                     if(!owned)continue;
                     auto handle=reinterpret_cast<DEVMESHHANDLE>(owned);
@@ -488,12 +488,12 @@ int main(int argc,char **argv) {
                 require(!flashlight()->IsActive(),"flashlight initially off");
                 toggleFlashlight();require(flashlight()->IsActive(),"F activates NASSP flashlight");
                 auto checkBeam=[&]() {
-                    auto interface=oapiGetFocusInterface();
+                    auto focusInterface=oapiGetFocusInterface();
                     // A fully illuminated diffuse texture cannot become brighter in this
                     // bounded lighting path. Isolate the flashlight from the floodlights.
                     std::vector<std::pair<LightEmitter *,bool>> floods;
-                    for(DWORD i=0;i<interface->LightEmitterCount();++i) {
-                        auto light=const_cast<LightEmitter *>(interface->GetLightEmitter(i));
+                    for(DWORD i=0;i<focusInterface->LightEmitterCount();++i) {
+                        auto light=const_cast<LightEmitter *>(focusInterface->GetLightEmitter(i));
                         if(light->GetType()==LightEmitter::LT_POINT) {floods.emplace_back(light,light->IsActive());light->Activate(false);}
                     }
                     require(flashlight()->IsCameraRelative(),"flashlight uses render-time camera pose");
