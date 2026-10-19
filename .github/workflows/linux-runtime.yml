@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
+      diagnose_linux:
+        description: Capture targeted Linux stacks as soon as the build finishes
+        type: boolean
+        default: false
       package_linux:
         description: Attempt the audited Linux package gate after the build
         type: boolean
@@ -62,10 +66,16 @@ jobs:
           key: linux-runtime-v1-${{ hashFiles('ci/inputs.json', 'orbiter/Src/WgpuClient/rust/Cargo.lock') }}
       - name: Retrieve and verify pinned inputs, including separate NASSP data
         run: python3 ci/fetch_inputs.py --nassp-data
-      - name: Build host, NASSP modules and wgpu; run selected headless tests
-        run: python3 ci/build_native.py --nassp
+      - name: Build host, NASSP modules and wgpu
+        run: python3 ci/build_native.py --nassp --build-only
+      - name: Capture requested Linux stacks before the test suite
+        if: github.event_name == 'workflow_dispatch' && inputs.diagnose_linux == true
+        run: python3 ci/diagnose_linux_runtime.py --build orbiter/build/ci
+      - name: Run selected headless tests
+        id: headless_tests
+        run: python3 ci/test_plan.py orbiter/build/ci
       - name: Capture bounded stacks for a failed Linux runtime test
-        if: failure()
+        if: failure() && steps.headless_tests.outcome == 'failure'
         run: python3 ci/diagnose_linux_runtime.py --build orbiter/build/ci
       - name: Collect bounded test reports
         id: collect_reports

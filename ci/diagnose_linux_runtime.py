@@ -6,8 +6,27 @@ import os
 from pathlib import Path
 import signal
 import subprocess
+import sys
 import tempfile
 import time
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def prepare_runtime(build, name, option):
+    runtime = build / name
+    if runtime.is_dir():
+        return
+    data = ROOT / ".ci-cache/nassp-v9"
+    if not data.is_dir():
+        print(f"## {name}: pinned data unavailable; diagnostic staging skipped", flush=True)
+        return
+    command = [sys.executable, str(ROOT / "orbiter/tools/stage_nassp_smoke.py"),
+               str(build), "--addon", str(data), "--profile", "v9", option]
+    try:
+        subprocess.run(command, check=True, stdout=subprocess.DEVNULL, timeout=30)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+        print(f"## {name}: diagnostic staging failed: {error}", flush=True)
 
 
 def child_of(process):
@@ -61,6 +80,8 @@ def main():
     parser.add_argument("--build", type=Path, required=True)
     args = parser.parse_args()
     build = args.build.resolve()
+    prepare_runtime(build, "runtime-pair", "--pair")
+    prepare_runtime(build, "runtime-csm", "--csm")
     cases = [
         ("landing sound segfault", [build / "landing_sound_playback_test",
                                      build / "runtime-pair"], False),

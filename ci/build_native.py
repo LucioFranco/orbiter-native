@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--nassp", action="store_true")
+    parser.add_argument("--build-only", action="store_true",
+                        help="Leave the unchanged CTest plan to a separate CI step")
     parser.add_argument("--jobs", type=int, default=2)
     args = parser.parse_args()
     if args.jobs < 1:
@@ -44,8 +46,9 @@ def main():
     subprocess.run(command, env=environment, check=True)
     subprocess.run(["cmake", "--build", str(build), "--parallel", str(args.jobs)],
                    env=environment, check=True)
-    subprocess.run([sys.executable, str(ROOT / "ci/test_plan.py"), str(build)],
-                   env=environment, check=True)
+    if not args.build_only:
+        subprocess.run([sys.executable, str(ROOT / "ci/test_plan.py"), str(build)],
+                       env=environment, check=True)
 
 
 if __name__ == "__main__":
