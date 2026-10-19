@@ -6,6 +6,7 @@
 #include <system_error>
 #include <utility>
 #include <algorithm>
+#include <vector>
 #ifndef _WIN32
 #include <dlfcn.h>
 #endif
@@ -47,8 +48,23 @@ HINSTANCE OpenLibrary(std::string_view path)
         auto resolved = ResolveModulePath(path);
         if (resolved.empty()) throw std::invalid_argument("Empty module path");
 #ifdef _WIN32
+        // NASSP plugins depend on vessel DLLs in ProjectApollo; celestial
+        // modules depend on the shared theory DLLs in Modules. Keep these
+        // directories scoped to this load instead of changing process-wide
+        // DLL search policy or copying DLLs beside every module.
+        struct SearchDirectories {
+            std::vector<DLL_DIRECTORY_COOKIE> cookies;
+            ~SearchDirectories() { for (auto cookie : cookies) RemoveDllDirectory(cookie); }
+            void Add(const std::filesystem::path &directory) {
+                if (std::filesystem::is_directory(directory))
+                    if (auto cookie = AddDllDirectory(directory.c_str())) cookies.push_back(cookie);
+            }
+        } search;
+        auto modules = std::filesystem::current_path() / "Modules";
+        search.Add(modules);
+        search.Add(modules / "ProjectApollo");
         auto handle = LoadLibraryExW(resolved.c_str(), nullptr,
-            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LOAD_LIBRARY_SEARCH_USER_DIRS);
         if (!handle) loaderError = std::system_error(GetLastError(), std::system_category(), resolved.string()).what();
 #else
         auto handle = dlopen(resolved.c_str(), RTLD_NOW | RTLD_LOCAL);

@@ -6,6 +6,7 @@ import shutil
 import re
 import hashlib
 import json
+import os
 from nassp_demo import verify_data, DataError, PROFILES
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -24,6 +25,18 @@ parser.add_argument("--profile", choices=("auto", *PROFILES), default="auto")
 parser.add_argument("--output", type=Path, help="Separate runtime directory for isolated tests")
 parser.add_argument("--textures", type=Path, help="Downloaded Orbiter Textures directory to merge into a solar runtime")
 args = parser.parse_args()
+copy_runtime = os.name == "nt"
+
+def bind(target, source):
+    if copy_runtime:
+        if source.is_dir():
+            shutil.copytree(source, target, dirs_exist_ok=True)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+    elif not target.exists():
+        target.symlink_to(source, target_is_directory=source.is_dir())
+
 if args.pad_countdown: args.pad = True
 if args.liftoff: args.lm = True
 if args.csm or args.lm or args.pair or args.pad: args.solar = True
@@ -45,11 +58,11 @@ shutil.copytree(root / "Config/CSphere", output / "Config/CSphere", dirs_exist_o
 if args.solar:
     modules=output / "Modules"
     if not modules.exists():
-        modules.symlink_to(args.build.resolve() / "runtime/Modules", target_is_directory=True)
+        bind(modules, args.build.resolve() / "runtime/Modules")
     resources=output / "Resources"
-    if not resources.exists():resources.symlink_to(args.build.resolve() / "runtime/Resources",target_is_directory=True)
+    if not resources.exists():bind(resources, args.build.resolve() / "runtime/Resources")
     gravity=output / "GravityModels"
-    if not gravity.exists():gravity.symlink_to(root / "GravityModels",target_is_directory=True)
+    if not gravity.exists():bind(gravity, root / "GravityModels")
     celbody=root / "Src/Celbody"
     for body in ("Sun", "Earth", "Moon"):
         source_dir=celbody / ("Moon" if body=="Moon" else f"Vsop87/{body}")
@@ -77,11 +90,11 @@ for name in ("Meshes", "Textures", "Missions", "Doc", "Sound"):
                 destination=target / source_file.relative_to(source_root)
                 destination.parent.mkdir(parents=True,exist_ok=True)
                 if destination.is_symlink():destination.unlink()
-                if not destination.exists():destination.symlink_to(source_file)
+                if not destination.exists():bind(destination, source_file)
     else:
         source_root = next((tree / name for tree in (addon, asset_addon) if (tree / name).exists()), addon / name)
         if target.is_symlink() and target.resolve() != source_root.resolve(): target.unlink()
-        if not target.exists(): target.symlink_to(source_root, target_is_directory=True)
+        if not target.exists(): bind(target, source_root)
 scenario_path = "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 02 - Insertion.scn" if args.insertion else "Apollo 11 - Launch.scn"
 if args.pad_countdown:
     scenario_path = "Apollo - Mission Scenarios/Apollo 11/Apollo 11 - 01 - Launch T-20m.scn"
@@ -154,4 +167,6 @@ if args.pad:
     "upstream_scenario_sha256":hashlib.sha256(source).hexdigest(), "fixture_modified":True,
     "systems_config_sha256":{name:hashlib.sha256((addon/"Config/ProjectApollo"/name).read_bytes()).hexdigest()
         for name in ("LEMSystems.cfg","SaturnSystems.cfg") if (addon/"Config/ProjectApollo"/name).exists()}},indent=2)+"\n")
+if copy_runtime and any(path.is_symlink() for path in output.rglob("*")):
+    raise RuntimeError("Windows smoke runtime contains a symlink")
 print(output)

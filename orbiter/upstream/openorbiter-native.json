@@ -1004,7 +1004,7 @@
       "group": "host-platform",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "3d4b59931bc4899fa6da4d4d5054c5553c07c32cc4126a457374ab43b14ac404"
+      "native_lf_sha256": "49ee5f95f57841ba8e9042ee1e5a4a8523b6fac2c57b81ccc60f49daecdf24c7"
     },
     {
       "path": "Src/Orbiter/Platform/DynamicLibrary.h",
@@ -2348,7 +2348,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "bedbdb895caebfa08c127cc5fb0c7d6991a2064254809692e99c1d70f350d271"
+      "native_lf_sha256": "77ab8acf5914e9e21d3ee9ce3d7cf991dfad93dc546b4d2363b654a89eaa6832"
     },
     {
       "path": "cmake/NativeImGui.cmake",
@@ -2404,7 +2404,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "130c4e1235840a3e92604ecf53d8314fa4de82cee36aae95d57531ed80507ac5"
+      "native_lf_sha256": "95290d860d2e0abe2d9d783f55664c751165bc61efd73ceafb2d843a02b5f76d"
     },
     {
       "path": "cmake/NativeWorld.cmake",
@@ -2530,14 +2530,14 @@
       "group": "regression-tools",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "d4819ca3e6fd3dff6b04ec6afcfa4ee5b8e528227e33b6f7ea5f65bd2f5aa3c4"
+      "native_lf_sha256": "7e176e34d45bbb049ddcce5a2e634a23418c9956b093e1a57488bb36ed056231"
     },
     {
       "path": "tools/stage_nassp_smoke.py",
       "group": "regression-tools",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "27d7975bc3c66ede65eb298af84e2cf9bfde9729b692d1318d1167276a0e9adc"
+      "native_lf_sha256": "442b1f81b67a5b9251b998cbf02f3d3200695844294dbf183d3eb23964fae25e"
     }
   ]
 }

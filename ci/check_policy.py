@@ -39,13 +39,13 @@ def main():
     assert refs and all(re.fullmatch(r"[\w.-]+/[\w./-]+@[a-f0-9]{40}", ref) for ref in refs)
     assert "github.repository == 'LucioFranco/orbiter-native'" in workflow
     assert "github.event.repository.private == false" in workflow
-    assert workflow.count("needs: policy") == 2
+    assert workflow.count("needs: policy") == 3
     assert "permissions:\n  contents: read" in workflow
-    assert workflow.count("persist-credentials: false") == 3
-    assert workflow.count("retention-days: 7") == 2
-    assert workflow.count("id: collect_reports") == 2
-    assert workflow.count("if: always() && steps.collect_reports.outcome == 'success' && steps.collect_reports.outputs.ready == 'true'") == 2
-    assert workflow.count("path: ${{ steps.collect_reports.outputs.directory }}") == 2
+    assert workflow.count("persist-credentials: false") == 4
+    assert workflow.count("retention-days: 7") == 3
+    assert workflow.count("id: collect_reports") == 3
+    assert workflow.count("if: always() && steps.collect_reports.outcome == 'success' && steps.collect_reports.outputs.ready == 'true'") == 3
+    assert workflow.count("path: ${{ steps.collect_reports.outputs.directory }}") == 3
     assert "path: ci-reports/" not in workflow
     assert "if: success() && github.event_name == 'push'" in workflow
     assert not any(s in workflow for s in ("secrets.", "pull_request_target", "continue-on-error",

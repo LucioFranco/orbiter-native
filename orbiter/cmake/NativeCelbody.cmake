@@ -23,3 +23,23 @@ set_target_properties(NativeEarthAtmosphere PROPERTIES PREFIX "" SUFFIX "${CMAKE
   OUTPUT_NAME "EarthAtmJ71G" LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Celbody/Earth/Atmosphere")
 
 include("${PROJECT_SOURCE_DIR}/cmake/NativeMissionCelbody.cmake")
+
+# PE DLLs use CMake's runtime output property. The Unix library property above
+# does not place Windows modules where the native loader expects them.
+if(WIN32)
+  foreach(body Sun Earth Moon Mercury Venus Mars Jupiter Saturn Uranus Neptune
+      Io Europa Ganymede Callisto Mimas Enceladus Tethys Dione Rhea Titan)
+    set_target_properties(Native${body} PROPERTIES
+      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Celbody")
+  endforeach()
+  set_target_properties(NativeEarthAtmosphere PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Celbody/Earth/Atmosphere")
+  set_target_properties(NativeMarsAtmosphere PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Celbody/Mars/Atmosphere")
+  set_target_properties(NativeVenusAtmosphere PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Celbody/Venus/Atmosphere")
+  foreach(family Galsat Satsat)
+    set_target_properties(Native${family} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON
+      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules")
+  endforeach()
+endif()

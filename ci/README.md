@@ -9,7 +9,7 @@ private predecessor or other repositories. The user/main worker owns activation.
 | --- | --- | --- |
 | macOS 15 arm64 | Full native v9 engine/addon/wgpu compilation; CPU subset with pinned NASSP data | Full acceptance, hosted GPU/window/input/audio hardware, installable v9 preview |
 | Ubuntu 24.04 x64 | Native engine CPU probe with NASSP/wgpu linkage off; separate locked renderer compile check | NASSP mission runtime, graphics, Linux installation |
-| Windows 2022 x64 | Existing portable SDK/header ABI test compiled and executed by MSVC | Native engine/addon/renderer build, stock D3D9 parity, Windows installation |
+| Windows 2022 x64 | SDK ABI test; separate native host, NASSP module and wgpu compile; bounded CPU/module/mission staging smoke | Hosted GPU/window/input/audio device validation, full mission acceptance, stock D3D9 parity, Windows installation |
 
 Unix tools use the existing Nix lock. Linux additionally needs zlib in that
 shell; the overlay includes that one-line change. macOS uses Apple's compiler
@@ -60,10 +60,11 @@ failure expected, relax assertions or grant a preview waiver.
 
 Each report artifact contains only declared JSON/XML files plus scope and dated
 acceptance context. The collector refuses symlinks and more than 5 MiB per job.
-Three report artifacts retained seven days have at most 15 MiB of payload per run,
+Four report artifacts retained seven days have at most 20 MiB of payload per run,
 plus ZIP metadata. There are no package/release uploads, publishing permissions
-or signing secrets. Job caps are policy 10, Windows SDK 10, Linux native 60 and
-macOS native 60 minutes. This is a 140-minute failure ceiling, not measured cost.
+or signing secrets. Job caps are policy 10, Windows SDK 10, Windows native 90,
+Linux native 60 and macOS native 60 minutes. This is a 230-minute failure
+ceiling, not measured cost.
 
 ## Local validation and integration
 
@@ -76,8 +77,23 @@ nix develop path:./orbiter/nix --command python3 ci/build_native.py --nassp
 ```
 
 Linux omits both NASSP flags and additionally executes the workflow's locked
-Cargo check. Windows uses `ci/sdk/CMakeLists.txt`; it does not invoke stock
-Windows/irrKlang/DirectX packaging. Configure/build failures are fatal and
+Cargo check. Windows has a separate MSVC developer-shell path:
+
+```bat
+python ci/fetch_inputs.py --nassp-data
+python ci/build_windows.py
+python ci/test_windows.py
+```
+
+The Windows path uses Ninja, MSVC x64, pinned public sources and original NASSP
+data in a local cache. It builds `orbiter.exe`, native module DLLs and the locked
+Rust/wgpu renderer. DLLs are staged in their runtime module directories; the
+loader searches the runtime Modules and ProjectApollo directories for dependent
+DLLs. Windows mission staging copies and verifies assets into a fresh runtime
+directory without symlink privileges. These are build/test inputs only, not a
+redistribution approval or an installable package. The stock Windows reference
+still validates a separate upstream application, not this native host.
+Configure/build failures are fatal and
 unsupported targets are rejected. Use a fresh checkout-specific CMake cache.
 The source overlay corrects six upstream celestial-module includes from
 `CelbodyAPI.h` to the actual SDK filename `CelBodyAPI.h`; case-sensitive Linux
@@ -93,10 +109,12 @@ private history or a silent partial build.
 
 ## Concrete next work
 
-Windows needs a native SDL/wgpu/miniaudio configure/build target, DLL exports/
-imports and deployment validation, symlink-free staging, then CPU/original-mission/
-save-reload and real GPU/input/audio checks on each claimed architecture. Stock
-D3D9 comparison is separate; SDK success does not prove the native port.
+Windows needs hosted build results reviewed after integration, then an independent
+fresh-machine relocated install, full original mission and real GPU/input/audio
+checks before claiming a preview. The CPU subset covers DLL lifecycle, ephemeris
+simulation, NASSP save/reload and byte-preserving original scenario staging;
+it does not resolve the known strict AGC resume failure. Stock D3D9 comparison
+is separate; SDK success alone does not prove the native port.
 
 Linux needs full NASSP/wgpu linkage, explicit glibc/libstdc++, X11/Wayland and
 Vulkan deployment choices, then original missions, saves, graphics, input/audio

@@ -32,7 +32,8 @@ target_include_directories(WgpuClient PRIVATE "${PROJECT_BINARY_DIR}/generated")
 target_include_directories(WgpuClient PRIVATE "${stb_SOURCE_DIR}")
 target_link_libraries(WgpuClient PRIVATE OrbiterCore orbiter_wgpu)
 set_target_properties(WgpuClient PROPERTIES PREFIX "" SUFFIX "${CMAKE_SHARED_LIBRARY_SUFFIX}"
-  LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Plugin")
+  LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Plugin"
+  RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/runtime/Modules/Plugin")
 add_executable(wgpu_text_test "${PROJECT_SOURCE_DIR}/Tests/WgpuText.cpp")
 target_link_libraries(wgpu_text_test PRIVATE OrbiterCore)
 add_dependencies(wgpu_text_test WgpuClient)

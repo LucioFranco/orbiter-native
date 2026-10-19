@@ -48,12 +48,12 @@ class ReportPublicationTests(unittest.TestCase):
         return dict(line.split("=", 1) for line in self.outputs.read_text().splitlines())
 
     def upload_allowed(self, outcome):
-        # Evaluate the actual workflow's two narrowly specified guard expressions
+        # Evaluate every workflow upload guard, including the native Windows job.
         # against collector outputs. This catches unconditional always() regression.
         gates = re.findall(r"- name: Upload reports only\n\s+if: (.+)", WORKFLOW.read_text())
-        self.assertEqual(len(gates), 2)
+        self.assertEqual(len(gates), 3)
         self.assertEqual(WORKFLOW.read_text().count(
-            "path: " + "$" + "{{ steps.collect_reports.outputs.directory }}"), 2)
+            "path: " + "$" + "{{ steps.collect_reports.outputs.directory }}"), 3)
         values = self.output_values()
         results = []
         for gate in gates:
@@ -62,7 +62,7 @@ class ReportPublicationTests(unittest.TestCase):
                           .replace("steps.collect_reports.outputs.ready", repr(values.get("ready", "")))
                           .replace("&&", " and ").replace("||", " or "))
             results.append(bool(eval(expression, {"__builtins__": {}}, {})))
-        self.assertEqual(results[0], results[1])
+        self.assertTrue(all(value == results[0] for value in results))
         return results[0]
 
     def collect(self):

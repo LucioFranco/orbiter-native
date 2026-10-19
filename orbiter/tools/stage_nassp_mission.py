@@ -18,6 +18,11 @@ def file_sha256(path):
         for chunk in iter(lambda:stream.read(1024*1024),b""):h.update(chunk)
     return h.hexdigest()
 
+def content_hashes(path):
+    if path.is_file():return {".":file_sha256(path)}
+    return {str(file.relative_to(path)):file_sha256(file)
+            for file in path.rglob("*") if file.is_file()}
+
 def asset_plan(root,addon,textures):
     plan={}
     for name in ("Meshes","Textures"):
@@ -33,6 +38,8 @@ def validate_output(out,plan,bindings):
     # Fail before copying anything when output contains user-owned assets.
     # Directory links could otherwise redirect writes into a foreign checkout.
     if out.is_symlink():raise DataError("Runtime output must not be a symlink: "+str(out))
+    if os.name == "nt" and out.exists() and any(out.iterdir()):
+        raise DataError("Windows runtime output must be fresh: "+str(out))
     for name in bindings:
         target=out/name
         if target.exists() and not target.is_symlink():
@@ -54,6 +61,11 @@ def refresh_link(target,source):
     if target.is_symlink():target.unlink()
     target.parent.mkdir(parents=True,exist_ok=True)
     target.symlink_to(source,target_is_directory=source.is_dir())
+
+def copy_binding(target,source):
+    target.parent.mkdir(parents=True,exist_ok=True)
+    if source.is_dir():shutil.copytree(source,target,dirs_exist_ok=True)
+    else:shutil.copy2(source,target)
 
 def stage(args,root):
     asset_addon=root/"Addons/NASSP"
@@ -79,8 +91,10 @@ def stage(args,root):
     for config in sorted(celbody.rglob("Config")):
         if config.is_dir():shutil.copytree(config,out/"Config",dirs_exist_ok=True)
     shutil.copytree(addon/"Config",out/"Config",dirs_exist_ok=True)
-    for name,source in bindings.items():refresh_link(out/name,source)
-    for name,source in plan.items():refresh_link(out/name,source)
+    for name,source in bindings.items():
+        (copy_binding if os.name == "nt" else refresh_link)(out/name,source)
+    for name,source in plan.items():
+        (copy_binding if os.name == "nt" else refresh_link)(out/name,source)
     codes={"Sun":("E","sun"),"Mercury":("B","mer"),"Venus":("B","ven"),"Earth":("B","ear"),"Mars":("B","mar"),"Jupiter":("B","jup"),"Saturn":("B","sat"),"Uranus":("B","ura"),"Neptune":("B","nep")}
     for body,(series,code) in codes.items():
         target=out/"Config"/body/"Data";target.mkdir(parents=True,exist_ok=True)
@@ -93,15 +107,24 @@ def stage(args,root):
     shutil.copyfile(source,target)
     assert source.read_bytes()==target.read_bytes()
     actual_bindings={name:str((out/name).resolve(strict=True)) for name in bindings}
-    assert all((out/name).resolve(strict=True)==source.resolve(strict=True) for name,source in bindings.items())
-    assert all((out/name).resolve(strict=True)==source for name,source in plan.items())
-    binaries={"orbiter":file_sha256(build/"orbiter")}
+    if os.name == "nt":
+        assert not any(path.is_symlink() for path in out.rglob("*"))
+        assert all(content_hashes(out/name)==content_hashes(source)
+                   for name,source in bindings.items())
+        assert all(file_sha256(out/name)==file_sha256(source) for name,source in plan.items())
+    else:
+        assert all((out/name).resolve(strict=True)==source.resolve(strict=True) for name,source in bindings.items())
+        assert all((out/name).resolve(strict=True)==source for name,source in plan.items())
+    binaries={"orbiter":file_sha256(build/("orbiter.exe" if os.name == "nt" else "orbiter"))}
     for file in sorted((out/"Modules").rglob("*")):
         if file.is_file():binaries[str(file.relative_to(out))]=file_sha256(file)
     resources={str(file.relative_to(out)):file_sha256(file) for file in sorted((out/"Resources").rglob("*")) if file.is_file()}
     provenance["runtime_provenance"]={"build":str(build),"bindings":actual_bindings,
-        "asset_file_links_verified":len(plan),"binary_sha256":binaries,"resource_sha256":resources,
-        "reused_output_policy":"Refresh helper-owned links; refuse regular or unknown asset files before staging"}
+        "asset_file_links_verified":len(plan) if os.name != "nt" else 0,
+        "asset_files_copied_verified":len(plan) if os.name == "nt" else 0,
+        "staging_mode":"copy" if os.name == "nt" else "link",
+        "binary_sha256":binaries,"resource_sha256":resources,
+        "reused_output_policy":"Fresh output required on Windows; Unix refreshes helper-owned links"}
     (out/"mission-source.json").write_text(json.dumps({"source":str(source),"sha256":file_sha256(source),
         "scenario_modified":False,"reference_run":"not yet available","data_provenance":provenance},indent=2)+"\n")
     print(out)
