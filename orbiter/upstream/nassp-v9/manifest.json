@@ -11,7 +11,7 @@
     "Scenarios"
   ],
   "normalisation": "CRLF to LF",
-  "unchanged_files": 1336,
+  "unchanged_files": 1335,
   "groups": {
     "build": {
       "patch": "01-build.patch",
@@ -1226,6 +1226,18 @@
       "patched_sha256": "822a999886fe05a7f5891d2b1f3b7237b61e61b44b520176b38801cc1e69304d",
       "review": "native/reference behavioral parity review required",
       "pre_publication_notice_sha256": "bf5a36375739251b68ede540504f4c052b959f82b34bc8c05079601bc2a90bee",
+      "additional_groups": [
+        "publication-notices"
+      ]
+    },
+    {
+      "path": "Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine.c",
+      "group": "guidance-portability",
+      "status": "modified",
+      "baseline_sha256": "396d3c2ff42576bac7d1a0462d8c7c8e7e65642aa31eab8764d1ea6941f9f796",
+      "patched_sha256": "0d4b39d26d968ba4fe64a79618eef8497825562a8b08b708228fbb813a66965d",
+      "review": "AGC diagnostic logging format only; no instruction, timing, or state change",
+      "pre_publication_notice_sha256": "a0bd10f8bd99a024ef916498a0ee25c7f4ff5a26d4854c59e33e5c15b9d70adb",
       "additional_groups": [
         "publication-notices"
       ]

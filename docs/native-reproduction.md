@@ -50,7 +50,7 @@ python3 tools/nassp_demo.py check-data --profile v9 \
 
 Critical source/data checks allow the recorded LF/CRLF normalization for text;
 binary assets use original bytes/Git blob identity. All 14 upstream source-list
-exports and 92 adapted paths are verified. Keep the printed JSON as evidence.
+exports and 93 adapted paths are verified. Keep the printed JSON as evidence.
 
 ## Configure and build
 

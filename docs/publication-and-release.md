@@ -15,7 +15,7 @@ the user-selected unchanged Architext treatment and unresolved permission and pa
 
 The source snapshot includes the original eight behavioral NASSP patch groups
 plus a separate `09-publication-notices.patch`. The latter adds only prominent
-changed-file/date comments to 92 adapted paths. Removing that exact comment
+changed-file/date comments to 93 adapted paths. Removing that exact comment
 recovers previous normalized source bodies byte-for-byte. It changes no
 simulation equation, mission state or runtime policy and replaces no original
 copyright, GPL grant or linking exception.

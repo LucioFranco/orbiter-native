@@ -35,7 +35,7 @@ override a newer strict failure.
 | --- | --- |
 | [Portable baseline summary](../orbiter/upstream/project-baseline-2026-10-12.json) | Pins, scenario/archive hashes, outcomes and repository-relative supporting records |
 | [OpenOrbiter native inventory](../orbiter/upstream/openorbiter-native.json) | Every tracked-tree difference, group and adoption/removal path |
-| [NASSP v9 patch inventory](../orbiter/upstream/nassp-v9/manifest.json) | 92 adapted paths and the separate numbered patch groups |
+| [NASSP v9 patch inventory](../orbiter/upstream/nassp-v9/manifest.json) | 93 adapted paths and the separate numbered patch groups |
 | [NASSP v9 original data](../orbiter/upstream/nassp-data-v9.json) | Original data blob IDs and critical hashes |
 | [Upstream source lists](../orbiter/upstream/nassp-manifests/v9/manifest.json) | 14 source-list exports with upstream identity and normalized hashes |
 | [Complete suite record](../orbiter/upstream/validation-v9-final-current-macos-2026-10-12.json) | All 104 results, binary hashes and strict failure |
