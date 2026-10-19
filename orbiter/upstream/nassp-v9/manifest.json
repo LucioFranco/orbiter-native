@@ -1247,9 +1247,9 @@
       "group": "guidance-portability",
       "status": "modified",
       "baseline_sha256": "b7f450ca2d8f6836b7620d4a36c708dbdf337eef45d694a78faa458a19f17fd3",
-      "patched_sha256": "1f4445cb1ed0a4a9a3ffc28bb238217d0c2598afb2d510e612c0fb1fe868c460",
-      "review": "native/reference behavioral parity review required",
-      "pre_publication_notice_sha256": "c72589475751e30143a6e70e43291afe69d71f832d57a10e5fe1426ca499d11e",
+      "patched_sha256": "fb2f75b5c9a31339549a55b610994180d7c6b26606d8df459c6b4aa0ce72ece7",
+      "review": "Native/reference behavioral parity review required; AGC core-dump octal format only, no counter, timing, or state change",
+      "pre_publication_notice_sha256": "3c519a9a1576337b4b744c5f00d41b7ee609ef7a8ae7fde96d23d9ac08e12922",
       "additional_groups": [
         "publication-notices"
       ]

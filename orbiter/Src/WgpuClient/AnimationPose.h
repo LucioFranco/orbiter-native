@@ -8,6 +8,7 @@
 #include <cstdint>
 #include <vector>
 #include <stdexcept>
+#include <string>
 namespace orbiter::graphics {
 struct Pose {
     MATRIX3 r=_M(1,0,0,0,1,0,0,0,1);

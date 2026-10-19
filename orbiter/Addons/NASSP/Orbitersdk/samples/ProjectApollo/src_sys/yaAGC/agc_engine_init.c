@@ -79,6 +79,7 @@
 */
 
 #include <stdio.h>
+#include <inttypes.h>
 #include <string.h>
 #include "agc_engine.h"
 FILE *rfopen (const char *Filename, const char *mode);
@@ -369,7 +370,7 @@ MakeCoreDump (agc_t * State, const char *CoreDump)
       fprintf (cd, "%06o\n", State->Erasable[Bank][j]);
 
   // Write out CPU state variables that aren't part of normal memory.
-  fprintf (cd, "%llo\n", State->CycleCounter);
+  fprintf (cd, "%" PRIo64 "\n", State->CycleCounter);
   fprintf (cd, "%o\n", State->ExtraCode);
   fprintf (cd, "%o\n", State->AllowInterrupt);
   //fprintf (cd, "%o\n", State->RegA16);

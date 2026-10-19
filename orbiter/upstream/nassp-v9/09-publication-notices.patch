@@ -1091,7 +1091,7 @@ index e955ede93c956f806a5acdb2b15d82e0f0e34be4..005bf72833282128725dbfbe462298a6
    This file is part of Project Apollo - NASSP
    Copyright 2004-2005 Mark Grant
 diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
-index a37fda9dfeadc5ef77cbec6586c8773e67bae888..90044bb5d16edad4555ee24ea268fa5780c77c51
+index b67ddd1d32a28fe7eab8e4610ad9c48e89f172cc..390c4a6626f5c738cec02a8c385d7a388e40a5ec
 --- a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
 +++ b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
 @@ -1,3 +1,7 @@

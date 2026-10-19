@@ -223,10 +223,18 @@ index 2c1c42a33abd6f8c05153711f13d85d4522465ce..b8c62da371f1d943edf24cf2b685e6c0
  			Operate = (state.u.Operate != 0);
  			Initialized = (state.u.Initialized != 0);
 diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
-index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..a37fda9dfeadc5ef77cbec6586c8773e67bae888
+index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..b67ddd1d32a28fe7eab8e4610ad9c48e89f172cc
 --- a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
 +++ b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine_init.c
-@@ -152,7 +152,7 @@
+@@ -75,6 +75,7 @@
+ */
+ 
+ #include <stdio.h>
++#include <inttypes.h>
+ #include <string.h>
+ #include "agc_engine.h"
+ FILE *rfopen (const char *Filename, const char *mode);
+@@ -152,7 +153,7 @@
  	  Parity = RawValue & 1;
  
  	  State->Fixed[Bank][j] = RawValue >> 1;
@@ -235,7 +243,7 @@ index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..a37fda9dfeadc5ef77cbec6586c8773e
  	  j++;
  
  	  // If any of the parity bits are actually set, this must be a ROM built with
-@@ -177,6 +177,8 @@
+@@ -177,6 +178,8 @@
  	}
      }
  
@@ -244,7 +252,7 @@ index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..a37fda9dfeadc5ef77cbec6586c8773e
  Done:
    if (fp != NULL)
      fclose (fp);
-@@ -190,7 +192,8 @@
+@@ -190,7 +193,8 @@
    int RetVal = 0, i, j, Bank;
    FILE *cd = NULL;
  
@@ -254,6 +262,15 @@ index f7b4d9d70b8d3638dd85b1de0bc71343b889030f..a37fda9dfeadc5ef77cbec6586c8773e
    // The purpose of this is to make sure that getchar doesn't halt the program
    // when there's no keystroke immediately available.
    UnblockSocket (fileno (stdin));
+@@ -362,7 +366,7 @@
+       fprintf (cd, "%06o\n", State->Erasable[Bank][j]);
+ 
+   // Write out CPU state variables that aren't part of normal memory.
+-  fprintf (cd, "%llo\n", State->CycleCounter);
++  fprintf (cd, "%" PRIo64 "\n", State->CycleCounter);
+   fprintf (cd, "%o\n", State->ExtraCode);
+   fprintf (cd, "%o\n", State->AllowInterrupt);
+   //fprintf (cd, "%o\n", State->RegA16);
 diff --git a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine.c b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine.c
 --- a/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine.c
 +++ b/Orbitersdk/samples/ProjectApollo/src_sys/yaAGC/agc_engine.c
