@@ -13,6 +13,20 @@ with tempfile.TemporaryDirectory(prefix='orbiter-cli-') as directory:
     shutil.copytree(fixture,runtime,dirs_exist_ok=True)
     command=[str(executable),'--root',str(runtime),'--scenario','Orbit','--dt','0.0001']
     environment={**os.environ,'SDL_VIDEODRIVER':'dummy'}
+    def stop(child):
+        try:
+            if child.poll() is None:
+                child.terminate()
+                try:
+                    child.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    # A dummy SDL window can leave shutdown stuck on a hosted runner.
+                    # Cleanup is not part of the running-step assertions above.
+                    child.kill()
+                    child.wait(timeout=10)
+        finally:
+            # A descendant retaining stdout should not hold test cleanup open.
+            if child.stdout:child.stdout.close()
     def run(args):
         result=subprocess.run(command+args,env=environment,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=10)
         assert result.returncode==0,result.stdout
@@ -36,8 +50,7 @@ with tempfile.TemporaryDirectory(prefix='orbiter-cli-') as directory:
         else:
             raise AssertionError('Interactive session exited without a close event: '+output)
     finally:
-        if child.poll() is None:child.terminate()
-        child.communicate(timeout=10)
+        stop(child)
     # Startup initialization is separate from the caller's running-step cap.
     # Idle frames must keep the one-step window alive until an explicit resume.
     (runtime/'Orbiter.cfg').write_text('StartPaused = TRUE\nFixedStep = 0.0001\n')
@@ -51,6 +64,5 @@ with tempfile.TemporaryDirectory(prefix='orbiter-cli-') as directory:
         else:
             raise AssertionError('Paused window exited before resume: '+output)
     finally:
-        if child.poll() is None:child.terminate()
-        child.communicate(timeout=10)
+        stop(child)
 print('Headless/default pacing, running-step caps, persistent window and paused startup verified')

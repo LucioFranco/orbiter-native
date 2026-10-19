@@ -20,6 +20,11 @@ if(APPLE)
   # Rust static archives do not carry transitive framework link directives.
   target_link_libraries(orbiter_wgpu INTERFACE
     "-framework Metal" "-framework QuartzCore" "-framework Foundation" objc)
+elseif(WIN32)
+  # The Rust static archive's Windows API references need explicit import libs
+  # in every C++ target that consumes it.
+  target_link_libraries(orbiter_wgpu INTERFACE
+    opengl32 propsys d3dcompiler runtimeobject)
 endif()
 add_executable(native_wgpu_test "${PROJECT_SOURCE_DIR}/Tests/NativeWgpu.cpp")
 target_include_directories(native_wgpu_test PRIVATE "${PROJECT_SOURCE_DIR}/Src/WgpuClient" "${PROJECT_SOURCE_DIR}/Orbitersdk/include")

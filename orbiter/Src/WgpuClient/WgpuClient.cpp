@@ -34,8 +34,10 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-extern Orbiter *g_pOrbiter;
-extern Camera *g_camera;
+// OrbiterCore exports these global data symbols. MSVC consumers need an
+// explicit import declaration even with WINDOWS_EXPORT_ALL_SYMBOLS enabled.
+extern DLLIMPORT Orbiter *g_pOrbiter;
+extern DLLIMPORT Camera *g_camera;
 namespace {
 class WgpuClient final : public oapi::GraphicsClient {
     struct Surface {
