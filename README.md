@@ -21,6 +21,7 @@ Start with the [project documentation](docs/README.md). The principal paths are:
 
 | Need | Entry point |
 | --- | --- |
+| Continue on another computer | [Cross-computer handoff](docs/cross-computer-handoff.md) |
 | Build and reproduce the native baseline | [Native reproduction](docs/native-reproduction.md) |
 | Operate the bounded original mission demo | [Operator guide](orbiter/docs/native-v9-operator-demo.md) |
 | Understand the implementation | [Architecture and portability boundaries](docs/architecture.md) |

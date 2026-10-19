@@ -7,6 +7,8 @@ override a newer strict failure.
 
 ## Build, operate and reproduce
 
+- [Cross-computer development handoff](cross-computer-handoff.md): exact public
+  source/CI state, fresh-machine commands, local-only artifacts and next fixes.
 - [Native macOS reproduction](native-reproduction.md): prerequisites, data,
   build, the complete suite, fresh paused CLI launches and evidence collection.
 - [Windows reproduction](windows-reproduction.md): official package reference
