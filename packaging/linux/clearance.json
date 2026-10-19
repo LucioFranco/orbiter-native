@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "release_enabled": false,
+  "checks": {
+    "selected_source_and_media_grants": false,
+    "nassp_bitmap_resource_grants_and_preferred_source": false,
+    "full_native_and_rust_notice_review": false,
+    "linux_relocated_install_and_graphics_validation": false
+  },
+  "note": "Flip gates only with recorded review evidence. Headless CI success cannot clear the graphics gate. Original NASSP and planetary data remain separately acquired and are never bundled."
+}

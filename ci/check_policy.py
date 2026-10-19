@@ -51,10 +51,26 @@ def main():
     assert not any(s in workflow for s in ("secrets.", "pull_request_target", "continue-on-error",
                                          "contents: write", "id-token: write", "self-hosted",
                                          "gh release", "dist/", "upload-pages"))
+    linux = (source / ".github/workflows/linux-runtime.yml").read_text()
+    linux_refs = re.findall(r"uses:\s*([^\s]+)", linux)
+    assert linux_refs and all(re.fullmatch(r"[\w.-]+/[\w./-]+@[a-f0-9]{40}", ref) for ref in linux_refs)
+    assert "github.repository == 'LucioFranco/orbiter-native'" in linux
+    assert "github.event.repository.private == false" in linux
+    assert "permissions:\n  contents: read" in linux
+    assert "persist-credentials: false" in linux
+    assert "python3 ci/fetch_inputs.py --nassp-data" in linux
+    assert "python3 ci/build_native.py --nassp" in linux
+    assert "python3 packaging/linux/package.py" in linux
+    assert linux.count("inputs.package_linux == true") == 2
+    clearance = json.loads((source / "packaging/linux/clearance.json").read_text())
+    assert clearance["release_enabled"] is False
+    assert clearance["checks"] and all(value is False for value in clearance["checks"].values())
+    assert not any(s in linux for s in ("secrets.", "pull_request_target", "continue-on-error",
+                                      "contents: write", "id-token: write", "self-hosted", "gh release"))
     for folder in ("ci", "packaging"):
         for path in (ROOT / folder).rglob("*.py"):
             ast.parse(path.read_text(), filename=str(path))
-    print("PASS: v9 source/data/dependency pins, immutable action references, public-only guard, report-only scope and Python syntax")
+    print("PASS: v9 source/data/dependency pins, immutable action references, public-only guards, package gate and Python syntax")
 
 
 if __name__ == "__main__":

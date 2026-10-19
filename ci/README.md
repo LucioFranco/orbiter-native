@@ -11,8 +11,16 @@ private predecessor or other repositories. The user/main worker owns activation.
 | Ubuntu 24.04 x64 | Native engine CPU probe with NASSP/wgpu linkage off; separate locked renderer compile check | NASSP mission runtime, graphics, Linux installation |
 | Windows 2022 x64 | SDK ABI test; separate native host, NASSP module and wgpu compile; bounded CPU/module/mission staging smoke | Hosted GPU/window/input/audio device validation, full mission acceptance, stock D3D9 parity, Windows installation |
 
-Unix tools use the existing Nix lock. Linux additionally needs zlib in that
-shell; the overlay includes that one-line change. macOS uses Apple's compiler
+The separate [Linux runtime workflow](../.github/workflows/linux-runtime.yml)
+configures the host, NASSP modules and wgpu in one Ubuntu 24.04 x64 build,
+using the same pinned v9 data preflight and headless test planner. It reports
+actual results only after that hosted job runs. Its optional artifact recipe
+and uncleared release gates are documented in
+[Linux packaging](../packaging/linux/README.md).
+
+The foundation workflow uses the existing Nix lock; Linux additionally needs
+zlib in that shell. The new combined Linux job uses Ubuntu packages for desktop
+development libraries and a system ABI baseline. macOS uses Apple's compiler
 and SDK with deployment target 15.0. Hosted images are maintained by GitHub.
 Public source and Cargo downloads are cached by OS, architecture and lock hashes;
 original NASSP data, runtimes, compiled output, credentials and broad home/

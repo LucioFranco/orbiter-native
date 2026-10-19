@@ -19,8 +19,9 @@ def main():
     args = parser.parse_args()
     if args.jobs < 1:
         parser.error("--jobs must be positive")
-    if args.nassp and (sys.platform != "darwin" or platform.machine() != "arm64"):
-        parser.error("Unsupported v9 CI target: full NASSP build is scoped to macOS arm64")
+    if args.nassp and not ((sys.platform == "darwin" and platform.machine() == "arm64") or
+                           (sys.platform == "linux" and platform.machine() in ("x86_64", "AMD64"))):
+        parser.error("Unsupported v9 CI target: use macOS arm64 or Linux x64")
     if not args.nassp and (sys.platform != "linux" or platform.machine() not in ("x86_64", "AMD64")):
         parser.error("Unsupported engine CI target: this foundation probes Linux x64 only")
     cache, build = ROOT / ".ci-cache", ROOT / "orbiter/build/ci"
@@ -35,7 +36,9 @@ def main():
         command.append("-DFETCHCONTENT_SOURCE_DIR_" + name + "=" + str(cache / "deps" / name.lower()))
     if args.nassp:
         command += ["-DNASSP_DATA_DIR=" + str(cache / "nassp-v9"),
-                    "-DNASSP_DATA_PROFILE=v9", "-DCMAKE_OSX_DEPLOYMENT_TARGET=15.0"]
+                    "-DNASSP_DATA_PROFILE=v9"]
+        if sys.platform == "darwin":
+            command += ["-DCMAKE_OSX_DEPLOYMENT_TARGET=15.0"]
     else:
         command += ["-DSDL_X11=OFF", "-DSDL_WAYLAND=OFF", "-DSDL_UNIX_CONSOLE_BUILD=ON"]
     subprocess.run(command, env=environment, check=True)

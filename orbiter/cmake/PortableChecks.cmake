@@ -1,6 +1,11 @@
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  # Keep build-tree module links relative so a same-layout staging copy can be
+  # moved without retaining CI's absolute build path.
+  set(CMAKE_BUILD_RPATH_USE_ORIGIN ON)
+endif()
 
 add_library(OrbiterSDKHeaders INTERFACE)
 target_include_directories(OrbiterSDKHeaders INTERFACE "${PROJECT_SOURCE_DIR}/Orbitersdk/include")

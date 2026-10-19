@@ -2425,7 +2425,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "ac13bed0f5ba6910c45137f25662bb7839e1e2e077a43b008be4708b56f70d54"
+      "native_lf_sha256": "7be9161ae281704d3e3720e17ab6dc58026ea2f2e8a1f1285fe4f295ad989986"
     },
     {
       "path": "nix/flake.lock",
