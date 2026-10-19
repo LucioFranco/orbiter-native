@@ -4,7 +4,7 @@ set(native_world_sources
   Planet.cpp Star.cpp Psys.cpp Vesselbase.cpp Vessel.cpp Vesselstatus.cpp
   SuperVessel.cpp Mesh.cpp D3dmath.cpp Nav.cpp Base.cpp Baseobj.cpp
   FlightRecorder.cpp LightEmitter.cpp elevmgr.cpp ZTreeMgr.cpp Util.cpp
-  Keymap.cpp ModuleAPI.cpp Shadow.cpp CamAPI.cpp WorldAPI.cpp AnnotationAPI.cpp SurfaceAPI.cpp MeshAPI.cpp VesselLifecycleAPI.cpp CockpitAPI.cpp DrawAPI.cpp NativeCockpit.cpp NativeMFD.cpp NativeDialogs.cpp Mfd.cpp MfdOrbit.cpp MfdSurface.cpp MfdUser.cpp Select.cpp Camera.cpp FlightInput.cpp FileAPI.cpp ParticleStream.cpp NativeHost.cpp)
+  Keymap.cpp ModuleAPI.cpp Shadow.cpp CamAPI.cpp WorldAPI.cpp AnnotationAPI.cpp SurfaceAPI.cpp MeshAPI.cpp VesselLifecycleAPI.cpp CockpitAPI.cpp DrawAPI.cpp NativeCockpit.cpp NativeMFD.cpp NativeDialogs.cpp NativeLegacyInterfaces.cpp MFDAPI.cpp Mfd.cpp MfdOrbit.cpp MfdSurface.cpp MfdUser.cpp Select.cpp Camera.cpp FlightInput.cpp FileAPI.cpp ParticleStream.cpp NativeHost.cpp)
 list(TRANSFORM native_world_sources PREPEND "${PROJECT_SOURCE_DIR}/Src/Orbiter/")
 add_library(OrbiterWorld OBJECT ${native_world_sources})
 target_link_libraries(OrbiterWorld PRIVATE OrbiterSDKHeaders NativeImGuiHeaders)

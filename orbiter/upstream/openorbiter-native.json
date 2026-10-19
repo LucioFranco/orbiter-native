@@ -860,6 +860,13 @@
       "native_lf_sha256": "6b653f6318bc5234b2cf2b9a538bc1081230e9882393821d57e9a41b780432d9"
     },
     {
+      "path": "Src/Orbiter/NativeLegacyInterfaces.cpp",
+      "group": "sdk-core",
+      "status": "added",
+      "upstream_lf_sha256": null,
+      "native_lf_sha256": "c2365f306c139099713edb6c40cdd74dcb5be7f5af3f02d32e0743224de88b9a"
+    },
+    {
       "path": "Src/Orbiter/NativeMFD.cpp",
       "group": "sdk-core",
       "status": "added",
@@ -2390,7 +2397,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "00acbf39ac8056658bbde282d83f5a54a716268eb248f58e9b3c5991e68e11b9"
+      "native_lf_sha256": "e5778d549cd1687fa6e443a677f95ede88f3ebb4f4947675b22c11c5b0381495"
     },
     {
       "path": "cmake/NativeSDL.cmake",
@@ -2411,7 +2418,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "17a4408db15d116cf0362000d9073c027878d4e85c0d12e5b5f9383e2ae21453"
+      "native_lf_sha256": "a43e82b65c8605e6283e48bc287a70852106d4189b33542790b88049462db7be"
     },
     {
       "path": "cmake/PatchMiniaudio.cmake",
