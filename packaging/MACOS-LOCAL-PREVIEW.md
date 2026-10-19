@@ -32,9 +32,11 @@ license/notice texts, an inventory and the first-run helper. The separate
 [corresponding-source recipe](CORRESPONDING-SOURCE.md) now stages the pinned
 dependency source and an offline-buildable local archive. The target SBOM
 recovers notice text for eleven Rust crates without a packaged root license:
-eight from exact official upstream revisions and three from canonical MIT/CC0
-texts plus package author metadata. The assembler rewrites each
-absolute build `LC_RPATH` to `@loader_path` relative to the copied binary,
+eight from exact official upstream revisions and three from standard MIT/CC0
+terms plus labeled package author metadata. The two MIT packages have no
+published copyright statement; their notices retain the MIT permission,
+condition and disclaimer without a fabricated holder or year. The assembler
+rewrites each absolute build `LC_RPATH` to `@loader_path` relative to the copied binary,
 ad-hoc signs the locally modified Mach-O files, checks every dependency against
 the package or a system framework/library, records architecture/minimum macOS,
 and hashes every copied file. Ad-hoc signatures are not distribution signing.
@@ -79,9 +81,7 @@ save/reload failure. Full ascent/landing and faithful save resume are unverified
 
 - Review the local corresponding-source archive and offline rebuild result for
   completeness, including local patches and the external bitmap input boundary.
-- Obtain original MIT copyright notices for `block 0.1.6` and
-  `malloc_buf 0.0.6`; their current canonical text has holder placeholders.
-  Review nested native notices and source modifications before binary
+- Review nested native notices and source modifications before binary
   distribution. Preserve GPL exceptions and the existing native font notices.
 - Review rights for any source/media included with a public binary; retaining
   the upstream Architext font in the source tree does not establish permission

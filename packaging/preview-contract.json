@@ -170,7 +170,7 @@
   "blocked_on": [
     "Executable-only preview must keep 397 NASSP bitmap bytes external and generate local resources from user-acquired pinned data; any separately distributed artwork or corresponding-source inclusion still needs grant/preferred-source review",
     "Review the locally assembled matching corresponding-source archive and external resource-input boundary before public distribution; six pinned native sources, Cargo vendor/lock and offline clean rebuild are demonstrated",
-    "Obtain original MIT copyright notices for block 0.1.6 and malloc_buf 0.0.6; the canonical MIT template still has copyright placeholders, while hexf-parse 0.2.1 declares CC0 and has canonical CC0 text. Review nested native decoder notices",
+    "Review nested native decoder notices; block 0.1.6 and malloc_buf 0.0.6 declare MIT in their published packages and have no published copyright statement, so preserve standard permission terms and labeled package-author provenance without inventing a holder or year",
     "Required source modification/date notices and applicable GPL/MIT/Apache/OFL warranty/copyright/exception texts",
     "Relocated v9 archive passed external-data preflight and headless original-scenario load/save; bounded graphical/Metal, independent-machine install, faithful reload and strict native_pdi_pilot remain unverified or red"
   ],

@@ -32,13 +32,19 @@ The target notice inventory includes 11 Rust crates whose published package
 lacks a root license file. Eight carry license texts retrieved from their
 official upstream Git revision, with verified Git blob and SHA-256 hashes.
 For `block`, `malloc_buf` and `hexf-parse`, the matching upstream revision
-has no license file. Their package and upstream manifests declare MIT or CC0;
-the inventory uses official canonical license text and records the Cargo author
-metadata separately. No copyright year is inferred for those three crates.
-For the two MIT packages, the canonical text still contains copyright-holder
-placeholders. Their Cargo author field is not an original copyright notice, so
-`block 0.1.6` and `malloc_buf 0.0.6` remain specific binary-release blockers
-until an authoritative notice is obtained. `hexf-parse 0.2.1` declares CC0;
+has no license file. Their published packages and upstream manifests declare
+MIT or CC0. For the two MIT packages, the inventory includes the standard MIT
+permission, condition and disclaimer, plus a separate attribution that says
+"Author listed in package metadata: Steven Sheldon." It does not invent a
+copyright holder or year. The exact published packages have no separate
+copyright statement to preserve; this absence is recorded, not treated as an
+automatic release blocker. Cargo [defines `license` as the package release
+license](https://doc.rust-lang.org/cargo/reference/manifest.html#the-license-and-license-file-fields),
+and the [MIT terms](https://opensource.org/license/mit) require existing
+copyright and permission notices to be retained. A [later upstream `malloc_buf`
+license](https://github.com/SSheldon/malloc_buf/blob/d9a3e539642bd90e07df458d226b19cdfa606863/LICENSE)
+names a 2020 holder, but it was added after version 0.0.6 and is not
+transplanted into that package's notice. `hexf-parse 0.2.1` declares CC0;
 the [CC0 legal code](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
 does not impose an attribution condition, and its canonical text is retained.
 

@@ -76,6 +76,19 @@ def upstream_evidence(stage, dest, pkg, checksum, evidence):
         copy_notice(source, out)
         outputs.append({'path': str(out.relative_to(dest)), 'sha256': sha(out),
                         'official_url': fallback['official_url']})
+        if pkg['license'] == 'MIT':
+            attribution = dest / 'cargo' / f'{name}-{version}' / 'ATTRIBUTION.txt'
+            attribution.write_text(
+                f'{name} {version}\n'
+                f'License declared by the published package: MIT\n'
+                'Author listed in package metadata: ' + ', '.join(pkg['authors']) + '\n'
+                f'Official source: {entry["official_repo"]}\n'
+                'The published package and matching upstream revision provide no '
+                'separate copyright statement or license file. The accompanying '
+                'MIT permission terms retain the standard permission, condition '
+                'and disclaimer without inventing a copyright holder or year.\n')
+            outputs.append({'path': str(attribution.relative_to(dest)),
+                            'sha256': sha(attribution)})
     if not entry['upstream_license_files'] and not fallback:
         raise ValueError(f'No actual license text for {name} {version}')
     provenance = {
@@ -85,7 +98,7 @@ def upstream_evidence(stage, dest, pkg, checksum, evidence):
         'official_upstream': entry['official_repo'],
         'upstream_revision': entry['upstream_revision'],
         'revision_evidence': entry['revision_evidence'],
-        'notice_basis': ('canonical standard text and package authors; upstream revision '
+        'notice_basis': ('standard license terms and labeled package authors; upstream revision '
                          'has no standalone license file or copyright-year statement'
                          if fallback else 'exact license files at official upstream revision'),
     }
@@ -108,7 +121,7 @@ def main(args):
     crates = []
     absent_roots = []
     canonical_fallbacks = []
-    unresolved_mit_copyright_notices = []
+    mit_without_published_copyright_statement = []
     for pkg in sorted(target['packages'], key=lambda p: (p['name'], p['version'])):
         if pkg['id'] not in graph:
             continue
@@ -140,9 +153,9 @@ def main(args):
             if status == 'canonical-text-plus-Cargo-authors':
                 canonical_fallbacks.append(f'{name} {version}')
                 if pkg['license'] == 'MIT':
-                    # The SPDX template retains <year> <copyright holders>.
-                    # Cargo authors are provenance, not an upstream notice.
-                    unresolved_mit_copyright_notices.append(f'{name} {version}')
+                    # Preserve the published MIT declaration and labeled authors,
+                    # without presenting either as an invented copyright notice.
+                    mit_without_published_copyright_statement.append(f'{name} {version}')
         crates.append({'name': name, 'version': version,
                        'license_expression': pkg['license'], 'kind': 'registry',
                        'registry_package_sha256': checksum, 'notice_status': status,
@@ -181,14 +194,14 @@ def main(args):
             'native_dependencies': native, 'native_font_licenses': fonts,
             'packaged_root_license_absent': absent_roots,
             'canonical_text_author_attribution_caveats': canonical_fallbacks,
-            'unresolved_mit_copyright_notices': unresolved_mit_copyright_notices,
+            'mit_without_published_copyright_statement': mit_without_published_copyright_statement,
             'missing_notice_texts': [],
             'scope': 'technical inventory; source modifications and rights still need release review'}
     (dest / 'SBOM.json').write_text(json.dumps(sbom, indent=2) + '\n')
     print(json.dumps({'target_packages': len(crates), 'native_dependencies': len(native),
                       'recovered_missing_packaged_notices': len(absent_roots),
                       'canonical_fallbacks': len(canonical_fallbacks),
-                      'unresolved_mit_copyright_notices': unresolved_mit_copyright_notices,
+                      'mit_without_published_copyright_statement': mit_without_published_copyright_statement,
                       'missing_notice_texts': 0, 'output': str(dest)}, indent=2))
 
 

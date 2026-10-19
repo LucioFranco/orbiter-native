@@ -229,17 +229,17 @@ def assemble(args):
             raise PreviewError("Expected the resolved macOS dependency notice inventory")
         if sbom.get("missing_notice_texts") != []:
             raise PreviewError("Target dependency notice inventory has missing texts")
-        unresolved_mit = sorted(
+        mit_without_statement = sorted(
             f"{item['name']} {item['version']}" for item in sbom["cargo_packages"]
             if item["notice_status"] == "canonical-text-plus-Cargo-authors"
             and item["license_expression"] == "MIT")
-        if sbom.get("unresolved_mit_copyright_notices") != unresolved_mit:
-            raise PreviewError("MIT copyright notice inventory is inconsistent")
+        if sbom.get("mit_without_published_copyright_statement") != mit_without_statement:
+            raise PreviewError("MIT package attribution inventory is inconsistent")
         notices_info = {"target_packages": 77,
                         "recovered_missing_packaged_notices": sbom["packaged_root_license_absent"],
                         "canonical_text_author_attribution_caveats":
                             sbom["canonical_text_author_attribution_caveats"],
-                        "unresolved_mit_copyright_notices": unresolved_mit}
+                        "mit_without_published_copyright_statement": mit_without_statement}
         for file in notices.rglob("*"):
             if file.is_file():
                 copy_regular(file, output / "notices" / "dependencies" / file.relative_to(notices))
@@ -266,7 +266,6 @@ def assemble(args):
         "lockfiles_sha256": {"nix/flake.lock": sha256(source / "orbiter/nix/flake.lock"),
                             "Cargo.lock": sha256(source / "orbiter/Src/WgpuClient/rust/Cargo.lock")},
         "unresolved": ["Preferred source/redistribution review for included fonts and compiled code",
-                       "Obtain original MIT copyright notices for block 0.1.6 and malloc_buf 0.0.6; Cargo authors and SPDX placeholders are insufficient",
                        "Graphical/manual and second-machine validation"],
     }
     if source_archive:

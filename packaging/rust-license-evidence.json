@@ -21,10 +21,10 @@
       },
       "canonical_fallback": {
         "id": "MIT",
-        "path": "standard-MIT.txt",
-        "sha256": "c3b1b78bc8bd3ea13aa4bc9778442d16560270afa235006d816e5e88cef24db4",
-        "official_url": "https://spdx.org/licenses/MIT.txt",
-        "attribution_basis": "package Cargo authors; upstream tag has no standalone license text or copyright year"
+        "path": "MIT-permission-terms.txt",
+        "sha256": "fd80a26fbb3f644af1fa994134446702932968519797227e07a1368dea80f0bc",
+        "official_url": "https://opensource.org/license/mit",
+        "attribution_basis": "standard MIT permission, condition and disclaimer; package Cargo authors are labeled as metadata, not a proven copyright notice"
       },
       "release_tag_source_blobs": [
         {
@@ -221,10 +221,10 @@
       },
       "canonical_fallback": {
         "id": "MIT",
-        "path": "standard-MIT.txt",
-        "sha256": "c3b1b78bc8bd3ea13aa4bc9778442d16560270afa235006d816e5e88cef24db4",
-        "official_url": "https://spdx.org/licenses/MIT.txt",
-        "attribution_basis": "package Cargo authors; upstream tag has no standalone license text or copyright year"
+        "path": "MIT-permission-terms.txt",
+        "sha256": "fd80a26fbb3f644af1fa994134446702932968519797227e07a1368dea80f0bc",
+        "official_url": "https://opensource.org/license/mit",
+        "attribution_basis": "standard MIT permission, condition and disclaimer; package Cargo authors are labeled as metadata, not a proven copyright notice"
       },
       "release_tag_source_blobs": [
         {
