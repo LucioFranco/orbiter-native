@@ -1074,7 +1074,7 @@
       "group": "host-platform",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "0a80cdeac45b3e091e01beca4c36ab2e8e409987437cda51541bf434f892e4d3"
+      "native_lf_sha256": "256a77454ee92a3e2d36c177ccfdeb5764971d4c9d130f7ae3ad0df52c32797a"
     },
     {
       "path": "Src/Orbiter/Platform/RealtimeSteps.h",
@@ -2390,7 +2390,7 @@
       "group": "build",
       "status": "added",
       "upstream_lf_sha256": null,
-      "native_lf_sha256": "5737712f608c0b4cf6e5115cb53a67fc675dd7806b5da6049c581ace1c1b9be1"
+      "native_lf_sha256": "300e5ad27f49898626a068c13b5148213fb142908174a94e66c99dbbf06c2050"
     },
     {
       "path": "cmake/NativeNasspManifest.cmake",

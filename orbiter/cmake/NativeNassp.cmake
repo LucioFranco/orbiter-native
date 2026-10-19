@@ -1,10 +1,36 @@
 # Native targets for upstream revisions that provide only Visual Studio manifests.
 include("${PROJECT_SOURCE_DIR}/cmake/NativeNasspManifest.cmake")
+
+# A few v9 includes use Windows-insensitive spelling for differently cased
+# upstream header filenames. Linux gets checked forwarding headers in the
+# build tree; the original NASSP source and its verified hashes stay intact.
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND _native_data_profile STREQUAL "v9")
+    set(NASSP_NATIVE_CASE_ALIAS_DIR "${CMAKE_BINARY_DIR}/generated/nassp-case-headers")
+    file(MAKE_DIRECTORY "${NASSP_NATIVE_CASE_ALIAS_DIR}")
+    function(nassp_add_native_case_alias requested actual)
+        set(original "${NASSP_SOURCE_ROOT}/${actual}")
+        if(NOT EXISTS "${original}")
+            message(FATAL_ERROR "NASSP case alias target is missing: ${original}")
+        endif()
+        file(WRITE "${NASSP_NATIVE_CASE_ALIAS_DIR}/${requested}" "#include \"${original}\"\n")
+    endfunction()
+    nassp_add_native_case_alias("Flag.h" "src_moon/flag.h")
+    nassp_add_native_case_alias("MCC.h" "src_launch/mcc.h")
+    nassp_add_native_case_alias("MCCVessel.h" "src_launch/mccvessel.h")
+    nassp_add_native_case_alias("Sat5Abort2.h" "src_saturn/sat5abort2.h")
+    nassp_add_native_case_alias("Skylab.h" "src_skylab/skylab.h")
+    nassp_add_native_case_alias("debug.h" "src_sys/PanelSDK/DBG/DEBUG.H")
+    nassp_add_native_case_alias("imu.h" "src_sys/IMU.h")
+endif()
+
 function(orbiter_add_native_panelsdk)
     orbiter_read_nassp_manifest(PanelSDK)
     add_library(PanelSDK STATIC ${SOURCES})
     set_target_properties(PanelSDK PROPERTIES POSITION_INDEPENDENT_CODE ON)
     target_include_directories(PanelSDK PRIVATE "${PROJECT_SOURCE_DIR}/Orbitersdk/include" ${INCLUDE_DIRS})
+    if(NASSP_NATIVE_CASE_ALIAS_DIR)
+        target_include_directories(PanelSDK PRIVATE "${NASSP_NATIVE_CASE_ALIAS_DIR}")
+    endif()
     target_link_libraries(PanelSDK PUBLIC OrbiterSDKHeaders OrbiterCore)
 endfunction()
 
@@ -30,9 +56,15 @@ function(nassp_add_native_module name)
     endif()
     add_library(${name} SHARED ${sources} ${native_sources})
     target_include_directories(${name} PRIVATE "${PROJECT_SOURCE_DIR}/Orbitersdk/include" ${INCLUDE_DIRS} "${NASSP_SOURCE_ROOT}/src_native")
+    if(NASSP_NATIVE_CASE_ALIAS_DIR)
+        target_include_directories(${name} PRIVATE "${NASSP_NATIVE_CASE_ALIAS_DIR}")
+    endif()
     target_link_libraries(${name} PRIVATE OrbiterCore Orbitersdk PanelSDK NASSPBitmapResources lua::lib)
     target_compile_definitions(${name} PRIVATE NASSP_NATIVE OPENORBITER)
-    if(NOT WIN32)
+    if(WIN32)
+        target_compile_options(${name} PRIVATE
+            "$<$<COMPILE_LANGUAGE:CXX>:/FI${PROJECT_SOURCE_DIR}/Src/Orbiter/Platform/NativeMissionCompat.h>")
+    else()
         target_compile_options(${name} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-include>"
       "$<$<COMPILE_LANGUAGE:CXX>:${PROJECT_SOURCE_DIR}/Src/Orbiter/Platform/NativeMissionCompat.h>")
     endif()
