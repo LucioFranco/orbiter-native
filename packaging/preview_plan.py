@@ -26,7 +26,16 @@ def main():
     mismatches = []
     for entry in ledger["files"]:
         path = args.source_root / entry["source"]
-        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != entry["sha256"]:
+        if not path.is_file():
+            mismatches.append(entry["source"])
+            continue
+        data = path.read_bytes()
+        hashes = {hashlib.sha256(data).hexdigest()}
+        # Fresh Git checkouts can restore six resource tables/headers as CRLF.
+        # The inventory records their LF-normalized content identity.
+        if entry["role"] == "Resource table/header; required source input":
+            hashes.add(hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest())
+        if entry["sha256"] not in hashes:
             mismatches.append(entry["source"])
     missing = []
     if args.build:

@@ -169,7 +169,7 @@
   ],
   "blocked_on": [
     "Final source/history review of unchanged Architext raw-font publication permission and selected media/prebuilt scope; upstream identity alone is not clearance",
-    "Per-asset grant/preferred-source review for every included NASSP bitmap and stager dataset; compiled resources are not excused by external mission textures",
+    "Executable-only preview must keep 397 NASSP bitmap bytes external and generate local resources from user-acquired pinned data; any separately distributed artwork or corresponding-source inclusion still needs grant/preferred-source review",
     "Exact complete corresponding source/build/install/resource inputs, six source dependencies with local patches, Cargo vendor/lock and offline clean rebuild proof",
     "Resolved target dependency SBOM with full per-crate license/NOTICE text including Apache-only and Unicode-3.0 terms; audited native font notices unchanged",
     "Required source modification/date notices and applicable GPL/MIT/Apache/OFL warranty/copyright/exception texts",
@@ -177,6 +177,7 @@
   ],
   "external_only": [
     "Original v9 Config/ROM/scenarios/checklists/meshes/textures/sounds from separately lawfully acquired exact pinned data, with complete existing manifest preflight",
+    "397 NASSP panel bitmap bytes generated into a private writable runtime from pinned user-acquired original data, after hash and ID/path-map preflight",
     "Planetary archives: no automatic acquisition or inclusion; authoritative package checksum/grants remain unresolved",
     "Windows/macOS SDKs, VM/OS/installers, DirectX and proprietary irrKlang files: never sweep into artifacts"
   ],
