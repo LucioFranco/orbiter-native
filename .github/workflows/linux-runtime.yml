@@ -18,7 +18,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: linux-runtime-${{ github.ref }}
+  # A diagnostic dispatch can capture stacks while a push run retains its
+  # separate full-suite result; repeated runs of either kind still coalesce.
+  group: linux-runtime-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
